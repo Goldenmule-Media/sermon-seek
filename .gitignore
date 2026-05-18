@@ -2,6 +2,14 @@
 node_modules/
 .env
 .env.local
+.env.*.local
 dist/
 build/
 .hotseat/
+.cache/
+.next/
+.turbo/
+coverage/
+*.log
+*.tsbuildinfo
+tsconfig.tsbuildinfo
