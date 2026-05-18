@@ -1,0 +1,12 @@
+**/node_modules
+**/dist
+**/build
+**/.cache
+**/.next
+**/.turbo
+**/coverage
+**/.env
+**/.env.*
+**/.hotseat
+**/*.log
+**/*.tsbuildinfo

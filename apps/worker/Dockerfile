@@ -1,0 +1,48 @@
+# Worker image: Node 20 + Python 3 + a pinned yt-dlp.
+#
+# yt-dlp pin: 2025.01.26
+#   Pinned so caption fetches are byte-reproducible across machines and CI. The
+#   spec's "Operational practices" calls for a deliberate, manual bump policy:
+#   bump only when YouTube ships an extractor-breaking change and the new
+#   version's release notes confirm it, not on every yt-dlp release.
+#
+# Production compose lands in C22; this Dockerfile exists in C7 so the caption
+# fetcher (apps/worker/src/captions/fetch.ts) has a reproducible runtime.
+
+FROM node:20-bookworm-slim AS base
+
+ENV PNPM_HOME=/root/.local/share/pnpm \
+    PATH=/root/.local/share/pnpm:$PATH \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+        python3 \
+        python3-pip \
+        ca-certificates \
+        curl \
+ && rm -rf /var/lib/apt/lists/* \
+ && pip3 install --break-system-packages 'yt-dlp==2025.01.26' \
+ && yt-dlp --version
+
+RUN corepack enable && corepack prepare pnpm@9.12.0 --activate
+
+WORKDIR /app
+
+# Workspace manifests first so installs cache cleanly.
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.base.json tsconfig.json ./
+COPY apps/worker/package.json ./apps/worker/
+COPY packages/types/package.json ./packages/types/
+
+RUN pnpm install --frozen-lockfile --filter @sermon-search/worker...
+
+# Sources.
+COPY packages/types ./packages/types
+COPY apps/worker ./apps/worker
+
+RUN pnpm --filter @sermon-search/worker build
+
+WORKDIR /app/apps/worker
+CMD ["node", "dist/index.js"]
