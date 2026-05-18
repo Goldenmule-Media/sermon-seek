@@ -91,7 +91,7 @@ export async function getChannelPlaylists(
 
 export interface CachedPlaylistItemsResult {
   items: YoutubePlaylistItem[]
-  fromCache: boolean
+  hadNewItems: boolean
 }
 
 export async function getPlaylistItems(
@@ -110,9 +110,7 @@ export async function getPlaylistItems(
   const newPagesPrepended: YoutubePlaylistItem[] = []
   let pageToken: string | undefined
   let stopped = false
-  let hitNetwork = false
   do {
-    hitNetwork = true
     const page = await client.listPlaylistItems(playlistId, pageToken)
     const items = page.items ?? []
     for (const item of items) {
@@ -134,7 +132,7 @@ export async function getPlaylistItems(
   const merged = (await cache.readJson<YoutubePlaylistItem[]>(parts)) ?? []
   return {
     items: merged,
-    fromCache: !hitNetwork || (newPagesPrepended.length === 0 && cached.length > 0),
+    hadNewItems: newPagesPrepended.length > 0,
   }
 }
 

@@ -158,8 +158,32 @@ describe("getPlaylistItems", () => {
 
     const result = await getPlaylistItems(client, "UC1", "PL1")
     expect(calls).toHaveLength(2)
+    expect(result.hadNewItems).toBe(true)
     const ids = result.items.map((i) => i.id)
     expect(ids).toEqual(["i1", "i2", "i3", "i_known"])
+  })
+
+  it("reports hadNewItems false when the first page starts with a known id", async () => {
+    const { fetch, calls } = fakeFetch([
+      () => ({
+        ok: true,
+        status: 200,
+        body: {
+          items: [{ id: "i_known", contentDetails: { videoId: "v_known" } }],
+        },
+      }),
+    ])
+    const client = new YoutubeClient({ apiKey: "k", fetch })
+
+    const { cache } = await import("../cache/cache.js")
+    await cache.writeJsonAtomic(
+      ["channels", "UC2", "playlists", "PL2", "items.json"],
+      [{ id: "i_known", contentDetails: { videoId: "v_known" } }],
+    )
+
+    const result = await getPlaylistItems(client, "UC2", "PL2")
+    expect(calls).toHaveLength(1)
+    expect(result.hadNewItems).toBe(false)
   })
 })
 

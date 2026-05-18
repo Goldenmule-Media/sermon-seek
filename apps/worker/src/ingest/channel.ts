@@ -51,13 +51,36 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
 
   const { playlists } = await getChannelPlaylists(client, resolved.youtubeChannelId)
 
+  // Preload existing slugs for this channel so re-ingestion reuses them (sticky)
+  // and new playlists can't collide with stored ones regardless of API ordering.
+  const existingRows = await db
+    .selectFrom("playlists")
+    .select(["youtube_playlist_id", "slug"])
+    .where("channel_id", "=", channelDbId)
+    .execute()
+  const existingSlugByPlaylistId = new Map<string, string>(
+    existingRows.map((r) => [r.youtube_playlist_id, r.slug]),
+  )
+  const takenSlugs = new Set<string>(existingRows.map((r) => r.slug))
+
+  // Capture YouTube-response positions before sorting.
+  const positionByPlaylistId = new Map<string, number>(playlists.map((pl, i) => [pl.id, i]))
+
+  // Sort by youtube_playlist_id for stable slug assignment across runs.
+  const sortedPlaylists = [...playlists].sort((a, b) => a.id.localeCompare(b.id))
+
   const playlistDbIds = new Map<string, string>()
-  const takenSlugs = new Set<string>()
-  for (let i = 0; i < playlists.length; i++) {
-    const pl = playlists[i] as YoutubePlaylist
+  for (const pl of sortedPlaylists) {
     const title = pl.snippet?.title ?? "(untitled playlist)"
-    const slug = uniqueSlugForPlaylist(title, pl.id, takenSlugs)
-    takenSlugs.add(slug)
+    const position = positionByPlaylistId.get(pl.id) ?? 0
+
+    // Reuse the stored slug when one exists; otherwise compute and record a new one.
+    let slug = existingSlugByPlaylistId.get(pl.id)
+    if (slug === undefined) {
+      slug = uniqueSlugForPlaylist(title, pl.id, takenSlugs)
+      takenSlugs.add(slug)
+    }
+
     const playlistRow = await db
       .insertInto("playlists")
       .values({
@@ -66,7 +89,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
         slug,
         title,
         description: pl.snippet?.description ?? null,
-        position: i,
+        position,
         video_count: pl.contentDetails?.itemCount ?? null,
       })
       .onConflict((oc) =>
@@ -75,7 +98,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
           slug,
           title,
           description: pl.snippet?.description ?? null,
-          position: i,
+          position,
           video_count: pl.contentDetails?.itemCount ?? null,
         }),
       )
@@ -109,8 +132,20 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
     for (const [videoId, item] of videoFirstSeen) {
       await upsertVideoFromPlaylistItem(trx, channelDbId, videoId, item)
     }
+    const youtubeVideoIds = Array.from(videoFirstSeen.keys())
+    const videoDbIdByYoutubeId = new Map<string, string>()
+    if (youtubeVideoIds.length > 0) {
+      const rows = await trx
+        .selectFrom("videos")
+        .select(["id", "youtube_video_id"])
+        .where("youtube_video_id", "in", youtubeVideoIds)
+        .execute()
+      for (const r of rows) {
+        videoDbIdByYoutubeId.set(r.youtube_video_id, r.id)
+      }
+    }
     for (const row of joinRows) {
-      const videoDbId = await getVideoDbId(trx, row.youtubeVideoId)
+      const videoDbId = videoDbIdByYoutubeId.get(row.youtubeVideoId)
       const playlistDbId = playlistDbIds.get(row.youtubePlaylistId)
       if (!videoDbId || !playlistDbId) continue
       await trx
@@ -204,18 +239,6 @@ async function updateVideoFromMetadata(
     })
     .where("youtube_video_id", "=", videoId)
     .execute()
-}
-
-async function getVideoDbId(
-  trx: Transaction<Database>,
-  youtubeVideoId: string,
-): Promise<string | null> {
-  const row = await trx
-    .selectFrom("videos")
-    .select(["id"])
-    .where("youtube_video_id", "=", youtubeVideoId)
-    .executeTakeFirst()
-  return row?.id ?? null
 }
 
 async function findVideosMissingDuration(
