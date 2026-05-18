@@ -25,11 +25,13 @@ ENV PNPM_HOME=/root/.local/share/pnpm \
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
         python3 \
-        python3-pip \
+        python3-venv \
         ca-certificates \
         curl \
  && rm -rf /var/lib/apt/lists/* \
- && pip3 install --break-system-packages 'yt-dlp==2025.01.26' \
+ && python3 -m venv /opt/yt-dlp \
+ && /opt/yt-dlp/bin/pip install 'yt-dlp==2025.01.26' \
+ && ln -s /opt/yt-dlp/bin/yt-dlp /usr/local/bin/yt-dlp \
  && yt-dlp --version
 
 RUN corepack enable && corepack prepare pnpm@9.12.0 --activate
@@ -40,14 +42,16 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.base.json tsconfig.json ./
 COPY apps/worker/package.json ./apps/worker/
 COPY packages/types/package.json ./packages/types/
+COPY packages/db/package.json ./packages/db/
 
 RUN pnpm install --frozen-lockfile --filter @sermon-search/worker...
 
 # Sources.
 COPY packages/types ./packages/types
+COPY packages/db ./packages/db
 COPY apps/worker ./apps/worker
 
-RUN pnpm --filter @sermon-search/worker build
+RUN pnpm --filter @sermon-search/worker... build
 
 WORKDIR /app/apps/worker
 CMD ["node", "dist/index.js"]
