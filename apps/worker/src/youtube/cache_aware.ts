@@ -141,26 +141,40 @@ export interface CachedVideoBatchResult {
   fetchedIds: string[]
 }
 
+export interface GetVideosBatchedOptions {
+  // Bypass the read-side cache and call the API for every requested id.
+  // The view-stats job needs this because cached metadata holds stale
+  // statistics.viewCount; the API is still write-through so the cache
+  // stays in lockstep with the DB. playlists.list / playlistItems.list
+  // remain cache-served because playlist membership changes infrequently.
+  force?: boolean
+}
+
 export async function getVideosBatched(
   client: YoutubeClient,
   ids: readonly string[],
+  options: GetVideosBatchedOptions = {},
 ): Promise<CachedVideoBatchResult> {
   const videos = new Map<string, YoutubeVideo>()
-  const missing: string[] = []
-  for (const id of ids) {
-    const cached = await cache.readJson<YoutubeVideo>(videoMetadataParts(id))
-    if (cached !== null) {
-      videos.set(id, cached)
-    } else {
-      missing.push(id)
+  const toFetch: string[] = []
+  if (options.force) {
+    toFetch.push(...ids)
+  } else {
+    for (const id of ids) {
+      const cached = await cache.readJson<YoutubeVideo>(videoMetadataParts(id))
+      if (cached !== null) {
+        videos.set(id, cached)
+      } else {
+        toFetch.push(id)
+      }
     }
   }
 
-  if (missing.length === 0) {
+  if (toFetch.length === 0) {
     return { videos, fetchedIds: [] }
   }
 
-  const response = await client.listVideos(missing)
+  const response = await client.listVideos(toFetch)
   const fetched: string[] = []
   for (const video of response.items ?? []) {
     await cache.writeJsonAtomic(videoMetadataParts(video.id), video)

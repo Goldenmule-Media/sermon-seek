@@ -138,3 +138,5 @@ export function createDb(connectionString?: string): Kysely<Database> {
     dialect: new PostgresDialect({ pool }),
   })
 }
+
+export { migrateToLatest } from "./migrate.js"

@@ -16,3 +16,5 @@ export type {
   IngestVideoTranscriptOptions,
   IngestVideoTranscriptResult,
 } from "./transcript.js"
+export { runViewStats } from "./view_stats.js"
+export type { RunViewStatsOptions, RunViewStatsSummary } from "./view_stats.js"
