@@ -4,6 +4,7 @@ export interface Segment {
   start_ms: number
   end_ms: number
   text: string
+  words: Word[]
 }
 
 export interface Word {
@@ -166,6 +167,7 @@ export function parseVtt(raw: string): { segments: Segment[]; words: Word[] } {
       start_ms: cue.start_ms,
       end_ms: cue.end_ms,
       text,
+      words: [],
     }
     segments.push(segment)
 
@@ -178,12 +180,14 @@ export function parseVtt(raw: string): { segments: Segment[]; words: Word[] } {
       const w = rawWords[i] as { text: string; start_ms: number }
       const next = rawWords[i + 1]
       const end_ms = next ? next.start_ms : cue.end_ms
-      words.push({
+      const word: Word = {
         text: w.text,
         start_ms: w.start_ms,
         end_ms: Math.max(end_ms, w.start_ms),
         position,
-      })
+      }
+      segment.words.push(word)
+      words.push(word)
       position++
     }
   }

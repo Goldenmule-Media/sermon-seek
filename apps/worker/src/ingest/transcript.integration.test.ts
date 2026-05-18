@@ -20,6 +20,7 @@ const DATABASE_URL = process.env.DATABASE_URL
 const describeIfDb = DATABASE_URL ? describe : describe.skip
 
 const VIDEO_ID = "test_video_id_01"
+const OVERLAP_VIDEO_ID = "test_video_id_overlap"
 const CHANNEL_ID = "UCTestTestTestTestTestTT"
 const SAMPLE_VTT = `WEBVTT
 Kind: captions
@@ -34,6 +35,22 @@ welcome<00:00:03.479><c> to</c><00:00:04.000><c> the</c><00:00:04.560><c> sermon
 00:00:05.500 --> 00:00:08.000 align:start position:0%
 welcome to the sermon
 today<00:00:05.760><c> we</c><00:00:06.000><c> read</c><00:00:06.799><c> from</c><00:00:07.359><c> John</c>
+`
+// Demonstrates the YouTube cue-overlap quirk: the last inline timestamp of cue 1 (5500ms)
+// equals cue 2's start_ms. The "overlap" word belongs to cue 1's segment.
+const OVERLAP_VTT = `WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.000 align:start position:0%
+
+
+00:00:03.000 --> 00:00:05.500 align:start position:0%
+hello<00:00:03.200><c> world</c><00:00:05.500><c> overlap</c>
+
+00:00:05.500 --> 00:00:08.000 align:start position:0%
+hello world overlap
+next<00:00:06.000><c> word</c>
 `
 
 function makeFakeClient(): YoutubeClient {
@@ -75,9 +92,9 @@ function makeFakeClient(): YoutubeClient {
   return client as YoutubeClient
 }
 
-function makeFakeSpawner(): Spawner {
+function makeFakeSpawner(videoId: string, vttContent: string): Spawner {
   return vi.fn(async ({ cwd }: { cwd: string }) => {
-    await writeFile(join(cwd, `${VIDEO_ID}.en.vtt`), SAMPLE_VTT, "utf8")
+    await writeFile(join(cwd, `${videoId}.en.vtt`), vttContent, "utf8")
     return { exitCode: 0, stderr: "" }
   })
 }
@@ -108,7 +125,7 @@ describeIfDb("ingestVideoTranscript (integration)", () => {
 
   it("first run inserts transcript/segments/words; second run is a no-op", async () => {
     const client = makeFakeClient()
-    const spawner = makeFakeSpawner()
+    const spawner = makeFakeSpawner(VIDEO_ID, SAMPLE_VTT)
 
     const first = await ingestVideoTranscript({
       db,
@@ -147,13 +164,13 @@ describeIfDb("ingestVideoTranscript (integration)", () => {
       .execute()
     expect(wordRows).toHaveLength(9)
 
-    // Every word's segment_id resolves and its start_ms falls within the segment's range.
+    // Every word's segment_id resolves and its start_ms falls within [seg.start_ms, seg.end_ms).
     const segmentsById = new Map(segmentRows.map((s) => [s.id, s]))
     for (const w of wordRows) {
       const seg = segmentsById.get(w.segment_id)
       if (!seg) throw new Error(`no segment for word at ${w.start_ms}`)
       expect(w.start_ms).toBeGreaterThanOrEqual(seg.start_ms)
-      expect(w.start_ms).toBeLessThanOrEqual(seg.end_ms)
+      expect(w.start_ms).toBeLessThan(seg.end_ms)
     }
 
     // Second run: no-op. The fake spawner won't be called again because the
@@ -175,5 +192,56 @@ describeIfDb("ingestVideoTranscript (integration)", () => {
       .where("video_id", "=", first.videoDbId)
       .execute()
     expect(transcriptRowsAfter).toHaveLength(1)
+  })
+
+  it("cue-overlap: boundary word stays with the emitting cue's segment in the DB", async () => {
+    const client = makeFakeClient()
+    const spawner = makeFakeSpawner(OVERLAP_VIDEO_ID, OVERLAP_VTT)
+
+    const result = await ingestVideoTranscript({
+      db,
+      client,
+      youtubeVideoId: OVERLAP_VIDEO_ID,
+      spawner,
+    })
+    expect(result.status).toBe("ok")
+    expect(result.segmentCount).toBe(2)
+    // hello, world, overlap, next, word
+    expect(result.wordCount).toBe(5)
+
+    const segmentRows = await db
+      .selectFrom("transcript_segments")
+      .selectAll()
+      .where("video_id", "=", result.videoDbId)
+      .orderBy("start_ms")
+      .execute()
+    expect(segmentRows).toHaveLength(2)
+    const earlySegment = segmentRows.find((s) => s.start_ms === 3000)
+    const lateSegment = segmentRows.find((s) => s.start_ms === 5500)
+    expect(earlySegment).toBeDefined()
+    expect(lateSegment).toBeDefined()
+
+    const wordRows = await db
+      .selectFrom("transcript_words")
+      .selectAll()
+      .where("video_id", "=", result.videoDbId)
+      .orderBy("position")
+      .execute()
+    expect(wordRows).toHaveLength(5)
+
+    // "overlap" word (start_ms=5500) must be assigned to the earlier segment (3000-5500),
+    // not the later one (5500-8000). Parser grouping is authoritative; timestamp walk would
+    // have incorrectly placed it in the later segment.
+    const overlapWord = wordRows.find((w) => w.text === "overlap")
+    expect(overlapWord, "overlap word should be in the DB").toBeDefined()
+    expect(overlapWord?.segment_id).toBe(earlySegment?.id)
+
+    // Every other word's segment_id should also be consistent with parser grouping.
+    const segmentsById = new Map(segmentRows.map((s) => [s.id, s]))
+    for (const w of wordRows) {
+      const seg = segmentsById.get(w.segment_id)
+      if (!seg) throw new Error(`no segment for word at position ${w.position}`)
+      expect(w.start_ms).toBeGreaterThanOrEqual(seg.start_ms)
+    }
   })
 })

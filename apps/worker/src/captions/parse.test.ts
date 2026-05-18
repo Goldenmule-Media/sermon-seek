@@ -7,6 +7,7 @@ import { VttParseError } from "./errors.js"
 import { parseVtt } from "./parse.js"
 
 const FIXTURE_URL = new URL("./__fixtures__/sample.vtt", import.meta.url)
+const OVERLAP_FIXTURE_URL = new URL("./__fixtures__/overlap.vtt", import.meta.url)
 
 async function loadFixture(): Promise<string> {
   return await readFile(fileURLToPath(FIXTURE_URL), "utf8")
@@ -44,6 +45,16 @@ describe("parseVtt — fixture", () => {
     }
   })
 
+  it("flat words array matches segment.words in iteration order", async () => {
+    const raw = await loadFixture()
+    const { segments, words } = parseVtt(raw)
+    const fromSegments = segments.flatMap((s) => s.words)
+    expect(fromSegments).toHaveLength(words.length)
+    for (let i = 0; i < words.length; i++) {
+      expect(fromSegments[i]).toBe(words[i])
+    }
+  })
+
   it("strips inline markup from segment text", async () => {
     const raw = await loadFixture()
     const { segments } = parseVtt(raw)
@@ -53,6 +64,30 @@ describe("parseVtt — fixture", () => {
     }
     expect(segments[0]?.text).toBe("welcome to the sermon")
     expect(segments[2]?.text).toBe("let us pray")
+  })
+})
+
+describe("parseVtt — overlap fixture", () => {
+  it("assigns boundary word to the emitting cue's segment, not the next", async () => {
+    const raw = await readFile(fileURLToPath(OVERLAP_FIXTURE_URL), "utf8")
+    const { segments } = parseVtt(raw)
+    expect(segments).toHaveLength(2)
+    const seg0 = segments[0] as (typeof segments)[number]
+    const seg1 = segments[1] as (typeof segments)[number]
+    // "overlap" word has start_ms === seg0.end_ms === seg1.start_ms
+    const boundaryWord = seg0.words.find((w) => w.start_ms === seg0.end_ms)
+    expect(boundaryWord, "boundary word should reside in segment[0]").toBeDefined()
+    expect(seg1.words.every((w) => w.start_ms !== seg0.end_ms || w.text !== "overlap")).toBe(true)
+  })
+
+  it("flat words matches segment iteration order for overlap fixture", async () => {
+    const raw = await readFile(fileURLToPath(OVERLAP_FIXTURE_URL), "utf8")
+    const { segments, words } = parseVtt(raw)
+    const fromSegments = segments.flatMap((s) => s.words)
+    expect(fromSegments).toHaveLength(words.length)
+    for (let i = 0; i < words.length; i++) {
+      expect(fromSegments[i]).toBe(words[i])
+    }
   })
 })
 

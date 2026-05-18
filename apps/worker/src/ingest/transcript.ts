@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises"
 import type { Database } from "@sermon-search/db"
 import type { Kysely, Transaction } from "kysely"
 import { CaptionsUnavailable, fetchCaptions, parseVtt } from "../captions/index.js"
-import type { Segment, Spawner, Word } from "../captions/index.js"
+import type { Segment, Spawner } from "../captions/index.js"
 import { YT_DLP_VERSION } from "../captions/version.js"
 import type { YoutubeClient } from "../youtube/client.js"
 import { ensureVideoMetadata } from "./video.js"
@@ -46,12 +46,11 @@ export class TranscriptQualityError extends Error {
 
 export interface AssertTranscriptQualityInput {
   segments: readonly Segment[]
-  words: readonly Word[]
   durationSeconds: number | null
 }
 
 export function assertTranscriptQuality(input: AssertTranscriptQualityInput): void {
-  const { segments, words, durationSeconds } = input
+  const { segments, durationSeconds } = input
 
   if (durationSeconds != null && durationSeconds > 0) {
     let totalMs = 0
@@ -69,44 +68,16 @@ export function assertTranscriptQuality(input: AssertTranscriptQualityInput): vo
     }
   }
 
-  const segmentForWord = mapWordsToSegments(segments, words)
-  for (let i = 0; i < words.length; i++) {
-    const w = words[i] as Word
-    const segIdx = segmentForWord[i]
-    if (segIdx === undefined) {
-      throw new TranscriptQualityError(
-        "word_out_of_range",
-        `Word at position ${w.position} (start_ms=${w.start_ms}) has no containing segment.`,
-      )
-    }
-    const seg = segments[segIdx] as Segment
-    if (w.start_ms < seg.start_ms || w.start_ms > seg.end_ms) {
-      throw new TranscriptQualityError(
-        "word_out_of_range",
-        `Word at position ${w.position} has start_ms=${w.start_ms}, outside segment range [${seg.start_ms}, ${seg.end_ms}].`,
-      )
+  for (const seg of segments) {
+    for (const w of seg.words) {
+      if (w.start_ms < seg.start_ms) {
+        throw new TranscriptQualityError(
+          "word_out_of_range",
+          `Word at position ${w.position} (start_ms=${w.start_ms}) is before its segment start (${seg.start_ms}).`,
+        )
+      }
     }
   }
-}
-
-function mapWordsToSegments(
-  segments: readonly Segment[],
-  words: readonly Word[],
-): readonly (number | undefined)[] {
-  const out: (number | undefined)[] = new Array(words.length)
-  if (segments.length === 0) return out
-  let segIdx = 0
-  for (let i = 0; i < words.length; i++) {
-    const w = words[i] as Word
-    while (
-      segIdx + 1 < segments.length &&
-      w.start_ms >= (segments[segIdx + 1] as Segment).start_ms
-    ) {
-      segIdx += 1
-    }
-    out[i] = segIdx
-  }
-  return out
 }
 
 export async function ingestVideoTranscript(
@@ -153,9 +124,8 @@ export async function ingestVideoTranscript(
   const raw = await readFile(vttPath, "utf8")
   const { segments, words } = parseVtt(raw)
 
-  assertTranscriptQuality({ segments, words, durationSeconds })
+  assertTranscriptQuality({ segments, durationSeconds })
 
-  const segmentForWord = mapWordsToSegments(segments, words)
   const fullText = segments.map((s) => s.text).join(" ")
 
   const inserted = await db.transaction().execute(async (trx) => {
@@ -175,19 +145,30 @@ export async function ingestVideoTranscript(
 
     const segmentIds = await insertSegments(trx, transcriptId, videoDbId, segments)
 
-    const wordRows = words.map((w, i) => {
-      const segIdx = segmentForWord[i] as number
+    const wordRows: {
+      transcript_id: string
+      segment_id: string
+      video_id: string
+      start_ms: number
+      end_ms: number
+      text: string
+      position: number
+    }[] = []
+    for (let segIdx = 0; segIdx < segments.length; segIdx++) {
+      const seg = segments[segIdx] as Segment
       const segmentId = segmentIds[segIdx] as string
-      return {
-        transcript_id: transcriptId,
-        segment_id: segmentId,
-        video_id: videoDbId,
-        start_ms: w.start_ms,
-        end_ms: w.end_ms,
-        text: w.text,
-        position: w.position,
+      for (const w of seg.words) {
+        wordRows.push({
+          transcript_id: transcriptId,
+          segment_id: segmentId,
+          video_id: videoDbId,
+          start_ms: w.start_ms,
+          end_ms: w.end_ms,
+          text: w.text,
+          position: w.position,
+        })
       }
-    })
+    }
 
     if (wordRows.length > 0) {
       await trx.insertInto("transcript_words").values(wordRows).execute()
