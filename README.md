@@ -49,3 +49,19 @@ pnpm db:migrate
 
 `pnpm db:reset` drops and recreates the database before re-running migrations.
 `pnpm db:psql` shells into the container with `psql` already connected.
+
+### Integration test database
+
+Worker integration tests require a separate throwaway database so they can never
+truncate your dev data. Create it once, then set `TEST_DATABASE_URL` in your `.env`:
+
+```sh
+docker exec -it <postgres-container> psql -U postgres -c "CREATE DATABASE sermon_search_test;"
+```
+
+```
+TEST_DATABASE_URL=postgres://postgres:postgres@localhost:5432/sermon_search_test
+```
+
+Migrations are applied automatically in `beforeAll`. When `TEST_DATABASE_URL` is
+unset the integration test suite is silently skipped by `pnpm -r test`.

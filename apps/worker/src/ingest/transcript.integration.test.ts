@@ -1,7 +1,7 @@
 import { mkdtemp, rm, writeFile } from "node:fs/promises"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
-import { createDb } from "@sermon-search/db"
+import { createDb, migrateToLatest } from "@sermon-search/db"
 import type { Database } from "@sermon-search/db"
 import type { Kysely } from "kysely"
 import { sql } from "kysely"
@@ -16,8 +16,8 @@ import type {
   VideosListResponse,
 } from "../youtube/types.js"
 
-const DATABASE_URL = process.env.DATABASE_URL
-const describeIfDb = DATABASE_URL ? describe : describe.skip
+const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL
+const describeIfDb = TEST_DATABASE_URL ? describe : describe.skip
 
 const VIDEO_ID = "test_video_id_01"
 const OVERLAP_VIDEO_ID = "test_video_id_overlap"
@@ -106,12 +106,18 @@ describeIfDb("ingestVideoTranscript (integration)", () => {
   let ingestVideoTranscript: any
 
   beforeAll(async () => {
+    if (TEST_DATABASE_URL === process.env.DATABASE_URL) {
+      throw new Error(
+        "TEST_DATABASE_URL must not equal DATABASE_URL — point it at a throwaway database (e.g. sermon_search_test)",
+      )
+    }
+    await migrateToLatest(TEST_DATABASE_URL)
     tmpRoot = await mkdtemp(join(tmpdir(), "sermon-transcript-int-"))
     process.env.CACHE_DIR = tmpRoot
     vi.resetModules()
     const mod = await import("./transcript.js")
     ingestVideoTranscript = mod.ingestVideoTranscript
-    db = createDb()
+    db = createDb(TEST_DATABASE_URL)
   })
 
   afterAll(async () => {
