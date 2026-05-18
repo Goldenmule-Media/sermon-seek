@@ -12,7 +12,10 @@
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",
     "lint": "biome check .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "db:migrate": "pnpm --filter @sermon-search/db migrate",
+    "db:reset": "pnpm --filter @sermon-search/db reset",
+    "db:psql": "pnpm --filter @sermon-search/db psql"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

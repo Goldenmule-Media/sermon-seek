@@ -20,7 +20,8 @@ Requires Node 20+ (see `.nvmrc`) and pnpm 9 (provisioned via Corepack from the
 - `apps/api` — Fastify API (stub; lands in C11)
 - `apps/worker` — Ingest worker CLI (stub; lands in C6)
 - `packages/types` — Shared TypeScript types
-- `infra/` — Docker compose and infra files (lands in C2 / C22)
+- `packages/db` — Kysely client + migrations harness
+- `infra/` — Docker compose and infra files (dev stack in C2; prod in C22)
 
 ## Root scripts
 
@@ -32,3 +33,19 @@ Requires Node 20+ (see `.nvmrc`) and pnpm 9 (provisioned via Corepack from the
 | `pnpm test`        | Runs every workspace's `test` script             |
 | `pnpm lint`        | Biome lint + format check across the repo        |
 | `pnpm format`      | Biome formatter (writes changes)                 |
+| `pnpm db:migrate`  | Run pending Kysely migrations against `DATABASE_URL` |
+| `pnpm db:reset`    | Drop, recreate, and remigrate the dev database   |
+| `pnpm db:psql`     | Open `psql` inside the dev Postgres container    |
+
+## Local Postgres
+
+The dev stack runs a single `pgvector/pgvector:pg16` container. Bring it up
+and apply migrations from a fresh checkout:
+
+```sh
+docker compose -f infra/docker-compose.dev.yml up -d postgres
+pnpm db:migrate
+```
+
+`pnpm db:reset` drops and recreates the database before re-running migrations.
+`pnpm db:psql` shells into the container with `psql` already connected.
