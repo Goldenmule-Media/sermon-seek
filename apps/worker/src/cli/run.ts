@@ -1,6 +1,7 @@
 import { createDb } from "@sermon-search/db"
 import { ingestChannel } from "../ingest/channel.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
+import { runViewStats } from "../ingest/view_stats.js"
 import { runSmokeTest } from "../smoke/index.js"
 import { YoutubeClient } from "../youtube/client.js"
 
@@ -8,15 +9,17 @@ interface ParsedArgs {
   channel?: string
   video?: string
   smokeTest: boolean
+  viewStats: boolean
 }
 
 const USAGE =
-  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --smoke-test)"
+  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --smoke-test | --view-stats)"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
   let video: string | undefined
   let smokeTest = false
+  let viewStats = false
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
     if (arg === "--") continue
@@ -49,20 +52,30 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     if (arg?.startsWith("--smoke-test=")) {
       throw new Error("--smoke-test does not take a value")
     }
+    if (arg === "--view-stats") {
+      viewStats = true
+      continue
+    }
+    if (arg?.startsWith("--view-stats=")) {
+      throw new Error("--view-stats does not take a value")
+    }
     throw new Error(`Unknown argument: ${arg}`)
   }
-  const modes = [channel ? "--channel" : null, video ? "--video" : null, smokeTest ? "--smoke-test" : null].filter(
-    (v): v is string => v !== null,
-  )
+  const modes = [
+    channel ? "--channel" : null,
+    video ? "--video" : null,
+    smokeTest ? "--smoke-test" : null,
+    viewStats ? "--view-stats" : null,
+  ].filter((v): v is string => v !== null)
   if (modes.length > 1) {
     throw new Error(`${modes.join(", ")} are mutually exclusive`)
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, or --smoke-test",
+      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --smoke-test, or --view-stats",
     )
   }
-  return { channel, video, smokeTest }
+  return { channel, video, smokeTest, viewStats }
 }
 
 export async function main(argv: readonly string[]): Promise<number> {
@@ -90,6 +103,11 @@ export async function main(argv: readonly string[]): Promise<number> {
 
   const db = createDb()
   try {
+    if (parsed.viewStats) {
+      const summary = await runViewStats({ db, client })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    }
     if (parsed.video) {
       const result = await ingestVideoTranscript({ db, client, youtubeVideoId: parsed.video })
       console.log(JSON.stringify(result, null, 2))

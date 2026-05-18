@@ -228,4 +228,37 @@ describe("getVideosBatched", () => {
     expect(result.fetchedIds).toEqual([])
     expect(result.videos.size).toBe(2)
   })
+
+  it("force=true bypasses cache reads and refreshes the cache file", async () => {
+    const { cache } = await import("../cache/cache.js")
+    await cache.writeJsonAtomic(["videos", "v1", "metadata.json"], {
+      id: "v1",
+      statistics: { viewCount: "1" },
+    })
+
+    const { fetch, calls } = fakeFetch([
+      (url) => {
+        const ids = url.searchParams.get("id")?.split(",") ?? []
+        return {
+          ok: true,
+          status: 200,
+          body: {
+            items: ids.map((id) => ({ id, statistics: { viewCount: "99" } })),
+          },
+        }
+      },
+    ])
+    const client = new YoutubeClient({ apiKey: "k", fetch })
+    const result = await getVideosBatched(client, ["v1"], { force: true })
+    expect(calls).toHaveLength(1)
+    expect(result.fetchedIds).toEqual(["v1"])
+    expect(result.videos.get("v1")?.statistics?.viewCount).toBe("99")
+
+    const refreshed = await cache.readJson<{ statistics?: { viewCount?: string } }>([
+      "videos",
+      "v1",
+      "metadata.json",
+    ])
+    expect(refreshed?.statistics?.viewCount).toBe("99")
+  })
 })

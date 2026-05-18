@@ -4,22 +4,52 @@ import { parseArgs } from "./run.js"
 describe("parseArgs", () => {
   it("accepts --channel <handle>", () => {
     const parsed = parseArgs(["--channel", "@example"])
-    expect(parsed).toEqual({ channel: "@example", video: undefined, smokeTest: false })
+    expect(parsed).toEqual({
+      channel: "@example",
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+    })
   })
 
   it("accepts --video <id> with space form", () => {
     const parsed = parseArgs(["--video", "19l5OI_8ljQ"])
-    expect(parsed).toEqual({ channel: undefined, video: "19l5OI_8ljQ", smokeTest: false })
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: "19l5OI_8ljQ",
+      smokeTest: false,
+      viewStats: false,
+    })
   })
 
   it("accepts --video=<id> with equals form", () => {
     const parsed = parseArgs(["--video=19l5OI_8ljQ"])
-    expect(parsed).toEqual({ channel: undefined, video: "19l5OI_8ljQ", smokeTest: false })
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: "19l5OI_8ljQ",
+      smokeTest: false,
+      viewStats: false,
+    })
   })
 
   it("accepts --smoke-test alone", () => {
     const parsed = parseArgs(["--smoke-test"])
-    expect(parsed).toEqual({ channel: undefined, video: undefined, smokeTest: true })
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: true,
+      viewStats: false,
+    })
+  })
+
+  it("accepts --view-stats alone", () => {
+    const parsed = parseArgs(["--view-stats"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: true,
+    })
   })
 
   it("rejects --smoke-test combined with --video", () => {
@@ -40,6 +70,18 @@ describe("parseArgs", () => {
 
   it("rejects when both --channel and --video are set", () => {
     expect(() => parseArgs(["--channel", "@x", "--video", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects when --view-stats is combined with --channel", () => {
+    expect(() => parseArgs(["--view-stats", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects when --view-stats is combined with --video", () => {
+    expect(() => parseArgs(["--view-stats", "--video", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --view-stats combined with --smoke-test", () => {
+    expect(() => parseArgs(["--view-stats", "--smoke-test"])).toThrow(/mutually exclusive/)
   })
 
   it("rejects unknown arguments", () => {
