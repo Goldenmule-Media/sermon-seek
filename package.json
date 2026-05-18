@@ -15,7 +15,8 @@
     "format": "biome format --write .",
     "db:migrate": "pnpm --filter @sermon-search/db migrate",
     "db:reset": "pnpm --filter @sermon-search/db reset",
-    "db:psql": "pnpm --filter @sermon-search/db psql"
+    "db:psql": "pnpm --filter @sermon-search/db psql",
+    "worker:run": "pnpm --filter @sermon-search/worker worker:run --"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

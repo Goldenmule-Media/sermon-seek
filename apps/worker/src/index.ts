@@ -1,2 +1,3 @@
-// TODO(C6): replace with the real worker CLI entry.
-export const name = "@sermon-search/worker"
+export * as ingest from "./ingest/index.js"
+export * as youtube from "./youtube/index.js"
+export { main as runWorkerCli } from "./cli/run.js"
