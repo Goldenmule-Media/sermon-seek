@@ -50,11 +50,48 @@ export interface VideoPlaylistsTable {
   position: number
 }
 
+export type TranscriptSource = "youtube_public" | "whisper"
+
+export interface TranscriptsTable {
+  id: Generated<string>
+  video_id: string
+  source: TranscriptSource
+  language: Generated<string>
+  model_version: string | null
+  full_text: string
+  raw_vtt: string | null
+  created_at: Generated<Timestamptz>
+}
+
+export interface TranscriptSegmentsTable {
+  id: Generated<string>
+  transcript_id: string
+  video_id: string
+  start_ms: number
+  end_ms: number
+  text: string
+  speaker_id: string | null
+}
+
+export interface TranscriptWordsTable {
+  id: Generated<string>
+  transcript_id: string
+  segment_id: string
+  video_id: string
+  start_ms: number
+  end_ms: number
+  text: string
+  position: number
+}
+
 export interface Database {
   channels: ChannelsTable
   playlists: PlaylistsTable
   videos: VideosTable
   video_playlists: VideoPlaylistsTable
+  transcripts: TranscriptsTable
+  transcript_segments: TranscriptSegmentsTable
+  transcript_words: TranscriptWordsTable
 }
 
 export type ChannelRow = Selectable<ChannelsTable>
@@ -72,6 +109,18 @@ export type VideoUpdate = Updateable<VideosTable>
 export type VideoPlaylistRow = Selectable<VideoPlaylistsTable>
 export type VideoPlaylistInsert = Insertable<VideoPlaylistsTable>
 export type VideoPlaylistUpdate = Updateable<VideoPlaylistsTable>
+
+export type TranscriptRow = Selectable<TranscriptsTable>
+export type TranscriptInsert = Insertable<TranscriptsTable>
+export type TranscriptUpdate = Updateable<TranscriptsTable>
+
+export type TranscriptSegmentRow = Selectable<TranscriptSegmentsTable>
+export type TranscriptSegmentInsert = Insertable<TranscriptSegmentsTable>
+export type TranscriptSegmentUpdate = Updateable<TranscriptSegmentsTable>
+
+export type TranscriptWordRow = Selectable<TranscriptWordsTable>
+export type TranscriptWordInsert = Insertable<TranscriptWordsTable>
+export type TranscriptWordUpdate = Updateable<TranscriptWordsTable>
 
 export function resolveDatabaseUrl(connectionString?: string): string {
   const url = connectionString ?? process.env.DATABASE_URL

@@ -14,3 +14,4 @@ export {
   YtDlpFailed,
 } from "./errors.js"
 export type { CaptionErrorCode } from "./errors.js"
+export { YT_DLP_VERSION } from "./version.js"

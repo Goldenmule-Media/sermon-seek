@@ -6,6 +6,11 @@
 #   bump only when YouTube ships an extractor-breaking change and the new
 #   version's release notes confirm it, not on every yt-dlp release.
 #
+#   Canonical source for this version string lives at
+#   apps/worker/src/captions/version.ts (YT_DLP_VERSION). The literal below
+#   must be bumped together with that constant — the Docker build cannot
+#   import TypeScript, so the coupling is review-enforced.
+#
 # Production compose lands in C22; this Dockerfile exists in C7 so the caption
 # fetcher (apps/worker/src/captions/fetch.ts) has a reproducible runtime.
 
