@@ -38,6 +38,7 @@ export async function buildApp(): Promise<FastifyInstance> {
         { name: "system", description: "Service health & diagnostics" },
         { name: "home", description: "Landing-page aggregate endpoint" },
         { name: "search", description: "Full-text search endpoints" },
+        { name: "videos", description: "Video metadata and transcript endpoints" },
       ],
     },
     transform: jsonSchemaTransform,

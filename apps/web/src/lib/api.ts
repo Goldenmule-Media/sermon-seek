@@ -1,4 +1,9 @@
-import type { HomeResponse, SearchResponse } from "@sermon-search/types"
+import type {
+  HomeResponse,
+  SearchResponse,
+  TranscriptResponse,
+  VideoDetailResponse,
+} from "@sermon-search/types"
 
 function apiBase(): string {
   return process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001"
@@ -36,5 +41,41 @@ export async function fetchHome(): Promise<HomeResponse> {
     return res.json() as Promise<HomeResponse>
   } catch {
     return { recent: [], top_playlists: [] }
+  }
+}
+
+export async function fetchVideo(id: string): Promise<VideoDetailResponse | null> {
+  try {
+    const res = await fetch(`${apiBase()}/v1/videos/${id}`, {
+      next: { revalidate: 60 },
+    })
+    if (!res.ok) return null
+    return res.json() as Promise<VideoDetailResponse>
+  } catch {
+    return null
+  }
+}
+
+export async function fetchTranscript(id: string): Promise<TranscriptResponse | null> {
+  try {
+    const res = await fetch(`${apiBase()}/v1/videos/${id}/transcript`, {
+      next: { revalidate: 60 },
+    })
+    if (!res.ok) return null
+    return res.json() as Promise<TranscriptResponse>
+  } catch {
+    return null
+  }
+}
+
+export async function fetchVideoSearch(id: string, q: string): Promise<SearchResponse | null> {
+  try {
+    const url = new URL(`${apiBase()}/v1/videos/${id}/search`)
+    url.searchParams.set("q", q)
+    const res = await fetch(url.toString())
+    if (!res.ok) return null
+    return res.json() as Promise<SearchResponse>
+  } catch {
+    return null
   }
 }

@@ -73,3 +73,43 @@ export interface HomeResponse {
   recent: Video[]
   top_playlists: Array<{ playlist: PlaylistWithStats; videos: Video[] }>
 }
+
+export interface PlaylistRef {
+  id: string
+  slug: string
+  title: string
+}
+
+export interface ChannelRef {
+  id: string
+  title: string
+}
+
+export interface VideoDetailResponse {
+  id: string
+  youtube_video_id: string
+  title: string
+  channel: ChannelRef
+  published_at: string
+  duration_ms: number
+  view_count: number
+  thumbnail_url: string
+  playlists: PlaylistRef[]
+  summary: string
+  topics: string[]
+}
+
+export interface TranscriptSegmentWithWords {
+  id: string
+  start_ms: number
+  end_ms: number
+  text: string
+  words: TranscriptWord[]
+}
+
+export interface TranscriptResponse {
+  transcript_id: string
+  source: string
+  language: string
+  segments: TranscriptSegmentWithWords[]
+}
