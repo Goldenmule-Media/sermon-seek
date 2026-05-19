@@ -6,6 +6,7 @@ import { ingestChannel } from "../ingest/channel.js"
 import { runEmbedBackfill } from "../ingest/embed.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
 import { runViewStats } from "../ingest/view_stats.js"
+import { runRelatedBackfill } from "../related/run.js"
 import { runSmokeTest } from "../smoke/index.js"
 import { YoutubeClient } from "../youtube/client.js"
 
@@ -16,11 +17,12 @@ interface ParsedArgs {
   viewStats: boolean
   embed: boolean
   enrich: boolean
+  related: boolean
   force: boolean
 }
 
 const USAGE =
-  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --smoke-test | --view-stats | --embed | --enrich [--force])"
+  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --smoke-test | --view-stats | --embed | --enrich [--force] | --related [--force])"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
@@ -29,6 +31,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   let viewStats = false
   let embed = false
   let enrich = false
+  let related = false
   let force = false
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
@@ -83,6 +86,13 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     if (arg?.startsWith("--enrich=")) {
       throw new Error("--enrich does not take a value")
     }
+    if (arg === "--related") {
+      related = true
+      continue
+    }
+    if (arg?.startsWith("--related=")) {
+      throw new Error("--related does not take a value")
+    }
     if (arg === "--force") {
       force = true
       continue
@@ -92,8 +102,8 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     }
     throw new Error(`Unknown argument: ${arg}`)
   }
-  if (force && !enrich) {
-    throw new Error("--force requires --enrich")
+  if (force && !enrich && !related) {
+    throw new Error("--force requires --enrich or --related")
   }
   const modes = [
     channel ? "--channel" : null,
@@ -102,16 +112,17 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     viewStats ? "--view-stats" : null,
     embed ? "--embed" : null,
     enrich ? "--enrich" : null,
+    related ? "--related" : null,
   ].filter((v): v is string => v !== null)
   if (modes.length > 1) {
     throw new Error(`${modes.join(", ")} are mutually exclusive`)
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --smoke-test, --view-stats, --embed, or --enrich",
+      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --smoke-test, --view-stats, --embed, --enrich, or --related",
     )
   }
-  return { channel, video, smokeTest, viewStats, embed, enrich, force }
+  return { channel, video, smokeTest, viewStats, embed, enrich, related, force }
 }
 
 export async function main(argv: readonly string[]): Promise<number> {
@@ -154,7 +165,26 @@ export async function main(argv: readonly string[]): Promise<number> {
     const db = createDb()
     try {
       const enricher = createOpenAIEnricher({ apiKey, model })
-      const summary = await runEnrichBackfill({ db, enricher, force: parsed.force, log: console.log })
+      const summary = await runEnrichBackfill({
+        db,
+        enricher,
+        force: parsed.force,
+        log: console.log,
+      })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    } catch (err) {
+      console.error(err instanceof Error ? (err.stack ?? err.message) : String(err))
+      return 1
+    } finally {
+      await db.destroy()
+    }
+  }
+
+  if (parsed.related) {
+    const db = createDb()
+    try {
+      const summary = await runRelatedBackfill({ db, force: parsed.force, log: console.log })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     } catch (err) {

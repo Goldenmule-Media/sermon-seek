@@ -8,8 +8,11 @@
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "echo \"no tests\" && exit 0",
-    "lint": "biome check src"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check src",
+    "eval": "tsx eval/score.ts",
+    "perf": "tsx eval/perf.ts"
   },
   "dependencies": {
     "@fastify/cors": "^10.0.1",
@@ -27,6 +30,7 @@
   "devDependencies": {
     "@types/node": "^20.17.0",
     "tsx": "4.19.2",
-    "typescript": "5.6.3"
+    "typescript": "5.6.3",
+    "vitest": "^2.1.8"
   }
 }

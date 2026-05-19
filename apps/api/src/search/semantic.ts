@@ -1,6 +1,6 @@
 import type { Database } from "@sermon-search/db"
 import type { Embedder } from "@sermon-search/embeddings"
-import type { Kysely } from "kysely"
+import type { Kysely, SqlBool } from "kysely"
 import { sql } from "kysely"
 import type { FtsResponse, FtsResult } from "./fts.js"
 
@@ -9,6 +9,9 @@ export interface SemanticOptions {
   videoId?: string
   limit: number
   offset: number
+  topicSlug?: string
+  playlistSlug?: string
+  publishedAfter?: Date
 }
 
 function firstWords(text: string, n = 20): string {
@@ -20,7 +23,7 @@ export async function searchSemantic(
   embedder: Embedder,
   opts: SemanticOptions,
 ): Promise<FtsResponse> {
-  const { q, videoId, limit, offset } = opts
+  const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter } = opts
 
   const [queryVec] = await embedder.embed([q])
   const vecStr = `[${(queryVec as number[]).join(",")}]`
@@ -51,12 +54,6 @@ export async function searchSemantic(
     .limit(limit)
     .offset(offset)
 
-  if (videoId !== undefined) {
-    query = query.where("v.youtube_video_id", "=", videoId)
-  }
-
-  const rows = (await query.execute()) as Row[]
-
   let countQuery = db
     .selectFrom("embeddings as e")
     .innerJoin("transcript_chunks as c", "c.id", "e.chunk_id")
@@ -65,9 +62,25 @@ export async function searchSemantic(
     .where("e.model", "=", embedder.model)
 
   if (videoId !== undefined) {
+    query = query.where("v.youtube_video_id", "=", videoId)
     countQuery = countQuery.where("v.youtube_video_id", "=", videoId)
   }
+  if (topicSlug !== undefined) {
+    const pred = sql<SqlBool>`v.id IN (SELECT vt.video_id FROM video_topics vt INNER JOIN topics t ON t.id = vt.topic_id WHERE t.slug = ${topicSlug})`
+    query = query.where(pred)
+    countQuery = countQuery.where(pred)
+  }
+  if (playlistSlug !== undefined) {
+    const pred = sql<SqlBool>`v.id IN (SELECT vp.video_id FROM video_playlists vp INNER JOIN playlists p ON p.id = vp.playlist_id WHERE p.slug = ${playlistSlug})`
+    query = query.where(pred)
+    countQuery = countQuery.where(pred)
+  }
+  if (publishedAfter !== undefined) {
+    query = query.where("v.published_at", ">=", publishedAfter)
+    countQuery = countQuery.where("v.published_at", ">=", publishedAfter)
+  }
 
+  const rows = (await query.execute()) as Row[]
   const countRow = await countQuery.executeTakeFirstOrThrow()
 
   const results: FtsResult[] = rows.map((r) => ({

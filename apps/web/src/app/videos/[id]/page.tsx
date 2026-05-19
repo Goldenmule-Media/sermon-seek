@@ -1,7 +1,7 @@
 import { RelatedVideosSlot } from "@/components/video-detail/related-videos-slot"
 import { VideoDetailShell } from "@/components/video-detail/video-detail-shell"
 import { VideoEnrichment } from "@/components/video-detail/video-enrichment"
-import { fetchTranscript, fetchVideo } from "@/lib/api"
+import { fetchRelated, fetchTranscript, fetchVideo } from "@/lib/api"
 import { formatDate, formatDuration } from "@/lib/utils"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -9,7 +9,11 @@ import { notFound } from "next/navigation"
 export default async function VideoDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
 
-  const [video, transcript] = await Promise.all([fetchVideo(id), fetchTranscript(id)])
+  const [video, transcript, related] = await Promise.all([
+    fetchVideo(id),
+    fetchTranscript(id),
+    fetchRelated(id),
+  ])
 
   if (!video) notFound()
 
@@ -48,7 +52,7 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ id
           <VideoDetailShell video={video} transcript={transcript} />
         </div>
         <div>
-          <RelatedVideosSlot />
+          <RelatedVideosSlot related={related} />
         </div>
       </div>
     </main>

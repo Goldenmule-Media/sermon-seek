@@ -1,5 +1,6 @@
 "use client"
 
+import type { PlaylistWithStats, Topic } from "@sermon-search/types"
 import { useRouter, useSearchParams } from "next/navigation"
 
 export interface FilterValues {
@@ -10,9 +11,11 @@ export interface FilterValues {
 
 interface SearchFiltersProps {
   values: FilterValues
+  topics: Topic[]
+  playlists: PlaylistWithStats[]
 }
 
-export function SearchFilters({ values }: SearchFiltersProps) {
+export function SearchFilters({ values, topics, playlists }: SearchFiltersProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -38,6 +41,11 @@ export function SearchFilters({ values }: SearchFiltersProps) {
         aria-label="Filter by playlist"
       >
         <option value="">All playlists</option>
+        {playlists.map((p) => (
+          <option key={p.slug} value={p.slug}>
+            {p.title}
+          </option>
+        ))}
       </select>
 
       <select
@@ -47,6 +55,11 @@ export function SearchFilters({ values }: SearchFiltersProps) {
         aria-label="Filter by topic"
       >
         <option value="">All topics</option>
+        {topics.map((t) => (
+          <option key={t.slug} value={t.slug}>
+            {t.label}
+          </option>
+        ))}
       </select>
 
       <select

@@ -1,24 +1,24 @@
 import { VideoCard } from "@/components/video-card"
-import { fetchTopic } from "@/lib/api"
+import { fetchPlaylist } from "@/lib/api"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
 const PAGE_SIZE = 20
 
-interface TopicPageProps {
+interface CategoryPageProps {
   params: Promise<{ slug: string }>
   searchParams: Promise<{ offset?: string }>
 }
 
-export default async function TopicPage({ params, searchParams }: TopicPageProps) {
+export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
   const { slug } = await params
   const { offset: rawOffset } = await searchParams
   const offset = Math.max(0, Number(rawOffset ?? 0))
 
-  const data = await fetchTopic(slug, { limit: PAGE_SIZE, offset })
+  const data = await fetchPlaylist(slug, { limit: PAGE_SIZE, offset })
   if (!data) notFound()
 
-  const { topic, videos, total } = data
+  const { playlist, videos, total } = data
   const hasPrev = offset > 0
   const hasNext = offset + PAGE_SIZE < total
   const prevOffset = Math.max(0, offset - PAGE_SIZE)
@@ -26,11 +26,11 @@ export default async function TopicPage({ params, searchParams }: TopicPageProps
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-8">
-      <Link href="/topics" className="text-sm text-primary hover:underline mb-4 inline-block">
-        ← all topics
+      <Link href="/" className="text-sm text-primary hover:underline mb-4 inline-block">
+        ← back to home
       </Link>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold capitalize">{topic.label}</h1>
+        <h1 className="text-2xl font-bold">{playlist.title}</h1>
         <p className="text-sm text-muted-foreground mt-1">
           {total} video{total !== 1 ? "s" : ""}
         </p>
@@ -48,7 +48,7 @@ export default async function TopicPage({ params, searchParams }: TopicPageProps
         <div className="flex gap-4 mt-8">
           {hasPrev && (
             <Link
-              href={`/topics/${slug}?offset=${prevOffset}`}
+              href={`/category/${slug}?offset=${prevOffset}`}
               className="text-sm text-primary hover:underline"
             >
               ← previous
@@ -56,7 +56,7 @@ export default async function TopicPage({ params, searchParams }: TopicPageProps
           )}
           {hasNext && (
             <Link
-              href={`/topics/${slug}?offset=${nextOffset}`}
+              href={`/category/${slug}?offset=${nextOffset}`}
               className="text-sm text-primary hover:underline ml-auto"
             >
               next →

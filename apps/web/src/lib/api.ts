@@ -1,5 +1,8 @@
 import type {
   HomeResponse,
+  PlaylistVideos,
+  PlaylistWithStats,
+  RelatedVideo,
   SearchResponse,
   Topic,
   TopicVideos,
@@ -15,6 +18,7 @@ export interface SearchParams {
   q: string
   playlist?: string
   topic?: string
+  date?: string
   limit?: number
   offset?: number
 }
@@ -24,6 +28,7 @@ export async function fetchSearch(params: SearchParams): Promise<SearchResponse>
     const sp = new URLSearchParams({ q: params.q })
     if (params.playlist) sp.set("playlist", params.playlist)
     if (params.topic) sp.set("topic", params.topic)
+    if (params.date) sp.set("date", params.date)
     if (params.limit != null) sp.set("limit", String(params.limit))
     if (params.offset != null) sp.set("offset", String(params.offset))
     const res = await fetch(`${apiBase()}/v1/search?${sp.toString()}`)
@@ -93,6 +98,22 @@ export async function fetchTopics(): Promise<Topic[]> {
   }
 }
 
+export async function fetchRelated(id: string, limit?: number): Promise<RelatedVideo[]> {
+  try {
+    const sp = new URLSearchParams()
+    if (limit != null) sp.set("limit", String(limit))
+    const qs = sp.toString()
+    const res = await fetch(`${apiBase()}/v1/videos/${id}/related${qs ? `?${qs}` : ""}`, {
+      next: { revalidate: 60 },
+    })
+    if (!res.ok) return []
+    const data = (await res.json()) as { related: RelatedVideo[] }
+    return data.related
+  } catch {
+    return []
+  }
+}
+
 export async function fetchTopic(
   slug: string,
   opts: { limit?: number; offset?: number } = {},
@@ -107,6 +128,36 @@ export async function fetchTopic(
     })
     if (!res.ok) return null
     return res.json() as Promise<TopicVideos>
+  } catch {
+    return null
+  }
+}
+
+export async function fetchPlaylists(): Promise<PlaylistWithStats[]> {
+  try {
+    const res = await fetch(`${apiBase()}/v1/playlists`, { next: { revalidate: 60 } })
+    if (!res.ok) return []
+    const data = (await res.json()) as { playlists: PlaylistWithStats[] }
+    return data.playlists
+  } catch {
+    return []
+  }
+}
+
+export async function fetchPlaylist(
+  slug: string,
+  opts: { limit?: number; offset?: number } = {},
+): Promise<PlaylistVideos | null> {
+  try {
+    const sp = new URLSearchParams()
+    if (opts.limit != null) sp.set("limit", String(opts.limit))
+    if (opts.offset != null) sp.set("offset", String(opts.offset))
+    const qs = sp.toString()
+    const res = await fetch(`${apiBase()}/v1/playlists/${slug}/videos${qs ? `?${qs}` : ""}`, {
+      next: { revalidate: 60 },
+    })
+    if (!res.ok) return null
+    return res.json() as Promise<PlaylistVideos>
   } catch {
     return null
   }

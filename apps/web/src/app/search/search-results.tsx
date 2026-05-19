@@ -2,12 +2,17 @@
 
 import { SearchResultCard } from "@/components/search-result-card"
 import { fetchSearch } from "@/lib/api"
-import type { SearchResponse } from "@sermon-search/types"
+import type { PlaylistWithStats, SearchResponse, Topic } from "@sermon-search/types"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { type FilterValues, SearchFilters } from "./search-filters"
 
-export function SearchResults() {
+interface SearchResultsProps {
+  topics: Topic[]
+  playlists: PlaylistWithStats[]
+}
+
+export function SearchResults({ topics, playlists }: SearchResultsProps) {
   const searchParams = useSearchParams()
   const q = searchParams.get("q") ?? ""
   const playlist = searchParams.get("playlist") ?? ""
@@ -30,6 +35,7 @@ export function SearchResults() {
       q,
       playlist: playlist || undefined,
       topic: topic || undefined,
+      date: date || undefined,
       limit: 20,
       offset: 0,
     })
@@ -45,13 +51,13 @@ export function SearchResults() {
     return () => {
       cancelled = true
     }
-  }, [q, playlist, topic])
+  }, [q, playlist, topic, date])
 
   const filters: FilterValues = { playlist, topic, date }
 
   return (
     <div className="space-y-4">
-      <SearchFilters values={filters} />
+      <SearchFilters values={filters} topics={topics} playlists={playlists} />
 
       {!q && (
         <p className="text-muted-foreground text-sm">Enter a query above to search sermons.</p>
