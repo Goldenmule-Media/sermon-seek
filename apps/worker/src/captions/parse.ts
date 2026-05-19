@@ -82,7 +82,10 @@ function tokenizeCues(raw: string): RawCue[] {
     i++
 
     const body: string[] = []
-    while (i < lines.length && (lines[i] ?? "").trim() !== "") {
+    // Per the WebVTT spec, a cue body ends at a truly empty line.
+    // YouTube auto-captions sometimes include whitespace-only lines as
+    // padding before the tagged content — those belong in the body.
+    while (i < lines.length && (lines[i] ?? "") !== "") {
       body.push(lines[i] as string)
       i++
     }

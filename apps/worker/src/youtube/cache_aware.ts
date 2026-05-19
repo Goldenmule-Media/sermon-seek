@@ -55,6 +55,29 @@ export async function getChannelMetadata(
   return { channel, fromCache: false }
 }
 
+export interface CachedPlaylistResult {
+  playlist: YoutubePlaylist
+  fromCache: boolean
+}
+
+export async function getPlaylistById(
+  client: YoutubeClient,
+  playlistId: string,
+): Promise<CachedPlaylistResult> {
+  const parts = ["playlists", playlistId, "metadata.json"]
+  const cached = await cache.readJson<YoutubePlaylist>(parts)
+  if (cached !== null) {
+    return { playlist: cached, fromCache: true }
+  }
+  const response = await client.listPlaylistsById(playlistId)
+  const playlist = response.items?.[0]
+  if (!playlist) {
+    throw new Error(`Playlist not found: ${playlistId}`)
+  }
+  await cache.writeJsonAtomic(parts, playlist)
+  return { playlist, fromCache: false }
+}
+
 export interface CachedPlaylistsResult {
   playlists: YoutubePlaylist[]
   fromCache: boolean

@@ -8,6 +8,7 @@ import { parseVtt } from "./parse.js"
 
 const FIXTURE_URL = new URL("./__fixtures__/sample.vtt", import.meta.url)
 const OVERLAP_FIXTURE_URL = new URL("./__fixtures__/overlap.vtt", import.meta.url)
+const WHITESPACE_FIXTURE_URL = new URL("./__fixtures__/whitespace_padding.vtt", import.meta.url)
 
 async function loadFixture(): Promise<string> {
   return await readFile(fileURLToPath(FIXTURE_URL), "utf8")
@@ -88,6 +89,17 @@ describe("parseVtt — overlap fixture", () => {
     for (let i = 0; i < words.length; i++) {
       expect(fromSegments[i]).toBe(words[i])
     }
+  })
+})
+
+describe("parseVtt — whitespace-padded cues (real YouTube auto-captions)", () => {
+  it("accepts whitespace-only lines as cue-body padding without treating them as separators", async () => {
+    const raw = await readFile(fileURLToPath(WHITESPACE_FIXTURE_URL), "utf8")
+    const { segments } = parseVtt(raw)
+    expect(segments).toHaveLength(3)
+    expect(segments[0]?.text).toBe("Good morning. Let's stand together.")
+    expect(segments[1]?.text).toBe("We sing these songs to remind")
+    expect(segments[2]?.text).toBe("of the God that we serve")
   })
 })
 
