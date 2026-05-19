@@ -9,6 +9,7 @@ describe("parseArgs", () => {
       video: undefined,
       smokeTest: false,
       viewStats: false,
+      embed: false,
     })
   })
 
@@ -19,6 +20,7 @@ describe("parseArgs", () => {
       video: "19l5OI_8ljQ",
       smokeTest: false,
       viewStats: false,
+      embed: false,
     })
   })
 
@@ -29,6 +31,7 @@ describe("parseArgs", () => {
       video: "19l5OI_8ljQ",
       smokeTest: false,
       viewStats: false,
+      embed: false,
     })
   })
 
@@ -39,6 +42,7 @@ describe("parseArgs", () => {
       video: undefined,
       smokeTest: true,
       viewStats: false,
+      embed: false,
     })
   })
 
@@ -49,6 +53,7 @@ describe("parseArgs", () => {
       video: undefined,
       smokeTest: false,
       viewStats: true,
+      embed: false,
     })
   })
 
@@ -90,5 +95,32 @@ describe("parseArgs", () => {
 
   it("rejects --video without a value", () => {
     expect(() => parseArgs(["--video"])).toThrow(/requires a value/)
+  })
+
+  it("accepts --embed alone", () => {
+    const parsed = parseArgs(["--embed"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+      embed: true,
+    })
+  })
+
+  it("rejects --embed combined with --channel", () => {
+    expect(() => parseArgs(["--embed", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --embed combined with --video", () => {
+    expect(() => parseArgs(["--embed", "--video", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --embed combined with --smoke-test", () => {
+    expect(() => parseArgs(["--embed", "--smoke-test"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --embed=value (boolean flag form only)", () => {
+    expect(() => parseArgs(["--embed=anything"])).toThrow(/does not take a value/)
   })
 })

@@ -11,6 +11,7 @@ import {
 import { config } from "./config.js"
 import { adminAuthPlugin } from "./plugins/admin-auth.js"
 import { dbPlugin } from "./plugins/db.js"
+import { embedderPlugin } from "./plugins/embedder.js"
 import { registerRoutes } from "./routes/index.js"
 
 export async function buildApp(): Promise<FastifyInstance> {
@@ -46,6 +47,7 @@ export async function buildApp(): Promise<FastifyInstance> {
 
   await app.register(adminAuthPlugin)
   await app.register(dbPlugin)
+  await app.register(embedderPlugin)
 
   await app.register(
     async (v1) => {

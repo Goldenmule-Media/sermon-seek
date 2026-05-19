@@ -84,6 +84,23 @@ export interface TranscriptWordsTable {
   position: number
 }
 
+export interface TranscriptChunksTable {
+  id: Generated<string>
+  video_id: string
+  transcript_id: string
+  start_ms: number
+  end_ms: number
+  text: string
+  position: number
+  created_at: Generated<Timestamptz>
+}
+
+export interface EmbeddingsTable {
+  chunk_id: string
+  model: string
+  vector: ColumnType<string, string, string>
+}
+
 export interface Database {
   channels: ChannelsTable
   playlists: PlaylistsTable
@@ -92,6 +109,8 @@ export interface Database {
   transcripts: TranscriptsTable
   transcript_segments: TranscriptSegmentsTable
   transcript_words: TranscriptWordsTable
+  transcript_chunks: TranscriptChunksTable
+  embeddings: EmbeddingsTable
 }
 
 export type ChannelRow = Selectable<ChannelsTable>
@@ -121,6 +140,14 @@ export type TranscriptSegmentUpdate = Updateable<TranscriptSegmentsTable>
 export type TranscriptWordRow = Selectable<TranscriptWordsTable>
 export type TranscriptWordInsert = Insertable<TranscriptWordsTable>
 export type TranscriptWordUpdate = Updateable<TranscriptWordsTable>
+
+export type TranscriptChunkRow = Selectable<TranscriptChunksTable>
+export type TranscriptChunkInsert = Insertable<TranscriptChunksTable>
+export type TranscriptChunkUpdate = Updateable<TranscriptChunksTable>
+
+export type EmbeddingRow = Selectable<EmbeddingsTable>
+export type EmbeddingInsert = Insertable<EmbeddingsTable>
+export type EmbeddingUpdate = Updateable<EmbeddingsTable>
 
 export function resolveDatabaseUrl(connectionString?: string): string {
   const url = connectionString ?? process.env.DATABASE_URL

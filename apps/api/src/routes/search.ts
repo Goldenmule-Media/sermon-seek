@@ -1,10 +1,11 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
 import { searchSegments } from "../search/fts.js"
+import { searchSemantic } from "../search/semantic.js"
 
 const querySchema = z.object({
   q: z.string().min(1).max(200),
-  mode: z.enum(["fulltext"]).default("fulltext"),
+  mode: z.enum(["fulltext", "semantic"]).default("fulltext"),
   limit: z.coerce.number().int().min(1).max(50).default(20),
   offset: z.coerce.number().int().min(0).default(0),
   topic: z.string().optional(),
@@ -32,14 +33,37 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
     {
       schema: {
         tags: ["search"],
-        summary: "Full-text corpus search",
+        summary: "Full-text and semantic corpus search",
         querystring: querySchema,
-        response: { 200: searchResponseSchema },
+        response: {
+          200: searchResponseSchema,
+          503: z.object({ message: z.string() }),
+        },
       },
     },
-    async (request) => {
-      const { q, limit, offset } = request.query
+    async (request, reply) => {
+      const { q, mode, limit, offset } = request.query
       const t0 = Date.now()
+
+      if (mode === "semantic") {
+        if (!app.embedder) {
+          return reply.code(503).send({ message: "OPENAI_API_KEY is not configured" } as never)
+        }
+        const { results, total } = await searchSemantic(app.db, app.embedder, { q, limit, offset })
+        return {
+          results: results.map((r) => ({
+            video_id: r.youtube_video_id,
+            title: r.title,
+            snippet: r.snippet,
+            start_ms: r.start_ms,
+            score: r.score,
+            thumbnail_url: r.thumbnail_url ?? "",
+          })),
+          total,
+          took_ms: Date.now() - t0,
+        }
+      }
+
       const { results, total } = await searchSegments(app.db, { q, limit, offset })
       return {
         results: results.map((r) => ({
