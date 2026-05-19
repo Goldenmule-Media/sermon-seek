@@ -15,8 +15,11 @@ describe("skip predicate", () => {
   })
 
   it("does not skip when force is true even if already enriched", () => {
-    const shouldSkip = (existingModelVersion: string | null, enricherModel: string, force: boolean) =>
-      !force && existingModelVersion === enricherModel
+    const shouldSkip = (
+      existingModelVersion: string | null,
+      enricherModel: string,
+      force: boolean,
+    ) => !force && existingModelVersion === enricherModel
 
     expect(shouldSkip("gpt-4o-mini", "gpt-4o-mini", false)).toBe(true)
     expect(shouldSkip("gpt-4o-mini", "gpt-4o-mini", true)).toBe(false)

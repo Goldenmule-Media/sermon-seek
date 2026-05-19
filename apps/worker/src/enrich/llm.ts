@@ -48,10 +48,7 @@ export function createOpenAIEnricher({
 }: OpenAIEnricherOptions): Enricher {
   const client = new OpenAI({ apiKey })
 
-  async function callWithRetry(
-    transcriptText: string,
-    title: string,
-  ): Promise<EnrichmentOutput> {
+  async function callWithRetry(transcriptText: string, title: string): Promise<EnrichmentOutput> {
     const excerpt = transcriptText.slice(0, MAX_TRANSCRIPT_CHARS)
     const prompt = `You are a sermon analyst. Given a sermon title and transcript excerpt, produce:
 - A one-paragraph summary (3-5 sentences)

@@ -27,9 +27,7 @@ interface QueryEntry {
   query: string
 }
 
-const allQueries: QueryEntry[] = JSON.parse(
-  readFileSync(join(__dirname, "queries.json"), "utf8"),
-)
+const allQueries: QueryEntry[] = JSON.parse(readFileSync(join(__dirname, "queries.json"), "utf8"))
 
 // Use first 10 queries as the representative set; cycle if fewer.
 const sample = allQueries.slice(0, 10)
@@ -108,9 +106,7 @@ if (hybridP95 === undefined) {
 }
 
 if (hybridP95 >= P95_LIMIT_MS) {
-  console.error(
-    `FAIL — hybrid p95 ${hybridP95.toFixed(1)}ms ≥ ${P95_LIMIT_MS}ms target`,
-  )
+  console.error(`FAIL — hybrid p95 ${hybridP95.toFixed(1)}ms ≥ ${P95_LIMIT_MS}ms target`)
   process.exit(1)
 }
 console.log(`PASS — hybrid p95 ${hybridP95.toFixed(1)}ms < ${P95_LIMIT_MS}ms target`)

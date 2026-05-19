@@ -1,5 +1,6 @@
 import type {
   HomeResponse,
+  RelatedVideo,
   SearchResponse,
   Topic,
   TopicVideos,
@@ -88,6 +89,22 @@ export async function fetchTopics(): Promise<Topic[]> {
     if (!res.ok) return []
     const data = (await res.json()) as { topics: Topic[] }
     return data.topics
+  } catch {
+    return []
+  }
+}
+
+export async function fetchRelated(id: string, limit?: number): Promise<RelatedVideo[]> {
+  try {
+    const sp = new URLSearchParams()
+    if (limit != null) sp.set("limit", String(limit))
+    const qs = sp.toString()
+    const res = await fetch(`${apiBase()}/v1/videos/${id}/related${qs ? `?${qs}` : ""}`, {
+      next: { revalidate: 60 },
+    })
+    if (!res.ok) return []
+    const data = (await res.json()) as { related: RelatedVideo[] }
+    return data.related
   } catch {
     return []
   }

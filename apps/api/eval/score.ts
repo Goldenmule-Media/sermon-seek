@@ -49,9 +49,7 @@ interface SearchResponse {
   took_ms: number
 }
 
-const queries: QueryEntry[] = JSON.parse(
-  readFileSync(join(__dirname, "queries.json"), "utf8"),
-)
+const queries: QueryEntry[] = JSON.parse(readFileSync(join(__dirname, "queries.json"), "utf8"))
 
 const calibrated = queries.filter((q) => q.expected.youtube_video_id !== "REPLACE_AFTER_INGEST")
 
@@ -73,12 +71,14 @@ async function fetchResults(query: string, mode: string): Promise<SearchResult[]
 }
 
 function isHit(results: SearchResult[], expected: QueryEntry["expected"], topK: number): boolean {
-  return results.slice(0, topK).some(
-    (r) =>
-      r.video_id === expected.youtube_video_id &&
-      r.start_ms >= expected.start_ms_min &&
-      r.start_ms <= expected.start_ms_max,
-  )
+  return results
+    .slice(0, topK)
+    .some(
+      (r) =>
+        r.video_id === expected.youtube_video_id &&
+        r.start_ms >= expected.start_ms_min &&
+        r.start_ms <= expected.start_ms_max,
+    )
 }
 
 const MODES = ["fulltext", "semantic", "hybrid"] as const

@@ -13,6 +13,7 @@ describe("parseArgs", () => {
       viewStats: false,
       embed: false,
       enrich: false,
+      related: false,
       force: false,
     })
   })
@@ -26,6 +27,7 @@ describe("parseArgs", () => {
       viewStats: false,
       embed: false,
       enrich: false,
+      related: false,
       force: false,
     })
   })
@@ -39,6 +41,7 @@ describe("parseArgs", () => {
       viewStats: false,
       embed: false,
       enrich: false,
+      related: false,
       force: false,
     })
   })
@@ -52,6 +55,7 @@ describe("parseArgs", () => {
       viewStats: false,
       embed: false,
       enrich: false,
+      related: false,
       force: false,
     })
   })
@@ -65,6 +69,7 @@ describe("parseArgs", () => {
       viewStats: true,
       embed: false,
       enrich: false,
+      related: false,
       force: false,
     })
   })
@@ -118,6 +123,7 @@ describe("parseArgs", () => {
       viewStats: false,
       embed: true,
       enrich: false,
+      related: false,
       force: false,
     })
   })
@@ -147,6 +153,7 @@ describe("parseArgs", () => {
       viewStats: false,
       embed: false,
       enrich: true,
+      related: false,
       force: false,
     })
   })
@@ -160,12 +167,61 @@ describe("parseArgs", () => {
       viewStats: false,
       embed: false,
       enrich: true,
+      related: false,
       force: true,
     })
   })
 
-  it("rejects --force without --enrich", () => {
-    expect(() => parseArgs(["--force"])).toThrow(/--force requires --enrich/)
+  it("rejects --force without --enrich or --related", () => {
+    expect(() => parseArgs(["--force"])).toThrow(/--force requires --enrich or --related/)
+  })
+
+  it("accepts --related alone", () => {
+    const parsed = parseArgs(["--related"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+      embed: false,
+      enrich: false,
+      related: true,
+      force: false,
+    })
+  })
+
+  it("accepts --related --force", () => {
+    const parsed = parseArgs(["--related", "--force"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+      embed: false,
+      enrich: false,
+      related: true,
+      force: true,
+    })
+  })
+
+  it("rejects --related combined with --enrich", () => {
+    expect(() => parseArgs(["--related", "--enrich"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --related combined with --embed", () => {
+    expect(() => parseArgs(["--related", "--embed"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --related combined with --channel", () => {
+    expect(() => parseArgs(["--related", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --related combined with --video", () => {
+    expect(() => parseArgs(["--related", "--video", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --related=value (boolean flag form only)", () => {
+    expect(() => parseArgs(["--related=anything"])).toThrow(/does not take a value/)
   })
 
   it("rejects --enrich combined with --embed", () => {

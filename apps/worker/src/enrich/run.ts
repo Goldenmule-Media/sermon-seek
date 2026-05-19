@@ -31,10 +31,7 @@ export async function runEnrichBackfill({
     refsInserted: 0,
   }
 
-  const videos = await db
-    .selectFrom("videos")
-    .select(["id", "youtube_video_id", "title"])
-    .execute()
+  const videos = await db.selectFrom("videos").select(["id", "youtube_video_id", "title"]).execute()
 
   for (const video of videos) {
     const transcript = await db
@@ -117,7 +114,9 @@ export async function runEnrichBackfill({
       if (topicIds.length > 0) {
         await trx
           .insertInto("video_topics")
-          .values(topicIds.map((topic_id, position) => ({ video_id: video.id, topic_id, position })))
+          .values(
+            topicIds.map((topic_id, position) => ({ video_id: video.id, topic_id, position })),
+          )
           .execute()
         totals.topicsInserted += topicIds.length
       }
@@ -128,7 +127,11 @@ export async function runEnrichBackfill({
         await trx
           .insertInto("video_scripture_refs")
           .values(
-            filteredRefs.map((reference, position) => ({ video_id: video.id, reference, position })),
+            filteredRefs.map((reference, position) => ({
+              video_id: video.id,
+              reference,
+              position,
+            })),
           )
           .execute()
         totals.refsInserted += filteredRefs.length

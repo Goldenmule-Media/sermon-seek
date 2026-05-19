@@ -327,14 +327,18 @@ async function seed() {
         await db
           .insertInto("video_scripture_refs")
           .values(
-            spec.refs.slice(0, 3).map((reference, position) => ({ video_id: videoId, reference, position })),
+            spec.refs
+              .slice(0, 3)
+              .map((reference, position) => ({ video_id: videoId, reference, position })),
           )
           .onConflict((oc) => oc.columns(["video_id", "position"]).doNothing())
           .execute()
       }
     }
 
-    console.log(`Seeded: 1 channel, ${playlistRows.length} playlists, ${videoRows.length} videos, ${enrichmentSpec.length} enrichments.`)
+    console.log(
+      `Seeded: 1 channel, ${playlistRows.length} playlists, ${videoRows.length} videos, ${enrichmentSpec.length} enrichments.`,
+    )
   } finally {
     await db.destroy()
   }

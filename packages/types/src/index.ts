@@ -69,6 +69,10 @@ export interface RelatedVideo {
   reason: RelatedVideoReason
 }
 
+export interface RelatedVideosResponse {
+  related: RelatedVideo[]
+}
+
 export interface HomeResponse {
   recent: Video[]
   top_playlists: Array<{ playlist: PlaylistWithStats; videos: Video[] }>

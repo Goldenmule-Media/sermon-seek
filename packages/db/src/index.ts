@@ -129,6 +129,15 @@ export interface VideoScriptureRefsTable {
   position: number
 }
 
+export interface RelatedVideosTable {
+  video_id: string
+  related_video_id: string
+  signal: string
+  score: number
+  payload: ColumnType<unknown, unknown, unknown>
+  computed_at: Generated<Timestamptz>
+}
+
 export interface Database {
   channels: ChannelsTable
   playlists: PlaylistsTable
@@ -143,6 +152,7 @@ export interface Database {
   topics: TopicsTable
   video_topics: VideoTopicsTable
   video_scripture_refs: VideoScriptureRefsTable
+  related_videos: RelatedVideosTable
 }
 
 export type ChannelRow = Selectable<ChannelsTable>
@@ -196,6 +206,10 @@ export type VideoTopicUpdate = Updateable<VideoTopicsTable>
 export type VideoScriptureRefRow = Selectable<VideoScriptureRefsTable>
 export type VideoScriptureRefInsert = Insertable<VideoScriptureRefsTable>
 export type VideoScriptureRefUpdate = Updateable<VideoScriptureRefsTable>
+
+export type RelatedVideoRow = Selectable<RelatedVideosTable>
+export type RelatedVideoInsert = Insertable<RelatedVideosTable>
+export type RelatedVideoUpdate = Updateable<RelatedVideosTable>
 
 export function resolveDatabaseUrl(connectionString?: string): string {
   const url = connectionString ?? process.env.DATABASE_URL

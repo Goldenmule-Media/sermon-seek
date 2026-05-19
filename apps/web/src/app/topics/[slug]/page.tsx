@@ -31,7 +31,9 @@ export default async function TopicPage({ params, searchParams }: TopicPageProps
       </Link>
       <div className="mb-6">
         <h1 className="text-2xl font-bold capitalize">{topic.label}</h1>
-        <p className="text-sm text-muted-foreground mt-1">{total} video{total !== 1 ? "s" : ""}</p>
+        <p className="text-sm text-muted-foreground mt-1">
+          {total} video{total !== 1 ? "s" : ""}
+        </p>
       </div>
       {videos.length === 0 ? (
         <p className="text-muted-foreground">No videos found.</p>
