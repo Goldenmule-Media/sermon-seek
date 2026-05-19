@@ -26,6 +26,9 @@ importers:
       '@fastify/swagger-ui':
         specifier: ^5.1.0
         version: 5.2.6
+      '@sermon-search/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@sermon-search/types':
         specifier: workspace:*
         version: link:../../packages/types
@@ -38,6 +41,9 @@ importers:
       fastify-type-provider-zod:
         specifier: ^4.0.2
         version: 4.0.2(fastify@5.8.5)(zod@3.25.76)
+      kysely:
+        specifier: ^0.27.4
+        version: 0.27.6
       zod:
         specifier: ^3.23.8
         version: 3.25.76

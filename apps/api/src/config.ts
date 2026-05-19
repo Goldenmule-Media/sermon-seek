@@ -5,6 +5,7 @@ const envSchema = z.object({
   HOST: z.string().min(1).default("0.0.0.0"),
   ADMIN_API_KEY: z.string().optional(),
   CORS_ORIGIN: z.string().url().default("http://localhost:3000"),
+  DATABASE_URL: z.string().min(1),
 })
 
 export type Config = z.infer<typeof envSchema>
