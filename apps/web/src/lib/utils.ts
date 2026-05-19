@@ -17,6 +17,10 @@ export function formatDuration(ms: number): string {
   return `${minutes}:${String(seconds).padStart(2, "0")}`
 }
 
+export function msToTimecode(ms: number): string {
+  return formatDuration(ms)
+}
+
 export function formatDate(iso: string): string {
   if (!iso) return ""
   return new Date(iso).toLocaleDateString("en-US", {
