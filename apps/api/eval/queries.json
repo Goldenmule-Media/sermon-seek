@@ -1,0 +1,167 @@
+[
+  {
+    "id": "q01",
+    "query": "grace and forgiveness",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "concept",
+    "notes": "Populate expected.youtube_video_id and start_ms window after running: pnpm worker:run --channel @JubileeChurchSTL && pnpm worker:run --embed"
+  },
+  {
+    "id": "q02",
+    "query": "faith without works is dead",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "exact",
+    "notes": "Exact phrase from James 2:26 — should surface FTS hits"
+  },
+  {
+    "id": "q03",
+    "query": "trusting God when life is hard",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "paraphrase",
+    "notes": "Paraphrase of 'trust in the Lord with all your heart' — should favor semantic"
+  },
+  {
+    "id": "q04",
+    "query": "Holy Spirit and prayer",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "concept",
+    "notes": "Broad concept — both FTS and semantic should contribute"
+  },
+  {
+    "id": "q05",
+    "query": "do not be anxious about anything",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "exact",
+    "notes": "Exact phrase from Philippians 4:6"
+  },
+  {
+    "id": "q06",
+    "query": "what does it mean to love your neighbor",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "paraphrase",
+    "notes": "Paraphrase of the Great Commandment passage"
+  },
+  {
+    "id": "q07",
+    "query": "identity in Christ",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "concept",
+    "notes": "Abstract concept — tests semantic retrieval"
+  },
+  {
+    "id": "q08",
+    "query": "the prodigal son",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "exact",
+    "notes": "Named parable — strong FTS anchor word"
+  },
+  {
+    "id": "q09",
+    "query": "coming back to God after walking away",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "paraphrase",
+    "notes": "Paraphrase of the prodigal son theme — tests semantic over FTS"
+  },
+  {
+    "id": "q10",
+    "query": "spiritual warfare and armor of God",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "exact",
+    "notes": "Exact phrase from Ephesians 6"
+  },
+  {
+    "id": "q11",
+    "query": "why does God allow suffering",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "concept",
+    "notes": "Theodicy concept — semantic should outperform FTS"
+  },
+  {
+    "id": "q12",
+    "query": "baptism and new life in the Spirit",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "exact",
+    "notes": "Doctrinal phrase common in charismatic sermons"
+  },
+  {
+    "id": "q13",
+    "query": "healing in Jesus name",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "exact",
+    "notes": "Common prayer phrase — FTS anchor"
+  },
+  {
+    "id": "q14",
+    "query": "God's plan for your future and hope",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "paraphrase",
+    "notes": "Paraphrase of Jeremiah 29:11 — 'plans to prosper you'"
+  },
+  {
+    "id": "q15",
+    "query": "community and the body of Christ",
+    "expected": {
+      "youtube_video_id": "REPLACE_AFTER_INGEST",
+      "start_ms_min": 0,
+      "start_ms_max": 60000
+    },
+    "kind": "concept",
+    "notes": "Ecclesiology concept — tests hybrid over single-mode retrieval"
+  }
+]
