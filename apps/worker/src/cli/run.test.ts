@@ -1,5 +1,7 @@
-import { describe, expect, it } from "vitest"
+import { describe, expect, it, vi } from "vitest"
 import { parseArgs } from "./run.js"
+
+vi.mock("openai", () => ({ default: vi.fn() }))
 
 describe("parseArgs", () => {
   it("accepts --channel <handle>", () => {
@@ -10,6 +12,8 @@ describe("parseArgs", () => {
       smokeTest: false,
       viewStats: false,
       embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -21,6 +25,8 @@ describe("parseArgs", () => {
       smokeTest: false,
       viewStats: false,
       embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -32,6 +38,8 @@ describe("parseArgs", () => {
       smokeTest: false,
       viewStats: false,
       embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -43,6 +51,8 @@ describe("parseArgs", () => {
       smokeTest: true,
       viewStats: false,
       embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -54,6 +64,8 @@ describe("parseArgs", () => {
       smokeTest: false,
       viewStats: true,
       embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -105,6 +117,8 @@ describe("parseArgs", () => {
       smokeTest: false,
       viewStats: false,
       embed: true,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -122,5 +136,47 @@ describe("parseArgs", () => {
 
   it("rejects --embed=value (boolean flag form only)", () => {
     expect(() => parseArgs(["--embed=anything"])).toThrow(/does not take a value/)
+  })
+
+  it("accepts --enrich alone", () => {
+    const parsed = parseArgs(["--enrich"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+      embed: false,
+      enrich: true,
+      force: false,
+    })
+  })
+
+  it("accepts --enrich --force", () => {
+    const parsed = parseArgs(["--enrich", "--force"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+      embed: false,
+      enrich: true,
+      force: true,
+    })
+  })
+
+  it("rejects --force without --enrich", () => {
+    expect(() => parseArgs(["--force"])).toThrow(/--force requires --enrich/)
+  })
+
+  it("rejects --enrich combined with --embed", () => {
+    expect(() => parseArgs(["--enrich", "--embed"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --enrich combined with --channel", () => {
+    expect(() => parseArgs(["--enrich", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --enrich=value (boolean flag form only)", () => {
+    expect(() => parseArgs(["--enrich=anything"])).toThrow(/does not take a value/)
   })
 })

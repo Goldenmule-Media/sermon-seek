@@ -87,6 +87,34 @@ GET /v1/search?q=the+bread+of+life&mode=semantic
 
 Returns the same `SearchResponse` shape as `mode=fulltext`.
 
+## LLM enrichment (C18)
+
+### Enrich videos with topics, summaries, and scripture refs
+
+After ingesting transcripts, generate per-video enrichment (summary, 5–10 topics, 1–3 scripture refs) with:
+
+```sh
+OPENAI_API_KEY=sk-... pnpm worker:run --enrich
+```
+
+Prints a JSON summary: `{ videosProcessed, videosSkipped, topicsInserted, refsInserted }`.
+Re-runs are idempotent — videos already enriched at the same model version are skipped.
+Use `--force` to re-run and overwrite existing enrichment:
+
+```sh
+OPENAI_API_KEY=sk-... pnpm worker:run --enrich --force
+```
+
+**Model:** OpenAI `gpt-4o-mini` via Structured Outputs (`response_format: json_schema`).
+Override with `ENRICHMENT_MODEL=gpt-4o-mini` in `.env`.
+
+**Cost estimate:** ~$0.0005 per video at 12k input chars + ~250 output chars using `gpt-4o-mini`.
+
+**Schema choice:** A sibling `video_enrichments` table holds the summary, model metadata, and raw LLM
+response — keeping `videos` stable and wide. Topics are normalised into a `topics(slug, label)` table
+so multiple videos share the same row; `video_topics` is the join. `video_scripture_refs` holds the
+filtered refs (regex-validated, capped at 3).
+
 ### Paraphrase example (seed corpus)
 
 FTS misses paraphrased queries that semantic search finds. One verified pair from

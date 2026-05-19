@@ -1,5 +1,6 @@
 import { RelatedVideosSlot } from "@/components/video-detail/related-videos-slot"
 import { VideoDetailShell } from "@/components/video-detail/video-detail-shell"
+import { VideoEnrichment } from "@/components/video-detail/video-enrichment"
 import { fetchTranscript, fetchVideo } from "@/lib/api"
 import { formatDate, formatDuration } from "@/lib/utils"
 import Link from "next/link"
@@ -37,6 +38,11 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ id
           </div>
         )}
       </div>
+      <VideoEnrichment
+        summary={video.summary}
+        topics={video.topics}
+        scriptureRefs={video.scripture_refs}
+      />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <VideoDetailShell video={video} transcript={transcript} />
