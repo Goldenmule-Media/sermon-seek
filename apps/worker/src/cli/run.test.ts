@@ -12,6 +12,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: false,
@@ -27,6 +28,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: false,
@@ -42,6 +44,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: false,
@@ -57,6 +60,7 @@ describe("parseArgs", () => {
       playlist: "PL4R8x7Q9Xp09xzyHuw6T9xdzQVUjwGIAE",
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: false,
@@ -72,6 +76,7 @@ describe("parseArgs", () => {
       playlist: "PL4R8x7Q9Xp09xzyHuw6T9xdzQVUjwGIAE",
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: false,
@@ -119,6 +124,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: true,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: false,
@@ -134,6 +140,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: true,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: false,
@@ -189,6 +196,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: true,
       enrich: false,
       related: false,
@@ -220,6 +228,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: true,
       related: false,
@@ -235,6 +244,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: true,
       related: false,
@@ -254,6 +264,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: true,
@@ -269,6 +280,7 @@ describe("parseArgs", () => {
       playlist: undefined,
       smokeTest: false,
       viewStats: false,
+      transcripts: false,
       embed: false,
       enrich: false,
       related: true,
@@ -306,5 +318,63 @@ describe("parseArgs", () => {
 
   it("rejects --enrich=value (boolean flag form only)", () => {
     expect(() => parseArgs(["--enrich=anything"])).toThrow(/does not take a value/)
+  })
+
+  it("accepts --transcripts alone", () => {
+    const parsed = parseArgs(["--transcripts"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      playlist: undefined,
+      smokeTest: false,
+      viewStats: false,
+      transcripts: true,
+      embed: false,
+      enrich: false,
+      related: false,
+      force: false,
+    })
+  })
+
+  it("rejects --transcripts=value (boolean flag form only)", () => {
+    expect(() => parseArgs(["--transcripts=anything"])).toThrow(/does not take a value/)
+  })
+
+  it("rejects --transcripts combined with --channel", () => {
+    expect(() => parseArgs(["--transcripts", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --transcripts combined with --video", () => {
+    expect(() => parseArgs(["--transcripts", "--video", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --transcripts combined with --playlist", () => {
+    expect(() => parseArgs(["--transcripts", "--playlist", "PLabc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --transcripts combined with --embed", () => {
+    expect(() => parseArgs(["--transcripts", "--embed"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --transcripts combined with --enrich", () => {
+    expect(() => parseArgs(["--transcripts", "--enrich"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --transcripts combined with --related", () => {
+    expect(() => parseArgs(["--transcripts", "--related"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --transcripts combined with --view-stats", () => {
+    expect(() => parseArgs(["--transcripts", "--view-stats"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --transcripts combined with --smoke-test", () => {
+    expect(() => parseArgs(["--transcripts", "--smoke-test"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --force with --transcripts", () => {
+    expect(() => parseArgs(["--transcripts", "--force"])).toThrow(
+      /--force requires --enrich or --related/,
+    )
   })
 })

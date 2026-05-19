@@ -18,3 +18,8 @@ export type {
 } from "./transcript.js"
 export { runViewStats } from "./view_stats.js"
 export type { RunViewStatsOptions, RunViewStatsSummary } from "./view_stats.js"
+export { runTranscriptsBackfill } from "./transcripts_backfill.js"
+export type {
+  TranscriptsBackfillOptions,
+  TranscriptsBackfillResult,
+} from "./transcripts_backfill.js"

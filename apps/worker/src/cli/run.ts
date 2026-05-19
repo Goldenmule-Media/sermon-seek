@@ -6,6 +6,7 @@ import { ingestChannel } from "../ingest/channel.js"
 import { runEmbedBackfill } from "../ingest/embed.js"
 import { ingestPlaylist } from "../ingest/playlist.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
+import { runTranscriptsBackfill } from "../ingest/transcripts_backfill.js"
 import { runViewStats } from "../ingest/view_stats.js"
 import { runRelatedBackfill } from "../related/run.js"
 import { runSmokeTest } from "../smoke/index.js"
@@ -17,6 +18,7 @@ interface ParsedArgs {
   playlist?: string
   smokeTest: boolean
   viewStats: boolean
+  transcripts: boolean
   embed: boolean
   enrich: boolean
   related: boolean
@@ -24,7 +26,7 @@ interface ParsedArgs {
 }
 
 const USAGE =
-  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --smoke-test | --view-stats | --embed | --enrich [--force] | --related [--force])"
+  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --smoke-test | --view-stats | --transcripts | --embed | --enrich [--force] | --related [--force])"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
@@ -32,6 +34,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   let playlist: string | undefined
   let smokeTest = false
   let viewStats = false
+  let transcripts = false
   let embed = false
   let enrich = false
   let related = false
@@ -86,6 +89,13 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     if (arg?.startsWith("--view-stats=")) {
       throw new Error("--view-stats does not take a value")
     }
+    if (arg === "--transcripts") {
+      transcripts = true
+      continue
+    }
+    if (arg?.startsWith("--transcripts=")) {
+      throw new Error("--transcripts does not take a value")
+    }
     if (arg === "--embed") {
       embed = true
       continue
@@ -125,6 +135,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     playlist ? "--playlist" : null,
     smokeTest ? "--smoke-test" : null,
     viewStats ? "--view-stats" : null,
+    transcripts ? "--transcripts" : null,
     embed ? "--embed" : null,
     enrich ? "--enrich" : null,
     related ? "--related" : null,
@@ -134,10 +145,21 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --embed, --enrich, or --related",
+      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --enrich, or --related",
     )
   }
-  return { channel, video, playlist, smokeTest, viewStats, embed, enrich, related, force }
+  return {
+    channel,
+    video,
+    playlist,
+    smokeTest,
+    viewStats,
+    transcripts,
+    embed,
+    enrich,
+    related,
+    force,
+  }
 }
 
 export async function main(argv: readonly string[]): Promise<number> {
@@ -237,6 +259,11 @@ export async function main(argv: readonly string[]): Promise<number> {
     }
     if (parsed.playlist) {
       const summary = await ingestPlaylist({ db, client, youtubePlaylistId: parsed.playlist })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    }
+    if (parsed.transcripts) {
+      const summary = await runTranscriptsBackfill({ db, client, log: console.log })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     }
