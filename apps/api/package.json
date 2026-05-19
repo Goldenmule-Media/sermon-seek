@@ -4,15 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch --env-file=../../.env src/index.ts",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
+    "start": "node --env-file=../../.env dist/index.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "biome check src",
-    "eval": "tsx eval/score.ts",
-    "perf": "tsx eval/perf.ts"
+    "eval": "tsx --env-file=../../.env eval/score.ts",
+    "perf": "tsx --env-file=../../.env eval/perf.ts"
   },
   "dependencies": {
     "@fastify/cors": "^10.0.1",
