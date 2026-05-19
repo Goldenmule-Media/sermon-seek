@@ -1,7 +1,30 @@
-import type { HomeResponse } from "@sermon-search/types"
+import type { HomeResponse, SearchResponse } from "@sermon-search/types"
 
 function apiBase(): string {
   return process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001"
+}
+
+export interface SearchParams {
+  q: string
+  playlist?: string
+  topic?: string
+  limit?: number
+  offset?: number
+}
+
+export async function fetchSearch(params: SearchParams): Promise<SearchResponse> {
+  try {
+    const sp = new URLSearchParams({ q: params.q })
+    if (params.playlist) sp.set("playlist", params.playlist)
+    if (params.topic) sp.set("topic", params.topic)
+    if (params.limit != null) sp.set("limit", String(params.limit))
+    if (params.offset != null) sp.set("offset", String(params.offset))
+    const res = await fetch(`${apiBase()}/v1/search?${sp.toString()}`)
+    if (!res.ok) return { results: [], total: 0, took_ms: 0 }
+    return res.json() as Promise<SearchResponse>
+  } catch {
+    return { results: [], total: 0, took_ms: 0 }
+  }
 }
 
 export async function fetchHome(): Promise<HomeResponse> {

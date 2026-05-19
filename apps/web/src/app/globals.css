@@ -56,3 +56,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.snippet mark {
+  background-color: #fef08a;
+  color: inherit;
+  padding: 0 0.125rem;
+  border-radius: 0.125rem;
+}
