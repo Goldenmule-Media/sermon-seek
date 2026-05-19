@@ -170,8 +170,12 @@ export async function ingestVideoTranscript(
       }
     }
 
-    if (wordRows.length > 0) {
-      await trx.insertInto("transcript_words").values(wordRows).execute()
+    // Postgres caps bound parameters at 65535. transcript_words has 7
+    // inserted columns, so we batch to stay under that ceiling.
+    const WORD_BATCH = 8000
+    for (let i = 0; i < wordRows.length; i += WORD_BATCH) {
+      const batch = wordRows.slice(i, i + WORD_BATCH)
+      await trx.insertInto("transcript_words").values(batch).execute()
     }
 
     return { transcriptId, segmentCount: segments.length, wordCount: words.length }
