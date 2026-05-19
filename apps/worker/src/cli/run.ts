@@ -1,5 +1,9 @@
 import { createDb } from "@sermon-search/db"
+import { createOpenAIEmbedder } from "@sermon-search/embeddings"
+import { createOpenAIEnricher } from "../enrich/llm.js"
+import { runEnrichBackfill } from "../enrich/run.js"
 import { ingestChannel } from "../ingest/channel.js"
+import { runEmbedBackfill } from "../ingest/embed.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
 import { runViewStats } from "../ingest/view_stats.js"
 import { runSmokeTest } from "../smoke/index.js"
@@ -10,16 +14,22 @@ interface ParsedArgs {
   video?: string
   smokeTest: boolean
   viewStats: boolean
+  embed: boolean
+  enrich: boolean
+  force: boolean
 }
 
 const USAGE =
-  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --smoke-test | --view-stats)"
+  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --smoke-test | --view-stats | --embed | --enrich [--force])"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
   let video: string | undefined
   let smokeTest = false
   let viewStats = false
+  let embed = false
+  let enrich = false
+  let force = false
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
     if (arg === "--") continue
@@ -59,23 +69,49 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     if (arg?.startsWith("--view-stats=")) {
       throw new Error("--view-stats does not take a value")
     }
+    if (arg === "--embed") {
+      embed = true
+      continue
+    }
+    if (arg?.startsWith("--embed=")) {
+      throw new Error("--embed does not take a value")
+    }
+    if (arg === "--enrich") {
+      enrich = true
+      continue
+    }
+    if (arg?.startsWith("--enrich=")) {
+      throw new Error("--enrich does not take a value")
+    }
+    if (arg === "--force") {
+      force = true
+      continue
+    }
+    if (arg?.startsWith("--force=")) {
+      throw new Error("--force does not take a value")
+    }
     throw new Error(`Unknown argument: ${arg}`)
+  }
+  if (force && !enrich) {
+    throw new Error("--force requires --enrich")
   }
   const modes = [
     channel ? "--channel" : null,
     video ? "--video" : null,
     smokeTest ? "--smoke-test" : null,
     viewStats ? "--view-stats" : null,
+    embed ? "--embed" : null,
+    enrich ? "--enrich" : null,
   ].filter((v): v is string => v !== null)
   if (modes.length > 1) {
     throw new Error(`${modes.join(", ")} are mutually exclusive`)
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --smoke-test, or --view-stats",
+      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --smoke-test, --view-stats, --embed, or --enrich",
     )
   }
-  return { channel, video, smokeTest, viewStats }
+  return { channel, video, smokeTest, viewStats, embed, enrich, force }
 }
 
 export async function main(argv: readonly string[]): Promise<number> {
@@ -86,6 +122,47 @@ export async function main(argv: readonly string[]): Promise<number> {
     console.error(err instanceof Error ? err.message : String(err))
     console.error(USAGE)
     return 2
+  }
+
+  if (parsed.embed) {
+    const apiKey = process.env.OPENAI_API_KEY
+    if (!apiKey) {
+      console.error("OPENAI_API_KEY is not set")
+      return 2
+    }
+    const db = createDb()
+    try {
+      const embedder = createOpenAIEmbedder({ apiKey })
+      const summary = await runEmbedBackfill({ db, embedder, log: console.log })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    } catch (err) {
+      console.error(err instanceof Error ? (err.stack ?? err.message) : String(err))
+      return 1
+    } finally {
+      await db.destroy()
+    }
+  }
+
+  if (parsed.enrich) {
+    const apiKey = process.env.OPENAI_API_KEY
+    if (!apiKey) {
+      console.error("OPENAI_API_KEY is not set")
+      return 2
+    }
+    const model = process.env.ENRICHMENT_MODEL ?? "gpt-4o-mini"
+    const db = createDb()
+    try {
+      const enricher = createOpenAIEnricher({ apiKey, model })
+      const summary = await runEnrichBackfill({ db, enricher, force: parsed.force, log: console.log })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    } catch (err) {
+      console.error(err instanceof Error ? (err.stack ?? err.message) : String(err))
+      return 1
+    } finally {
+      await db.destroy()
+    }
   }
 
   const apiKey = process.env.YOUTUBE_API_KEY

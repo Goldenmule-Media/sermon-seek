@@ -6,6 +6,8 @@ const envSchema = z.object({
   ADMIN_API_KEY: z.string().optional(),
   CORS_ORIGIN: z.string().url().default("http://localhost:3000"),
   DATABASE_URL: z.string().min(1),
+  OPENAI_API_KEY: z.string().optional(),
+  EMBEDDING_MODEL: z.string().default("text-embedding-3-small"),
 })
 
 export type Config = z.infer<typeof envSchema>

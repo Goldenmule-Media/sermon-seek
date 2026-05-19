@@ -1,6 +1,8 @@
 import type {
   HomeResponse,
   SearchResponse,
+  Topic,
+  TopicVideos,
   TranscriptResponse,
   VideoDetailResponse,
 } from "@sermon-search/types"
@@ -75,6 +77,36 @@ export async function fetchVideoSearch(id: string, q: string): Promise<SearchRes
     const res = await fetch(url.toString())
     if (!res.ok) return null
     return res.json() as Promise<SearchResponse>
+  } catch {
+    return null
+  }
+}
+
+export async function fetchTopics(): Promise<Topic[]> {
+  try {
+    const res = await fetch(`${apiBase()}/v1/topics`, { next: { revalidate: 60 } })
+    if (!res.ok) return []
+    const data = (await res.json()) as { topics: Topic[] }
+    return data.topics
+  } catch {
+    return []
+  }
+}
+
+export async function fetchTopic(
+  slug: string,
+  opts: { limit?: number; offset?: number } = {},
+): Promise<TopicVideos | null> {
+  try {
+    const sp = new URLSearchParams()
+    if (opts.limit != null) sp.set("limit", String(opts.limit))
+    if (opts.offset != null) sp.set("offset", String(opts.offset))
+    const qs = sp.toString()
+    const res = await fetch(`${apiBase()}/v1/topics/${slug}${qs ? `?${qs}` : ""}`, {
+      next: { revalidate: 60 },
+    })
+    if (!res.ok) return null
+    return res.json() as Promise<TopicVideos>
   } catch {
     return null
   }

@@ -1,5 +1,7 @@
-import { describe, expect, it } from "vitest"
+import { describe, expect, it, vi } from "vitest"
 import { parseArgs } from "./run.js"
+
+vi.mock("openai", () => ({ default: vi.fn() }))
 
 describe("parseArgs", () => {
   it("accepts --channel <handle>", () => {
@@ -9,6 +11,9 @@ describe("parseArgs", () => {
       video: undefined,
       smokeTest: false,
       viewStats: false,
+      embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -19,6 +24,9 @@ describe("parseArgs", () => {
       video: "19l5OI_8ljQ",
       smokeTest: false,
       viewStats: false,
+      embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -29,6 +37,9 @@ describe("parseArgs", () => {
       video: "19l5OI_8ljQ",
       smokeTest: false,
       viewStats: false,
+      embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -39,6 +50,9 @@ describe("parseArgs", () => {
       video: undefined,
       smokeTest: true,
       viewStats: false,
+      embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -49,6 +63,9 @@ describe("parseArgs", () => {
       video: undefined,
       smokeTest: false,
       viewStats: true,
+      embed: false,
+      enrich: false,
+      force: false,
     })
   })
 
@@ -90,5 +107,76 @@ describe("parseArgs", () => {
 
   it("rejects --video without a value", () => {
     expect(() => parseArgs(["--video"])).toThrow(/requires a value/)
+  })
+
+  it("accepts --embed alone", () => {
+    const parsed = parseArgs(["--embed"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+      embed: true,
+      enrich: false,
+      force: false,
+    })
+  })
+
+  it("rejects --embed combined with --channel", () => {
+    expect(() => parseArgs(["--embed", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --embed combined with --video", () => {
+    expect(() => parseArgs(["--embed", "--video", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --embed combined with --smoke-test", () => {
+    expect(() => parseArgs(["--embed", "--smoke-test"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --embed=value (boolean flag form only)", () => {
+    expect(() => parseArgs(["--embed=anything"])).toThrow(/does not take a value/)
+  })
+
+  it("accepts --enrich alone", () => {
+    const parsed = parseArgs(["--enrich"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+      embed: false,
+      enrich: true,
+      force: false,
+    })
+  })
+
+  it("accepts --enrich --force", () => {
+    const parsed = parseArgs(["--enrich", "--force"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      smokeTest: false,
+      viewStats: false,
+      embed: false,
+      enrich: true,
+      force: true,
+    })
+  })
+
+  it("rejects --force without --enrich", () => {
+    expect(() => parseArgs(["--force"])).toThrow(/--force requires --enrich/)
+  })
+
+  it("rejects --enrich combined with --embed", () => {
+    expect(() => parseArgs(["--enrich", "--embed"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --enrich combined with --channel", () => {
+    expect(() => parseArgs(["--enrich", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --enrich=value (boolean flag form only)", () => {
+    expect(() => parseArgs(["--enrich=anything"])).toThrow(/does not take a value/)
   })
 })

@@ -85,6 +85,18 @@ export interface ChannelRef {
   title: string
 }
 
+export interface Topic {
+  slug: string
+  label: string
+  video_count: number
+}
+
+export interface TopicVideos {
+  topic: Topic
+  videos: Video[]
+  total: number
+}
+
 export interface VideoDetailResponse {
   id: string
   youtube_video_id: string
@@ -96,7 +108,8 @@ export interface VideoDetailResponse {
   thumbnail_url: string
   playlists: PlaylistRef[]
   summary: string
-  topics: string[]
+  topics: Array<{ slug: string; label: string }>
+  scripture_refs: string[]
 }
 
 export interface TranscriptSegmentWithWords {

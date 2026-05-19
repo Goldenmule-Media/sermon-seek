@@ -84,6 +84,51 @@ export interface TranscriptWordsTable {
   position: number
 }
 
+export interface TranscriptChunksTable {
+  id: Generated<string>
+  video_id: string
+  transcript_id: string
+  start_ms: number
+  end_ms: number
+  text: string
+  position: number
+  created_at: Generated<Timestamptz>
+}
+
+export interface EmbeddingsTable {
+  chunk_id: string
+  model: string
+  vector: ColumnType<string, string, string>
+}
+
+export interface VideoEnrichmentsTable {
+  video_id: string
+  summary: string
+  model: string | null
+  model_version: string | null
+  enriched_at: Generated<Timestamptz>
+  raw_response: ColumnType<unknown | null, unknown | null, unknown | null>
+}
+
+export interface TopicsTable {
+  id: Generated<string>
+  slug: string
+  label: string
+  created_at: Generated<Timestamptz>
+}
+
+export interface VideoTopicsTable {
+  video_id: string
+  topic_id: string
+  position: number
+}
+
+export interface VideoScriptureRefsTable {
+  video_id: string
+  reference: string
+  position: number
+}
+
 export interface Database {
   channels: ChannelsTable
   playlists: PlaylistsTable
@@ -92,6 +137,12 @@ export interface Database {
   transcripts: TranscriptsTable
   transcript_segments: TranscriptSegmentsTable
   transcript_words: TranscriptWordsTable
+  transcript_chunks: TranscriptChunksTable
+  embeddings: EmbeddingsTable
+  video_enrichments: VideoEnrichmentsTable
+  topics: TopicsTable
+  video_topics: VideoTopicsTable
+  video_scripture_refs: VideoScriptureRefsTable
 }
 
 export type ChannelRow = Selectable<ChannelsTable>
@@ -121,6 +172,30 @@ export type TranscriptSegmentUpdate = Updateable<TranscriptSegmentsTable>
 export type TranscriptWordRow = Selectable<TranscriptWordsTable>
 export type TranscriptWordInsert = Insertable<TranscriptWordsTable>
 export type TranscriptWordUpdate = Updateable<TranscriptWordsTable>
+
+export type TranscriptChunkRow = Selectable<TranscriptChunksTable>
+export type TranscriptChunkInsert = Insertable<TranscriptChunksTable>
+export type TranscriptChunkUpdate = Updateable<TranscriptChunksTable>
+
+export type EmbeddingRow = Selectable<EmbeddingsTable>
+export type EmbeddingInsert = Insertable<EmbeddingsTable>
+export type EmbeddingUpdate = Updateable<EmbeddingsTable>
+
+export type VideoEnrichmentRow = Selectable<VideoEnrichmentsTable>
+export type VideoEnrichmentInsert = Insertable<VideoEnrichmentsTable>
+export type VideoEnrichmentUpdate = Updateable<VideoEnrichmentsTable>
+
+export type TopicRow = Selectable<TopicsTable>
+export type TopicInsert = Insertable<TopicsTable>
+export type TopicUpdate = Updateable<TopicsTable>
+
+export type VideoTopicRow = Selectable<VideoTopicsTable>
+export type VideoTopicInsert = Insertable<VideoTopicsTable>
+export type VideoTopicUpdate = Updateable<VideoTopicsTable>
+
+export type VideoScriptureRefRow = Selectable<VideoScriptureRefsTable>
+export type VideoScriptureRefInsert = Insertable<VideoScriptureRefsTable>
+export type VideoScriptureRefUpdate = Updateable<VideoScriptureRefsTable>
 
 export function resolveDatabaseUrl(connectionString?: string): string {
   const url = connectionString ?? process.env.DATABASE_URL
