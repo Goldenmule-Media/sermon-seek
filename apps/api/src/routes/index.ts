@@ -1,4 +1,5 @@
 import type { FastifyInstance } from "fastify"
+import { adminRoutes } from "./admin.js"
 import { echoRoutes } from "./echo.js"
 import { healthRoutes } from "./health.js"
 import { homeRoutes } from "./home.js"
@@ -21,4 +22,5 @@ export async function registerRoutes(app: FastifyInstance): Promise<void> {
   await app.register(videoRelatedRoutes)
   await app.register(videoSearchRoutes)
   await app.register(videoTranscriptRoutes)
+  await app.register(adminRoutes)
 }

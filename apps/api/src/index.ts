@@ -2,7 +2,10 @@ import { config } from "./config.js"
 import { buildApp } from "./server.js"
 
 async function main(): Promise<void> {
-  const app = await buildApp()
+  const app = await buildApp().catch((err: unknown) => {
+    console.error(`[fatal] ${err instanceof Error ? err.message : err}`)
+    process.exit(1)
+  })
 
   const shutdown = async (signal: NodeJS.Signals): Promise<void> => {
     app.log.info({ signal }, "shutting down")

@@ -12,9 +12,17 @@ import { config } from "./config.js"
 import { adminAuthPlugin } from "./plugins/admin-auth.js"
 import { dbPlugin } from "./plugins/db.js"
 import { embedderPlugin } from "./plugins/embedder.js"
+import { youtubePlugin } from "./plugins/youtube.js"
 import { registerRoutes } from "./routes/index.js"
 
 export async function buildApp(): Promise<FastifyInstance> {
+  if (!config.ADMIN_API_KEY) {
+    throw new Error("ADMIN_API_KEY is required when admin routes are mounted")
+  }
+  if (!config.YOUTUBE_API_KEY) {
+    throw new Error("YOUTUBE_API_KEY is required when admin routes are mounted")
+  }
+
   const app = Fastify({
     logger: { level: process.env.LOG_LEVEL ?? "info" },
   }).withTypeProvider<ZodTypeProvider>()
@@ -40,6 +48,7 @@ export async function buildApp(): Promise<FastifyInstance> {
         { name: "home", description: "Landing-page aggregate endpoint" },
         { name: "search", description: "Full-text search endpoints" },
         { name: "videos", description: "Video metadata and transcript endpoints" },
+        { name: "admin", description: "Admin / ingestion control endpoints" },
       ],
     },
     transform: jsonSchemaTransform,
@@ -48,6 +57,7 @@ export async function buildApp(): Promise<FastifyInstance> {
   await app.register(adminAuthPlugin)
   await app.register(dbPlugin)
   await app.register(embedderPlugin)
+  await app.register(youtubePlugin)
 
   await app.register(
     async (v1) => {

@@ -21,6 +21,7 @@
     "@sermon-search/db": "workspace:*",
     "@sermon-search/embeddings": "workspace:*",
     "@sermon-search/types": "workspace:*",
+    "@sermon-search/worker": "workspace:*",
     "fastify": "^5.1.0",
     "fastify-plugin": "^5.0.1",
     "fastify-type-provider-zod": "^4.0.2",

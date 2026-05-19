@@ -41,10 +41,13 @@ export interface CachedChannelResult {
 export async function getChannelMetadata(
   client: YoutubeClient,
   channelId: string,
+  options: { force?: boolean } = {},
 ): Promise<CachedChannelResult> {
-  const cached = await cache.readJson<YoutubeChannel>(channelMetadataParts(channelId))
-  if (cached !== null) {
-    return { channel: cached, fromCache: true }
+  if (!options.force) {
+    const cached = await cache.readJson<YoutubeChannel>(channelMetadataParts(channelId))
+    if (cached !== null) {
+      return { channel: cached, fromCache: true }
+    }
   }
   const response = await client.listChannelsById(channelId)
   const channel = response.items?.[0]
@@ -63,17 +66,19 @@ export interface CachedPlaylistsResult {
 export async function getChannelPlaylists(
   client: YoutubeClient,
   channelId: string,
-  options: { ttlMs?: number; now?: () => number } = {},
+  options: { ttlMs?: number; now?: () => number; force?: boolean } = {},
 ): Promise<CachedPlaylistsResult> {
   const ttl = options.ttlMs ?? PLAYLISTS_TTL_MS
   const now = options.now ?? (() => Date.now())
   const parts = channelPlaylistsParts(channelId)
 
-  const mtime = await fileMtimeMs(parts)
-  if (mtime !== null && now() - mtime < ttl) {
-    const cached = await cache.readJson<YoutubePlaylist[]>(parts)
-    if (cached !== null) {
-      return { playlists: cached, fromCache: true }
+  if (!options.force) {
+    const mtime = await fileMtimeMs(parts)
+    if (mtime !== null && now() - mtime < ttl) {
+      const cached = await cache.readJson<YoutubePlaylist[]>(parts)
+      if (cached !== null) {
+        return { playlists: cached, fromCache: true }
+      }
     }
   }
 
@@ -98,16 +103,17 @@ export async function getPlaylistItems(
   client: YoutubeClient,
   channelId: string,
   playlistId: string,
+  options: { force?: boolean } = {},
 ): Promise<CachedPlaylistItemsResult> {
   const parts = playlistItemsParts(channelId, playlistId)
-  const cached = (await cache.readJson<YoutubePlaylistItem[]>(parts)) ?? []
+  const existingCached = options.force ? [] : ((await cache.readJson<YoutubePlaylistItem[]>(parts)) ?? [])
   const knownIds = new Set<string>()
-  for (const item of cached) {
+  for (const item of existingCached) {
     const id = item.contentDetails?.videoId ?? item.snippet?.resourceId?.videoId
     if (id) knownIds.add(id)
   }
 
-  const newPagesPrepended: YoutubePlaylistItem[] = []
+  const newItems: YoutubePlaylistItem[] = []
   let pageToken: string | undefined
   let stopped = false
   do {
@@ -119,20 +125,25 @@ export async function getPlaylistItems(
         stopped = true
         break
       }
-      newPagesPrepended.push(item)
+      newItems.push(item)
     }
     if (stopped) break
     pageToken = page.nextPageToken
   } while (pageToken)
 
-  if (newPagesPrepended.length > 0) {
-    await cache.mergePrependedItems(parts, newPagesPrepended, "id")
+  if (options.force) {
+    await cache.writeJsonAtomic(parts, newItems)
+    return { items: newItems, hadNewItems: newItems.length > 0 }
+  }
+
+  if (newItems.length > 0) {
+    await cache.mergePrependedItems(parts, newItems, "id")
   }
 
   const merged = (await cache.readJson<YoutubePlaylistItem[]>(parts)) ?? []
   return {
     items: merged,
-    hadNewItems: newPagesPrepended.length > 0,
+    hadNewItems: newItems.length > 0,
   }
 }
 
