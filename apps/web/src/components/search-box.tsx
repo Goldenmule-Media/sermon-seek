@@ -5,9 +5,13 @@ import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-export function SearchBox() {
+interface SearchBoxProps {
+  initialQuery?: string
+}
+
+export function SearchBox({ initialQuery }: SearchBoxProps) {
   const router = useRouter()
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState(initialQuery ?? "")
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
