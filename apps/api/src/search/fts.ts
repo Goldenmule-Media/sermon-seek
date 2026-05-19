@@ -7,6 +7,9 @@ export interface FtsOptions {
   videoId?: string
   limit: number
   offset: number
+  topicSlug?: string
+  playlistSlug?: string
+  publishedAfter?: Date
 }
 
 export interface FtsResult {
@@ -24,7 +27,7 @@ export interface FtsResponse {
 }
 
 export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Promise<FtsResponse> {
-  const { q, videoId, limit, offset } = opts
+  const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter } = opts
 
   // Build the tsquery once; if all stopwords this returns no rows cleanly.
   const tsquery = sql<string>`plainto_tsquery('english', ${q})`
@@ -45,8 +48,29 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
     ])
     .where(ftsMatch)
 
+  let countBase = db
+    .selectFrom("transcript_segments as ts")
+    .innerJoin("videos as v", "v.id", "ts.video_id")
+    .select(sql<string>`count(*)`.as("count"))
+    .where(sql<SqlBool>`ts.text_tsv @@ ${tsquery}`)
+
   if (videoId !== undefined) {
     baseQuery = baseQuery.where("v.youtube_video_id", "=", videoId)
+    countBase = countBase.where("v.youtube_video_id", "=", videoId)
+  }
+  if (topicSlug !== undefined) {
+    const pred = sql<SqlBool>`v.id IN (SELECT vt.video_id FROM video_topics vt INNER JOIN topics t ON t.id = vt.topic_id WHERE t.slug = ${topicSlug})`
+    baseQuery = baseQuery.where(pred)
+    countBase = countBase.where(pred)
+  }
+  if (playlistSlug !== undefined) {
+    const pred = sql<SqlBool>`v.id IN (SELECT vp.video_id FROM video_playlists vp INNER JOIN playlists p ON p.id = vp.playlist_id WHERE p.slug = ${playlistSlug})`
+    baseQuery = baseQuery.where(pred)
+    countBase = countBase.where(pred)
+  }
+  if (publishedAfter !== undefined) {
+    baseQuery = baseQuery.where("v.published_at", ">=", publishedAfter)
+    countBase = countBase.where("v.published_at", ">=", publishedAfter)
   }
 
   const [rows, countRow] = await Promise.all([
@@ -56,14 +80,7 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
       .limit(limit)
       .offset(offset)
       .execute(),
-
-    db
-      .selectFrom("transcript_segments as ts")
-      .innerJoin("videos as v", "v.id", "ts.video_id")
-      .select(sql<string>`count(*)`.as("count"))
-      .where(sql<SqlBool>`ts.text_tsv @@ ${tsquery}`)
-      .$if(videoId !== undefined, (qb) => qb.where("v.youtube_video_id", "=", videoId as string))
-      .executeTakeFirstOrThrow(),
+    countBase.executeTakeFirstOrThrow(),
   ])
 
   return {

@@ -11,6 +11,7 @@ const querySchema = z.object({
   offset: z.coerce.number().int().min(0).default(0),
   topic: z.string().optional(),
   playlist: z.string().optional(),
+  date: z.enum(["year", "month"]).optional(),
 })
 
 const searchResultSchema = z.object({
@@ -43,14 +44,22 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
       },
     },
     async (request, reply) => {
-      const { q, mode, limit, offset } = request.query
+      const { q, mode, limit, offset, topic, playlist, date } = request.query
       const t0 = Date.now()
+
+      const topicSlug = topic || undefined
+      const playlistSlug = playlist || undefined
+      const publishedAfter = date === "month"
+        ? new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+        : date === "year"
+          ? new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)
+          : undefined
 
       if (mode === "semantic") {
         if (!app.embedder) {
           return reply.code(503).send({ message: "OPENAI_API_KEY is not configured" } as never)
         }
-        const { results, total } = await searchSemantic(app.db, app.embedder, { q, limit, offset })
+        const { results, total } = await searchSemantic(app.db, app.embedder, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
         return {
           results: results.map((r) => ({
             video_id: r.youtube_video_id,
@@ -66,7 +75,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       if (mode === "hybrid") {
-        const { results, total } = await searchHybrid(app.db, app.embedder, { q, limit, offset })
+        const { results, total } = await searchHybrid(app.db, app.embedder, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
         return {
           results: results.map((r) => ({
             video_id: r.youtube_video_id,
@@ -81,7 +90,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         }
       }
 
-      const { results, total } = await searchSegments(app.db, { q, limit, offset })
+      const { results, total } = await searchSegments(app.db, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
       return {
         results: results.map((r) => ({
           video_id: r.youtube_video_id,

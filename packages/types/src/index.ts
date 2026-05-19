@@ -101,6 +101,16 @@ export interface TopicVideos {
   total: number
 }
 
+export interface PlaylistVideos {
+  playlist: PlaylistWithStats
+  videos: Video[]
+  total: number
+}
+
+export interface PlaylistsResponse {
+  playlists: PlaylistWithStats[]
+}
+
 export interface VideoDetailResponse {
   id: string
   youtube_video_id: string
