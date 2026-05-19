@@ -10,6 +10,7 @@ import {
 } from "fastify-type-provider-zod"
 import { config } from "./config.js"
 import { adminAuthPlugin } from "./plugins/admin-auth.js"
+import { dbPlugin } from "./plugins/db.js"
 import { registerRoutes } from "./routes/index.js"
 
 export async function buildApp(): Promise<FastifyInstance> {
@@ -33,12 +34,17 @@ export async function buildApp(): Promise<FastifyInstance> {
         version: "0.0.0",
       },
       servers: [{ url: "/v1" }],
-      tags: [{ name: "system", description: "Service health & diagnostics" }],
+      tags: [
+        { name: "system", description: "Service health & diagnostics" },
+        { name: "home", description: "Landing-page aggregate endpoint" },
+        { name: "search", description: "Full-text search endpoints" },
+      ],
     },
     transform: jsonSchemaTransform,
   })
 
   await app.register(adminAuthPlugin)
+  await app.register(dbPlugin)
 
   await app.register(
     async (v1) => {

@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest"
 import { CaptionsUnavailable } from "../captions/errors.js"
 import type { FetchCaptionsResult } from "../captions/fetch.js"
-import { runSmokeTest, SmokeTestInvariantFailed } from "./smoke-test.js"
+import { SmokeTestInvariantFailed, runSmokeTest } from "./smoke-test.js"
 
 const SAMPLE_VTT = `WEBVTT
 Kind: captions
@@ -36,10 +36,13 @@ function makeLogger(): CapturedLogger {
 }
 
 function makeBaseDeps(overrides: Partial<Parameters<typeof runSmokeTest>[0]> = {}) {
-  const fetchCaptions = vi.fn(async () => ({
-    vttPath: "/tmp/fake.vtt",
-    fromCache: false,
-  } satisfies FetchCaptionsResult))
+  const fetchCaptions = vi.fn(
+    async () =>
+      ({
+        vttPath: "/tmp/fake.vtt",
+        fromCache: false,
+      }) satisfies FetchCaptionsResult,
+  )
   const getDurationSeconds = vi.fn(async () => 14)
   const clearCache = vi.fn(async () => {})
   const readVttFile = vi.fn(async () => SAMPLE_VTT)
