@@ -4,6 +4,7 @@ import { createOpenAIEnricher } from "../enrich/llm.js"
 import { runEnrichBackfill } from "../enrich/run.js"
 import { ingestChannel } from "../ingest/channel.js"
 import { runEmbedBackfill } from "../ingest/embed.js"
+import { ingestPlaylist } from "../ingest/playlist.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
 import { runViewStats } from "../ingest/view_stats.js"
 import { runRelatedBackfill } from "../related/run.js"
@@ -13,6 +14,7 @@ import { YoutubeClient } from "../youtube/client.js"
 interface ParsedArgs {
   channel?: string
   video?: string
+  playlist?: string
   smokeTest: boolean
   viewStats: boolean
   embed: boolean
@@ -22,11 +24,12 @@ interface ParsedArgs {
 }
 
 const USAGE =
-  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --smoke-test | --view-stats | --embed | --enrich [--force] | --related [--force])"
+  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --smoke-test | --view-stats | --embed | --enrich [--force] | --related [--force])"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
   let video: string | undefined
+  let playlist: string | undefined
   let smokeTest = false
   let viewStats = false
   let embed = false
@@ -56,6 +59,17 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     }
     if (arg?.startsWith("--video=")) {
       video = arg.slice("--video=".length)
+      continue
+    }
+    if (arg === "--playlist") {
+      const next = argv[i + 1]
+      if (next === undefined) throw new Error("--playlist requires a value")
+      playlist = next
+      i += 1
+      continue
+    }
+    if (arg?.startsWith("--playlist=")) {
+      playlist = arg.slice("--playlist=".length)
       continue
     }
     if (arg === "--smoke-test") {
@@ -108,6 +122,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   const modes = [
     channel ? "--channel" : null,
     video ? "--video" : null,
+    playlist ? "--playlist" : null,
     smokeTest ? "--smoke-test" : null,
     viewStats ? "--view-stats" : null,
     embed ? "--embed" : null,
@@ -119,10 +134,10 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --smoke-test, --view-stats, --embed, --enrich, or --related",
+      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --embed, --enrich, or --related",
     )
   }
-  return { channel, video, smokeTest, viewStats, embed, enrich, related, force }
+  return { channel, video, playlist, smokeTest, viewStats, embed, enrich, related, force }
 }
 
 export async function main(argv: readonly string[]): Promise<number> {
@@ -218,6 +233,11 @@ export async function main(argv: readonly string[]): Promise<number> {
     if (parsed.video) {
       const result = await ingestVideoTranscript({ db, client, youtubeVideoId: parsed.video })
       console.log(JSON.stringify(result, null, 2))
+      return 0
+    }
+    if (parsed.playlist) {
+      const summary = await ingestPlaylist({ db, client, youtubePlaylistId: parsed.playlist })
+      console.log(JSON.stringify(summary, null, 2))
       return 0
     }
     const summary = await ingestChannel({ db, client, handleOrId: parsed.channel as string })

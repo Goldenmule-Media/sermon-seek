@@ -132,6 +132,13 @@ export class YoutubeClient {
     })
   }
 
+  async listPlaylistsById(playlistId: string): Promise<PlaylistsListResponse> {
+    return this.getJson<PlaylistsListResponse>("playlists", {
+      part: "snippet,contentDetails",
+      id: playlistId,
+    })
+  }
+
   async listPlaylistItems(
     playlistId: string,
     pageToken?: string,

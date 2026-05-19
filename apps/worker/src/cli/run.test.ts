@@ -9,6 +9,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: "@example",
       video: undefined,
+      playlist: undefined,
       smokeTest: false,
       viewStats: false,
       embed: false,
@@ -23,6 +24,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: undefined,
       video: "19l5OI_8ljQ",
+      playlist: undefined,
       smokeTest: false,
       viewStats: false,
       embed: false,
@@ -37,6 +39,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: undefined,
       video: "19l5OI_8ljQ",
+      playlist: undefined,
       smokeTest: false,
       viewStats: false,
       embed: false,
@@ -46,11 +49,74 @@ describe("parseArgs", () => {
     })
   })
 
+  it("accepts --playlist <id> with space form", () => {
+    const parsed = parseArgs(["--playlist", "PL4R8x7Q9Xp09xzyHuw6T9xdzQVUjwGIAE"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      playlist: "PL4R8x7Q9Xp09xzyHuw6T9xdzQVUjwGIAE",
+      smokeTest: false,
+      viewStats: false,
+      embed: false,
+      enrich: false,
+      related: false,
+      force: false,
+    })
+  })
+
+  it("accepts --playlist=<id> with equals form", () => {
+    const parsed = parseArgs(["--playlist=PL4R8x7Q9Xp09xzyHuw6T9xdzQVUjwGIAE"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      playlist: "PL4R8x7Q9Xp09xzyHuw6T9xdzQVUjwGIAE",
+      smokeTest: false,
+      viewStats: false,
+      embed: false,
+      enrich: false,
+      related: false,
+      force: false,
+    })
+  })
+
+  it("rejects --playlist without a value", () => {
+    expect(() => parseArgs(["--playlist"])).toThrow(/requires a value/)
+  })
+
+  it("rejects --playlist combined with --channel", () => {
+    expect(() => parseArgs(["--playlist", "PLabc", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --playlist combined with --video", () => {
+    expect(() => parseArgs(["--playlist", "PLabc", "--video", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --playlist combined with --smoke-test", () => {
+    expect(() => parseArgs(["--playlist", "PLabc", "--smoke-test"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --playlist combined with --view-stats", () => {
+    expect(() => parseArgs(["--playlist", "PLabc", "--view-stats"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --playlist combined with --embed", () => {
+    expect(() => parseArgs(["--playlist", "PLabc", "--embed"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --playlist combined with --enrich", () => {
+    expect(() => parseArgs(["--playlist", "PLabc", "--enrich"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --playlist combined with --related", () => {
+    expect(() => parseArgs(["--playlist", "PLabc", "--related"])).toThrow(/mutually exclusive/)
+  })
+
   it("accepts --smoke-test alone", () => {
     const parsed = parseArgs(["--smoke-test"])
     expect(parsed).toEqual({
       channel: undefined,
       video: undefined,
+      playlist: undefined,
       smokeTest: true,
       viewStats: false,
       embed: false,
@@ -65,6 +131,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: undefined,
       video: undefined,
+      playlist: undefined,
       smokeTest: false,
       viewStats: true,
       embed: false,
@@ -119,6 +186,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: undefined,
       video: undefined,
+      playlist: undefined,
       smokeTest: false,
       viewStats: false,
       embed: true,
@@ -149,6 +217,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: undefined,
       video: undefined,
+      playlist: undefined,
       smokeTest: false,
       viewStats: false,
       embed: false,
@@ -163,6 +232,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: undefined,
       video: undefined,
+      playlist: undefined,
       smokeTest: false,
       viewStats: false,
       embed: false,
@@ -181,6 +251,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: undefined,
       video: undefined,
+      playlist: undefined,
       smokeTest: false,
       viewStats: false,
       embed: false,
@@ -195,6 +266,7 @@ describe("parseArgs", () => {
     expect(parsed).toEqual({
       channel: undefined,
       video: undefined,
+      playlist: undefined,
       smokeTest: false,
       viewStats: false,
       embed: false,
