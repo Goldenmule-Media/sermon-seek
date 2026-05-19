@@ -8,6 +8,8 @@ const envSchema = z.object({
   DATABASE_URL: z.string().min(1),
   OPENAI_API_KEY: z.string().optional(),
   EMBEDDING_MODEL: z.string().default("text-embedding-3-small"),
+  YOUTUBE_API_KEY: z.string().optional(),
+  CACHE_DIR: z.string().optional(),
 })
 
 export type Config = z.infer<typeof envSchema>

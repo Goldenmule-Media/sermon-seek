@@ -21,6 +21,7 @@ export interface IngestChannelOptions {
   db: Kysely<Database>
   client: YoutubeClient
   handleOrId: string
+  force?: boolean
 }
 
 export interface IngestChannelSummary {
@@ -31,10 +32,10 @@ export interface IngestChannelSummary {
 }
 
 export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestChannelSummary> {
-  const { db, client, handleOrId } = opts
+  const { db, client, handleOrId, force } = opts
 
   const resolved = await resolveChannel(client, handleOrId)
-  const { channel } = await getChannelMetadata(client, resolved.youtubeChannelId)
+  const { channel } = await getChannelMetadata(client, resolved.youtubeChannelId, { force })
   const channelTitle = channel.snippet?.title ?? resolved.title
 
   const channelRow = await db
@@ -49,7 +50,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
 
   const channelDbId = channelRow.id
 
-  const { playlists } = await getChannelPlaylists(client, resolved.youtubeChannelId)
+  const { playlists } = await getChannelPlaylists(client, resolved.youtubeChannelId, { force })
 
   // Preload existing slugs for this channel so re-ingestion reuses them (sticky)
   // and new playlists can't collide with stored ones regardless of API ordering.
@@ -112,7 +113,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
     []
 
   for (const pl of playlists) {
-    const { items } = await getPlaylistItems(client, resolved.youtubeChannelId, pl.id)
+    const { items } = await getPlaylistItems(client, resolved.youtubeChannelId, pl.id, { force })
     for (const item of items) {
       const videoId = item.contentDetails?.videoId ?? item.snippet?.resourceId?.videoId
       if (!videoId) continue

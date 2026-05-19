@@ -35,6 +35,9 @@ importers:
       '@sermon-search/types':
         specifier: workspace:*
         version: link:../../packages/types
+      '@sermon-search/worker':
+        specifier: workspace:*
+        version: link:../worker
       fastify:
         specifier: ^5.1.0
         version: 5.8.5
