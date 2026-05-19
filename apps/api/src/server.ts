@@ -36,6 +36,7 @@ export async function buildApp(): Promise<FastifyInstance> {
       servers: [{ url: "/v1" }],
       tags: [
         { name: "system", description: "Service health & diagnostics" },
+        { name: "home", description: "Landing-page aggregate endpoint" },
         { name: "search", description: "Full-text search endpoints" },
       ],
     },

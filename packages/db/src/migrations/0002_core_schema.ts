@@ -53,7 +53,9 @@ export async function up(db: Kysely<unknown>): Promise<void> {
       PRIMARY KEY (video_id, playlist_id)
     )
   `.execute(db)
-  await sql`CREATE INDEX video_playlists_playlist_id_idx ON video_playlists (playlist_id)`.execute(db)
+  await sql`CREATE INDEX video_playlists_playlist_id_idx ON video_playlists (playlist_id)`.execute(
+    db,
+  )
 
   await sql`
     CREATE TABLE transcripts (
@@ -82,9 +84,15 @@ export async function up(db: Kysely<unknown>): Promise<void> {
       text_tsv tsvector GENERATED ALWAYS AS (to_tsvector('english', text)) STORED
     )
   `.execute(db)
-  await sql`CREATE INDEX transcript_segments_transcript_id_idx ON transcript_segments (transcript_id)`.execute(db)
-  await sql`CREATE INDEX transcript_segments_video_start_idx ON transcript_segments (video_id, start_ms)`.execute(db)
-  await sql`CREATE INDEX transcript_segments_text_tsv_idx ON transcript_segments USING gin (text_tsv)`.execute(db)
+  await sql`CREATE INDEX transcript_segments_transcript_id_idx ON transcript_segments (transcript_id)`.execute(
+    db,
+  )
+  await sql`CREATE INDEX transcript_segments_video_start_idx ON transcript_segments (video_id, start_ms)`.execute(
+    db,
+  )
+  await sql`CREATE INDEX transcript_segments_text_tsv_idx ON transcript_segments USING gin (text_tsv)`.execute(
+    db,
+  )
 
   await sql`
     CREATE TABLE transcript_words (
@@ -99,8 +107,12 @@ export async function up(db: Kysely<unknown>): Promise<void> {
       UNIQUE (segment_id, position)
     )
   `.execute(db)
-  await sql`CREATE INDEX transcript_words_segment_id_idx ON transcript_words (segment_id)`.execute(db)
-  await sql`CREATE INDEX transcript_words_video_start_idx ON transcript_words (video_id, start_ms)`.execute(db)
+  await sql`CREATE INDEX transcript_words_segment_id_idx ON transcript_words (segment_id)`.execute(
+    db,
+  )
+  await sql`CREATE INDEX transcript_words_video_start_idx ON transcript_words (video_id, start_ms)`.execute(
+    db,
+  )
 
   await sql`
     CREATE TABLE embeddings (
@@ -110,7 +122,9 @@ export async function up(db: Kysely<unknown>): Promise<void> {
       PRIMARY KEY (chunk_id, model)
     )
   `.execute(db)
-  await sql`CREATE INDEX embeddings_vector_hnsw_idx ON embeddings USING hnsw (vector vector_cosine_ops)`.execute(db)
+  await sql`CREATE INDEX embeddings_vector_hnsw_idx ON embeddings USING hnsw (vector vector_cosine_ops)`.execute(
+    db,
+  )
 }
 
 export async function down(db: Kysely<unknown>): Promise<void> {

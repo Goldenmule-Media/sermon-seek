@@ -11,11 +11,7 @@ const DEFAULT_MIN_SEGMENTS = 50
 const DEFAULT_MIN_WORDS = 500
 const DEFAULT_MIN_COVERAGE_PCT = 60
 
-export type SmokeTestErrorCode =
-  | "min_segments"
-  | "min_words"
-  | "low_coverage"
-  | "unknown_duration"
+export type SmokeTestErrorCode = "min_segments" | "min_words" | "low_coverage" | "unknown_duration"
 
 export class SmokeTestInvariantFailed extends Error {
   readonly code: SmokeTestErrorCode
@@ -105,7 +101,8 @@ export async function runSmokeTest(opts: RunSmokeTestOptions = {}): Promise<RunS
   const logger = opts.logger ?? defaultLogger
   const videoId = opts.videoId ?? process.env.SMOKE_TEST_VIDEO_ID ?? DEFAULT_VIDEO_ID
   const minSegments =
-    opts.minSegments ?? parsePositiveNumber(process.env.SMOKE_TEST_MIN_SEGMENTS, DEFAULT_MIN_SEGMENTS)
+    opts.minSegments ??
+    parsePositiveNumber(process.env.SMOKE_TEST_MIN_SEGMENTS, DEFAULT_MIN_SEGMENTS)
   const minWords =
     opts.minWords ?? parsePositiveNumber(process.env.SMOKE_TEST_MIN_WORDS, DEFAULT_MIN_WORDS)
   const minCoveragePct =
