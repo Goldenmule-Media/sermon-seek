@@ -4,11 +4,13 @@ import { InlineYouTubePlayer } from "@/components/inline-youtube-player"
 import { VideoSummary } from "@/components/video-summary"
 import { formatDuration } from "@/lib/utils"
 import type { SearchResult } from "@sermon-search/types"
-import { ChevronRight, Play } from "lucide-react"
+import { ChevronDown, ChevronRight, ChevronUp, Play } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react"
 
 const PER_CARD_REF_LIMIT = 6
+const COLLAPSED_HIT_LIMIT = 3
 
 interface SearchResultCardProps {
   result: SearchResult
@@ -29,6 +31,12 @@ export function SearchResultCard({
   const overflow = result.scripture_refs.length - refs.length
   const videoHref = `/videos/${result.video_id}`
   const isExpanded = expandedStart !== null
+
+  const [hitsExpanded, setHitsExpanded] = useState(false)
+  const canCollapseHits = result.hits.length > COLLAPSED_HIT_LIMIT
+  const visibleHits =
+    hitsExpanded || !canCollapseHits ? result.hits : result.hits.slice(0, COLLAPSED_HIT_LIMIT)
+  const hiddenHitCount = result.hits.length - visibleHits.length
 
   return (
     <div className="flex flex-col gap-3 p-4 rounded-lg border bg-card">
@@ -75,7 +83,7 @@ export function SearchResultCard({
           {result.hits.length} match{result.hits.length === 1 ? "" : "es"} — jump to timestamp
         </p>
         <ul className="divide-y">
-          {result.hits.map((hit, i) => {
+          {visibleHits.map((hit, i) => {
             const t = Math.floor(hit.start_ms / 1000)
             const hasTimestamp = hit.start_ms > 0 || hit.snippet.length > 0
             const isActive = isExpanded && expandedStart === t
@@ -121,6 +129,25 @@ export function SearchResultCard({
             )
           })}
         </ul>
+        {canCollapseHits && (
+          <button
+            type="button"
+            onClick={() => setHitsExpanded((v) => !v)}
+            className="flex w-full items-center justify-center gap-1.5 border-t bg-muted/40 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+          >
+            {hitsExpanded ? (
+              <>
+                <ChevronUp className="h-3.5 w-3.5" aria-hidden />
+                Show fewer matches
+              </>
+            ) : (
+              <>
+                <ChevronDown className="h-3.5 w-3.5" aria-hidden />
+                Show {hiddenHitCount} more match{hiddenHitCount === 1 ? "" : "es"}
+              </>
+            )}
+          </button>
+        )}
       </div>
 
       {refs.length > 0 && (

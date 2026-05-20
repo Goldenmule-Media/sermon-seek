@@ -29,6 +29,7 @@ declare global {
 
 export interface YouTubePlayerHandle {
   seekTo(seconds: number): void
+  getCurrentTime(): number
 }
 
 interface Props {
@@ -69,6 +70,9 @@ export const YouTubePlayer = forwardRef<YouTubePlayerHandle, Props>(
     useImperativeHandle(ref, () => ({
       seekTo(seconds: number) {
         playerRef.current?.seekTo(seconds, true)
+      },
+      getCurrentTime() {
+        return playerRef.current?.getCurrentTime() ?? 0
       },
     }))
 

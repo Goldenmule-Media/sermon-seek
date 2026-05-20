@@ -48,19 +48,25 @@ export function VideoDetailShell({ video, transcript }: Props) {
           onTimeUpdate={setCurrentMs}
         />
       </div>
-      {transcript && (
-        <div
-          className="lg:col-span-2 flex flex-col min-h-0"
-          style={{ height: playerHeight ?? 384 }}
-        >
-          <h2 className="text-sm font-semibold mb-2">Transcript</h2>
+      <div
+        className="lg:col-span-2 flex flex-col min-h-0"
+        style={{ height: playerHeight ?? 384 }}
+      >
+        <h2 className="text-sm font-semibold mb-2">Transcript</h2>
+        {transcript ? (
           <TranscriptView
             segments={transcript.segments}
             currentMs={currentMs}
             onSeek={handleSeek}
           />
-        </div>
-      )}
+        ) : (
+          <div className="flex-1 flex items-center justify-center rounded-md border border-dashed border-border bg-muted/30 p-6 text-center">
+            <p className="text-sm text-muted-foreground">
+              No transcript is available for this video.
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
