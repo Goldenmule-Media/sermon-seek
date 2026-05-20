@@ -5,11 +5,12 @@ import Link from "next/link"
 
 interface SearchResultCardProps {
   result: SearchResult
+  hasTimestamp: boolean
 }
 
-export function SearchResultCard({ result }: SearchResultCardProps) {
+export function SearchResultCard({ result, hasTimestamp }: SearchResultCardProps) {
   const t = Math.floor(result.start_ms / 1000)
-  const href = t > 0 ? `/videos/${result.video_id}?t=${t}` : `/videos/${result.video_id}`
+  const href = hasTimestamp ? `/videos/${result.video_id}?t=${t}` : `/videos/${result.video_id}`
 
   return (
     <Link
@@ -38,7 +39,7 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
             dangerouslySetInnerHTML={{ __html: result.snippet }}
           />
         )}
-        {t > 0 && (
+        {hasTimestamp && (
           <span className="text-xs text-primary font-mono mt-auto">
             {formatDuration(result.start_ms)}
           </span>

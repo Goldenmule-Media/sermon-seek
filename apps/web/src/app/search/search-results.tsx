@@ -99,7 +99,7 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
             <ul className="space-y-3">
               {data.results.map((result, i) => (
                 <li key={`${result.video_id}-${result.start_ms}-${i}`}>
-                  <SearchResultCard result={result} />
+                  <SearchResultCard result={result} hasTimestamp={!ref} />
                 </li>
               ))}
             </ul>
