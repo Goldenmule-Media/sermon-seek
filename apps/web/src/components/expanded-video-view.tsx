@@ -75,46 +75,55 @@ export function ExpandedVideoView({ videoId, startSeconds, onClose }: Props) {
 
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6 lg:items-start">
-        <div className="lg:col-span-3 relative" ref={playerWrapperRef}>
-          <YouTubePlayer
-            ref={playerRef}
-            key={videoId}
-            videoId={videoId}
-            initialStartSeconds={initialStartRef.current}
-            autoplay
-            onTimeUpdate={setCurrentMs}
-          />
+      <div className="rounded-md border bg-muted/20 overflow-hidden">
+        <div className="flex items-center justify-between px-2 py-1 border-b bg-muted/40">
+          <span className="px-2 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+            Now playing
+          </span>
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close player"
-            className="absolute -top-2 -right-2 z-10 h-7 w-7 rounded-full bg-background border shadow-sm flex items-center justify-center hover:bg-accent transition-colors"
+            aria-label="Close player and transcript"
+            className="inline-flex h-6 w-6 items-center justify-center rounded-md text-muted-foreground hover:bg-background hover:text-foreground transition-colors"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
-        <div
-          className="lg:col-span-2 flex flex-col min-h-0"
-          style={{ height: playerHeight ?? 384 }}
-        >
-          {loading ? (
-            <div className="flex-1 flex items-center justify-center rounded-md border border-dashed border-border bg-muted/30 p-6">
-              <p className="text-sm text-muted-foreground">Loading transcript…</p>
+        <div className="p-3 lg:p-4">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6 lg:items-start">
+            <div className="lg:col-span-3" ref={playerWrapperRef}>
+              <YouTubePlayer
+                ref={playerRef}
+                key={videoId}
+                videoId={videoId}
+                initialStartSeconds={initialStartRef.current}
+                autoplay
+                onTimeUpdate={setCurrentMs}
+              />
             </div>
-          ) : transcript ? (
-            <TranscriptView
-              segments={transcript.segments}
-              currentMs={currentMs}
-              onSeek={handleSeek}
-            />
-          ) : (
-            <div className="flex-1 flex items-center justify-center rounded-md border border-dashed border-border bg-muted/30 p-6 text-center">
-              <p className="text-sm text-muted-foreground">
-                No transcript available for this video.
-              </p>
+            <div
+              className="lg:col-span-2 flex flex-col min-h-0"
+              style={{ height: playerHeight ?? 384 }}
+            >
+              {loading ? (
+                <div className="flex-1 flex items-center justify-center rounded-md border border-dashed border-border bg-muted/30 p-6">
+                  <p className="text-sm text-muted-foreground">Loading transcript…</p>
+                </div>
+              ) : transcript ? (
+                <TranscriptView
+                  segments={transcript.segments}
+                  currentMs={currentMs}
+                  onSeek={handleSeek}
+                />
+              ) : (
+                <div className="flex-1 flex items-center justify-center rounded-md border border-dashed border-border bg-muted/30 p-6 text-center">
+                  <p className="text-sm text-muted-foreground">
+                    No transcript available for this video.
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
       <button

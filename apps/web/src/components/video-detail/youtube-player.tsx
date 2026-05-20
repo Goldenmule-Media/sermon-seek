@@ -120,8 +120,16 @@ export const YouTubePlayer = forwardRef<YouTubePlayerHandle, Props>(
     }, [videoId, initialStartSeconds])
 
     return (
-      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-        <div ref={containerRef} className="absolute inset-0" />
+      // YT.Player REPLACES `containerRef` with an iframe (it doesn't inject
+      // inside it), so we target the iframe from the outer wrapper. Default
+      // YT iframe attrs are width="640" height="360" which overflow narrower
+      // columns; forcing it to absolute-fill the 16:9 padding box keeps the
+      // player inside its grid cell no matter how tight the layout is.
+      <div
+        className="relative w-full [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:w-full [&_iframe]:h-full"
+        style={{ paddingBottom: "56.25%" }}
+      >
+        <div ref={containerRef} />
       </div>
     )
   },
