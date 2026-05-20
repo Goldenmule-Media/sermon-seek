@@ -1,3 +1,6 @@
+"use client"
+
+import { InlineYouTubePlayer } from "@/components/inline-youtube-player"
 import { VideoSummary } from "@/components/video-summary"
 import { formatDuration } from "@/lib/utils"
 import type { SearchResult } from "@sermon-search/types"
@@ -9,42 +12,63 @@ const PER_CARD_REF_LIMIT = 6
 
 interface SearchResultCardProps {
   result: SearchResult
+  // When this card is the one currently playing inline, this is the start
+  // timestamp (in seconds) of the active hit. null when not expanded.
+  expandedStart: number | null
+  onPlayHit: (startSeconds: number) => void
+  onClosePlayer: () => void
 }
 
-export function SearchResultCard({ result }: SearchResultCardProps) {
+export function SearchResultCard({
+  result,
+  expandedStart,
+  onPlayHit,
+  onClosePlayer,
+}: SearchResultCardProps) {
   const refs = result.scripture_refs.slice(0, PER_CARD_REF_LIMIT)
   const overflow = result.scripture_refs.length - refs.length
   const videoHref = `/videos/${result.video_id}`
+  const isExpanded = expandedStart !== null
 
   return (
     <div className="flex flex-col gap-3 p-4 rounded-lg border bg-card">
-      <div className="flex items-center gap-4">
-        <Link
-          href={videoHref}
-          className="relative shrink-0 w-40 h-24 rounded overflow-hidden bg-muted"
-        >
-          {result.thumbnail_url ? (
-            <Image
-              src={result.thumbnail_url}
-              alt={result.title}
-              fill
-              className="object-cover"
-              sizes="160px"
-            />
-          ) : (
-            <div className="w-full h-full bg-muted" />
-          )}
-        </Link>
-        <div className="flex flex-col gap-2 min-w-0 flex-1">
+      {!isExpanded && (
+        <div className="flex items-center gap-4">
           <Link
             href={videoHref}
-            className="font-semibold leading-snug line-clamp-2 hover:underline"
+            className="relative shrink-0 w-40 h-24 rounded overflow-hidden bg-muted"
           >
-            {result.title}
+            {result.thumbnail_url ? (
+              <Image
+                src={result.thumbnail_url}
+                alt={result.title}
+                fill
+                className="object-cover"
+                sizes="160px"
+              />
+            ) : (
+              <div className="w-full h-full bg-muted" />
+            )}
           </Link>
-          <VideoSummary summary={result.summary} />
+          <div className="flex flex-col gap-2 min-w-0 flex-1">
+            <Link
+              href={videoHref}
+              className="font-semibold leading-snug line-clamp-2 hover:underline"
+            >
+              {result.title}
+            </Link>
+            <VideoSummary summary={result.summary} />
+          </div>
         </div>
-      </div>
+      )}
+
+      {isExpanded && expandedStart !== null && (
+        <InlineYouTubePlayer
+          videoId={result.video_id}
+          startSeconds={expandedStart}
+          onClose={onClosePlayer}
+        />
+      )}
 
       <div className="rounded-md border bg-background overflow-hidden">
         <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground px-3 py-1.5 border-b bg-muted/40">
@@ -54,14 +78,15 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
           {result.hits.map((hit, i) => {
             const t = Math.floor(hit.start_ms / 1000)
             const hasTimestamp = hit.start_ms > 0 || hit.snippet.length > 0
-            const hitHref = hasTimestamp
-              ? `/videos/${result.video_id}?t=${t}`
-              : `/videos/${result.video_id}`
+            const isActive = isExpanded && expandedStart === t
             return (
               <li key={`${hit.start_ms}-${i}`}>
-                <Link
-                  href={hitHref}
-                  className="group flex items-center gap-3 px-3 py-2 text-sm hover:bg-accent transition-colors"
+                <button
+                  type="button"
+                  onClick={() => onPlayHit(t)}
+                  className={`group flex w-full items-center gap-3 px-3 py-2 text-sm text-left transition-colors ${
+                    isActive ? "bg-accent" : "hover:bg-accent"
+                  }`}
                 >
                   {hasTimestamp && (
                     <span className="inline-flex items-center gap-1 text-xs text-primary font-mono shrink-0 tabular-nums">
@@ -91,7 +116,7 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
                     className="h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-foreground group-hover:translate-x-0.5 transition-all"
                     aria-hidden
                   />
-                </Link>
+                </button>
               </li>
             )
           })}

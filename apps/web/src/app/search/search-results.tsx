@@ -67,6 +67,17 @@ export function SearchResults({ playlists }: SearchResultsProps) {
 
   const filters: FilterValues = { playlist, from, to }
 
+  // Only one expanded inline player at a time across the page.
+  const [activeHit, setActiveHit] = useState<{ videoId: string; startSeconds: number } | null>(
+    null,
+  )
+
+  // Collapse the active player whenever the search query or filters change —
+  // the underlying result it referenced may no longer be on the page.
+  useEffect(() => {
+    setActiveHit(null)
+  }, [q, ref, playlist, from, to])
+
   return (
     <div className="space-y-4">
       <SearchFilters values={filters} playlists={playlists} />
@@ -99,11 +110,22 @@ export function SearchResults({ playlists }: SearchResultsProps) {
             </p>
           ) : (
             <ul className="space-y-3">
-              {data.results.map((result) => (
-                <li key={result.video_id}>
-                  <SearchResultCard result={result} />
-                </li>
-              ))}
+              {data.results.map((result) => {
+                const expanded =
+                  activeHit?.videoId === result.video_id ? activeHit.startSeconds : null
+                return (
+                  <li key={result.video_id}>
+                    <SearchResultCard
+                      result={result}
+                      expandedStart={expanded}
+                      onPlayHit={(startSeconds) =>
+                        setActiveHit({ videoId: result.video_id, startSeconds })
+                      }
+                      onClosePlayer={() => setActiveHit(null)}
+                    />
+                  </li>
+                )
+              })}
             </ul>
           )}
         </>
