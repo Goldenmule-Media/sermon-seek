@@ -86,6 +86,10 @@ describe("verse list expansion", () => {
     const r18 = refs.find((r) => r.start_coord === coord(43, 3, 18))
     expect(r16).toBeDefined()
     expect(r18).toBeDefined()
+    expect(r16?.raw_first).toBe("John 3:16")
+    expect(r16?.first_position).toBe(0)
+    expect(r18?.raw_first).toBe("18")
+    expect(r18?.first_position).toBe("John 3:16, ".length)
   })
 })
 

@@ -33,12 +33,6 @@ const FULL_RE = new RegExp(
   "gi",
 )
 
-function parseVerseList(raw: string): number[] {
-  return raw
-    .split(",")
-    .map((s) => Number.parseInt(s.trim(), 10))
-    .filter((n) => !Number.isNaN(n) && n > 0)
-}
 
 function isValidRef(bookId: number, cs: number, vs: number, ce: number, ve: number): boolean {
   const book = BOOKS_BY_ID[bookId]
@@ -82,7 +76,7 @@ export function extract(text: string): ExtractedRef[] {
     const verseStartStr = vKw ?? vColon ?? vSpace
     const verseStart = verseStartStr !== undefined ? Number.parseInt(verseStartStr, 10) : undefined
 
-    const pendingRefs: Array<{ cs: number; vs: number; ce: number; ve: number }> = []
+    const pendingRefs: Array<{ cs: number; vs: number; ce: number; ve: number; raw: string; pos: number }> = []
 
     if (verseStart === undefined) {
       // Chapter-only: span the whole chapter.
@@ -90,23 +84,32 @@ export function extract(text: string): ExtractedRef[] {
       if (!book) continue
       const mv = book.max_verse[chapterStart - 1]
       if (mv === undefined) continue
-      pendingRefs.push({ cs: chapterStart, vs: 1, ce: chapterStart, ve: mv })
+      pendingRefs.push({ cs: chapterStart, vs: 1, ce: chapterStart, ve: mv, raw: fullMatch, pos: position })
     } else {
       let chapterEnd = chapterStart
       let verseEnd = verseStart
 
       if (vEndRaw !== undefined) {
         if (ch2Raw !== undefined) {
-          chapterEnd = Number.parseInt(ch2Raw.replace(":", ""), 10)
+          chapterEnd = Number.parseInt(ch2Raw.slice(0, -1), 10)
         }
         verseEnd = Number.parseInt(vEndRaw, 10)
       }
 
-      pendingRefs.push({ cs: chapterStart, vs: verseStart, ce: chapterEnd, ve: verseEnd })
+      const primaryRaw = extraRaw ? fullMatch.slice(0, fullMatch.length - extraRaw.length) : fullMatch
+      pendingRefs.push({ cs: chapterStart, vs: verseStart, ce: chapterEnd, ve: verseEnd, raw: primaryRaw, pos: position })
 
       if (extraRaw) {
-        for (const ev of parseVerseList(extraRaw)) {
-          pendingRefs.push({ cs: chapterStart, vs: ev, ce: chapterStart, ve: ev })
+        const extraStart = position + fullMatch.length - extraRaw.length
+        const subRe = /,\s*(\d+)/g
+        let sm: RegExpExecArray | null
+        // biome-ignore lint/suspicious/noAssignInExpressions: standard global-regex loop pattern
+        while ((sm = subRe.exec(extraRaw)) !== null) {
+          const ev = Number.parseInt(sm[1], 10)
+          if (!Number.isNaN(ev) && ev > 0) {
+            const evPos = extraStart + sm.index + sm[0].length - sm[1].length
+            pendingRefs.push({ cs: chapterStart, vs: ev, ce: chapterStart, ve: ev, raw: sm[1], pos: evPos })
+          }
         }
       }
     }
@@ -124,7 +127,7 @@ export function extract(text: string): ExtractedRef[] {
 
       if (existing) {
         existing.occurrences++
-        existing.positions.push(position)
+        existing.positions.push(r.pos)
       } else {
         dedup.set(key, {
           book_id: bookId,
@@ -135,9 +138,9 @@ export function extract(text: string): ExtractedRef[] {
           start_coord: sc,
           end_coord: ec,
           occurrences: 1,
-          positions: [position],
-          first_position: position,
-          raw_first: fullMatch,
+          positions: [r.pos],
+          first_position: r.pos,
+          raw_first: r.raw,
         })
       }
     }
