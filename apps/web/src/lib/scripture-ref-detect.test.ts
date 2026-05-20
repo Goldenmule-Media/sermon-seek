@@ -49,4 +49,16 @@ describe("isRefLike", () => {
   it("returns false for whitespace-only string", () => {
     expect(isRefLike("   ")).toBe(false)
   })
+
+  it("returns false for Roman-numeral prefix 'I John 1' (routes to fulltext)", () => {
+    expect(isRefLike("I John 1")).toBe(false)
+  })
+
+  it("returns false for Roman-numeral prefix 'II Cor 5' (routes to fulltext)", () => {
+    expect(isRefLike("II Cor 5")).toBe(false)
+  })
+
+  it("returns false for Roman-numeral prefix 'III John 1' (routes to fulltext)", () => {
+    expect(isRefLike("III John 1")).toBe(false)
+  })
 })
