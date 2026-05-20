@@ -35,6 +35,7 @@ export interface YouTubePlayerHandle {
 interface Props {
   videoId: string
   initialStartSeconds?: number
+  autoplay?: boolean
   onTimeUpdate?: (ms: number) => void
 }
 
@@ -60,7 +61,7 @@ function loadYouTubeApi(): Promise<void> {
 }
 
 export const YouTubePlayer = forwardRef<YouTubePlayerHandle, Props>(
-  ({ videoId, initialStartSeconds = 0, onTimeUpdate }, ref) => {
+  ({ videoId, initialStartSeconds = 0, autoplay = false, onTimeUpdate }, ref) => {
     const containerRef = useRef<HTMLDivElement>(null)
     const playerRef = useRef<YTPlayer | null>(null)
     const rafRef = useRef<number>(0)
@@ -89,6 +90,7 @@ export const YouTubePlayer = forwardRef<YouTubePlayerHandle, Props>(
             start: Math.floor(initialStartSeconds),
             rel: 0,
             modestbranding: 1,
+            autoplay: autoplay ? 1 : 0,
           },
           events: {
             onStateChange(event) {

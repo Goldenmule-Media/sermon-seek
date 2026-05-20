@@ -42,6 +42,7 @@ export function InlineYouTubePlayer({ videoId, startSeconds, onClose }: InlineYo
           key={videoId}
           videoId={videoId}
           initialStartSeconds={initialStartRef.current}
+          autoplay
         />
         <button
           type="button"
