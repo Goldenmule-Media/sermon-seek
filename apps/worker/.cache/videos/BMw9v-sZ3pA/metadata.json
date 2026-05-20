@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "PqqHT0Yi9Hd4vn2p2F5C0Erdheo",
+  "id": "BMw9v-sZ3pA",
+  "snippet": {
+    "publishedAt": "2022-05-01T16:30:01Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 01st Sunday Service",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/BMw9v-sZ3pA/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/BMw9v-sZ3pA/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/BMw9v-sZ3pA/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/BMw9v-sZ3pA/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/BMw9v-sZ3pA/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 01st Sunday Service",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT47M34S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "70",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

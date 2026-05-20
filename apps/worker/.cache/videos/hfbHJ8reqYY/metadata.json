@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "fk54O7Sd55mgnRSnxtyeIPLoGJs",
+  "id": "hfbHJ8reqYY",
+  "snippet": {
+    "publishedAt": "2025-08-22T16:30:31Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "How Can the Church Seize This Unique Moment in Time?",
+    "description": "Every generation faces defining moments—so what is God calling His church to do right now? Bryan Mowrey unpacks how we can recognize and leverage the opportunities God has placed before us, rather than just going through the motions of everyday life.\n\n👉 Watch the full bonus episode of the Jubilee Church Podcast here: https://youtu.be/Kx9JEadksnU",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/hfbHJ8reqYY/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/hfbHJ8reqYY/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/hfbHJ8reqYY/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/hfbHJ8reqYY/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/hfbHJ8reqYY/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "How Can the Church Seize This Unique Moment in Time?",
+      "description": "Every generation faces defining moments—so what is God calling His church to do right now? Bryan Mowrey unpacks how we can recognize and leverage the opportunities God has placed before us, rather than just going through the motions of everyday life.\n\n👉 Watch the full bonus episode of the Jubilee Church Podcast here: https://youtu.be/Kx9JEadksnU"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M48S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "24",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

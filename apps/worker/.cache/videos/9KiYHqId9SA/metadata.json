@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Gwg2wayrrCJ5ZTUfYT--ZfqpSog",
+  "id": "9KiYHqId9SA",
+  "snippet": {
+    "publishedAt": "2026-05-15T12:00:06Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Men, Insecurity, and the Bible Passage Everyone Avoids",
+    "description": "Bryan and Jordan are joined by special guests Elijah Stanley and Alyssa McCutchan for a unique conversation on insecurity, discipleship, biblical manhood, and one of the most debated passages in the New Testament. Elijah shares his personal story featured in Bryan’s new book and opens up about isolation, shame, mentorship, and finding identity as a son of God. \n\nAlyssa offers a powerful perspective on why discipling young men deeply impacts women, families, and the health of the church. They also walk through 1 Timothy 2:8–15 and discuss how Christians should approach difficult Bible passages with humility, context, and trust in Scripture. \n\nBryan’s new book, Built for More, releases Monday, May 18.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/9KiYHqId9SA/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/9KiYHqId9SA/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/9KiYHqId9SA/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/9KiYHqId9SA/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/9KiYHqId9SA/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Men, Insecurity, and the Bible Passage Everyone Avoids",
+      "description": "Bryan and Jordan are joined by special guests Elijah Stanley and Alyssa McCutchan for a unique conversation on insecurity, discipleship, biblical manhood, and one of the most debated passages in the New Testament. Elijah shares his personal story featured in Bryan’s new book and opens up about isolation, shame, mentorship, and finding identity as a son of God. \n\nAlyssa offers a powerful perspective on why discipling young men deeply impacts women, families, and the health of the church. They also walk through 1 Timothy 2:8–15 and discuss how Christians should approach difficult Bible passages with humility, context, and trust in Scripture. \n\nBryan’s new book, Built for More, releases Monday, May 18."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H16M27S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "91",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

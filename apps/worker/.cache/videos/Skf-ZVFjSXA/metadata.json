@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "pC5ks_C7k13SnxO4rxOBgCklFQQ",
+  "id": "Skf-ZVFjSXA",
+  "snippet": {
+    "publishedAt": "2025-08-22T16:30:10Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "How to Make the Best Use of Time as Parents Raising Godly Kids",
+    "description": "As parents, time feels short and the task feels big. In this clip, Pastor Bryan Mowrey shares how to make the best use of time in parenting, giving biblical wisdom for shaping your children’s faith and character. If you’ve ever wondered how to prioritize what matters most in the busyness of family life, this conversation is for you.\n\n👉 Watch the full bonus episode of the Jubilee Church Podcast here: https://youtu.be/Kx9JEadksnU",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Skf-ZVFjSXA/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Skf-ZVFjSXA/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Skf-ZVFjSXA/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Skf-ZVFjSXA/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Skf-ZVFjSXA/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "How to Make the Best Use of Time as Parents Raising Godly Kids",
+      "description": "As parents, time feels short and the task feels big. In this clip, Pastor Bryan Mowrey shares how to make the best use of time in parenting, giving biblical wisdom for shaping your children’s faith and character. If you’ve ever wondered how to prioritize what matters most in the busyness of family life, this conversation is for you.\n\n👉 Watch the full bonus episode of the Jubilee Church Podcast here: https://youtu.be/Kx9JEadksnU"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT29M1S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "31",
+    "likeCount": "2",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

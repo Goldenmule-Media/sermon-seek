@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "9ZDiJ9-AM98DFzIKx66GynDMZZI",
+  "id": "3G_32XF1QU0",
+  "snippet": {
+    "publishedAt": "2025-08-17T17:24:36Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Leverage Your Time",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/3G_32XF1QU0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/3G_32XF1QU0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/3G_32XF1QU0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/3G_32XF1QU0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/3G_32XF1QU0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Leverage Your Time",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H16M31S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "174",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

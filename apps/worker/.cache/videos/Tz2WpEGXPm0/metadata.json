@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "a6T5oVzrYgDE_PN2HZ9h7K5RpCc",
+  "id": "Tz2WpEGXPm0",
+  "snippet": {
+    "publishedAt": "2020-04-13T15:33:05Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "April 13:  Boldness + Urgency = Evangelistic Explosion",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "April 13:  Boldness + Urgency = Evangelistic Explosion",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT3M30S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "141",
+    "likeCount": "12",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

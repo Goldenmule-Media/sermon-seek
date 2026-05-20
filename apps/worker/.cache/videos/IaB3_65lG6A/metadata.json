@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Wx1wSXmGUQk-maPxhcieur3x4TU",
+  "id": "IaB3_65lG6A",
+  "snippet": {
+    "publishedAt": "2022-07-25T18:00:05Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "It Is Finished",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/IaB3_65lG6A/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/IaB3_65lG6A/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/IaB3_65lG6A/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/IaB3_65lG6A/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/IaB3_65lG6A/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "It Is Finished",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT35M22S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "74",
+    "likeCount": "2",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

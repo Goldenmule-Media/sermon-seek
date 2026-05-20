@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "h9iviCTQQBJtLATzQdszu2AgRu0",
+  "id": "cb6sHMOaR80",
+  "snippet": {
+    "publishedAt": "2025-08-22T16:30:17Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Parenting Through the Stages: Adjusting Time and Lifestyle as Kids Grow",
+    "description": "Parenting a toddler is not the same as parenting a teenager. In this conversation, Bryan Mowrey shares practical advice on how parents can wisely adjust their time, rhythms, and lifestyle as their children move through different stages of life—from babies to adulthood.\n\n👉 Watch the full bonus episode of the Jubilee Church Podcast here: https://youtu.be/Kx9JEadksnU",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/cb6sHMOaR80/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/cb6sHMOaR80/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/cb6sHMOaR80/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/cb6sHMOaR80/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/cb6sHMOaR80/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Parenting Through the Stages: Adjusting Time and Lifestyle as Kids Grow",
+      "description": "Parenting a toddler is not the same as parenting a teenager. In this conversation, Bryan Mowrey shares practical advice on how parents can wisely adjust their time, rhythms, and lifestyle as their children move through different stages of life—from babies to adulthood.\n\n👉 Watch the full bonus episode of the Jubilee Church Podcast here: https://youtu.be/Kx9JEadksnU"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M38S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "18",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

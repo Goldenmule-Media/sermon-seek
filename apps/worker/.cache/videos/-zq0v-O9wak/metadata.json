@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "p3IwzE2b63qk0Gf7JxN4Bkwx7Dk",
+  "id": "-zq0v-O9wak",
+  "snippet": {
+    "publishedAt": "2021-07-11T17:00:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Psalm 103 (Over and Over)",
+    "description": "'Psalm 103' is the 7th installment in the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nWe are reminded as we worship that we love a God who first loved us! We're so thankful that our God doesn't give us what we deserve. His love is as vast as the ocean and His grace as abundant as the air!!",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/-zq0v-O9wak/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/-zq0v-O9wak/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/-zq0v-O9wak/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/-zq0v-O9wak/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/-zq0v-O9wak/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Psalm 103 (Over and Over)",
+      "description": "'Psalm 103' is the 7th installment in the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nWe are reminded as we worship that we love a God who first loved us! We're so thankful that our God doesn't give us what we deserve. His love is as vast as the ocean and His grace as abundant as the air!!"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M33S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "1227",
+    "likeCount": "12",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

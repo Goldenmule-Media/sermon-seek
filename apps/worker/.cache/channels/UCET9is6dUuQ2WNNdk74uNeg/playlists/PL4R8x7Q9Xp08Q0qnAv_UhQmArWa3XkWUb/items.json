@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "xCYjE3_kj2nfOW9jrFDlD2lK7Do",
+    "id": "UEw0Ujh4N1E5WHAwOFEwcW5Bdl9VaFFtQXJXYTNYa1dVYi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-01-07T14:56:32Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 8th Morning Devotional, Receiving Through Sacrifice",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Q0qnAv_UhQmArWa3XkWUb",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RQiNF4Yl6RY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RQiNF4Yl6RY",
+      "videoPublishedAt": "2024-01-08T12:00:31Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "dShOyfR_bD879nBnYKYNq-0-bJ8",
+    "id": "UEw0Ujh4N1E5WHAwOFEwcW5Bdl9VaFFtQXJXYTNYa1dVYi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-01-07T14:58:14Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 9th Morning Devotional, Receiving Through Obedience",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Q0qnAv_UhQmArWa3XkWUb",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "s2EmFHTS0rU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "s2EmFHTS0rU",
+      "videoPublishedAt": "2024-01-09T12:00:51Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "1kY8Sfh7WwIGyh4slvZ5izZGses",
+    "id": "UEw0Ujh4N1E5WHAwOFEwcW5Bdl9VaFFtQXJXYTNYa1dVYi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2024-01-07T15:11:56Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 10th Morning Devotional, Receiving Through Persistence",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/msPWgUNAuSk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/msPWgUNAuSk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/msPWgUNAuSk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/msPWgUNAuSk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/msPWgUNAuSk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Q0qnAv_UhQmArWa3XkWUb",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "msPWgUNAuSk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "msPWgUNAuSk",
+      "videoPublishedAt": "2024-01-10T12:00:43Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "xB3A9Zjs-eqntxQtc2TFo3dvvLU",
+    "id": "UEw0Ujh4N1E5WHAwOFEwcW5Bdl9VaFFtQXJXYTNYa1dVYi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2024-01-07T15:12:41Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 11th Morning Devotional, Receiving Through Worship",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Q0qnAv_UhQmArWa3XkWUb",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RaqVoEyOeRg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RaqVoEyOeRg",
+      "videoPublishedAt": "2024-01-11T12:00:21Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "3QLvOiZJz2BNta1F36Hy1nfdk5U",
+    "id": "UEw0Ujh4N1E5WHAwOFEwcW5Bdl9VaFFtQXJXYTNYa1dVYi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2024-01-07T15:13:35Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 12th Morning Devotional, Receiving Through Leaving",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/sRY8GkDUYeE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/sRY8GkDUYeE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/sRY8GkDUYeE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/sRY8GkDUYeE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/sRY8GkDUYeE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Q0qnAv_UhQmArWa3XkWUb",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "sRY8GkDUYeE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "sRY8GkDUYeE",
+      "videoPublishedAt": "2024-01-12T12:00:50Z"
+    }
+  }
+]

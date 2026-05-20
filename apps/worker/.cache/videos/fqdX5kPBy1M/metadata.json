@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "-cBNx2T1O0nv5dhVPQCb_sDs8QI",
+  "id": "fqdX5kPBy1M",
+  "snippet": {
+    "publishedAt": "2022-06-27T18:00:17Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Keeping Yourself in the Love of God - Tom Shaw",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Keeping Yourself in the Love of God - Tom Shaw",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT34M38S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "137",
+    "likeCount": "8",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

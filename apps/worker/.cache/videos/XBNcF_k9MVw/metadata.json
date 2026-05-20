@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "pm55N7GYFnYGxlxzPkBZasRpgvk",
+  "id": "XBNcF_k9MVw",
+  "snippet": {
+    "publishedAt": "2022-10-24T18:00:13Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Less is More",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Less is More",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT31M8S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "94",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

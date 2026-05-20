@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "U7d5K0XwJzeCjXU0GL7Cn6wg878",
+  "id": "Hqwb8gAqlVc",
+  "snippet": {
+    "publishedAt": "2020-05-31T14:45:10Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 31st Sunday Service",
+    "description": "Do you struggle with the up and down, side to side nature of our world? Do you sometimes find it difficult to stand firm in your faith during seasons of trial?\n\nJoin us today as we kick off our new series “Family Friends.” \"Your Epic Calling\" is a message by PJ Smyth (https://www.pjsmyth.com/), pastor and leader of the Advance Movement of Churches (https://www.advancemovement.com/).\n\nGrab a family member or roommate, invite or share with a friend, and join in with us!\n\n#myjubileechurch #familyfriends #onlineservice\n\nCCLI Streaming License # - 20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Hqwb8gAqlVc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Hqwb8gAqlVc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Hqwb8gAqlVc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Hqwb8gAqlVc/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Hqwb8gAqlVc/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 31st Sunday Service",
+      "description": "Do you struggle with the up and down, side to side nature of our world? Do you sometimes find it difficult to stand firm in your faith during seasons of trial?\n\nJoin us today as we kick off our new series “Family Friends.” \"Your Epic Calling\" is a message by PJ Smyth (https://www.pjsmyth.com/), pastor and leader of the Advance Movement of Churches (https://www.advancemovement.com/).\n\nGrab a family member or roommate, invite or share with a friend, and join in with us!\n\n#myjubileechurch #familyfriends #onlineservice\n\nCCLI Streaming License # - 20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H6M47S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "524",
+    "likeCount": "11",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

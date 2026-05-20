@@ -1,0 +1,155 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0tu2KLtP1A-lI5AMsUsAuzXMzZc",
+    "id": "UEw0Ujh4N1E5WHAwOVk4aEFrMTV3b0VNbHRjWEVNRU4zUy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-05-18T18:31:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Freedom: How to Counterpunch the Devil",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Nt1F_g8T9p4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Nt1F_g8T9p4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Nt1F_g8T9p4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Nt1F_g8T9p4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Nt1F_g8T9p4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09Y8hAk15woEMltcXEMEN3S",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Nt1F_g8T9p4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Nt1F_g8T9p4",
+      "videoPublishedAt": "2025-05-18T18:40:07Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "BwzY5I3wanvZ_PdIZ1ecBcVtI_o",
+    "id": "UEw0Ujh4N1E5WHAwOVk4aEFrMTV3b0VNbHRjWEVNRU4zUy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-05-04T18:14:17Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Freedom From the Heart of the Problem",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09Y8hAk15woEMltcXEMEN3S",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "wBQkd5LRJZQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "wBQkd5LRJZQ",
+      "videoPublishedAt": "2025-05-04T18:14:18Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "3qHFgmqi2sZVFzsdOLIjG9TYnyg",
+    "id": "UEw0Ujh4N1E5WHAwOVk4aEFrMTV3b0VNbHRjWEVNRU4zUy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-04-27T19:37:12Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Freedom: Flesh vs Spirit",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/G3jGxRwldMQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/G3jGxRwldMQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/G3jGxRwldMQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/G3jGxRwldMQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/G3jGxRwldMQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09Y8hAk15woEMltcXEMEN3S",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "G3jGxRwldMQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "G3jGxRwldMQ",
+      "videoPublishedAt": "2025-04-27T19:41:32Z"
+    }
+  }
+]

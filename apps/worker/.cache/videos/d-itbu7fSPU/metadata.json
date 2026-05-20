@@ -1,0 +1,67 @@
+{
+  "kind": "youtube#video",
+  "etag": "kan7AiQXEuJDoRTE3dTlqR1H4pc",
+  "id": "d-itbu7fSPU",
+  "snippet": {
+    "publishedAt": "2026-02-08T20:53:45Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Light v. Darkness",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/d-itbu7fSPU/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/d-itbu7fSPU/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/d-itbu7fSPU/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/d-itbu7fSPU/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/d-itbu7fSPU/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Light v. Darkness",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H29M50S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "regionRestriction": {
+      "blocked": [
+        "RU"
+      ]
+    },
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "187",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

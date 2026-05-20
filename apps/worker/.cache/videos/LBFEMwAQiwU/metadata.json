@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "37-vi26b6hl9CVWLRDcUGp6mKKQ",
+  "id": "LBFEMwAQiwU",
+  "snippet": {
+    "publishedAt": "2026-02-05T20:30:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "The Church & Immigration in a Divided America | Biblical Perspective",
+    "description": "In this episode of the Jubilee Church Podcast, Bryan Mowrey and Jordan Dillon discuss how Christians should think about immigration, government authority, civil disobedience, and cultural pressure.\n\nWe explore biblical wisdom for engaging controversial topics, navigating social media, responding to injustice, and staying rooted in Christ in a polarized age.\n\nTopics include:\n• Immigration and Christian compassion\n• Government authority and biblical obedience\n• Civil disobedience and protest\n• Social media and public opinion\n• Prophetic vs pastoral responsibility\n• Finding peace in a rage-driven culture\n\nIf you’ve been wrestling with how to follow Jesus in today’s political and cultural climate, this conversation is for you.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/LBFEMwAQiwU/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/LBFEMwAQiwU/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/LBFEMwAQiwU/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/LBFEMwAQiwU/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/LBFEMwAQiwU/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "The Church & Immigration in a Divided America | Biblical Perspective",
+      "description": "In this episode of the Jubilee Church Podcast, Bryan Mowrey and Jordan Dillon discuss how Christians should think about immigration, government authority, civil disobedience, and cultural pressure.\n\nWe explore biblical wisdom for engaging controversial topics, navigating social media, responding to injustice, and staying rooted in Christ in a polarized age.\n\nTopics include:\n• Immigration and Christian compassion\n• Government authority and biblical obedience\n• Civil disobedience and protest\n• Social media and public opinion\n• Prophetic vs pastoral responsibility\n• Finding peace in a rage-driven culture\n\nIf you’ve been wrestling with how to follow Jesus in today’s political and cultural climate, this conversation is for you."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H18M55S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "422",
+    "likeCount": "18",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

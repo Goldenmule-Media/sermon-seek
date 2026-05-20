@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "61Kc5fRgm1LdGtVRDyYDLw2n8a0",
+  "id": "8_DcDl64sKM",
+  "snippet": {
+    "publishedAt": "2026-02-22T19:37:16Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Wisdom v. Information",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/8_DcDl64sKM/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/8_DcDl64sKM/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/8_DcDl64sKM/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/8_DcDl64sKM/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/8_DcDl64sKM/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Wisdom v. Information",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H21M23S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "174",
+    "likeCount": "2",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

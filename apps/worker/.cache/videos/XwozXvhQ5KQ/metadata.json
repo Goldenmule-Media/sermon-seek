@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "JQowmWwi977zE-h-NkS9LbxApPQ",
+  "id": "XwozXvhQ5KQ",
+  "snippet": {
+    "publishedAt": "2026-04-24T14:00:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Why You Need Spiritual Family More Than You Think",
+    "description": "In this episode of the Jubilee Church Podcast, we explore why following Jesus was never meant to be done alone. From our connection with the Confluence family of churches to the heart behind shared mission and church planting, we talk about the power of spiritual family and doing ministry together.\n\nWe also dive into the importance of brotherhood in a culture that pushes isolation and why real growth requires vulnerability, accountability, and intentional relationships. Finally, we unpack prayer as the language of dependence and what it looks like to truly connect with God in a deeper, more personal way.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/XwozXvhQ5KQ/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/XwozXvhQ5KQ/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/XwozXvhQ5KQ/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/XwozXvhQ5KQ/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/XwozXvhQ5KQ/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Why You Need Spiritual Family More Than You Think",
+      "description": "In this episode of the Jubilee Church Podcast, we explore why following Jesus was never meant to be done alone. From our connection with the Confluence family of churches to the heart behind shared mission and church planting, we talk about the power of spiritual family and doing ministry together.\n\nWe also dive into the importance of brotherhood in a culture that pushes isolation and why real growth requires vulnerability, accountability, and intentional relationships. Finally, we unpack prayer as the language of dependence and what it looks like to truly connect with God in a deeper, more personal way."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT33M23S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "67",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

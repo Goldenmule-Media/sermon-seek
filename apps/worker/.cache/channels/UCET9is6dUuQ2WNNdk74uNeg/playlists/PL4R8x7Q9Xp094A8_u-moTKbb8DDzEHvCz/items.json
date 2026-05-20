@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "j7mCfAquKwBkhtl-YGdwcTTN0gQ",
+    "id": "UEw0Ujh4N1E5WHAwOTRBOF91LW1vVEtiYjhERHpFSHZDei4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2026-01-05T22:07:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 9th Morning Devotional | Psalm 52:6-8",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kQnpWV3F2es/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kQnpWV3F2es/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kQnpWV3F2es/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/kQnpWV3F2es/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/kQnpWV3F2es/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp094A8_u-moTKbb8DDzEHvCz",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "kQnpWV3F2es"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "kQnpWV3F2es",
+      "videoPublishedAt": "2026-01-09T12:01:41Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Uc94MrbP-I2cCkziiK6dUrFBufM",
+    "id": "UEw0Ujh4N1E5WHAwOTRBOF91LW1vVEtiYjhERHpFSHZDei4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2026-01-06T21:42:47Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 8th Morning Devotional | 1 Corinthians 3:6",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PGTRtTZ0j3s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PGTRtTZ0j3s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PGTRtTZ0j3s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PGTRtTZ0j3s/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PGTRtTZ0j3s/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp094A8_u-moTKbb8DDzEHvCz",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "PGTRtTZ0j3s"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "PGTRtTZ0j3s",
+      "videoPublishedAt": "2026-01-08T12:01:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "kr0BylsiYM9Tc3P1yasg2g5Sby8",
+    "id": "UEw0Ujh4N1E5WHAwOTRBOF91LW1vVEtiYjhERHpFSHZDei41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2026-01-06T21:41:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 7th Morning Devotional | Psalm 1:1-4",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FXiWOVsb6Cc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FXiWOVsb6Cc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FXiWOVsb6Cc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FXiWOVsb6Cc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FXiWOVsb6Cc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp094A8_u-moTKbb8DDzEHvCz",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "FXiWOVsb6Cc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "FXiWOVsb6Cc",
+      "videoPublishedAt": "2026-01-07T12:00:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ESHxfuzmpljeGTAyM3NeT6auIr4",
+    "id": "UEw0Ujh4N1E5WHAwOTRBOF91LW1vVEtiYjhERHpFSHZDei4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2026-01-05T22:07:02Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 6th Morning Devotional | Colossians 2:6-7",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Xoyih9rdmvs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Xoyih9rdmvs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Xoyih9rdmvs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Xoyih9rdmvs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Xoyih9rdmvs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp094A8_u-moTKbb8DDzEHvCz",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Xoyih9rdmvs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Xoyih9rdmvs",
+      "videoPublishedAt": "2026-01-06T12:01:09Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "PDgOiM9quF1by8cJpAy8sNY7An4",
+    "id": "UEw0Ujh4N1E5WHAwOTRBOF91LW1vVEtiYjhERHpFSHZDei41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2026-01-04T21:23:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 5th Morning Devotional | Colossians 2:6-7",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VLoxP820nng/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VLoxP820nng/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VLoxP820nng/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VLoxP820nng/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/VLoxP820nng/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp094A8_u-moTKbb8DDzEHvCz",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "VLoxP820nng"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "VLoxP820nng",
+      "videoPublishedAt": "2026-01-05T12:01:03Z"
+    }
+  }
+]

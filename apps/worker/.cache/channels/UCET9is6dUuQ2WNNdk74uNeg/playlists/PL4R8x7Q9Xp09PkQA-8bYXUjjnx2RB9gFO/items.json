@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wpwfIwRmseVHR6z4aVbKpDJ5Glc",
+    "id": "UEw0Ujh4N1E5WHAwOVBrUUEtOGJZWFVqam54MlJCOWdGTy41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2025-04-30T18:14:08Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 2nd Morning Devotional | New Ambition",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/LMmMi6d3lik/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/LMmMi6d3lik/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/LMmMi6d3lik/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/LMmMi6d3lik/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/LMmMi6d3lik/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PkQA-8bYXUjjnx2RB9gFO",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "LMmMi6d3lik"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "LMmMi6d3lik",
+      "videoPublishedAt": "2025-05-02T11:00:30Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-X3Vf9bRRsQWwGD4JxrgWVSz2J0",
+    "id": "UEw0Ujh4N1E5WHAwOVBrUUEtOGJZWFVqam54MlJCOWdGTy4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2025-04-30T19:05:53Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 1st Morning Devotional | New Power",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/rROd-IQ2qQU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/rROd-IQ2qQU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/rROd-IQ2qQU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/rROd-IQ2qQU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/rROd-IQ2qQU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PkQA-8bYXUjjnx2RB9gFO",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "rROd-IQ2qQU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "rROd-IQ2qQU",
+      "videoPublishedAt": "2025-05-01T11:01:16Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "PHSaKp8JDYldg7Yb-qSAtLl4t3k",
+    "id": "UEw0Ujh4N1E5WHAwOVBrUUEtOGJZWFVqam54MlJCOWdGTy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-04-29T21:04:41Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 30th Morning Devotional | New Purpose",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/yPwbkcKIsaQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/yPwbkcKIsaQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/yPwbkcKIsaQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/yPwbkcKIsaQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/yPwbkcKIsaQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PkQA-8bYXUjjnx2RB9gFO",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "yPwbkcKIsaQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "yPwbkcKIsaQ",
+      "videoPublishedAt": "2025-04-30T11:01:36Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "svmqOFX9ogl6LvK-ZVX0mI7dcOY",
+    "id": "UEw0Ujh4N1E5WHAwOVBrUUEtOGJZWFVqam54MlJCOWdGTy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-04-29T01:14:19Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 29th Morning Devotional | New Life in Christ",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/G4JKNkdaolE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/G4JKNkdaolE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/G4JKNkdaolE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/G4JKNkdaolE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/G4JKNkdaolE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PkQA-8bYXUjjnx2RB9gFO",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "G4JKNkdaolE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "G4JKNkdaolE",
+      "videoPublishedAt": "2025-04-29T11:00:35Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Q7b3eOHAga1fSTfPXkC1Nm1IGu8",
+    "id": "UEw0Ujh4N1E5WHAwOVBrUUEtOGJZWFVqam54MlJCOWdGTy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-04-27T22:09:23Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 28th Morning Devotional | New Eyes To See",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4--u4Y56_6M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4--u4Y56_6M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4--u4Y56_6M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/4--u4Y56_6M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/4--u4Y56_6M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PkQA-8bYXUjjnx2RB9gFO",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "4--u4Y56_6M"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "4--u4Y56_6M",
+      "videoPublishedAt": "2025-04-28T11:00:05Z"
+    }
+  }
+]

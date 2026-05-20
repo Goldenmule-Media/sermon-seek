@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "XiZXg4J0Hr3wpT4_W1Z7Dav82L4",
+  "id": "CpcVsMDsEHE",
+  "snippet": {
+    "publishedAt": "2020-05-28T16:00:15Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "\"Family Friends, Episode 1: Donnie Griggs\"",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "\"Family Friends, Episode 1: Donnie Griggs\"",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT14M22S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "160",
+    "likeCount": "6",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

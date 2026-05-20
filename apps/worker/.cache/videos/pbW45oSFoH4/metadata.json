@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "vTn_9CIuMTVupDrAXipiyK9ybGE",
+  "id": "pbW45oSFoH4",
+  "snippet": {
+    "publishedAt": "2025-09-08T23:16:50Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Husbands: Leadership, Responsibility, and Marriage Today",
+    "description": "This episode of the Jubilee Church Podcast zeroes in on the unique calling of men as husbands and leaders in the home. Bryan and Jordan tackle the false dichotomy of men versus women, unpack the heart of biblical servant leadership, and discuss how husbands can resist the tendency to avoid responsibility. The conversation addresses the challenges of toxic masculinity, how to lead well in today’s culture, the realities of divorce, and even the shifting age of marriage. If you’re a husband—or desire to be one—this episode offers clarity, encouragement, and a biblical vision for leading with love and faithfulness.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/pbW45oSFoH4/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/pbW45oSFoH4/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/pbW45oSFoH4/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/pbW45oSFoH4/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/pbW45oSFoH4/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Husbands: Leadership, Responsibility, and Marriage Today",
+      "description": "This episode of the Jubilee Church Podcast zeroes in on the unique calling of men as husbands and leaders in the home. Bryan and Jordan tackle the false dichotomy of men versus women, unpack the heart of biblical servant leadership, and discuss how husbands can resist the tendency to avoid responsibility. The conversation addresses the challenges of toxic masculinity, how to lead well in today’s culture, the realities of divorce, and even the shifting age of marriage. If you’re a husband—or desire to be one—this episode offers clarity, encouragement, and a biblical vision for leading with love and faithfulness."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H4M52S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "208",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

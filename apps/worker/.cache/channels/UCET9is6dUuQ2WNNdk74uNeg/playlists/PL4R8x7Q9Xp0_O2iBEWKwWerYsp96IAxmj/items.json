@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "1V7ez5JQzU8MNyUmHY-f6ePyEns",
+    "id": "UEw0Ujh4N1E5WHAwX08yaUJFV0t3V2VyWXNwOTZJQXhtai4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-07-29T16:35:27Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 8th Morning Devotional | Abiding in His Friendship",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/gJ0fFuMPjqE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/gJ0fFuMPjqE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/gJ0fFuMPjqE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/gJ0fFuMPjqE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/gJ0fFuMPjqE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_O2iBEWKwWerYsp96IAxmj",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "gJ0fFuMPjqE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "gJ0fFuMPjqE",
+      "videoPublishedAt": "2025-08-08T11:01:21Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "QHCWQMegUHZLMjmcQ9Rux9F-3TY",
+    "id": "UEw0Ujh4N1E5WHAwX08yaUJFV0t3V2VyWXNwOTZJQXhtai4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2025-07-30T15:06:56Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 7th Morning Devotional | Abiding in His Love",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/UtI0amsKQkc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/UtI0amsKQkc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/UtI0amsKQkc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/UtI0amsKQkc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/UtI0amsKQkc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_O2iBEWKwWerYsp96IAxmj",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "UtI0amsKQkc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "UtI0amsKQkc",
+      "videoPublishedAt": "2025-08-07T11:01:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "NSW4AHJYmm01nk9mRBA5bmoSAcI",
+    "id": "UEw0Ujh4N1E5WHAwX08yaUJFV0t3V2VyWXNwOTZJQXhtai41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2025-07-30T15:05:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 6th Morning Devotional | Abiding in His Word",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RTZ8wU6YWS8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RTZ8wU6YWS8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RTZ8wU6YWS8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RTZ8wU6YWS8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RTZ8wU6YWS8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_O2iBEWKwWerYsp96IAxmj",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RTZ8wU6YWS8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RTZ8wU6YWS8",
+      "videoPublishedAt": "2025-08-06T11:00:50Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5T93dxAnFsuLAqn0uJjn8EkfYQY",
+    "id": "UEw0Ujh4N1E5WHAwX08yaUJFV0t3V2VyWXNwOTZJQXhtai4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-07-29T16:34:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 5th Morning Devotional | Abiding in Christ",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_O2iBEWKwWerYsp96IAxmj",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "DHM9BPEhk-U"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "DHM9BPEhk-U",
+      "videoPublishedAt": "2025-08-05T11:00:21Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ytH0I_5MpvREDqv0bad2JcDu-UU",
+    "id": "UEw0Ujh4N1E5WHAwX08yaUJFV0t3V2VyWXNwOTZJQXhtai41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-07-29T16:33:40Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 4th Morning Devotional | Vine and Branches: Who is the Farmer?",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FNU8tQBENiw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FNU8tQBENiw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FNU8tQBENiw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FNU8tQBENiw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FNU8tQBENiw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_O2iBEWKwWerYsp96IAxmj",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "FNU8tQBENiw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "FNU8tQBENiw",
+      "videoPublishedAt": "2025-08-04T11:00:22Z"
+    }
+  }
+]

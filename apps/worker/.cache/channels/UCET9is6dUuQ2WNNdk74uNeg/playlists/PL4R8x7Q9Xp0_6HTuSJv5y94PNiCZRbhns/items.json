@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "c_iUrSHi1DK2vNM8bcZwemAkZcs",
+    "id": "UEw0Ujh4N1E5WHAwXzZIVHVTSnY1eTk0UE5pQ1pSYmhucy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-01-09T01:16:26Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 9th Morning Devotional, Jesus Prays For Us",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/QDBZvJIUXCI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/QDBZvJIUXCI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/QDBZvJIUXCI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/QDBZvJIUXCI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/QDBZvJIUXCI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_6HTuSJv5y94PNiCZRbhns",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "QDBZvJIUXCI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "QDBZvJIUXCI",
+      "videoPublishedAt": "2023-01-09T12:00:15Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "bG9ZmiUIPa0jTjH9Q8vCdri0XEo",
+    "id": "UEw0Ujh4N1E5WHAwXzZIVHVTSnY1eTk0UE5pQ1pSYmhucy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-01-09T17:45:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 10th Morning Devotional, Jesus Listening to the Blind Men Crying Out for Healing",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pZddRzKHJM4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pZddRzKHJM4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pZddRzKHJM4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pZddRzKHJM4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pZddRzKHJM4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_6HTuSJv5y94PNiCZRbhns",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "pZddRzKHJM4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "pZddRzKHJM4",
+      "videoPublishedAt": "2023-01-10T12:00:34Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ssoUFT3OdY-MWlhUoX9Bbv1IRno",
+    "id": "UEw0Ujh4N1E5WHAwXzZIVHVTSnY1eTk0UE5pQ1pSYmhucy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2023-01-10T20:16:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 11th Morning Devotional, Jesus Eats with Zacchaeus",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/HU1JVcRMLiQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/HU1JVcRMLiQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/HU1JVcRMLiQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/HU1JVcRMLiQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/HU1JVcRMLiQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_6HTuSJv5y94PNiCZRbhns",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "HU1JVcRMLiQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "HU1JVcRMLiQ",
+      "videoPublishedAt": "2023-01-11T12:00:09Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wZvw-F4_0Mr_j8ingAtKEqWeykw",
+    "id": "UEw0Ujh4N1E5WHAwXzZIVHVTSnY1eTk0UE5pQ1pSYmhucy41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2023-01-11T17:41:54Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 12th Morning Devotional, Jesus Washing Feet",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/txWEtjM-G38/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/txWEtjM-G38/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/txWEtjM-G38/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/txWEtjM-G38/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/txWEtjM-G38/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_6HTuSJv5y94PNiCZRbhns",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "txWEtjM-G38"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "txWEtjM-G38",
+      "videoPublishedAt": "2023-01-12T12:00:37Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "KMmseqzWJ7OCYMo9x7GUqaIzGPE",
+    "id": "UEw0Ujh4N1E5WHAwXzZIVHVTSnY1eTk0UE5pQ1pSYmhucy41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2023-01-12T18:25:19Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 13th Morning Devotional, Woman at the Well",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iZEv-XBD2FI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iZEv-XBD2FI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iZEv-XBD2FI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iZEv-XBD2FI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iZEv-XBD2FI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_6HTuSJv5y94PNiCZRbhns",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "iZEv-XBD2FI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "iZEv-XBD2FI",
+      "videoPublishedAt": "2023-01-13T12:00:24Z"
+    }
+  }
+]

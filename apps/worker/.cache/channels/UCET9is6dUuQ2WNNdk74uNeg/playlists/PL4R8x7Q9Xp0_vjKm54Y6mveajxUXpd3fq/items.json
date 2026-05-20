@@ -1,0 +1,1634 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Mh_Bpo4CytOHIv20gbI9cyThvTc",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:21Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Day 10 Prayer and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-XiXM6fHSc0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-XiXM6fHSc0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-XiXM6fHSc0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-XiXM6fHSc0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-XiXM6fHSc0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "-XiXM6fHSc0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "-XiXM6fHSc0",
+      "videoPublishedAt": "2020-01-17T19:00:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "IRiDCuuHiq6s4nGx0dMTH_uNnUc",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:21Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 14th Night Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fpOVg6HWzw0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fpOVg6HWzw0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fpOVg6HWzw0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fpOVg6HWzw0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fpOVg6HWzw0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "fpOVg6HWzw0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "fpOVg6HWzw0",
+      "videoPublishedAt": "2020-01-15T13:11:18Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "9kx492e6kxtnxgQ66qHKawsi-0c",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Day 21 Prayer and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/L8hP3igKoQQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/L8hP3igKoQQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/L8hP3igKoQQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/L8hP3igKoQQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/L8hP3igKoQQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "L8hP3igKoQQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "L8hP3igKoQQ",
+      "videoPublishedAt": "2020-01-29T01:30:54Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "6CrJdnu8YhgcA_fupFZTtM8k4ic",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 28th Morning Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/tTcYXmgTPyI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/tTcYXmgTPyI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/tTcYXmgTPyI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/tTcYXmgTPyI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/tTcYXmgTPyI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "tTcYXmgTPyI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "tTcYXmgTPyI",
+      "videoPublishedAt": "2020-01-28T13:46:55Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "flGta3PFNGVuiDlvejb37iVsHjY",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 27th Night Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/sJYVRac-8JE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/sJYVRac-8JE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/sJYVRac-8JE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/sJYVRac-8JE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/sJYVRac-8JE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "sJYVRac-8JE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "sJYVRac-8JE",
+      "videoPublishedAt": "2020-01-28T03:38:48Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "q3PjblVqqJ1n5k5VH55IDrfkaxM",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Day 20 Prayer and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/x6_ykOp_8NQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/x6_ykOp_8NQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/x6_ykOp_8NQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/x6_ykOp_8NQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/x6_ykOp_8NQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "x6_ykOp_8NQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "x6_ykOp_8NQ",
+      "videoPublishedAt": "2020-01-28T01:07:32Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CMeGdpJqNOlRIvOjuP3ukZomDmo",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 27th Evening Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3YOyLHMhlaU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3YOyLHMhlaU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3YOyLHMhlaU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3YOyLHMhlaU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3YOyLHMhlaU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3YOyLHMhlaU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3YOyLHMhlaU",
+      "videoPublishedAt": "2020-01-27T23:54:57Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "gUbCOyHjzGc-w0E3Did1prTcw9o",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 27th Afternoon Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uX7djvNZA0c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uX7djvNZA0c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uX7djvNZA0c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uX7djvNZA0c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uX7djvNZA0c/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "uX7djvNZA0c"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "uX7djvNZA0c",
+      "videoPublishedAt": "2020-01-27T20:11:05Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ifuM96HRpzJhG8jCUC7B2urXr-E",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS45NDk1REZENzhEMzU5MDQz",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 27th Morning Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oqFxKv0wrGg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oqFxKv0wrGg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oqFxKv0wrGg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oqFxKv0wrGg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/oqFxKv0wrGg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "oqFxKv0wrGg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "oqFxKv0wrGg",
+      "videoPublishedAt": "2020-01-27T14:34:33Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "v6SOojn1y0Fdeh9YGlmoBn-b2wg",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5GNjNDRDREMDQxOThCMDQ2",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 24th Night Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/51_QKQTKmyM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/51_QKQTKmyM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/51_QKQTKmyM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/51_QKQTKmyM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/51_QKQTKmyM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 9,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "51_QKQTKmyM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "51_QKQTKmyM",
+      "videoPublishedAt": "2020-01-25T03:39:18Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "jLQLvvC5QC7K7H2NqVwtuPwuOKI",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS40NzZCMERDMjVEN0RFRThB",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Day 17 Prayer and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/QWwwfnBW0gM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/QWwwfnBW0gM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/QWwwfnBW0gM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/QWwwfnBW0gM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/QWwwfnBW0gM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 10,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "QWwwfnBW0gM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "QWwwfnBW0gM",
+      "videoPublishedAt": "2020-01-25T01:16:08Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "dlXyNYIUDJfQhjQTyCdtWCfRHpM",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5EMEEwRUY5M0RDRTU3NDJC",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 24th Evening Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vRDp3X4sTqM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vRDp3X4sTqM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vRDp3X4sTqM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vRDp3X4sTqM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vRDp3X4sTqM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 11,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "vRDp3X4sTqM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "vRDp3X4sTqM",
+      "videoPublishedAt": "2020-01-24T23:42:05Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "yN7rPLvLIIkJz9gwfUKy81r2yaw",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS45ODRDNTg0QjA4NkFBNkQy",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 24th Afternoon Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/KIxZam6dxx0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/KIxZam6dxx0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/KIxZam6dxx0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/KIxZam6dxx0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/KIxZam6dxx0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 12,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "KIxZam6dxx0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "KIxZam6dxx0",
+      "videoPublishedAt": "2020-01-24T20:15:18Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-WjRlpwr9Sco1B2_Mi2iIeal-ao",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4zMDg5MkQ5MEVDMEM1NTg2",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 24th Morning Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YZ8tI7MivqQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YZ8tI7MivqQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YZ8tI7MivqQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YZ8tI7MivqQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YZ8tI7MivqQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 13,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "YZ8tI7MivqQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "YZ8tI7MivqQ",
+      "videoPublishedAt": "2020-01-24T14:47:57Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5nbG0iXV6s9Rzvvmx9JEZ_UIHAQ",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS41Mzk2QTAxMTkzNDk4MDhF",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 23rd Night Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_L5H8FJUSbg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_L5H8FJUSbg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_L5H8FJUSbg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_L5H8FJUSbg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_L5H8FJUSbg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 14,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_L5H8FJUSbg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "_L5H8FJUSbg",
+      "videoPublishedAt": "2020-01-24T03:38:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "oIJeuPEPEq49-imr9veRQlap_7E",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5EQUE1NTFDRjcwMDg0NEMz",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Day 16 Prayer and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9cLFNAnZBmU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9cLFNAnZBmU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9cLFNAnZBmU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9cLFNAnZBmU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9cLFNAnZBmU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 15,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "9cLFNAnZBmU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "9cLFNAnZBmU",
+      "videoPublishedAt": "2020-01-24T01:07:42Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "AkMxONsLrkfzonDgMlTE8jkz_2o",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS41QTY1Q0UxMTVCODczNThE",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 23rd Night Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SoLtHcYswLQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SoLtHcYswLQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SoLtHcYswLQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SoLtHcYswLQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SoLtHcYswLQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 16,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "SoLtHcYswLQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "SoLtHcYswLQ",
+      "videoPublishedAt": "2020-01-23T23:54:43Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "xJYOMjJe79HgM106_7fF8evT_ZU",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4yMUQyQTQzMjRDNzMyQTMy",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 23rd Afternoon Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3o7ZNGAHJME/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3o7ZNGAHJME/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3o7ZNGAHJME/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3o7ZNGAHJME/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3o7ZNGAHJME/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 17,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3o7ZNGAHJME"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3o7ZNGAHJME",
+      "videoPublishedAt": "2020-01-23T20:06:55Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "JJwttl-J3WCKHZXa2j54hqKBVXE",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS45RTgxNDRBMzUwRjQ0MDhC",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 23rd Morning Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nTFJiLKhwAc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nTFJiLKhwAc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nTFJiLKhwAc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nTFJiLKhwAc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nTFJiLKhwAc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 18,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "nTFJiLKhwAc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "nTFJiLKhwAc",
+      "videoPublishedAt": "2020-01-23T14:41:32Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Xmzi-jQtWu_MkTK_GUQfTXs4RNA",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5ENDU4Q0M4RDExNzM1Mjcy",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 22nd Night Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/B1fDF_93HiM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/B1fDF_93HiM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/B1fDF_93HiM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/B1fDF_93HiM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/B1fDF_93HiM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 19,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "B1fDF_93HiM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "B1fDF_93HiM",
+      "videoPublishedAt": "2020-01-23T03:39:26Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "XLJyu4N9bEZ5wsZUE9hYyg0sBIE",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4yMDhBMkNBNjRDMjQxQTg1",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Day 15 Prayer and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Gx4xvC8GJ9Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Gx4xvC8GJ9Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Gx4xvC8GJ9Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Gx4xvC8GJ9Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Gx4xvC8GJ9Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 20,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Gx4xvC8GJ9Y"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Gx4xvC8GJ9Y",
+      "videoPublishedAt": "2020-01-23T01:09:20Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "EZMVUl_7VteT1By-lRYQF24OnaM",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5GM0Q3M0MzMzY5NTJFNTdE",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 22nd Evening Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dzISapQBBiU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dzISapQBBiU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dzISapQBBiU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dzISapQBBiU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dzISapQBBiU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 21,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "dzISapQBBiU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "dzISapQBBiU",
+      "videoPublishedAt": "2020-01-22T23:53:26Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Cd9I-bbv4h2ybXvkZvaNUSS-BK4",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4zRjM0MkVCRTg0MkYyQTM0",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 22nd Afternoon Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/88Gi8YKneuA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/88Gi8YKneuA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/88Gi8YKneuA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/88Gi8YKneuA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/88Gi8YKneuA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 22,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "88Gi8YKneuA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "88Gi8YKneuA",
+      "videoPublishedAt": "2020-01-22T20:15:10Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-0Do3BU5hHvhcAlvKgnk0kARkhw",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS45NzUwQkI1M0UxNThBMkU0",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 22nd Morning Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/IGjCNs-kmYw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/IGjCNs-kmYw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/IGjCNs-kmYw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/IGjCNs-kmYw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/IGjCNs-kmYw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 23,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "IGjCNs-kmYw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "IGjCNs-kmYw",
+      "videoPublishedAt": "2020-01-22T14:41:51Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wQIwJ3Pq2UtIg125-tSkdbpN4R8",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5DNzE1RjZEMUZCMjA0RDBB",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 21st Night Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BuOnLOEjUec/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BuOnLOEjUec/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BuOnLOEjUec/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BuOnLOEjUec/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BuOnLOEjUec/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 24,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "BuOnLOEjUec"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "BuOnLOEjUec",
+      "videoPublishedAt": "2020-01-22T03:36:35Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "VSemT_smT42rYf5IN0VH-zJTYXk",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS43MTI1NDIwOTMwQjIxMzNG",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Day 14 Prayer and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FjVGtKnOB0I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FjVGtKnOB0I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FjVGtKnOB0I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FjVGtKnOB0I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FjVGtKnOB0I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 25,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "FjVGtKnOB0I"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "FjVGtKnOB0I",
+      "videoPublishedAt": "2020-01-22T01:07:40Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "dBMcHj84gv_wlsJM39iQKdG_gZ0",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5DQ0MyQ0Y4Mzg0M0VGOEYw",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 21st Evening Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bkst5TwGW8E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bkst5TwGW8E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bkst5TwGW8E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bkst5TwGW8E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bkst5TwGW8E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 26,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bkst5TwGW8E"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "bkst5TwGW8E",
+      "videoPublishedAt": "2020-01-21T23:55:43Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "TXnjETWhzUWpH0Snp5FjDnWs1gI",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS4yQUE2Q0JEMTk4NTM3RTZC",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 21st Afternoon Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lqnGKK62h7o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lqnGKK62h7o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lqnGKK62h7o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lqnGKK62h7o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lqnGKK62h7o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 27,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "lqnGKK62h7o"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "lqnGKK62h7o",
+      "videoPublishedAt": "2020-01-21T20:11:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "_OTYPV5sasIQ6dX7KIatk3Jh_sU",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS5DMkU4NTY1QUFGQTYwMDE3",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 21st Morning Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Nu8Ivw7m184/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Nu8Ivw7m184/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Nu8Ivw7m184/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Nu8Ivw7m184/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Nu8Ivw7m184/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 28,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Nu8Ivw7m184"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Nu8Ivw7m184",
+      "videoPublishedAt": "2020-01-21T14:35:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wcBIaGfNTxZJwJ9zwGdULLWomAg",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS44Mjc5REFBRUE2MTdFRDU0",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 20th Night Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/rwk3kq4f6dI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/rwk3kq4f6dI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/rwk3kq4f6dI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/rwk3kq4f6dI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/rwk3kq4f6dI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 29,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "rwk3kq4f6dI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "rwk3kq4f6dI",
+      "videoPublishedAt": "2020-01-21T03:39:42Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "RW6u_RCIu8m3rIGyOnR3QtmQpEA",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS43NDhFRTgwOTRERTU4Rjg3",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Day 13 Prayer and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/f9hjgP2CORQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/f9hjgP2CORQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/f9hjgP2CORQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/f9hjgP2CORQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/f9hjgP2CORQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 30,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "f9hjgP2CORQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "f9hjgP2CORQ",
+      "videoPublishedAt": "2020-01-21T01:06:51Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "MxGnaXjMS1zlklnb8WLB-15r7kU",
+    "id": "UEw0Ujh4N1E5WHAwX3ZqS201NFk2bXZlYWp4VVhwZDNmcS41QUZGQTY5OTE4QTREQUU4",
+    "snippet": {
+      "publishedAt": "2020-03-16T15:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 20th Evening Scripture Reading",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DhaUtHZgQ2U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DhaUtHZgQ2U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DhaUtHZgQ2U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DhaUtHZgQ2U/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/DhaUtHZgQ2U/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_vjKm54Y6mveajxUXpd3fq",
+      "position": 31,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "DhaUtHZgQ2U"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "DhaUtHZgQ2U",
+      "videoPublishedAt": "2020-01-20T23:58:57Z"
+    }
+  }
+]

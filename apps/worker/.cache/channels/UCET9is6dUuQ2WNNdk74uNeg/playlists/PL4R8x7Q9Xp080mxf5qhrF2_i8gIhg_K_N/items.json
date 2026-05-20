@@ -1,0 +1,359 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "r_c6njnisTMZGHOuaOWeB4DhVaM",
+    "id": "UEw0Ujh4N1E5WHAwODBteGY1cWhyRjJfaThnSWhnX0tfTi5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2024-05-27T14:36:21Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Worshiping in Spirit & in Truth",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hgfWU9eatNQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hgfWU9eatNQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hgfWU9eatNQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hgfWU9eatNQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/hgfWU9eatNQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp080mxf5qhrF2_i8gIhg_K_N",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "hgfWU9eatNQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "hgfWU9eatNQ",
+      "videoPublishedAt": "2024-05-27T15:22:40Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tw02dtNao6ZnOsxgxUGhBpF1sfg",
+    "id": "UEw0Ujh4N1E5WHAwODBteGY1cWhyRjJfaThnSWhnX0tfTi41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2024-05-19T19:55:42Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Benefits of Belonging",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-FSwi3eU2S8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-FSwi3eU2S8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-FSwi3eU2S8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-FSwi3eU2S8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-FSwi3eU2S8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp080mxf5qhrF2_i8gIhg_K_N",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "-FSwi3eU2S8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "-FSwi3eU2S8",
+      "videoPublishedAt": "2024-05-19T19:55:48Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tmVmX3kyvDxby5y-scQkPgC75CU",
+    "id": "UEw0Ujh4N1E5WHAwODBteGY1cWhyRjJfaThnSWhnX0tfTi4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2024-05-12T20:38:43Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Baptism: Died and Raised with Christ",
+      "description": "00:00 Worship\n04:02 Welcome\n05:58 Worship\n21:03 Baby Dedication\n29:55 Honoring Mothers\n32:30 Scripture Reader \n34:21 Sermon\n1:04:44 Response\n1:06:04 Baptism\n1:10:21 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/tclDrl3iF6g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/tclDrl3iF6g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/tclDrl3iF6g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/tclDrl3iF6g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/tclDrl3iF6g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp080mxf5qhrF2_i8gIhg_K_N",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "tclDrl3iF6g"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "tclDrl3iF6g",
+      "videoPublishedAt": "2024-05-12T21:45:03Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "uQ_0B0y9_1_RcNwdPhXfe4GmMJ8",
+    "id": "UEw0Ujh4N1E5WHAwODBteGY1cWhyRjJfaThnSWhnX0tfTi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2024-05-05T17:41:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Gospel Changes Your Story",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/s-dA2z2oZR0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/s-dA2z2oZR0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/s-dA2z2oZR0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/s-dA2z2oZR0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/s-dA2z2oZR0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp080mxf5qhrF2_i8gIhg_K_N",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "s-dA2z2oZR0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "s-dA2z2oZR0",
+      "videoPublishedAt": "2024-05-05T18:11:51Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "G3L4tZbHP3Jek4WihJ1LvThCi_U",
+    "id": "UEw0Ujh4N1E5WHAwODBteGY1cWhyRjJfaThnSWhnX0tfTi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2024-04-28T18:58:18Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The High Priestly Prayer of Jesus",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FnXqeRLJ-XE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FnXqeRLJ-XE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FnXqeRLJ-XE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FnXqeRLJ-XE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FnXqeRLJ-XE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp080mxf5qhrF2_i8gIhg_K_N",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "FnXqeRLJ-XE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "FnXqeRLJ-XE",
+      "videoPublishedAt": "2024-04-28T19:24:34Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tyefjIY64CxviO3ymvD6ZgjdiwI",
+    "id": "UEw0Ujh4N1E5WHAwODBteGY1cWhyRjJfaThnSWhnX0tfTi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-04-22T15:41:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Power of the Holy Spirit",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mML76DSYpss/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mML76DSYpss/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mML76DSYpss/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mML76DSYpss/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mML76DSYpss/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp080mxf5qhrF2_i8gIhg_K_N",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "mML76DSYpss"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "mML76DSYpss",
+      "videoPublishedAt": "2024-04-22T16:22:48Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Tz7dmWhObdL-cG1s1jKpDr-p0Rk",
+    "id": "UEw0Ujh4N1E5WHAwODBteGY1cWhyRjJfaThnSWhnX0tfTi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-04-14T19:29:58Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Keep My Word",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/q3NzEhddDPA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/q3NzEhddDPA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/q3NzEhddDPA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/q3NzEhddDPA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/q3NzEhddDPA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp080mxf5qhrF2_i8gIhg_K_N",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "q3NzEhddDPA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "q3NzEhddDPA",
+      "videoPublishedAt": "2024-04-14T20:30:04Z"
+    }
+  }
+]

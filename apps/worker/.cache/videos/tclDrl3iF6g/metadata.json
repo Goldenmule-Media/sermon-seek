@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "izTtpTVrUnPk0SkeUTCxDfRTz-E",
+  "id": "tclDrl3iF6g",
+  "snippet": {
+    "publishedAt": "2024-05-12T21:45:03Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Baptism: Died and Raised with Christ",
+    "description": "00:00 Worship\n04:02 Welcome\n05:58 Worship\n21:03 Baby Dedication\n29:55 Honoring Mothers\n32:30 Scripture Reader \n34:21 Sermon\n1:04:44 Response\n1:06:04 Baptism\n1:10:21 Response",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/tclDrl3iF6g/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/tclDrl3iF6g/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/tclDrl3iF6g/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/tclDrl3iF6g/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/tclDrl3iF6g/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Baptism: Died and Raised with Christ",
+      "description": "00:00 Worship\n04:02 Welcome\n05:58 Worship\n21:03 Baby Dedication\n29:55 Honoring Mothers\n32:30 Scripture Reader \n34:21 Sermon\n1:04:44 Response\n1:06:04 Baptism\n1:10:21 Response"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H21M32S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "173",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

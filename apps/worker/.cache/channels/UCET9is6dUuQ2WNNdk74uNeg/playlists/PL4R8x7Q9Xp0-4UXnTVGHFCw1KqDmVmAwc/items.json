@@ -1,0 +1,53 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tRH6lStcdzcDkYa7YVSMwtIdp7w",
+    "id": "UEw0Ujh4N1E5WHAwLTRVWG5UVkdIRkN3MUtxRG1WbUF3Yy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-11-23T18:07:58Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "A Love That Costs Something",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/95yTglk3LxM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/95yTglk3LxM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/95yTglk3LxM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/95yTglk3LxM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/95yTglk3LxM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-4UXnTVGHFCw1KqDmVmAwc",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "95yTglk3LxM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "95yTglk3LxM",
+      "videoPublishedAt": "2025-11-23T18:13:30Z"
+    }
+  }
+]

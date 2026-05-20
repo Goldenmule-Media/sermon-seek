@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "yeIyAdmJ4yquUbV6m8bmcI8FSMw",
+  "id": "qWAA84ny-aA",
+  "snippet": {
+    "publishedAt": "2020-06-07T14:45:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "June 7th Sunday Service",
+    "description": "We are breaking away this weekend from our current series to address the Bible's vision and our pursuit of racial reconciliation.\n\"One new man\" was a phrase coined by the apostle Paul to describe the work of Christ on the cross to destroy hostility between races and create one new humanity. \nIt is hard to face the truth, but the truth that the gospel gives us not only shows where we come up short, but empowers us to be different.\n#myjubileechurch #onenewman\n\nCheck out a sermon from our series in Acts: https://www.youtube.com/watch?v=0L1bmMru4DE\n\nCCLI Streaming License # - 20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/qWAA84ny-aA/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/qWAA84ny-aA/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/qWAA84ny-aA/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/qWAA84ny-aA/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/qWAA84ny-aA/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "June 7th Sunday Service",
+      "description": "We are breaking away this weekend from our current series to address the Bible's vision and our pursuit of racial reconciliation.\n\"One new man\" was a phrase coined by the apostle Paul to describe the work of Christ on the cross to destroy hostility between races and create one new humanity. \nIt is hard to face the truth, but the truth that the gospel gives us not only shows where we come up short, but empowers us to be different.\n#myjubileechurch #onenewman\n\nCheck out a sermon from our series in Acts: https://www.youtube.com/watch?v=0L1bmMru4DE\n\nCCLI Streaming License # - 20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H27M55S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "649",
+    "likeCount": "12",
+    "favoriteCount": "0",
+    "commentCount": "5"
+  }
+}

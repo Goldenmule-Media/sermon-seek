@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Zu1ap5UI8HTOvJMW1gP6cAnAlB8",
+  "id": "gUC02Zz5Qkw",
+  "snippet": {
+    "publishedAt": "2023-12-04T18:29:08Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Joy to the Anxious",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Joy to the Anxious",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H19M32S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "212",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

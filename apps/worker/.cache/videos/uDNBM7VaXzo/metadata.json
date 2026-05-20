@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "DFzBn70CL-La8RTXnIJU_PdukTM",
+  "id": "uDNBM7VaXzo",
+  "snippet": {
+    "publishedAt": "2020-06-21T14:45:12Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "June 21st Sunday Service",
+    "description": "Do you find it challenging to live in our modern culture while also living for God?\n\nJoin us today as Elder Greg Nelson continues us our series “Behind Enemy Lines.” We will examine how Daniel and his friends were able to live within a foreign culture while continue to live for and honor God.\n\nGrab a family member or roommate, invite or share with a friend, and join in with us!\n\n#myjubileechurch #behindenemylines #onlineservice\n\nCCLI Streaming License # - 20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/uDNBM7VaXzo/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/uDNBM7VaXzo/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/uDNBM7VaXzo/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/uDNBM7VaXzo/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/uDNBM7VaXzo/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "June 21st Sunday Service",
+      "description": "Do you find it challenging to live in our modern culture while also living for God?\n\nJoin us today as Elder Greg Nelson continues us our series “Behind Enemy Lines.” We will examine how Daniel and his friends were able to live within a foreign culture while continue to live for and honor God.\n\nGrab a family member or roommate, invite or share with a friend, and join in with us!\n\n#myjubileechurch #behindenemylines #onlineservice\n\nCCLI Streaming License # - 20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H11M58S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "546",
+    "likeCount": "7",
+    "favoriteCount": "0",
+    "commentCount": "3"
+  }
+}

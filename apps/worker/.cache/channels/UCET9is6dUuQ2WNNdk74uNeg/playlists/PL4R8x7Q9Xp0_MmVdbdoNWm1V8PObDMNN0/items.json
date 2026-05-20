@@ -1,0 +1,104 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Gg9x1xz6DddthLWrjL6RBo7_tyo",
+    "id": "UEw0Ujh4N1E5WHAwX01tVmRiZG9OV20xVjhQT2JETU5OMC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-09-20T17:40:30Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Inspire 2025 - Main Session 1: \"Opportunity & Opposition\" feat. Shawn Craig",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mfJ4CrJZWYE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mfJ4CrJZWYE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mfJ4CrJZWYE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mfJ4CrJZWYE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mfJ4CrJZWYE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_MmVdbdoNWm1V8PObDMNN0",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "mfJ4CrJZWYE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "mfJ4CrJZWYE",
+      "videoPublishedAt": "2025-09-20T18:00:52Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5icR0NWfxGJC4RxHohExjhJ3uLU",
+    "id": "UEw0Ujh4N1E5WHAwX01tVmRiZG9OV20xVjhQT2JETU5OMC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-09-20T17:12:06Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Inspire 2025 - Main Session 2: \"Leadership Matters\" feat. Bryan Mowrey",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/KsSFeEhk5wo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/KsSFeEhk5wo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/KsSFeEhk5wo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/KsSFeEhk5wo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/KsSFeEhk5wo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_MmVdbdoNWm1V8PObDMNN0",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "KsSFeEhk5wo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "KsSFeEhk5wo",
+      "videoPublishedAt": "2025-09-20T18:00:20Z"
+    }
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "RbB1H75o69FTPvIae3Q4v3DSs0Q",
+  "id": "hsgzQoZaAjk",
+  "snippet": {
+    "publishedAt": "2022-06-06T18:00:14Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Life Lived by the Son",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/hsgzQoZaAjk/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/hsgzQoZaAjk/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/hsgzQoZaAjk/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/hsgzQoZaAjk/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/hsgzQoZaAjk/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Life Lived by the Son",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT32M31S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "92",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

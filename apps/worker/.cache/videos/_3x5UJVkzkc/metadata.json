@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "HJxVPwVETHCoDzQbJYgKDxFGxaI",
+  "id": "_3x5UJVkzkc",
+  "snippet": {
+    "publishedAt": "2025-08-22T16:30:29Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "What Is the Biblical Framework for Wisdom? Applying It to Time and Life",
+    "description": "The Bible gives us a clear framework for wisdom: the wise, the simple, the fool, and the evil. But how does this apply to our daily decisions and use of time? Bryan Mowrey unpacks Proverbs’ categories of wisdom and how they can guide us in living with purpose and alignment with God’s will.\n\n👉 Watch the full bonus episode of the Jubilee Church Podcast here: https://youtu.be/Kx9JEadksnU",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/_3x5UJVkzkc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/_3x5UJVkzkc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/_3x5UJVkzkc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/_3x5UJVkzkc/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/_3x5UJVkzkc/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "What Is the Biblical Framework for Wisdom? Applying It to Time and Life",
+      "description": "The Bible gives us a clear framework for wisdom: the wise, the simple, the fool, and the evil. But how does this apply to our daily decisions and use of time? Bryan Mowrey unpacks Proverbs’ categories of wisdom and how they can guide us in living with purpose and alignment with God’s will.\n\n👉 Watch the full bonus episode of the Jubilee Church Podcast here: https://youtu.be/Kx9JEadksnU"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT16M45S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "37",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

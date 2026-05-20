@@ -1,0 +1,53 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "get2ZSFXnVxBMiKkG0RH9Cxmjks",
+    "id": "UEw0Ujh4N1E5WHAwLTF1LXFYcjNOUHB5QlJPYUJCYXR3di41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2021-11-08T18:37:03Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Because of You",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CIZzxnbf6O4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CIZzxnbf6O4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CIZzxnbf6O4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CIZzxnbf6O4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CIZzxnbf6O4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-1u-qXr3NPpyBROaBBatwv",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "CIZzxnbf6O4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "CIZzxnbf6O4",
+      "videoPublishedAt": "2021-11-08T19:15:01Z"
+    }
+  }
+]

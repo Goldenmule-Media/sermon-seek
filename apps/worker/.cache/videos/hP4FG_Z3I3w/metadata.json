@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Hpi2ehjm3cBCBPcNm7NYmEfx8bI",
+  "id": "hP4FG_Z3I3w",
+  "snippet": {
+    "publishedAt": "2025-08-11T23:56:47Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Faith, Endurance, and How to Read the Bible",
+    "description": "In this bonus episode of the Jubilee Church Podcast, host Jordan Dillon sits down with Lead Pastor Bryan Mowrey for an honest and inspiring conversation. Jordan shares the remarkable story of his son Sincere’s recovery after a serious accident, and together they explore what it means to live a truly fruitful life in Christ. They also tackle practical questions about reading the Bible—why it can feel difficult, and how to approach it with fresh understanding. Whether you’re looking for encouragement, spiritual insight, or practical next steps in your faith, this episode will challenge and inspire you.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/hP4FG_Z3I3w/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/hP4FG_Z3I3w/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/hP4FG_Z3I3w/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/hP4FG_Z3I3w/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/hP4FG_Z3I3w/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Faith, Endurance, and How to Read the Bible",
+      "description": "In this bonus episode of the Jubilee Church Podcast, host Jordan Dillon sits down with Lead Pastor Bryan Mowrey for an honest and inspiring conversation. Jordan shares the remarkable story of his son Sincere’s recovery after a serious accident, and together they explore what it means to live a truly fruitful life in Christ. They also tackle practical questions about reading the Bible—why it can feel difficult, and how to approach it with fresh understanding. Whether you’re looking for encouragement, spiritual insight, or practical next steps in your faith, this episode will challenge and inspire you."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT53M14S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "201",
+    "likeCount": "16",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

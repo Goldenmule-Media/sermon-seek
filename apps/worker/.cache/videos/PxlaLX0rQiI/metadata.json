@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "u3jXyMNTyMv_-XL4iRTA73tiJxM",
+  "id": "PxlaLX0rQiI",
+  "snippet": {
+    "publishedAt": "2025-11-17T20:19:23Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Deeply Rooted 2025 | Workshop E: Wisdom in the Inmost Parts feat. Sylvia Nelson",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Deeply Rooted 2025 | Workshop E: Wisdom in the Inmost Parts feat. Sylvia Nelson",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT38M31S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "56",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

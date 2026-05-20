@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "7_13R0pjxuakc48jc9RnddEh8NE",
+  "id": "SexO-8C0O6A",
+  "snippet": {
+    "publishedAt": "2023-08-07T00:16:30Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "You Matter to Jesus",
+    "description": "00:00 Worship\n04:48 Welcome\n07:12 Worship\n20:47 Announcements\n27:48 Sermon\n1:05:41 Response",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/SexO-8C0O6A/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/SexO-8C0O6A/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/SexO-8C0O6A/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/SexO-8C0O6A/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/SexO-8C0O6A/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "You Matter to Jesus",
+      "description": "00:00 Worship\n04:48 Welcome\n07:12 Worship\n20:47 Announcements\n27:48 Sermon\n1:05:41 Response"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H13M25S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "184",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

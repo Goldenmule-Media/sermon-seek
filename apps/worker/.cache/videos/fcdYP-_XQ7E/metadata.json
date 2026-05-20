@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "hoslaCiUrgh-WSVhHnOwm7ujIAc",
+  "id": "fcdYP-_XQ7E",
+  "snippet": {
+    "publishedAt": "2021-06-06T22:00:13Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Psalm 34 (When I See Your Face)",
+    "description": "'Psalm 34' is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives!\n\nWe pray that these songs help usher you into a deeper connection with God through His Holy Spirit.\n\nLyrics:\n\nI’ve been remembering the way things were \nEver since I was a child \nShame was constant \nAlways by my side \nI believed I was reviled \n\nI cried many lonely tears\nPinned down by all my fears\n\nI hid my face \nOoos\n\nEven when I thought I cried alone \nThere was someone listening all along\nHe heard this poor girl cry and pulled me in \nI never felt so warm\n \nHe said you’re not alone \nCome, let me hold you close\n\nLet me see your face\nOoos\n\nNow the one that I hid from \nIs the one that I run to\nThe one that I run to\nNow the shame that hid my face\nIs turned into glory\nTurned into glory\n(When I see your face)\nOoos\n\nEven before I knew You \nEven before I could say Your name \nYou were planning my days\nAnd You don’t fail \nNo, You don’t make mistakes\nYou turn shame into praise\nAnd you are always making a way \n\nFor me to lift my face",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Psalm 34 (When I See Your Face)",
+      "description": "'Psalm 34' is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives!\n\nWe pray that these songs help usher you into a deeper connection with God through His Holy Spirit.\n\nLyrics:\n\nI’ve been remembering the way things were \nEver since I was a child \nShame was constant \nAlways by my side \nI believed I was reviled \n\nI cried many lonely tears\nPinned down by all my fears\n\nI hid my face \nOoos\n\nEven when I thought I cried alone \nThere was someone listening all along\nHe heard this poor girl cry and pulled me in \nI never felt so warm\n \nHe said you’re not alone \nCome, let me hold you close\n\nLet me see your face\nOoos\n\nNow the one that I hid from \nIs the one that I run to\nThe one that I run to\nNow the shame that hid my face\nIs turned into glory\nTurned into glory\n(When I see your face)\nOoos\n\nEven before I knew You \nEven before I could say Your name \nYou were planning my days\nAnd You don’t fail \nNo, You don’t make mistakes\nYou turn shame into praise\nAnd you are always making a way \n\nFor me to lift my face"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M25S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "8811",
+    "likeCount": "78",
+    "favoriteCount": "0",
+    "commentCount": "6"
+  }
+}

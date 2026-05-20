@@ -1,0 +1,359 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "IN4gKsG1iKBEp1fP-gs9eYaAu50",
+    "id": "UEw0Ujh4N1E5WHAwOU02MVJNREF1NnM5aDVQWERmbk5Cay41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2020-09-18T14:30:09Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Eyes on Him - Episode 7",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/I3JPGv4oGEI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/I3JPGv4oGEI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/I3JPGv4oGEI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/I3JPGv4oGEI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/I3JPGv4oGEI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09M61RMDAu6s9h5PXDfnNBk",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "I3JPGv4oGEI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "I3JPGv4oGEI",
+      "videoPublishedAt": "2020-09-18T14:50:31Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "FLFknxClr0tVKSmv7UemFLTY7c8",
+    "id": "UEw0Ujh4N1E5WHAwOU02MVJNREF1NnM5aDVQWERmbk5Cay4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2020-09-10T22:01:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Eyes on Him - Episode 6",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xA5cUjQ6Bd8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xA5cUjQ6Bd8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xA5cUjQ6Bd8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xA5cUjQ6Bd8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/xA5cUjQ6Bd8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09M61RMDAu6s9h5PXDfnNBk",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "xA5cUjQ6Bd8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "xA5cUjQ6Bd8",
+      "videoPublishedAt": "2020-09-10T21:36:30Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "1Q0bntdHoLiXO6bJ2deUzQPs-d8",
+    "id": "UEw0Ujh4N1E5WHAwOU02MVJNREF1NnM5aDVQWERmbk5Cay4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2020-09-08T22:08:17Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Eyes on Him - Episode 5",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/y1Fa-8lW8D0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/y1Fa-8lW8D0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/y1Fa-8lW8D0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/y1Fa-8lW8D0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/y1Fa-8lW8D0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09M61RMDAu6s9h5PXDfnNBk",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "y1Fa-8lW8D0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "y1Fa-8lW8D0",
+      "videoPublishedAt": "2020-09-08T22:07:11Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Iqa0q3Cn22HEc4o8KXt9iaP9sFE",
+    "id": "UEw0Ujh4N1E5WHAwOU02MVJNREF1NnM5aDVQWERmbk5Cay41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2020-09-02T18:08:12Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Eyes on Him - Episode 4",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/AAXHQcB5lwU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/AAXHQcB5lwU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/AAXHQcB5lwU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/AAXHQcB5lwU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/AAXHQcB5lwU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09M61RMDAu6s9h5PXDfnNBk",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "AAXHQcB5lwU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "AAXHQcB5lwU",
+      "videoPublishedAt": "2020-09-02T18:12:16Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "o9HDvQuLLwM8e0zaCetFysrx9Gc",
+    "id": "UEw0Ujh4N1E5WHAwOU02MVJNREF1NnM5aDVQWERmbk5Cay4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2020-08-31T18:04:05Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Eyes on Him - Episode 3",
+      "description": "Romans 15:1-3",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dFtY5m5UEzc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dFtY5m5UEzc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dFtY5m5UEzc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dFtY5m5UEzc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dFtY5m5UEzc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09M61RMDAu6s9h5PXDfnNBk",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "dFtY5m5UEzc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "dFtY5m5UEzc",
+      "videoPublishedAt": "2020-08-31T17:45:52Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "2QHUC3oquUBL03oXP_fPK9oVRJ4",
+    "id": "UEw0Ujh4N1E5WHAwOU02MVJNREF1NnM5aDVQWERmbk5Cay4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2020-08-31T18:03:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Eyes on Him - Episode 2",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/6uZQoE4nIe4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/6uZQoE4nIe4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/6uZQoE4nIe4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/6uZQoE4nIe4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/6uZQoE4nIe4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09M61RMDAu6s9h5PXDfnNBk",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "6uZQoE4nIe4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "6uZQoE4nIe4",
+      "videoPublishedAt": "2020-08-26T12:48:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "sSYtsBfaonLHyZoWBpnyppuiyfE",
+    "id": "UEw0Ujh4N1E5WHAwOU02MVJNREF1NnM5aDVQWERmbk5Cay41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2020-08-31T18:03:35Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Eyes on Him - Episode 1",
+      "description": "First episode in the devotional series \"Eyes on Him\"",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/l8I8TbukBWw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/l8I8TbukBWw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/l8I8TbukBWw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/l8I8TbukBWw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/l8I8TbukBWw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09M61RMDAu6s9h5PXDfnNBk",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "l8I8TbukBWw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "l8I8TbukBWw",
+      "videoPublishedAt": "2020-08-25T11:16:02Z"
+    }
+  }
+]

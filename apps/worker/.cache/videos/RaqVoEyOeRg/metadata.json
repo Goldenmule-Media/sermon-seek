@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "wylzuQRDqxtep4jDkHBDMH5bz9s",
+  "id": "RaqVoEyOeRg",
+  "snippet": {
+    "publishedAt": "2024-01-11T12:00:21Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "January 11th Morning Devotional, Receiving Through Worship",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/RaqVoEyOeRg/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "January 11th Morning Devotional, Receiving Through Worship",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M10S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "214",
+    "likeCount": "8",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "D5mNI1vdMORvC2o5977SkyX82uk",
+  "id": "lpxc0hhBn8c",
+  "snippet": {
+    "publishedAt": "2023-08-07T03:07:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 7th Morning Devotional, The Belt of Truth",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 7th Morning Devotional, The Belt of Truth",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M2S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "298",
+    "likeCount": "12",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

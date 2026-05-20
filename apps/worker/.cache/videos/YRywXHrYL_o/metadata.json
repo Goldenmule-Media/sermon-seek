@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "NGu9ucZ96mWs7o8JxF8QIELiJJk",
+  "id": "YRywXHrYL_o",
+  "snippet": {
+    "publishedAt": "2025-11-02T18:42:46Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Helmet of Salvation",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/YRywXHrYL_o/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/YRywXHrYL_o/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/YRywXHrYL_o/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/YRywXHrYL_o/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/YRywXHrYL_o/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Helmet of Salvation",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H17M11S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "114",
+    "likeCount": "2",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

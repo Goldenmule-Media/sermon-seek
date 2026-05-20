@@ -1,0 +1,410 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wlLtlUVaYJPjQJJj8vxcpKiwytE",
+    "id": "UEw0Ujh4N1E5WHAwOVBqUHVYb2FwUXZFYW1EVEFGQWVmMC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2021-10-16T03:53:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "9/5 Assembled - Building Together - Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/GJvBRWSrh1E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/GJvBRWSrh1E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/GJvBRWSrh1E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/GJvBRWSrh1E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/GJvBRWSrh1E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PjPuXoapQvEamDTAFAef0",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "GJvBRWSrh1E"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "GJvBRWSrh1E",
+      "videoPublishedAt": "2021-09-10T11:22:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ycOA7AoImgHiUU80xJtZO1v-mFM",
+    "id": "UEw0Ujh4N1E5WHAwOVBqUHVYb2FwUXZFYW1EVEFGQWVmMC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-05-30T03:09:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Freedom in Christ | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4ch34pKJRfk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4ch34pKJRfk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4ch34pKJRfk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/4ch34pKJRfk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/4ch34pKJRfk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PjPuXoapQvEamDTAFAef0",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "4ch34pKJRfk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "4ch34pKJRfk",
+      "videoPublishedAt": "2022-05-30T04:00:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "hV04VECy2Mhbx7GNkn-HopEZK6s",
+    "id": "UEw0Ujh4N1E5WHAwOVBqUHVYb2FwUXZFYW1EVEFGQWVmMC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-10-18T17:01:02Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "A Change of Perspective | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PjPuXoapQvEamDTAFAef0",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "YOXyIR--NGg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "YOXyIR--NGg",
+      "videoPublishedAt": "2022-10-18T18:00:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "n08IFh8Gcb0nC2GypEH2zYUXw8Q",
+    "id": "UEw0Ujh4N1E5WHAwOVBqUHVYb2FwUXZFYW1EVEFGQWVmMC41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-11-07T21:07:59Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Discipleship Practices | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YduSzlykX8E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YduSzlykX8E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YduSzlykX8E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YduSzlykX8E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YduSzlykX8E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PjPuXoapQvEamDTAFAef0",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "YduSzlykX8E"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "YduSzlykX8E",
+      "videoPublishedAt": "2022-11-07T21:31:38Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "8VHHyXoG19kP4yWdnRzCgbdIuAU",
+    "id": "UEw0Ujh4N1E5WHAwOVBqUHVYb2FwUXZFYW1EVEFGQWVmMC4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2023-01-10T18:43:52Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus' Job Description | Rick Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PjPuXoapQvEamDTAFAef0",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "NbfvV8TzzHM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "NbfvV8TzzHM",
+      "videoPublishedAt": "2023-01-10T20:13:16Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "3pgCsLg7wPS23S-n5L7z39MaQOY",
+    "id": "UEw0Ujh4N1E5WHAwOVBqUHVYb2FwUXZFYW1EVEFGQWVmMC4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2023-01-24T02:37:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus & Mission | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PjPuXoapQvEamDTAFAef0",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "drDVORjH7ls"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "drDVORjH7ls",
+      "videoPublishedAt": "2023-01-24T12:00:32Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "v8RT8HTPT42VcD7Yh1uLFvLjKNo",
+    "id": "UEw0Ujh4N1E5WHAwOVBqUHVYb2FwUXZFYW1EVEFGQWVmMC41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2023-03-27T22:54:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Love in Action: Allegiance | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CMakE6EajYU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CMakE6EajYU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CMakE6EajYU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CMakE6EajYU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CMakE6EajYU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PjPuXoapQvEamDTAFAef0",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "CMakE6EajYU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "CMakE6EajYU",
+      "videoPublishedAt": "2023-03-27T22:54:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "qpUb1OUJEJt7rTphhOXjSL3iQqw",
+    "id": "UEw0Ujh4N1E5WHAwOVBqUHVYb2FwUXZFYW1EVEFGQWVmMC5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2023-04-03T14:06:03Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Love in Action - Reward  | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/t7ooIwUfzLg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/t7ooIwUfzLg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/t7ooIwUfzLg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/t7ooIwUfzLg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/t7ooIwUfzLg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09PjPuXoapQvEamDTAFAef0",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "t7ooIwUfzLg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "t7ooIwUfzLg",
+      "videoPublishedAt": "2023-04-03T14:40:45Z"
+    }
+  }
+]

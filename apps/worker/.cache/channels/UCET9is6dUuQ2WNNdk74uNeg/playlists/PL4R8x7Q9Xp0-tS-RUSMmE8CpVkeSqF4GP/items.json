@@ -1,0 +1,359 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "r4ZCeXioiCfRBTupCQpWB40p2eo",
+    "id": "UEw0Ujh4N1E5WHAwLXRTLVJVU01tRThDcFZrZVNxRjRHUC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-11-17T20:11:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted 2025 | Main Session 1 feat. Alyssa McCutchan",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fE52to0mYK0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fE52to0mYK0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fE52to0mYK0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fE52to0mYK0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fE52to0mYK0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-tS-RUSMmE8CpVkeSqF4GP",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "fE52to0mYK0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "fE52to0mYK0",
+      "videoPublishedAt": "2025-11-17T20:19:23Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "mlRp3YjY9JtZcZCuen-GSQ7jOVw",
+    "id": "UEw0Ujh4N1E5WHAwLXRTLVJVU01tRThDcFZrZVNxRjRHUC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-11-17T20:12:30Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted 2025 | Main Session 2 feat. Miranda Stewart",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-tS-RUSMmE8CpVkeSqF4GP",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "PfaXnyAhw6Y"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "PfaXnyAhw6Y",
+      "videoPublishedAt": "2025-11-17T20:19:23Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "uYEW18cZ9Enye9JzFsj11Saep9A",
+    "id": "UEw0Ujh4N1E5WHAwLXRTLVJVU01tRThDcFZrZVNxRjRHUC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-11-17T20:13:32Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted 2025 | Workshop A: Awaken to His Voice feat. Brenda McCutchan",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uSrpcZUNZgY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uSrpcZUNZgY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uSrpcZUNZgY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uSrpcZUNZgY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uSrpcZUNZgY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-tS-RUSMmE8CpVkeSqF4GP",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "uSrpcZUNZgY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "uSrpcZUNZgY",
+      "videoPublishedAt": "2025-11-17T20:19:23Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "vPMPjBLiB2x4eJOfY5y-Yh6daOM",
+    "id": "UEw0Ujh4N1E5WHAwLXRTLVJVU01tRThDcFZrZVNxRjRHUC41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2025-11-17T20:14:23Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted 2025 | Workshop B: The Hard Yes: Finding Peace in Painful Obedience feat. Lissy Dillon",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7Am0nzT2GLk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7Am0nzT2GLk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7Am0nzT2GLk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/7Am0nzT2GLk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/7Am0nzT2GLk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-tS-RUSMmE8CpVkeSqF4GP",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "7Am0nzT2GLk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "7Am0nzT2GLk",
+      "videoPublishedAt": "2025-11-17T20:19:23Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "3iG5mcx-IzmjDrHTzFpX2v3IvIU",
+    "id": "UEw0Ujh4N1E5WHAwLXRTLVJVU01tRThDcFZrZVNxRjRHUC4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2025-11-17T20:16:32Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted 2025 | Workshop C: The Gift of Generational Relationships f. V. Herrington & A. Mowrey",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/roDSLrpY8a0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/roDSLrpY8a0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/roDSLrpY8a0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/roDSLrpY8a0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/roDSLrpY8a0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-tS-RUSMmE8CpVkeSqF4GP",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "roDSLrpY8a0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "roDSLrpY8a0",
+      "videoPublishedAt": "2025-11-17T20:19:23Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "sFW2DcaC7Pscc3Ok_lNiDlAWWzY",
+    "id": "UEw0Ujh4N1E5WHAwLXRTLVJVU01tRThDcFZrZVNxRjRHUC4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2025-11-17T20:17:18Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted 2025 | Workshop D: Awake to the Exchange That Changes Everything feat. Rebekah Neely",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/12JR0oXOmYk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/12JR0oXOmYk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/12JR0oXOmYk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/12JR0oXOmYk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/12JR0oXOmYk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-tS-RUSMmE8CpVkeSqF4GP",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "12JR0oXOmYk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "12JR0oXOmYk",
+      "videoPublishedAt": "2025-11-17T20:19:23Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "1PRSpJJKq72hVHFDrxv0QC3Uazs",
+    "id": "UEw0Ujh4N1E5WHAwLXRTLVJVU01tRThDcFZrZVNxRjRHUC41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2025-11-17T20:18:56Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted 2025 | Workshop E: Wisdom in the Inmost Parts feat. Sylvia Nelson",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PxlaLX0rQiI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-tS-RUSMmE8CpVkeSqF4GP",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "PxlaLX0rQiI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "PxlaLX0rQiI",
+      "videoPublishedAt": "2025-11-17T20:19:23Z"
+    }
+  }
+]

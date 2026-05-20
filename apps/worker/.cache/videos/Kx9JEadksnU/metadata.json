@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "mgKy5mCAtlTiTHvSI2or_B4vaW0",
+  "id": "Kx9JEadksnU",
+  "snippet": {
+    "publishedAt": "2025-08-19T00:21:27Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Parenting wisdom and discerning God's will",
+    "description": "In this special bonus episode of the Jubilee Church Podcast, Lead Pastor Bryan Mowrey joins host Jordan Dillon for a deep conversation on parenting, time, and wisdom. Together, they discuss how to leverage time during parenting, the difference between day-to-day time and life’s opportunities, practicals of raising children from baby to adulthood, and the categories of wisdom from Proverbs (wise, simple, fool, evil). The conversation closes with a powerful discussion on how to orient your life around the will of God.\n\nWhether you’re a parent, mentor, or simply seeking wisdom for daily life, this episode is packed with practical insight and biblical perspective.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Kx9JEadksnU/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Kx9JEadksnU/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Kx9JEadksnU/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Kx9JEadksnU/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Kx9JEadksnU/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Parenting wisdom and discerning God's will",
+      "description": "In this special bonus episode of the Jubilee Church Podcast, Lead Pastor Bryan Mowrey joins host Jordan Dillon for a deep conversation on parenting, time, and wisdom. Together, they discuss how to leverage time during parenting, the difference between day-to-day time and life’s opportunities, practicals of raising children from baby to adulthood, and the categories of wisdom from Proverbs (wise, simple, fool, evil). The conversation closes with a powerful discussion on how to orient your life around the will of God.\n\nWhether you’re a parent, mentor, or simply seeking wisdom for daily life, this episode is packed with practical insight and biblical perspective."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H1M58S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "148",
+    "likeCount": "8",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

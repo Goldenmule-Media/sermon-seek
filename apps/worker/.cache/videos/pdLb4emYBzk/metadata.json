@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "asJtKkGuEYPjU5OwbU6Lwpn3u9Y",
+  "id": "pdLb4emYBzk",
+  "snippet": {
+    "publishedAt": "2024-12-29T19:09:43Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "New Year's Family Service 2024",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/pdLb4emYBzk/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/pdLb4emYBzk/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/pdLb4emYBzk/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/pdLb4emYBzk/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/pdLb4emYBzk/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "New Year's Family Service 2024",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H13M29S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "139",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

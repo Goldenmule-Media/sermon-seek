@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "BWZaaeihmtDmr2oo2J-7mGsRCIE",
+  "id": "v9prHPm3REI",
+  "snippet": {
+    "publishedAt": "2026-02-01T20:25:19Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Fullness v. Emptiness",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/v9prHPm3REI/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/v9prHPm3REI/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/v9prHPm3REI/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/v9prHPm3REI/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/v9prHPm3REI/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "no",
+    "localized": {
+      "title": "Fullness v. Emptiness",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H22M5S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "272",
+    "likeCount": "6",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

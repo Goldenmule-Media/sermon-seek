@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "-rSYLXGmJLPwBK94luFVzhIX7b8",
+  "id": "Xy-Yzb0QLG0",
+  "snippet": {
+    "publishedAt": "2022-01-12T12:00:15Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "January 12th Morning Devotional, Reorient Your Thinking Toward God’s Presence",
+    "description": "Link to Prayer Guide:\nhttps://www.jubileestl.org/s/03-wednesday.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "January 12th Morning Devotional, Reorient Your Thinking Toward God’s Presence",
+      "description": "Link to Prayer Guide:\nhttps://www.jubileestl.org/s/03-wednesday.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M25S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "157",
+    "likeCount": "8",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

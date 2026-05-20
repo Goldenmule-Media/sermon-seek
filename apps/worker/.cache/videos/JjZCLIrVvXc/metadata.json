@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "mRIjBzNCs-EIyQ0Ao8XRxa1-gaA",
+  "id": "JjZCLIrVvXc",
+  "snippet": {
+    "publishedAt": "2024-08-04T19:37:03Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "NEXGEN Sunday 2024",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/JjZCLIrVvXc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/JjZCLIrVvXc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/JjZCLIrVvXc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/JjZCLIrVvXc/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/JjZCLIrVvXc/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "NEXGEN Sunday 2024",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H27M1S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "131",
+    "likeCount": "2",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

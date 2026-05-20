@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "MLI2bxgNx0yqFHORFwkw3vrZup0",
+  "id": "jaDJzabgZKI",
+  "snippet": {
+    "publishedAt": "2025-10-19T17:47:19Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "The Shield of Faith",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/jaDJzabgZKI/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/jaDJzabgZKI/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/jaDJzabgZKI/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/jaDJzabgZKI/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/jaDJzabgZKI/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "The Shield of Faith",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H18M51S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "193",
+    "likeCount": "6",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

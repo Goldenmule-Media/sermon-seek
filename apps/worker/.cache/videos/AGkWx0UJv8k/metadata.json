@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Dwyl1IQ1yqZQb_fGT6Lxcs1ydgY",
+  "id": "AGkWx0UJv8k",
+  "snippet": {
+    "publishedAt": "2020-05-24T14:45:10Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 24th Sunday Service",
+    "description": "Feel like you’ve screwed up and deserve whatever life my hand you? Or maybe you wonder if you’ll ever be free like habitual sin?\nToday we begin a new series from the book of Daniel entitled “Behind Enemy Lines.” Elder Greg Nelson kicks us off by looking at the first chapter of Daniel, and we also take a moment to celebrate the graduates among us!\nJoin us this morning as we worship and celebrate all the God is doing!\n#myjubileechurch #behindenemylines #daniel\n\n\nCCLI Streaming License # - 20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/AGkWx0UJv8k/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/AGkWx0UJv8k/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/AGkWx0UJv8k/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/AGkWx0UJv8k/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/AGkWx0UJv8k/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 24th Sunday Service",
+      "description": "Feel like you’ve screwed up and deserve whatever life my hand you? Or maybe you wonder if you’ll ever be free like habitual sin?\nToday we begin a new series from the book of Daniel entitled “Behind Enemy Lines.” Elder Greg Nelson kicks us off by looking at the first chapter of Daniel, and we also take a moment to celebrate the graduates among us!\nJoin us this morning as we worship and celebrate all the God is doing!\n#myjubileechurch #behindenemylines #daniel\n\n\nCCLI Streaming License # - 20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H9M50S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "556",
+    "likeCount": "9",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

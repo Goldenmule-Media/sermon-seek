@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "u-iVV2ShAjw5UNGlGmosIVKmsJU",
+  "id": "oF_K9sDHa-4",
+  "snippet": {
+    "publishedAt": "2025-08-16T20:00:35Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Practical Tips for Reading the Bible Every Day",
+    "description": "From our bonus episode of the Jubilee Church Podcast, Pastor Bryan Mowrey and Jordan Dillon offer down-to-earth strategies to make Bible reading more meaningful and consistent. \nThey share practical methods—from finding the right time and place to reading with the right mindset—that can help you engage with God’s Word more deeply.\n\n📺 Watch the full conversation here: https://youtu.be/hP4FG_Z3I3w",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/oF_K9sDHa-4/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/oF_K9sDHa-4/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/oF_K9sDHa-4/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/oF_K9sDHa-4/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/oF_K9sDHa-4/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Practical Tips for Reading the Bible Every Day",
+      "description": "From our bonus episode of the Jubilee Church Podcast, Pastor Bryan Mowrey and Jordan Dillon offer down-to-earth strategies to make Bible reading more meaningful and consistent. \nThey share practical methods—from finding the right time and place to reading with the right mindset—that can help you engage with God’s Word more deeply.\n\n📺 Watch the full conversation here: https://youtu.be/hP4FG_Z3I3w"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT13M38S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "24",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

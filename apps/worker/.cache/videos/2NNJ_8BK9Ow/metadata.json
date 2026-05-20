@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "LLSQKpRfwGoJOV1GrIo0r3YgvDc",
+  "id": "2NNJ_8BK9Ow",
+  "snippet": {
+    "publishedAt": "2025-11-24T16:30:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Foster Care, Faith & Family: A Conversation with Ryan MacDonald",
+    "description": "In this episode, host Jordan Dillon sits down with Ryan MacDonald from Foster the City for an honest, practical conversation about adoption, foster care, and learning to love vulnerable children as a family and a church.\n\nRyan shares his personal journey into adopting and fostering, how his family is shaped today, and why partnering with organizations like Foster the City matters. Jordan and Ryan talk through the biggest hurdles people face when considering foster care, how to discern if this is the right time for your family, and what healthy preparation looks like for parents stepping into this season.\n\nThey also discuss the encouraging trends Ryan is seeing in the foster community, the concerns leaders should be paying attention to, and how everyday believers can stay connected and supportive even if they’re not fostering themselves.\n\nWhether you're exploring foster care, supporting someone who is, or wanting to better understand the needs of vulnerable children, this episode offers grounded wisdom, lived experience, and hope for the future.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/2NNJ_8BK9Ow/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/2NNJ_8BK9Ow/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/2NNJ_8BK9Ow/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/2NNJ_8BK9Ow/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/2NNJ_8BK9Ow/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Foster Care, Faith & Family: A Conversation with Ryan MacDonald",
+      "description": "In this episode, host Jordan Dillon sits down with Ryan MacDonald from Foster the City for an honest, practical conversation about adoption, foster care, and learning to love vulnerable children as a family and a church.\n\nRyan shares his personal journey into adopting and fostering, how his family is shaped today, and why partnering with organizations like Foster the City matters. Jordan and Ryan talk through the biggest hurdles people face when considering foster care, how to discern if this is the right time for your family, and what healthy preparation looks like for parents stepping into this season.\n\nThey also discuss the encouraging trends Ryan is seeing in the foster community, the concerns leaders should be paying attention to, and how everyday believers can stay connected and supportive even if they’re not fostering themselves.\n\nWhether you're exploring foster care, supporting someone who is, or wanting to better understand the needs of vulnerable children, this episode offers grounded wisdom, lived experience, and hope for the future."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H3M8S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "161",
+    "likeCount": "6",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

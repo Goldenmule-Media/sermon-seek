@@ -1,0 +1,206 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "akIKaZQbjbZqL9AYNrKBDGwwZ3g",
+    "id": "UEw0Ujh4N1E5WHAwX05iMGJYUnZwel9XcngtWWtDN3JqNi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-01-30T16:08:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Church Hurt",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pa5ClDVsuXM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pa5ClDVsuXM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pa5ClDVsuXM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pa5ClDVsuXM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pa5ClDVsuXM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_Nb0bXRvpz_Wrx-YkC7rj6",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "pa5ClDVsuXM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "pa5ClDVsuXM",
+      "videoPublishedAt": "2023-01-30T19:00:26Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Z1Q13cWprNx4Ok0L6aUU7pr4Bf8",
+    "id": "UEw0Ujh4N1E5WHAwX05iMGJYUnZwel9XcngtWWtDN3JqNi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-02-06T14:35:47Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Trusting the Bible",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0Ek47BVOnc8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0Ek47BVOnc8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0Ek47BVOnc8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0Ek47BVOnc8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0Ek47BVOnc8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_Nb0bXRvpz_Wrx-YkC7rj6",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0Ek47BVOnc8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0Ek47BVOnc8",
+      "videoPublishedAt": "2023-02-06T15:45:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CcolNjtKZLkLnLkpZZ3jvYBhv_Q",
+    "id": "UEw0Ujh4N1E5WHAwX05iMGJYUnZwel9XcngtWWtDN3JqNi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2023-02-13T13:48:07Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus & Sexuality",
+      "description": "Learn how to pray for Turkey and Syria:\nhttps://youtu.be/kOhwd5xZd_Q",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DcVvVYrsE_o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DcVvVYrsE_o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DcVvVYrsE_o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DcVvVYrsE_o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/DcVvVYrsE_o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_Nb0bXRvpz_Wrx-YkC7rj6",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "DcVvVYrsE_o"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "DcVvVYrsE_o",
+      "videoPublishedAt": "2023-02-13T15:00:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "qD6HqF7C-w8mybDuktKYJ9RxRRI",
+    "id": "UEw0Ujh4N1E5WHAwX05iMGJYUnZwel9XcngtWWtDN3JqNi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2023-02-20T17:34:08Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "What's at Stake",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pdbwm7pJT-I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pdbwm7pJT-I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pdbwm7pJT-I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pdbwm7pJT-I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pdbwm7pJT-I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_Nb0bXRvpz_Wrx-YkC7rj6",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "pdbwm7pJT-I"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "pdbwm7pJT-I",
+      "videoPublishedAt": "2023-02-20T17:41:41Z"
+    }
+  }
+]

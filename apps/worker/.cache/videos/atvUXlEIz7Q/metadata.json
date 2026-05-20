@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "j80pNESbNSFocMQ_c5-q7udC8kw",
+  "id": "atvUXlEIz7Q",
+  "snippet": {
+    "publishedAt": "2020-04-05T14:45:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "April 5th Sunday Service",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/atvUXlEIz7Q/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/atvUXlEIz7Q/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/atvUXlEIz7Q/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/atvUXlEIz7Q/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/atvUXlEIz7Q/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "April 5th Sunday Service",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H12M14S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "871",
+    "likeCount": "19",
+    "favoriteCount": "0",
+    "commentCount": "8"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "-gXJad8HG7inAK8-cIHangNRd9c",
+  "id": "Soth_ZqB8H4",
+  "snippet": {
+    "publishedAt": "2020-04-27T13:48:13Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "The Agonizing Benefit of Prayerful Introspection",
+    "description": "David demonstrates in Psalm 39 that the pathway to healing and hope is found by being quiet enough to lament our own brokenness.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "The Agonizing Benefit of Prayerful Introspection",
+      "description": "David demonstrates in Psalm 39 that the pathway to healing and hope is found by being quiet enough to lament our own brokenness."
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT2M11S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "66",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

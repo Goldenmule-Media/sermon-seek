@@ -1,0 +1,155 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "roI0MdYkLTtYpztMo8swtyr2qCI",
+    "id": "UEw0Ujh4N1E5WHAwOEJUbURaUjFyODRlTXBlaXl4SDB4Qy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2024-11-17T19:51:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Be a Mentor",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wpRjCrtNO3k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wpRjCrtNO3k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wpRjCrtNO3k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wpRjCrtNO3k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wpRjCrtNO3k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08BTmDZR1r84eMpeiyxH0xC",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "wpRjCrtNO3k"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "wpRjCrtNO3k",
+      "videoPublishedAt": "2024-11-17T19:54:10Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "iJP7oDeOvH5V2sxtV2abPAm-p7Y",
+    "id": "UEw0Ujh4N1E5WHAwOEJUbURaUjFyODRlTXBlaXl4SDB4Qy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-11-10T20:25:48Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Be A Learner",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/reFehsBlqYg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/reFehsBlqYg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/reFehsBlqYg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/reFehsBlqYg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/reFehsBlqYg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08BTmDZR1r84eMpeiyxH0xC",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "reFehsBlqYg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "reFehsBlqYg",
+      "videoPublishedAt": "2024-11-10T20:25:48Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "kCTWvyqbzqCeGlqqHN_WB_8cpv0",
+    "id": "UEw0Ujh4N1E5WHAwOEJUbURaUjFyODRlTXBlaXl4SDB4Qy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-11-03T19:49:24Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Be a Witness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jwF27wd3KGQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jwF27wd3KGQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jwF27wd3KGQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jwF27wd3KGQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jwF27wd3KGQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08BTmDZR1r84eMpeiyxH0xC",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "jwF27wd3KGQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "jwF27wd3KGQ",
+      "videoPublishedAt": "2024-11-03T19:57:10Z"
+    }
+  }
+]

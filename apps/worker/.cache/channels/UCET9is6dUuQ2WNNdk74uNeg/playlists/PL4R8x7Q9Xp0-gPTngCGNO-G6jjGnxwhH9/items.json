@@ -1,0 +1,410 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "VJnG3UTxnlGAQ-NLjp5hhcondPg",
+    "id": "UEw0Ujh4N1E5WHAwLWdQVG5nQ0dOTy1HNmpqR254d2hIOS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-11-07T21:24:34Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted | Main Session 1 feat. Rynelle Frow",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Gti-g7EFw-4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Gti-g7EFw-4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Gti-g7EFw-4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Gti-g7EFw-4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Gti-g7EFw-4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-gPTngCGNO-G6jjGnxwhH9",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Gti-g7EFw-4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Gti-g7EFw-4",
+      "videoPublishedAt": "2024-11-07T21:31:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Ofu_lFvnjIt8rwpZR4SP-1MVg-k",
+    "id": "UEw0Ujh4N1E5WHAwLWdQVG5nQ0dOTy1HNmpqR254d2hIOS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-11-07T21:25:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted | Main Session 2 feat. Rynelle Frow",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-gPTngCGNO-G6jjGnxwhH9",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "J7UKlC9idZ4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "J7UKlC9idZ4",
+      "videoPublishedAt": "2024-11-07T21:31:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "hyMaKSfpfy5lKFHj_yOEMoxfYbk",
+    "id": "UEw0Ujh4N1E5WHAwLWdQVG5nQ0dOTy1HNmpqR254d2hIOS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2024-11-07T21:26:59Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted | Workshop One: From His Story to Our Personal Testimony",
+      "description": "feat. Sherell Adams",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/eWff3XW6RJU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/eWff3XW6RJU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/eWff3XW6RJU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/eWff3XW6RJU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/eWff3XW6RJU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-gPTngCGNO-G6jjGnxwhH9",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "eWff3XW6RJU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "eWff3XW6RJU",
+      "videoPublishedAt": "2024-11-07T21:31:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "mqVpXcsPfUeS6aHuu-JYIL3IHxw",
+    "id": "UEw0Ujh4N1E5WHAwLWdQVG5nQ0dOTy1HNmpqR254d2hIOS41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2024-11-07T21:27:40Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted | Workshop Two: Actively Remembering the Faithfulness of God",
+      "description": "feat. Shannon Hein",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-gPTngCGNO-G6jjGnxwhH9",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "9zEi0H5dmmc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "9zEi0H5dmmc",
+      "videoPublishedAt": "2024-11-07T21:31:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "VVN_MuYfASnLIv-k56ledMpbb4g",
+    "id": "UEw0Ujh4N1E5WHAwLWdQVG5nQ0dOTy1HNmpqR254d2hIOS4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2024-11-07T21:28:26Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted | Workshop Three: Transforming Thoughts",
+      "description": "feat. Martha Lewis",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7FPUGx14p0w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7FPUGx14p0w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7FPUGx14p0w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/7FPUGx14p0w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/7FPUGx14p0w/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-gPTngCGNO-G6jjGnxwhH9",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "7FPUGx14p0w"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "7FPUGx14p0w",
+      "videoPublishedAt": "2024-11-07T21:31:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "X1L4YvKao4dLI_GngXTkks5z2uU",
+    "id": "UEw0Ujh4N1E5WHAwLWdQVG5nQ0dOTy1HNmpqR254d2hIOS4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2024-11-07T21:29:11Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted | Workshop Four: From Fear to Faith: Giving Our Yes to God",
+      "description": "feat. Alyssa McCutchan",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-gPTngCGNO-G6jjGnxwhH9",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "r-lRZfuM_N4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "r-lRZfuM_N4",
+      "videoPublishedAt": "2024-11-07T21:31:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Lw29N07Qa8zkmZU-C4AI5X4II7g",
+    "id": "UEw0Ujh4N1E5WHAwLWdQVG5nQ0dOTy1HNmpqR254d2hIOS41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2024-11-07T21:29:55Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted | Workshop Five: Living in the Awareness of God",
+      "description": "feat. Brenda McCutchan",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3NANbXzYX0U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3NANbXzYX0U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3NANbXzYX0U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3NANbXzYX0U/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3NANbXzYX0U/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-gPTngCGNO-G6jjGnxwhH9",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3NANbXzYX0U"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3NANbXzYX0U",
+      "videoPublishedAt": "2024-11-07T21:31:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "orejbwNcK0hF3YlajBdYZZE5sNc",
+    "id": "UEw0Ujh4N1E5WHAwLWdQVG5nQ0dOTy1HNmpqR254d2hIOS5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2024-11-07T21:30:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted | Workshop Six: Hello, Disciple Maker",
+      "description": "feat. Miranda Stewart",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vx2iAo4-nI0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vx2iAo4-nI0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vx2iAo4-nI0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vx2iAo4-nI0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vx2iAo4-nI0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-gPTngCGNO-G6jjGnxwhH9",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "vx2iAo4-nI0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "vx2iAo4-nI0",
+      "videoPublishedAt": "2024-11-07T21:31:28Z"
+    }
+  }
+]

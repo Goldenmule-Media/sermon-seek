@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "wkyfDC9nwOwtyvctSz-fIvcjTz4",
+  "id": "JYYmnGpVGv4",
+  "snippet": {
+    "publishedAt": "2023-04-17T06:40:52Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Jesus & Greatness",
+    "description": "00:00 Worship\n05:27 Welcome\n06:36 Worship\n23:27 Announcements\n30:28 Sermon\n1:03:39 Response",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Jesus & Greatness",
+      "description": "00:00 Worship\n05:27 Welcome\n06:36 Worship\n23:27 Announcements\n30:28 Sermon\n1:03:39 Response"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H14M48S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "142",
+    "likeCount": "2",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "0GzhGVOkcBtG7cLNj5FfjWolMPs",
+  "id": "q2sx96wIdcQ",
+  "snippet": {
+    "publishedAt": "2024-09-04T11:00:55Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "September 4th Morning Devotional | The Good Soil Multiplies",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/q2sx96wIdcQ/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/q2sx96wIdcQ/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/q2sx96wIdcQ/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/q2sx96wIdcQ/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/q2sx96wIdcQ/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "September 4th Morning Devotional | The Good Soil Multiplies",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M22S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "259",
+    "likeCount": "13",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

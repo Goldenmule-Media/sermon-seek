@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "t-VmQr4pB7nt4jdY2-XSiB1Iyxc",
+  "id": "gtFxqgUCbwg",
+  "snippet": {
+    "publishedAt": "2025-01-05T16:00:59Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Prayer & Fasting: Declare Your Dependence",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/gtFxqgUCbwg/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/gtFxqgUCbwg/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/gtFxqgUCbwg/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/gtFxqgUCbwg/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/gtFxqgUCbwg/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Prayer & Fasting: Declare Your Dependence",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT24M32S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "609",
+    "likeCount": "13",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

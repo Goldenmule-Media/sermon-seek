@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "irN53dqdLMdrEGrR5F4HlILAe1g",
+  "id": "gAP6Bg93Qd8",
+  "snippet": {
+    "publishedAt": "2026-02-20T22:00:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "What Does the Bible Say About Gambling?",
+    "description": "In this episode of the Jubilee Church Podcast, Bryan Mowrey and Jordan Dillon explore how the biblical theme of light vs darkness applies to our modern digital lives. As Jubilee Church begins a digital fast and continues the “Faithful Disciples in a Digital World” series, they reflect on how our phones, devices, and constant connectivity are shaping our attention, desires, and spiritual formation in ways previous generations never experienced.\n\nRather than simply asking how to avoid sin, Bryan and Jordan challenge listeners to consider how a deeper love for Christ reshapes our habits, focus, and daily lives. They discuss the difference between being exposed to darkness and participating in it, why Christians are called to be bright rather than just loud, and how fixing our eyes on what is good protects our hearts from cynicism, distraction, and spiritual drift. They also address specific cultural realities like gambling and digital temptation, and share what they’re seeing in the life of our church as people intentionally step away from digital noise to pursue greater clarity and devotion.\n\nThis conversation is both honest and hopeful, inviting you to examine your relationship with technology and encouraging you to live as a faithful disciple who reflects the light of Christ in a world increasingly shaped by screens.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/gAP6Bg93Qd8/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/gAP6Bg93Qd8/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/gAP6Bg93Qd8/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/gAP6Bg93Qd8/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/gAP6Bg93Qd8/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "What Does the Bible Say About Gambling?",
+      "description": "In this episode of the Jubilee Church Podcast, Bryan Mowrey and Jordan Dillon explore how the biblical theme of light vs darkness applies to our modern digital lives. As Jubilee Church begins a digital fast and continues the “Faithful Disciples in a Digital World” series, they reflect on how our phones, devices, and constant connectivity are shaping our attention, desires, and spiritual formation in ways previous generations never experienced.\n\nRather than simply asking how to avoid sin, Bryan and Jordan challenge listeners to consider how a deeper love for Christ reshapes our habits, focus, and daily lives. They discuss the difference between being exposed to darkness and participating in it, why Christians are called to be bright rather than just loud, and how fixing our eyes on what is good protects our hearts from cynicism, distraction, and spiritual drift. They also address specific cultural realities like gambling and digital temptation, and share what they’re seeing in the life of our church as people intentionally step away from digital noise to pursue greater clarity and devotion.\n\nThis conversation is both honest and hopeful, inviting you to examine your relationship with technology and encouraging you to live as a faithful disciple who reflects the light of Christ in a world increasingly shaped by screens."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT40M57S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "128",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

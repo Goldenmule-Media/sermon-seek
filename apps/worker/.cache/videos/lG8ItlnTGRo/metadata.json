@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "8DltD7SWTANoWt5gHgE-_dagAVk",
+  "id": "lG8ItlnTGRo",
+  "snippet": {
+    "publishedAt": "2023-10-31T15:00:43Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Hypocritical Christians",
+    "description": "This video is a clip from a sermon entitled \"Jesus & Confrontation\" originally given by Bryan Mowrey at Jubilee Church on October 22, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/bX9s8wfapZo",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Hypocritical Christians",
+      "description": "This video is a clip from a sermon entitled \"Jesus & Confrontation\" originally given by Bryan Mowrey at Jubilee Church on October 22, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/bX9s8wfapZo"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT7M21S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "62",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

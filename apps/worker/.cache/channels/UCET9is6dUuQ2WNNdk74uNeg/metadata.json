@@ -1,0 +1,39 @@
+{
+  "kind": "youtube#channel",
+  "etag": "Xo_pNwVmOD8kJw1-TqeeF4gGEtA",
+  "id": "UCET9is6dUuQ2WNNdk74uNeg",
+  "snippet": {
+    "title": "Jubilee Church",
+    "description": "Jubilee Church is a multi-location church in St. Louis City, Sunset Hills, Washington, The Lake of the Ozarks, and online.",
+    "customUrl": "@jubileechurchstl",
+    "publishedAt": "2011-12-10T16:45:11Z",
+    "thumbnails": {
+      "default": {
+        "url": "https://yt3.ggpht.com/ytc/AIdro_nmF1uRTupyDADGMNgvAWaPP4M-A7QEkDuqiPvMUo0Qp3A=s88-c-k-c0x00ffffff-no-rj",
+        "width": 88,
+        "height": 88
+      },
+      "medium": {
+        "url": "https://yt3.ggpht.com/ytc/AIdro_nmF1uRTupyDADGMNgvAWaPP4M-A7QEkDuqiPvMUo0Qp3A=s240-c-k-c0x00ffffff-no-rj",
+        "width": 240,
+        "height": 240
+      },
+      "high": {
+        "url": "https://yt3.ggpht.com/ytc/AIdro_nmF1uRTupyDADGMNgvAWaPP4M-A7QEkDuqiPvMUo0Qp3A=s800-c-k-c0x00ffffff-no-rj",
+        "width": 800,
+        "height": 800
+      }
+    },
+    "localized": {
+      "title": "Jubilee Church",
+      "description": "Jubilee Church is a multi-location church in St. Louis City, Sunset Hills, Washington, The Lake of the Ozarks, and online."
+    },
+    "country": "US"
+  },
+  "contentDetails": {
+    "relatedPlaylists": {
+      "likes": "",
+      "uploads": "UUET9is6dUuQ2WNNdk74uNeg"
+    }
+  }
+}

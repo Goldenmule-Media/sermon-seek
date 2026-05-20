@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "MNPRnGmsiGoXympubkPa6YEAxH4",
+  "id": "c5dZHL52fSQ",
+  "snippet": {
+    "publishedAt": "2022-01-13T12:00:18Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "January 13th Morning Devotional, Reorient Your Appreciation Toward God’s Generosity: Gifts",
+    "description": "Link to prayer guide:\n\nhttps://www.jubileestl.org/s/04-thursday.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\n\nhttps://www.jubileestl.org/fasting",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "January 13th Morning Devotional, Reorient Your Appreciation Toward God’s Generosity: Gifts",
+      "description": "Link to prayer guide:\n\nhttps://www.jubileestl.org/s/04-thursday.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\n\nhttps://www.jubileestl.org/fasting"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M50S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "129",
+    "likeCount": "6",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

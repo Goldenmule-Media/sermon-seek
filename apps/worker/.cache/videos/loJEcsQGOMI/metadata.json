@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "_9gtV3vJCTQrWKavMSGY7jFmh7U",
+  "id": "loJEcsQGOMI",
+  "snippet": {
+    "publishedAt": "2026-03-02T12:00:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Knowledge Is Everywhere. Wisdom Is Rare.",
+    "description": "After discussing the exciting week ahead at Confluence Leadership Conference and reflecting on ministry partnerships in Mexico, the conversation turns toward something deeper: the kind of wisdom our generation desperately needs. We live in a moment where access to information is endless, yet biblical wisdom often feels scarce.\n\nWhat does it actually mean when Proverbs tells us to “get wisdom”? How do we pursue it? We talk through the difference between knowledge and wisdom, the role surrender plays in shaping mature disciples, and why submission isn’t weakness but participation in the life of God and His church. From Scripture to social media, we explore how our sources of influence form us and how reordering them may be one of the most important spiritual decisions we make.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/loJEcsQGOMI/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/loJEcsQGOMI/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/loJEcsQGOMI/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/loJEcsQGOMI/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/loJEcsQGOMI/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Knowledge Is Everywhere. Wisdom Is Rare.",
+      "description": "After discussing the exciting week ahead at Confluence Leadership Conference and reflecting on ministry partnerships in Mexico, the conversation turns toward something deeper: the kind of wisdom our generation desperately needs. We live in a moment where access to information is endless, yet biblical wisdom often feels scarce.\n\nWhat does it actually mean when Proverbs tells us to “get wisdom”? How do we pursue it? We talk through the difference between knowledge and wisdom, the role surrender plays in shaping mature disciples, and why submission isn’t weakness but participation in the life of God and His church. From Scripture to social media, we explore how our sources of influence form us and how reordering them may be one of the most important spiritual decisions we make."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT50M54S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "101",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

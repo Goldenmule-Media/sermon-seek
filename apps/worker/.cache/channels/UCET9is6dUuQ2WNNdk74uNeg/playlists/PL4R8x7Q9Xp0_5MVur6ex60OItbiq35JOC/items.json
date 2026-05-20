@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "w7wsmaKcj_vXeUpG8HmYbvnhIAI",
+    "id": "UEw0Ujh4N1E5WHAwXzVNVnVyNmV4NjBPSXRiaXEzNUpPQy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-05-16T15:58:06Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Good News - Steve Tibbert",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Qgq_wVZJBD8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Qgq_wVZJBD8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Qgq_wVZJBD8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Qgq_wVZJBD8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Qgq_wVZJBD8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_5MVur6ex60OItbiq35JOC",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Qgq_wVZJBD8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Qgq_wVZJBD8",
+      "videoPublishedAt": "2022-05-16T18:00:09Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "inM2kQZsEe8KR3WubStPT1_Z_uQ",
+    "id": "UEw0Ujh4N1E5WHAwXzVNVnVyNmV4NjBPSXRiaXEzNUpPQy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-05-23T21:56:23Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "My Best Self - Jaron Scott",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/afHinzoKG4A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/afHinzoKG4A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/afHinzoKG4A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/afHinzoKG4A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/afHinzoKG4A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_5MVur6ex60OItbiq35JOC",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "afHinzoKG4A"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "afHinzoKG4A",
+      "videoPublishedAt": "2022-05-23T23:00:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-HkjwCBMwRlSz7FN9hbVgLmzMsU",
+    "id": "UEw0Ujh4N1E5WHAwXzVNVnVyNmV4NjBPSXRiaXEzNUpPQy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-06-27T13:22:20Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Keeping Yourself in the Love of God - Tom Shaw",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fqdX5kPBy1M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_5MVur6ex60OItbiq35JOC",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "fqdX5kPBy1M"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "fqdX5kPBy1M",
+      "videoPublishedAt": "2022-06-27T18:00:17Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "mXZGEqqxt--NC9hPmEnhWpDp_nA",
+    "id": "UEw0Ujh4N1E5WHAwXzVNVnVyNmV4NjBPSXRiaXEzNUpPQy41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-07-18T14:42:41Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Faithfulness of God - Guillermo Verduzco",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0oW74-K3M9Q/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0oW74-K3M9Q/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0oW74-K3M9Q/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0oW74-K3M9Q/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0oW74-K3M9Q/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_5MVur6ex60OItbiq35JOC",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0oW74-K3M9Q"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0oW74-K3M9Q",
+      "videoPublishedAt": "2022-07-18T18:00:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Qsr1mIMJDrC0zooXBEsxG7BrBT4",
+    "id": "UEw0Ujh4N1E5WHAwXzVNVnVyNmV4NjBPSXRiaXEzNUpPQy4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2022-08-08T14:36:40Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalms for a Saturated Soul - Alan Frow",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/b4g27AcCnAs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/b4g27AcCnAs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/b4g27AcCnAs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/b4g27AcCnAs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/b4g27AcCnAs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_5MVur6ex60OItbiq35JOC",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "b4g27AcCnAs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "b4g27AcCnAs",
+      "videoPublishedAt": "2022-08-08T18:00:23Z"
+    }
+  }
+]

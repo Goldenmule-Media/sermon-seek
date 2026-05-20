@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "GGoIpFkAoWEGdrlNK4I3MIH5arU",
+  "id": "iGjo-4kqAB0",
+  "snippet": {
+    "publishedAt": "2020-09-03T19:00:37Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Doxology Jubilee Worship",
+    "description": "Here is our rendition of \"Doxology.\" This song was recorded live as a part of our online service on July 26, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Doxology Jubilee Worship",
+      "description": "Here is our rendition of \"Doxology.\" This song was recorded live as a part of our online service on July 26, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M32S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "311",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

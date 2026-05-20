@@ -1,0 +1,53 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "FzjV84NGQupQOQQwKpaMfk6jUVM",
+    "id": "UEw0Ujh4N1E5WHAwOUU4aXlRNDVmMUxXZUREVWRMZTFhei41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-09-05T15:51:34Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Enjoying God | Terry Virgo",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/auyN2OYlAhk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/auyN2OYlAhk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/auyN2OYlAhk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/auyN2OYlAhk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/auyN2OYlAhk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09E8iyQ45f1LWeDDUdLe1az",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "auyN2OYlAhk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "auyN2OYlAhk",
+      "videoPublishedAt": "2022-09-05T18:00:01Z"
+    }
+  }
+]

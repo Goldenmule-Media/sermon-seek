@@ -1,0 +1,359 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "87icbDwIrr5Kt0BznfOTIyC0faQ",
+    "id": "UEw0Ujh4N1E5WHAwOWFJTHlMQnlKYy1SbDhGMlllQ1hpbC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2021-10-16T03:52:51Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "9/5 Assembled - Building Together - Rick Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/D6eFPagDYsg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/D6eFPagDYsg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/D6eFPagDYsg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/D6eFPagDYsg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/D6eFPagDYsg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09aILyLByJc-Rl8F2YeCXil",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "D6eFPagDYsg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "D6eFPagDYsg",
+      "videoPublishedAt": "2021-09-10T15:01:48Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "uAadvMRQSMw5lLKbTZSA6tSHYm0",
+    "id": "UEw0Ujh4N1E5WHAwOWFJTHlMQnlKYy1SbDhGMlllQ1hpbC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-05-30T01:01:09Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Freedom in Christ | Seth Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ivyTQSc1qwk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ivyTQSc1qwk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ivyTQSc1qwk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ivyTQSc1qwk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ivyTQSc1qwk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09aILyLByJc-Rl8F2YeCXil",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ivyTQSc1qwk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ivyTQSc1qwk",
+      "videoPublishedAt": "2022-05-30T04:00:11Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "2orvWG3dLHdN9YNu557BBPnIUiM",
+    "id": "UEw0Ujh4N1E5WHAwOWFJTHlMQnlKYy1SbDhGMlllQ1hpbC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-08-24T18:18:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Walk by the Spirit | Seth Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0pZgpQ7RpII/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0pZgpQ7RpII/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0pZgpQ7RpII/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0pZgpQ7RpII/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0pZgpQ7RpII/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09aILyLByJc-Rl8F2YeCXil",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0pZgpQ7RpII"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0pZgpQ7RpII",
+      "videoPublishedAt": "2022-08-24T20:04:51Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "OgCpX1W2Eec8HYP3Q6MDl4Xoe4c",
+    "id": "UEw0Ujh4N1E5WHAwOWFJTHlMQnlKYy1SbDhGMlllQ1hpbC41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-10-18T17:08:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "God Owns it All | Seth Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09aILyLByJc-Rl8F2YeCXil",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "W8zAAharl4M"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "W8zAAharl4M",
+      "videoPublishedAt": "2022-10-18T18:00:10Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "DQD8mf1vcSnKSScr5lw4ASOCZds",
+    "id": "UEw0Ujh4N1E5WHAwOWFJTHlMQnlKYy1SbDhGMlllQ1hpbC4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2022-12-07T14:28:24Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus' Job Description | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09aILyLByJc-Rl8F2YeCXil",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3CkFXQaQX48"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3CkFXQaQX48",
+      "videoPublishedAt": "2022-12-07T15:04:31Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0HmHv0sIbdhUWsE9oRx52uGVyHk",
+    "id": "UEw0Ujh4N1E5WHAwOWFJTHlMQnlKYy1SbDhGMlllQ1hpbC4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2023-01-24T02:35:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus & Mission | Seth Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09aILyLByJc-Rl8F2YeCXil",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Xt_-8Sfl9Uw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Xt_-8Sfl9Uw",
+      "videoPublishedAt": "2023-01-24T12:00:25Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "C3pzLfCbLoQzzV9jIw0-qs19IDs",
+    "id": "UEw0Ujh4N1E5WHAwOWFJTHlMQnlKYy1SbDhGMlllQ1hpbC41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2023-03-27T22:56:18Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "You can only be killed | John Hughes",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/68s5lF2MM5k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/68s5lF2MM5k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/68s5lF2MM5k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/68s5lF2MM5k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/68s5lF2MM5k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09aILyLByJc-Rl8F2YeCXil",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "68s5lF2MM5k"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "68s5lF2MM5k",
+      "videoPublishedAt": "2023-03-27T22:56:26Z"
+    }
+  }
+]

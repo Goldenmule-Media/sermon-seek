@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "v_9q_s1yy1Z_xFl4OTmIQ30jvXE",
+  "id": "oRJr7weG1hk",
+  "snippet": {
+    "publishedAt": "2025-10-06T21:34:15Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Standing Firm: Understanding Spiritual Warfare in Today’s World",
+    "description": "In this week’s episode, Bryan and Jordan sit down for a candid conversation on spiritual warfare and what it means to “put on the armor of God.” They explore why the West often underestimates spiritual opposition, how accusations and division are tactics of the enemy, and what it means to “stand firm” in the armor of God. A timely conversation for anyone who senses the battle heating up around them.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/oRJr7weG1hk/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/oRJr7weG1hk/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/oRJr7weG1hk/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/oRJr7weG1hk/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/oRJr7weG1hk/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Standing Firm: Understanding Spiritual Warfare in Today’s World",
+      "description": "In this week’s episode, Bryan and Jordan sit down for a candid conversation on spiritual warfare and what it means to “put on the armor of God.” They explore why the West often underestimates spiritual opposition, how accusations and division are tactics of the enemy, and what it means to “stand firm” in the armor of God. A timely conversation for anyone who senses the battle heating up around them."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H1M27S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "238",
+    "likeCount": "7",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

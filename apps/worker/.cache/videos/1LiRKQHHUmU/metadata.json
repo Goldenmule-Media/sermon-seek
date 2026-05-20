@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "roZuO4Z8eu67LRMp4IM7Un1c5lk",
+  "id": "1LiRKQHHUmU",
+  "snippet": {
+    "publishedAt": "2025-08-04T23:32:33Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Letting Go, Standing Firm, and Making Wise Decisions: Bonus Podcast Episode with Bryan Mowrey",
+    "description": "In this special bonus episode of the Jubilee Church Podcast, Lead Pastor Bryan Mowrey is joined by host Jordan Dillon for a wide-ranging conversation on topics that matter deeply to Christians today. They tackle how to let go of the past, how to make wise decisions in relationships and major life choices, what the Bible teaches about rewards, and how to stand firm in a culture that often challenges biblical values—especially around abortion and LGBTQ+ issues. They also address concerns about nominal Christianity and what it means to truly follow Jesus. We hope you enjoy!",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/1LiRKQHHUmU/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/1LiRKQHHUmU/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/1LiRKQHHUmU/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/1LiRKQHHUmU/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/1LiRKQHHUmU/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Letting Go, Standing Firm, and Making Wise Decisions: Bonus Podcast Episode with Bryan Mowrey",
+      "description": "In this special bonus episode of the Jubilee Church Podcast, Lead Pastor Bryan Mowrey is joined by host Jordan Dillon for a wide-ranging conversation on topics that matter deeply to Christians today. They tackle how to let go of the past, how to make wise decisions in relationships and major life choices, what the Bible teaches about rewards, and how to stand firm in a culture that often challenges biblical values—especially around abortion and LGBTQ+ issues. They also address concerns about nominal Christianity and what it means to truly follow Jesus. We hope you enjoy!"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H4M16S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "407",
+    "likeCount": "20",
+    "favoriteCount": "0",
+    "commentCount": "3"
+  }
+}

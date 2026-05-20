@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "5wZog_OaB1OSO9oVlMO_m653gTg",
+  "id": "9617H5GxUE4",
+  "snippet": {
+    "publishedAt": "2023-09-03T23:40:14Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Pick Up Your Cross",
+    "description": "00:00 Worship\n04:20 Welcome\n05:51 Worship\n22:22 Announcements\n28:50 Sermon\n1:06:31 Response",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/9617H5GxUE4/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/9617H5GxUE4/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/9617H5GxUE4/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/9617H5GxUE4/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/9617H5GxUE4/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Pick Up Your Cross",
+      "description": "00:00 Worship\n04:20 Welcome\n05:51 Worship\n22:22 Announcements\n28:50 Sermon\n1:06:31 Response"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H20M57S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "112",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

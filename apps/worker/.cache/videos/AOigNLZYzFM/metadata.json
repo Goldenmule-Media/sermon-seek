@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "K9pvV7qg_ruzoZHrfBAoQaccjng",
+  "id": "AOigNLZYzFM",
+  "snippet": {
+    "publishedAt": "2020-04-07T13:27:30Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Holy Week - Lessons from a Fig Tree",
+    "description": "Jesus teaches us the key to being ready for His return.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/AOigNLZYzFM/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/AOigNLZYzFM/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/AOigNLZYzFM/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/AOigNLZYzFM/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/AOigNLZYzFM/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Holy Week - Lessons from a Fig Tree",
+      "description": "Jesus teaches us the key to being ready for His return."
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT3M9S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "151",
+    "likeCount": "6",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

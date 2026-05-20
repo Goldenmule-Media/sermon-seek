@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "8RuOV2Y_b09HQ5VjdiXGielN7Xk",
+  "id": "CYqbrYCMza8",
+  "snippet": {
+    "publishedAt": "2020-08-16T14:45:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 16th Sunday Service",
+    "description": "Has 2020 felt like one long trial? Do difficult times make you question the faithfulness of God?\n\nToday we wrap up our series “Behind Enemy Lines” by examining the faithfulness of God, and how Daniel and his friends responded to a trial that threatened their lives. Did they succumb to the pressures of the world, or trust that God would be faithful even when it seemed impossible?\n\nInvite a friend or family member and join us!\n\n#myjubileechurch #behindenemylines #onlineservices #everyoneeveryplace",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/CYqbrYCMza8/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/CYqbrYCMza8/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/CYqbrYCMza8/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/CYqbrYCMza8/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/CYqbrYCMza8/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 16th Sunday Service",
+      "description": "Has 2020 felt like one long trial? Do difficult times make you question the faithfulness of God?\n\nToday we wrap up our series “Behind Enemy Lines” by examining the faithfulness of God, and how Daniel and his friends responded to a trial that threatened their lives. Did they succumb to the pressures of the world, or trust that God would be faithful even when it seemed impossible?\n\nInvite a friend or family member and join us!\n\n#myjubileechurch #behindenemylines #onlineservices #everyoneeveryplace"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H6M10S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "369",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

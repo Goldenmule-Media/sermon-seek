@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "uIXsunqgxHy5N0G0Eienkq6Pvnw",
+  "id": "KzUSJwwRn7Y",
+  "snippet": {
+    "publishedAt": "2020-03-23T14:06:23Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "March 23 - Give the Good Report",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "March 23 - Give the Good Report",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT5M31S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "195",
+    "likeCount": "11",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

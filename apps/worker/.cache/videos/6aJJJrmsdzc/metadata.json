@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "orKKbf_uUTHzPwcCPYRmKH3GsHo",
+  "id": "6aJJJrmsdzc",
+  "snippet": {
+    "publishedAt": "2021-04-02T21:00:14Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Good Friday Service 2021",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/6aJJJrmsdzc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/6aJJJrmsdzc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/6aJJJrmsdzc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/6aJJJrmsdzc/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/6aJJJrmsdzc/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Good Friday Service 2021",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT35M54S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "651",
+    "likeCount": "15",
+    "favoriteCount": "0",
+    "commentCount": "3"
+  }
+}

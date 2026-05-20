@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "ycFybqr5yoljqJd3TL8_wZm9cd4",
+  "id": "5w8vkK2-IGI",
+  "snippet": {
+    "publishedAt": "2021-11-01T17:00:07Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "What Does the Bible Say About Shame?",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/5w8vkK2-IGI/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/5w8vkK2-IGI/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/5w8vkK2-IGI/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/5w8vkK2-IGI/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/5w8vkK2-IGI/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "What Does the Bible Say About Shame?",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT31M39S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "1014",
+    "likeCount": "16",
+    "favoriteCount": "0",
+    "commentCount": "4"
+  }
+}

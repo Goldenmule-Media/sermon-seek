@@ -1,0 +1,359 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "P8UQRrt8NMukjIeRl7nGA4FK3hg",
+    "id": "UEw0Ujh4N1E5WHAwOFU3dXJjaDNmQTVsY0FhUndiTGZ5Zi41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2020-08-29T16:23:06Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "What to Expect at Our In Person Services",
+      "description": "We aim to make all of our in person services safe, spacious, and sanitized. Check out everything we've done to make sure this happens on a Sunday morning!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/5DYojT5HSp0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/5DYojT5HSp0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/5DYojT5HSp0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/5DYojT5HSp0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/5DYojT5HSp0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08U7urch3fA5lcAaRwbLfyf",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "5DYojT5HSp0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "5DYojT5HSp0",
+      "videoPublishedAt": "2020-08-29T16:23:05Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "jCWNr-nWMfAiIU7oWhY_fHRSotA",
+    "id": "UEw0Ujh4N1E5WHAwOFU3dXJjaDNmQTVsY0FhUndiTGZ5Zi4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:55:36Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Re-opening Update",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kDiSxuVYm4w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kDiSxuVYm4w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kDiSxuVYm4w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/kDiSxuVYm4w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/kDiSxuVYm4w/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08U7urch3fA5lcAaRwbLfyf",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "kDiSxuVYm4w"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "kDiSxuVYm4w",
+      "videoPublishedAt": "2020-06-10T23:03:18Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "EAOiapgZp4NAZ8s_qHSWvE70D1A",
+    "id": "UEw0Ujh4N1E5WHAwOFU3dXJjaDNmQTVsY0FhUndiTGZ5Zi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:51:52Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Reopening Plans as of 5/17",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8QhX6vMz7yU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8QhX6vMz7yU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8QhX6vMz7yU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8QhX6vMz7yU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8QhX6vMz7yU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08U7urch3fA5lcAaRwbLfyf",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "8QhX6vMz7yU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "8QhX6vMz7yU",
+      "videoPublishedAt": "2020-05-18T00:15:43Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tDOzWsnIwy2nZGTsLav8VTY-XlE",
+    "id": "UEw0Ujh4N1E5WHAwOFU3dXJjaDNmQTVsY0FhUndiTGZ5Zi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:50:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Response to Ahmaud Arbery Shooting",
+      "description": "Let's be near to the broken-hearted\nLet's have each other's back's\nLet's receive our help from Lord",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08U7urch3fA5lcAaRwbLfyf",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bMjn4KSa-aA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "bMjn4KSa-aA",
+      "videoPublishedAt": "2020-05-07T22:09:49Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "2-MVcK1oDXUGKgnn0-fHzUE-Uqo",
+    "id": "UEw0Ujh4N1E5WHAwOFU3dXJjaDNmQTVsY0FhUndiTGZ5Zi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:49:06Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Update on NEXT & Path to Re-opening",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zf2ZBpBt1zA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zf2ZBpBt1zA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zf2ZBpBt1zA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zf2ZBpBt1zA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zf2ZBpBt1zA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08U7urch3fA5lcAaRwbLfyf",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "zf2ZBpBt1zA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "zf2ZBpBt1zA",
+      "videoPublishedAt": "2020-05-02T17:17:22Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wF8ZkjS0cO8sOVd9Zhy0nMyfWac",
+    "id": "UEw0Ujh4N1E5WHAwOFU3dXJjaDNmQTVsY0FhUndiTGZ5Zi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:45:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Easter Opportunity",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/AO6v6ltzhzE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/AO6v6ltzhzE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/AO6v6ltzhzE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/AO6v6ltzhzE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/AO6v6ltzhzE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08U7urch3fA5lcAaRwbLfyf",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "AO6v6ltzhzE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "AO6v6ltzhzE",
+      "videoPublishedAt": "2020-04-10T01:40:53Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "KdRh6Xqgg6Hqbye3s_wEuk2GTbw",
+    "id": "UEw0Ujh4N1E5WHAwOFU3dXJjaDNmQTVsY0FhUndiTGZ5Zi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:44:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "BOX OF HOPE",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RqfvXU_uyMM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RqfvXU_uyMM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RqfvXU_uyMM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RqfvXU_uyMM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RqfvXU_uyMM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08U7urch3fA5lcAaRwbLfyf",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RqfvXU_uyMM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RqfvXU_uyMM",
+      "videoPublishedAt": "2020-04-03T22:31:04Z"
+    }
+  }
+]

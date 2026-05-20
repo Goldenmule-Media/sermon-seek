@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "qeUxpoO1UGUoGnjei6qM09IK1-k",
+  "id": "U13PEYSQX3E",
+  "snippet": {
+    "publishedAt": "2026-05-08T12:00:38Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Why Men Need Mentors, Doctrine, and Brotherhood",
+    "description": "This episode explores how men are actually formed through discipleship, sound doctrine, and spiritual relationships. Bryan and Jordan discuss the relationship between Paul and Timothy, why so many men feel spiritually stuck, the myths and distractions that keep men passive, and why biblical truth is essential for courage, leadership, and conviction. They also unpack the role of spiritual fatherhood, mentorship, and the importance of men being both led and leading others.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/U13PEYSQX3E/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/U13PEYSQX3E/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/U13PEYSQX3E/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/U13PEYSQX3E/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/U13PEYSQX3E/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Why Men Need Mentors, Doctrine, and Brotherhood",
+      "description": "This episode explores how men are actually formed through discipleship, sound doctrine, and spiritual relationships. Bryan and Jordan discuss the relationship between Paul and Timothy, why so many men feel spiritually stuck, the myths and distractions that keep men passive, and why biblical truth is essential for courage, leadership, and conviction. They also unpack the role of spiritual fatherhood, mentorship, and the importance of men being both led and leading others."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT43M12S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "85",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

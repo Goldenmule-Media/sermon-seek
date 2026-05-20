@@ -1,0 +1,104 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "GRT9lA6WI-9IEaRebKiNSmjHYLs",
+    "id": "UEw0Ujh4N1E5WHAwOHFWTjhZRW1HOTZ1UTJWWlM2bFJ1Vi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-11-10T22:32:09Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted 2022 - Session 1",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/LuGfKMRXouM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/LuGfKMRXouM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/LuGfKMRXouM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/LuGfKMRXouM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/LuGfKMRXouM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08qVN8YEmG96uQ2VZS6lRuV",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "LuGfKMRXouM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "LuGfKMRXouM",
+      "videoPublishedAt": "2022-11-10T22:32:20Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "8teI3hZZVM4HmEip52ZvJy5m-GQ",
+    "id": "UEw0Ujh4N1E5WHAwOHFWTjhZRW1HOTZ1UTJWWlM2bFJ1Vi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-11-10T22:32:09Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Deeply Rooted  2022 - Session 2",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oIirUMqQXNM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oIirUMqQXNM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oIirUMqQXNM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oIirUMqQXNM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/oIirUMqQXNM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08qVN8YEmG96uQ2VZS6lRuV",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "oIirUMqQXNM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "oIirUMqQXNM",
+      "videoPublishedAt": "2022-11-10T22:32:23Z"
+    }
+  }
+]

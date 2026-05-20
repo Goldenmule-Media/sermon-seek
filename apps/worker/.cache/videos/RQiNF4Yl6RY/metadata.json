@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "7eBttsZX-3wKsEOJ1jn96Bqj_KM",
+  "id": "RQiNF4Yl6RY",
+  "snippet": {
+    "publishedAt": "2024-01-08T12:00:31Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "January 8th Morning Devotional, Receiving Through Sacrifice",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/RQiNF4Yl6RY/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "January 8th Morning Devotional, Receiving Through Sacrifice",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT6M31S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "369",
+    "likeCount": "24",
+    "favoriteCount": "0",
+    "commentCount": "5"
+  }
+}

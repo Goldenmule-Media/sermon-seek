@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "qutT_XM0lm7ofoX4UBCLVAdbuuo",
+  "id": "dwTsB_Z_j-Q",
+  "snippet": {
+    "publishedAt": "2026-04-30T11:00:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "April 30th Morning Devotional | Psalm 24:5",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "April 30th Morning Devotional | Psalm 24:5",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M47S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "124",
+    "likeCount": "8",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

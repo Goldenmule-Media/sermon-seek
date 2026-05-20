@@ -1,0 +1,155 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "4hlzcSWabE0w8nPMtmMkZxq5zGA",
+    "id": "UEw0Ujh4N1E5WHAwXy1RTE5tdC1oUTI2RGE1cTBwaEdEVS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-01-03T16:44:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Praying Boldly for the Holy Spirit",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/emBCjKkbARs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/emBCjKkbARs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/emBCjKkbARs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/emBCjKkbARs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/emBCjKkbARs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_-QLNmt-hQ26Da5q0phGDU",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "emBCjKkbARs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "emBCjKkbARs",
+      "videoPublishedAt": "2022-01-03T19:00:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Wm0XlfCLG8Yii5dMXMF3KwZ7v7I",
+    "id": "UEw0Ujh4N1E5WHAwXy1RTE5tdC1oUTI2RGE1cTBwaEdEVS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-01-17T20:40:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Bold Prayers for Others",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/5S0HYylmLbg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/5S0HYylmLbg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/5S0HYylmLbg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/5S0HYylmLbg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/5S0HYylmLbg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_-QLNmt-hQ26Da5q0phGDU",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "5S0HYylmLbg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "5S0HYylmLbg",
+      "videoPublishedAt": "2022-01-10T19:00:02Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "uXXOBir0g0-bLMqA4lEEB5TtgcU",
+    "id": "UEw0Ujh4N1E5WHAwXy1RTE5tdC1oUTI2RGE1cTBwaEdEVS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-01-17T20:40:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Bold Prayers for Unity",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/POxZhZSskNs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/POxZhZSskNs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/POxZhZSskNs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/POxZhZSskNs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/POxZhZSskNs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_-QLNmt-hQ26Da5q0phGDU",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "POxZhZSskNs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "POxZhZSskNs",
+      "videoPublishedAt": "2022-01-17T19:00:22Z"
+    }
+  }
+]

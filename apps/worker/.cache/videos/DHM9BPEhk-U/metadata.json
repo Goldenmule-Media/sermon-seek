@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "ej2SoHvp5Ldu35gEP89ee-EhJYI",
+  "id": "DHM9BPEhk-U",
+  "snippet": {
+    "publishedAt": "2025-08-05T11:00:21Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 5th Morning Devotional | Abiding in Christ",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/DHM9BPEhk-U/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 5th Morning Devotional | Abiding in Christ",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M51S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "291",
+    "likeCount": "15",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

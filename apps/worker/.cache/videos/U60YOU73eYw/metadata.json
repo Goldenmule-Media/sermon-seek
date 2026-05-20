@@ -1,0 +1,57 @@
+{
+  "kind": "youtube#video",
+  "etag": "UtEQ-mRz4O0s-oDRfO_kxO1abPo",
+  "id": "U60YOU73eYw",
+  "snippet": {
+    "publishedAt": "2021-06-13T22:00:07Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Psalm 1 - (Ever Blessed)",
+    "description": "'Psalm 1' (Ever-Blessed) is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nWe pray that these songs help usher you into a deeper connection with God and remind you that you are 'Ever-Blessed', not by works, but by the grace of God!\n\nLyrics\nI was walking on the road of the wicked\nI was standing in the door of sin\nI was sitting in the seat of the skeptic\nI was dust in the wind\n\nI was living on the far side of judgement\nHad no hope and no defense\nNo purpose and no direction\nI was lost in the wilderness\n\nYou set me on the path of blessing\nOn a road marked by faithfulness\nThough I stumble I will keep confessing\nThat I’m walking in Your goodness\n\nI’m ever-blessed\nI'm ever-prosperous\nMy soul’s at rest\nCause I’m walking with the Lord\n\nThough the way of the Lord is narrow\nAnd few stay on it for life\nHeaven waits for those who finish\nFor glory will be their prize",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/U60YOU73eYw/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/U60YOU73eYw/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/U60YOU73eYw/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/U60YOU73eYw/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Psalm 1 - (Ever Blessed)",
+      "description": "'Psalm 1' (Ever-Blessed) is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nWe pray that these songs help usher you into a deeper connection with God and remind you that you are 'Ever-Blessed', not by works, but by the grace of God!\n\nLyrics\nI was walking on the road of the wicked\nI was standing in the door of sin\nI was sitting in the seat of the skeptic\nI was dust in the wind\n\nI was living on the far side of judgement\nHad no hope and no defense\nNo purpose and no direction\nI was lost in the wilderness\n\nYou set me on the path of blessing\nOn a road marked by faithfulness\nThough I stumble I will keep confessing\nThat I’m walking in Your goodness\n\nI’m ever-blessed\nI'm ever-prosperous\nMy soul’s at rest\nCause I’m walking with the Lord\n\nThough the way of the Lord is narrow\nAnd few stay on it for life\nHeaven waits for those who finish\nFor glory will be their prize"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M36S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "2146",
+    "likeCount": "28",
+    "favoriteCount": "0",
+    "commentCount": "5"
+  }
+}

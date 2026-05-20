@@ -1,0 +1,104 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "_WMrnX-ZF-2BPODyYNe_A0W1yb4",
+    "id": "UEw0Ujh4N1E5WHAwOVVGYXBJblFDQkkwRGI0amxGcGtBTS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-04-29T15:32:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Man Camp 2024 - Session 1 Feat. Tim Chambers",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zZnGUqfPyN8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zZnGUqfPyN8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zZnGUqfPyN8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zZnGUqfPyN8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zZnGUqfPyN8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09UFapInQCBI0Db4jlFpkAM",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "zZnGUqfPyN8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "zZnGUqfPyN8",
+      "videoPublishedAt": "2024-04-29T17:00:42Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "P5H7iqTeNYy5gBeL0S2ykKL3vz8",
+    "id": "UEw0Ujh4N1E5WHAwOVVGYXBJblFDQkkwRGI0amxGcGtBTS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-04-29T15:33:36Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Man Camp 2024 - Session 2 Feat. Tim Chambers",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/x8QljH1uLUg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/x8QljH1uLUg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/x8QljH1uLUg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/x8QljH1uLUg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/x8QljH1uLUg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09UFapInQCBI0Db4jlFpkAM",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "x8QljH1uLUg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "x8QljH1uLUg",
+      "videoPublishedAt": "2024-04-29T17:00:43Z"
+    }
+  }
+]

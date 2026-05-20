@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "rZWq7R1o5O0xfY1wSkrm3IXRVWc",
+    "id": "UEw0Ujh4N1E5WHAwODIzMmxzTWp0X3E5c0d5NTVaUlU5US41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-05-01T02:43:47Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 1st Morning Devotional, The Lord’s Prayer Day 1",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08232lsMjt_q9sGy55ZRU9Q",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "1rQjRYfIdTE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "1rQjRYfIdTE",
+      "videoPublishedAt": "2023-05-01T11:00:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "VW1_sgn8lGQpLgg1QFC9sODz9Vk",
+    "id": "UEw0Ujh4N1E5WHAwODIzMmxzTWp0X3E5c0d5NTVaUlU5US4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-05-02T03:12:03Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 2nd Morning Devotional, The Lord’s Prayer Day 2",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vciLEeaA_hk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vciLEeaA_hk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vciLEeaA_hk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vciLEeaA_hk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vciLEeaA_hk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08232lsMjt_q9sGy55ZRU9Q",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "vciLEeaA_hk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "vciLEeaA_hk",
+      "videoPublishedAt": "2023-05-02T11:00:40Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "WJwwHpByLZaSmZJV7UORzLXBnqQ",
+    "id": "UEw0Ujh4N1E5WHAwODIzMmxzTWp0X3E5c0d5NTVaUlU5US4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2023-05-03T03:06:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 3rd Morning Devotional, The Lord’s Prayer Day 3",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RRX8DKToQH0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RRX8DKToQH0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RRX8DKToQH0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RRX8DKToQH0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RRX8DKToQH0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08232lsMjt_q9sGy55ZRU9Q",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RRX8DKToQH0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RRX8DKToQH0",
+      "videoPublishedAt": "2023-05-03T11:00:30Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "AEAEHCXcStKvyI6Ky1S_CuuosGQ",
+    "id": "UEw0Ujh4N1E5WHAwODIzMmxzTWp0X3E5c0d5NTVaUlU5US41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2023-05-04T03:31:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 4th Morning Devotional, The Lord’s Prayer Day 4",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08232lsMjt_q9sGy55ZRU9Q",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "1oI5PfcdkuY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "1oI5PfcdkuY",
+      "videoPublishedAt": "2023-05-04T11:00:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "4kKBmxUT8KrKrzeFIYFypaDfoOw",
+    "id": "UEw0Ujh4N1E5WHAwODIzMmxzTWp0X3E5c0d5NTVaUlU5US4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2023-05-05T03:48:16Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 5th Morning Devotional, The Lord’s Prayer Day 5",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/m2yoFtmsaT8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/m2yoFtmsaT8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/m2yoFtmsaT8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/m2yoFtmsaT8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/m2yoFtmsaT8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08232lsMjt_q9sGy55ZRU9Q",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "m2yoFtmsaT8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "m2yoFtmsaT8",
+      "videoPublishedAt": "2023-05-05T11:00:37Z"
+    }
+  }
+]

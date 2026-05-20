@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "0xLq9NvOOZLgsb2pKkAlRl3kgIw",
+  "id": "QxDoN9x4oI8",
+  "snippet": {
+    "publishedAt": "2020-08-23T14:45:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 23rd Sunday Service",
+    "description": "Feeling weary from everything going on in the world? Are you looking for a sense of normalcy?\n\nToday we welcome our friend Donnie Griggs from North Carolina! Donnie leads a multisite church called “One Harbor” and is also the author of the book “Small Town Jesus: Taking the Gospel Mission Seriously in Seemingly Unimportant Places.” Donnie’s churches are also a part of our extended Newfrontiers International family.\n\nInvite a friend or family member and join us!\n\n#myjubileechurch #onlineservices #everyoneeveryplace #oneharbor #smalltownjesus",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/QxDoN9x4oI8/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/QxDoN9x4oI8/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/QxDoN9x4oI8/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/QxDoN9x4oI8/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/QxDoN9x4oI8/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 23rd Sunday Service",
+      "description": "Feeling weary from everything going on in the world? Are you looking for a sense of normalcy?\n\nToday we welcome our friend Donnie Griggs from North Carolina! Donnie leads a multisite church called “One Harbor” and is also the author of the book “Small Town Jesus: Taking the Gospel Mission Seriously in Seemingly Unimportant Places.” Donnie’s churches are also a part of our extended Newfrontiers International family.\n\nInvite a friend or family member and join us!\n\n#myjubileechurch #onlineservices #everyoneeveryplace #oneharbor #smalltownjesus"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H2M19S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "436",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

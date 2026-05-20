@@ -1,0 +1,206 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "GZPaU6TTKHq-xNDd_IaCmntw7sQ",
+    "id": "UEw0Ujh4N1E5WHAwOTlRN0RONFBmT2kybmd1aW8ycllTdi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2026-02-22T19:37:16Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Wisdom v. Information",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8_DcDl64sKM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8_DcDl64sKM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8_DcDl64sKM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8_DcDl64sKM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8_DcDl64sKM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp099Q7DN4PfOi2nguio2rYSv",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "8_DcDl64sKM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "8_DcDl64sKM",
+      "videoPublishedAt": "2026-02-22T19:37:16Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "XQA14rY88_gBRxsOl6isx9sqF68",
+    "id": "UEw0Ujh4N1E5WHAwOTlRN0RONFBmT2kybmd1aW8ycllTdi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2026-02-15T18:50:18Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Connection v. Distraction",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pt2MvK2RDCU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pt2MvK2RDCU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pt2MvK2RDCU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pt2MvK2RDCU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pt2MvK2RDCU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp099Q7DN4PfOi2nguio2rYSv",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "pt2MvK2RDCU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "pt2MvK2RDCU",
+      "videoPublishedAt": "2026-02-15T18:56:19Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "FC1NbKNFNaA6gjexKbuZbk-bEBM",
+    "id": "UEw0Ujh4N1E5WHAwOTlRN0RONFBmT2kybmd1aW8ycllTdi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2026-02-08T20:33:43Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Light v. Darkness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/d-itbu7fSPU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/d-itbu7fSPU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/d-itbu7fSPU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/d-itbu7fSPU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/d-itbu7fSPU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp099Q7DN4PfOi2nguio2rYSv",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "d-itbu7fSPU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "d-itbu7fSPU",
+      "videoPublishedAt": "2026-02-08T20:53:45Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "jG-6y4gSEqKA1HGax0BCF24mRb8",
+    "id": "UEw0Ujh4N1E5WHAwOTlRN0RONFBmT2kybmd1aW8ycllTdi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2026-02-01T20:16:55Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Fullness v. Emptiness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/v9prHPm3REI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/v9prHPm3REI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/v9prHPm3REI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/v9prHPm3REI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/v9prHPm3REI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp099Q7DN4PfOi2nguio2rYSv",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "v9prHPm3REI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "v9prHPm3REI",
+      "videoPublishedAt": "2026-02-01T20:25:19Z"
+    }
+  }
+]

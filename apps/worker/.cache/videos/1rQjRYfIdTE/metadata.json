@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "4p6JOHEryVYnHTKlYGg-Jj8vUB8",
+  "id": "1rQjRYfIdTE",
+  "snippet": {
+    "publishedAt": "2023-05-01T11:00:01Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 1st Morning Devotional, The Lord’s Prayer Day 1",
+    "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/1rQjRYfIdTE/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 1st Morning Devotional, The Lord’s Prayer Day 1",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M47S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "445",
+    "likeCount": "26",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

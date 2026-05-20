@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ORNjGgaTmlQYEujyzzcdlDxKvms",
+    "id": "UEw0Ujh4N1E5WHAwOEFmNGlGeGZ3RWdQMzVGWDNpV3RZTS4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2026-04-28T14:18:22Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 1st Morning Devotional | Psalm 24:6",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ZrYsVrjg5N8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ZrYsVrjg5N8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ZrYsVrjg5N8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ZrYsVrjg5N8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ZrYsVrjg5N8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Af4iFxfwEgP35FX3iWtYM",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ZrYsVrjg5N8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ZrYsVrjg5N8",
+      "videoPublishedAt": "2026-05-01T11:00:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "7xFR0pp2_D9zEk9Q3zpRPVE5Mjw",
+    "id": "UEw0Ujh4N1E5WHAwOEFmNGlGeGZ3RWdQMzVGWDNpV3RZTS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2026-04-27T18:25:30Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 30th Morning Devotional | Psalm 24:5",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dwTsB_Z_j-Q/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Af4iFxfwEgP35FX3iWtYM",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "dwTsB_Z_j-Q"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "dwTsB_Z_j-Q",
+      "videoPublishedAt": "2026-04-30T11:00:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Tb6h_7LKKNhlzAiMxeAyIRU_uX8",
+    "id": "UEw0Ujh4N1E5WHAwOEFmNGlGeGZ3RWdQMzVGWDNpV3RZTS41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2026-04-28T14:17:05Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 29th Morning Devotional | Psalm 24:4",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/XKjTZkVFVik/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/XKjTZkVFVik/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/XKjTZkVFVik/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/XKjTZkVFVik/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/XKjTZkVFVik/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Af4iFxfwEgP35FX3iWtYM",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "XKjTZkVFVik"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "XKjTZkVFVik",
+      "videoPublishedAt": "2026-04-29T11:00:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "K_WwDc2y_FhJLCcVZKeyNcUbWK8",
+    "id": "UEw0Ujh4N1E5WHAwOEFmNGlGeGZ3RWdQMzVGWDNpV3RZTS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2026-04-27T18:26:26Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 28th Morning Devotional | Psalm 24:3",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/TfMpuocNi4A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/TfMpuocNi4A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/TfMpuocNi4A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/TfMpuocNi4A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/TfMpuocNi4A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Af4iFxfwEgP35FX3iWtYM",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "TfMpuocNi4A"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "TfMpuocNi4A",
+      "videoPublishedAt": "2026-04-28T11:00:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "vZuKwYCFjlDOSehMIEjiafrOBTY",
+    "id": "UEw0Ujh4N1E5WHAwOEFmNGlGeGZ3RWdQMzVGWDNpV3RZTS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2026-04-26T14:40:54Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 27th Morning Devotional | Psalm 24:7-10",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YD_DGrvE6Ho/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YD_DGrvE6Ho/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YD_DGrvE6Ho/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YD_DGrvE6Ho/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YD_DGrvE6Ho/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Af4iFxfwEgP35FX3iWtYM",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "YD_DGrvE6Ho"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "YD_DGrvE6Ho",
+      "videoPublishedAt": "2026-04-27T11:00:00Z"
+    }
+  }
+]

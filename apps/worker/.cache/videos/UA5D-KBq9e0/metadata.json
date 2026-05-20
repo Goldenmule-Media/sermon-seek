@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "131w4eBWMmuHL4tlQhWKtPbktQs",
+  "id": "UA5D-KBq9e0",
+  "snippet": {
+    "publishedAt": "2021-06-20T22:00:12Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Psalm 78 - (No Slave)",
+    "description": "'Psalm 78' (No Slave) is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nWe pray that these songs help usher you into a deeper connection with God. \n\nLyrics:\n\nI squandered Your wealth and spent what You gave\nI racked up a debt I couldn't repay\nA cross was reserved at the top was my name\nNow all that is left is a crimson blood stain\n\nI am no slave in the house of God\nI am Your child \n\nMy shame was a weight and each sin a chain\nIf I had to carry just one I’d break\nThought I'd be the last person You'd want to save\nThen I saw You running and calling my name\n\nAnd when liars speak then I'll say it plain\nJesus is mine our fate is the same\nI'm loved by the Father He knows my name\nI've been forgiven freed by His grace\n\nI'm not an orphan\nI'm not a failure\nI'm not forgotten\nI'm loved by the Lord",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Psalm 78 - (No Slave)",
+      "description": "'Psalm 78' (No Slave) is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nWe pray that these songs help usher you into a deeper connection with God. \n\nLyrics:\n\nI squandered Your wealth and spent what You gave\nI racked up a debt I couldn't repay\nA cross was reserved at the top was my name\nNow all that is left is a crimson blood stain\n\nI am no slave in the house of God\nI am Your child \n\nMy shame was a weight and each sin a chain\nIf I had to carry just one I’d break\nThought I'd be the last person You'd want to save\nThen I saw You running and calling my name\n\nAnd when liars speak then I'll say it plain\nJesus is mine our fate is the same\nI'm loved by the Father He knows my name\nI've been forgiven freed by His grace\n\nI'm not an orphan\nI'm not a failure\nI'm not forgotten\nI'm loved by the Lord"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M42S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "1866",
+    "likeCount": "19",
+    "favoriteCount": "0",
+    "commentCount": "3"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "kind": "youtube#video",
+  "etag": "F-hyl1zg_9rTjCtL57116CvTbRg",
+  "id": "tC7920sJnAY",
+  "snippet": {
+    "publishedAt": "2023-09-17T21:14:19Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Jesus & Gender",
+    "description": "00:00 Worship\n04:30 Welcome\n05:51 Worship\n22:27 Announcements\n28:01 Sermon\n1:02:37 Response",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/tC7920sJnAY/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/tC7920sJnAY/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/tC7920sJnAY/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/tC7920sJnAY/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/tC7920sJnAY/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Jesus & Gender",
+      "description": "00:00 Worship\n04:30 Welcome\n05:51 Worship\n22:27 Announcements\n28:01 Sermon\n1:02:37 Response"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H13M37S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "496",
+    "likeCount": "9",
+    "favoriteCount": "0"
+  }
+}

@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "TgtN5Uik5cEiV8tFhsATsIr-Uos",
+    "id": "UEw0Ujh4N1E5WHAwX1hLRzhRVGJNQko5Yl9yWlpreHo5US41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2024-09-08T19:18:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Parenting Essentials",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/a3LGuUHBrtc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/a3LGuUHBrtc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/a3LGuUHBrtc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/a3LGuUHBrtc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/a3LGuUHBrtc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_XKG8QTbMBJ9b_rZZkxz9Q",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "a3LGuUHBrtc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "a3LGuUHBrtc",
+      "videoPublishedAt": "2024-09-08T19:21:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "l9l_igDocVme2mtGVHzHgLSUzsc",
+    "id": "UEw0Ujh4N1E5WHAwX1hLRzhRVGJNQko5Yl9yWlpreHo5US4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2024-09-08T19:18:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Speaking the Truth in Love",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ZuYq-3NhIKI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ZuYq-3NhIKI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ZuYq-3NhIKI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ZuYq-3NhIKI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ZuYq-3NhIKI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_XKG8QTbMBJ9b_rZZkxz9Q",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ZuYq-3NhIKI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ZuYq-3NhIKI",
+      "videoPublishedAt": "2024-09-01T18:37:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "hbk7BZk2ciBZ7OfVAI78fnrk0Fo",
+    "id": "UEw0Ujh4N1E5WHAwX1hLRzhRVGJNQko5Yl9yWlpreHo5US4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-09-08T19:18:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "8 Ways to Improve Your Dating Relationships",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/X4Pj-nQzLa8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/X4Pj-nQzLa8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/X4Pj-nQzLa8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/X4Pj-nQzLa8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/X4Pj-nQzLa8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_XKG8QTbMBJ9b_rZZkxz9Q",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "X4Pj-nQzLa8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "X4Pj-nQzLa8",
+      "videoPublishedAt": "2024-08-25T17:39:27Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "mdv74DiMekSsZZ5_o9eSHi40-uI",
+    "id": "UEw0Ujh4N1E5WHAwX1hLRzhRVGJNQko5Yl9yWlpreHo5US4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2024-09-08T19:18:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Do you need a friendSHIFT?",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xN-MPRNYNlM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xN-MPRNYNlM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xN-MPRNYNlM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xN-MPRNYNlM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/xN-MPRNYNlM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_XKG8QTbMBJ9b_rZZkxz9Q",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "xN-MPRNYNlM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "xN-MPRNYNlM",
+      "videoPublishedAt": "2024-08-18T19:10:38Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "F0Em-hJXpPK3nfMSB9ba56iEitY",
+    "id": "UEw0Ujh4N1E5WHAwX1hLRzhRVGJNQko5Yl9yWlpreHo5US41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-08-11T21:29:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Pay Attention To Your Words",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/plaqN1pH7kw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/plaqN1pH7kw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/plaqN1pH7kw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/plaqN1pH7kw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/plaqN1pH7kw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_XKG8QTbMBJ9b_rZZkxz9Q",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "plaqN1pH7kw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "plaqN1pH7kw",
+      "videoPublishedAt": "2024-08-11T21:29:39Z"
+    }
+  }
+]

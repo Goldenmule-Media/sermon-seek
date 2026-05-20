@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "7tmtAVt3ukIfxXKv7Ey6TbBcXLs",
+  "id": "QKLL5D4DiSs",
+  "snippet": {
+    "publishedAt": "2020-07-19T14:45:25Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "July 19th Sunday Service",
+    "description": "How would you define your allegiances to things such as race, culture, ideologies, or even Christ? Do you believe that God’s word can shake you free from man-made allegiances so your devotion to Him can be pure and sincere?\n\nToday we continue our series “Unshaken.” We’ll continue looking the story of the woman at the well, and dive even deeper the heart of God and the power His word has. \n\nInvite a friend or family member, and join us this morning!\n\n#myjubileechurch #unshaken #livingword",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/QKLL5D4DiSs/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/QKLL5D4DiSs/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/QKLL5D4DiSs/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/QKLL5D4DiSs/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/QKLL5D4DiSs/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "July 19th Sunday Service",
+      "description": "How would you define your allegiances to things such as race, culture, ideologies, or even Christ? Do you believe that God’s word can shake you free from man-made allegiances so your devotion to Him can be pure and sincere?\n\nToday we continue our series “Unshaken.” We’ll continue looking the story of the woman at the well, and dive even deeper the heart of God and the power His word has. \n\nInvite a friend or family member, and join us this morning!\n\n#myjubileechurch #unshaken #livingword"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H10M53S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "470",
+    "likeCount": "6",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

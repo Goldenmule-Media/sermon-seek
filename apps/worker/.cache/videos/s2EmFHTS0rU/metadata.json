@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "WLi3MhQdVKziYJrvqbrjvdQsqDM",
+  "id": "s2EmFHTS0rU",
+  "snippet": {
+    "publishedAt": "2024-01-09T12:00:51Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "January 9th Morning Devotional, Receiving Through Obedience",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/s2EmFHTS0rU/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "January 9th Morning Devotional, Receiving Through Obedience",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M18S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "291",
+    "likeCount": "11",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

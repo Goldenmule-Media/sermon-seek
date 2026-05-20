@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "_luPny5IfUMDVnGDE3s0VRr_NkA",
+  "id": "5DYojT5HSp0",
+  "snippet": {
+    "publishedAt": "2020-08-29T16:23:05Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "What to Expect at Our In Person Services",
+    "description": "We aim to make all of our in person services safe, spacious, and sanitized. Check out everything we've done to make sure this happens on a Sunday morning!",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/5DYojT5HSp0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/5DYojT5HSp0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/5DYojT5HSp0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/5DYojT5HSp0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/5DYojT5HSp0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "What to Expect at Our In Person Services",
+      "description": "We aim to make all of our in person services safe, spacious, and sanitized. Check out everything we've done to make sure this happens on a Sunday morning!"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT3M14S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "108",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

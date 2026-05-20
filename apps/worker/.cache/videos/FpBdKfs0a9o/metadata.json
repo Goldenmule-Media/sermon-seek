@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "fysU-ifFDCL63QicMX7J3AZ2C14",
+  "id": "FpBdKfs0a9o",
+  "snippet": {
+    "publishedAt": "2020-09-07T15:00:04Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Great Are You Lord (cover) All Sons and Daughters",
+    "description": "Here is our cover of \"Great Are You Lord\" by All Sons and Daughters. This song was recorded live as a part of our online service on July 12, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Great Are You Lord (cover) All Sons and Daughters",
+      "description": "Here is our cover of \"Great Are You Lord\" by All Sons and Daughters. This song was recorded live as a part of our online service on July 12, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M18S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "206",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

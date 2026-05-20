@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "HJganumyUZATa4kyc6B0pue5PyA",
+    "id": "UEw0Ujh4N1E5WHAwOUE3N19aMlc4QjgxeHhuXzZicFlFQi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2024-04-29T16:12:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 3rd Morning Devotional | Receive Power to be My Witnesses",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/5ZKhfax2NCE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/5ZKhfax2NCE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/5ZKhfax2NCE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/5ZKhfax2NCE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/5ZKhfax2NCE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09A77_Z2W8B81xxn_6bpYEB",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "5ZKhfax2NCE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "5ZKhfax2NCE",
+      "videoPublishedAt": "2024-05-03T11:00:04Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5I4brhpZG5q5kOoe08lYIJS9_KM",
+    "id": "UEw0Ujh4N1E5WHAwOUE3N19aMlc4QjgxeHhuXzZicFlFQi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2024-04-29T16:08:47Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 2nd Morning Devotional | Ask and It Will Be Given",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0iEY8X2prMc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0iEY8X2prMc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0iEY8X2prMc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0iEY8X2prMc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0iEY8X2prMc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09A77_Z2W8B81xxn_6bpYEB",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0iEY8X2prMc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0iEY8X2prMc",
+      "videoPublishedAt": "2024-05-02T11:00:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Gz6oqYK0N8mxl5mefnFNL93JXR4",
+    "id": "UEw0Ujh4N1E5WHAwOUE3N19aMlc4QjgxeHhuXzZicFlFQi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2024-04-29T15:50:57Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 1st Morning Devotional | Walk by the Spirit",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/v4PIt1w3qZs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/v4PIt1w3qZs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/v4PIt1w3qZs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/v4PIt1w3qZs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/v4PIt1w3qZs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09A77_Z2W8B81xxn_6bpYEB",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "v4PIt1w3qZs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "v4PIt1w3qZs",
+      "videoPublishedAt": "2024-05-01T11:00:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0ux-b7Cd8hcqGk46kmRGXOiCYKo",
+    "id": "UEw0Ujh4N1E5WHAwOUE3N19aMlc4QjgxeHhuXzZicFlFQi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-04-29T15:47:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 30th Morning Devotional | Where the Spirit of the Lord is, There is Freedom!",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ERWz5N2mdm0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ERWz5N2mdm0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ERWz5N2mdm0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ERWz5N2mdm0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ERWz5N2mdm0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09A77_Z2W8B81xxn_6bpYEB",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ERWz5N2mdm0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ERWz5N2mdm0",
+      "videoPublishedAt": "2024-04-30T11:00:09Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "cKNYj_zncQCOOBOH9_08DLglQFE",
+    "id": "UEw0Ujh4N1E5WHAwOUE3N19aMlc4QjgxeHhuXzZicFlFQi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-04-28T21:33:01Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 29th Morning Devotional | If Anyone is Thirsty, Come!",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vn0XaJOAUVE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vn0XaJOAUVE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vn0XaJOAUVE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vn0XaJOAUVE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vn0XaJOAUVE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09A77_Z2W8B81xxn_6bpYEB",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "vn0XaJOAUVE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "vn0XaJOAUVE",
+      "videoPublishedAt": "2024-04-29T11:00:49Z"
+    }
+  }
+]

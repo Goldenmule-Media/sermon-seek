@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "rXEuBBErTiyUdZkeD-YxO__xwvk",
+  "id": "j1q3hk-ALYs",
+  "snippet": {
+    "publishedAt": "2021-10-18T17:00:34Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "What Does the Bible Say About Exhaustion?",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/j1q3hk-ALYs/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/j1q3hk-ALYs/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/j1q3hk-ALYs/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/j1q3hk-ALYs/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/j1q3hk-ALYs/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "What Does the Bible Say About Exhaustion?",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT25M10S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "171",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

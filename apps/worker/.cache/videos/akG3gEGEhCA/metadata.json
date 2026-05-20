@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Z1QRuCBIycBWRISmTEmGq-DX-NA",
+  "id": "akG3gEGEhCA",
+  "snippet": {
+    "publishedAt": "2020-05-13T17:06:04Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Psalm 65 - God Chooses Us",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/akG3gEGEhCA/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/akG3gEGEhCA/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/akG3gEGEhCA/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/akG3gEGEhCA/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/akG3gEGEhCA/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Psalm 65 - God Chooses Us",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT3M23S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "84",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

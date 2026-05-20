@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "XTThKmouIUqBzZdZtBgW7trEw38",
+  "id": "9yUnzP_cwZw",
+  "snippet": {
+    "publishedAt": "2024-07-14T19:25:24Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Here Today, Gone Tomorrow",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Here Today, Gone Tomorrow",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H20M13S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "265",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

@@ -1,0 +1,461 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "2vgKEuid1aUWYxcPMVofB2sYeFg",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC45NDk1REZENzhEMzU5MDQz",
+    "snippet": {
+      "publishedAt": "2024-07-29T00:33:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Praying in Faith",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/MC1bPhqt4JE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/MC1bPhqt4JE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/MC1bPhqt4JE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/MC1bPhqt4JE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/MC1bPhqt4JE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "MC1bPhqt4JE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "MC1bPhqt4JE",
+      "videoPublishedAt": "2024-07-29T00:33:45Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "s_r6Tg7NRKt8NwJtoPjDo-O9nVs",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2024-07-21T19:22:24Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Patience: Perspective, Power, Purpose",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Wiv9CmzjvDY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Wiv9CmzjvDY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Wiv9CmzjvDY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Wiv9CmzjvDY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Wiv9CmzjvDY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Wiv9CmzjvDY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Wiv9CmzjvDY",
+      "videoPublishedAt": "2024-07-22T14:14:11Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "qnCRt2XgHXoW8ROmZkLe0RntqxM",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2024-07-16T19:06:19Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Here Today, Gone Tomorrow",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9yUnzP_cwZw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "9yUnzP_cwZw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "9yUnzP_cwZw",
+      "videoPublishedAt": "2024-07-14T19:25:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "FZ8obPMpYjw0JSzJqGPD_oZTajs",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2024-07-16T19:06:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Source of Conflict",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/TbgDD20XuPU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/TbgDD20XuPU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/TbgDD20XuPU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/TbgDD20XuPU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/TbgDD20XuPU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "TbgDD20XuPU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "TbgDD20XuPU",
+      "videoPublishedAt": "2024-07-07T18:33:05Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ECaYacA7kCqEatUm8YqyXBHSAWE",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2024-07-16T19:06:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Transformation Over Trying",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uIQTiH0Ez9M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uIQTiH0Ez9M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uIQTiH0Ez9M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uIQTiH0Ez9M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uIQTiH0Ez9M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "uIQTiH0Ez9M"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "uIQTiH0Ez9M",
+      "videoPublishedAt": "2024-07-01T15:57:15Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wtEPBGH6YY7YFdJHS5eZ5-GBXDY",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2024-06-30T19:46:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Transformation Over Trying",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/E5RewG3rJhE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/E5RewG3rJhE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/E5RewG3rJhE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/E5RewG3rJhE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/E5RewG3rJhE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "E5RewG3rJhE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "E5RewG3rJhE",
+      "videoPublishedAt": "2024-06-30T19:56:26Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "8vQ8j9xK_vDixxM6SlY-LCp2h9s",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2024-06-23T17:39:38Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Faith Without Favoritism",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/i5azTx4Cn_k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/i5azTx4Cn_k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/i5azTx4Cn_k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/i5azTx4Cn_k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/i5azTx4Cn_k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "i5azTx4Cn_k"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "i5azTx4Cn_k",
+      "videoPublishedAt": "2024-06-23T17:46:23Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "u31jULQYmWAZzJTsQ37Ba0hnURU",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-06-11T17:02:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Living Faith",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uOO7ZlRZGEI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uOO7ZlRZGEI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uOO7ZlRZGEI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uOO7ZlRZGEI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uOO7ZlRZGEI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "uOO7ZlRZGEI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "uOO7ZlRZGEI",
+      "videoPublishedAt": "2024-06-11T17:05:07Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "2UrYLH911Die5nXBEXkt6LRn1To",
+    "id": "UEw0Ujh4N1E5WHAwOWtNT2tjX2FRNXVxRDRPNWZ3RzFoWC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-06-04T18:05:30Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Trusting God in the Blank Spaces",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ey7h02yz0Ts/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ey7h02yz0Ts/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ey7h02yz0Ts/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ey7h02yz0Ts/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ey7h02yz0Ts/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09kMOkc_aQ5uqD4O5fwG1hX",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ey7h02yz0Ts"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ey7h02yz0Ts",
+      "videoPublishedAt": "2024-06-03T16:04:48Z"
+    }
+  }
+]

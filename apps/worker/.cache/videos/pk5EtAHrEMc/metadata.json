@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "xUdh45gjWKY_OnAviyPYt6Xh6W0",
+  "id": "pk5EtAHrEMc",
+  "snippet": {
+    "publishedAt": "2023-08-10T11:00:43Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 10th Morning Devotional, The Readiness Shoes",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 10th Morning Devotional, The Readiness Shoes",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT6M28S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "160",
+    "likeCount": "7",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

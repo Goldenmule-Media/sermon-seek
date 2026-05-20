@@ -1,0 +1,67 @@
+{
+  "kind": "youtube#video",
+  "etag": "paBtkm-3ueDUQvHwpJdyGxXS0BA",
+  "id": "aHyVaPFqhvM",
+  "snippet": {
+    "publishedAt": "2025-12-14T18:55:56Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Ready Your Heart: Trust and Treasure",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Ready Your Heart: Trust and Treasure",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H51M49S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "regionRestriction": {
+      "blocked": [
+        "RU"
+      ]
+    },
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "122",
+    "likeCount": "2",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

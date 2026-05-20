@@ -1,0 +1,155 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5ZRbcSBGj7XQsLQuf8HpkLYCasI",
+    "id": "UEw0Ujh4N1E5WHAwOC15XzBNRTBWTkFCWkwxMG53UTZZQS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-09-28T18:16:52Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Godly Singles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ny8KIupvT2o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ny8KIupvT2o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ny8KIupvT2o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ny8KIupvT2o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ny8KIupvT2o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08-y_0ME0VNABZL10nwQ6YA",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ny8KIupvT2o"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ny8KIupvT2o",
+      "videoPublishedAt": "2025-09-28T18:22:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "6-TjUqljDHL98synk7L8eyVFkZ4",
+    "id": "UEw0Ujh4N1E5WHAwOC15XzBNRTBWTkFCWkwxMG53UTZZQS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-09-21T18:15:53Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Godly Wives",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NxFNZ_coILw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NxFNZ_coILw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NxFNZ_coILw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NxFNZ_coILw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NxFNZ_coILw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08-y_0ME0VNABZL10nwQ6YA",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "NxFNZ_coILw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "NxFNZ_coILw",
+      "videoPublishedAt": "2025-09-21T18:26:32Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "XQbFctEEBe2EuyLIwtotMwPXcfE",
+    "id": "UEw0Ujh4N1E5WHAwOC15XzBNRTBWTkFCWkwxMG53UTZZQS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-09-07T19:58:03Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Godly Husbands",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/QBUNlZg1Uy0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/QBUNlZg1Uy0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/QBUNlZg1Uy0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/QBUNlZg1Uy0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/QBUNlZg1Uy0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08-y_0ME0VNABZL10nwQ6YA",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "QBUNlZg1Uy0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "QBUNlZg1Uy0",
+      "videoPublishedAt": "2025-09-07T19:58:04Z"
+    }
+  }
+]

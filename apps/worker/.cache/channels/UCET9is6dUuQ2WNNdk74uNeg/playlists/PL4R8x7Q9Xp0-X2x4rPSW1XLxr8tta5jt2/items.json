@@ -1,0 +1,206 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "dJXFNZQhzO-IimvYoFvonaGjgKo",
+    "id": "UEw0Ujh4N1E5WHAwLVgyeDRyUFNXMVhMeHI4dHRhNWp0Mi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-05-22T01:21:45Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Parable of the Sower",
+      "description": "00:00 Worship\n02:53 Welcome\n04:51 Worship\n13:40 Announcements\n22:16 Sermon\n56:36 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/MgAY6khH8ms/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/MgAY6khH8ms/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/MgAY6khH8ms/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/MgAY6khH8ms/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/MgAY6khH8ms/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-X2x4rPSW1XLxr8tta5jt2",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "MgAY6khH8ms"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "MgAY6khH8ms",
+      "videoPublishedAt": "2023-05-22T01:21:52Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-EwQsQ61JE0IvvT2smlAcbpwDzM",
+    "id": "UEw0Ujh4N1E5WHAwLVgyeDRyUFNXMVhMeHI4dHRhNWp0Mi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-05-28T22:47:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Weeds and Wheat",
+      "description": "00:00 Worship\n04:54 Welcome\n06:09 Worship\n25:34 Announcements\n30:56 Sermon\n1:08:56 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/S_-VBcxzvzI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/S_-VBcxzvzI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/S_-VBcxzvzI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/S_-VBcxzvzI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/S_-VBcxzvzI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-X2x4rPSW1XLxr8tta5jt2",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "S_-VBcxzvzI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "S_-VBcxzvzI",
+      "videoPublishedAt": "2023-05-28T23:51:53Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "FENKguL0k1loHvxSYpd47R0siIo",
+    "id": "UEw0Ujh4N1E5WHAwLVgyeDRyUFNXMVhMeHI4dHRhNWp0Mi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2023-06-06T00:13:21Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Mustard Seed & Leaven",
+      "description": "00:00 Worship\n04:27 Welcome\n06:00 Worship\n21:30 Announcements\n29:52 Sermon\n1:00:51 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Dl_Cnc7-fOw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Dl_Cnc7-fOw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Dl_Cnc7-fOw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Dl_Cnc7-fOw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Dl_Cnc7-fOw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-X2x4rPSW1XLxr8tta5jt2",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Dl_Cnc7-fOw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Dl_Cnc7-fOw",
+      "videoPublishedAt": "2023-06-06T00:29:21Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Z3rlkrbAFZguJUnX-hu4yLpT7dE",
+    "id": "UEw0Ujh4N1E5WHAwLVgyeDRyUFNXMVhMeHI4dHRhNWp0Mi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2023-06-25T23:27:56Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Treasure & the Pearl",
+      "description": "00:00 Worship\n04:11 Welcome\n05:46 Worship\n20:05 Announcements\n27:26 Sermon\n1:08:53 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fegeIcWSYGg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fegeIcWSYGg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fegeIcWSYGg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fegeIcWSYGg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fegeIcWSYGg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-X2x4rPSW1XLxr8tta5jt2",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "fegeIcWSYGg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "fegeIcWSYGg",
+      "videoPublishedAt": "2023-06-25T23:49:28Z"
+    }
+  }
+]

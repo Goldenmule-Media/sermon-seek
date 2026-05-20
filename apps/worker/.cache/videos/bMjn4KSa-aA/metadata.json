@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "lSmEN27GAhsZa1GOvEIIRet6K6k",
+  "id": "bMjn4KSa-aA",
+  "snippet": {
+    "publishedAt": "2020-05-07T22:09:49Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Response to Ahmaud Arbery Shooting",
+    "description": "Let's be near to the broken-hearted\nLet's have each other's back's\nLet's receive our help from Lord",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Response to Ahmaud Arbery Shooting",
+      "description": "Let's be near to the broken-hearted\nLet's have each other's back's\nLet's receive our help from Lord"
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT8M38S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "514",
+    "likeCount": "12",
+    "favoriteCount": "0",
+    "commentCount": "3"
+  }
+}

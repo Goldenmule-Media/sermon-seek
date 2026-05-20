@@ -1,0 +1,104 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "fUmLsTtm3J4CeW9DkzrQrk_rcV0",
+    "id": "UEw0Ujh4N1E5WHAwOGwwMnRTdHZXcHRhazVJZ0FLQmY4US41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-11-21T21:56:42Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Barr Interview Adoption Day 2023",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1oHzZt4jfV0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1oHzZt4jfV0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1oHzZt4jfV0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1oHzZt4jfV0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1oHzZt4jfV0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08l02tStvWptak5IgAKBf8Q",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "1oHzZt4jfV0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "1oHzZt4jfV0",
+      "videoPublishedAt": "2023-11-21T21:57:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "gwsqGENnkWaa-uA13OpAZFFXZWw",
+    "id": "UEw0Ujh4N1E5WHAwOGwwMnRTdHZXcHRhazVJZ0FLQmY4US4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-11-21T21:57:04Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Adoption Day Service 2023",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/UG9tifmG37c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/UG9tifmG37c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/UG9tifmG37c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/UG9tifmG37c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/UG9tifmG37c/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08l02tStvWptak5IgAKBf8Q",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "UG9tifmG37c"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "UG9tifmG37c",
+      "videoPublishedAt": "2023-11-21T21:57:22Z"
+    }
+  }
+]

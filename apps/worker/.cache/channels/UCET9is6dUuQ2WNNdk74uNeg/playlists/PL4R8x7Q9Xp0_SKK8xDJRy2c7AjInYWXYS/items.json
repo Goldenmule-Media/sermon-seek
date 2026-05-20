@@ -1,0 +1,359 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "pe4YZts3rbSz-_lsa06fkqpq-ek",
+    "id": "UEw0Ujh4N1E5WHAwX1NLSzh4REpSeTJjN0FqSW5ZV1hZUy41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2025-11-16T22:45:52Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Sword of the Spirit",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bDJO9qfZfb0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bDJO9qfZfb0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bDJO9qfZfb0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bDJO9qfZfb0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bDJO9qfZfb0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_SKK8xDJRy2c7AjInYWXYS",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bDJO9qfZfb0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "bDJO9qfZfb0",
+      "videoPublishedAt": "2025-11-16T22:45:53Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "QIzWHCGCsL2DOJd2GJQBDSrDv6Q",
+    "id": "UEw0Ujh4N1E5WHAwX1NLSzh4REpSeTJjN0FqSW5ZV1hZUy4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2025-11-09T19:18:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Breastplate of Righteousness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/g2qULuIa49M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/g2qULuIa49M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/g2qULuIa49M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/g2qULuIa49M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/g2qULuIa49M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_SKK8xDJRy2c7AjInYWXYS",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "g2qULuIa49M"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "g2qULuIa49M",
+      "videoPublishedAt": "2025-11-09T19:24:57Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "u0CP4i7H11cosrvPbouTZNI5E4o",
+    "id": "UEw0Ujh4N1E5WHAwX1NLSzh4REpSeTJjN0FqSW5ZV1hZUy4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2025-11-02T18:42:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Helmet of Salvation",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YRywXHrYL_o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YRywXHrYL_o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YRywXHrYL_o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YRywXHrYL_o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YRywXHrYL_o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_SKK8xDJRy2c7AjInYWXYS",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "YRywXHrYL_o"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "YRywXHrYL_o",
+      "videoPublishedAt": "2025-11-02T18:42:46Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "YnIXkzUV7oW1m50y82VfHKfU3pw",
+    "id": "UEw0Ujh4N1E5WHAwX1NLSzh4REpSeTJjN0FqSW5ZV1hZUy41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2025-10-26T17:25:02Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Belt of Truth",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/KIWyJ7OghxQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/KIWyJ7OghxQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/KIWyJ7OghxQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/KIWyJ7OghxQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/KIWyJ7OghxQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_SKK8xDJRy2c7AjInYWXYS",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "KIWyJ7OghxQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "KIWyJ7OghxQ",
+      "videoPublishedAt": "2025-10-26T17:46:35Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ruDPQxGW7HuGEyj7_iuHL6_zStI",
+    "id": "UEw0Ujh4N1E5WHAwX1NLSzh4REpSeTJjN0FqSW5ZV1hZUy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-10-19T17:27:10Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Shield of Faith",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jaDJzabgZKI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jaDJzabgZKI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jaDJzabgZKI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jaDJzabgZKI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jaDJzabgZKI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_SKK8xDJRy2c7AjInYWXYS",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "jaDJzabgZKI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "jaDJzabgZKI",
+      "videoPublishedAt": "2025-10-19T17:47:19Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "LzHyhwYL-OlzM2n0FKXnp9E7c2c",
+    "id": "UEw0Ujh4N1E5WHAwX1NLSzh4REpSeTJjN0FqSW5ZV1hZUy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-10-12T18:52:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Put on Readiness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3r6FPnk34uU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3r6FPnk34uU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3r6FPnk34uU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3r6FPnk34uU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3r6FPnk34uU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_SKK8xDJRy2c7AjInYWXYS",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3r6FPnk34uU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3r6FPnk34uU",
+      "videoPublishedAt": "2025-10-12T18:59:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "N3zDAIuRjFaNrvqp5jsa7sTwtjM",
+    "id": "UEw0Ujh4N1E5WHAwX1NLSzh4REpSeTJjN0FqSW5ZV1hZUy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-10-05T19:06:16Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "This is War",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FBHorZQA-uI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FBHorZQA-uI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FBHorZQA-uI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FBHorZQA-uI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FBHorZQA-uI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_SKK8xDJRy2c7AjInYWXYS",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "FBHorZQA-uI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "FBHorZQA-uI",
+      "videoPublishedAt": "2025-10-05T19:06:16Z"
+    }
+  }
+]

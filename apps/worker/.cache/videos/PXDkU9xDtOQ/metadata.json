@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "0L2_ZEIvKXXUy14ypG0yG5mArkk",
+  "id": "PXDkU9xDtOQ",
+  "snippet": {
+    "publishedAt": "2026-03-31T15:15:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "10 Objections to the Resurrection… and Why They Don’t Hold Up",
+    "description": "As Holy Week begins, Bryan and Jordan reflect on what this season means and why it still matters by looking ahead to Good Friday and Easter while inviting us to keep Jesus at the center. They also share updates on upcoming worship moments and the Good Men Conference, including a new resource for young men.\n\nThe conversation then turns to truth in a culture full of distortion. They unpack how ideas like individualism, prosperity, and cultural narratives can reshape the gospel, and respond to popular claims about Jesus, sexuality, abortion, and even the nature of God. With Scripture often quoted but redefined, they highlight why clarity around truth is more important than ever.\n\nTo anchor it all, they walk through common objections to the resurrection and make a compelling case for its historical credibility. Because if Jesus truly rose from the dead, it changes everything... not just during Holy Week, but for all of life.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/PXDkU9xDtOQ/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/PXDkU9xDtOQ/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/PXDkU9xDtOQ/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/PXDkU9xDtOQ/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/PXDkU9xDtOQ/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "10 Objections to the Resurrection… and Why They Don’t Hold Up",
+      "description": "As Holy Week begins, Bryan and Jordan reflect on what this season means and why it still matters by looking ahead to Good Friday and Easter while inviting us to keep Jesus at the center. They also share updates on upcoming worship moments and the Good Men Conference, including a new resource for young men.\n\nThe conversation then turns to truth in a culture full of distortion. They unpack how ideas like individualism, prosperity, and cultural narratives can reshape the gospel, and respond to popular claims about Jesus, sexuality, abortion, and even the nature of God. With Scripture often quoted but redefined, they highlight why clarity around truth is more important than ever.\n\nTo anchor it all, they walk through common objections to the resurrection and make a compelling case for its historical credibility. Because if Jesus truly rose from the dead, it changes everything... not just during Holy Week, but for all of life."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT52M43S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "113",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

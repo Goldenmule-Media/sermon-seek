@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "67zWD8vMWaiXk8S4YS8sRsfKqCg",
+  "id": "IJEQVzeT5Tg",
+  "snippet": {
+    "publishedAt": "2025-09-16T18:56:58Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Political Violence and Division: How Should Christians Respond?",
+    "description": "In this episode of the Jubilee Church Podcast, host Jordan Dillon and lead pastor Bryan Mowrey reflect on a heavy week marked by tragedy—the violent murder of a woman on a train, the assassination of Charlie Kirk, and the recent school shooting. They explore how Christians can respond in the midst of violence, grief, and political tension, asking what it looks like to honor others in a hostile culture, to walk in boldness without losing love, and to discern the reality of spiritual warfare in our day. Along the way, they wrestle with questions about social media’s influence, whether the church is becoming “too political,” and how Jesus calls us to love our enemies.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/IJEQVzeT5Tg/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/IJEQVzeT5Tg/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/IJEQVzeT5Tg/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/IJEQVzeT5Tg/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/IJEQVzeT5Tg/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Political Violence and Division: How Should Christians Respond?",
+      "description": "In this episode of the Jubilee Church Podcast, host Jordan Dillon and lead pastor Bryan Mowrey reflect on a heavy week marked by tragedy—the violent murder of a woman on a train, the assassination of Charlie Kirk, and the recent school shooting. They explore how Christians can respond in the midst of violence, grief, and political tension, asking what it looks like to honor others in a hostile culture, to walk in boldness without losing love, and to discern the reality of spiritual warfare in our day. Along the way, they wrestle with questions about social media’s influence, whether the church is becoming “too political,” and how Jesus calls us to love our enemies."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H16M33S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "387",
+    "likeCount": "16",
+    "favoriteCount": "0",
+    "commentCount": "3"
+  }
+}

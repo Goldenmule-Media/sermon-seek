@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "kI9AORbkXXwq-4eIFctATSk0ipo",
+  "id": "J7UKlC9idZ4",
+  "snippet": {
+    "publishedAt": "2024-11-07T21:31:28Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Deeply Rooted | Main Session 2 feat. Rynelle Frow",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/J7UKlC9idZ4/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Deeply Rooted | Main Session 2 feat. Rynelle Frow",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT46M17S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "67",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

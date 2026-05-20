@@ -1,0 +1,61 @@
+{
+  "kind": "youtube#video",
+  "etag": "ly9iBTW6rNMV3kVJuylQp83oDw8",
+  "id": "6SGPSU0QvqI",
+  "snippet": {
+    "publishedAt": "2023-09-21T21:40:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "How do I talk to my kids about gender?",
+    "description": "Alyssa McCutchan sat down with our lead pastor Bryan Mowrey to answer some of the most asked questions around the topic of gender. This video is connected to a sermon by Bryan Mowrey titled \"Jesus and Gender\".  You can listen to that sermon on our podcast or this YouTube channel.\n\nSermon Link:  https://youtu.be/tC7920sJnAY\nLink to Full Q&A: https://youtu.be/sjZjN8TE--8\n\nAdditional resources mentioned by Bryan Mowrey in this video:\nEmbodied by Preston Sprinkle\nhttps://www.amazon.com/Embodied-Transgender-Identities-Church-Bible/dp/0830781226\n\nUnderstanding Sexual Identity by Mark Yardhouse\nhttps://www.amazon.com/Understanding-Sexual-Identity-Resource-Ministry/dp/0310516188\n\nIrreversible Damage by Abigail Shrier\nhttps://www.amazon.com/Irreversible-Damage-Transgender-Seducing-Daughters/dp/1684510317",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/6SGPSU0QvqI/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/6SGPSU0QvqI/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/6SGPSU0QvqI/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/6SGPSU0QvqI/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/6SGPSU0QvqI/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "How do I talk to my kids about gender?",
+      "description": "Alyssa McCutchan sat down with our lead pastor Bryan Mowrey to answer some of the most asked questions around the topic of gender. This video is connected to a sermon by Bryan Mowrey titled \"Jesus and Gender\".  You can listen to that sermon on our podcast or this YouTube channel.\n\nSermon Link:  https://youtu.be/tC7920sJnAY\nLink to Full Q&A: https://youtu.be/sjZjN8TE--8\n\nAdditional resources mentioned by Bryan Mowrey in this video:\nEmbodied by Preston Sprinkle\nhttps://www.amazon.com/Embodied-Transgender-Identities-Church-Bible/dp/0830781226\n\nUnderstanding Sexual Identity by Mark Yardhouse\nhttps://www.amazon.com/Understanding-Sexual-Identity-Resource-Ministry/dp/0310516188\n\nIrreversible Damage by Abigail Shrier\nhttps://www.amazon.com/Irreversible-Damage-Transgender-Seducing-Daughters/dp/1684510317"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT3M32S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "55",
+    "likeCount": "2",
+    "favoriteCount": "0"
+  }
+}

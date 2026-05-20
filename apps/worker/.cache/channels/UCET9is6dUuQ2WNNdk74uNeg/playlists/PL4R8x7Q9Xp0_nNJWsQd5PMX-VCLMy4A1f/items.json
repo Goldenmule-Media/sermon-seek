@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "k9WMFGlUmoiemUZl5gIdy1nro9E",
+    "id": "UEw0Ujh4N1E5WHAwX25OSldzUWQ1UE1YLVZDTE15NEExZi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2025-08-31T20:49:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Leverage Your Gifts",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kpsXvcmW2GI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kpsXvcmW2GI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kpsXvcmW2GI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/kpsXvcmW2GI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/kpsXvcmW2GI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_nNJWsQd5PMX-VCLMy4A1f",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "kpsXvcmW2GI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "kpsXvcmW2GI",
+      "videoPublishedAt": "2025-08-31T21:09:22Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "O8JCL81dKyYHMWomG5X95fjatAk",
+    "id": "UEw0Ujh4N1E5WHAwX25OSldzUWQ1UE1YLVZDTE15NEExZi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2025-08-24T18:18:38Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Leverage Your Money",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/IJR9p5_cNvw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/IJR9p5_cNvw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/IJR9p5_cNvw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/IJR9p5_cNvw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/IJR9p5_cNvw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_nNJWsQd5PMX-VCLMy4A1f",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "IJR9p5_cNvw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "IJR9p5_cNvw",
+      "videoPublishedAt": "2025-08-24T18:18:38Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "jVUtXRzWphIsd4NTlYU46DxFygM",
+    "id": "UEw0Ujh4N1E5WHAwX25OSldzUWQ1UE1YLVZDTE15NEExZi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-08-17T17:22:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Leverage Your Time",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3G_32XF1QU0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3G_32XF1QU0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3G_32XF1QU0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3G_32XF1QU0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3G_32XF1QU0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_nNJWsQd5PMX-VCLMy4A1f",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3G_32XF1QU0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3G_32XF1QU0",
+      "videoPublishedAt": "2025-08-17T17:24:36Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CVbNYaumeOWncGqu6w7gKCY3Ggo",
+    "id": "UEw0Ujh4N1E5WHAwX25OSldzUWQ1UE1YLVZDTE15NEExZi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-08-10T18:52:20Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Leverage Your Love",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nVPI7atyqD0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nVPI7atyqD0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nVPI7atyqD0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nVPI7atyqD0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nVPI7atyqD0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_nNJWsQd5PMX-VCLMy4A1f",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "nVPI7atyqD0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "nVPI7atyqD0",
+      "videoPublishedAt": "2025-08-10T18:58:38Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "68GnP14LcX9hG4r6nRPk7IqVZCM",
+    "id": "UEw0Ujh4N1E5WHAwX25OSldzUWQ1UE1YLVZDTE15NEExZi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-08-03T17:36:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Leverage Your Life",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0AIRr30NzUQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0AIRr30NzUQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0AIRr30NzUQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0AIRr30NzUQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0AIRr30NzUQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_nNJWsQd5PMX-VCLMy4A1f",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0AIRr30NzUQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0AIRr30NzUQ",
+      "videoPublishedAt": "2025-08-03T18:29:08Z"
+    }
+  }
+]

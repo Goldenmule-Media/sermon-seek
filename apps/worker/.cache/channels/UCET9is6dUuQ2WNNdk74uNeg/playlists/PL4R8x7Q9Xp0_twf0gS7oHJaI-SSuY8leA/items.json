@@ -1,0 +1,727 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5KHeEG68ej9sVddypuqcwtgwN7I",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2021-05-17T03:52:59Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 17th Morning Devotional, Descending into Greatness",
+      "description": "We are excited to have our week of prayer and fasting. Today (May 17th) is day 2 of our week and we are looking at Mark 10:35-37; 42-45. Alyssa McCutchan one of our members will be encouraging us. Subscribe to get updates every morning this week!\n\nWe will have live streamed prayer meetings Monday-Friday at 6pm and Saturday at 9am.\n\nFor more information and resources go to jubileestl.org/fasting.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cQcMvbCUSaQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cQcMvbCUSaQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cQcMvbCUSaQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cQcMvbCUSaQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "cQcMvbCUSaQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "cQcMvbCUSaQ",
+      "videoPublishedAt": "2021-05-17T11:00:30Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "y439FN6GEK6ThAZeXaXB5P2Rnx0",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2021-05-18T02:10:55Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 18th Morning Devotional, Serving One Another",
+      "description": "We are excited to have our week of prayer and fasting. Today (May 18th) is day 3 of our week and we are looking at Eph. 4:16. Alex Kerford one of our members will be encouraging us. Subscribe to get updates every morning this week!\n\nWe will have live streamed prayer meetings Monday-Friday at 6pm and Saturday at 9am.\n\nFor more information and resources go to jubileestl.org/fasting.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Qo9OzDnKNoQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Qo9OzDnKNoQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Qo9OzDnKNoQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Qo9OzDnKNoQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Qo9OzDnKNoQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Qo9OzDnKNoQ",
+      "videoPublishedAt": "2021-05-18T11:00:15Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tB-fBVvL83twQ5gbQh8aJA76V8A",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2021-05-18T02:14:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 17th Prayer Service, Serving like Jesus",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dFrRoqtqtC8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dFrRoqtqtC8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dFrRoqtqtC8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dFrRoqtqtC8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "dFrRoqtqtC8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "dFrRoqtqtC8",
+      "videoPublishedAt": "2021-05-17T23:54:36Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "OLLulAwBrTYwa9XXOysFJCOqFho",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2021-05-19T20:18:30Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 19th Morning Devotional, Neighbors & Neighborhoods",
+      "description": "We are excited to have our week of prayer and fasting. Today (May 18th) is day 3 of our week and we are looking at Luke 10:29-37. Ever Cano one of our members will be encouraging us. Subscribe to get updates every morning this week!\n\nWe will have live streamed prayer meetings Monday-Friday at 6pm and Saturday at 9am.\n\nFor more information and resources go to jubileestl.org/fasting.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/IeZ0gXW98eU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/IeZ0gXW98eU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/IeZ0gXW98eU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/IeZ0gXW98eU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "IeZ0gXW98eU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "IeZ0gXW98eU",
+      "videoPublishedAt": "2021-05-19T11:00:11Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "7RdsGunecMY6sTc0tpTtSfgFF1Y",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2021-05-20T02:16:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 18th Prayer Service, Serving One Another",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aiFKMHMZDUs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aiFKMHMZDUs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aiFKMHMZDUs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aiFKMHMZDUs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "aiFKMHMZDUs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "aiFKMHMZDUs",
+      "videoPublishedAt": "2021-05-18T23:53:20Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "82EloUTXZhdBlAFAY-xFj1PqPoI",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2021-05-20T02:16:57Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 19th Prayer Service, Serving Neighbors & Neighborhoods",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NUZ2lOVLEeg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NUZ2lOVLEeg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NUZ2lOVLEeg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NUZ2lOVLEeg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "NUZ2lOVLEeg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "NUZ2lOVLEeg",
+      "videoPublishedAt": "2021-05-19T23:48:56Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CZShbn3AFl9uZo2SXO2DMnpEwUw",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2021-05-20T12:52:34Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 20th Morning Devotional, Serving Other Churches",
+      "description": "We are excited to have our week of prayer and fasting. Today (May 20th) is day 5 of our week and we are looking at Philippians 4:10-23 . Seth Hein our Lake location pastor will be encouraging us. Subscribe to get updates every morning this week!\n\nWe will have live streamed prayer meetings Monday-Friday at 6pm and Saturday at 9am.\n\nFor more information and resources go to jubileestl.org/fasting.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jInZWN94hjs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jInZWN94hjs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jInZWN94hjs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jInZWN94hjs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jInZWN94hjs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "jInZWN94hjs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "jInZWN94hjs",
+      "videoPublishedAt": "2021-05-20T11:00:32Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "GJjHBxUrMaFIhEi4HT5DGF1epZo",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2021-05-20T12:54:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 21st Morning Devotional, Go & Bless the World",
+      "description": "We are excited to have our week of prayer and fasting. Today (May 21st) is day 6 of our week and we are looking at Genesis 12:1. Mary Chopin one of our members will be encouraging us. Subscribe to get updates every morning this week!\n\nWe will have live streamed prayer meetings Monday-Friday at 6pm and Saturday at 9am.\n\nFor more information and resources go to jubileestl.org/fasting.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/5Q6uqY4sJ1Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/5Q6uqY4sJ1Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/5Q6uqY4sJ1Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/5Q6uqY4sJ1Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/5Q6uqY4sJ1Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "5Q6uqY4sJ1Y"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "5Q6uqY4sJ1Y",
+      "videoPublishedAt": "2021-05-21T11:00:02Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "loCkWFqmVbEEHnADarlv6UyQxFE",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS45NDk1REZENzhEMzU5MDQz",
+    "snippet": {
+      "publishedAt": "2021-05-21T03:42:08Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 20th Prayer Service, Serving Other Churches",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3bBikSzWvrA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3bBikSzWvrA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3bBikSzWvrA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3bBikSzWvrA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3bBikSzWvrA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3bBikSzWvrA",
+      "videoPublishedAt": "2021-05-20T23:43:50Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "o6Gep0RWFeUF9JrNv8Fga8MOjFM",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS5GNjNDRDREMDQxOThCMDQ2",
+    "snippet": {
+      "publishedAt": "2021-05-22T03:53:55Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "May 21st Prayer Service, Serving the Nations",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DE-hC4VNHqI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DE-hC4VNHqI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DE-hC4VNHqI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DE-hC4VNHqI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 9,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "DE-hC4VNHqI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "DE-hC4VNHqI",
+      "videoPublishedAt": "2021-05-21T23:42:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Hv4CXVYAkoYyawiIATgsF3B7KPw",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS40NzZCMERDMjVEN0RFRThB",
+    "snippet": {
+      "publishedAt": "2021-08-09T02:31:57Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 09th Morning Devotional, Begin with Prayer",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FhzGmGfxp3M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FhzGmGfxp3M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FhzGmGfxp3M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FhzGmGfxp3M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FhzGmGfxp3M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 10,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "FhzGmGfxp3M"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "FhzGmGfxp3M",
+      "videoPublishedAt": "2021-08-09T11:00:09Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "801DORsT2SsdKD1RjU-0vo3phPI",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS5EMEEwRUY5M0RDRTU3NDJC",
+    "snippet": {
+      "publishedAt": "2021-08-10T03:35:57Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 10th Morning Devotional, Listen",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vT1yz7YhbF4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vT1yz7YhbF4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vT1yz7YhbF4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vT1yz7YhbF4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vT1yz7YhbF4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 11,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "vT1yz7YhbF4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "vT1yz7YhbF4",
+      "videoPublishedAt": "2021-08-10T11:00:22Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-ZY4hleSw-ho5nre_6uBb8kFUvw",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS45ODRDNTg0QjA4NkFBNkQy",
+    "snippet": {
+      "publishedAt": "2021-08-11T03:33:17Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 11th Morning Devotional, Eat",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_fFDYv7vkxg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_fFDYv7vkxg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_fFDYv7vkxg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_fFDYv7vkxg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_fFDYv7vkxg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 12,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_fFDYv7vkxg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "_fFDYv7vkxg",
+      "videoPublishedAt": "2021-08-11T11:00:29Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Zu4bn5z7vLwRodv3ljoxtxDvYLQ",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS4zMDg5MkQ5MEVDMEM1NTg2",
+    "snippet": {
+      "publishedAt": "2021-08-12T03:04:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 12th Morning Devotional, Serve",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aaBUA2xjAkE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aaBUA2xjAkE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aaBUA2xjAkE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aaBUA2xjAkE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/aaBUA2xjAkE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 13,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "aaBUA2xjAkE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "aaBUA2xjAkE",
+      "videoPublishedAt": "2021-08-12T11:00:02Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "oVjfP3cXgrVzZxbWelUnClBBX3g",
+    "id": "UEw0Ujh4N1E5WHAwX3R3ZjBnUzdvSEphSS1TU3VZOGxlQS5EQUE1NTFDRjcwMDg0NEMz",
+    "snippet": {
+      "publishedAt": "2021-08-13T03:33:54Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 13th Morning Devotional, Share",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ahbTa2hRqlo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ahbTa2hRqlo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ahbTa2hRqlo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ahbTa2hRqlo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ahbTa2hRqlo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_twf0gS7oHJaI-SSuY8leA",
+      "position": 14,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ahbTa2hRqlo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ahbTa2hRqlo",
+      "videoPublishedAt": "2021-08-13T11:00:01Z"
+    }
+  }
+]

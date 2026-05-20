@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "DnZF99v8guK-XIGA0F2L5RPzbDI",
+  "id": "wBQkd5LRJZQ",
+  "snippet": {
+    "publishedAt": "2025-05-04T18:14:18Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Freedom From the Heart of the Problem",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/wBQkd5LRJZQ/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Freedom From the Heart of the Problem",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H20M31S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "191",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

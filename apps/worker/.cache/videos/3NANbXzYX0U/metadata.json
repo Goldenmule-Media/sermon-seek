@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "TvbFpQILKwXbiDp79jN63Espbh4",
+  "id": "3NANbXzYX0U",
+  "snippet": {
+    "publishedAt": "2024-11-07T21:31:28Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Deeply Rooted | Workshop Five: Living in the Awareness of God",
+    "description": "feat. Brenda McCutchan",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/3NANbXzYX0U/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/3NANbXzYX0U/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/3NANbXzYX0U/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/3NANbXzYX0U/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/3NANbXzYX0U/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Deeply Rooted | Workshop Five: Living in the Awareness of God",
+      "description": "feat. Brenda McCutchan"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT32M23S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "54",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "GKZaoGZ48sOHeX3Xi7-ITKzgodw",
+    "id": "UEw0Ujh4N1E5WHAwOWNEQ1U0NktUeVd4Rk5QeEpwajhiQS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2021-11-29T17:27:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Zechariah & Elizabeth",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/tTxnr9PZHyI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/tTxnr9PZHyI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/tTxnr9PZHyI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/tTxnr9PZHyI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/tTxnr9PZHyI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09cDCU46KTyWxFNPxJpj8bA",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "tTxnr9PZHyI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "tTxnr9PZHyI",
+      "videoPublishedAt": "2021-11-29T19:00:30Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "294tjI3f50LjSrkpwUwejL2uWxU",
+    "id": "UEw0Ujh4N1E5WHAwOWNEQ1U0NktUeVd4Rk5QeEpwajhiQS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2021-12-06T17:00:17Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Mary",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JJcwb-SupoU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JJcwb-SupoU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JJcwb-SupoU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JJcwb-SupoU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JJcwb-SupoU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09cDCU46KTyWxFNPxJpj8bA",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "JJcwb-SupoU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "JJcwb-SupoU",
+      "videoPublishedAt": "2021-12-06T19:00:05Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "UPLdRBRTOkj8YUi0hoMiIVX0fUU",
+    "id": "UEw0Ujh4N1E5WHAwOWNEQ1U0NktUeVd4Rk5QeEpwajhiQS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2021-12-13T19:16:23Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "John the Baptist",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RnOVGeno38c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RnOVGeno38c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RnOVGeno38c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RnOVGeno38c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RnOVGeno38c/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09cDCU46KTyWxFNPxJpj8bA",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RnOVGeno38c"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RnOVGeno38c",
+      "videoPublishedAt": "2021-12-13T20:00:07Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "c5IWDGGO1rvrG6oy-25Oo2SHEt0",
+    "id": "UEw0Ujh4N1E5WHAwOWNEQ1U0NktUeVd4Rk5QeEpwajhiQS41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2021-12-20T19:53:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Simeon & Anna",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RkHcfAIH9ks/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RkHcfAIH9ks/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RkHcfAIH9ks/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RkHcfAIH9ks/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RkHcfAIH9ks/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09cDCU46KTyWxFNPxJpj8bA",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RkHcfAIH9ks"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RkHcfAIH9ks",
+      "videoPublishedAt": "2021-12-20T20:30:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "t2eGhi0iE9jb6hDN3U-LPPq9TGw",
+    "id": "UEw0Ujh4N1E5WHAwOWNEQ1U0NktUeVd4Rk5QeEpwajhiQS4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2021-12-26T14:41:32Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus (Christmas Eve Service)",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bxA5rMPOuEw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bxA5rMPOuEw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bxA5rMPOuEw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bxA5rMPOuEw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bxA5rMPOuEw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09cDCU46KTyWxFNPxJpj8bA",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bxA5rMPOuEw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "bxA5rMPOuEw",
+      "videoPublishedAt": "2021-12-24T23:00:29Z"
+    }
+  }
+]

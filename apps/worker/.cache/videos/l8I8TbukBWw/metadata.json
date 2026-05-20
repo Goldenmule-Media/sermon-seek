@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "cMOl2x3VSaHgTCLar3SqF_wxGSU",
+  "id": "l8I8TbukBWw",
+  "snippet": {
+    "publishedAt": "2020-08-25T11:16:02Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Eyes on Him - Episode 1",
+    "description": "First episode in the devotional series \"Eyes on Him\"",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/l8I8TbukBWw/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/l8I8TbukBWw/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/l8I8TbukBWw/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/l8I8TbukBWw/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/l8I8TbukBWw/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Eyes on Him - Episode 1",
+      "description": "First episode in the devotional series \"Eyes on Him\""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT2M6S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "86",
+    "likeCount": "9",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

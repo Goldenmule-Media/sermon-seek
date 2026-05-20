@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "y6DPPc3MDYH1JRf30l7hP8uE3ek",
+  "id": "9zEi0H5dmmc",
+  "snippet": {
+    "publishedAt": "2024-11-07T21:31:28Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Deeply Rooted | Workshop Two: Actively Remembering the Faithfulness of God",
+    "description": "feat. Shannon Hein",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/9zEi0H5dmmc/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Deeply Rooted | Workshop Two: Actively Remembering the Faithfulness of God",
+      "description": "feat. Shannon Hein"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT27M42S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "42",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

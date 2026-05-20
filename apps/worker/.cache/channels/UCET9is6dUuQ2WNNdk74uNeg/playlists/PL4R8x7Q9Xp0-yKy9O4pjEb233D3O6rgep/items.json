@@ -1,0 +1,155 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "15fQZi2E6RM6PhFHk4ENBtq1raY",
+    "id": "UEw0Ujh4N1E5WHAwLXlLeTlPNHBqRWIyMzNEM082cmdlcC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-03-28T16:41:08Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Now Concerning the Spiritual Stuff",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/KrgF7jbaXuQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/KrgF7jbaXuQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/KrgF7jbaXuQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/KrgF7jbaXuQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/KrgF7jbaXuQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKy9O4pjEb233D3O6rgep",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "KrgF7jbaXuQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "KrgF7jbaXuQ",
+      "videoPublishedAt": "2022-03-28T18:00:06Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5PxvIDjROhAbeiQzjAS2451xZV0",
+    "id": "UEw0Ujh4N1E5WHAwLXlLeTlPNHBqRWIyMzNEM082cmdlcC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-04-04T14:11:51Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Power of Love",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/h-PPvPduET0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/h-PPvPduET0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/h-PPvPduET0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/h-PPvPduET0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/h-PPvPduET0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKy9O4pjEb233D3O6rgep",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "h-PPvPduET0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "h-PPvPduET0",
+      "videoPublishedAt": "2022-04-04T18:00:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "TZwgTUpF3_qys_jQSD19k0bS5wo",
+    "id": "UEw0Ujh4N1E5WHAwLXlLeTlPNHBqRWIyMzNEM082cmdlcC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-04-12T18:53:18Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Prophecy & Tongues",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Nx3bqX1W638/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Nx3bqX1W638/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Nx3bqX1W638/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Nx3bqX1W638/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Nx3bqX1W638/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKy9O4pjEb233D3O6rgep",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Nx3bqX1W638"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Nx3bqX1W638",
+      "videoPublishedAt": "2022-04-11T18:00:10Z"
+    }
+  }
+]

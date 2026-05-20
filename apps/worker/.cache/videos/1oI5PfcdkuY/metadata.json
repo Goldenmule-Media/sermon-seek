@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "TAlQ99lsuYHYpqeyZY-bY8N8HWc",
+  "id": "1oI5PfcdkuY",
+  "snippet": {
+    "publishedAt": "2023-05-04T11:00:01Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 4th Morning Devotional, The Lord’s Prayer Day 4",
+    "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/1oI5PfcdkuY/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 4th Morning Devotional, The Lord’s Prayer Day 4",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT6M45S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "270",
+    "likeCount": "10",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

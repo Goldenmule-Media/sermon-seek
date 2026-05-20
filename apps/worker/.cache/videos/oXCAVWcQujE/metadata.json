@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "AuByrLBZ3bEwzcAPvFlEM-wdJRo",
+  "id": "oXCAVWcQujE",
+  "snippet": {
+    "publishedAt": "2022-08-01T11:00:28Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 1st Morning Devotional, Thirsting for God",
+    "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/oXCAVWcQujE/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/oXCAVWcQujE/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/oXCAVWcQujE/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/oXCAVWcQujE/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/oXCAVWcQujE/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 1st Morning Devotional, Thirsting for God",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M16S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "204",
+    "likeCount": "6",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

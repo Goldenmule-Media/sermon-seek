@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "hpSarrvnLnWIfCjYW1iLp_qThyw",
+  "id": "mQbDbe7IwMw",
+  "snippet": {
+    "publishedAt": "2020-08-09T14:45:10Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 9th Sunday Service",
+    "description": "Are you feeling overwhelmed by all that’s wrong with the world? Do you wonder what you can do to help or grow?\n\nJoin us as we wrap up our series \"Unshaken\" by being reminded of the vision God has for His kingdom and some steps we can take to grow in these areas. \n\nInvite a friend or family member and join us as we continue to seek to become more like Jesus!\n\n#myjubileechurch #unshaken #everyoneeveryplace",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/mQbDbe7IwMw/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/mQbDbe7IwMw/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/mQbDbe7IwMw/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/mQbDbe7IwMw/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/mQbDbe7IwMw/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 9th Sunday Service",
+      "description": "Are you feeling overwhelmed by all that’s wrong with the world? Do you wonder what you can do to help or grow?\n\nJoin us as we wrap up our series \"Unshaken\" by being reminded of the vision God has for His kingdom and some steps we can take to grow in these areas. \n\nInvite a friend or family member and join us as we continue to seek to become more like Jesus!\n\n#myjubileechurch #unshaken #everyoneeveryplace"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT59M25S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "363",
+    "likeCount": "7",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

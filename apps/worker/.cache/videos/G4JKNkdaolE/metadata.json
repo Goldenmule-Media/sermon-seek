@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "0179e-m6zJ9KVywFxSUDJlU4d5k",
+  "id": "G4JKNkdaolE",
+  "snippet": {
+    "publishedAt": "2025-04-29T11:00:35Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "April 29th Morning Devotional | New Life in Christ",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/G4JKNkdaolE/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/G4JKNkdaolE/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/G4JKNkdaolE/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/G4JKNkdaolE/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/G4JKNkdaolE/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "April 29th Morning Devotional | New Life in Christ",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M13S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "250",
+    "likeCount": "19",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

@@ -1,0 +1,308 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "SXQE0jBsRdnWa0J-At9Ce-mv7Ac",
+    "id": "UEw0Ujh4N1E5WHAwOGFTN0tYOTVGR2hfUzFMRjd5YjJTUi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:53:31Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "\"Family Friends, Episode 1: Donnie Griggs\"",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CpcVsMDsEHE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08aS7KX95FGh_S1LF7yb2SR",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "CpcVsMDsEHE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "CpcVsMDsEHE",
+      "videoPublishedAt": "2020-05-28T16:00:15Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Qu7AygSbEmqqsVu-sKTXiu5yPyc",
+    "id": "UEw0Ujh4N1E5WHAwOGFTN0tYOTVGR2hfUzFMRjd5YjJTUi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:53:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Tim Chambers - Family Friends",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Lz45jl1QMFM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Lz45jl1QMFM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Lz45jl1QMFM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Lz45jl1QMFM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Lz45jl1QMFM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08aS7KX95FGh_S1LF7yb2SR",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Lz45jl1QMFM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Lz45jl1QMFM",
+      "videoPublishedAt": "2020-05-29T14:00:12Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "JZlrS8h1dL40dZo0JYztTpbrYCg",
+    "id": "UEw0Ujh4N1E5WHAwOGFTN0tYOTVGR2hfUzFMRjd5YjJTUi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:54:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "\"Family Friends, Episode 3: Dr. Mbonisi Malaba\"",
+      "description": "A few thoughts on preaching, racism, COVID-19 and  an exhortation",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CNN6RZIZvb8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CNN6RZIZvb8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CNN6RZIZvb8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CNN6RZIZvb8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CNN6RZIZvb8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08aS7KX95FGh_S1LF7yb2SR",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "CNN6RZIZvb8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "CNN6RZIZvb8",
+      "videoPublishedAt": "2020-06-07T01:36:29Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "otU5blsgzmzNDwvUmyoBN_eAnKY",
+    "id": "UEw0Ujh4N1E5WHAwOGFTN0tYOTVGR2hfUzFMRjd5YjJTUi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:55:02Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "\"Family Friends, Episode 4: Dave Holden\"",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NNFJURbgeOQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NNFJURbgeOQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NNFJURbgeOQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NNFJURbgeOQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NNFJURbgeOQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08aS7KX95FGh_S1LF7yb2SR",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "NNFJURbgeOQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "NNFJURbgeOQ",
+      "videoPublishedAt": "2020-06-08T18:19:59Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "QyMcCZPiwZSbORnhb-AIY2hiGyU",
+    "id": "UEw0Ujh4N1E5WHAwOGFTN0tYOTVGR2hfUzFMRjd5YjJTUi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:55:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Family Friends, Episode 5: Terry Virgo",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08aS7KX95FGh_S1LF7yb2SR",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "AZWmsPdFaQM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "AZWmsPdFaQM",
+      "videoPublishedAt": "2020-06-10T13:23:57Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "EVW7pcfPWQ55JScrcYBZ9v7ufOE",
+    "id": "UEw0Ujh4N1E5WHAwOGFTN0tYOTVGR2hfUzFMRjd5YjJTUi4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:56:05Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "\"Family Friends, Episode 6: Dillon Neely\"",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/rFu955WQvQU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/rFu955WQvQU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/rFu955WQvQU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/rFu955WQvQU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/rFu955WQvQU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08aS7KX95FGh_S1LF7yb2SR",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "rFu955WQvQU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "rFu955WQvQU",
+      "videoPublishedAt": "2020-06-15T13:00:20Z"
+    }
+  }
+]

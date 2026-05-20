@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "9F6EiCU7RUQw4O_Bl7pqMepUwsc",
+  "id": "RGZuqKT0lS8",
+  "snippet": {
+    "publishedAt": "2020-04-20T14:05:25Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Leviticus 25: It's Time to Celebrate",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Leviticus 25: It's Time to Celebrate",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT2M30S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "157",
+    "likeCount": "7",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

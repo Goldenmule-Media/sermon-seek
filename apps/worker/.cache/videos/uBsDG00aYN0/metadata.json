@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "MrHK0imvCP42mUvzMpygcTTB7zQ",
+  "id": "uBsDG00aYN0",
+  "snippet": {
+    "publishedAt": "2020-05-17T14:45:10Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 17th Sunday Service",
+    "description": "Do you feel like God is far off and uninterested with or even angry at you? Or do you sometimes struggle with what your purpose in life is?\nJoin us this morning as lead pastor Bryan Mowrey continues us in our series entitled \"Loving Like Jesus.” Today we will examine the story of Jesus washing the disciples’ feet, and what the implications are for us today.\nGrab a family member or roommate, invite or share with a friend, and join in with us!\n#myjubileechurch #lovinglikejesus #onlineservice\n\n\nCCLI Streaming License # - 20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/uBsDG00aYN0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/uBsDG00aYN0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/uBsDG00aYN0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/uBsDG00aYN0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/uBsDG00aYN0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 17th Sunday Service",
+      "description": "Do you feel like God is far off and uninterested with or even angry at you? Or do you sometimes struggle with what your purpose in life is?\nJoin us this morning as lead pastor Bryan Mowrey continues us in our series entitled \"Loving Like Jesus.” Today we will examine the story of Jesus washing the disciples’ feet, and what the implications are for us today.\nGrab a family member or roommate, invite or share with a friend, and join in with us!\n#myjubileechurch #lovinglikejesus #onlineservice\n\n\nCCLI Streaming License # - 20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H2M52S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "548",
+    "likeCount": "8",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

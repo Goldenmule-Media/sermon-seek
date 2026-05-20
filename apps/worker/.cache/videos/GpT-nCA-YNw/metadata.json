@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "lwH5sLxB582D0wld__FobQuIdvc",
+  "id": "GpT-nCA-YNw",
+  "snippet": {
+    "publishedAt": "2021-12-05T19:00:07Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "December 05th Sunday Service",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/GpT-nCA-YNw/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/GpT-nCA-YNw/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/GpT-nCA-YNw/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/GpT-nCA-YNw/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/GpT-nCA-YNw/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "December 05th Sunday Service",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT40M3S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "76",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

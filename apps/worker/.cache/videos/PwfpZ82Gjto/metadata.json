@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "tK4o0glVrS4gYU8Uhe4-7nlzavw",
+  "id": "PwfpZ82Gjto",
+  "snippet": {
+    "publishedAt": "2023-10-20T14:30:12Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Gospel of Matthew: Conflict in Relationships",
+    "description": "This video is a clip from a sermon entitled \"God Brings Us Home\" originally given by David Herrington at Jubilee Church on October 15, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/Rpzm69Mzmyg",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Gospel of Matthew: Conflict in Relationships",
+      "description": "This video is a clip from a sermon entitled \"God Brings Us Home\" originally given by David Herrington at Jubilee Church on October 15, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/Rpzm69Mzmyg"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT9M38S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "81",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

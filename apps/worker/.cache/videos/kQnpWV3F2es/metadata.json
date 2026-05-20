@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "XHWDTyZUcmYBhYAi48edsBKPGUA",
+  "id": "kQnpWV3F2es",
+  "snippet": {
+    "publishedAt": "2026-01-09T12:01:41Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "January 9th Morning Devotional | Psalm 52:6-8",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/kQnpWV3F2es/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/kQnpWV3F2es/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/kQnpWV3F2es/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/kQnpWV3F2es/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/kQnpWV3F2es/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "January 9th Morning Devotional | Psalm 52:6-8",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT2M44S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "196",
+    "likeCount": "7",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

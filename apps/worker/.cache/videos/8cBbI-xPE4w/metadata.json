@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "kxOZ85FVT5uuwk1T9a7MvcI5K4U",
+  "id": "8cBbI-xPE4w",
+  "snippet": {
+    "publishedAt": "2023-11-03T18:40:34Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Gospel of Matthew: How to Forgive",
+    "description": "This video is a clip from a sermon entitled \"Have the Funeral: Part 1\" originally given by Bryan Mowrey at Jubilee Church on October 29, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/Ruyt-XrKpHA",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Gospel of Matthew: How to Forgive",
+      "description": "This video is a clip from a sermon entitled \"Have the Funeral: Part 1\" originally given by Bryan Mowrey at Jubilee Church on October 29, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/Ruyt-XrKpHA"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT10M8S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "59",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

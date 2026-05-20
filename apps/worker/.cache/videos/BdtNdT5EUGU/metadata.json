@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "vKEMZf3QCFqVl1XtgmQsgc62fT4",
+  "id": "BdtNdT5EUGU",
+  "snippet": {
+    "publishedAt": "2023-03-19T23:39:44Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Love in Action: Fear",
+    "description": "00:00 Worship\n04:18 Welcome\n06:26 Worship\n19:26 Announcements\n29:29 Sermon\n1:05:13 Response",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/BdtNdT5EUGU/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/BdtNdT5EUGU/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/BdtNdT5EUGU/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/BdtNdT5EUGU/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/BdtNdT5EUGU/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Love in Action: Fear",
+      "description": "00:00 Worship\n04:18 Welcome\n06:26 Worship\n19:26 Announcements\n29:29 Sermon\n1:05:13 Response"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H17M59S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "127",
+    "likeCount": "2",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

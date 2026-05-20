@@ -1,0 +1,308 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0pw_KhyTLo4WvelsXGL02aj_8XU",
+    "id": "UEw0Ujh4N1E5WHAwLXVONVRaRWdhb2pHUGNLYks3Tkwyci41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-11-28T11:46:25Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus' Job Description",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/MUZ4oiB50vs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/MUZ4oiB50vs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/MUZ4oiB50vs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/MUZ4oiB50vs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/MUZ4oiB50vs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-uN5TZEgaojGPcKbK7NL2r",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "MUZ4oiB50vs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "MUZ4oiB50vs",
+      "videoPublishedAt": "2022-11-28T19:00:17Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "8QAxsy-RvDW-y7MKld8Fw6-6o_A",
+    "id": "UEw0Ujh4N1E5WHAwLXVONVRaRWdhb2pHUGNLYks3Tkwyci4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-12-05T20:16:45Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus' Baptism",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/19cidjmO6oA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/19cidjmO6oA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/19cidjmO6oA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/19cidjmO6oA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/19cidjmO6oA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-uN5TZEgaojGPcKbK7NL2r",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "19cidjmO6oA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "19cidjmO6oA",
+      "videoPublishedAt": "2022-12-05T20:46:25Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CWPXL2u4bsyfXQc3hzUtNeb1_b4",
+    "id": "UEw0Ujh4N1E5WHAwLXVONVRaRWdhb2pHUGNLYks3Tkwyci4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-12-07T14:28:24Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus' Job Description | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3CkFXQaQX48/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-uN5TZEgaojGPcKbK7NL2r",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3CkFXQaQX48"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3CkFXQaQX48",
+      "videoPublishedAt": "2022-12-07T15:04:31Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "MGsw8DcsD-g-TpR0rG2VMS4-460",
+    "id": "UEw0Ujh4N1E5WHAwLXVONVRaRWdhb2pHUGNLYks3Tkwyci41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-12-12T20:47:47Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Two Kings",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/5w1dzaIr5Iw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/5w1dzaIr5Iw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/5w1dzaIr5Iw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/5w1dzaIr5Iw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/5w1dzaIr5Iw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-uN5TZEgaojGPcKbK7NL2r",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "5w1dzaIr5Iw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "5w1dzaIr5Iw",
+      "videoPublishedAt": "2022-12-12T21:18:39Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "vlZS_Yyn3_KlAHHAxH5KzFeXk6s",
+    "id": "UEw0Ujh4N1E5WHAwLXVONVRaRWdhb2pHUGNLYks3Tkwyci4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2022-12-19T18:13:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "God With Us",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/O70yDXjOztw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/O70yDXjOztw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/O70yDXjOztw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/O70yDXjOztw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/O70yDXjOztw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-uN5TZEgaojGPcKbK7NL2r",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "O70yDXjOztw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "O70yDXjOztw",
+      "videoPublishedAt": "2022-12-19T20:00:12Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "yj9enyYKQBt21cNQ5nYm536x2EQ",
+    "id": "UEw0Ujh4N1E5WHAwLXVONVRaRWdhb2pHUGNLYks3Tkwyci4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2023-01-10T18:43:20Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus' Job Description | Rick Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NbfvV8TzzHM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-uN5TZEgaojGPcKbK7NL2r",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "NbfvV8TzzHM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "NbfvV8TzzHM",
+      "videoPublishedAt": "2023-01-10T20:13:16Z"
+    }
+  }
+]

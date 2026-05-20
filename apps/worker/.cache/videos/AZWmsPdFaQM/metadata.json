@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "yx6d4Bq7Z7VFK-8Qarsn3d1MkFs",
+  "id": "AZWmsPdFaQM",
+  "snippet": {
+    "publishedAt": "2020-06-10T13:23:57Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Family Friends, Episode 5: Terry Virgo",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/AZWmsPdFaQM/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Family Friends, Episode 5: Terry Virgo",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT20M57S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "227",
+    "likeCount": "7",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

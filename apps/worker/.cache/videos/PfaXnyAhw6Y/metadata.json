@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "IZ0JNrSeJOGxoKDaVpcJLLM5AyY",
+  "id": "PfaXnyAhw6Y",
+  "snippet": {
+    "publishedAt": "2025-11-17T20:19:23Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Deeply Rooted 2025 | Main Session 2 feat. Miranda Stewart",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/PfaXnyAhw6Y/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Deeply Rooted 2025 | Main Session 2 feat. Miranda Stewart",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT48M44S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "81",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

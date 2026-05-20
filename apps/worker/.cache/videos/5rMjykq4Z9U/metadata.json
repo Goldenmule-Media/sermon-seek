@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "sIRfWZ9ZISF7DczCF77m7j9ReM4",
+  "id": "5rMjykq4Z9U",
+  "snippet": {
+    "publishedAt": "2026-05-01T12:00:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Biblical Manhood Starts With This: Why Men Need Role Models",
+    "description": "What does it actually mean to be a man and why do so many men feel unsure of their identity? In this episode, we unpack the role model crisis shaping a generation, and why biblical manhood isn’t formed in isolation. From the voices that shaped us to the ones we’re missing, we talk about how identity is formed, why so many men feel stuck, and how the right people in your life can call out who God created you to be. If you’ve ever felt directionless or unsure of your role as a man, this conversation gets to the root and points toward a better way forward.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/5rMjykq4Z9U/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/5rMjykq4Z9U/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/5rMjykq4Z9U/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/5rMjykq4Z9U/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/5rMjykq4Z9U/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Biblical Manhood Starts With This: Why Men Need Role Models",
+      "description": "What does it actually mean to be a man and why do so many men feel unsure of their identity? In this episode, we unpack the role model crisis shaping a generation, and why biblical manhood isn’t formed in isolation. From the voices that shaped us to the ones we’re missing, we talk about how identity is formed, why so many men feel stuck, and how the right people in your life can call out who God created you to be. If you’ve ever felt directionless or unsure of your role as a man, this conversation gets to the root and points toward a better way forward."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT37M34S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "63",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

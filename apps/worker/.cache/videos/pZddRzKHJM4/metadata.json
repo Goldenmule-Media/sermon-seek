@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "M0r1FdJA5WRoyBqWyK7ExWILqpw",
+  "id": "pZddRzKHJM4",
+  "snippet": {
+    "publishedAt": "2023-01-10T12:00:34Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "January 10th Morning Devotional, Jesus Listening to the Blind Men Crying Out for Healing",
+    "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/pZddRzKHJM4/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/pZddRzKHJM4/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/pZddRzKHJM4/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/pZddRzKHJM4/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/pZddRzKHJM4/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "January 10th Morning Devotional, Jesus Listening to the Blind Men Crying Out for Healing",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M21S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "214",
+    "likeCount": "12",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "B7y7iwUtuedpF8G9Cw5hdtMai7I",
+  "id": "RRX8DKToQH0",
+  "snippet": {
+    "publishedAt": "2023-05-03T11:00:30Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 3rd Morning Devotional, The Lord’s Prayer Day 3",
+    "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/RRX8DKToQH0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/RRX8DKToQH0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/RRX8DKToQH0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/RRX8DKToQH0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/RRX8DKToQH0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 3rd Morning Devotional, The Lord’s Prayer Day 3",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M25S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "228",
+    "likeCount": "16",
+    "favoriteCount": "0",
+    "commentCount": "3"
+  }
+}

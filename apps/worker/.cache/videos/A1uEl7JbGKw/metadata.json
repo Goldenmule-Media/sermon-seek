@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "bnBvOCG6Bf5_rBzwPVSqH1UCKu4",
+  "id": "A1uEl7JbGKw",
+  "snippet": {
+    "publishedAt": "2024-12-08T19:24:51Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Liberty to the Captives",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/A1uEl7JbGKw/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/A1uEl7JbGKw/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/A1uEl7JbGKw/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/A1uEl7JbGKw/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/A1uEl7JbGKw/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Liberty to the Captives",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H23M4S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "182",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

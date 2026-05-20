@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Bcky5g-md6eI2mNoy_dg6TIvoW4",
+  "id": "r-lRZfuM_N4",
+  "snippet": {
+    "publishedAt": "2024-11-07T21:31:28Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Deeply Rooted | Workshop Four: From Fear to Faith: Giving Our Yes to God",
+    "description": "feat. Alyssa McCutchan",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/r-lRZfuM_N4/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Deeply Rooted | Workshop Four: From Fear to Faith: Giving Our Yes to God",
+      "description": "feat. Alyssa McCutchan"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT22M58S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "53",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

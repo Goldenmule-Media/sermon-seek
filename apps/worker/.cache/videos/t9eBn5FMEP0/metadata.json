@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Y3KumG4Lx0g1Q8W7ppAzISFowoE",
+  "id": "t9eBn5FMEP0",
+  "snippet": {
+    "publishedAt": "2025-10-01T02:00:08Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Godly Singles and the Church as Family",
+    "description": "What does it look like to live faithfully and purposefully as a single Christian? In this episode of the Jubilee Church Podcast, host Jordan Dillon sits down with Greg Nelson, elder at our St. Louis City location, for a thoughtful conversation on singleness, wisdom, and the family of God. Together they reflect on the advice they would give their younger single selves, how singles can better leverage their season, and the vital role the church plays as a spiritual family. Greg also shares how he and his wife have intentionally included singles in their home life, what that looked like practically, and why it matters for both singles and married couples alike. Whether you’re single, married, or walking alongside others in the church, this episode offers encouragement and biblical wisdom to help you see singleness not as a waiting room but as a valuable season for growth, purpose, and kingdom impact.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/t9eBn5FMEP0/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/t9eBn5FMEP0/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/t9eBn5FMEP0/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/t9eBn5FMEP0/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/t9eBn5FMEP0/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Godly Singles and the Church as Family",
+      "description": "What does it look like to live faithfully and purposefully as a single Christian? In this episode of the Jubilee Church Podcast, host Jordan Dillon sits down with Greg Nelson, elder at our St. Louis City location, for a thoughtful conversation on singleness, wisdom, and the family of God. Together they reflect on the advice they would give their younger single selves, how singles can better leverage their season, and the vital role the church plays as a spiritual family. Greg also shares how he and his wife have intentionally included singles in their home life, what that looked like practically, and why it matters for both singles and married couples alike. Whether you’re single, married, or walking alongside others in the church, this episode offers encouragement and biblical wisdom to help you see singleness not as a waiting room but as a valuable season for growth, purpose, and kingdom impact."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT53M18S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "226",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Uz2odS_fHRjMt2OpgWea9X1IuT8",
+  "id": "S2D71SF00ZM",
+  "snippet": {
+    "publishedAt": "2020-09-08T11:00:07Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "September 6th Online Service",
+    "description": "Have you experienced a “mean Christian” recently? Do you find yourself only being empathic towards certain people?\n\nIn this service (originally aired on Sept. 6th), we continue our series “A New Normal” by examining the topic of Empathy. When you examine the emotional life of Jesus two things become very clear: He was empathic and compassionate towards EVERYONE. Today lead pastor Bryan Mowrey helps us understand how to be more like Jesus in this way.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/S2D71SF00ZM/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/S2D71SF00ZM/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/S2D71SF00ZM/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/S2D71SF00ZM/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/S2D71SF00ZM/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "September 6th Online Service",
+      "description": "Have you experienced a “mean Christian” recently? Do you find yourself only being empathic towards certain people?\n\nIn this service (originally aired on Sept. 6th), we continue our series “A New Normal” by examining the topic of Empathy. When you examine the emotional life of Jesus two things become very clear: He was empathic and compassionate towards EVERYONE. Today lead pastor Bryan Mowrey helps us understand how to be more like Jesus in this way.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT46M56S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "136",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

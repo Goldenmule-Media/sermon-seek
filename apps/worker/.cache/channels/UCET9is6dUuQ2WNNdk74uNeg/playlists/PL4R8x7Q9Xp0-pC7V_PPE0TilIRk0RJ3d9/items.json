@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "mIvTx-xQAy9Sis2NBHuSSnrlBQc",
+    "id": "UEw0Ujh4N1E5WHAwLXBDN1ZfUFBFMFRpbElSazBSSjNkOS4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2023-12-29T18:23:23Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Joy to the Outcast",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2Gbr4izIPFQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2Gbr4izIPFQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2Gbr4izIPFQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2Gbr4izIPFQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2Gbr4izIPFQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-pC7V_PPE0TilIRk0RJ3d9",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "2Gbr4izIPFQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "2Gbr4izIPFQ",
+      "videoPublishedAt": "2023-12-29T19:34:29Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CJuC6zuIWsAXXOZ_G8nVjiPdYRw",
+    "id": "UEw0Ujh4N1E5WHAwLXBDN1ZfUFBFMFRpbElSazBSSjNkOS41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2023-12-19T21:16:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Joy to the Isolated",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/v0y1JdICTug/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/v0y1JdICTug/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/v0y1JdICTug/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/v0y1JdICTug/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/v0y1JdICTug/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-pC7V_PPE0TilIRk0RJ3d9",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "v0y1JdICTug"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "v0y1JdICTug",
+      "videoPublishedAt": "2023-12-19T21:16:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0Rb5gilB-O8DpZXHD-M77ZqagOU",
+    "id": "UEw0Ujh4N1E5WHAwLXBDN1ZfUFBFMFRpbElSazBSSjNkOS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2023-12-11T23:07:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Joy to the Weary",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JDlbf5VscDY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JDlbf5VscDY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JDlbf5VscDY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JDlbf5VscDY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JDlbf5VscDY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-pC7V_PPE0TilIRk0RJ3d9",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "JDlbf5VscDY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "JDlbf5VscDY",
+      "videoPublishedAt": "2023-12-11T23:07:39Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "r2nhUkmAtNKJw4XwS2bo3ZfD8Ic",
+    "id": "UEw0Ujh4N1E5WHAwLXBDN1ZfUFBFMFRpbElSazBSSjNkOS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-12-04T17:53:02Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Joy to the Anxious",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/gUC02Zz5Qkw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-pC7V_PPE0TilIRk0RJ3d9",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "gUC02Zz5Qkw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "gUC02Zz5Qkw",
+      "videoPublishedAt": "2023-12-04T18:29:08Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "l2dbPTHeodeZSHDaAIRoPRZznl0",
+    "id": "UEw0Ujh4N1E5WHAwLXBDN1ZfUFBFMFRpbElSazBSSjNkOS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-11-27T18:37:27Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Joy to the Poor",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dgH42Tr4J6g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dgH42Tr4J6g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dgH42Tr4J6g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dgH42Tr4J6g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dgH42Tr4J6g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-pC7V_PPE0TilIRk0RJ3d9",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "dgH42Tr4J6g"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "dgH42Tr4J6g",
+      "videoPublishedAt": "2023-11-27T18:37:28Z"
+    }
+  }
+]

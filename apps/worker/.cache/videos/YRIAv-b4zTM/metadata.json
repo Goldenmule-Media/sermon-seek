@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "BIgZHspN-UPA5Kfr2hmkUxq-JX8",
+  "id": "YRIAv-b4zTM",
+  "snippet": {
+    "publishedAt": "2020-09-22T11:00:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "September 20th Sunday Service",
+    "description": "Today we begin a brand new series, Pursing Joy: A Journey Through Philippians.\n\nOur natural response in tough circumstances can often be to become disappointed or discouraged. But in the book of Philippians, Paul writes from prison to encourage a church he helped plant.\n\nToday we will look at how partnership with the local church can be one of the greatest sources of joy in our lives!\n\nInvite a friend or family member and join us!",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/YRIAv-b4zTM/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/YRIAv-b4zTM/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/YRIAv-b4zTM/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/YRIAv-b4zTM/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/YRIAv-b4zTM/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "September 20th Sunday Service",
+      "description": "Today we begin a brand new series, Pursing Joy: A Journey Through Philippians.\n\nOur natural response in tough circumstances can often be to become disappointed or discouraged. But in the book of Philippians, Paul writes from prison to encourage a church he helped plant.\n\nToday we will look at how partnership with the local church can be one of the greatest sources of joy in our lives!\n\nInvite a friend or family member and join us!"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT52M31S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "164",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

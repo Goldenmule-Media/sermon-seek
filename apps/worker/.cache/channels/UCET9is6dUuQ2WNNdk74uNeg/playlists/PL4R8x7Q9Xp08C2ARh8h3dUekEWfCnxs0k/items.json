@@ -1,0 +1,1685 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "PzuCg6LWnhOcz33mXWNCcg5mx24",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5CMEQ2Mjk5NTc3NDZFRUNB",
+    "snippet": {
+      "publishedAt": "2024-04-07T18:29:34Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Claim, the Command, and the Comfort of Christ",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3gc9_rqJtxg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3gc9_rqJtxg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3gc9_rqJtxg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3gc9_rqJtxg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3gc9_rqJtxg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3gc9_rqJtxg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3gc9_rqJtxg",
+      "videoPublishedAt": "2024-04-07T18:29:35Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-_y9bdjIqc-iRDW90QwXDX-5Jyg",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4zRDBDOEZDOUM0MDY5NEEz",
+    "snippet": {
+      "publishedAt": "2024-03-25T16:44:04Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Faith Over Fear",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/LX4NeVJiyNY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/LX4NeVJiyNY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/LX4NeVJiyNY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/LX4NeVJiyNY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/LX4NeVJiyNY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "LX4NeVJiyNY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "LX4NeVJiyNY",
+      "videoPublishedAt": "2024-03-25T16:44:04Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "neQQ50DKjpWOxplKoLlyjroyFAk",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway41QUZGQTY5OTE4QTREQUU4",
+    "snippet": {
+      "publishedAt": "2024-03-19T14:51:31Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "A People Prepared",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/tIZb2C3cbCs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/tIZb2C3cbCs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/tIZb2C3cbCs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/tIZb2C3cbCs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/tIZb2C3cbCs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "tIZb2C3cbCs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "tIZb2C3cbCs",
+      "videoPublishedAt": "2024-03-19T14:51:31Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "7A5Lgt0xKxP2tcJeSYSKmQFQS48",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway43NDhFRTgwOTRERTU4Rjg3",
+    "snippet": {
+      "publishedAt": "2024-03-19T14:30:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Second Coming",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8Eie0I-Sk3o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8Eie0I-Sk3o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8Eie0I-Sk3o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8Eie0I-Sk3o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8Eie0I-Sk3o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "8Eie0I-Sk3o"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "8Eie0I-Sk3o",
+      "videoPublishedAt": "2024-03-19T14:51:41Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "SLoT9wi8sMUdfhHXXBMEuIh_CsY",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway44Mjc5REFBRUE2MTdFRDU0",
+    "snippet": {
+      "publishedAt": "2024-01-30T15:15:55Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Messianic Banquet",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/QZ2_GaS6Z00/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/QZ2_GaS6Z00/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/QZ2_GaS6Z00/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/QZ2_GaS6Z00/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/QZ2_GaS6Z00/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "QZ2_GaS6Z00"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "QZ2_GaS6Z00",
+      "videoPublishedAt": "2024-01-30T15:15:46Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "dRPMzIx72vDyYT7qRcOU2szUA1o",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5DMkU4NTY1QUFGQTYwMDE3",
+    "snippet": {
+      "publishedAt": "2024-01-24T19:30:33Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus on Singleness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SBsEw9-yvYs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SBsEw9-yvYs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SBsEw9-yvYs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SBsEw9-yvYs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SBsEw9-yvYs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "SBsEw9-yvYs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "SBsEw9-yvYs",
+      "videoPublishedAt": "2024-01-24T19:30:33Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "if8V9WcXPrdiksCZSHs9ZBgSfmI",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4yQUE2Q0JEMTk4NTM3RTZC",
+    "snippet": {
+      "publishedAt": "2024-01-18T23:07:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus on Marriage and Divorce",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/U9FPOLyyFs0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/U9FPOLyyFs0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/U9FPOLyyFs0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/U9FPOLyyFs0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/U9FPOLyyFs0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "U9FPOLyyFs0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "U9FPOLyyFs0",
+      "videoPublishedAt": "2024-01-18T23:07:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "qk7I2MeYcs9igW8PmidZbL9Q-6Y",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway43MTI1NDIwOTMwQjIxMzNG",
+    "snippet": {
+      "publishedAt": "2023-11-13T21:09:23Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Rich Young Ruler",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NJFIH4cBlI4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NJFIH4cBlI4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NJFIH4cBlI4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NJFIH4cBlI4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NJFIH4cBlI4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "NJFIH4cBlI4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "NJFIH4cBlI4",
+      "videoPublishedAt": "2023-11-13T21:29:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "SGPspjwANQWsF6r00FwEhql4gww",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5DNzE1RjZEMUZCMjA0RDBB",
+    "snippet": {
+      "publishedAt": "2023-11-06T16:40:43Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Elevating Christ Through Forgiveness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/6Uw4y_vg0oU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/6Uw4y_vg0oU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/6Uw4y_vg0oU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/6Uw4y_vg0oU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/6Uw4y_vg0oU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "6Uw4y_vg0oU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "6Uw4y_vg0oU",
+      "videoPublishedAt": "2023-11-06T16:40:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "fkFtdROFLpbpdzrHBgTLcpMxW2c",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway45NzUwQkI1M0UxNThBMkU0",
+    "snippet": {
+      "publishedAt": "2023-11-03T18:30:11Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Gospel of Matthew: How to Forgive",
+      "description": "This video is a clip from a sermon entitled \"Have the Funeral: Part 1\" originally given by Bryan Mowrey at Jubilee Church on October 29, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/Ruyt-XrKpHA",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8cBbI-xPE4w/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 9,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "8cBbI-xPE4w"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "8cBbI-xPE4w",
+      "videoPublishedAt": "2023-11-03T18:40:34Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "msYWpsyAdE6BP8OWwW-nO5pqMfw",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4zRjM0MkVCRTg0MkYyQTM0",
+    "snippet": {
+      "publishedAt": "2023-10-30T17:00:43Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Hypocritical Christians",
+      "description": "This video is a clip from a sermon entitled \"Jesus & Confrontation\" originally given by Bryan Mowrey at Jubilee Church on October 22, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/bX9s8wfapZo",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lG8ItlnTGRo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 10,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "lG8ItlnTGRo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "lG8ItlnTGRo",
+      "videoPublishedAt": "2023-10-31T15:00:43Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "NuIVyjLZAcsSFdnRW-db9_H-Muc",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5GM0Q3M0MzMzY5NTJFNTdE",
+    "snippet": {
+      "publishedAt": "2023-10-30T16:31:26Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Have the Funeral Pt. 1",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Ruyt-XrKpHA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Ruyt-XrKpHA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Ruyt-XrKpHA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Ruyt-XrKpHA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Ruyt-XrKpHA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 11,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Ruyt-XrKpHA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Ruyt-XrKpHA",
+      "videoPublishedAt": "2023-10-30T16:31:26Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "exVFs3hNCkLLAw0nAZSim_aOEzE",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4yMDhBMkNBNjRDMjQxQTg1",
+    "snippet": {
+      "publishedAt": "2023-10-23T15:53:54Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus & Confrontation",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bX9s8wfapZo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bX9s8wfapZo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bX9s8wfapZo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bX9s8wfapZo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bX9s8wfapZo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 12,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bX9s8wfapZo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "bX9s8wfapZo",
+      "videoPublishedAt": "2023-10-23T15:54:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "GbpSiqkYHw_IqD_iuoIl0UNB-v8",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5ENDU4Q0M4RDExNzM1Mjcy",
+    "snippet": {
+      "publishedAt": "2023-10-19T20:27:49Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Gospel of Matthew: Conflict in Relationships",
+      "description": "This video is a clip from a sermon entitled \"God Brings Us Home\" originally given by David Herrington at Jubilee Church on October 15, 2023. If you would like to see the sermon in it's entirety, click the link below:\n\nhttps://youtu.be/Rpzm69Mzmyg",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PwfpZ82Gjto/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 13,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "PwfpZ82Gjto"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "PwfpZ82Gjto",
+      "videoPublishedAt": "2023-10-20T14:30:12Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "yazfAmksqyObTjYARdYsuyKcKJ8",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway45RTgxNDRBMzUwRjQ0MDhC",
+    "snippet": {
+      "publishedAt": "2023-10-17T17:51:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "God Brings Us Home",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Rpzm69Mzmyg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Rpzm69Mzmyg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Rpzm69Mzmyg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Rpzm69Mzmyg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Rpzm69Mzmyg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 14,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Rpzm69Mzmyg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Rpzm69Mzmyg",
+      "videoPublishedAt": "2023-10-16T16:09:53Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "pr9qtApug1miV9x9_qcyvbCFq80",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-01-10T15:13:11Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus and Fasting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/OMEXOXaZAbA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/OMEXOXaZAbA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/OMEXOXaZAbA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/OMEXOXaZAbA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/OMEXOXaZAbA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 15,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "OMEXOXaZAbA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "OMEXOXaZAbA",
+      "videoPublishedAt": "2023-01-10T19:00:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "h5gBA-GOkBdvrFtTA--WgofnVvg",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-01-16T18:02:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus and Discipleship",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CRla6nW7XXk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CRla6nW7XXk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CRla6nW7XXk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CRla6nW7XXk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CRla6nW7XXk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 16,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "CRla6nW7XXk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "CRla6nW7XXk",
+      "videoPublishedAt": "2023-01-16T19:15:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "A9EgHTztmnpddzOMQe7KzxK8mwE",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2023-01-24T02:35:44Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus & Mission | Seth Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Xt_-8Sfl9Uw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 17,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Xt_-8Sfl9Uw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Xt_-8Sfl9Uw",
+      "videoPublishedAt": "2023-01-24T12:00:25Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "KLharymWOv27ylBbmFVHoFquSUk",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2023-01-24T02:37:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus & Mission | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/drDVORjH7ls/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 18,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "drDVORjH7ls"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "drDVORjH7ls",
+      "videoPublishedAt": "2023-01-24T12:00:32Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "GlqvRouq0PVNsuEVx-udtRVIoSU",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2023-01-24T02:38:22Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Finding Freedom",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ctJsCHG92Bs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ctJsCHG92Bs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ctJsCHG92Bs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ctJsCHG92Bs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ctJsCHG92Bs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 19,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ctJsCHG92Bs"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ctJsCHG92Bs",
+      "videoPublishedAt": "2023-01-24T12:00:20Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "AHdFHF7VU8-ZQHRbUUvoTDILDho",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2023-04-17T05:13:22Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus & Greatness",
+      "description": "00:00 Worship\n05:27 Welcome\n06:36 Worship\n23:27 Announcements\n30:28 Sermon\n1:03:39 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JYYmnGpVGv4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 20,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "JYYmnGpVGv4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "JYYmnGpVGv4",
+      "videoPublishedAt": "2023-04-17T06:40:52Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "HRMvTdsWWulXgRNOT2njhbXDY90",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2023-04-23T23:56:58Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus & Rest",
+      "description": "00:00 Worship\n04:24 Welcome\n06:40 Worship\n19:59 Announcements\n27:01 Sermon\n57:53 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ByyNpc-Cl_s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ByyNpc-Cl_s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ByyNpc-Cl_s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ByyNpc-Cl_s/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ByyNpc-Cl_s/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 21,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ByyNpc-Cl_s"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ByyNpc-Cl_s",
+      "videoPublishedAt": "2023-04-24T00:24:51Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0L_Yw9ZwJopVuII16T8GsW9a790",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2023-05-08T19:34:34Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "God's Ever-Increasing Kingdom",
+      "description": "00:00 Worship\n04:22 Welcome\n07:10 Worship\n23:02 Announcements\n31:00 Sermon\n1:09:15 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Ml8ytlJ2Ank/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Ml8ytlJ2Ank/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Ml8ytlJ2Ank/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Ml8ytlJ2Ank/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Ml8ytlJ2Ank/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 22,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Ml8ytlJ2Ank"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Ml8ytlJ2Ank",
+      "videoPublishedAt": "2023-05-08T19:58:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "DrL-hQqhwbElgWw__w03lrsskUg",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway45NDk1REZENzhEMzU5MDQz",
+    "snippet": {
+      "publishedAt": "2023-07-02T22:11:34Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Feeding the 5000",
+      "description": "00:00 Worship\n04:00 Welcome\n05:34 Worship\n21:34 Announcements\n29:43 Sermon\n1:07:45 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2MZCP825OQ0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2MZCP825OQ0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2MZCP825OQ0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2MZCP825OQ0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2MZCP825OQ0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 23,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "2MZCP825OQ0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "2MZCP825OQ0",
+      "videoPublishedAt": "2023-07-02T22:31:51Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "BOsaR2X2o1ifZEuP2MAMp_lM4yg",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5GNjNDRDREMDQxOThCMDQ2",
+    "snippet": {
+      "publishedAt": "2023-07-10T14:46:48Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Walk on Water",
+      "description": "00:00 Worship\n04:12 Welcome\n05:46 Worship\n23:03 Announcements\n30:02 Sermon\n1:06:24 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_Pa8EIDQV2U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_Pa8EIDQV2U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_Pa8EIDQV2U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_Pa8EIDQV2U/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_Pa8EIDQV2U/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 24,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_Pa8EIDQV2U"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "_Pa8EIDQV2U",
+      "videoPublishedAt": "2023-07-10T15:10:22Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "EVtY6FRBL-fFeoegKFp_Gnf38ro",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway40NzZCMERDMjVEN0RFRThB",
+    "snippet": {
+      "publishedAt": "2023-07-16T21:20:48Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus Heals Many",
+      "description": "00:00 Worship\n04:17 Welcome\n06:02 Worship\n20:16 Announcements\n27:55 Sermon\n1:04:01 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iUK0IkcxVGA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iUK0IkcxVGA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iUK0IkcxVGA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iUK0IkcxVGA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iUK0IkcxVGA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 25,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "iUK0IkcxVGA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "iUK0IkcxVGA",
+      "videoPublishedAt": "2023-07-16T21:45:10Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wQybYEfZ8AUJ1Po4xjT6sQzmObg",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5EMEEwRUY5M0RDRTU3NDJC",
+    "snippet": {
+      "publishedAt": "2023-07-24T03:04:36Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Dangers of Empty Religion",
+      "description": "00:00 Worship\n04:28 Welcome\n06:20 Worship\n22:25 Announcements\n29:21 Sermon\n1:07:00 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/MHahc58H8Vw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/MHahc58H8Vw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/MHahc58H8Vw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/MHahc58H8Vw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/MHahc58H8Vw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 26,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "MHahc58H8Vw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "MHahc58H8Vw",
+      "videoPublishedAt": "2023-07-24T05:07:20Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "MZaDCEbgTF3vkEOZ7Q0q_BYFfBM",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway45ODRDNTg0QjA4NkFBNkQy",
+    "snippet": {
+      "publishedAt": "2023-07-30T20:55:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Faith That Gets Results",
+      "description": "00:00 Worship\n04:29 Welcome\n05:58 Worship\n20:51 Announcements\n28:47 Sermon\n1:06:34 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jLkvdYO5oJA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jLkvdYO5oJA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jLkvdYO5oJA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jLkvdYO5oJA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jLkvdYO5oJA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 27,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "jLkvdYO5oJA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "jLkvdYO5oJA",
+      "videoPublishedAt": "2023-07-30T21:15:33Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "MNIzZMAAZ6oazRDW6DH659YNKlE",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4zMDg5MkQ5MEVDMEM1NTg2",
+    "snippet": {
+      "publishedAt": "2023-08-06T23:00:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "You Matter to Jesus",
+      "description": "00:00 Worship\n04:48 Welcome\n07:12 Worship\n20:47 Announcements\n27:48 Sermon\n1:05:41 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SexO-8C0O6A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SexO-8C0O6A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SexO-8C0O6A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SexO-8C0O6A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SexO-8C0O6A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 28,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "SexO-8C0O6A"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "SexO-8C0O6A",
+      "videoPublishedAt": "2023-08-07T00:16:30Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "4_05fdXcTsN8nMSu-uq0yONOmnk",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway41Mzk2QTAxMTkzNDk4MDhF",
+    "snippet": {
+      "publishedAt": "2023-08-21T20:52:26Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Who Do You Say That I Am?",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lMFmHA88avk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lMFmHA88avk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lMFmHA88avk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lMFmHA88avk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lMFmHA88avk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 29,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "lMFmHA88avk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "lMFmHA88avk",
+      "videoPublishedAt": "2023-08-21T21:08:45Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "4qvCoJbE73bYX7XCgNOX8qyxMXU",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway5EQUE1NTFDRjcwMDg0NEMz",
+    "snippet": {
+      "publishedAt": "2023-08-28T00:21:52Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Jesus' Church",
+      "description": "00:00 Worship\n04:27 Welcome\n06:40 Worship\n22:51 Announcements\n33:37 Sermon\n1:06:34 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nvcz4isEKdU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nvcz4isEKdU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nvcz4isEKdU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nvcz4isEKdU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nvcz4isEKdU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 30,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "nvcz4isEKdU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "nvcz4isEKdU",
+      "videoPublishedAt": "2023-08-28T01:35:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "IFijHARLUXs__8EaQYe7eI6PVDY",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway41QTY1Q0UxMTVCODczNThE",
+    "snippet": {
+      "publishedAt": "2023-09-03T22:26:22Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Pick Up Your Cross",
+      "description": "00:00 Worship\n04:20 Welcome\n05:51 Worship\n22:22 Announcements\n28:50 Sermon\n1:06:31 Response",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9617H5GxUE4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9617H5GxUE4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9617H5GxUE4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9617H5GxUE4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9617H5GxUE4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 31,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "9617H5GxUE4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "9617H5GxUE4",
+      "videoPublishedAt": "2023-09-03T23:40:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "qYWndMm4ehJp_sbA4qRaTSipcr0",
+    "id": "UEw0Ujh4N1E5WHAwOEMyQVJoOGgzZFVla0VXZkNueHMway4yMUQyQTQzMjRDNzMyQTMy",
+    "snippet": {
+      "publishedAt": "2023-10-09T17:23:47Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Matthew 18:1-19",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8VsUxD3SEkc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8VsUxD3SEkc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8VsUxD3SEkc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8VsUxD3SEkc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8VsUxD3SEkc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08C2ARh8h3dUekEWfCnxs0k",
+      "position": 32,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "8VsUxD3SEkc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "8VsUxD3SEkc",
+      "videoPublishedAt": "2023-10-09T17:23:47Z"
+    }
+  }
+]

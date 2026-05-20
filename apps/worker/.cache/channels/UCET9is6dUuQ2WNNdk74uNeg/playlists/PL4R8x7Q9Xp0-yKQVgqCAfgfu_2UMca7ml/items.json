@@ -1,0 +1,915 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "QX6sQpotWCJl8weF3ZGIFDq8aWk",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2020-09-03T18:05:57Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Doxology Jubilee Worship",
+      "description": "Here is our rendition of \"Doxology.\" This song was recorded live as a part of our online service on July 26, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iGjo-4kqAB0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "iGjo-4kqAB0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "iGjo-4kqAB0",
+      "videoPublishedAt": "2020-09-03T19:00:37Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "7EOHl1chqW6Q3Z3yXqp3HsVus7U",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2020-08-11T14:48:23Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Adopted, Mercies (cover) Confluence Worship & Matt Redman",
+      "description": "Here is our cover medley of \"Adopted\" by Confluence Worship and \"Mercies\" by Matt Redman. This song was recorded live as a part of our online service on July 31, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qSgskgtALCc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qSgskgtALCc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qSgskgtALCc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qSgskgtALCc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qSgskgtALCc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "qSgskgtALCc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "qSgskgtALCc",
+      "videoPublishedAt": "2020-08-11T19:30:05Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "e2BaMdpnwq9DO3b0xjmeClYv4IU",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2020-08-05T15:09:23Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "All In All (cover) Confluence Worship",
+      "description": "Here is our cover of \"All In All\" by Confluence Worship. This song was recorded live as a part of our online service on July 19, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_YUO_bQd5kw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_YUO_bQd5kw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_YUO_bQd5kw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_YUO_bQd5kw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_YUO_bQd5kw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_YUO_bQd5kw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "_YUO_bQd5kw",
+      "videoPublishedAt": "2020-08-05T15:17:42Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "UtllUdREmpAl7Kv4wvq6RVLRISI",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2020-07-29T20:57:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Tremble (cover) Upperroom",
+      "description": "Here is our cover of \"Tremble\" by Upperroom. This song was recorded live as a part of our online service on July 26, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-VIitOOS-kA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-VIitOOS-kA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-VIitOOS-kA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-VIitOOS-kA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-VIitOOS-kA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "-VIitOOS-kA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "-VIitOOS-kA",
+      "videoPublishedAt": "2020-07-29T21:03:19Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "rejmoJg2mwRQ1XrgSh5hwc_brVM",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2020-07-29T20:36:06Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "O Come To The Altar (cover) Elevation Worship",
+      "description": "Here is our cover of \"O Come To The Altar\" by Elevation Worship. This song was recorded live as a part of our online service on July 12, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/O27Htr5MCEg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/O27Htr5MCEg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/O27Htr5MCEg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/O27Htr5MCEg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/O27Htr5MCEg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "O27Htr5MCEg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "O27Htr5MCEg",
+      "videoPublishedAt": "2020-07-29T20:34:04Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "p055MSZyJM9vsZn7WoXBLm1guNY",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2020-07-29T20:15:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Graves Into Gardens (cover) Elevation Worship",
+      "description": "Here is our cover of \"Graves Into Gardens\" by Elevation Worship. This song was recorded live as a part of our online service on July 12, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/t-FQBCOtcDo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/t-FQBCOtcDo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/t-FQBCOtcDo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/t-FQBCOtcDo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/t-FQBCOtcDo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "t-FQBCOtcDo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "t-FQBCOtcDo",
+      "videoPublishedAt": "2020-07-29T20:19:56Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Ht8XLnR-S9MODtITs749IEGeh30",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC45NDk1REZENzhEMzU5MDQz",
+    "snippet": {
+      "publishedAt": "2020-09-04T16:03:34Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Great Are You Lord (cover) All Sons and Daughters",
+      "description": "Here is our cover of \"Great Are You Lord\" by All Sons and Daughters. This song was recorded live as a part of our online service on July 12, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FpBdKfs0a9o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "FpBdKfs0a9o"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "FpBdKfs0a9o",
+      "videoPublishedAt": "2020-09-07T15:00:04Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "PztlvpulVKfEdczbK5E8M8P7nto",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC5GNjNDRDREMDQxOThCMDQ2",
+    "snippet": {
+      "publishedAt": "2020-09-04T16:03:49Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Hymn of Surrender (cover) Matt Redman",
+      "description": "Here is our cover of \"Hymn of Surrender\" by Matt Redman. This song was recorded live as a part of our online service on June 14, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aSI-hxO1af0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aSI-hxO1af0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aSI-hxO1af0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aSI-hxO1af0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/aSI-hxO1af0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "aSI-hxO1af0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "aSI-hxO1af0",
+      "videoPublishedAt": "2020-09-11T15:00:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "OZ72TXUVESkGc0_8jobz3bfi1sw",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC40NzZCMERDMjVEN0RFRThB",
+    "snippet": {
+      "publishedAt": "2021-05-14T16:15:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "O Holy Night",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Mt_Zk1A17YU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Mt_Zk1A17YU",
+      "videoPublishedAt": "2020-12-25T03:00:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "NpoO698ZUngTrm7RTgXBH2luatk",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC5EMEEwRUY5M0RDRTU3NDJC",
+    "snippet": {
+      "publishedAt": "2021-05-14T16:15:56Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "O Come Let Us Adore Him",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 9,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "nXQqSdErMus"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "nXQqSdErMus",
+      "videoPublishedAt": "2020-12-25T03:00:10Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ufPAz3iuZ3GGfAPvoBkoYlwZM4c",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC45ODRDNTg0QjA4NkFBNkQy",
+    "snippet": {
+      "publishedAt": "2021-05-14T16:16:33Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Go Tell It On The Mountain",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 10,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "DbAVXHwrV30"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "DbAVXHwrV30",
+      "videoPublishedAt": "2020-12-25T03:00:03Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "K4YxJZdjKXaqkFgAJdgxc2xspUE",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC4zMDg5MkQ5MEVDMEM1NTg2",
+    "snippet": {
+      "publishedAt": "2021-07-08T19:49:10Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 51 - (Joy Again)",
+      "description": "'Psalm 51' (Shame Into Joy) is the 6th installment in the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nLet this song remind us of God's presence in our lives! We sing Hallelujah for His goodness and joy everlasting. Our hearts cannot contain this praise!!!!\n\nLyrics\n\nI am desperate\nI am broken\nFull of regret\nOf grief and heartache\n\nAll I have done\nYou have seen it\nEverything lay\nBare before you\n\nBut this I know to be true\nYou take my heart shattered and bruised\n\nFull of mercy\nBringing healing\nWaves of love and\nSeas of compassion\n\nFountains of grace\nJoy everlasting\nChanging my future\nTurning my mourning to dancing\n\nAnd this will always be true\nThat my spirit has been renewed.\n\nYou have washed all my sins away\nYour mercy comes like a flood each day\nYou’ve created in me a heart that is bursting with praise\nI will sing of Your joy again\n\nUnlock my lips to sing\nMy shame has turned to joy\nMy heart cannot contain\nThe praises of my God",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/k9SSRy5_ZF4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/k9SSRy5_ZF4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/k9SSRy5_ZF4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/k9SSRy5_ZF4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/k9SSRy5_ZF4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 11,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "k9SSRy5_ZF4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "k9SSRy5_ZF4",
+      "videoPublishedAt": "2021-07-04T06:00:08Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "N3iwtcScmGcpASXCaUF7_-cwDqY",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC41Mzk2QTAxMTkzNDk4MDhF",
+    "snippet": {
+      "publishedAt": "2021-07-08T19:49:27Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 23 - (Dwell In Your House)",
+      "description": "'Psalm 23' (Dwell In Your House) is the 5th installment in the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nLet this song remind us of God's presence in our lives, His faithfulness, provision, safety and love! \n\nLyrics:\n\nAll my days secure in Your promise\nEvery breath inhaling Your grace\nEvery moment hemmed in Your faithfulness\nAnd today I rest in this\n\nYou prepare a table before me\nIn the presence of my enemies\nSurely goodness and mercy will follow me\nAll my days through heaven’s gates\n\nI will dwell in Your house Lord forever\nI will dwell in Your house Lord forever\nWhere wanting will cease\nAnd my joy is complete\nI will dwell in Your house Oh Lord\n\nThough I walk through valleys of shadows\nI will fear no evil around\nYou are near Your kindness restores my soul\nYou will lead me to rivers of peace\n\nIn Your presence\nMy cup overflows\nIn Your presence\nMy soul will rejoice\nYour life-giving presence\nIs right where I want to stay\nFor all my days",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hkUsV-4XtBE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hkUsV-4XtBE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hkUsV-4XtBE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hkUsV-4XtBE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/hkUsV-4XtBE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 12,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "hkUsV-4XtBE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "hkUsV-4XtBE",
+      "videoPublishedAt": "2021-06-27T17:00:31Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "mgP84dxL62yPuC44JAPzc1bYYQU",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC5EQUE1NTFDRjcwMDg0NEMz",
+    "snippet": {
+      "publishedAt": "2021-07-08T19:49:42Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 78 - (No Slave)",
+      "description": "'Psalm 78' (No Slave) is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nWe pray that these songs help usher you into a deeper connection with God. \n\nLyrics:\n\nI squandered Your wealth and spent what You gave\nI racked up a debt I couldn't repay\nA cross was reserved at the top was my name\nNow all that is left is a crimson blood stain\n\nI am no slave in the house of God\nI am Your child \n\nMy shame was a weight and each sin a chain\nIf I had to carry just one I’d break\nThought I'd be the last person You'd want to save\nThen I saw You running and calling my name\n\nAnd when liars speak then I'll say it plain\nJesus is mine our fate is the same\nI'm loved by the Father He knows my name\nI've been forgiven freed by His grace\n\nI'm not an orphan\nI'm not a failure\nI'm not forgotten\nI'm loved by the Lord",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/UA5D-KBq9e0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 13,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "UA5D-KBq9e0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "UA5D-KBq9e0",
+      "videoPublishedAt": "2021-06-20T22:00:12Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "OLmzY7ab54PwYbFNlqEugHP9mYw",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC41QTY1Q0UxMTVCODczNThE",
+    "snippet": {
+      "publishedAt": "2021-07-08T19:49:54Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 1 - (Ever Blessed)",
+      "description": "'Psalm 1' (Ever-Blessed) is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives and we rejoice over what He has done for us!!!\n\nWe pray that these songs help usher you into a deeper connection with God and remind you that you are 'Ever-Blessed', not by works, but by the grace of God!\n\nLyrics\nI was walking on the road of the wicked\nI was standing in the door of sin\nI was sitting in the seat of the skeptic\nI was dust in the wind\n\nI was living on the far side of judgement\nHad no hope and no defense\nNo purpose and no direction\nI was lost in the wilderness\n\nYou set me on the path of blessing\nOn a road marked by faithfulness\nThough I stumble I will keep confessing\nThat I’m walking in Your goodness\n\nI’m ever-blessed\nI'm ever-prosperous\nMy soul’s at rest\nCause I’m walking with the Lord\n\nThough the way of the Lord is narrow\nAnd few stay on it for life\nHeaven waits for those who finish\nFor glory will be their prize",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/U60YOU73eYw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/U60YOU73eYw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/U60YOU73eYw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/U60YOU73eYw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 14,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "U60YOU73eYw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "U60YOU73eYw",
+      "videoPublishedAt": "2021-06-13T22:00:07Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "FlH7MR24J3XZ2byyfJTsK3AgzSI",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC4yMUQyQTQzMjRDNzMyQTMy",
+    "snippet": {
+      "publishedAt": "2021-07-08T19:50:10Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 34 (When I See Your Face)",
+      "description": "'Psalm 34' is part of the Jubilee Church 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives!\n\nWe pray that these songs help usher you into a deeper connection with God through His Holy Spirit.\n\nLyrics:\n\nI’ve been remembering the way things were \nEver since I was a child \nShame was constant \nAlways by my side \nI believed I was reviled \n\nI cried many lonely tears\nPinned down by all my fears\n\nI hid my face \nOoos\n\nEven when I thought I cried alone \nThere was someone listening all along\nHe heard this poor girl cry and pulled me in \nI never felt so warm\n \nHe said you’re not alone \nCome, let me hold you close\n\nLet me see your face\nOoos\n\nNow the one that I hid from \nIs the one that I run to\nThe one that I run to\nNow the shame that hid my face\nIs turned into glory\nTurned into glory\n(When I see your face)\nOoos\n\nEven before I knew You \nEven before I could say Your name \nYou were planning my days\nAnd You don’t fail \nNo, You don’t make mistakes\nYou turn shame into praise\nAnd you are always making a way \n\nFor me to lift my face",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fcdYP-_XQ7E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 15,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "fcdYP-_XQ7E"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "fcdYP-_XQ7E",
+      "videoPublishedAt": "2021-06-06T22:00:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Q3VNuuxZE2QsbH9JM-hg-EoAcr4",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC45RTgxNDRBMzUwRjQ0MDhC",
+    "snippet": {
+      "publishedAt": "2021-07-08T19:50:21Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 30 (God/Good/Faithful)",
+      "description": "'Psalm 30' is part of the 'The Psalms of Summer' worship collective\n\nThese worship songs accompany our 'Psalms of Summer' sermon series. Each song is based on one of the books of Psalms. As David wrote songs to express his love for God and at times, his need for rescue and forgiveness, we also express our need for Him in our lives!\n\nWe pray that these songs help usher you into a deeper connection with God through His Holy Spirit.\n\nLyrics:\n\nWhen all hope was gone\nAnd the lights went out\nAnd I wept all through the night\nI cried out for mercy\n“Oh God can You hear me?”\n\nWhen I felt the weight\nAs it crippled me\nAnd depression took its hold\nI cried out for mercy\n“Oh God can You hear me?”\n\nYou lifted me on high\nBrought me triumph in the night\nAnd turned my wailing into praise\nYour anger passed me by\nBut Your favor is for life\nYour love for me never fails\n\nI know You hear me when I cry\nYour hope will last all through the night\nI know that You are always near\nYou are God You are good\nYou are faithful\n\nWhat can stop my heart\nFrom singing praise\nLike a choir in my soul\nI testify of mercy\nAnd I give You all the glory\n\nYou life me higher and higher\nSo I’ll lift You higher and higher\nWe’ll lift you higher and higher\n\nYou lifted me on high\nBrought me triumph in the night\nAnd turned my wailing into praise\nOh God of grace and mercy\nI give thanks for how You’ve healed me\nOh God of grace and mercy\nI give You all the glory",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/rCfXsP3knk4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/rCfXsP3knk4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/rCfXsP3knk4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/rCfXsP3knk4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/rCfXsP3knk4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 16,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "rCfXsP3knk4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "rCfXsP3knk4",
+      "videoPublishedAt": "2021-05-31T11:00:31Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ugDyBffyRijsm-esLLVD-lQ-_nY",
+    "id": "UEw0Ujh4N1E5WHAwLXlLUVZncUNBZmdmdV8yVU1jYTdtbC5ENDU4Q0M4RDExNzM1Mjcy",
+    "snippet": {
+      "publishedAt": "2021-10-29T16:47:41Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Son of Suffering + Living Hope Medley (Cover)",
+      "description": "Medley by Jubilee Worship. Recorded at Jubilee Sunset Hills in St, Louis, MO.\n\nOriginal Songs by:\nSon of Suffering (feat Matt Redman) by Bethel Music and David Funk\nLiving Hope by Phil Wickham",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/gRh5LvV3qY0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/gRh5LvV3qY0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/gRh5LvV3qY0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/gRh5LvV3qY0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/gRh5LvV3qY0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-yKQVgqCAfgfu_2UMca7ml",
+      "position": 17,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "gRh5LvV3qY0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "gRh5LvV3qY0",
+      "videoPublishedAt": "2021-10-29T17:00:21Z"
+    }
+  }
+]

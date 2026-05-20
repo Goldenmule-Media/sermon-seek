@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "6yMHc3U1YL3ETkqbsrNXfugAYiQ",
+  "id": "Km38irfNAEQ",
+  "snippet": {
+    "publishedAt": "2021-09-16T14:39:49Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Psalm 30: When Comfortable Circumstances Lead to a Need for Mercy",
+    "description": "Life can seem so easy when everything is going well. It feels like success and comfort are a result of everything you’ve done and worked towards. But what happens when things go wrong? Is God still good? Sometime we need His mercy. That’s exactly where we find the Psalmist in Psalm 30. \n\nFor more info about Jubilee Church, please check out our website: https://www.JubileeSTL.org",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Km38irfNAEQ/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Km38irfNAEQ/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Km38irfNAEQ/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Km38irfNAEQ/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Km38irfNAEQ/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Psalm 30: When Comfortable Circumstances Lead to a Need for Mercy",
+      "description": "Life can seem so easy when everything is going well. It feels like success and comfort are a result of everything you’ve done and worked towards. But what happens when things go wrong? Is God still good? Sometime we need His mercy. That’s exactly where we find the Psalmist in Psalm 30. \n\nFor more info about Jubilee Church, please check out our website: https://www.JubileeSTL.org"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT26M11S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "51",
+    "likeCount": "0",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

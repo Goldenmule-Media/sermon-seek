@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "U6BI400_UW4b01ziTShfWmfRK-U",
+  "id": "RnjbGo0sTaM",
+  "snippet": {
+    "publishedAt": "2023-08-14T07:54:09Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Finding Purpose in Suffering",
+    "description": "00:00 Worship\n03:38 Welcome\n05:50 Worship\n24:48 Announcements\n33:14 Sermon\n1:10:16 Response",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/RnjbGo0sTaM/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/RnjbGo0sTaM/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/RnjbGo0sTaM/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/RnjbGo0sTaM/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/RnjbGo0sTaM/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Finding Purpose in Suffering",
+      "description": "00:00 Worship\n03:38 Welcome\n05:50 Worship\n24:48 Announcements\n33:14 Sermon\n1:10:16 Response"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H18M47S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "184",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

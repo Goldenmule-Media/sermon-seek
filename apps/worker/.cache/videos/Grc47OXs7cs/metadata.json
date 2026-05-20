@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "vlAbhGSUnKSBlBtMszlf1-UpfVo",
+  "id": "Grc47OXs7cs",
+  "snippet": {
+    "publishedAt": "2020-05-10T14:45:09Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 10th Mother's Day Service",
+    "description": "Happy Mother’s Day!\n\nJoin us for a special online Sunday service where we celebrate the mother’s in our lives. Motherhood can take on so many forms, many of which can often be thankless. But today we stop to remember and thank all the mother’s among us, both biological and spiritual.\n\nTo help us do this, our service today features a panel of some amazing women from Jubilee discussing the need for and importance of spiritual mothers.\n\n#myjubileechurch #jubileemoms #mothersday\n\nCCLI Streaming License # - 20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Grc47OXs7cs/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Grc47OXs7cs/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Grc47OXs7cs/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Grc47OXs7cs/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Grc47OXs7cs/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 10th Mother's Day Service",
+      "description": "Happy Mother’s Day!\n\nJoin us for a special online Sunday service where we celebrate the mother’s in our lives. Motherhood can take on so many forms, many of which can often be thankless. But today we stop to remember and thank all the mother’s among us, both biological and spiritual.\n\nTo help us do this, our service today features a panel of some amazing women from Jubilee discussing the need for and importance of spiritual mothers.\n\n#myjubileechurch #jubileemoms #mothersday\n\nCCLI Streaming License # - 20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H7M13S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "604",
+    "likeCount": "9",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

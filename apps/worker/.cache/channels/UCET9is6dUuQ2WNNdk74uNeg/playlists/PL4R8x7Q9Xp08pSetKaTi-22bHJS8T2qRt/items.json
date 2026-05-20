@@ -1,0 +1,359 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "RMayoglheNqSHMo3g46eGpWZVlU",
+    "id": "UEw0Ujh4N1E5WHAwOHBTZXRLYVRpLTIyYkhKUzhUMnFSdC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-10-17T07:08:01Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "First Things First",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/h0XUMo0bgSE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/h0XUMo0bgSE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/h0XUMo0bgSE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/h0XUMo0bgSE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/h0XUMo0bgSE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08pSetKaTi-22bHJS8T2qRt",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "h0XUMo0bgSE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "h0XUMo0bgSE",
+      "videoPublishedAt": "2022-10-17T18:00:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5YZTwCk8CB8wmLRq66VkII_4cls",
+    "id": "UEw0Ujh4N1E5WHAwOHBTZXRLYVRpLTIyYkhKUzhUMnFSdC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-10-18T17:01:02Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "A Change of Perspective | Steve Miles",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YOXyIR--NGg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08pSetKaTi-22bHJS8T2qRt",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "YOXyIR--NGg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "YOXyIR--NGg",
+      "videoPublishedAt": "2022-10-18T18:00:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "bPikhIKllaIrr8Xfpc6k2QtAXOs",
+    "id": "UEw0Ujh4N1E5WHAwOHBTZXRLYVRpLTIyYkhKUzhUMnFSdC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-10-18T17:08:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "God Owns it All | Seth Hein",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/W8zAAharl4M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08pSetKaTi-22bHJS8T2qRt",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "W8zAAharl4M"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "W8zAAharl4M",
+      "videoPublishedAt": "2022-10-18T18:00:10Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Ap0amZ_9_L0jATXxVxYkrgKwWxA",
+    "id": "UEw0Ujh4N1E5WHAwOHBTZXRLYVRpLTIyYkhKUzhUMnFSdC41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-10-24T16:10:13Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Less is More",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/XBNcF_k9MVw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08pSetKaTi-22bHJS8T2qRt",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "XBNcF_k9MVw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "XBNcF_k9MVw",
+      "videoPublishedAt": "2022-10-24T18:00:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "sr9PzjVRJ_mP7XYIqa2EBZ27d9A",
+    "id": "UEw0Ujh4N1E5WHAwOHBTZXRLYVRpLTIyYkhKUzhUMnFSdC4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2022-10-31T16:54:45Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Giving is Good",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nsnRc2FDvnc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nsnRc2FDvnc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nsnRc2FDvnc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nsnRc2FDvnc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nsnRc2FDvnc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08pSetKaTi-22bHJS8T2qRt",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "nsnRc2FDvnc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "nsnRc2FDvnc",
+      "videoPublishedAt": "2022-10-31T18:00:18Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5A-w-tdVWqfi4q4l8vr-5czqN9Y",
+    "id": "UEw0Ujh4N1E5WHAwOHBTZXRLYVRpLTIyYkhKUzhUMnFSdC4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2022-11-07T20:04:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Releasing Worry",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NNQ1aS8prec/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NNQ1aS8prec/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NNQ1aS8prec/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NNQ1aS8prec/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NNQ1aS8prec/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08pSetKaTi-22bHJS8T2qRt",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "NNQ1aS8prec"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "NNQ1aS8prec",
+      "videoPublishedAt": "2022-11-07T20:37:18Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "S0wdSRyZaSOnRYw2YnF36Zj-Fas",
+    "id": "UEw0Ujh4N1E5WHAwOHBTZXRLYVRpLTIyYkhKUzhUMnFSdC41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2022-11-14T21:03:25Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "God is a Multiplier",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uigcS0T9qOQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uigcS0T9qOQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uigcS0T9qOQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uigcS0T9qOQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uigcS0T9qOQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08pSetKaTi-22bHJS8T2qRt",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "uigcS0T9qOQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "uigcS0T9qOQ",
+      "videoPublishedAt": "2022-11-14T21:38:10Z"
+    }
+  }
+]

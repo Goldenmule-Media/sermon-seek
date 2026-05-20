@@ -1,0 +1,155 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "TKpNn258LVtutZcxWkMaQfqpo4U",
+    "id": "UEw0Ujh4N1E5WHAwX2VyRldCUTdDSGMzVHN4WFVwNlZQei41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2020-12-23T18:22:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "O Come Let Us Adore Him",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nXQqSdErMus/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_erFWBQ7CHc3TsxXUp6VPz",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "nXQqSdErMus"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "nXQqSdErMus",
+      "videoPublishedAt": "2020-12-25T03:00:10Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "l6HAEwKuGaMoetIHx0EHi_aBc4w",
+    "id": "UEw0Ujh4N1E5WHAwX2VyRldCUTdDSGMzVHN4WFVwNlZQei4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2020-12-23T18:23:03Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Go Tell It On The Mountain",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/DbAVXHwrV30/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_erFWBQ7CHc3TsxXUp6VPz",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "DbAVXHwrV30"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "DbAVXHwrV30",
+      "videoPublishedAt": "2020-12-25T03:00:03Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "4O5pGl5czzZs6JeOMwRNc-kFw84",
+    "id": "UEw0Ujh4N1E5WHAwX2VyRldCUTdDSGMzVHN4WFVwNlZQei4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2020-12-23T18:23:36Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "O Holy Night",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Mt_Zk1A17YU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_erFWBQ7CHc3TsxXUp6VPz",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Mt_Zk1A17YU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Mt_Zk1A17YU",
+      "videoPublishedAt": "2020-12-25T03:00:13Z"
+    }
+  }
+]

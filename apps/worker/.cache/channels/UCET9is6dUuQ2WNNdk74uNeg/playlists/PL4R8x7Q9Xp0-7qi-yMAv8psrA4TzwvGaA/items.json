@@ -1,0 +1,308 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "VZ8x0Xzf-3yEm8f0FG5n-TnFUcI",
+    "id": "UEw0Ujh4N1E5WHAwLTdxaS15TUF2OHBzckE0VHp3dkdhQS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-01-09T15:04:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Invitation to Prayer and Fasting",
+      "description": "Link to Prayer Guides:\nhttps://www.jubileestl.org/evening-prayer-guides\n\nAdditional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BrWb8dsNKfA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BrWb8dsNKfA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BrWb8dsNKfA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BrWb8dsNKfA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BrWb8dsNKfA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-7qi-yMAv8psrA4TzwvGaA",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "BrWb8dsNKfA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "BrWb8dsNKfA",
+      "videoPublishedAt": "2022-01-09T17:00:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ACHdM_NE0k-RLyKb_DbxGikMAfM",
+    "id": "UEw0Ujh4N1E5WHAwLTdxaS15TUF2OHBzckE0VHp3dkdhQS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-01-10T06:22:26Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 10th Morning Devotional, Reorient Your Desires Toward God",
+      "description": "Link to Prayer Guide:\nhttps://www.jubileestl.org/s/01-monday-hlp2.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/MhT87ox-Wpg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/MhT87ox-Wpg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/MhT87ox-Wpg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/MhT87ox-Wpg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/MhT87ox-Wpg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-7qi-yMAv8psrA4TzwvGaA",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "MhT87ox-Wpg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "MhT87ox-Wpg",
+      "videoPublishedAt": "2022-01-10T12:00:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "InekevUfTDSFEfSw692qnXa2Vb4",
+    "id": "UEw0Ujh4N1E5WHAwLTdxaS15TUF2OHBzckE0VHp3dkdhQS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-01-11T03:57:20Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 11th Morning Devotional, Reorient Your Heart Toward God’s Love",
+      "description": "Link to Prayer Guide:\nhttps://www.jubileestl.org/s/02-tuesday-xymt.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/6BV6qn87VxE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/6BV6qn87VxE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/6BV6qn87VxE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/6BV6qn87VxE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/6BV6qn87VxE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-7qi-yMAv8psrA4TzwvGaA",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "6BV6qn87VxE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "6BV6qn87VxE",
+      "videoPublishedAt": "2022-01-11T12:00:04Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "MOsLeZ7NAT-ZuwBTPAC2AQtj0Z4",
+    "id": "UEw0Ujh4N1E5WHAwLTdxaS15TUF2OHBzckE0VHp3dkdhQS41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-01-12T04:58:45Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 12th Morning Devotional, Reorient Your Thinking Toward God’s Presence",
+      "description": "Link to Prayer Guide:\nhttps://www.jubileestl.org/s/03-wednesday.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Xy-Yzb0QLG0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-7qi-yMAv8psrA4TzwvGaA",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Xy-Yzb0QLG0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Xy-Yzb0QLG0",
+      "videoPublishedAt": "2022-01-12T12:00:15Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "2_-QjHVvxkVqYhuabs4WuNABuXk",
+    "id": "UEw0Ujh4N1E5WHAwLTdxaS15TUF2OHBzckE0VHp3dkdhQS4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2022-01-12T22:19:02Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 13th Morning Devotional, Reorient Your Appreciation Toward God’s Generosity: Gifts",
+      "description": "Link to prayer guide:\n\nhttps://www.jubileestl.org/s/04-thursday.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\n\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/c5dZHL52fSQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-7qi-yMAv8psrA4TzwvGaA",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "c5dZHL52fSQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "c5dZHL52fSQ",
+      "videoPublishedAt": "2022-01-13T12:00:18Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "M6nPV0Lp3nLGizKFogVZ2ZhH1Es",
+    "id": "UEw0Ujh4N1E5WHAwLTdxaS15TUF2OHBzckE0VHp3dkdhQS4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2022-01-13T22:03:54Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "January 14th Morning Devotional, Reorient Your Problems Toward God’s Power",
+      "description": "Link to prayer guide:\n\nhttps://www.jubileestl.org/s/05-friday.pdf\n\nAdditional Resources to prepare for Prayer and Fasting:\n\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VHq_LZsNkhA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VHq_LZsNkhA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VHq_LZsNkhA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VHq_LZsNkhA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/VHq_LZsNkhA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-7qi-yMAv8psrA4TzwvGaA",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "VHq_LZsNkhA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "VHq_LZsNkhA",
+      "videoPublishedAt": "2022-01-14T12:00:31Z"
+    }
+  }
+]

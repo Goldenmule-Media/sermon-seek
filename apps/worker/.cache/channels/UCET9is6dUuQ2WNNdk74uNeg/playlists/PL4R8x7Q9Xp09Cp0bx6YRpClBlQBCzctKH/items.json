@@ -1,0 +1,53 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "sjAQbsE0ZR4G5xNTRxwb1NYS9Pk",
+    "id": "UEw0Ujh4N1E5WHAwOUNwMGJ4NllScENsQmxRQkN6Y3RLSC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-12-27T17:05:05Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Christmas Eve Service 2022",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9e9tixxh1KI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9e9tixxh1KI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9e9tixxh1KI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9e9tixxh1KI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9e9tixxh1KI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09Cp0bx6YRpClBlQBCzctKH",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "9e9tixxh1KI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "9e9tixxh1KI",
+      "videoPublishedAt": "2022-12-27T18:00:35Z"
+    }
+  }
+]

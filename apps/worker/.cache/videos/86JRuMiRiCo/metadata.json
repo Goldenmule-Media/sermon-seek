@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "TroJvVHTxMr75sdW06650jiAOLg",
+  "id": "86JRuMiRiCo",
+  "snippet": {
+    "publishedAt": "2026-04-17T14:00:00Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Your Story Matters: How to Share Your Faith Without Fear",
+    "description": "In this episode, we reflect on a powerful celebration of life and the impact of a faith that endures beyond death, along with a few cultural moments shaping the conversation right now.\n\nThe heart of this episode centers on a simple challenge. Most believers have a story, but many struggle to share it. We unpack how boldness flows from nearness to Jesus, not pressure or performance. Through practical tools like BLESS and real life examples, we talk about what it looks like to share your faith in everyday spaces.\n\nFinally, we address a deeper cultural lie about happiness and purpose. What if fulfillment is not found in creating your own path, but in living for something greater and helping others thrive?\n\nThis episode is a call to live boldly and trust that your story matters.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/86JRuMiRiCo/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/86JRuMiRiCo/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/86JRuMiRiCo/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/86JRuMiRiCo/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/86JRuMiRiCo/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Your Story Matters: How to Share Your Faith Without Fear",
+      "description": "In this episode, we reflect on a powerful celebration of life and the impact of a faith that endures beyond death, along with a few cultural moments shaping the conversation right now.\n\nThe heart of this episode centers on a simple challenge. Most believers have a story, but many struggle to share it. We unpack how boldness flows from nearness to Jesus, not pressure or performance. Through practical tools like BLESS and real life examples, we talk about what it looks like to share your faith in everyday spaces.\n\nFinally, we address a deeper cultural lie about happiness and purpose. What if fulfillment is not found in creating your own path, but in living for something greater and helping others thrive?\n\nThis episode is a call to live boldly and trust that your story matters."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT45M11S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "96",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

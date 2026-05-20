@@ -1,0 +1,308 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "BeusX-YzM3i5tpvBkFONbnubDiU",
+    "id": "UEw0Ujh4N1E5WHAwLVZLdl91Y1gzTzBBWFRPMTVYbjI3Ti4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2024-10-28T18:04:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Gospel Urgency - All Church Sunday - October 27th, 2024",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2APyYstYooc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2APyYstYooc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2APyYstYooc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2APyYstYooc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2APyYstYooc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-VKv_ucX3O0AXTO15Xn27N",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "2APyYstYooc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "2APyYstYooc",
+      "videoPublishedAt": "2024-10-28T18:10:07Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "S_UzDQpOn9I97T3C5-Ayby6qSpo",
+    "id": "UEw0Ujh4N1E5WHAwLVZLdl91Y1gzTzBBWFRPMTVYbjI3Ti41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2024-11-03T19:42:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Use your influence",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8Epy9XWvLGM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8Epy9XWvLGM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8Epy9XWvLGM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8Epy9XWvLGM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8Epy9XWvLGM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-VKv_ucX3O0AXTO15Xn27N",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "8Epy9XWvLGM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "8Epy9XWvLGM",
+      "videoPublishedAt": "2024-10-20T18:38:42Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "lOL4jahBchswnBBKFu-OLU06CNc",
+    "id": "UEw0Ujh4N1E5WHAwLVZLdl91Y1gzTzBBWFRPMTVYbjI3Ti4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2024-11-03T19:42:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "He's Able",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fwIQp8t_6Co/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fwIQp8t_6Co/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fwIQp8t_6Co/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fwIQp8t_6Co/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fwIQp8t_6Co/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-VKv_ucX3O0AXTO15Xn27N",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "fwIQp8t_6Co"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "fwIQp8t_6Co",
+      "videoPublishedAt": "2024-10-13T18:52:54Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "RQ4iaiH9Sx2rBUGdrvxgw5hO8_Q",
+    "id": "UEw0Ujh4N1E5WHAwLVZLdl91Y1gzTzBBWFRPMTVYbjI3Ti4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2024-11-03T19:42:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Multiplying Fruitfulness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/KErGYAjRI_A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/KErGYAjRI_A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/KErGYAjRI_A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/KErGYAjRI_A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/KErGYAjRI_A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-VKv_ucX3O0AXTO15Xn27N",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "KErGYAjRI_A"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "KErGYAjRI_A",
+      "videoPublishedAt": "2024-10-06T18:21:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-aBAhgWa0AHFXknQIHe64aquDBk",
+    "id": "UEw0Ujh4N1E5WHAwLVZLdl91Y1gzTzBBWFRPMTVYbjI3Ti4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2024-09-29T18:50:11Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Faith to Multiply",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SNpK-23vHsE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SNpK-23vHsE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SNpK-23vHsE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SNpK-23vHsE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SNpK-23vHsE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-VKv_ucX3O0AXTO15Xn27N",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "SNpK-23vHsE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "SNpK-23vHsE",
+      "videoPublishedAt": "2024-09-29T18:51:41Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "r223oAeNR1fm7PBg_8Xs9ph84BA",
+    "id": "UEw0Ujh4N1E5WHAwLVZLdl91Y1gzTzBBWFRPMTVYbjI3Ti41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2024-09-29T18:50:11Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Mission of Making Jesus Known",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0ZyN6F7sSyI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0ZyN6F7sSyI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0ZyN6F7sSyI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0ZyN6F7sSyI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0ZyN6F7sSyI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-VKv_ucX3O0AXTO15Xn27N",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0ZyN6F7sSyI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0ZyN6F7sSyI",
+      "videoPublishedAt": "2024-09-22T19:06:20Z"
+    }
+  }
+]

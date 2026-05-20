@@ -1,0 +1,53 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "HBmqZmN4JmH9lQCN5BDDSOyVKsU",
+    "id": "UEw0Ujh4N1E5WHAwX293WlRfYVQxOUFtNVZUV0tkTkt6WS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-09-02T12:55:54Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Church Jesus Builds",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3MsKNIq7blo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3MsKNIq7blo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3MsKNIq7blo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3MsKNIq7blo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3MsKNIq7blo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_owZT_aT19Am5VTWKdNKzY",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3MsKNIq7blo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3MsKNIq7blo",
+      "videoPublishedAt": "2022-09-05T00:05:30Z"
+    }
+  }
+]

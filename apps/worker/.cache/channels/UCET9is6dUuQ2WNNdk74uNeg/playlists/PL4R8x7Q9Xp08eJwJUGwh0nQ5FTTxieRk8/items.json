@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "bnONphXUZnQQ0CDMaygLPvI8msE",
+    "id": "UEw0Ujh4N1E5WHAwOGVKd0pVR3doMG5RNUZUVHhpZVJrOC4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2025-12-24T23:24:08Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "On Us A Light Has Shown",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/f8RpExKYpM0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/f8RpExKYpM0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/f8RpExKYpM0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/f8RpExKYpM0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/f8RpExKYpM0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08eJwJUGwh0nQ5FTTxieRk8",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "f8RpExKYpM0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "f8RpExKYpM0",
+      "videoPublishedAt": "2025-12-24T22:23:55Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "VihuTmt1923uqKpuWf5xdV6Sqwo",
+    "id": "UEw0Ujh4N1E5WHAwOGVKd0pVR3doMG5RNUZUVHhpZVJrOC41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2025-12-21T17:39:52Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Don't Conform, Be Transformed",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/OQzv8Gz0b78/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/OQzv8Gz0b78/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/OQzv8Gz0b78/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/OQzv8Gz0b78/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/OQzv8Gz0b78/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08eJwJUGwh0nQ5FTTxieRk8",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "OQzv8Gz0b78"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "OQzv8Gz0b78",
+      "videoPublishedAt": "2025-12-21T19:00:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "8ZwtDE8jdpkrZL1OkfYx_6hPvMs",
+    "id": "UEw0Ujh4N1E5WHAwOGVKd0pVR3doMG5RNUZUVHhpZVJrOC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2025-12-14T18:54:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Ready Your Heart: Trust and Treasure",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/aHyVaPFqhvM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08eJwJUGwh0nQ5FTTxieRk8",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "aHyVaPFqhvM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "aHyVaPFqhvM",
+      "videoPublishedAt": "2025-12-14T18:55:56Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "AFJDHWW4Rn-MjSnU-8wsTWt6oBs",
+    "id": "UEw0Ujh4N1E5WHAwOGVKd0pVR3doMG5RNUZUVHhpZVJrOC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2025-12-07T18:48:16Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Ready Your Voice: A Persuasive Invitation",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/h01VyMnc63o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/h01VyMnc63o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/h01VyMnc63o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/h01VyMnc63o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/h01VyMnc63o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08eJwJUGwh0nQ5FTTxieRk8",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "h01VyMnc63o"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "h01VyMnc63o",
+      "videoPublishedAt": "2025-12-08T18:58:38Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0HKf46FYL2Be8etLf1hA8UkdznA",
+    "id": "UEw0Ujh4N1E5WHAwOGVKd0pVR3doMG5RNUZUVHhpZVJrOC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2025-11-30T19:30:22Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Ready Your Faith",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SqABAqC52Xc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SqABAqC52Xc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SqABAqC52Xc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SqABAqC52Xc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SqABAqC52Xc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08eJwJUGwh0nQ5FTTxieRk8",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "SqABAqC52Xc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "SqABAqC52Xc",
+      "videoPublishedAt": "2025-11-30T19:30:22Z"
+    }
+  }
+]

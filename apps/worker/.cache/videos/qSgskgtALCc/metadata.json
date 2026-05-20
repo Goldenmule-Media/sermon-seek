@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "reczcoQ9Q44es4VvZrtTLQRjwx8",
+  "id": "qSgskgtALCc",
+  "snippet": {
+    "publishedAt": "2020-08-11T19:30:05Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Adopted, Mercies (cover) Confluence Worship & Matt Redman",
+    "description": "Here is our cover medley of \"Adopted\" by Confluence Worship and \"Mercies\" by Matt Redman. This song was recorded live as a part of our online service on July 31, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/qSgskgtALCc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/qSgskgtALCc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/qSgskgtALCc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/qSgskgtALCc/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/qSgskgtALCc/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Adopted, Mercies (cover) Confluence Worship & Matt Redman",
+      "description": "Here is our cover medley of \"Adopted\" by Confluence Worship and \"Mercies\" by Matt Redman. This song was recorded live as a part of our online service on July 31, 2020.\n\nTo view the entire service, check out our \"Online Services\" playlist.\n\nNeed prayer? We'd love to connect! Just text \"PRAY\" to (314) 926-1800 and we'll connect you with someone who can pray with you."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M18S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "305",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

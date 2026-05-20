@@ -1,0 +1,410 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "yBnMw-I6jUBsx-A_Vr5HMB228BQ",
+    "id": "UEw0Ujh4N1E5WHAwX3pMRzZKVDlXeFExUVRsaktJWS0ySS41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-01-25T21:09:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Gospel Humility",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vhfLfqPOBKI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vhfLfqPOBKI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vhfLfqPOBKI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vhfLfqPOBKI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vhfLfqPOBKI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_zLG6JT9WxQ1QTljKIY-2I",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "vhfLfqPOBKI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "vhfLfqPOBKI",
+      "videoPublishedAt": "2022-01-24T19:00:31Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "aj10yj8fHEIoB8YVJWpJYn4Ga4I",
+    "id": "UEw0Ujh4N1E5WHAwX3pMRzZKVDlXeFExUVRsaktJWS0ySS4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-01-30T23:16:04Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Taking Sin Seriously",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Qp4ihB4TeFw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Qp4ihB4TeFw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Qp4ihB4TeFw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Qp4ihB4TeFw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Qp4ihB4TeFw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_zLG6JT9WxQ1QTljKIY-2I",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Qp4ihB4TeFw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Qp4ihB4TeFw",
+      "videoPublishedAt": "2022-01-31T19:00:22Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "MghQC1N7rRGYq_5WwTBxlm1fk5k",
+    "id": "UEw0Ujh4N1E5WHAwX3pMRzZKVDlXeFExUVRsaktJWS0ySS4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-02-06T23:17:11Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Sex: It's Not Just Physical",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lRLXzgl05PQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lRLXzgl05PQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lRLXzgl05PQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lRLXzgl05PQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lRLXzgl05PQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_zLG6JT9WxQ1QTljKIY-2I",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "lRLXzgl05PQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "lRLXzgl05PQ",
+      "videoPublishedAt": "2022-02-07T19:00:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "1lACKLLy3fuWuA3P52cvqgm1_5s",
+    "id": "UEw0Ujh4N1E5WHAwX3pMRzZKVDlXeFExUVRsaktJWS0ySS41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-02-21T20:02:10Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The God of Reconciliation",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/i8i7YE2YlTg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/i8i7YE2YlTg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/i8i7YE2YlTg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/i8i7YE2YlTg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/i8i7YE2YlTg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_zLG6JT9WxQ1QTljKIY-2I",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "i8i7YE2YlTg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "i8i7YE2YlTg",
+      "videoPublishedAt": "2022-02-21T20:02:15Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "aBpTgz8PkLFBW4mOidUr9gxX8M0",
+    "id": "UEw0Ujh4N1E5WHAwX3pMRzZKVDlXeFExUVRsaktJWS0ySS4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2022-03-06T22:49:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Three Lenses for Looking at Singleness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0tgwgpoq7ww/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0tgwgpoq7ww/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0tgwgpoq7ww/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0tgwgpoq7ww/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0tgwgpoq7ww/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_zLG6JT9WxQ1QTljKIY-2I",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0tgwgpoq7ww"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0tgwgpoq7ww",
+      "videoPublishedAt": "2022-02-28T19:00:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "mmI6F6bX-sU_EbOL35Js8BDpxlI",
+    "id": "UEw0Ujh4N1E5WHAwX3pMRzZKVDlXeFExUVRsaktJWS0ySS4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2022-03-07T18:45:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Liberties and Love",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8RklM7VaJxA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8RklM7VaJxA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8RklM7VaJxA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8RklM7VaJxA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8RklM7VaJxA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_zLG6JT9WxQ1QTljKIY-2I",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "8RklM7VaJxA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "8RklM7VaJxA",
+      "videoPublishedAt": "2022-03-07T19:30:00Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "cOlM_dJz3Hy91ffQfKHEGxf76uQ",
+    "id": "UEw0Ujh4N1E5WHAwX3pMRzZKVDlXeFExUVRsaktJWS0ySS41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2022-03-14T21:37:39Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "We Do Whatever It Takes To Reach All People",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kvMkutc28eA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kvMkutc28eA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kvMkutc28eA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/kvMkutc28eA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/kvMkutc28eA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_zLG6JT9WxQ1QTljKIY-2I",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "kvMkutc28eA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "kvMkutc28eA",
+      "videoPublishedAt": "2022-03-14T22:11:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "_UJw2bsf3yOaexBz7Imw9qVvo-4",
+    "id": "UEw0Ujh4N1E5WHAwX3pMRzZKVDlXeFExUVRsaktJWS0ySS5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2022-03-19T15:40:27Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Run the Race",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aK6upu2WceM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aK6upu2WceM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aK6upu2WceM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aK6upu2WceM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/aK6upu2WceM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_zLG6JT9WxQ1QTljKIY-2I",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "aK6upu2WceM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "aK6upu2WceM",
+      "videoPublishedAt": "2022-03-21T11:00:01Z"
+    }
+  }
+]

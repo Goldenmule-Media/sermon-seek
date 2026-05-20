@@ -1,0 +1,461 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ayrwf_cAhGiZ3Gygs9Hnj_nMnW8",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:35:56Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 30: When Comfortable Circumstances Lead to a Need for Mercy",
+      "description": "Life can seem so easy when everything is going well. It feels like success and comfort are a result of everything you’ve done and worked towards. But what happens when things go wrong? Is God still good? Sometime we need His mercy. That’s exactly where we find the Psalmist in Psalm 30. \n\nFor more info about Jubilee Church, please check out our website: https://www.JubileeSTL.org",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Km38irfNAEQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Km38irfNAEQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Km38irfNAEQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Km38irfNAEQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Km38irfNAEQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Km38irfNAEQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Km38irfNAEQ",
+      "videoPublishedAt": "2021-09-16T14:39:49Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "8D5ltHGuayBONEXiRczjoRUF6Pc",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:36:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 34: Can God Really Deliver and Redeem Me?",
+      "description": "David often found himself completely reliant on God. Not just for daily needs, but for legitimate life threatening situations. In Psalm 34, David is celebrating his deliverance from one of these situations, and exclaims how God redeems those He loves.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aE1vQyrCivg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aE1vQyrCivg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aE1vQyrCivg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aE1vQyrCivg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/aE1vQyrCivg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "aE1vQyrCivg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "aE1vQyrCivg",
+      "videoPublishedAt": "2021-09-16T14:39:58Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "v1TEA72nGXwlsB6-H_F-t38EUFc",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:37:00Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 1: How to Be Happy",
+      "description": "Anxiety and Depression are at an all time high. Have you ever wondered what it will take to finally be happy? Psalm 1 helps us understand this by showing us how a life with God brings joy.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CB-gG_m5pWk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CB-gG_m5pWk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CB-gG_m5pWk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CB-gG_m5pWk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CB-gG_m5pWk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "CB-gG_m5pWk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "CB-gG_m5pWk",
+      "videoPublishedAt": "2021-09-16T14:40:08Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5VO9lvXGIR1OoAYxK3XIKTow3Mo",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:37:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 78: This is the Future of the Church",
+      "description": "Psalm 78 is a call for us to invest in the future of the Church: our children. Reaching the next generation is one of the most important ways to ensure the Church will continue to grow and for the Gospel to advance. But we also need to recognize this isn’t just about biological age! Many are spiritual children and need spiritual fathers and mothers to help them grow.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/thUNk0Ws7zk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/thUNk0Ws7zk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/thUNk0Ws7zk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/thUNk0Ws7zk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/thUNk0Ws7zk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "thUNk0Ws7zk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "thUNk0Ws7zk",
+      "videoPublishedAt": "2021-09-16T14:40:21Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "3uqLHhV1vIWOfd3vHJszyknBCnc",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:37:59Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 23: Hope for Restoration and Mercy",
+      "description": "Psalm 23 is one of the most famous psalms. But it can teach us a lot about our relationship with God and how He truly cares for us. It's a psalm of hope, peace, restoration, and His mercy.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/l9ajVZ_ys4U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/l9ajVZ_ys4U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/l9ajVZ_ys4U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/l9ajVZ_ys4U/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/l9ajVZ_ys4U/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "l9ajVZ_ys4U"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "l9ajVZ_ys4U",
+      "videoPublishedAt": "2021-09-16T14:40:42Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "EamsBmp-ZOA7CBhod9oXYEzW0xs",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:38:27Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 51: How to be Joyful When You Feel Ashamed",
+      "description": "Have you ever royally messed up? There’s a decent chance it’s not as bad as David. He commits adultery with the wife of one of his most loyal men, and then kills him. For awhile, David is able to hold it together. But eventually the shame of his sin and mistakes is too much to bear. But even in this, he is able to find the joy of the Lord through his salvation in Psalm 51.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_2_L0KfC354/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_2_L0KfC354/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_2_L0KfC354/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_2_L0KfC354/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_2_L0KfC354/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_2_L0KfC354"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "_2_L0KfC354",
+      "videoPublishedAt": "2021-09-16T14:40:54Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "j25Rup1etaA6WO1kTbohNp4K9BQ",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:38:52Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 103: Bless the Lord, O My Soul!",
+      "description": "Psalm 103 is a great reminder for us of who God is and what he has done for us. It’s easy for us to waiver and lose hope. But may we not forget all of the wonderful things he has done, and will do for us in the future!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Hgv65eQ5Y8k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Hgv65eQ5Y8k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Hgv65eQ5Y8k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Hgv65eQ5Y8k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Hgv65eQ5Y8k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Hgv65eQ5Y8k"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Hgv65eQ5Y8k",
+      "videoPublishedAt": "2021-09-16T14:41:04Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-A-OLXmFtX8UDEf7ACMmx7EhECg",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:39:16Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 145: Grace, Goodness, and Mercy",
+      "description": "The goodness and grace of God should produce thankfulness and gratitude in our hearts. But it can be difficult to see God’s goodness whenever times are tough. Psalm 145 is a great reminder, however, of who He is and what He has done!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Izn9izz1iao/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Izn9izz1iao/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Izn9izz1iao/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Izn9izz1iao/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Izn9izz1iao/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Izn9izz1iao"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Izn9izz1iao",
+      "videoPublishedAt": "2021-09-16T14:41:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wM8tHdN_IL4wHL0QXKcDD2QGjj4",
+    "id": "UEw0Ujh4N1E5WHAwOFlfU091djNMYUxBMWtZdDhwemVuWi45NDk1REZENzhEMzU5MDQz",
+    "snippet": {
+      "publishedAt": "2021-09-16T14:39:38Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 67: Let the People Sing His Praise!",
+      "description": "Our praise and worship is one of the best things we can give to God. It's a helpful way to break out of our circumstances and remind ourselves of his goodness, mercy, and kindness towards in all things.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0TsROHfvzkY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0TsROHfvzkY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0TsROHfvzkY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0TsROHfvzkY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0TsROHfvzkY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08Y_SOuv3LaLA1kYt8pzenZ",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0TsROHfvzkY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0TsROHfvzkY",
+      "videoPublishedAt": "2021-09-16T14:41:23Z"
+    }
+  }
+]

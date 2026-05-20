@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "w2yc-KADSSCXP--a8KtAGYUGvYo",
+  "id": "P5xS_Su_Zr8",
+  "snippet": {
+    "publishedAt": "2025-01-09T12:00:36Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "January 9th Morning Devotional | Greater Than Our Hearts",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/P5xS_Su_Zr8/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/P5xS_Su_Zr8/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/P5xS_Su_Zr8/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/P5xS_Su_Zr8/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/P5xS_Su_Zr8/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "January 9th Morning Devotional | Greater Than Our Hearts",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT6M18S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "154",
+    "likeCount": "8",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

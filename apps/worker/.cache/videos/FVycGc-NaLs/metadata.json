@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "-PcLQar7iQQYnVVl_d_tE9CsxsU",
+  "id": "FVycGc-NaLs",
+  "snippet": {
+    "publishedAt": "2020-08-02T14:45:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 2nd Sunday Service",
+    "description": "Have you ever experienced someone trying to change you by shaming you? Or have you found yourself attempting to use shame to get your point across?\n\nThis Sunday we will continue our series \"Unshaken\" by examining the role of shame in the story of the woman at the well. This story helps us understand the heart of God for those who are broken and ashamed and shows us how we are called to love those same people.\n\nInvite a friend or family member and join us as we continue to seek to become more like Jesus!\n\n#myjubileechurch #unshaken #shame",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/FVycGc-NaLs/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/FVycGc-NaLs/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/FVycGc-NaLs/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/FVycGc-NaLs/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/FVycGc-NaLs/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 2nd Sunday Service",
+      "description": "Have you ever experienced someone trying to change you by shaming you? Or have you found yourself attempting to use shame to get your point across?\n\nThis Sunday we will continue our series \"Unshaken\" by examining the role of shame in the story of the woman at the well. This story helps us understand the heart of God for those who are broken and ashamed and shows us how we are called to love those same people.\n\nInvite a friend or family member and join us as we continue to seek to become more like Jesus!\n\n#myjubileechurch #unshaken #shame"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H14M32S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "373",
+    "likeCount": "8",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

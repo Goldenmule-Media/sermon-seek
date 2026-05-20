@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Sj6nz1Cw31WeyAwIwsEssB36O8c",
+    "id": "UEw0Ujh4N1E5WHAwX0RUaEl4bEVQYXRjWGhtUC1nc09VRC41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-05-02T04:11:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Monday May 2nd Morning Devotional",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/UqG2-xuoJ0k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/UqG2-xuoJ0k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/UqG2-xuoJ0k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/UqG2-xuoJ0k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/UqG2-xuoJ0k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_DThIxlEPatcXhmP-gsOUD",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "UqG2-xuoJ0k"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "UqG2-xuoJ0k",
+      "videoPublishedAt": "2022-05-02T11:00:26Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "88_g2CfokYWDdLovCtKHzHuMhOo",
+    "id": "UEw0Ujh4N1E5WHAwX0RUaEl4bEVQYXRjWGhtUC1nc09VRC4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-05-03T02:48:28Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Tuesday May 3rd Morning Devotional",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RASyYrTldss/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RASyYrTldss/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RASyYrTldss/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RASyYrTldss/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RASyYrTldss/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_DThIxlEPatcXhmP-gsOUD",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RASyYrTldss"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RASyYrTldss",
+      "videoPublishedAt": "2022-05-03T11:00:17Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "OkrztUcDB6aZFFOTj6XBIaQ415Q",
+    "id": "UEw0Ujh4N1E5WHAwX0RUaEl4bEVQYXRjWGhtUC1nc09VRC4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-05-04T02:57:03Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Wednesday May 4th Morning Devotional",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hfoO4dfLA2Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hfoO4dfLA2Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hfoO4dfLA2Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hfoO4dfLA2Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/hfoO4dfLA2Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_DThIxlEPatcXhmP-gsOUD",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "hfoO4dfLA2Y"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "hfoO4dfLA2Y",
+      "videoPublishedAt": "2022-05-04T11:00:22Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "colWRYfCA5XySocqlginkRoMSM0",
+    "id": "UEw0Ujh4N1E5WHAwX0RUaEl4bEVQYXRjWGhtUC1nc09VRC41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-05-05T03:28:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Thursday May 5th Morning Devotional",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uoChhk5YKSE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uoChhk5YKSE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uoChhk5YKSE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uoChhk5YKSE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uoChhk5YKSE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_DThIxlEPatcXhmP-gsOUD",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "uoChhk5YKSE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "uoChhk5YKSE",
+      "videoPublishedAt": "2022-05-05T11:00:21Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "6ttTMEGuf_itgfGVFxDxHmZfPEE",
+    "id": "UEw0Ujh4N1E5WHAwX0RUaEl4bEVQYXRjWGhtUC1nc09VRC4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2022-05-06T03:38:47Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Friday May 6th Morning Devotional",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PgcqlIyjyvk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PgcqlIyjyvk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PgcqlIyjyvk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PgcqlIyjyvk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PgcqlIyjyvk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_DThIxlEPatcXhmP-gsOUD",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "PgcqlIyjyvk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "PgcqlIyjyvk",
+      "videoPublishedAt": "2022-05-06T11:00:22Z"
+    }
+  }
+]

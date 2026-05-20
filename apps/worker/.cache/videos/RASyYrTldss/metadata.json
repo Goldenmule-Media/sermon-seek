@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "s8K7-T6jisYkjNNRUfZ6RUkfe1M",
+  "id": "RASyYrTldss",
+  "snippet": {
+    "publishedAt": "2022-05-03T11:00:17Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Tuesday May 3rd Morning Devotional",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/RASyYrTldss/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/RASyYrTldss/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/RASyYrTldss/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/RASyYrTldss/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/RASyYrTldss/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Tuesday May 3rd Morning Devotional",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT5M11S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "126",
+    "likeCount": "9",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

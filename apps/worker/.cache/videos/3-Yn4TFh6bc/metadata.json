@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "V2LY9a5m4yRk8hBPkQiniyPVe14",
+  "id": "3-Yn4TFh6bc",
+  "snippet": {
+    "publishedAt": "2020-03-19T15:03:19Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "March 19: The Hidden Gift of Difficult Seasons",
+    "description": "COVID-19 is a difficulty season but it can be a gift if you use it to upgrade your focus on what is temporal to what is eternal.\n\nIf you would like the to find more encouragement and support, email office@jubileestl.org to join one of our online community groups.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "March 19: The Hidden Gift of Difficult Seasons",
+      "description": "COVID-19 is a difficulty season but it can be a gift if you use it to upgrade your focus on what is temporal to what is eternal.\n\nIf you would like the to find more encouragement and support, email office@jubileestl.org to join one of our online community groups."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT4M1S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "258",
+    "likeCount": "13",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

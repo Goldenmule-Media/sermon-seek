@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "6_2jLaw788JehnlSt_g_XLQEfFQ",
+  "id": "CDzToD4ZBbY",
+  "snippet": {
+    "publishedAt": "2020-04-26T14:45:14Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "April 26th Sunday Service",
+    "description": "CCLI streaming license - #20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/CDzToD4ZBbY/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/CDzToD4ZBbY/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/CDzToD4ZBbY/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/CDzToD4ZBbY/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/CDzToD4ZBbY/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "April 26th Sunday Service",
+      "description": "CCLI streaming license - #20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H38S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "692",
+    "likeCount": "16",
+    "favoriteCount": "0",
+    "commentCount": "3"
+  }
+}

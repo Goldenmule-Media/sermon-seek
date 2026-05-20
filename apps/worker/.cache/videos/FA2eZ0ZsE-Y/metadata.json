@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Ccn7vx4R9eQR_T01d0EhfF8r6X4",
+  "id": "FA2eZ0ZsE-Y",
+  "snippet": {
+    "publishedAt": "2025-08-16T20:00:17Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "How to Build a Fruitful Relationship with Jesus",
+    "description": "From our special bonus episode of the Jubilee Church Podcast, Pastor Bryan Mowrey and Jordan Dillon share simple but powerful ways to cultivate a vibrant, Christ-centered life. \n\nThey share actionable tips for growing closer to Jesus—practices that nurture your heart, mind, and actions so your life naturally produces godly fruit.\n\n📺 Watch the full conversation here: https://youtu.be/hP4FG_Z3I3w",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/FA2eZ0ZsE-Y/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/FA2eZ0ZsE-Y/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/FA2eZ0ZsE-Y/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/FA2eZ0ZsE-Y/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/FA2eZ0ZsE-Y/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "How to Build a Fruitful Relationship with Jesus",
+      "description": "From our special bonus episode of the Jubilee Church Podcast, Pastor Bryan Mowrey and Jordan Dillon share simple but powerful ways to cultivate a vibrant, Christ-centered life. \n\nThey share actionable tips for growing closer to Jesus—practices that nurture your heart, mind, and actions so your life naturally produces godly fruit.\n\n📺 Watch the full conversation here: https://youtu.be/hP4FG_Z3I3w"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT10M24S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "18",
+    "likeCount": "1",
+    "favoriteCount": "0",
+    "commentCount": "0"
+  }
+}

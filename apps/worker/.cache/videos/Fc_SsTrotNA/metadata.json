@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "Zm4mVbxP7PdkkeCBt0ANz9ALfho",
+  "id": "Fc_SsTrotNA",
+  "snippet": {
+    "publishedAt": "2020-07-05T14:45:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "July 5th Sunday Service",
+    "description": "Do you find it hard to rationalize how God can be loving and allow suffering? Do seasons of suffering draw you closer or push you away from God?\n\nToday we continue our “Family Friends” series with Andrew Wilson. Andrew is the teaching pastor at King’s Church London, and has some powerful truths to share with us today.\n\nInvite a friend or family member, and join us this morning!\n\n#myjubileechurch #familyfriends #suffering\n\nCCLI Streaming License # - 20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Fc_SsTrotNA/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Fc_SsTrotNA/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Fc_SsTrotNA/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Fc_SsTrotNA/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Fc_SsTrotNA/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "July 5th Sunday Service",
+      "description": "Do you find it hard to rationalize how God can be loving and allow suffering? Do seasons of suffering draw you closer or push you away from God?\n\nToday we continue our “Family Friends” series with Andrew Wilson. Andrew is the teaching pastor at King’s Church London, and has some powerful truths to share with us today.\n\nInvite a friend or family member, and join us this morning!\n\n#myjubileechurch #familyfriends #suffering\n\nCCLI Streaming License # - 20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H3M37S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "515",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

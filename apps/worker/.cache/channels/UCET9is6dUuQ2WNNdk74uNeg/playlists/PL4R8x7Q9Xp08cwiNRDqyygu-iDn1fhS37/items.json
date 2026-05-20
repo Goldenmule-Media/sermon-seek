@@ -1,0 +1,1782 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "fn3VIHlsFXUH0TuVxDEK5ypgYYU",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy42MTI4Njc2QjM1RjU1MjlG",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:54:16Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Blessed are Those Who Know the Joyful Sound - a devotion from Psalm 89",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qt1JimtdzMc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qt1JimtdzMc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qt1JimtdzMc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qt1JimtdzMc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qt1JimtdzMc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "qt1JimtdzMc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "qt1JimtdzMc",
+      "videoPublishedAt": "2020-06-01T12:00:25Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "3mJKscsvqZgcMGm82OhyKeGBJpY",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5CMEQ2Mjk5NTc3NDZFRUNB",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:53:18Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Best Place We Can Go - a devotion from Psalm 84",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_31AyMjB4WI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_31AyMjB4WI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_31AyMjB4WI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_31AyMjB4WI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_31AyMjB4WI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "_31AyMjB4WI",
+      "videoPublishedAt": "2020-05-28T12:00:16Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "O4pkfpEa2z3SIFS1GdRAXz0h10I",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4zRDBDOEZDOUM0MDY5NEEz",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:53:06Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Be Raw With God - a devotion from Psalm 79",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Kmn1KvbIxhQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Kmn1KvbIxhQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Kmn1KvbIxhQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Kmn1KvbIxhQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Kmn1KvbIxhQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Kmn1KvbIxhQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Kmn1KvbIxhQ",
+      "videoPublishedAt": "2020-05-25T12:00:14Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "GB1jZKKmSFNnMU9xNtea9EOQS7E",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy41QUZGQTY5OTE4QTREQUU4",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:52:24Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Don't Forget to Remember - a Psalm 77 devotional",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Olxdk7CmGhU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Olxdk7CmGhU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Olxdk7CmGhU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Olxdk7CmGhU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Olxdk7CmGhU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Olxdk7CmGhU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Olxdk7CmGhU",
+      "videoPublishedAt": "2020-05-22T13:16:52Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "_dCY7vm-1juoXhI5jSiLY8JuC0k",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy43NDhFRTgwOTRERTU4Rjg3",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:51:08Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 65 - God Chooses Us",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/akG3gEGEhCA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/akG3gEGEhCA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/akG3gEGEhCA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/akG3gEGEhCA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/akG3gEGEhCA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "akG3gEGEhCA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "akG3gEGEhCA",
+      "videoPublishedAt": "2020-05-13T17:06:04Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "BVAspmvPcRZFI7ZWxiUNoeuyVYg",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy44Mjc5REFBRUE2MTdFRDU0",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:50:56Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Why We Need the Wilderness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-pIzA5G4mbQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-pIzA5G4mbQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-pIzA5G4mbQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-pIzA5G4mbQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-pIzA5G4mbQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "-pIzA5G4mbQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "-pIzA5G4mbQ",
+      "videoPublishedAt": "2020-05-12T15:56:19Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "EaAcQ5gYjEWs8n6WSRhXpDG3fTY",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5DMkU4NTY1QUFGQTYwMDE3",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:50:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Response to Ahmaud Arbery Shooting",
+      "description": "Let's be near to the broken-hearted\nLet's have each other's back's\nLet's receive our help from Lord",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bMjn4KSa-aA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bMjn4KSa-aA"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "bMjn4KSa-aA",
+      "videoPublishedAt": "2020-05-07T22:09:49Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "b93krlbH6YPBShg5Me-CGcQSEFU",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4yQUE2Q0JEMTk4NTM3RTZC",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:50:15Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Who is at Your Center?",
+      "description": "A Psalm 50 devotional",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9ujL_SRJOSY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9ujL_SRJOSY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9ujL_SRJOSY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9ujL_SRJOSY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9ujL_SRJOSY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "9ujL_SRJOSY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "9ujL_SRJOSY",
+      "videoPublishedAt": "2020-05-05T12:57:44Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "WMKAStdlNQBICTOY1Ce2l5G_sAk",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5DQ0MyQ0Y4Mzg0M0VGOEYw",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:50:01Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Numbers 13 & 14",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-tfV3_cHHyM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-tfV3_cHHyM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-tfV3_cHHyM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-tfV3_cHHyM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-tfV3_cHHyM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "-tfV3_cHHyM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "-tfV3_cHHyM",
+      "videoPublishedAt": "2020-05-04T12:00:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "gDZbEmupLlit9d7hTOmu2EsXszk",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy43MTI1NDIwOTMwQjIxMzNG",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:48:31Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Why did Jesus suffer?",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ge6foErceY4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ge6foErceY4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ge6foErceY4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ge6foErceY4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ge6foErceY4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 9,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ge6foErceY4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ge6foErceY4",
+      "videoPublishedAt": "2020-05-01T16:16:47Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "w_jFuCU4gLAJTVkxs86FeRebpBE",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5DNzE1RjZEMUZCMjA0RDBB",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:48:14Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 42: Our Souls are Thirsty for Jesus",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-P4zR4WBGF0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-P4zR4WBGF0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-P4zR4WBGF0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-P4zR4WBGF0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-P4zR4WBGF0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 10,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "-P4zR4WBGF0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "-P4zR4WBGF0",
+      "videoPublishedAt": "2020-04-29T15:00:03Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "pXIVsUegnKm_ts0B8NuTmi539tU",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy45NzUwQkI1M0UxNThBMkU0",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:48:01Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 40: How Your Pits Become Praise",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9b8F1LDXkRw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9b8F1LDXkRw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9b8F1LDXkRw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9b8F1LDXkRw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9b8F1LDXkRw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 11,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "9b8F1LDXkRw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "9b8F1LDXkRw",
+      "videoPublishedAt": "2020-04-28T14:09:59Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "42f3Vf88Oghid7Oi5qfPZM4orwU",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4zRjM0MkVCRTg0MkYyQTM0",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:47:49Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "The Agonizing Benefit of Prayerful Introspection",
+      "description": "David demonstrates in Psalm 39 that the pathway to healing and hope is found by being quiet enough to lament our own brokenness.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Soth_ZqB8H4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 12,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Soth_ZqB8H4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Soth_ZqB8H4",
+      "videoPublishedAt": "2020-04-27T13:48:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "sS1d0adOUg11iLOgShd473fP5ck",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5GM0Q3M0MzMzY5NTJFNTdE",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:47:24Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Leviticus 25: It's Time to Celebrate",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RGZuqKT0lS8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 13,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RGZuqKT0lS8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "RGZuqKT0lS8",
+      "videoPublishedAt": "2020-04-20T14:05:25Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-5y5IIZKW_5BjPup6QhRpY8bgsM",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4yMDhBMkNBNjRDMjQxQTg1",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:47:01Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Psalm 29: Gods Word is Power",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/C-c_kXCSoOo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/C-c_kXCSoOo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/C-c_kXCSoOo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/C-c_kXCSoOo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/C-c_kXCSoOo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 14,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "C-c_kXCSoOo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "C-c_kXCSoOo",
+      "videoPublishedAt": "2020-04-17T14:50:48Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "SYmEM9Kg1Hux-aUQbs7zaNb86X4",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5ENDU4Q0M4RDExNzM1Mjcy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:46:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Guidance When You are Afraid, Lonely or Confused",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/59ppGUU-9Wo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/59ppGUU-9Wo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/59ppGUU-9Wo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/59ppGUU-9Wo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/59ppGUU-9Wo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 15,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "59ppGUU-9Wo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "59ppGUU-9Wo",
+      "videoPublishedAt": "2020-04-15T18:30:01Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Mmb1UA4G57RxHvGuDTBetU56MZk",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy45RTgxNDRBMzUwRjQ0MDhC",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:46:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 13:  Boldness + Urgency = Evangelistic Explosion",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Tz2WpEGXPm0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 16,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Tz2WpEGXPm0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "Tz2WpEGXPm0",
+      "videoPublishedAt": "2020-04-13T15:33:05Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "MPO-kHCqmH3-dJ_iRbaV9KPsNi8",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4yMUQyQTQzMjRDNzMyQTMy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:44:59Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Holy Week - Maundy Thursday",
+      "description": "Let's wash our hands and wash each other's feet",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2600u1J6vVE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2600u1J6vVE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2600u1J6vVE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2600u1J6vVE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2600u1J6vVE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 17,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "2600u1J6vVE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "2600u1J6vVE",
+      "videoPublishedAt": "2020-04-09T16:18:20Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "N1FCrzW742pNdxzqfFe6Dz_4e4E",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy41QTY1Q0UxMTVCODczNThE",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:44:43Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Holy Week - Lessons from a Fig Tree",
+      "description": "Jesus teaches us the key to being ready for His return.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/AOigNLZYzFM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/AOigNLZYzFM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/AOigNLZYzFM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/AOigNLZYzFM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/AOigNLZYzFM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 18,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "AOigNLZYzFM"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "AOigNLZYzFM",
+      "videoPublishedAt": "2020-04-07T13:27:30Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "6HdMOVpUpcUukhjtRAnNJZu9Fms",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5EQUE1NTFDRjcwMDg0NEMz",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:44:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Holy Week - Jesus Anointed at Bethany",
+      "description": "Worship is primary and impossible to be too extravagant.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pOFf2CpOVKI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pOFf2CpOVKI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pOFf2CpOVKI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pOFf2CpOVKI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pOFf2CpOVKI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 19,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "pOFf2CpOVKI"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "pOFf2CpOVKI",
+      "videoPublishedAt": "2020-04-06T14:42:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "PKuMGSkLwzhWIhT7DEt7v45m9oU",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy41Mzk2QTAxMTkzNDk4MDhF",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:43:48Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 2 Guarding What's Yours Part 2",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/MyCUvCl9ebg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/MyCUvCl9ebg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/MyCUvCl9ebg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/MyCUvCl9ebg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/MyCUvCl9ebg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 20,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "MyCUvCl9ebg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "MyCUvCl9ebg",
+      "videoPublishedAt": "2020-04-02T16:36:51Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "sakq-DqOY-ReZszjCQ1QF9hok24",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4zMDg5MkQ5MEVDMEM1NTg2",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:43:37Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "April 1 Guarding What's Yours",
+      "description": "part 1 in a mini-series to help you draw confidence in your faith in a context of uncertainty",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uII4RQNp63o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uII4RQNp63o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uII4RQNp63o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uII4RQNp63o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uII4RQNp63o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 21,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "uII4RQNp63o"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "uII4RQNp63o",
+      "videoPublishedAt": "2020-04-01T13:45:08Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "L1kEvxWUoF9Gb_UO3kbQ4rX6AK4",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy45ODRDNTg0QjA4NkFBNkQy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:43:26Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 31 Living Without a Plan B",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/18S5cvJPf6c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/18S5cvJPf6c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/18S5cvJPf6c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/18S5cvJPf6c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/18S5cvJPf6c/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 22,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "18S5cvJPf6c"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "18S5cvJPf6c",
+      "videoPublishedAt": "2020-03-31T17:45:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "WixSr9CHHhO6u3hLrwrXDNZ2vXU",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5EMEEwRUY5M0RDRTU3NDJC",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:43:10Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 30 THE Priority",
+      "description": "There are many things we could do, but there is one thing we MUST do. Thoughts taken from Luke 10:38-42.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7v6ii8LGICU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7v6ii8LGICU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7v6ii8LGICU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/7v6ii8LGICU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/7v6ii8LGICU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 23,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "7v6ii8LGICU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "7v6ii8LGICU",
+      "videoPublishedAt": "2020-03-30T15:02:13Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "HtCXTyR8sS-WvkESehmGJBCYHb0",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy40NzZCMERDMjVEN0RFRThB",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:42:45Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 27 - He Can Be Touched",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_dVYF0gRAWg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_dVYF0gRAWg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_dVYF0gRAWg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_dVYF0gRAWg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_dVYF0gRAWg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 24,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_dVYF0gRAWg"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "_dVYF0gRAWg",
+      "videoPublishedAt": "2020-03-27T14:53:55Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CQ5wzqBUi7MwJ7TzOo9oY_zGRZk",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5GNjNDRDREMDQxOThCMDQ2",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:42:30Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 26 Be Known by Your Love",
+      "description": "What will they say about us 5, 10, 50 years from now? What will be known by? What will you be known by?",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jzCXFTjiKbQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jzCXFTjiKbQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jzCXFTjiKbQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jzCXFTjiKbQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jzCXFTjiKbQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 25,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "jzCXFTjiKbQ"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "jzCXFTjiKbQ",
+      "videoPublishedAt": "2020-03-26T15:59:46Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "jqvBn_gQ_zpXbNhGNZYMoTuIcfY",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy45NDk1REZENzhEMzU5MDQz",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:42:03Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 25 Fight for Unity",
+      "description": "Let's live lives worthy of the gospel!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/XWdrcOp8UBk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/XWdrcOp8UBk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/XWdrcOp8UBk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/XWdrcOp8UBk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/XWdrcOp8UBk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 26,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "XWdrcOp8UBk"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "XWdrcOp8UBk",
+      "videoPublishedAt": "2020-03-25T15:45:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0xeTA9mtPLEKyFlnyPo2TL7lTsw",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:41:31Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 24 Selective Listening",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2cuy8svsIBo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2cuy8svsIBo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2cuy8svsIBo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2cuy8svsIBo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2cuy8svsIBo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 27,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "2cuy8svsIBo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "2cuy8svsIBo",
+      "videoPublishedAt": "2020-03-24T15:18:34Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "JyqbSgb5XtHAui2sXWiZi-xh3LU",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:41:08Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 23 - Give the Good Report",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/KzUSJwwRn7Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 28,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "KzUSJwwRn7Y"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "KzUSJwwRn7Y",
+      "videoPublishedAt": "2020-03-23T14:06:23Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "DWzFZmPuhiZPtSnRdV_e5_7c7Xw",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:40:41Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 21 Announcement",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/n7LisW3Qppo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/n7LisW3Qppo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/n7LisW3Qppo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/n7LisW3Qppo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/n7LisW3Qppo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 29,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "n7LisW3Qppo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "n7LisW3Qppo",
+      "videoPublishedAt": "2020-03-21T18:04:45Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "WwYHCfj2sOaq6qeA4DoYgxFPw7s",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:40:29Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 20: Faith or Foolishness?",
+      "description": "COVID-19 has tempted us to be fearful, but there's also the temptation to be foolish. Today, I address the difference between foolishness and faith. \n\nIf you would like the to find more encouragement and support, email office@jubileestl.org to join one of our online community groups.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NxWQR-oAH3E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NxWQR-oAH3E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NxWQR-oAH3E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NxWQR-oAH3E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NxWQR-oAH3E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 30,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "NxWQR-oAH3E"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "NxWQR-oAH3E",
+      "videoPublishedAt": "2020-03-20T15:09:09Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "rA-k6SFWQrSoYEGxkVZ58njCUUE",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:40:17Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 19: The Hidden Gift of Difficult Seasons",
+      "description": "COVID-19 is a difficulty season but it can be a gift if you use it to upgrade your focus on what is temporal to what is eternal.\n\nIf you would like the to find more encouragement and support, email office@jubileestl.org to join one of our online community groups.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3-Yn4TFh6bc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 31,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "3-Yn4TFh6bc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "3-Yn4TFh6bc",
+      "videoPublishedAt": "2020-03-19T15:03:19Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "BU4nM3TwbTOXkqAaMasU_6zGjQ4",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:40:06Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 18: Be An Encourager",
+      "description": "COVID-19 has caused our supply of encouragement to run low, but God has called you to bridge that gap. \n\nIf you would like the to find more encouragement and support, email office@jubileestl.org to join one of our online community groups.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0POT9gW86G8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0POT9gW86G8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0POT9gW86G8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0POT9gW86G8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0POT9gW86G8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 32,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "0POT9gW86G8"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "0POT9gW86G8",
+      "videoPublishedAt": "2020-03-18T14:52:43Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "HU-a5-BGSyNq_e6FoZJBwWn1mgk",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:39:53Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 17 Encouragement",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ZYV81pyaqYY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ZYV81pyaqYY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ZYV81pyaqYY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ZYV81pyaqYY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ZYV81pyaqYY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 33,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ZYV81pyaqYY"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "ZYV81pyaqYY",
+      "videoPublishedAt": "2020-03-17T14:55:21Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "UUJsXjxxGQQbdWeAwRUJTexPjBI",
+    "id": "UEw0Ujh4N1E5WHAwOGN3aU5SRHF5eWd1LWlEbjFmaFMzNy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2020-06-23T15:39:41Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "March 16 Encouragement",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8EC5ogGhNn4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8EC5ogGhNn4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8EC5ogGhNn4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8EC5ogGhNn4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8EC5ogGhNn4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp08cwiNRDqyygu-iDn1fhS37",
+      "position": 34,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "8EC5ogGhNn4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "8EC5ogGhNn4",
+      "videoPublishedAt": "2020-03-16T14:29:10Z"
+    }
+  }
+]

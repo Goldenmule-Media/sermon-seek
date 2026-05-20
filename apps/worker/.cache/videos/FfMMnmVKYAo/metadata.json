@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "5ixaCbJGgOB6YJzIoFdL3pGR0Y4",
+  "id": "FfMMnmVKYAo",
+  "snippet": {
+    "publishedAt": "2020-05-03T14:45:12Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "May 3rd Sunday Service",
+    "description": "Do you sometimes struggle to love others? What is your model for determining whether or not you’re loving well?\n\nThis morning we begin a new series entitled \"Loving Like Jesus. Lead pastor Bryan Mowrey kicks us off as we see that by letting go of preference, privilege, and power, we are able to grow in loving others.\n\nCCLI Streaming License # - 20135815",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/FfMMnmVKYAo/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/FfMMnmVKYAo/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/FfMMnmVKYAo/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/FfMMnmVKYAo/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/FfMMnmVKYAo/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "May 3rd Sunday Service",
+      "description": "Do you sometimes struggle to love others? What is your model for determining whether or not you’re loving well?\n\nThis morning we begin a new series entitled \"Loving Like Jesus. Lead pastor Bryan Mowrey kicks us off as we see that by letting go of preference, privilege, and power, we are able to grow in loving others.\n\nCCLI Streaming License # - 20135815"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H4M48S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "646",
+    "likeCount": "11",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "56etfTHmo55SXXYIURi1ifPuz9s",
+    "id": "UEw0Ujh4N1E5WHAwXzIwOTE4SUsxZ2p1aDFUN3Y5ZE14Ni41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-05-17T22:24:20Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "Mother's Day 2023",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1tPSz7wJ5hw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1tPSz7wJ5hw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1tPSz7wJ5hw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1tPSz7wJ5hw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1tPSz7wJ5hw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0_20918IK1gjuh1T7v9dMx6",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "1tPSz7wJ5hw"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "1tPSz7wJ5hw",
+      "videoPublishedAt": "2023-05-17T23:18:24Z"
+    }
+  }
+]

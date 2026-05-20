@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "zWRvmrFwXkrodUuKD31WUr9PEHw",
+  "id": "Bf_nrqNG1jY",
+  "snippet": {
+    "publishedAt": "2024-04-01T03:30:04Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Easter Sunday",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Bf_nrqNG1jY/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Bf_nrqNG1jY/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Bf_nrqNG1jY/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/Bf_nrqNG1jY/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/Bf_nrqNG1jY/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Easter Sunday",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT1H5M48S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "164",
+    "likeCount": "3",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

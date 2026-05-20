@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "pziV4h3aoUWnrXQZGgxp2-xeLPc",
+  "id": "TOCFm_0YBTs",
+  "snippet": {
+    "publishedAt": "2025-08-26T12:24:53Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "Biblical Wisdom for Money, Budgeting & God’s Provision",
+    "description": "In this special bonus episode of the Jubilee Church Podcast, Lead Pastor Bryan Mowrey joins host Jordan Dillon for a conversation on money, stewardship, and faith. Together they unpack what the Bible teaches about our relationship with money and how it shapes our lives in ways we often don’t realize. Bryan shares practical frameworks for budgeting and financial stewardship, helping us move from ignorance to wisdom in how we handle money. The discussion also dives into what it truly means to trust God as provider—bringing clarity, encouragement, and hope to a topic that touches every area of life.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/TOCFm_0YBTs/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/TOCFm_0YBTs/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/TOCFm_0YBTs/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/TOCFm_0YBTs/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/TOCFm_0YBTs/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Biblical Wisdom for Money, Budgeting & God’s Provision",
+      "description": "In this special bonus episode of the Jubilee Church Podcast, Lead Pastor Bryan Mowrey joins host Jordan Dillon for a conversation on money, stewardship, and faith. Together they unpack what the Bible teaches about our relationship with money and how it shapes our lives in ways we often don’t realize. Bryan shares practical frameworks for budgeting and financial stewardship, helping us move from ignorance to wisdom in how we handle money. The discussion also dives into what it truly means to trust God as provider—bringing clarity, encouragement, and hope to a topic that touches every area of life."
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT59M50S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "103",
+    "likeCount": "5",
+    "favoriteCount": "0",
+    "commentCount": "2"
+  }
+}

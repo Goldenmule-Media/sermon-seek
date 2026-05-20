@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "_z03DRxcOae42k1nyczVD-6K8lE",
+  "id": "0POT9gW86G8",
+  "snippet": {
+    "publishedAt": "2020-03-18T14:52:43Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "March 18: Be An Encourager",
+    "description": "COVID-19 has caused our supply of encouragement to run low, but God has called you to bridge that gap. \n\nIf you would like the to find more encouragement and support, email office@jubileestl.org to join one of our online community groups.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/0POT9gW86G8/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/0POT9gW86G8/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/0POT9gW86G8/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/0POT9gW86G8/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/0POT9gW86G8/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "March 18: Be An Encourager",
+      "description": "COVID-19 has caused our supply of encouragement to run low, but God has called you to bridge that gap. \n\nIf you would like the to find more encouragement and support, email office@jubileestl.org to join one of our online community groups."
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "contentDetails": {
+    "duration": "PT4M36S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "216",
+    "likeCount": "13",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

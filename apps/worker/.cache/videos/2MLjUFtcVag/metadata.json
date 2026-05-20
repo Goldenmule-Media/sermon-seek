@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "tocv1wy-o8BOPDpcRpmv2XAWx1k",
+  "id": "2MLjUFtcVag",
+  "snippet": {
+    "publishedAt": "2020-07-26T14:45:11Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "July 26th Sunday Service",
+    "description": "Do you have firsthand experience of what its like to live as a member of the minority culture? Or have you experienced what it feels like to be marginalized or oppressed?\n\nToday we pick back up in our series “Behind Enemy Lines” by examining how Daniel and his friends responded in the face of being marginalized and oppressed while living as members of a minority culture.  \n\nInvite a friend or family member and join us!\n\n#myjubileechurch #behindenemylines #onlineservices #everyoneeveryplace",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/2MLjUFtcVag/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/2MLjUFtcVag/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/2MLjUFtcVag/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/2MLjUFtcVag/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/2MLjUFtcVag/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "24",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "July 26th Sunday Service",
+      "description": "Do you have firsthand experience of what its like to live as a member of the minority culture? Or have you experienced what it feels like to be marginalized or oppressed?\n\nToday we pick back up in our series “Behind Enemy Lines” by examining how Daniel and his friends responded in the face of being marginalized and oppressed while living as members of a minority culture.  \n\nInvite a friend or family member and join us!\n\n#myjubileechurch #behindenemylines #onlineservices #everyoneeveryplace"
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT1H2M23S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "343",
+    "likeCount": "4",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ROBWcHepxFoUIRBkeR087RHn6eA",
+    "id": "UEw0Ujh4N1E5WHAwLWN0YlVYb1JTbkJ0cm5qWm4wS3J3cy4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2023-08-10T19:57:50Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 11th Morning Devotional, The Sword of the Spirit",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bjhkMQICcZE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bjhkMQICcZE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bjhkMQICcZE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bjhkMQICcZE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bjhkMQICcZE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-ctbUXoRSnBtrnjZn0Krws",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bjhkMQICcZE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "bjhkMQICcZE",
+      "videoPublishedAt": "2023-08-11T11:00:36Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "LXmGVg-Zm0oFD6bzwDgDcfI_Jvc",
+    "id": "UEw0Ujh4N1E5WHAwLWN0YlVYb1JTbkJ0cm5qWm4wS3J3cy41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2023-08-08T18:18:49Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 10th Morning Devotional, The Readiness Shoes",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pk5EtAHrEMc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-ctbUXoRSnBtrnjZn0Krws",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "pk5EtAHrEMc"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "pk5EtAHrEMc",
+      "videoPublishedAt": "2023-08-10T11:00:43Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "IIx-Yfw54U1zck7YQG2fjCivmWw",
+    "id": "UEw0Ujh4N1E5WHAwLWN0YlVYb1JTbkJ0cm5qWm4wS3J3cy4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2023-08-08T18:16:18Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 9th Morning Devotional, The Shield of Faith",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cYXdQYwPnI4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cYXdQYwPnI4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cYXdQYwPnI4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cYXdQYwPnI4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/cYXdQYwPnI4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-ctbUXoRSnBtrnjZn0Krws",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "cYXdQYwPnI4"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "cYXdQYwPnI4",
+      "videoPublishedAt": "2023-08-09T11:00:36Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "huvfsigeKof6c2FMjOw4u8tDvS8",
+    "id": "UEw0Ujh4N1E5WHAwLWN0YlVYb1JTbkJ0cm5qWm4wS3J3cy4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-08-07T02:56:35Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 8th Morning Devotional, The Breastplate of Righteousness",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bPJIW72txoU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bPJIW72txoU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bPJIW72txoU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bPJIW72txoU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bPJIW72txoU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-ctbUXoRSnBtrnjZn0Krws",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bPJIW72txoU"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "bPJIW72txoU",
+      "videoPublishedAt": "2023-08-08T11:00:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "a08Vk3mGoHdcedYhqcUVlCX2fAE",
+    "id": "UEw0Ujh4N1E5WHAwLWN0YlVYb1JTbkJ0cm5qWm4wS3J3cy41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-08-07T02:22:46Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 7th Morning Devotional, The Belt of Truth",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lpxc0hhBn8c/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp0-ctbUXoRSnBtrnjZn0Krws",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "lpxc0hhBn8c"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "lpxc0hhBn8c",
+      "videoPublishedAt": "2023-08-07T03:07:11Z"
+    }
+  }
+]

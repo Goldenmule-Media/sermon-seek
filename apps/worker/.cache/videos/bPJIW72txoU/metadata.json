@@ -1,0 +1,62 @@
+{
+  "kind": "youtube#video",
+  "etag": "ZMQIVk_7raBLm4W6REqs54ca59A",
+  "id": "bPJIW72txoU",
+  "snippet": {
+    "publishedAt": "2023-08-08T11:00:24Z",
+    "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+    "title": "August 8th Morning Devotional, The Breastplate of Righteousness",
+    "description": "",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/bPJIW72txoU/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/bPJIW72txoU/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/bPJIW72txoU/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/bPJIW72txoU/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/bPJIW72txoU/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Jubilee Church",
+    "categoryId": "29",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "August 8th Morning Devotional, The Breastplate of Righteousness",
+      "description": ""
+    },
+    "defaultAudioLanguage": "en-US"
+  },
+  "contentDetails": {
+    "duration": "PT6M23S",
+    "dimension": "2d",
+    "definition": "hd",
+    "caption": "false",
+    "licensedContent": false,
+    "contentRating": {},
+    "projection": "rectangular"
+  },
+  "statistics": {
+    "viewCount": "210",
+    "likeCount": "10",
+    "favoriteCount": "0",
+    "commentCount": "1"
+  }
+}

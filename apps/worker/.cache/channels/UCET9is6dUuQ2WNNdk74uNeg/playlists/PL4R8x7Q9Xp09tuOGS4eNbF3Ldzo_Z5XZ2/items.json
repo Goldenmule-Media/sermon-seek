@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "xGb6ziv3zTUZycWGSQjpRSaQ7ug",
+    "id": "UEw0Ujh4N1E5WHAwOXR1T0dTNGVOYkYzTGR6b19aNVhaMi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2022-08-01T03:45:56Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 1st Morning Devotional, Thirsting for God",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oXCAVWcQujE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oXCAVWcQujE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oXCAVWcQujE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oXCAVWcQujE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/oXCAVWcQujE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09tuOGS4eNbF3Ldzo_Z5XZ2",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "oXCAVWcQujE"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "oXCAVWcQujE",
+      "videoPublishedAt": "2022-08-01T11:00:28Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "IfLxAuhviHuqQm3GcI7tRsMIvEA",
+    "id": "UEw0Ujh4N1E5WHAwOXR1T0dTNGVOYkYzTGR6b19aNVhaMi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2022-08-02T03:33:22Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 2nd Morning Devotional, As the Deer Pants for the Water",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cWY2DurzAKo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cWY2DurzAKo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cWY2DurzAKo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cWY2DurzAKo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/cWY2DurzAKo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09tuOGS4eNbF3Ldzo_Z5XZ2",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "cWY2DurzAKo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "cWY2DurzAKo",
+      "videoPublishedAt": "2022-08-02T11:00:30Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "aGXPGDaliPB9FGJP4C3CmZX5sV0",
+    "id": "UEw0Ujh4N1E5WHAwOXR1T0dTNGVOYkYzTGR6b19aNVhaMi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2022-08-03T02:36:45Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 3rd Morning Devotional, Those Who Look to Him are Radiant",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FvTGd2Fz2Ug/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FvTGd2Fz2Ug/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FvTGd2Fz2Ug/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FvTGd2Fz2Ug/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FvTGd2Fz2Ug/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09tuOGS4eNbF3Ldzo_Z5XZ2",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "FvTGd2Fz2Ug"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "FvTGd2Fz2Ug",
+      "videoPublishedAt": "2022-08-03T11:00:07Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "XpsetTxlVLOjJ-gR8EdT_QK-xec",
+    "id": "UEw0Ujh4N1E5WHAwOXR1T0dTNGVOYkYzTGR6b19aNVhaMi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2022-08-04T03:37:19Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 4th Morning Devotional, You Lead Me in the Path of Life",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SCSMnx0l5qo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SCSMnx0l5qo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SCSMnx0l5qo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SCSMnx0l5qo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SCSMnx0l5qo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09tuOGS4eNbF3Ldzo_Z5XZ2",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "SCSMnx0l5qo"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "SCSMnx0l5qo",
+      "videoPublishedAt": "2022-08-04T11:00:24Z"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "PbFQi0YOcW7oSRU2lXxaH4_sITo",
+    "id": "UEw0Ujh4N1E5WHAwOXR1T0dTNGVOYkYzTGR6b19aNVhaMi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2022-08-05T04:50:02Z",
+      "channelId": "UCET9is6dUuQ2WNNdk74uNeg",
+      "title": "August 5th Morning Devotional, God's Steadfast Love is Everlasting",
+      "description": "Additional Resources to prepare for Prayer and Fasting:\nhttps://www.jubileestl.org/fasting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/LbrMzkkj5L0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/LbrMzkkj5L0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/LbrMzkkj5L0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/LbrMzkkj5L0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/LbrMzkkj5L0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Jubilee Church",
+      "playlistId": "PL4R8x7Q9Xp09tuOGS4eNbF3Ldzo_Z5XZ2",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "LbrMzkkj5L0"
+      },
+      "videoOwnerChannelTitle": "Jubilee Church",
+      "videoOwnerChannelId": "UCET9is6dUuQ2WNNdk74uNeg"
+    },
+    "contentDetails": {
+      "videoId": "LbrMzkkj5L0",
+      "videoPublishedAt": "2022-08-05T11:00:11Z"
+    }
+  }
+]
