@@ -58,7 +58,7 @@ export async function searchVideosByRef(
   const overlapStart = sql<SqlBool>`${startCoord} <= r.end_coord`
 
   let videosQuery = db
-    .selectFrom("videos as v")
+    .selectFrom("videos_with_transcripts as v")
     .innerJoin("video_scripture_refs as r", "r.video_id", "v.id")
     .select([
       "v.id",

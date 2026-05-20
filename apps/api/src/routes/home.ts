@@ -47,7 +47,7 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
       const db = app.db
 
       const recentRows = await db
-        .selectFrom("videos")
+        .selectFrom("videos_with_transcripts")
         .select([
           "id",
           "youtube_video_id",
@@ -71,7 +71,7 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
       const playlistVideoRows = await Promise.all(
         topPlaylistRows.map((p) =>
           db
-            .selectFrom("videos")
+            .selectFrom("videos_with_transcripts as videos")
             .innerJoin("video_playlists", "videos.id", "video_playlists.video_id")
             .select([
               "videos.id",

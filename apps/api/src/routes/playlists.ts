@@ -48,11 +48,16 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
       const rows = await app.db
         .selectFrom("playlists")
         .leftJoin("video_playlists", "video_playlists.playlist_id", "playlists.id")
+        .leftJoin(
+          "videos_with_transcripts as videos",
+          "videos.id",
+          "video_playlists.video_id",
+        )
         .select([
           "playlists.slug",
           "playlists.title",
           "playlists.total_views",
-          app.db.fn.count<string>("video_playlists.video_id").as("video_count"),
+          app.db.fn.count<string>("videos.id").as("video_count"),
         ])
         .groupBy(["playlists.id", "playlists.slug", "playlists.title", "playlists.total_views"])
         .orderBy(sql`playlists.total_views DESC NULLS LAST`)
@@ -91,12 +96,17 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
       const playlist = await app.db
         .selectFrom("playlists")
         .leftJoin("video_playlists", "video_playlists.playlist_id", "playlists.id")
+        .leftJoin(
+          "videos_with_transcripts as videos",
+          "videos.id",
+          "video_playlists.video_id",
+        )
         .select([
           "playlists.id",
           "playlists.slug",
           "playlists.title",
           "playlists.total_views",
-          app.db.fn.count<string>("video_playlists.video_id").as("video_count"),
+          app.db.fn.count<string>("videos.id").as("video_count"),
         ])
         .groupBy(["playlists.id", "playlists.slug", "playlists.title", "playlists.total_views"])
         .where("playlists.slug", "=", slug)
@@ -110,14 +120,19 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
         (
           await app.db
             .selectFrom("video_playlists")
+            .innerJoin(
+              "videos_with_transcripts as videos",
+              "videos.id",
+              "video_playlists.video_id",
+            )
             .select(app.db.fn.countAll<string>().as("count"))
-            .where("playlist_id", "=", playlist.id)
+            .where("video_playlists.playlist_id", "=", playlist.id)
             .executeTakeFirstOrThrow()
         ).count,
       )
 
       const videoRows = await app.db
-        .selectFrom("videos")
+        .selectFrom("videos_with_transcripts as videos")
         .innerJoin("video_playlists", "video_playlists.video_id", "videos.id")
         .select([
           "videos.id",

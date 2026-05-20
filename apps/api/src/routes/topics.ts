@@ -46,14 +46,19 @@ export const topicsRoutes: FastifyPluginAsyncZod = async (app) => {
       const rows = await app.db
         .selectFrom("topics")
         .leftJoin("video_topics", "topics.id", "video_topics.topic_id")
+        .leftJoin(
+          "videos_with_transcripts as videos",
+          "videos.id",
+          "video_topics.video_id",
+        )
         .select([
           "topics.id",
           "topics.slug",
           "topics.label",
-          app.db.fn.count<string>("video_topics.video_id").as("video_count"),
+          app.db.fn.count<string>("videos.id").as("video_count"),
         ])
         .groupBy(["topics.id", "topics.slug", "topics.label"])
-        .orderBy(app.db.fn.count("video_topics.video_id"), "desc")
+        .orderBy(app.db.fn.count("videos.id"), "desc")
         .orderBy("topics.label", "asc")
         .execute()
 
@@ -99,14 +104,19 @@ export const topicsRoutes: FastifyPluginAsyncZod = async (app) => {
         (
           await app.db
             .selectFrom("video_topics")
+            .innerJoin(
+              "videos_with_transcripts as videos",
+              "videos.id",
+              "video_topics.video_id",
+            )
             .select(app.db.fn.countAll<string>().as("count"))
-            .where("topic_id", "=", topic.id)
+            .where("video_topics.topic_id", "=", topic.id)
             .executeTakeFirstOrThrow()
         ).count,
       )
 
       const videoRows = await app.db
-        .selectFrom("videos")
+        .selectFrom("videos_with_transcripts as videos")
         .innerJoin("video_topics", "videos.id", "video_topics.video_id")
         .select([
           "videos.id",

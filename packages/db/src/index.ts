@@ -153,6 +153,9 @@ export interface Database {
   channels: ChannelsTable
   playlists: PlaylistsTable
   videos: VideosTable
+  // Read-only view: same columns as `videos`, filtered to rows that have at
+  // least one transcript. Used by recommendation surfaces.
+  videos_with_transcripts: VideosTable
   video_playlists: VideoPlaylistsTable
   transcripts: TranscriptsTable
   transcript_segments: TranscriptSegmentsTable

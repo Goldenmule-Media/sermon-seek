@@ -129,7 +129,7 @@ export const videoRelatedRoutes: FastifyPluginAsyncZod = async (app) => {
                v.title,
                v.thumbnail_url
         FROM related_videos rv
-        JOIN videos v ON v.id = rv.related_video_id
+        JOIN videos_with_transcripts v ON v.id = rv.related_video_id
         WHERE rv.video_id = ${videoRow.id}
       `.execute(app.db)
 
