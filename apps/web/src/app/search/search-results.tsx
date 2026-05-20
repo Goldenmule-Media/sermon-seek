@@ -1,23 +1,22 @@
 "use client"
 
+import { ScriptureRefBox } from "@/components/scripture-ref-box"
 import { SearchResultCard } from "@/components/search-result-card"
 import { fetchSearch } from "@/lib/api"
-import type { PlaylistWithStats, SearchResponse, Topic } from "@sermon-search/types"
+import type { PlaylistWithStats, SearchResponse } from "@sermon-search/types"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { type FilterValues, SearchFilters } from "./search-filters"
 
 interface SearchResultsProps {
-  topics: Topic[]
   playlists: PlaylistWithStats[]
 }
 
-export function SearchResults({ topics, playlists }: SearchResultsProps) {
+export function SearchResults({ playlists }: SearchResultsProps) {
   const searchParams = useSearchParams()
   const q = searchParams.get("q") ?? ""
   const ref = searchParams.get("ref") ?? ""
   const playlist = searchParams.get("playlist") ?? ""
-  const topic = searchParams.get("topic") ?? ""
   const date = searchParams.get("date") ?? ""
 
   const [data, setData] = useState<SearchResponse | null>(null)
@@ -38,7 +37,6 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
       q: q || undefined,
       ref: ref || undefined,
       playlist: playlist || undefined,
-      topic: topic || undefined,
       date: date || undefined,
       limit: 20,
       offset: 0,
@@ -61,13 +59,13 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
     return () => {
       cancelled = true
     }
-  }, [q, ref, playlist, topic, date])
+  }, [q, ref, playlist, date])
 
-  const filters: FilterValues = { playlist, topic, date }
+  const filters: FilterValues = { playlist, date }
 
   return (
     <div className="space-y-4">
-      <SearchFilters values={filters} topics={topics} playlists={playlists} />
+      <SearchFilters values={filters} playlists={playlists} />
 
       {!q && !ref && (
         <p className="text-muted-foreground text-sm">Enter a query above to search sermons.</p>
@@ -81,14 +79,13 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
 
       {!loading && !error && !apiError && data && (
         <>
-          {ref && (
-            <p className="text-sm text-muted-foreground">
-              Searching scripture references for &ldquo;{ref}&rdquo;
-            </p>
-          )}
           <p className="text-sm text-muted-foreground">
             {data.total} result{data.total !== 1 ? "s" : ""} ({data.took_ms} ms)
           </p>
+          <ScriptureRefBox
+            refs={data.scripture_refs}
+            label="Scripture references in these results"
+          />
           {data.results.length === 0 ? (
             <p className="text-muted-foreground text-sm">
               {ref
@@ -99,7 +96,7 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
             <ul className="space-y-3">
               {data.results.map((result, i) => (
                 <li key={`${result.video_id}-${result.start_ms}-${i}`}>
-                  <SearchResultCard result={result} hasTimestamp={!ref} />
+                  <SearchResultCard result={result} />
                 </li>
               ))}
             </ul>

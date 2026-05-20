@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { isRefLike } from "@/lib/scripture-ref-detect"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 
 interface SearchBoxProps {
   initialQuery?: string
@@ -12,7 +12,15 @@ interface SearchBoxProps {
 
 export function SearchBox({ initialQuery }: SearchBoxProps) {
   const router = useRouter()
-  const [query, setQuery] = useState(initialQuery ?? "")
+  const searchParams = useSearchParams()
+  const urlQuery = searchParams?.get("q") ?? searchParams?.get("ref") ?? ""
+  const [query, setQuery] = useState(initialQuery ?? urlQuery)
+
+  // Keep the input in sync with the URL when navigation happens outside the
+  // form (e.g. clicking a scripture-ref chip in a result card).
+  useEffect(() => {
+    setQuery(urlQuery)
+  }, [urlQuery])
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()

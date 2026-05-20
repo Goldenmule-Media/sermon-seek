@@ -1,6 +1,7 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
 import { searchSegments } from "../search/fts.js"
+import { hydrateScriptureRefs } from "../search/hydrate-refs.js"
 import { refineSegmentStarts } from "../search/refine.js"
 
 const paramsSchema = z.object({
@@ -13,6 +14,18 @@ const querySchema = z.object({
   offset: z.coerce.number().int().min(0).default(0),
 })
 
+const scriptureRefDetailSchema = z.object({
+  book_id: z.number(),
+  chapter_start: z.number(),
+  verse_start: z.number(),
+  chapter_end: z.number(),
+  verse_end: z.number(),
+  start_coord: z.number(),
+  end_coord: z.number(),
+  occurrences: z.number(),
+  display: z.string(),
+})
+
 const searchResultSchema = z.object({
   video_id: z.string(),
   title: z.string(),
@@ -20,12 +33,14 @@ const searchResultSchema = z.object({
   start_ms: z.number(),
   score: z.number(),
   thumbnail_url: z.string(),
+  scripture_refs: z.array(scriptureRefDetailSchema),
 })
 
 const searchResponseSchema = z.object({
   results: z.array(searchResultSchema),
   total: z.number(),
   took_ms: z.number(),
+  scripture_refs: z.array(scriptureRefDetailSchema),
 })
 
 export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
@@ -62,6 +77,8 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
       const t0 = Date.now()
       const { results: rawResults, total } = await searchSegments(app.db, { q, videoId: id, limit, offset })
       const results = await refineSegmentStarts(app.db, q, rawResults)
+      const refs = await hydrateScriptureRefs(app.db, [id])
+      const videoRefs = refs.perVideo.get(id) ?? []
 
       return {
         results: results.map((r) => ({
@@ -71,9 +88,11 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
           start_ms: r.start_ms,
           score: r.score,
           thumbnail_url: r.thumbnail_url ?? "",
+          scripture_refs: videoRefs,
         })),
         total,
         took_ms: Date.now() - t0,
+        scripture_refs: refs.aggregate,
       }
     },
   )

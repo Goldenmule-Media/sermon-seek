@@ -24,6 +24,7 @@ export function parseRefQuery(input: string): { start_coord: number; end_coord: 
 export interface RefSearchParams {
   startCoord: number
   endCoord: number
+  rawQuery: string
   limit: number
   offset: number
   topicSlug?: string
@@ -36,13 +37,33 @@ export interface RefSearchResult {
   title: string
   thumbnail_url: string | null
   ref_score: number
+  start_ms: number
+  end_ms: number
+  snippet: string
 }
 
+// Ref-mode search returns one row per video, ranked by the total number of
+// matching scripture references in the transcript. For each ranked video we
+// pick the highest-FTS-rank transcript chunk that contains the user's raw query
+// text — that chunk supplies the snippet (via ts_headline) and a deep-link
+// timestamp. When no chunk text matches (e.g. the citation tokenizes oddly),
+// the video still appears with an empty snippet and start_ms=0; the score
+// established that the video is about the queried passage even if our text
+// search can't locate where.
 export async function searchVideosByRef(
   db: Kysely<Database>,
   params: RefSearchParams,
 ): Promise<{ results: RefSearchResult[]; total: number }> {
-  const { startCoord, endCoord, limit, offset, topicSlug, playlistSlug, publishedAfter } = params
+  const {
+    startCoord,
+    endCoord,
+    rawQuery,
+    limit,
+    offset,
+    topicSlug,
+    playlistSlug,
+    publishedAfter,
+  } = params
 
   const overlapEnd = sql<SqlBool>`${endCoord} >= r.start_coord`
   const overlapStart = sql<SqlBool>`${startCoord} <= r.end_coord`
@@ -84,9 +105,9 @@ export async function searchVideosByRef(
     countBase = countBase.where("v.published_at", ">=", publishedAfter)
   }
 
-  const [rows, countRow] = await Promise.all([
+  const [videoRows, countRow] = await Promise.all([
     baseQuery
-      .groupBy("v.id")
+      .groupBy(["v.id", "v.youtube_video_id", "v.title", "v.thumbnail_url"])
       .orderBy(sql`ref_score`, "desc")
       .limit(limit)
       .offset(offset)
@@ -94,13 +115,62 @@ export async function searchVideosByRef(
     countBase.executeTakeFirst(),
   ])
 
+  if (videoRows.length === 0) {
+    return { results: [], total: Number(countRow?.total ?? 0) }
+  }
+
+  const videoIds = videoRows.map((r) => r.id as string)
+  const chunkRows = await db
+    .selectFrom(
+      db
+        .selectFrom("transcript_chunks as c")
+        .select([
+          "c.video_id",
+          "c.start_ms",
+          "c.end_ms",
+          sql<number>`ts_rank_cd(c.text_tsv, plainto_tsquery('english', ${rawQuery}))`.as(
+            "chunk_score",
+          ),
+          sql<string>`ts_headline('english', c.text, plainto_tsquery('english', ${rawQuery}), 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=20,MinWords=10')`.as(
+            "snippet",
+          ),
+          sql<number>`ROW_NUMBER() OVER (PARTITION BY c.video_id ORDER BY ts_rank_cd(c.text_tsv, plainto_tsquery('english', ${rawQuery})) DESC, c.start_ms ASC)`.as(
+            "rn",
+          ),
+        ])
+        .where("c.video_id", "in", videoIds)
+        .where(sql<SqlBool>`c.text_tsv @@ plainto_tsquery('english', ${rawQuery})`)
+        .as("ranked"),
+    )
+    .select(["video_id", "start_ms", "end_ms", "snippet"])
+    .where("rn", "=", 1)
+    .execute()
+
+  const bestByVideo = new Map<
+    string,
+    { start_ms: number; end_ms: number; snippet: string }
+  >()
+  for (const row of chunkRows) {
+    bestByVideo.set(row.video_id as string, {
+      start_ms: Number(row.start_ms),
+      end_ms: Number(row.end_ms),
+      snippet: row.snippet,
+    })
+  }
+
   return {
-    results: rows.map((r) => ({
-      youtube_video_id: r.youtube_video_id,
-      title: r.title,
-      thumbnail_url: r.thumbnail_url,
-      ref_score: r.ref_score,
-    })),
+    results: videoRows.map((r) => {
+      const best = bestByVideo.get(r.id as string)
+      return {
+        youtube_video_id: r.youtube_video_id,
+        title: r.title,
+        thumbnail_url: r.thumbnail_url,
+        ref_score: r.ref_score,
+        start_ms: best?.start_ms ?? 0,
+        end_ms: best?.end_ms ?? 0,
+        snippet: best?.snippet ?? "",
+      }
+    }),
     total: Number(countRow?.total ?? 0),
   }
 }

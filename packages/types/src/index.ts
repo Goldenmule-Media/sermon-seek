@@ -5,12 +5,14 @@ export interface SearchResult {
   start_ms: number
   score: number
   thumbnail_url: string
+  scripture_refs: ScriptureRefDetail[]
 }
 
 export interface SearchResponse {
   results: SearchResult[]
   total: number
   took_ms: number
+  scripture_refs: ScriptureRefDetail[]
 }
 
 export interface Video {

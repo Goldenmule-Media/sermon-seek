@@ -18,7 +18,6 @@ export interface SearchParams {
   q?: string
   ref?: string
   playlist?: string
-  topic?: string
   date?: string
   limit?: number
   offset?: number
@@ -35,7 +34,6 @@ export async function fetchSearch(
       sp.set("q", params.q)
     }
     if (params.playlist) sp.set("playlist", params.playlist)
-    if (params.topic) sp.set("topic", params.topic)
     if (params.date) sp.set("date", params.date)
     if (params.limit != null) sp.set("limit", String(params.limit))
     if (params.offset != null) sp.set("offset", String(params.offset))

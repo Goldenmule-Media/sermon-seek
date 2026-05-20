@@ -51,7 +51,16 @@ describe("searchVideosByRef", () => {
       execute: terminal.execute ?? (() => Promise.resolve([])),
       executeTakeFirst: terminal.executeTakeFirst ?? (() => Promise.resolve({ total: "0" })),
     }
-    for (const m of ["innerJoin", "select", "where", "groupBy", "orderBy", "limit", "offset"]) {
+    for (const m of [
+      "innerJoin",
+      "select",
+      "where",
+      "groupBy",
+      "orderBy",
+      "limit",
+      "offset",
+      "as",
+    ]) {
       c[m] = vi.fn(() => c)
     }
     return c
@@ -82,6 +91,7 @@ describe("searchVideosByRef", () => {
     const result = await searchVideosByRef(db, {
       startCoord: coord(45, 8, 3),
       endCoord: coord(45, 8, 3),
+      rawQuery: "Romans 8:3",
       limit: 20,
       offset: 0,
     })
@@ -99,6 +109,7 @@ describe("searchVideosByRef", () => {
     const result = await searchVideosByRef(db, {
       startCoord: coord(45, 8, 1),
       endCoord: coord(45, 8, ROMANS_8_VERSE_COUNT),
+      rawQuery: "Romans 8",
       limit: 10,
       offset: 0,
     })
@@ -111,6 +122,7 @@ describe("searchVideosByRef", () => {
     const result = await searchVideosByRef(db, {
       startCoord: 1,
       endCoord: 1,
+      rawQuery: "no match",
       limit: 20,
       offset: 0,
     })
@@ -123,6 +135,7 @@ describe("searchVideosByRef", () => {
     await searchVideosByRef(db, {
       startCoord: coord(45, 8, 3),
       endCoord: coord(45, 8, 3),
+      rawQuery: "Romans 8:3",
       limit: 20,
       offset: 0,
     })
@@ -135,7 +148,7 @@ describe("searchVideosByRef", () => {
       execute: vi.fn().mockResolvedValue([]),
       executeTakeFirst: vi.fn().mockResolvedValue({ total: "0" }),
     }
-    for (const m of ["innerJoin", "select", "groupBy", "orderBy", "limit", "offset"]) {
+    for (const m of ["innerJoin", "select", "groupBy", "orderBy", "limit", "offset", "as"]) {
       chain[m] = vi.fn(() => chain)
     }
     chain.where = vi.fn((...args: unknown[]) => {
@@ -147,6 +160,7 @@ describe("searchVideosByRef", () => {
     await searchVideosByRef(db, {
       startCoord: coord(45, 8, 3),
       endCoord: coord(45, 8, 3),
+      rawQuery: "Romans 8:3",
       limit: 20,
       offset: 0,
     })
