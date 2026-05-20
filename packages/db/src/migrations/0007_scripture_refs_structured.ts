@@ -1,5 +1,18 @@
 import { type Kysely, sql } from "kysely"
 
+// PRE-LAUNCH SHORTCUT — intentional deviation from the prescribed migration sequence.
+//
+// Card #770 specifies: add new columns → backfill → drop old reference column.
+// This migration instead drops and recreates video_scripture_refs outright because
+// no production data existed at the time it was authored. Do NOT replay this pattern
+// post-launch; any future schema change on this table must follow the add-columns →
+// backfill → drop sequence to avoid data loss.
+//
+// Recovery: after applying this migration, repopulate rows by running:
+//   pnpm --filter @sermon-search/worker worker:run -- --enrich --force
+// This re-runs the deterministic scripture extractor against every transcript and
+// reinserts rows with the new structured columns.
+
 export async function up(db: Kysely<unknown>): Promise<void> {
   await sql`DROP TABLE IF EXISTS video_scripture_refs`.execute(db)
 
