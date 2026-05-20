@@ -199,12 +199,12 @@ export async function runRelatedBackfill({
 
   const allRefRows = await db
     .selectFrom("video_scripture_refs")
-    .select(["video_id", "reference"])
+    .select(["video_id", "start_coord", "end_coord"])
     .execute()
   const allVideoRefs = new Map<string, string[]>()
   for (const row of allRefRows) {
     const list = allVideoRefs.get(row.video_id) ?? []
-    list.push(row.reference)
+    list.push(`${row.start_coord}:${row.end_coord}`)
     allVideoRefs.set(row.video_id, list)
   }
 

@@ -1,5 +1,5 @@
+import { extract } from "@sermon-search/scripture"
 import { describe, expect, it } from "vitest"
-import { filterScriptureRefs } from "./scripture.js"
 import { slugifyTopic } from "./topics.js"
 
 // Unit tests for enrichment orchestration logic (no DB required)
@@ -43,31 +43,46 @@ describe("topic slug deduplication", () => {
   })
 })
 
-describe("scripture filtering in enrichment pipeline", () => {
-  it("drops invalid refs returned by LLM", () => {
-    const llmOutput = ["John 3:16", "not a reference", "Romans 8:28-30", "john 3:16"]
-    const result = filterScriptureRefs(llmOutput)
-    expect(result).toEqual(["John 3:16", "Romans 8:28-30"])
+describe("scripture extraction via deterministic extractor", () => {
+  it("returns structured ExtractedRef with all required columns", () => {
+    const refs = extract("In John 3:16 we see God's love.")
+    expect(refs).toHaveLength(1)
+    const ref = refs[0]!
+    expect(typeof ref.book_id).toBe("number")
+    expect(typeof ref.chapter_start).toBe("number")
+    expect(typeof ref.verse_start).toBe("number")
+    expect(typeof ref.chapter_end).toBe("number")
+    expect(typeof ref.verse_end).toBe("number")
+    expect(typeof ref.start_coord).toBe("number")
+    expect(typeof ref.end_coord).toBe("number")
+    expect(typeof ref.occurrences).toBe("number")
+    expect(Array.isArray(ref.positions)).toBe(true)
+    expect(typeof ref.first_position).toBe("number")
+    expect(typeof ref.raw_first).toBe("string")
   })
 
-  it("caps at 3 even when LLM returns more valid refs", () => {
-    const llmOutput = ["John 3:16", "Rom 8:28", "Gen 1:1", "Ps 23:1"]
-    expect(filterScriptureRefs(llmOutput)).toHaveLength(3)
+  it("counts occurrences when the same ref appears multiple times", () => {
+    const refs = extract("Romans 8:28 is great. As Romans 8:28 says, all things work together.")
+    expect(refs).toHaveLength(1)
+    expect(refs[0]!.occurrences).toBe(2)
+    expect(refs[0]!.positions).toHaveLength(2)
   })
 
-  it("deduplicates identical refs across two videos sharing the same topic", () => {
-    // Simulates the same topic slug appearing for two videos
-    const video1Topics = ["grace", "faith", "grace"] // dup in one call
-    const video2Topics = ["faith", "hope"]
+  it("returns one entry per unique canonical interval", () => {
+    const refs = extract("See John 3:16 and Romans 8:28 and again John 3:16.")
+    expect(refs).toHaveLength(2)
+  })
 
-    const unique1 = [...new Set(video1Topics.map(slugifyTopic))]
-    const unique2 = [...new Set(video2Topics.map(slugifyTopic))]
+  it("returns empty array for text with no scripture references", () => {
+    const refs = extract("The weather was nice today and everyone felt good.")
+    expect(refs).toHaveLength(0)
+  })
 
-    expect(unique1).toEqual(["grace", "faith"])
-    expect(unique2).toEqual(["faith", "hope"])
-
-    // 'faith' slug is shared — both videos point at same topics row
-    const sharedSlug = unique1.find((s) => unique2.includes(s))
-    expect(sharedSlug).toBe("faith")
+  it("start_coord is less than or equal to end_coord for each ref", () => {
+    const refs = extract("Romans 8:28-30 is a key passage.")
+    expect(refs.length).toBeGreaterThan(0)
+    for (const ref of refs) {
+      expect(ref.start_coord).toBeLessThanOrEqual(ref.end_coord)
+    }
   })
 })

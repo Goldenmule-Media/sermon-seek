@@ -1,7 +1,7 @@
 import type { Database } from "@sermon-search/db"
+import { extract } from "@sermon-search/scripture"
 import type { Kysely } from "kysely"
 import type { Enricher } from "./llm.js"
-import { filterScriptureRefs } from "./scripture.js"
 import { slugifyTopic } from "./topics.js"
 
 export interface EnrichBackfillOptions {
@@ -63,8 +63,8 @@ export async function runEnrichBackfill({
 
     log(`enriching ${video.youtube_video_id}`)
 
+    const refs = extract(transcript.full_text)
     const output = await enricher.enrich(transcript.full_text, video.title)
-    const filteredRefs = filterScriptureRefs(output.scripture_refs)
 
     await db.transaction().execute(async (trx) => {
       await trx
@@ -123,18 +123,27 @@ export async function runEnrichBackfill({
 
       // Replace video_scripture_refs
       await trx.deleteFrom("video_scripture_refs").where("video_id", "=", video.id).execute()
-      if (filteredRefs.length > 0) {
+      if (refs.length > 0) {
         await trx
           .insertInto("video_scripture_refs")
           .values(
-            filteredRefs.map((reference, position) => ({
+            refs.map((ref) => ({
               video_id: video.id,
-              reference,
-              position,
+              book_id: ref.book_id,
+              chapter_start: ref.chapter_start,
+              verse_start: ref.verse_start,
+              chapter_end: ref.chapter_end,
+              verse_end: ref.verse_end,
+              start_coord: ref.start_coord,
+              end_coord: ref.end_coord,
+              occurrences: ref.occurrences,
+              positions: ref.positions,
+              first_position: ref.first_position,
+              raw_first: ref.raw_first,
             })),
           )
           .execute()
-        totals.refsInserted += filteredRefs.length
+        totals.refsInserted += refs.length
       }
     })
 
