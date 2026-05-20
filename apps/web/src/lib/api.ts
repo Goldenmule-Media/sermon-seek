@@ -24,7 +24,9 @@ export interface SearchParams {
   offset?: number
 }
 
-export async function fetchSearch(params: SearchParams): Promise<SearchResponse> {
+export async function fetchSearch(
+  params: SearchParams,
+): Promise<SearchResponse | { error: string }> {
   try {
     const sp = new URLSearchParams()
     if (params.ref) {
@@ -38,10 +40,16 @@ export async function fetchSearch(params: SearchParams): Promise<SearchResponse>
     if (params.limit != null) sp.set("limit", String(params.limit))
     if (params.offset != null) sp.set("offset", String(params.offset))
     const res = await fetch(`${apiBase()}/v1/search?${sp.toString()}`)
-    if (!res.ok) return { results: [], total: 0, took_ms: 0 }
+    if (!res.ok) {
+      try {
+        const body = (await res.json()) as { message?: unknown }
+        if (typeof body.message === "string") return { error: body.message }
+      } catch {}
+      return { error: "Search failed. Please try again." }
+    }
     return res.json() as Promise<SearchResponse>
   } catch {
-    return { results: [], total: 0, took_ms: 0 }
+    return { error: "Search failed. Please try again." }
   }
 }
 

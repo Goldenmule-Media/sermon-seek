@@ -23,6 +23,7 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
   const [data, setData] = useState<SearchResponse | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [apiError, setApiError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!q && !ref) {
@@ -32,6 +33,7 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
     let cancelled = false
     setLoading(true)
     setError(false)
+    setApiError(null)
     fetchSearch({
       q: q || undefined,
       ref: ref || undefined,
@@ -42,7 +44,13 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
       offset: 0,
     })
       .then((res) => {
-        if (!cancelled) setData(res)
+        if (cancelled) return
+        if ("error" in res) {
+          setApiError(res.error)
+          setData(null)
+        } else {
+          setData(res)
+        }
       })
       .catch(() => {
         if (!cancelled) setError(true)
@@ -69,7 +77,9 @@ export function SearchResults({ topics, playlists }: SearchResultsProps) {
 
       {error && <p className="text-destructive text-sm">Something went wrong. Please try again.</p>}
 
-      {!loading && !error && data && (
+      {!loading && apiError && <p className="text-destructive text-sm">{apiError}</p>}
+
+      {!loading && !error && !apiError && data && (
         <>
           {ref && (
             <p className="text-sm text-muted-foreground">
