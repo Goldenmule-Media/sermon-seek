@@ -86,7 +86,7 @@ export function SearchResults({ playlists }: SearchResultsProps) {
           </p>
           <ScriptureRefBox
             refs={data.scripture_refs}
-            label="Scripture references in these results"
+            label="Related searches"
           />
           {data.results.length === 0 ? (
             <p className="text-muted-foreground text-sm">

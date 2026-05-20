@@ -18,7 +18,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "biome check src",
-    "worker:run": "tsx --env-file=../../.env src/cli/run.ts"
+    "worker:run": "tsx --env-file=../../.env src/cli/run.ts",
+    "enrich:preview": "tsx --env-file=../../.env src/cli/enrich-preview.ts"
   },
   "dependencies": {
     "@sermon-search/db": "workspace:*",

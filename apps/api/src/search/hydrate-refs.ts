@@ -4,7 +4,6 @@ import type { ScriptureRefDetail } from "@sermon-search/types"
 import type { Kysely } from "kysely"
 
 const PER_RESULT_LIMIT = 6
-const PAGE_AGGREGATE_LIMIT = 12
 
 export interface HydratedRefs {
   perVideo: Map<string, ScriptureRefDetail[]>
@@ -91,9 +90,12 @@ export async function hydrateScriptureRefs(
     }
   }
 
-  const aggregate = Array.from(aggregateMap.values())
-    .sort((a, b) => b.occurrences - a.occurrences || a.start_coord - b.start_coord)
-    .slice(0, PAGE_AGGREGATE_LIMIT)
+  // Return every distinct ref aggregated across the returned videos so the UI
+  // can guarantee that every per-card chip also appears in the page-level box.
+  // The web layer is responsible for any visual truncation (e.g. show-more).
+  const aggregate = Array.from(aggregateMap.values()).sort(
+    (a, b) => b.occurrences - a.occurrences || a.start_coord - b.start_coord,
+  )
 
   return { perVideo, aggregate }
 }

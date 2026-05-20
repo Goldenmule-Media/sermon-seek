@@ -24,7 +24,7 @@ const enrichmentSchema = {
     summary: {
       type: "string",
       description:
-        "1–2 sentence summary, ~280 characters or less. Describe what the video actually is and what it covers.",
+        "1–2 sentence summary, 280 characters or fewer. Lead with the substantive content, not the format wrapper. Never start with 'The sermon', 'This sermon', 'The speaker', 'In this video', 'A worship service', or similar boilerplate openers.",
     },
     topics: {
       type: "array",
@@ -47,11 +47,25 @@ export function createOpenAIEnricher({
 
   async function callWithRetry(transcriptText: string, title: string): Promise<EnrichmentOutput> {
     const excerpt = transcriptText.slice(0, MAX_TRANSCRIPT_CHARS)
-    const prompt = `You are analyzing a recorded video from a church's channel. The content may be a sermon, devotional, Q&A, panel, livestream, announcement, interview, worship, or anything else — describe what it actually is, don't assume.
+    const prompt = `You are summarizing a recorded video from a church's channel. Tell a viewer what they would actually get from watching.
 
-Given the title and transcript excerpt, produce:
-- summary: 1–2 sentences, ~280 characters or less. Start by naming the format (e.g. "A sermon on…", "A devotional reflecting on…", "A Q&A about…"). Be concrete about the subject; skip filler like "in this video".
-- topics: 5–10 short noun phrases describing what's covered (lowercase, slug-friendly, e.g. "grace", "faith in action").
+HARD LIMIT: summary must be 240 characters or fewer (about 35–40 words). Count characters; cut words to fit. Tight beats complete — if you can't fit it cleanly, drop the second sentence.
+
+Style rules:
+- Write 1–2 sentences. Lead with the substance.
+- Do not start with "The sermon...", "This sermon...", "The speaker...", "In this video...", "The leaders...", "A worship service...". Start with the actual subject.
+- For a sermon embedded in a service: summarize the sermon (passage + main idea). Ignore the surrounding service, music, prayer, or liturgy.
+- For a scripture reading or devotional: name the passage and the angle on it.
+- For a Q&A, panel, interview, or podcast: name the conversation topic and the distinctive angle. The format label is OK here ("A Q&A about…").
+- For an announcement or event recap: what was announced or what happened, and who it's for.
+- Use specific nouns; avoid hedge words like "various", "several", "themes of", "different aspects".
+
+Good (sermon): "Matthew 11:28 and 5:6 on coming to Christ for rest and hungering for righteousness — God meets the weary with peace, not condemnation."
+Good (panel): "A panel on parenting through crisis after cartel violence in Guadalajara, with leaders discussing how families and churches steady kids when fear surges."
+Bad: "The sermon focuses on the importance of…" (filler opener)
+Bad: "A worship service centered on…" (wrapper, not content)
+
+Also produce 5–10 short topic noun phrases (lowercase, slug-friendly, e.g. "grace", "faith in action").
 
 Title: ${title}
 
