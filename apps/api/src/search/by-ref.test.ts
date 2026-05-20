@@ -43,13 +43,10 @@ describe("parseRefQuery", () => {
 })
 
 describe("searchVideosByRef", () => {
-  function makeChain(terminal: {
-    execute?: () => Promise<unknown[]>
-    executeTakeFirst?: () => Promise<unknown>
-  }) {
+  function makeChain(rows: unknown[] = []) {
     const c: Record<string, unknown> = {
-      execute: terminal.execute ?? (() => Promise.resolve([])),
-      executeTakeFirst: terminal.executeTakeFirst ?? (() => Promise.resolve({ total: "0" })),
+      execute: () => Promise.resolve(rows),
+      executeTakeFirst: () => Promise.resolve(rows[0]),
     }
     for (const m of [
       "innerJoin",
@@ -66,106 +63,90 @@ describe("searchVideosByRef", () => {
     return c
   }
 
-  function makeMockDb(rows: object[], countStr = "0") {
-    return {
-      selectFrom: vi.fn(() =>
-        makeChain({
-          execute: () => Promise.resolve(rows),
-          executeTakeFirst: () => Promise.resolve({ total: countStr }),
-        }),
-      ),
-    } as unknown as Kysely<Database>
-  }
+  it("returns empty results and empty videoScores when no candidate videos", async () => {
+    const db = { selectFrom: vi.fn(() => makeChain([])) } as unknown as Kysely<Database>
+    const result = await searchVideosByRef(db, {
+      startCoord: 1,
+      endCoord: 1,
+      rawQuery: "no match",
+      candidateLimit: 20,
+    })
+    expect(result.results).toEqual([])
+    expect(result.videoScores.size).toBe(0)
+  })
 
-  it("returns formatted results and total", async () => {
-    const rows = [
+  it("emits per-chunk FtsResults and seeds videoScores from ref_score", async () => {
+    const videoRows = [
       {
-        id: "vid1",
+        id: "vid-uuid-1",
         youtube_video_id: "abc123",
         title: "Test Sermon",
         thumbnail_url: "https://example.com/thumb.jpg",
         ref_score: 5,
       },
     ]
-    const db = makeMockDb(rows, "1")
+    const chunkRows = [
+      {
+        video_id: "vid-uuid-1",
+        start_ms: 1000,
+        end_ms: 30000,
+        chunk_score: 0.42,
+        snippet: "<mark>Romans 8</mark>",
+      },
+      {
+        video_id: "vid-uuid-1",
+        start_ms: 60000,
+        end_ms: 90000,
+        chunk_score: 0.31,
+        snippet: "another <mark>Romans 8</mark>",
+      },
+    ]
+    const responses: unknown[][] = [videoRows, chunkRows]
+    let call = 0
+    const db = {
+      selectFrom: vi.fn(() => makeChain(responses[call++] ?? [])),
+    } as unknown as Kysely<Database>
+
     const result = await searchVideosByRef(db, {
       startCoord: coord(45, 8, 3),
       endCoord: coord(45, 8, 3),
       rawQuery: "Romans 8:3",
-      limit: 20,
-      offset: 0,
+      candidateLimit: 20,
     })
-    expect(result.total).toBe(1)
-    expect(result.results).toHaveLength(1)
+
+    expect(result.results).toHaveLength(2)
     expect(result.results[0]).toMatchObject({
       youtube_video_id: "abc123",
       title: "Test Sermon",
-      ref_score: 5,
+      start_ms: 1000,
+      end_ms: 30000,
+      score: 0.42,
     })
+    expect(result.videoScores.get("abc123")).toBe(5)
   })
 
-  it("returns total as number even when db returns a string", async () => {
-    const db = makeMockDb([], "42")
-    const result = await searchVideosByRef(db, {
-      startCoord: coord(45, 8, 1),
-      endCoord: coord(45, 8, ROMANS_8_VERSE_COUNT),
-      rawQuery: "Romans 8",
-      limit: 10,
-      offset: 0,
-    })
-    expect(result.total).toBe(42)
-    expect(typeof result.total).toBe("number")
-  })
-
-  it("returns empty results when no matches", async () => {
-    const db = makeMockDb([], "0")
-    const result = await searchVideosByRef(db, {
-      startCoord: 1,
-      endCoord: 1,
-      rawQuery: "no match",
-      limit: 20,
-      offset: 0,
-    })
-    expect(result.results).toEqual([])
-    expect(result.total).toBe(0)
-  })
-
-  it("calls db.selectFrom twice — once for results, once for count", async () => {
-    const db = makeMockDb([], "0")
-    await searchVideosByRef(db, {
-      startCoord: coord(45, 8, 3),
-      endCoord: coord(45, 8, 3),
-      rawQuery: "Romans 8:3",
-      limit: 20,
-      offset: 0,
-    })
-    expect((db.selectFrom as ReturnType<typeof vi.fn>).mock.calls).toHaveLength(2)
-  })
-
-  it("passes where clauses for interval overlap", async () => {
-    const whereArgs: unknown[][] = []
-    const chain: Record<string, unknown> = {
-      execute: vi.fn().mockResolvedValue([]),
-      executeTakeFirst: vi.fn().mockResolvedValue({ total: "0" }),
-    }
-    for (const m of ["innerJoin", "select", "groupBy", "orderBy", "limit", "offset", "as"]) {
-      chain[m] = vi.fn(() => chain)
-    }
-    chain.where = vi.fn((...args: unknown[]) => {
-      whereArgs.push(args)
-      return chain
-    })
-    const db = { selectFrom: vi.fn(() => chain) } as unknown as Kysely<Database>
+  it("issues two selectFrom calls (videos, then chunks)", async () => {
+    const videoRows = [
+      {
+        id: "vid-uuid-1",
+        youtube_video_id: "abc123",
+        title: "Test",
+        thumbnail_url: null,
+        ref_score: 1,
+      },
+    ]
+    const responses: unknown[][] = [videoRows, []]
+    let call = 0
+    const selectFrom = vi.fn(() => makeChain(responses[call++] ?? []))
+    const db = { selectFrom } as unknown as Kysely<Database>
 
     await searchVideosByRef(db, {
       startCoord: coord(45, 8, 3),
       endCoord: coord(45, 8, 3),
       rawQuery: "Romans 8:3",
-      limit: 20,
-      offset: 0,
+      candidateLimit: 20,
     })
 
-    // At minimum two where calls per query (overlap start + overlap end)
-    expect((chain.where as ReturnType<typeof vi.fn>).mock.calls.length).toBeGreaterThanOrEqual(2)
+    expect(selectFrom.mock.calls).toHaveLength(2)
   })
 })

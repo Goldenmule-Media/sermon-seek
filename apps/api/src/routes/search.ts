@@ -1,11 +1,18 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
 import { BadRefError, parseRefQuery, searchVideosByRef } from "../search/by-ref.js"
+import type { FtsResult } from "../search/fts.js"
 import { searchSegments } from "../search/fts.js"
+import { groupByVideo } from "../search/group-by-video.js"
 import { searchHybrid } from "../search/hybrid.js"
 import { hydrateScriptureRefs } from "../search/hydrate-refs.js"
 import { refineSegmentStarts } from "../search/refine.js"
 import { searchSemantic } from "../search/semantic.js"
+
+// Over-fetch factor for candidate chunks before grouping by video. Larger
+// values surface more videos to rank but cost more refine + group work.
+const CANDIDATE_MULTIPLIER = 10
+const MIN_CANDIDATES = 200
 
 const querySchema = z
   .object({
@@ -34,13 +41,18 @@ const scriptureRefDetailSchema = z.object({
   display: z.string(),
 })
 
-const searchResultSchema = z.object({
-  video_id: z.string(),
-  title: z.string(),
+const searchHitSchema = z.object({
   snippet: z.string(),
   start_ms: z.number(),
   score: z.number(),
+})
+
+const searchResultSchema = z.object({
+  video_id: z.string(),
+  title: z.string(),
   thumbnail_url: z.string(),
+  score: z.number(),
+  hits: z.array(searchHitSchema),
   scripture_refs: z.array(scriptureRefDetailSchema),
 })
 
@@ -79,28 +91,29 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
             ? new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)
             : undefined
 
+      const candidateLimit = Math.max(MIN_CANDIDATES, limit * CANDIDATE_MULTIPLIER)
+
       const respond = async (
-        results: Array<{
-          youtube_video_id: string
-          title: string
-          thumbnail_url: string | null
-          start_ms: number
-          score: number
-          snippet: string
-        }>,
-        total: number,
+        candidates: FtsResult[],
+        refineQuery: string,
+        videoScores?: Map<string, number>,
       ) => {
-        const ids = results.map((r) => r.youtube_video_id)
+        const refined = await refineSegmentStarts(app.db, refineQuery, candidates)
+        const { videos, total } = groupByVideo(refined, { limit, offset, videoScores })
+        const ids = videos.map((v) => v.youtube_video_id)
         const refs = await hydrateScriptureRefs(app.db, ids)
         return {
-          results: results.map((r) => ({
-            video_id: r.youtube_video_id,
-            title: r.title,
-            snippet: r.snippet,
-            start_ms: r.start_ms,
-            score: r.score,
-            thumbnail_url: r.thumbnail_url ?? "",
-            scripture_refs: refs.perVideo.get(r.youtube_video_id) ?? [],
+          results: videos.map((v) => ({
+            video_id: v.youtube_video_id,
+            title: v.title,
+            thumbnail_url: v.thumbnail_url ?? "",
+            score: v.score,
+            hits: v.hits.map((h) => ({
+              snippet: h.snippet,
+              start_ms: h.start_ms,
+              score: h.score,
+            })),
+            scripture_refs: refs.perVideo.get(v.youtube_video_id) ?? [],
           })),
           total,
           took_ms: Date.now() - t0,
@@ -119,71 +132,56 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
           throw err
         }
 
-        const { results: rawResults, total } = await searchVideosByRef(app.db, {
+        const { results, videoScores } = await searchVideosByRef(app.db, {
           startCoord: interval.start_coord,
           endCoord: interval.end_coord,
           rawQuery: ref,
-          limit,
-          offset,
+          candidateLimit,
           topicSlug,
           playlistSlug,
           publishedAfter,
         })
-        const ftsShape = rawResults.map((r) => ({
-          youtube_video_id: r.youtube_video_id,
-          title: r.title,
-          thumbnail_url: r.thumbnail_url,
-          start_ms: r.start_ms,
-          end_ms: r.end_ms,
-          score: r.ref_score,
-          snippet: r.snippet,
-        }))
-        const refined = await refineSegmentStarts(app.db, ref, ftsShape)
-        return respond(refined, total)
+        return respond(results, ref, videoScores)
       }
 
-      // q is guaranteed present when ref is absent (enforced by refine above)
       const qStr = q!
 
       if (mode === "semantic") {
         if (!app.embedder) {
           return reply.code(503).send({ message: "OPENAI_API_KEY is not configured" } as never)
         }
-        const { results: rawResults, total } = await searchSemantic(app.db, app.embedder, {
+        const { results } = await searchSemantic(app.db, app.embedder, {
           q: qStr,
-          limit,
-          offset,
+          limit: candidateLimit,
+          offset: 0,
           topicSlug,
           playlistSlug,
           publishedAfter,
         })
-        const results = await refineSegmentStarts(app.db, qStr, rawResults)
-        return respond(results, total)
+        return respond(results, qStr)
       }
 
       if (mode === "hybrid") {
-        const { results: rawResults, total } = await searchHybrid(app.db, app.embedder, {
+        const { results } = await searchHybrid(app.db, app.embedder, {
           q: qStr,
-          limit,
-          offset,
+          limit: candidateLimit,
+          offset: 0,
           topicSlug,
           playlistSlug,
           publishedAfter,
         })
-        const results = await refineSegmentStarts(app.db, qStr, rawResults)
-        return respond(results, total)
+        return respond(results, qStr)
       }
 
-      const { results: rawResults, total } = await searchSegments(app.db, {
+      const { results } = await searchSegments(app.db, {
         q: qStr,
-        limit,
-        offset,
+        limit: candidateLimit,
+        offset: 0,
         topicSlug,
         playlistSlug,
         publishedAfter,
       })
-      const results = await refineSegmentStarts(app.db, qStr, rawResults)
-      return respond(results, total)
+      return respond(results, qStr)
     },
   )
 }

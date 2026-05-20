@@ -1,10 +1,15 @@
-export interface SearchResult {
-  video_id: string
-  title: string
+export interface SearchHit {
   snippet: string
   start_ms: number
   score: number
+}
+
+export interface SearchResult {
+  video_id: string
+  title: string
   thumbnail_url: string
+  score: number
+  hits: SearchHit[]
   scripture_refs: ScriptureRefDetail[]
 }
 

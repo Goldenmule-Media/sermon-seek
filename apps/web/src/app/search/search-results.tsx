@@ -94,8 +94,8 @@ export function SearchResults({ playlists }: SearchResultsProps) {
             </p>
           ) : (
             <ul className="space-y-3">
-              {data.results.map((result, i) => (
-                <li key={`${result.video_id}-${result.start_ms}-${i}`}>
+              {data.results.map((result) => (
+                <li key={result.video_id}>
                   <SearchResultCard result={result} />
                 </li>
               ))}

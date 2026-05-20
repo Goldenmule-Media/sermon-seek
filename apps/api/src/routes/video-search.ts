@@ -26,13 +26,18 @@ const scriptureRefDetailSchema = z.object({
   display: z.string(),
 })
 
-const searchResultSchema = z.object({
-  video_id: z.string(),
-  title: z.string(),
+const searchHitSchema = z.object({
   snippet: z.string(),
   start_ms: z.number(),
   score: z.number(),
+})
+
+const searchResultSchema = z.object({
+  video_id: z.string(),
+  title: z.string(),
   thumbnail_url: z.string(),
+  score: z.number(),
+  hits: z.array(searchHitSchema),
   scripture_refs: z.array(scriptureRefDetailSchema),
 })
 
@@ -76,20 +81,36 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
 
       const t0 = Date.now()
       const { results: rawResults, total } = await searchSegments(app.db, { q, videoId: id, limit, offset })
-      const results = await refineSegmentStarts(app.db, q, rawResults)
+      const refined = await refineSegmentStarts(app.db, q, rawResults)
       const refs = await hydrateScriptureRefs(app.db, [id])
       const videoRefs = refs.perVideo.get(id) ?? []
 
+      if (refined.length === 0) {
+        return {
+          results: [],
+          total,
+          took_ms: Date.now() - t0,
+          scripture_refs: refs.aggregate,
+        }
+      }
+
+      const head = refined[0]!
+      const aggScore = refined.reduce((acc, r) => acc + r.score, 0)
       return {
-        results: results.map((r) => ({
-          video_id: r.youtube_video_id,
-          title: r.title,
-          snippet: r.snippet,
-          start_ms: r.start_ms,
-          score: r.score,
-          thumbnail_url: r.thumbnail_url ?? "",
-          scripture_refs: videoRefs,
-        })),
+        results: [
+          {
+            video_id: head.youtube_video_id,
+            title: head.title,
+            thumbnail_url: head.thumbnail_url ?? "",
+            score: aggScore,
+            hits: refined.map((r) => ({
+              snippet: r.snippet,
+              start_ms: r.start_ms,
+              score: r.score,
+            })),
+            scripture_refs: videoRefs,
+          },
+        ],
         total,
         took_ms: Date.now() - t0,
         scripture_refs: refs.aggregate,
