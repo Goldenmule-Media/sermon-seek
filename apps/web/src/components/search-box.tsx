@@ -49,7 +49,7 @@ export function SearchBox({ initialQuery, showHint = true }: SearchBoxProps) {
         </Button>
       </form>
       {showHint && (
-        <p className="text-sm text-muted-foreground text-center">try: grace, Romans 8, John 3:16</p>
+        <p className="text-sm text-muted-foreground text-center">try: armor of god, Romans 8, etc</p>
       )}
     </div>
   )

@@ -11,7 +11,7 @@ export const FTS_WEIGHT = 1.0
 // Semantic is weighted above FTS so a strong thematic hit (rank 1 in semantic, absent
 // from FTS) outranks a marginal keyword hit (rank 1 in FTS, absent from semantic).
 // Docs in both lists still win — they accumulate from both sides.
-export const SEMANTIC_WEIGHT = 1.5
+export const SEMANTIC_WEIGHT = 2.0
 // When the user opts into a phrase via double quotes, they want literal-text
 // results. Drop semantic to FTS-equivalent weight so it can only break ties /
 // add adjacent related passages, not outrank verbatim phrase hits.

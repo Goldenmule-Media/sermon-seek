@@ -4,7 +4,7 @@ import { ExpandedVideoView } from "@/components/expanded-video-view"
 import { VideoSummary } from "@/components/video-summary"
 import { formatDuration } from "@/lib/utils"
 import type { SearchResult } from "@sermon-search/types"
-import { ChevronDown, ChevronRight, ChevronUp, Play } from "lucide-react"
+import { BookOpen, ChevronDown, ChevronRight, ChevronUp, Hash, Play } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -155,46 +155,38 @@ export function SearchResultCard({
       </div>
 
       {refs.length > 0 && (
-        <div className="rounded-md border bg-muted/40 p-2">
-          <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground mb-1">
-            Scripture references
-          </p>
-          <div className="flex flex-wrap gap-1">
-            {refs.map((r) => (
-              <Link
-                key={`${r.start_coord}-${r.end_coord}`}
-                href={`/search?ref=${encodeURIComponent(r.display)}`}
-                className="inline-flex items-center gap-1 rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
-              >
-                <span>{r.display}</span>
-                <span className="text-muted-foreground">{r.occurrences}</span>
-              </Link>
-            ))}
-            {overflow > 0 && (
-              <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] text-muted-foreground">
-                +{overflow} more
-              </span>
-            )}
-          </div>
+        <div className="flex flex-wrap gap-1">
+          {refs.map((r) => (
+            <Link
+              key={`${r.start_coord}-${r.end_coord}`}
+              href={`/search?ref=${encodeURIComponent(r.display)}`}
+              className="inline-flex items-center gap-1 rounded border border-amber-300/60 bg-amber-50 px-2 py-0.5 text-[11px] text-amber-950 hover:bg-amber-100 dark:border-amber-700/40 dark:bg-amber-950/40 dark:text-amber-100 dark:hover:bg-amber-900/50 transition-colors"
+            >
+              <BookOpen className="h-3 w-3 opacity-70" aria-hidden />
+              <span>{r.display}</span>
+              <span className="opacity-60">{r.occurrences}</span>
+            </Link>
+          ))}
+          {overflow > 0 && (
+            <span className="inline-flex items-center px-2 py-0.5 text-[11px] text-muted-foreground">
+              +{overflow} more
+            </span>
+          )}
         </div>
       )}
 
       {result.topics.length > 0 && (
-        <div className="rounded-md border bg-muted/40 p-2">
-          <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground mb-1">
-            Topics
-          </p>
-          <div className="flex flex-wrap gap-1">
-            {result.topics.map((t) => (
-              <Link
-                key={t.slug}
-                href={`/topics/${t.slug}`}
-                className="inline-flex items-center rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
-              >
-                {t.label}
-              </Link>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px]">
+          {result.topics.map((t) => (
+            <Link
+              key={t.slug}
+              href={`/topics/${t.slug}`}
+              className="inline-flex items-center text-muted-foreground hover:text-foreground hover:underline transition-colors"
+            >
+              <Hash className="h-3 w-3 opacity-60" aria-hidden />
+              <span>{t.label}</span>
+            </Link>
+          ))}
         </div>
       )}
     </div>
