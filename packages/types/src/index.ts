@@ -86,7 +86,7 @@ export interface RelatedVideosResponse {
 
 export interface HomeResponse {
   recent: Video[]
-  top_playlists: Array<{ playlist: PlaylistWithStats; videos: Video[] }>
+  category_strips: Array<{ playlist: PlaylistWithStats; videos: Video[] }>
 }
 
 export interface PlaylistRef {

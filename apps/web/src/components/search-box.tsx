@@ -2,8 +2,16 @@
 
 import { Button } from "@/components/ui/button"
 import { isRefLike } from "@/lib/scripture-ref-detect"
+import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { type ReactNode, useEffect, useState } from "react"
+
+const SUGGESTIONS = ["armor of god", "Romans 8", "what does jubilee think about elders?"]
+
+function suggestionHref(q: string): string {
+  const param = isRefLike(q) ? "ref" : "q"
+  return `/search?${param}=${encodeURIComponent(q)}`
+}
 
 interface SearchBoxProps {
   initialQuery?: string
@@ -59,7 +67,15 @@ export function SearchBox({ initialQuery, showHint = true, filtersSlot }: Search
       </form>
       {showHint && (
         <p className="text-sm text-muted-foreground text-center">
-          try: armor of god, Romans 8, what does jubilee think about elders?
+          try:{" "}
+          {SUGGESTIONS.map((s, i) => (
+            <span key={s}>
+              {i > 0 && ", "}
+              <Link href={suggestionHref(s)} className="text-primary hover:underline">
+                {s}
+              </Link>
+            </span>
+          ))}
         </p>
       )}
     </div>

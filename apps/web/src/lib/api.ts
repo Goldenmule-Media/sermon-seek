@@ -58,10 +58,10 @@ export async function fetchHome(): Promise<HomeResponse> {
     const res = await fetch(`${apiBase()}/v1/home`, {
       next: { revalidate: 60 },
     })
-    if (!res.ok) return { recent: [], top_playlists: [] }
+    if (!res.ok) return { recent: [], category_strips: [] }
     return res.json() as Promise<HomeResponse>
   } catch {
-    return { recent: [], top_playlists: [] }
+    return { recent: [], category_strips: [] }
   }
 }
 

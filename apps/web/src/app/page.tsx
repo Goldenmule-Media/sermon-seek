@@ -23,7 +23,7 @@ export default async function HomePage() {
 
       <VideoStrip title="Recent Uploads" videos={data.recent} />
 
-      {data.top_playlists.map(({ playlist, videos }) => (
+      {data.category_strips.map(({ playlist, videos }) => (
         <VideoStrip
           key={playlist.id}
           title={playlist.title}
