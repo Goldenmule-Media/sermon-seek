@@ -47,13 +47,9 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ id
         topics={video.topics}
         scriptureRefs={video.scripture_refs}
       />
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <VideoDetailShell video={video} transcript={transcript} />
-        </div>
-        <div>
-          <RelatedVideosSlot related={related} />
-        </div>
+      <VideoDetailShell video={video} transcript={transcript} />
+      <div className="mt-8">
+        <RelatedVideosSlot related={related} />
       </div>
     </main>
   )

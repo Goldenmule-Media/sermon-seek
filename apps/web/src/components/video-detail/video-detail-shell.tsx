@@ -2,8 +2,7 @@
 
 import type { TranscriptResponse, VideoDetailResponse } from "@sermon-search/types"
 import { useSearchParams } from "next/navigation"
-import { useRef, useState } from "react"
-import { InVideoSearch } from "./in-video-search"
+import { useEffect, useRef, useState } from "react"
 import { TranscriptView } from "./transcript-view"
 import type { YouTubePlayerHandle } from "./youtube-player"
 import { YouTubePlayer } from "./youtube-player"
@@ -19,7 +18,20 @@ export function VideoDetailShell({ video, transcript }: Props) {
   const initialStartSeconds = tParam ? Number(tParam) : 0
 
   const playerRef = useRef<YouTubePlayerHandle>(null)
+  const playerWrapperRef = useRef<HTMLDivElement>(null)
   const [currentMs, setCurrentMs] = useState(initialStartSeconds * 1000)
+  const [playerHeight, setPlayerHeight] = useState<number | null>(null)
+
+  useEffect(() => {
+    const el = playerWrapperRef.current
+    if (!el) return
+    const observer = new ResizeObserver((entries) => {
+      const entry = entries[0]
+      if (entry) setPlayerHeight(entry.contentRect.height)
+    })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   function handleSeek(ms: number) {
     setCurrentMs(ms)
@@ -27,16 +39,20 @@ export function VideoDetailShell({ video, transcript }: Props) {
   }
 
   return (
-    <div className="space-y-4">
-      <YouTubePlayer
-        ref={playerRef}
-        videoId={video.youtube_video_id}
-        initialStartSeconds={initialStartSeconds}
-        onTimeUpdate={setCurrentMs}
-      />
-      <InVideoSearch videoId={video.youtube_video_id} onSeek={handleSeek} />
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+      <div className="lg:col-span-3" ref={playerWrapperRef}>
+        <YouTubePlayer
+          ref={playerRef}
+          videoId={video.youtube_video_id}
+          initialStartSeconds={initialStartSeconds}
+          onTimeUpdate={setCurrentMs}
+        />
+      </div>
       {transcript && (
-        <div>
+        <div
+          className="lg:col-span-2 flex flex-col min-h-0"
+          style={{ height: playerHeight ?? 384 }}
+        >
           <h2 className="text-sm font-semibold mb-2">Transcript</h2>
           <TranscriptView
             segments={transcript.segments}
