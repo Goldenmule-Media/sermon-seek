@@ -28,7 +28,9 @@ describe("chunkSegments", () => {
     const segs = Array.from({ length: 20 }, (_, i) => makeSeg(`${i}`, i * 5_000, (i + 1) * 5_000))
     const chunks = chunkSegments(segs, { minMs: 30_000, targetMs: 45_000, maxMs: 60_000 })
     for (let i = 0; i < chunks.length - 1; i++) {
-      const duration = chunks[i]?.end_ms - chunks[i]?.start_ms
+      const chunk = chunks[i]
+      if (!chunk) continue
+      const duration = chunk.end_ms - chunk.start_ms
       expect(duration).toBeGreaterThanOrEqual(30_000)
     }
     for (const chunk of chunks) {
