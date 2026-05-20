@@ -2,6 +2,7 @@
 
 import { ScriptureRefBox } from "@/components/scripture-ref-box"
 import { SearchResultCard } from "@/components/search-result-card"
+import { SearchResultsSkeleton } from "@/components/search-result-skeleton"
 import { fetchSearch } from "@/lib/api"
 import type { PlaylistWithStats, SearchResponse } from "@sermon-search/types"
 import { useSearchParams } from "next/navigation"
@@ -73,7 +74,7 @@ export function SearchResults({ playlists }: SearchResultsProps) {
         <p className="text-muted-foreground text-sm">Enter a query above to search sermons.</p>
       )}
 
-      {loading && <p className="text-muted-foreground text-sm">Searching…</p>}
+      {loading && <SearchResultsSkeleton />}
 
       {error && <p className="text-destructive text-sm">Something went wrong. Please try again.</p>}
 
