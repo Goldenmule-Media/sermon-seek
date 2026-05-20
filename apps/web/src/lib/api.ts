@@ -15,7 +15,8 @@ function apiBase(): string {
 }
 
 export interface SearchParams {
-  q: string
+  q?: string
+  ref?: string
   playlist?: string
   topic?: string
   date?: string
@@ -25,7 +26,12 @@ export interface SearchParams {
 
 export async function fetchSearch(params: SearchParams): Promise<SearchResponse> {
   try {
-    const sp = new URLSearchParams({ q: params.q })
+    const sp = new URLSearchParams()
+    if (params.ref) {
+      sp.set("ref", params.ref)
+    } else if (params.q) {
+      sp.set("q", params.q)
+    }
     if (params.playlist) sp.set("playlist", params.playlist)
     if (params.topic) sp.set("topic", params.topic)
     if (params.date) sp.set("date", params.date)

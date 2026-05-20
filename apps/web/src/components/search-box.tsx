@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { isRefLike } from "@/lib/scripture-ref-detect"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
@@ -16,7 +17,12 @@ export function SearchBox({ initialQuery }: SearchBoxProps) {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const q = query.trim()
-    if (q) router.push(`/search?q=${encodeURIComponent(q)}`)
+    if (!q) return
+    if (isRefLike(q)) {
+      router.push(`/search?ref=${encodeURIComponent(q)}`)
+    } else {
+      router.push(`/search?q=${encodeURIComponent(q)}`)
+    }
   }
 
   return (
@@ -33,7 +39,7 @@ export function SearchBox({ initialQuery }: SearchBoxProps) {
           Search
         </Button>
       </form>
-      <p className="text-sm text-muted-foreground text-center">try: grace, Romans 8, forgiveness</p>
+      <p className="text-sm text-muted-foreground text-center">try: grace, Romans 8, John 3:16</p>
     </div>
   )
 }
