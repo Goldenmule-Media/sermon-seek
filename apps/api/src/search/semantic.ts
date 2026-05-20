@@ -83,6 +83,7 @@ export async function searchSemantic(
     title: string
     thumbnail_url: string | null
     start_ms: number
+    end_ms: number
     score: number
     text: string
   }
@@ -96,6 +97,7 @@ export async function searchSemantic(
       "v.title",
       "v.thumbnail_url",
       "c.start_ms",
+      "c.end_ms",
       "c.text",
       sql<number>`1 - (e.vector <=> ${vecStr}::vector)`.as("score"),
     ])
@@ -138,6 +140,7 @@ export async function searchSemantic(
     title: r.title,
     thumbnail_url: r.thumbnail_url,
     start_ms: r.start_ms,
+    end_ms: r.end_ms,
     score: r.score,
     snippet: buildSnippet(r.text, q),
   }))

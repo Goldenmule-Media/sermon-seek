@@ -2,6 +2,7 @@ import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
 import { searchSegments } from "../search/fts.js"
 import { searchHybrid } from "../search/hybrid.js"
+import { refineSegmentStarts } from "../search/refine.js"
 import { searchSemantic } from "../search/semantic.js"
 
 const querySchema = z.object({
@@ -59,7 +60,8 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         if (!app.embedder) {
           return reply.code(503).send({ message: "OPENAI_API_KEY is not configured" } as never)
         }
-        const { results, total } = await searchSemantic(app.db, app.embedder, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
+        const { results: rawResults, total } = await searchSemantic(app.db, app.embedder, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
+        const results = await refineSegmentStarts(app.db, q, rawResults)
         return {
           results: results.map((r) => ({
             video_id: r.youtube_video_id,
@@ -75,7 +77,8 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       if (mode === "hybrid") {
-        const { results, total } = await searchHybrid(app.db, app.embedder, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
+        const { results: rawResults, total } = await searchHybrid(app.db, app.embedder, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
+        const results = await refineSegmentStarts(app.db, q, rawResults)
         return {
           results: results.map((r) => ({
             video_id: r.youtube_video_id,
@@ -90,7 +93,8 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         }
       }
 
-      const { results, total } = await searchSegments(app.db, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
+      const { results: rawResults, total } = await searchSegments(app.db, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
+      const results = await refineSegmentStarts(app.db, q, rawResults)
       return {
         results: results.map((r) => ({
           video_id: r.youtube_video_id,

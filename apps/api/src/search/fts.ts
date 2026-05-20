@@ -17,6 +17,9 @@ export interface FtsResult {
   title: string
   thumbnail_url: string | null
   start_ms: number
+  // Chunk's end_ms — kept on the result so we can refine start_ms to the matching
+  // segment inside the chunk before showing it to the user. Not exposed in the API.
+  end_ms: number
   score: number
   snippet: string
 }
@@ -46,6 +49,7 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
       "v.title",
       "v.thumbnail_url",
       "c.start_ms",
+      "c.end_ms",
       sql<number>`ts_rank_cd(c.text_tsv, ${tsquery})`.as("score"),
       sql<string>`ts_headline('english', c.text, ${tsquery}, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=20,MinWords=10')`.as(
         "snippet",

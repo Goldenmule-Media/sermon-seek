@@ -1,6 +1,7 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
 import { searchSegments } from "../search/fts.js"
+import { refineSegmentStarts } from "../search/refine.js"
 
 const paramsSchema = z.object({
   id: z.string().min(1),
@@ -59,7 +60,8 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       const t0 = Date.now()
-      const { results, total } = await searchSegments(app.db, { q, videoId: id, limit, offset })
+      const { results: rawResults, total } = await searchSegments(app.db, { q, videoId: id, limit, offset })
+      const results = await refineSegmentStarts(app.db, q, rawResults)
 
       return {
         results: results.map((r) => ({

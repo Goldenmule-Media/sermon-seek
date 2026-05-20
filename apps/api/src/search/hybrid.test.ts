@@ -8,7 +8,15 @@ function makeResult(
   snippet: string,
   score = 1.0,
 ): FtsResult {
-  return { youtube_video_id, start_ms, snippet, score, title: "Test Video", thumbnail_url: null }
+  return {
+    youtube_video_id,
+    start_ms,
+    end_ms: start_ms + 30000,
+    snippet,
+    score,
+    title: "Test Video",
+    thumbnail_url: null,
+  }
 }
 
 describe("fuseRRF", () => {
