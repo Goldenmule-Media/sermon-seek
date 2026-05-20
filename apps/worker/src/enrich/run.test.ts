@@ -1,5 +1,6 @@
 import { extract } from "@sermon-search/scripture"
-import { describe, expect, it } from "vitest"
+import { describe, expect, it, vi } from "vitest"
+import { runEnrichBackfill } from "./run.js"
 import { slugifyTopic } from "./topics.js"
 
 // Unit tests for enrichment orchestration logic (no DB required)
@@ -84,5 +85,108 @@ describe("scripture extraction via deterministic extractor", () => {
     for (const ref of refs) {
       expect(ref.start_coord).toBeLessThanOrEqual(ref.end_coord)
     }
+  })
+})
+
+describe("runEnrichBackfill", () => {
+  it("refreshes scripture refs even when LLM path is skipped for already-enriched video", async () => {
+    const videoId = "video-1"
+    const youtubeId = "yt-abc"
+    const transcriptText = "In John 3:16 we see God's love."
+
+    const deletedTables: string[] = []
+    const insertedCalls: Array<{ table: string; values: unknown }> = []
+
+    const makeSelectChain = (table: string) => {
+      const canned: Record<string, unknown[]> = {
+        videos: [{ id: videoId, youtube_video_id: youtubeId, title: "Test Sermon" }],
+        transcripts: [{ id: "t-1", full_text: transcriptText, model_version: "v1" }],
+        video_enrichments: [{ video_id: videoId }],
+      }
+      const rows = canned[table] ?? []
+      const chain = {
+        select: () => chain,
+        where: () => chain,
+        orderBy: () => chain,
+        execute: async () => rows,
+        executeTakeFirst: async () => rows[0],
+        executeTakeFirstOrThrow: async () => {
+          if (rows[0] == null) throw new Error(`no row in ${table}`)
+          return rows[0]
+        },
+      }
+      return chain
+    }
+
+    const makeDeleteChain = (table: string) => {
+      const chain = {
+        where: () => chain,
+        execute: async () => {
+          deletedTables.push(table)
+        },
+      }
+      return chain
+    }
+
+    const makeInsertChain = (table: string) => {
+      let storedValues: unknown = null
+      const chain = {
+        values: (vals: unknown) => {
+          storedValues = vals
+          return chain
+        },
+        onConflict: () => chain,
+        execute: async () => {
+          insertedCalls.push({ table, values: storedValues })
+        },
+      }
+      return chain
+    }
+
+    const makeTrx = () => ({
+      selectFrom: makeSelectChain,
+      deleteFrom: makeDeleteChain,
+      insertInto: makeInsertChain,
+    })
+
+    const db = {
+      selectFrom: makeSelectChain,
+      deleteFrom: makeDeleteChain,
+      insertInto: makeInsertChain,
+      transaction: () => ({
+        execute: async (cb: (trx: ReturnType<typeof makeTrx>) => Promise<void>) => cb(makeTrx()),
+      }),
+    }
+
+    const enricher = {
+      model: "test-model",
+      enrich: vi.fn(),
+    }
+
+    const result = await runEnrichBackfill({
+      db: db as never,
+      enricher,
+    })
+
+    // LLM path must not run
+    expect(enricher.enrich).not.toHaveBeenCalled()
+
+    // video_scripture_refs was deleted and re-inserted with extracted refs
+    expect(deletedTables).toContain("video_scripture_refs")
+    const refsInsert = insertedCalls.find((c) => c.table === "video_scripture_refs")
+    expect(refsInsert).toBeDefined()
+    expect(Array.isArray(refsInsert?.values)).toBe(true)
+    expect((refsInsert?.values as unknown[])?.length ?? 0).toBeGreaterThan(0)
+
+    // No writes to LLM-gated tables
+    expect(insertedCalls.map((c) => c.table)).not.toContain("video_enrichments")
+    expect(insertedCalls.map((c) => c.table)).not.toContain("video_topics")
+    expect(insertedCalls.map((c) => c.table)).not.toContain("topics")
+    expect(deletedTables).not.toContain("video_topics")
+
+    // Counters: one skipped, refs counted
+    expect(result.videosSkipped).toBe(1)
+    expect(result.videosProcessed).toBe(0)
+    expect(result.refsInserted).toBeGreaterThan(0)
   })
 })
