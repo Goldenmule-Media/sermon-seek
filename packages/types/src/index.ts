@@ -13,6 +13,7 @@ export interface SearchResult {
   score: number
   hits: SearchHit[]
   scripture_refs: ScriptureRefDetail[]
+  topics: Topic[]
 }
 
 export interface SearchResponse {
@@ -20,6 +21,7 @@ export interface SearchResponse {
   total: number
   took_ms: number
   scripture_refs: ScriptureRefDetail[]
+  topics: Topic[]
 }
 
 export interface Video {

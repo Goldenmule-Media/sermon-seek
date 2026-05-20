@@ -3,6 +3,7 @@ import { z } from "zod"
 import { searchSegments } from "../search/fts.js"
 import { hydrateScriptureRefs } from "../search/hydrate-refs.js"
 import { hydrateSummaries } from "../search/hydrate-summaries.js"
+import { hydrateTopics } from "../search/hydrate-topics.js"
 import { refineSegmentStarts } from "../search/refine.js"
 
 const paramsSchema = z.object({
@@ -34,6 +35,12 @@ const searchHitSchema = z.object({
   match_type: z.enum(["lexical", "semantic"]),
 })
 
+const topicSchema = z.object({
+  slug: z.string(),
+  label: z.string(),
+  video_count: z.number(),
+})
+
 const searchResultSchema = z.object({
   video_id: z.string(),
   title: z.string(),
@@ -42,6 +49,7 @@ const searchResultSchema = z.object({
   score: z.number(),
   hits: z.array(searchHitSchema),
   scripture_refs: z.array(scriptureRefDetailSchema),
+  topics: z.array(topicSchema),
 })
 
 const searchResponseSchema = z.object({
@@ -49,6 +57,7 @@ const searchResponseSchema = z.object({
   total: z.number(),
   took_ms: z.number(),
   scripture_refs: z.array(scriptureRefDetailSchema),
+  topics: z.array(topicSchema),
 })
 
 export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
@@ -85,11 +94,13 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
       const t0 = Date.now()
       const { results: rawResults, total } = await searchSegments(app.db, { q, videoId: id, limit, offset })
       const refined = await refineSegmentStarts(app.db, q, rawResults)
-      const [refs, summaries] = await Promise.all([
+      const [refs, summaries, topics] = await Promise.all([
         hydrateScriptureRefs(app.db, [id]),
         hydrateSummaries(app.db, [id]),
+        hydrateTopics(app.db, [id]),
       ])
       const videoRefs = refs.perVideo.get(id) ?? []
+      const videoTopics = topics.perVideo.get(id) ?? []
       const summary = summaries.get(id) ?? ""
 
       if (refined.length === 0) {
@@ -98,6 +109,7 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
           total,
           took_ms: Date.now() - t0,
           scripture_refs: refs.aggregate,
+          topics: topics.aggregate,
         }
       }
 
@@ -118,11 +130,13 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
               match_type: r.match_type,
             })),
             scripture_refs: videoRefs,
+            topics: videoTopics,
           },
         ],
         total,
         took_ms: Date.now() - t0,
         scripture_refs: refs.aggregate,
+        topics: topics.aggregate,
       }
     },
   )

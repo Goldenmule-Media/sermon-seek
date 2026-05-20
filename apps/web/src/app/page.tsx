@@ -1,6 +1,7 @@
 import { SearchBox } from "@/components/search-box"
 import { VideoStrip } from "@/components/video-strip"
 import { fetchHome } from "@/lib/api"
+import { Search } from "lucide-react"
 
 export default async function HomePage() {
   const data = await fetchHome()
@@ -8,7 +9,10 @@ export default async function HomePage() {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
       <section className="flex flex-col items-center py-12 gap-4">
-        <h1 className="text-3xl font-bold tracking-tight">Sermon Search</h1>
+        <h1 className="flex items-center gap-3 text-3xl font-bold tracking-tight">
+          <Search className="h-8 w-8 text-primary" aria-hidden />
+          <span>Sermon Search</span>
+        </h1>
         <p className="text-muted-foreground">
           Search thousands of sermons by topic, scripture, or keyword.
         </p>

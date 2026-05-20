@@ -7,6 +7,7 @@ import { groupByVideo } from "../search/group-by-video.js"
 import { searchHybrid } from "../search/hybrid.js"
 import { hydrateScriptureRefs } from "../search/hydrate-refs.js"
 import { hydrateSummaries } from "../search/hydrate-summaries.js"
+import { hydrateTopics } from "../search/hydrate-topics.js"
 import { refineSegmentStarts } from "../search/refine.js"
 import { searchSemantic } from "../search/semantic.js"
 
@@ -55,6 +56,12 @@ const searchHitSchema = z.object({
   match_type: z.enum(["lexical", "semantic"]),
 })
 
+const topicSchema = z.object({
+  slug: z.string(),
+  label: z.string(),
+  video_count: z.number(),
+})
+
 const searchResultSchema = z.object({
   video_id: z.string(),
   title: z.string(),
@@ -63,6 +70,7 @@ const searchResultSchema = z.object({
   score: z.number(),
   hits: z.array(searchHitSchema),
   scripture_refs: z.array(scriptureRefDetailSchema),
+  topics: z.array(topicSchema),
 })
 
 const searchResponseSchema = z.object({
@@ -70,6 +78,7 @@ const searchResponseSchema = z.object({
   total: z.number(),
   took_ms: z.number(),
   scripture_refs: z.array(scriptureRefDetailSchema),
+  topics: z.array(topicSchema),
 })
 
 export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
@@ -108,9 +117,10 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         const refined = await refineSegmentStarts(app.db, refineQuery, candidates)
         const { videos, total } = groupByVideo(refined, { limit, offset, videoScores })
         const ids = videos.map((v) => v.youtube_video_id)
-        const [refs, summaries] = await Promise.all([
+        const [refs, summaries, topics] = await Promise.all([
           hydrateScriptureRefs(app.db, ids),
           hydrateSummaries(app.db, ids),
+          hydrateTopics(app.db, ids),
         ])
         return {
           results: videos.map((v) => ({
@@ -126,10 +136,12 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
               match_type: h.match_type,
             })),
             scripture_refs: refs.perVideo.get(v.youtube_video_id) ?? [],
+            topics: topics.perVideo.get(v.youtube_video_id) ?? [],
           })),
           total,
           took_ms: Date.now() - t0,
           scripture_refs: refs.aggregate,
+          topics: topics.aggregate,
         }
       }
 

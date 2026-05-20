@@ -26,6 +26,7 @@ const emptyResponse: SearchResponse = {
   total: 0,
   took_ms: 0,
   scripture_refs: [],
+  topics: [],
 }
 
 describe("SearchResults", () => {

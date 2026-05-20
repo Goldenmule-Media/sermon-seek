@@ -103,6 +103,25 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
             </div>
           </div>
         )}
+
+        {result.topics.length > 0 && (
+          <div className="rounded-md border bg-muted/40 p-2">
+            <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground mb-1">
+              Topics
+            </p>
+            <div className="flex flex-wrap gap-1">
+              {result.topics.map((t) => (
+                <Link
+                  key={t.slug}
+                  href={`/topics/${t.slug}`}
+                  className="inline-flex items-center rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
+                >
+                  {t.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

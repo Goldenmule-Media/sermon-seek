@@ -3,6 +3,7 @@
 import { ScriptureRefBox } from "@/components/scripture-ref-box"
 import { SearchResultCard } from "@/components/search-result-card"
 import { SearchResultsSkeleton } from "@/components/search-result-skeleton"
+import { TopicBox } from "@/components/topic-box"
 import { fetchSearch } from "@/lib/api"
 import type { PlaylistWithStats, SearchResponse } from "@sermon-search/types"
 import { useSearchParams } from "next/navigation"
@@ -89,6 +90,7 @@ export function SearchResults({ playlists }: SearchResultsProps) {
             refs={data.scripture_refs}
             label="Related searches"
           />
+          <TopicBox topics={data.topics} label="Related topics" />
           {data.results.length === 0 ? (
             <p className="text-muted-foreground text-sm">
               {ref
