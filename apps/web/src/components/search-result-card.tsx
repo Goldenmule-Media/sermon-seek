@@ -1,6 +1,7 @@
 import { VideoSummary } from "@/components/video-summary"
 import { formatDuration } from "@/lib/utils"
 import type { SearchResult } from "@sermon-search/types"
+import { ChevronRight, Play } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -16,31 +17,40 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
   const videoHref = `/videos/${result.video_id}`
 
   return (
-    <div className="flex gap-4 p-4 rounded-lg border bg-card">
-      <Link href={videoHref} className="relative shrink-0 w-40 h-24 rounded overflow-hidden bg-muted">
-        {result.thumbnail_url ? (
-          <Image
-            src={result.thumbnail_url}
-            alt={result.title}
-            fill
-            className="object-cover"
-            sizes="160px"
-          />
-        ) : (
-          <div className="w-full h-full bg-muted" />
-        )}
-      </Link>
-      <div className="flex flex-col gap-2 min-w-0 flex-1">
+    <div className="flex flex-col gap-3 p-4 rounded-lg border bg-card">
+      <div className="flex items-center gap-4">
         <Link
           href={videoHref}
-          className="font-semibold leading-snug line-clamp-2 hover:underline"
+          className="relative shrink-0 w-40 h-24 rounded overflow-hidden bg-muted"
         >
-          {result.title}
+          {result.thumbnail_url ? (
+            <Image
+              src={result.thumbnail_url}
+              alt={result.title}
+              fill
+              className="object-cover"
+              sizes="160px"
+            />
+          ) : (
+            <div className="w-full h-full bg-muted" />
+          )}
         </Link>
+        <div className="flex flex-col gap-2 min-w-0 flex-1">
+          <Link
+            href={videoHref}
+            className="font-semibold leading-snug line-clamp-2 hover:underline"
+          >
+            {result.title}
+          </Link>
+          <VideoSummary summary={result.summary} />
+        </div>
+      </div>
 
-        <VideoSummary summary={result.summary} />
-
-        <ul className="flex flex-col gap-1 -mx-2">
+      <div className="rounded-md border bg-background overflow-hidden">
+        <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground px-3 py-1.5 border-b bg-muted/40">
+          {result.hits.length} match{result.hits.length === 1 ? "" : "es"} — jump to timestamp
+        </p>
+        <ul className="divide-y">
           {result.hits.map((hit, i) => {
             const t = Math.floor(hit.start_ms / 1000)
             const hasTimestamp = hit.start_ms > 0 || hit.snippet.length > 0
@@ -51,10 +61,14 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
               <li key={`${hit.start_ms}-${i}`}>
                 <Link
                   href={hitHref}
-                  className="flex items-baseline gap-3 rounded-md px-2 py-1 text-sm hover:bg-accent transition-colors"
+                  className="group flex items-center gap-3 px-3 py-2 text-sm hover:bg-accent transition-colors"
                 >
                   {hasTimestamp && (
-                    <span className="text-xs text-primary font-mono shrink-0 tabular-nums">
+                    <span className="inline-flex items-center gap-1 text-xs text-primary font-mono shrink-0 tabular-nums">
+                      <Play
+                        className="h-3 w-3 fill-current opacity-60 group-hover:opacity-100 transition-opacity"
+                        aria-hidden
+                      />
                       {formatDuration(hit.start_ms)}
                     </span>
                   )}
@@ -68,61 +82,65 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
                   )}
                   {hit.snippet && (
                     <span
-                      className={`snippet line-clamp-2 ${hit.match_type === "semantic" ? "italic text-muted-foreground/80" : "text-muted-foreground"}`}
+                      className={`snippet flex-1 min-w-0 line-clamp-2 ${hit.match_type === "semantic" ? "italic text-muted-foreground/80" : "text-foreground/90"}`}
                       // biome-ignore lint/security/noDangerouslySetInnerHtml: ts_headline HTML-escapes source text; only emits configured <mark> tags
                       dangerouslySetInnerHTML={{ __html: hit.snippet }}
                     />
                   )}
+                  <ChevronRight
+                    className="h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-foreground group-hover:translate-x-0.5 transition-all"
+                    aria-hidden
+                  />
                 </Link>
               </li>
             )
           })}
         </ul>
-
-        {refs.length > 0 && (
-          <div className="rounded-md border bg-muted/40 p-2 mt-1">
-            <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground mb-1">
-              Scripture references
-            </p>
-            <div className="flex flex-wrap gap-1">
-              {refs.map((r) => (
-                <Link
-                  key={`${r.start_coord}-${r.end_coord}`}
-                  href={`/search?ref=${encodeURIComponent(r.display)}`}
-                  className="inline-flex items-center gap-1 rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
-                >
-                  <span>{r.display}</span>
-                  <span className="text-muted-foreground">{r.occurrences}</span>
-                </Link>
-              ))}
-              {overflow > 0 && (
-                <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] text-muted-foreground">
-                  +{overflow} more
-                </span>
-              )}
-            </div>
-          </div>
-        )}
-
-        {result.topics.length > 0 && (
-          <div className="rounded-md border bg-muted/40 p-2">
-            <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground mb-1">
-              Topics
-            </p>
-            <div className="flex flex-wrap gap-1">
-              {result.topics.map((t) => (
-                <Link
-                  key={t.slug}
-                  href={`/topics/${t.slug}`}
-                  className="inline-flex items-center rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
-                >
-                  {t.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
+
+      {refs.length > 0 && (
+        <div className="rounded-md border bg-muted/40 p-2">
+          <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground mb-1">
+            Scripture references
+          </p>
+          <div className="flex flex-wrap gap-1">
+            {refs.map((r) => (
+              <Link
+                key={`${r.start_coord}-${r.end_coord}`}
+                href={`/search?ref=${encodeURIComponent(r.display)}`}
+                className="inline-flex items-center gap-1 rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
+              >
+                <span>{r.display}</span>
+                <span className="text-muted-foreground">{r.occurrences}</span>
+              </Link>
+            ))}
+            {overflow > 0 && (
+              <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] text-muted-foreground">
+                +{overflow} more
+              </span>
+            )}
+          </div>
+        </div>
+      )}
+
+      {result.topics.length > 0 && (
+        <div className="rounded-md border bg-muted/40 p-2">
+          <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground mb-1">
+            Topics
+          </p>
+          <div className="flex flex-wrap gap-1">
+            {result.topics.map((t) => (
+              <Link
+                key={t.slug}
+                href={`/topics/${t.slug}`}
+                className="inline-flex items-center rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
+              >
+                {t.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
