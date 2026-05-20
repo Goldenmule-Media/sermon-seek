@@ -32,6 +32,9 @@ importers:
       '@sermon-search/embeddings':
         specifier: workspace:*
         version: link:../../packages/embeddings
+      '@sermon-search/scripture':
+        specifier: workspace:*
+        version: link:../../packages/scripture
       '@sermon-search/types':
         specifier: workspace:*
         version: link:../../packages/types

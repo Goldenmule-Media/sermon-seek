@@ -111,6 +111,18 @@ export interface PlaylistsResponse {
   playlists: PlaylistWithStats[]
 }
 
+export interface ScriptureRefDetail {
+  book_id: number
+  chapter_start: number
+  verse_start: number
+  chapter_end: number
+  verse_end: number
+  start_coord: number
+  end_coord: number
+  occurrences: number
+  display: string
+}
+
 export interface VideoDetailResponse {
   id: string
   youtube_video_id: string
@@ -123,7 +135,7 @@ export interface VideoDetailResponse {
   playlists: PlaylistRef[]
   summary: string
   topics: Array<{ slug: string; label: string }>
-  scripture_refs: string[]
+  scripture_refs: ScriptureRefDetail[]
 }
 
 export interface TranscriptSegmentWithWords {
