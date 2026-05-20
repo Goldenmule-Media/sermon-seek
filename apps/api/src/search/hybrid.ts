@@ -7,7 +7,10 @@ import { searchSemantic } from "./semantic.js"
 
 export const RRF_K = 60
 export const FTS_WEIGHT = 1.0
-export const SEMANTIC_WEIGHT = 1.0
+// Semantic is weighted above FTS so a strong thematic hit (rank 1 in semantic, absent
+// from FTS) outranks a marginal keyword hit (rank 1 in FTS, absent from semantic).
+// Docs in both lists still win — they accumulate from both sides.
+export const SEMANTIC_WEIGHT = 1.5
 
 export interface HybridOptions {
   q: string
@@ -66,7 +69,7 @@ export async function searchHybrid(
   opts: HybridOptions,
 ): Promise<FtsResponse> {
   const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter } = opts
-  const candidateLimit = Math.max(50, limit * 5)
+  const candidateLimit = Math.max(100, limit * 10)
 
   if (!embedder) {
     console.debug("[hybrid] embedder unavailable — degrading hybrid search to FTS-only")

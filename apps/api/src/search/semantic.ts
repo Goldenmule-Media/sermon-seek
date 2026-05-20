@@ -14,8 +14,58 @@ export interface SemanticOptions {
   publishedAfter?: Date
 }
 
-function firstWords(text: string, n = 20): string {
-  return text.split(/\s+/).slice(0, n).join(" ")
+const STOPWORDS = new Set([
+  "the", "and", "for", "with", "that", "this", "from", "you", "your", "are", "but",
+  "not", "what", "when", "where", "how", "why", "who", "which", "about", "have", "has",
+  "was", "were", "will", "would", "could", "should", "into", "than", "then", "them",
+])
+
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, (c) => {
+    switch (c) {
+      case "&": return "&amp;"
+      case "<": return "&lt;"
+      case ">": return "&gt;"
+      case '"': return "&quot;"
+      default: return "&#39;"
+    }
+  })
+}
+
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+}
+
+// Build an FTS-style snippet: window of ~20 words centered on the first query-token hit
+// (or the start of the chunk if no token appears), with matched tokens wrapped in <mark>.
+// Matches `ts_headline` visual treatment so semantic-only hits don't read as "the
+// search ignored my words" next to keyword hits.
+function buildSnippet(text: string, q: string, words = 22): string {
+  const tokens = q
+    .toLowerCase()
+    .split(/[^a-z0-9']+/)
+    .filter((t) => t.length >= 3 && !STOPWORDS.has(t))
+  const allWords = text.split(/\s+/).filter(Boolean)
+
+  let start = 0
+  if (tokens.length > 0) {
+    const idx = allWords.findIndex((w) => {
+      const lw = w.toLowerCase()
+      return tokens.some((t) => lw.includes(t))
+    })
+    if (idx >= 0) start = Math.max(0, idx - 4)
+  }
+
+  const window = allWords.slice(start, start + words).join(" ")
+  if (tokens.length === 0) return escapeHtml(window)
+
+  // Wrap matches with sentinels (impossible in real text), escape HTML, then swap
+  // sentinels for <mark> — avoids escaping our own tags or injecting raw user text.
+  const pattern = new RegExp(`(${tokens.map(escapeRegex).join("|")})`, "gi")
+  const OPEN = "\x00MK\x00"
+  const CLOSE = "\x00/MK\x00"
+  const marked = window.replace(pattern, `${OPEN}$1${CLOSE}`)
+  return escapeHtml(marked).replaceAll(OPEN, "<mark>").replaceAll(CLOSE, "</mark>")
 }
 
 export async function searchSemantic(
@@ -89,7 +139,7 @@ export async function searchSemantic(
     thumbnail_url: r.thumbnail_url,
     start_ms: r.start_ms,
     score: r.score,
-    snippet: firstWords(r.text),
+    snippet: buildSnippet(r.text, q),
   }))
 
   return { results, total: Number(countRow.count) }

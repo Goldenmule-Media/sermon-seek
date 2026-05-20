@@ -40,7 +40,9 @@ describe("fuseRRF", () => {
       makeResult("v4", 4000, "sem-d"),
       makeResult("v1", 1000, "sem-a"),
     ]
-    const result = fuseRRF(fts, sem)
+    // Pin equal weights here so this test exercises RRF math regardless of
+    // production weight tuning.
+    const result = fuseRRF(fts, sem, { ftsWeight: 1, semanticWeight: 1 })
     expect(result.map((r) => r.youtube_video_id)).toEqual(["v2", "v1", "v4", "v3"])
 
     // Verify scores match hand-computed values within float tolerance
