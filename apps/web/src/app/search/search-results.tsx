@@ -80,55 +80,58 @@ export function SearchResults({ playlists }: SearchResultsProps) {
 
   return (
     <div className="space-y-4">
-      <SearchFilters values={filters} playlists={playlists} />
+      <div className="max-w-3xl mx-auto space-y-4">
+        <SearchFilters values={filters} playlists={playlists} />
 
-      {!q && !ref && (
-        <p className="text-muted-foreground text-sm">Enter a query above to search sermons.</p>
-      )}
+        {!q && !ref && (
+          <p className="text-muted-foreground text-sm">Enter a query above to search sermons.</p>
+        )}
 
-      {loading && <SearchResultsSkeleton />}
+        {loading && <SearchResultsSkeleton />}
 
-      {error && <p className="text-destructive text-sm">Something went wrong. Please try again.</p>}
+        {error && (
+          <p className="text-destructive text-sm">Something went wrong. Please try again.</p>
+        )}
 
-      {!loading && apiError && <p className="text-destructive text-sm">{apiError}</p>}
+        {!loading && apiError && <p className="text-destructive text-sm">{apiError}</p>}
 
-      {!loading && !error && !apiError && data && (
-        <>
-          <p className="text-sm text-muted-foreground">
-            {data.total} result{data.total !== 1 ? "s" : ""} ({data.took_ms} ms)
-          </p>
-          <ScriptureRefBox
-            refs={data.scripture_refs}
-            label="Related searches"
-          />
-          <TopicBox topics={data.topics} label="Related topics" />
-          {data.results.length === 0 ? (
-            <p className="text-muted-foreground text-sm">
-              {ref
-                ? `No results found for scripture reference "${ref}". Try a format like "Romans 8", "John 3:16", or "1 Corinthians 13".`
-                : `No results found for "${q}".`}
+        {!loading && !error && !apiError && data && (
+          <>
+            <p className="text-sm text-muted-foreground">
+              {data.total} result{data.total !== 1 ? "s" : ""} ({data.took_ms} ms)
             </p>
-          ) : (
-            <ul className="space-y-3">
-              {data.results.map((result) => {
-                const expanded =
-                  activeHit?.videoId === result.video_id ? activeHit.startSeconds : null
-                return (
-                  <li key={result.video_id}>
-                    <SearchResultCard
-                      result={result}
-                      expandedStart={expanded}
-                      onPlayHit={(startSeconds) =>
-                        setActiveHit({ videoId: result.video_id, startSeconds })
-                      }
-                      onClosePlayer={() => setActiveHit(null)}
-                    />
-                  </li>
-                )
-              })}
-            </ul>
-          )}
-        </>
+            <ScriptureRefBox refs={data.scripture_refs} label="Related searches" />
+            <TopicBox topics={data.topics} label="Related topics" />
+            {data.results.length === 0 && (
+              <p className="text-muted-foreground text-sm">
+                {ref
+                  ? `No results found for scripture reference "${ref}". Try a format like "Romans 8", "John 3:16", or "1 Corinthians 13".`
+                  : `No results found for "${q}".`}
+              </p>
+            )}
+          </>
+        )}
+      </div>
+
+      {!loading && !error && !apiError && data && data.results.length > 0 && (
+        <ul className="space-y-3">
+          {data.results.map((result) => {
+            const expanded =
+              activeHit?.videoId === result.video_id ? activeHit.startSeconds : null
+            return (
+              <li key={result.video_id}>
+                <SearchResultCard
+                  result={result}
+                  expandedStart={expanded}
+                  onPlayHit={(startSeconds) =>
+                    setActiveHit({ videoId: result.video_id, startSeconds })
+                  }
+                  onClosePlayer={() => setActiveHit(null)}
+                />
+              </li>
+            )
+          })}
+        </ul>
       )}
     </div>
   )

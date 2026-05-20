@@ -1,6 +1,6 @@
 "use client"
 
-import { InlineYouTubePlayer } from "@/components/inline-youtube-player"
+import { ExpandedVideoView } from "@/components/expanded-video-view"
 import { VideoSummary } from "@/components/video-summary"
 import { formatDuration } from "@/lib/utils"
 import type { SearchResult } from "@sermon-search/types"
@@ -39,7 +39,11 @@ export function SearchResultCard({
   const hiddenHitCount = result.hits.length - visibleHits.length
 
   return (
-    <div className="flex flex-col gap-3 p-4 rounded-lg border bg-card">
+    <div
+      className={`flex flex-col gap-3 p-4 rounded-lg border bg-card transition-[max-width] ${
+        isExpanded ? "" : "max-w-3xl mx-auto"
+      }`}
+    >
       {!isExpanded && (
         <div className="flex items-center gap-4">
           <Link
@@ -71,7 +75,7 @@ export function SearchResultCard({
       )}
 
       {isExpanded && expandedStart !== null && (
-        <InlineYouTubePlayer
+        <ExpandedVideoView
           videoId={result.video_id}
           startSeconds={expandedStart}
           onClose={onClosePlayer}
