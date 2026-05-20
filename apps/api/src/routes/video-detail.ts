@@ -1,3 +1,4 @@
+import { display } from "@sermon-search/scripture"
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
 
@@ -21,6 +22,18 @@ const topicTagSchema = z.object({
   label: z.string(),
 })
 
+const scriptureRefDetailSchema = z.object({
+  book_id: z.number(),
+  chapter_start: z.number(),
+  verse_start: z.number(),
+  chapter_end: z.number(),
+  verse_end: z.number(),
+  start_coord: z.number(),
+  end_coord: z.number(),
+  occurrences: z.number(),
+  display: z.string(),
+})
+
 const videoDetailResponseSchema = z.object({
   id: z.string(),
   youtube_video_id: z.string(),
@@ -33,7 +46,7 @@ const videoDetailResponseSchema = z.object({
   playlists: z.array(playlistRefSchema),
   summary: z.string(),
   topics: z.array(topicTagSchema),
-  scripture_refs: z.array(z.string()),
+  scripture_refs: z.array(scriptureRefDetailSchema),
 })
 
 export const videoDetailRoutes: FastifyPluginAsyncZod = async (app) => {
@@ -95,9 +108,20 @@ export const videoDetailRoutes: FastifyPluginAsyncZod = async (app) => {
           .execute(),
         app.db
           .selectFrom("video_scripture_refs")
-          .select(["reference", "position"])
+          .select([
+            "book_id",
+            "chapter_start",
+            "verse_start",
+            "chapter_end",
+            "verse_end",
+            "start_coord",
+            "end_coord",
+            "occurrences",
+            "first_position",
+          ])
           .where("video_id", "=", videoRow.id)
-          .orderBy("position", "asc")
+          .orderBy("occurrences", "desc")
+          .orderBy("first_position", "asc")
           .execute(),
       ])
 
@@ -116,7 +140,29 @@ export const videoDetailRoutes: FastifyPluginAsyncZod = async (app) => {
         playlists: playlistRows,
         summary: enrichmentRow?.summary ?? "",
         topics: topicRows.map(({ slug, label }) => ({ slug, label })),
-        scripture_refs: refRows.map((r) => r.reference),
+        scripture_refs: refRows.map((r) => {
+          const startCoord = Number(r.start_coord)
+          const endCoord = Number(r.end_coord)
+          return {
+            book_id: r.book_id,
+            chapter_start: r.chapter_start,
+            verse_start: r.verse_start,
+            chapter_end: r.chapter_end,
+            verse_end: r.verse_end,
+            start_coord: startCoord,
+            end_coord: endCoord,
+            occurrences: r.occurrences,
+            display: display({
+              book_id: r.book_id,
+              chapter_start: r.chapter_start,
+              verse_start: r.verse_start,
+              chapter_end: r.chapter_end,
+              verse_end: r.verse_end,
+              start_coord: startCoord,
+              end_coord: endCoord,
+            }),
+          }
+        }),
       }
     },
   )

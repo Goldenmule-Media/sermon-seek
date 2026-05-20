@@ -5,7 +5,6 @@ const MAX_TRANSCRIPT_CHARS = 12_000
 export interface EnrichmentOutput {
   summary: string
   topics: string[]
-  scripture_refs: string[]
 }
 
 export interface Enricher {
@@ -30,14 +29,8 @@ const enrichmentSchema = {
       maxItems: 10,
       description: "5–10 short noun phrases describing the sermon topics",
     },
-    scripture_refs: {
-      type: "array",
-      items: { type: "string" },
-      maxItems: 3,
-      description: "Up to 3 scripture references in canonical form (e.g. John 3:16)",
-    },
   },
-  required: ["summary", "topics", "scripture_refs"],
+  required: ["summary", "topics"],
   additionalProperties: false,
 } as const
 
@@ -53,7 +46,6 @@ export function createOpenAIEnricher({
     const prompt = `You are a sermon analyst. Given a sermon title and transcript excerpt, produce:
 - A one-paragraph summary (3-5 sentences)
 - 5-10 short topic noun phrases (lowercase, slug-friendly, e.g. "grace", "faith in action")
-- Up to 3 scripture references in canonical form (e.g. "John 3:16", "Romans 8:28-30")
 
 Title: ${title}
 
@@ -80,7 +72,6 @@ ${excerpt}`
         return {
           summary: parsed.summary ?? "",
           topics: Array.isArray(parsed.topics) ? parsed.topics : [],
-          scripture_refs: Array.isArray(parsed.scripture_refs) ? parsed.scripture_refs : [],
         }
       } catch (err: unknown) {
         attempt += 1

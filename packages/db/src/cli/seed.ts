@@ -1,3 +1,4 @@
+import { extract } from "@sermon-search/scripture"
 import { createDb, resolveDatabaseUrl } from "../index.js"
 
 async function seed() {
@@ -323,15 +324,27 @@ async function seed() {
           .execute()
       }
 
-      if (spec.refs.length > 0) {
+      for (const refStr of spec.refs) {
+        const extracted = extract(refStr)
+        if (extracted.length === 0) continue
+        const ref = extracted[0]!
         await db
           .insertInto("video_scripture_refs")
-          .values(
-            spec.refs
-              .slice(0, 3)
-              .map((reference, position) => ({ video_id: videoId, reference, position })),
-          )
-          .onConflict((oc) => oc.columns(["video_id", "position"]).doNothing())
+          .values({
+            video_id: videoId,
+            book_id: ref.book_id,
+            chapter_start: ref.chapter_start,
+            verse_start: ref.verse_start,
+            chapter_end: ref.chapter_end,
+            verse_end: ref.verse_end,
+            start_coord: ref.start_coord,
+            end_coord: ref.end_coord,
+            occurrences: ref.occurrences,
+            positions: ref.positions,
+            first_position: ref.first_position,
+            raw_first: ref.raw_first,
+          })
+          .onConflict((oc) => oc.columns(["video_id", "start_coord", "end_coord"]).doNothing())
           .execute()
       }
     }

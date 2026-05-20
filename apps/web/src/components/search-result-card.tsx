@@ -5,11 +5,12 @@ import Link from "next/link"
 
 interface SearchResultCardProps {
   result: SearchResult
+  hasTimestamp: boolean
 }
 
-export function SearchResultCard({ result }: SearchResultCardProps) {
+export function SearchResultCard({ result, hasTimestamp }: SearchResultCardProps) {
   const t = Math.floor(result.start_ms / 1000)
-  const href = `/videos/${result.video_id}?t=${t}`
+  const href = hasTimestamp ? `/videos/${result.video_id}?t=${t}` : `/videos/${result.video_id}`
 
   return (
     <Link
@@ -31,14 +32,18 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
       </div>
       <div className="flex flex-col gap-1 min-w-0">
         <p className="font-semibold leading-snug line-clamp-2">{result.title}</p>
-        <p
-          className="snippet text-sm text-muted-foreground line-clamp-2"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: ts_headline HTML-escapes source text; only emits configured <mark> tags
-          dangerouslySetInnerHTML={{ __html: result.snippet }}
-        />
-        <span className="text-xs text-primary font-mono mt-auto">
-          {formatDuration(result.start_ms)}
-        </span>
+        {result.snippet && (
+          <p
+            className="snippet text-sm text-muted-foreground line-clamp-2"
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: ts_headline HTML-escapes source text; only emits configured <mark> tags
+            dangerouslySetInnerHTML={{ __html: result.snippet }}
+          />
+        )}
+        {hasTimestamp && (
+          <span className="text-xs text-primary font-mono mt-auto">
+            {formatDuration(result.start_ms)}
+          </span>
+        )}
       </div>
     </Link>
   )

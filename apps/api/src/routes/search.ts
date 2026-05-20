@@ -1,19 +1,25 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
+import { BadRefError, parseRefQuery, searchVideosByRef } from "../search/by-ref.js"
 import { searchSegments } from "../search/fts.js"
 import { searchHybrid } from "../search/hybrid.js"
 import { refineSegmentStarts } from "../search/refine.js"
 import { searchSemantic } from "../search/semantic.js"
 
-const querySchema = z.object({
-  q: z.string().min(1).max(200),
-  mode: z.enum(["fulltext", "semantic", "hybrid"]).default("hybrid"),
-  limit: z.coerce.number().int().min(1).max(50).default(20),
-  offset: z.coerce.number().int().min(0).default(0),
-  topic: z.string().optional(),
-  playlist: z.string().optional(),
-  date: z.enum(["year", "month"]).optional(),
-})
+const querySchema = z
+  .object({
+    q: z.string().min(1).max(200).optional(),
+    ref: z.string().min(1).max(200).optional(),
+    mode: z.enum(["fulltext", "semantic", "hybrid"]).default("hybrid"),
+    limit: z.coerce.number().int().min(1).max(50).default(20),
+    offset: z.coerce.number().int().min(0).default(0),
+    topic: z.string().optional(),
+    playlist: z.string().optional(),
+    date: z.enum(["year", "month"]).optional(),
+  })
+  .refine((data) => Boolean(data.q) !== Boolean(data.ref), {
+    message: "exactly one of 'q' or 'ref' must be provided",
+  })
 
 const searchResultSchema = z.object({
   video_id: z.string(),
@@ -36,32 +42,79 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
     {
       schema: {
         tags: ["search"],
-        summary: "Hybrid (default), full-text, and semantic corpus search",
+        summary: "Hybrid (default), full-text, semantic, and scripture-ref corpus search",
         querystring: querySchema,
         response: {
           200: searchResponseSchema,
+          400: z.object({ message: z.string() }),
           503: z.object({ message: z.string() }),
         },
       },
     },
     async (request, reply) => {
-      const { q, mode, limit, offset, topic, playlist, date } = request.query
+      const { q, ref, mode, limit, offset, topic, playlist, date } = request.query
       const t0 = Date.now()
 
       const topicSlug = topic || undefined
       const playlistSlug = playlist || undefined
-      const publishedAfter = date === "month"
-        ? new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-        : date === "year"
-          ? new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)
-          : undefined
+      const publishedAfter =
+        date === "month"
+          ? new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+          : date === "year"
+            ? new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)
+            : undefined
+
+      if (ref) {
+        let interval: { start_coord: number; end_coord: number }
+        try {
+          interval = parseRefQuery(ref)
+        } catch (err) {
+          if (err instanceof BadRefError) {
+            return reply.code(400).send({ message: err.message } as never)
+          }
+          throw err
+        }
+
+        const { results, total } = await searchVideosByRef(app.db, {
+          startCoord: interval.start_coord,
+          endCoord: interval.end_coord,
+          limit,
+          offset,
+          topicSlug,
+          playlistSlug,
+          publishedAfter,
+        })
+
+        return {
+          results: results.map((r) => ({
+            video_id: r.youtube_video_id,
+            title: r.title,
+            snippet: "",
+            start_ms: 0,
+            score: r.ref_score,
+            thumbnail_url: r.thumbnail_url ?? "",
+          })),
+          total,
+          took_ms: Date.now() - t0,
+        }
+      }
+
+      // q is guaranteed present when ref is absent (enforced by refine above)
+      const qStr = q!
 
       if (mode === "semantic") {
         if (!app.embedder) {
           return reply.code(503).send({ message: "OPENAI_API_KEY is not configured" } as never)
         }
-        const { results: rawResults, total } = await searchSemantic(app.db, app.embedder, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
-        const results = await refineSegmentStarts(app.db, q, rawResults)
+        const { results: rawResults, total } = await searchSemantic(app.db, app.embedder, {
+          q: qStr,
+          limit,
+          offset,
+          topicSlug,
+          playlistSlug,
+          publishedAfter,
+        })
+        const results = await refineSegmentStarts(app.db, qStr, rawResults)
         return {
           results: results.map((r) => ({
             video_id: r.youtube_video_id,
@@ -77,8 +130,15 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       if (mode === "hybrid") {
-        const { results: rawResults, total } = await searchHybrid(app.db, app.embedder, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
-        const results = await refineSegmentStarts(app.db, q, rawResults)
+        const { results: rawResults, total } = await searchHybrid(app.db, app.embedder, {
+          q: qStr,
+          limit,
+          offset,
+          topicSlug,
+          playlistSlug,
+          publishedAfter,
+        })
+        const results = await refineSegmentStarts(app.db, qStr, rawResults)
         return {
           results: results.map((r) => ({
             video_id: r.youtube_video_id,
@@ -93,8 +153,15 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         }
       }
 
-      const { results: rawResults, total } = await searchSegments(app.db, { q, limit, offset, topicSlug, playlistSlug, publishedAfter })
-      const results = await refineSegmentStarts(app.db, q, rawResults)
+      const { results: rawResults, total } = await searchSegments(app.db, {
+        q: qStr,
+        limit,
+        offset,
+        topicSlug,
+        playlistSlug,
+        publishedAfter,
+      })
+      const results = await refineSegmentStarts(app.db, qStr, rawResults)
       return {
         results: results.map((r) => ({
           video_id: r.youtube_video_id,

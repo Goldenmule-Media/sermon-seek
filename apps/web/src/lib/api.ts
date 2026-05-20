@@ -15,7 +15,8 @@ function apiBase(): string {
 }
 
 export interface SearchParams {
-  q: string
+  q?: string
+  ref?: string
   playlist?: string
   topic?: string
   date?: string
@@ -23,19 +24,32 @@ export interface SearchParams {
   offset?: number
 }
 
-export async function fetchSearch(params: SearchParams): Promise<SearchResponse> {
+export async function fetchSearch(
+  params: SearchParams,
+): Promise<SearchResponse | { error: string }> {
   try {
-    const sp = new URLSearchParams({ q: params.q })
+    const sp = new URLSearchParams()
+    if (params.ref) {
+      sp.set("ref", params.ref)
+    } else if (params.q) {
+      sp.set("q", params.q)
+    }
     if (params.playlist) sp.set("playlist", params.playlist)
     if (params.topic) sp.set("topic", params.topic)
     if (params.date) sp.set("date", params.date)
     if (params.limit != null) sp.set("limit", String(params.limit))
     if (params.offset != null) sp.set("offset", String(params.offset))
     const res = await fetch(`${apiBase()}/v1/search?${sp.toString()}`)
-    if (!res.ok) return { results: [], total: 0, took_ms: 0 }
+    if (!res.ok) {
+      try {
+        const body = (await res.json()) as { message?: unknown }
+        if (typeof body.message === "string") return { error: body.message }
+      } catch {}
+      return { error: "Search failed. Please try again." }
+    }
     return res.json() as Promise<SearchResponse>
   } catch {
-    return { results: [], total: 0, took_ms: 0 }
+    return { error: "Search failed. Please try again." }
   }
 }
 

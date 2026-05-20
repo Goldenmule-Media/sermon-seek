@@ -125,9 +125,19 @@ export interface VideoTopicsTable {
 }
 
 export interface VideoScriptureRefsTable {
+  id: Generated<string>
   video_id: string
-  reference: string
-  position: number
+  book_id: number
+  chapter_start: number
+  verse_start: number
+  chapter_end: number
+  verse_end: number
+  start_coord: ColumnType<string, string | number, string | number>
+  end_coord: ColumnType<string, string | number, string | number>
+  occurrences: number
+  positions: number[]
+  first_position: number
+  raw_first: string
 }
 
 export interface RelatedVideosTable {
