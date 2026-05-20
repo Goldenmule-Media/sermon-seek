@@ -12,7 +12,9 @@ export default async function HomePage() {
         <p className="text-muted-foreground">
           Search thousands of sermons by topic, scripture, or keyword.
         </p>
-        <SearchBox />
+        <div className="w-full max-w-2xl">
+          <SearchBox />
+        </div>
       </section>
 
       <VideoStrip title="Recent Uploads" videos={data.recent} />

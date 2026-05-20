@@ -20,6 +20,7 @@ export interface HybridOptions {
   topicSlug?: string
   playlistSlug?: string
   publishedAfter?: Date
+  publishedBefore?: Date
 }
 
 export function fuseRRF(
@@ -68,17 +69,45 @@ export async function searchHybrid(
   embedder: Embedder | null,
   opts: HybridOptions,
 ): Promise<FtsResponse> {
-  const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter } = opts
+  const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter, publishedBefore } =
+    opts
   const candidateLimit = Math.max(100, limit * 10)
 
   if (!embedder) {
     console.debug("[hybrid] embedder unavailable — degrading hybrid search to FTS-only")
-    return searchSegments(db, { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter })
+    return searchSegments(db, {
+      q,
+      videoId,
+      limit,
+      offset,
+      topicSlug,
+      playlistSlug,
+      publishedAfter,
+      publishedBefore,
+    })
   }
 
   const [ftsResponse, semanticResponse] = await Promise.all([
-    searchSegments(db, { q, videoId, limit: candidateLimit, offset: 0, topicSlug, playlistSlug, publishedAfter }),
-    searchSemantic(db, embedder, { q, videoId, limit: candidateLimit, offset: 0, topicSlug, playlistSlug, publishedAfter }),
+    searchSegments(db, {
+      q,
+      videoId,
+      limit: candidateLimit,
+      offset: 0,
+      topicSlug,
+      playlistSlug,
+      publishedAfter,
+      publishedBefore,
+    }),
+    searchSemantic(db, embedder, {
+      q,
+      videoId,
+      limit: candidateLimit,
+      offset: 0,
+      topicSlug,
+      playlistSlug,
+      publishedAfter,
+      publishedBefore,
+    }),
   ])
 
   const fused = fuseRRF(ftsResponse.results, semanticResponse.results)

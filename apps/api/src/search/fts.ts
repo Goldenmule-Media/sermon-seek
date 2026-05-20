@@ -10,6 +10,7 @@ export interface FtsOptions {
   topicSlug?: string
   playlistSlug?: string
   publishedAfter?: Date
+  publishedBefore?: Date
 }
 
 export interface FtsResult {
@@ -30,7 +31,8 @@ export interface FtsResponse {
 }
 
 export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Promise<FtsResponse> {
-  const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter } = opts
+  const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter, publishedBefore } =
+    opts
 
   // FTS runs over transcript_chunks (30–60s rolling windows with one-segment
   // overlap), not transcript_segments. Per-cue segments are too small for
@@ -80,6 +82,10 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
   if (publishedAfter !== undefined) {
     baseQuery = baseQuery.where("v.published_at", ">=", publishedAfter)
     countBase = countBase.where("v.published_at", ">=", publishedAfter)
+  }
+  if (publishedBefore !== undefined) {
+    baseQuery = baseQuery.where("v.published_at", "<=", publishedBefore)
+    countBase = countBase.where("v.published_at", "<=", publishedBefore)
   }
 
   const [rows, countRow] = await Promise.all([

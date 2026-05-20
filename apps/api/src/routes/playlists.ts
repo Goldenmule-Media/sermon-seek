@@ -121,6 +121,7 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
         .innerJoin("video_playlists", "video_playlists.video_id", "videos.id")
         .select([
           "videos.id",
+          "videos.youtube_video_id",
           "videos.title",
           "videos.thumbnail_url",
           "videos.published_at",
@@ -158,7 +159,7 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
           total_views: playlist.total_views ? Number(playlist.total_views) : 0,
         },
         videos: videoRows.map((v) => ({
-          id: v.id,
+          id: v.youtube_video_id,
           title: v.title,
           thumbnail_url: v.thumbnail_url ?? "",
           published_at: v.published_at ? v.published_at.toISOString() : "",

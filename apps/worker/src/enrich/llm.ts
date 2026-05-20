@@ -21,13 +21,17 @@ export interface OpenAIEnricherOptions {
 const enrichmentSchema = {
   type: "object",
   properties: {
-    summary: { type: "string", description: "One-paragraph summary of the sermon" },
+    summary: {
+      type: "string",
+      description:
+        "1–2 sentence summary, ~280 characters or less. Describe what the video actually is and what it covers.",
+    },
     topics: {
       type: "array",
       items: { type: "string" },
       minItems: 5,
       maxItems: 10,
-      description: "5–10 short noun phrases describing the sermon topics",
+      description: "5–10 short noun phrases describing the topics covered",
     },
   },
   required: ["summary", "topics"],
@@ -43,9 +47,11 @@ export function createOpenAIEnricher({
 
   async function callWithRetry(transcriptText: string, title: string): Promise<EnrichmentOutput> {
     const excerpt = transcriptText.slice(0, MAX_TRANSCRIPT_CHARS)
-    const prompt = `You are a sermon analyst. Given a sermon title and transcript excerpt, produce:
-- A one-paragraph summary (3-5 sentences)
-- 5-10 short topic noun phrases (lowercase, slug-friendly, e.g. "grace", "faith in action")
+    const prompt = `You are analyzing a recorded video from a church's channel. The content may be a sermon, devotional, Q&A, panel, livestream, announcement, interview, worship, or anything else — describe what it actually is, don't assume.
+
+Given the title and transcript excerpt, produce:
+- summary: 1–2 sentences, ~280 characters or less. Start by naming the format (e.g. "A sermon on…", "A devotional reflecting on…", "A Q&A about…"). Be concrete about the subject; skip filler like "in this video".
+- topics: 5–10 short noun phrases describing what's covered (lowercase, slug-friendly, e.g. "grace", "faith in action").
 
 Title: ${title}
 

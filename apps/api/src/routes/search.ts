@@ -6,6 +6,7 @@ import { searchSegments } from "../search/fts.js"
 import { groupByVideo } from "../search/group-by-video.js"
 import { searchHybrid } from "../search/hybrid.js"
 import { hydrateScriptureRefs } from "../search/hydrate-refs.js"
+import { hydrateSummaries } from "../search/hydrate-summaries.js"
 import { refineSegmentStarts } from "../search/refine.js"
 import { searchSemantic } from "../search/semantic.js"
 
@@ -13,6 +14,11 @@ import { searchSemantic } from "../search/semantic.js"
 // values surface more videos to rank but cost more refine + group work.
 const CANDIDATE_MULTIPLIER = 10
 const MIN_CANDIDATES = 200
+
+const isoDate = z
+  .string()
+  .regex(/^\d{4}-\d{2}-\d{2}$/, "expected YYYY-MM-DD")
+  .optional()
 
 const querySchema = z
   .object({
@@ -23,7 +29,8 @@ const querySchema = z
     offset: z.coerce.number().int().min(0).default(0),
     topic: z.string().optional(),
     playlist: z.string().optional(),
-    date: z.enum(["year", "month"]).optional(),
+    from: isoDate,
+    to: isoDate,
   })
   .refine((data) => Boolean(data.q) !== Boolean(data.ref), {
     message: "exactly one of 'q' or 'ref' must be provided",
@@ -51,6 +58,7 @@ const searchResultSchema = z.object({
   video_id: z.string(),
   title: z.string(),
   thumbnail_url: z.string(),
+  summary: z.string(),
   score: z.number(),
   hits: z.array(searchHitSchema),
   scripture_refs: z.array(scriptureRefDetailSchema),
@@ -79,17 +87,15 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
       },
     },
     async (request, reply) => {
-      const { q, ref, mode, limit, offset, topic, playlist, date } = request.query
+      const { q, ref, mode, limit, offset, topic, playlist, from, to } = request.query
       const t0 = Date.now()
 
       const topicSlug = topic || undefined
       const playlistSlug = playlist || undefined
-      const publishedAfter =
-        date === "month"
-          ? new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-          : date === "year"
-            ? new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)
-            : undefined
+      const publishedAfter = from ? new Date(`${from}T00:00:00Z`) : undefined
+      // Inclusive end of day so `to=2026-05-20` covers everything published on
+      // 2026-05-20 in UTC.
+      const publishedBefore = to ? new Date(`${to}T23:59:59.999Z`) : undefined
 
       const candidateLimit = Math.max(MIN_CANDIDATES, limit * CANDIDATE_MULTIPLIER)
 
@@ -101,12 +107,16 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         const refined = await refineSegmentStarts(app.db, refineQuery, candidates)
         const { videos, total } = groupByVideo(refined, { limit, offset, videoScores })
         const ids = videos.map((v) => v.youtube_video_id)
-        const refs = await hydrateScriptureRefs(app.db, ids)
+        const [refs, summaries] = await Promise.all([
+          hydrateScriptureRefs(app.db, ids),
+          hydrateSummaries(app.db, ids),
+        ])
         return {
           results: videos.map((v) => ({
             video_id: v.youtube_video_id,
             title: v.title,
             thumbnail_url: v.thumbnail_url ?? "",
+            summary: summaries.get(v.youtube_video_id) ?? "",
             score: v.score,
             hits: v.hits.map((h) => ({
               snippet: h.snippet,
@@ -140,6 +150,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
           topicSlug,
           playlistSlug,
           publishedAfter,
+          publishedBefore,
         })
         return respond(results, ref, videoScores)
       }
@@ -157,6 +168,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
           topicSlug,
           playlistSlug,
           publishedAfter,
+          publishedBefore,
         })
         return respond(results, qStr)
       }
@@ -169,6 +181,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
           topicSlug,
           playlistSlug,
           publishedAfter,
+          publishedBefore,
         })
         return respond(results, qStr)
       }

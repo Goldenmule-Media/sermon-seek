@@ -18,7 +18,8 @@ export interface SearchParams {
   q?: string
   ref?: string
   playlist?: string
-  date?: string
+  from?: string
+  to?: string
   limit?: number
   offset?: number
 }
@@ -34,7 +35,8 @@ export async function fetchSearch(
       sp.set("q", params.q)
     }
     if (params.playlist) sp.set("playlist", params.playlist)
-    if (params.date) sp.set("date", params.date)
+    if (params.from) sp.set("from", params.from)
+    if (params.to) sp.set("to", params.to)
     if (params.limit != null) sp.set("limit", String(params.limit))
     if (params.offset != null) sp.set("offset", String(params.offset))
     const res = await fetch(`${apiBase()}/v1/search?${sp.toString()}`)

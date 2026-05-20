@@ -2,6 +2,7 @@ import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
 import { searchSegments } from "../search/fts.js"
 import { hydrateScriptureRefs } from "../search/hydrate-refs.js"
+import { hydrateSummaries } from "../search/hydrate-summaries.js"
 import { refineSegmentStarts } from "../search/refine.js"
 
 const paramsSchema = z.object({
@@ -36,6 +37,7 @@ const searchResultSchema = z.object({
   video_id: z.string(),
   title: z.string(),
   thumbnail_url: z.string(),
+  summary: z.string(),
   score: z.number(),
   hits: z.array(searchHitSchema),
   scripture_refs: z.array(scriptureRefDetailSchema),
@@ -82,8 +84,12 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
       const t0 = Date.now()
       const { results: rawResults, total } = await searchSegments(app.db, { q, videoId: id, limit, offset })
       const refined = await refineSegmentStarts(app.db, q, rawResults)
-      const refs = await hydrateScriptureRefs(app.db, [id])
+      const [refs, summaries] = await Promise.all([
+        hydrateScriptureRefs(app.db, [id]),
+        hydrateSummaries(app.db, [id]),
+      ])
       const videoRefs = refs.perVideo.get(id) ?? []
+      const summary = summaries.get(id) ?? ""
 
       if (refined.length === 0) {
         return {
@@ -102,6 +108,7 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
             video_id: head.youtube_video_id,
             title: head.title,
             thumbnail_url: head.thumbnail_url ?? "",
+            summary,
             score: aggScore,
             hits: refined.map((r) => ({
               snippet: r.snippet,

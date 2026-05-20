@@ -8,9 +8,10 @@ import { useEffect, useState } from "react"
 
 interface SearchBoxProps {
   initialQuery?: string
+  showHint?: boolean
 }
 
-export function SearchBox({ initialQuery }: SearchBoxProps) {
+export function SearchBox({ initialQuery, showHint = true }: SearchBoxProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const urlQuery = searchParams?.get("q") ?? searchParams?.get("ref") ?? ""
@@ -34,7 +35,7 @@ export function SearchBox({ initialQuery }: SearchBoxProps) {
   }
 
   return (
-    <div className="w-full max-w-2xl space-y-2">
+    <div className="w-full space-y-2">
       <form onSubmit={handleSubmit} className="flex gap-2">
         <Input
           autoFocus
@@ -47,7 +48,9 @@ export function SearchBox({ initialQuery }: SearchBoxProps) {
           Search
         </Button>
       </form>
-      <p className="text-sm text-muted-foreground text-center">try: grace, Romans 8, John 3:16</p>
+      {showHint && (
+        <p className="text-sm text-muted-foreground text-center">try: grace, Romans 8, John 3:16</p>
+      )}
     </div>
   )
 }

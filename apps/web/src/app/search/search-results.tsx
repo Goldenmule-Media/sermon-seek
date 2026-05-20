@@ -17,7 +17,8 @@ export function SearchResults({ playlists }: SearchResultsProps) {
   const q = searchParams.get("q") ?? ""
   const ref = searchParams.get("ref") ?? ""
   const playlist = searchParams.get("playlist") ?? ""
-  const date = searchParams.get("date") ?? ""
+  const from = searchParams.get("from") ?? ""
+  const to = searchParams.get("to") ?? ""
 
   const [data, setData] = useState<SearchResponse | null>(null)
   const [loading, setLoading] = useState(false)
@@ -37,7 +38,8 @@ export function SearchResults({ playlists }: SearchResultsProps) {
       q: q || undefined,
       ref: ref || undefined,
       playlist: playlist || undefined,
-      date: date || undefined,
+      from: from || undefined,
+      to: to || undefined,
       limit: 20,
       offset: 0,
     })
@@ -59,9 +61,9 @@ export function SearchResults({ playlists }: SearchResultsProps) {
     return () => {
       cancelled = true
     }
-  }, [q, ref, playlist, date])
+  }, [q, ref, playlist, from, to])
 
-  const filters: FilterValues = { playlist, date }
+  const filters: FilterValues = { playlist, from, to }
 
   return (
     <div className="space-y-4">

@@ -48,7 +48,14 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
 
       const recentRows = await db
         .selectFrom("videos")
-        .select(["id", "title", "thumbnail_url", "published_at", "duration_seconds"])
+        .select([
+          "id",
+          "youtube_video_id",
+          "title",
+          "thumbnail_url",
+          "published_at",
+          "duration_seconds",
+        ])
         .where("published_at", "is not", null)
         .orderBy("published_at", "desc")
         .limit(STRIP_SIZE)
@@ -68,6 +75,7 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
             .innerJoin("video_playlists", "videos.id", "video_playlists.video_id")
             .select([
               "videos.id",
+              "videos.youtube_video_id",
               "videos.title",
               "videos.thumbnail_url",
               "videos.published_at",
@@ -104,6 +112,7 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
 
       type VideoRow = {
         id: string
+        youtube_video_id: string
         title: string
         thumbnail_url: string | null
         published_at: Date | null
@@ -111,7 +120,7 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       const toVideo = (row: VideoRow) => ({
-        id: row.id,
+        id: row.youtube_video_id,
         title: row.title,
         thumbnail_url: row.thumbnail_url ?? "",
         published_at: row.published_at ? row.published_at.toISOString() : "",

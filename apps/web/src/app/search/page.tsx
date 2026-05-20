@@ -13,7 +13,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-      <SearchBox initialQuery={q ?? ref} />
+      <SearchBox initialQuery={q ?? ref} showHint={false} />
       <Suspense fallback={<p className="text-muted-foreground text-sm">Loading…</p>}>
         <SearchResults playlists={playlists} />
       </Suspense>

@@ -1,3 +1,4 @@
+import { VideoSummary } from "@/components/video-summary"
 import { formatDuration } from "@/lib/utils"
 import type { SearchResult } from "@sermon-search/types"
 import Image from "next/image"
@@ -37,6 +38,8 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
           {result.title}
         </Link>
 
+        <VideoSummary summary={result.summary} />
+
         <ul className="flex flex-col gap-1 -mx-2">
           {result.hits.map((hit, i) => {
             const t = Math.floor(hit.start_ms / 1000)
@@ -69,22 +72,27 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
         </ul>
 
         {refs.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-1">
-            {refs.map((r) => (
-              <Link
-                key={`${r.start_coord}-${r.end_coord}`}
-                href={`/search?ref=${encodeURIComponent(r.display)}`}
-                className="inline-flex items-center gap-1 rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
-              >
-                <span>{r.display}</span>
-                <span className="text-muted-foreground">{r.occurrences}</span>
-              </Link>
-            ))}
-            {overflow > 0 && (
-              <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] text-muted-foreground">
-                +{overflow} more
-              </span>
-            )}
+          <div className="rounded-md border bg-muted/40 p-2 mt-1">
+            <p className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground mb-1">
+              Scripture references
+            </p>
+            <div className="flex flex-wrap gap-1">
+              {refs.map((r) => (
+                <Link
+                  key={`${r.start_coord}-${r.end_coord}`}
+                  href={`/search?ref=${encodeURIComponent(r.display)}`}
+                  className="inline-flex items-center gap-1 rounded border bg-background px-1.5 py-0.5 text-[10px] hover:bg-accent transition-colors"
+                >
+                  <span>{r.display}</span>
+                  <span className="text-muted-foreground">{r.occurrences}</span>
+                </Link>
+              ))}
+              {overflow > 0 && (
+                <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] text-muted-foreground">
+                  +{overflow} more
+                </span>
+              )}
+            </div>
           </div>
         )}
       </div>

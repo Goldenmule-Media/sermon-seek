@@ -8,6 +8,7 @@ export interface SearchResult {
   video_id: string
   title: string
   thumbnail_url: string
+  summary: string
   score: number
   hits: SearchHit[]
   scripture_refs: ScriptureRefDetail[]

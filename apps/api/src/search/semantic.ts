@@ -12,6 +12,7 @@ export interface SemanticOptions {
   topicSlug?: string
   playlistSlug?: string
   publishedAfter?: Date
+  publishedBefore?: Date
 }
 
 const STOPWORDS = new Set([
@@ -73,7 +74,8 @@ export async function searchSemantic(
   embedder: Embedder,
   opts: SemanticOptions,
 ): Promise<FtsResponse> {
-  const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter } = opts
+  const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter, publishedBefore } =
+    opts
 
   const [queryVec] = await embedder.embed([q])
   const vecStr = `[${(queryVec as number[]).join(",")}]`
@@ -130,6 +132,10 @@ export async function searchSemantic(
   if (publishedAfter !== undefined) {
     query = query.where("v.published_at", ">=", publishedAfter)
     countQuery = countQuery.where("v.published_at", ">=", publishedAfter)
+  }
+  if (publishedBefore !== undefined) {
+    query = query.where("v.published_at", "<=", publishedBefore)
+    countQuery = countQuery.where("v.published_at", "<=", publishedBefore)
   }
 
   const rows = (await query.execute()) as Row[]

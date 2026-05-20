@@ -30,6 +30,7 @@ export interface RefSearchParams {
   topicSlug?: string
   playlistSlug?: string
   publishedAfter?: Date
+  publishedBefore?: Date
 }
 
 // Ref-mode pulls all videos whose scripture-ref intervals overlap the queried
@@ -49,6 +50,7 @@ export async function searchVideosByRef(
     topicSlug,
     playlistSlug,
     publishedAfter,
+    publishedBefore,
   } = params
 
   const overlapEnd = sql<SqlBool>`${endCoord} >= r.start_coord`
@@ -79,6 +81,10 @@ export async function searchVideosByRef(
 
   if (publishedAfter !== undefined) {
     videosQuery = videosQuery.where("v.published_at", ">=", publishedAfter)
+  }
+
+  if (publishedBefore !== undefined) {
+    videosQuery = videosQuery.where("v.published_at", "<=", publishedBefore)
   }
 
   const videoRows = await videosQuery
