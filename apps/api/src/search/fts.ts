@@ -29,30 +29,35 @@ export interface FtsResponse {
 export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Promise<FtsResponse> {
   const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter } = opts
 
-  // Build the tsquery once; if all stopwords this returns no rows cleanly.
+  // FTS runs over transcript_chunks (30–60s rolling windows with one-segment
+  // overlap), not transcript_segments. Per-cue segments are too small for
+  // Postgres FTS — `ts_vector @@ tsquery` requires every query lexeme to live
+  // in the same tsvector, so multi-word queries like "Psalm 127" silently miss
+  // any time their lexemes fall in adjacent cues. Chunks (with overlap) ensure
+  // the lexemes co-locate in at least one row.
   const tsquery = sql<string>`plainto_tsquery('english', ${q})`
-  const ftsMatch = sql<SqlBool>`ts.text_tsv @@ ${tsquery}`
+  const ftsMatch = sql<SqlBool>`c.text_tsv @@ ${tsquery}`
 
   let baseQuery = db
-    .selectFrom("transcript_segments as ts")
-    .innerJoin("videos as v", "v.id", "ts.video_id")
+    .selectFrom("transcript_chunks as c")
+    .innerJoin("videos as v", "v.id", "c.video_id")
     .select([
       "v.youtube_video_id",
       "v.title",
       "v.thumbnail_url",
-      "ts.start_ms",
-      sql<number>`ts_rank_cd(ts.text_tsv, ${tsquery})`.as("score"),
-      sql<string>`ts_headline('english', ts.text, ${tsquery}, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=20,MinWords=10')`.as(
+      "c.start_ms",
+      sql<number>`ts_rank_cd(c.text_tsv, ${tsquery})`.as("score"),
+      sql<string>`ts_headline('english', c.text, ${tsquery}, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=20,MinWords=10')`.as(
         "snippet",
       ),
     ])
     .where(ftsMatch)
 
   let countBase = db
-    .selectFrom("transcript_segments as ts")
-    .innerJoin("videos as v", "v.id", "ts.video_id")
+    .selectFrom("transcript_chunks as c")
+    .innerJoin("videos as v", "v.id", "c.video_id")
     .select(sql<string>`count(*)`.as("count"))
-    .where(sql<SqlBool>`ts.text_tsv @@ ${tsquery}`)
+    .where(sql<SqlBool>`c.text_tsv @@ ${tsquery}`)
 
   if (videoId !== undefined) {
     baseQuery = baseQuery.where("v.youtube_video_id", "=", videoId)
@@ -76,7 +81,7 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
   const [rows, countRow] = await Promise.all([
     baseQuery
       .orderBy(sql`score`, "desc")
-      .orderBy("ts.start_ms", "asc")
+      .orderBy("c.start_ms", "asc")
       .limit(limit)
       .offset(offset)
       .execute(),

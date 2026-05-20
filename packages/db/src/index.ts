@@ -93,6 +93,7 @@ export interface TranscriptChunksTable {
   text: string
   position: number
   created_at: Generated<Timestamptz>
+  text_tsv: ColumnType<string, never, never>
 }
 
 export interface EmbeddingsTable {

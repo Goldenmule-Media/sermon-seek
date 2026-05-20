@@ -21,8 +21,19 @@ export function chunkSegments(segments: TranscriptSegmentRow[], opts: ChunkOptio
   const sorted = [...segments].sort((a, b) => a.start_ms - b.start_ms)
   const chunks: Chunk[] = []
 
+  // Each chunk after the first re-includes the previous chunk's last segment
+  // as its own first segment. This guarantees any phrase that straddles a
+  // chunk boundary appears whole inside at least one chunk — Postgres FTS
+  // requires all query lexemes to live in the same tsvector to match.
   let buffer: TranscriptSegmentRow[] = []
   let bufferDuration = 0
+  let prevTailSeg: TranscriptSegmentRow | null = null
+
+  function seedFromPrev(): void {
+    if (prevTailSeg === null) return
+    buffer.push(prevTailSeg)
+    bufferDuration += prevTailSeg.end_ms - prevTailSeg.start_ms
+  }
 
   function flush(): void {
     if (buffer.length === 0) return
@@ -34,6 +45,7 @@ export function chunkSegments(segments: TranscriptSegmentRow[], opts: ChunkOptio
       text: buffer.map((s) => s.text).join(" "),
       segment_ids: buffer.map((s) => s.id),
     })
+    prevTailSeg = last
     buffer = []
     bufferDuration = 0
   }
@@ -42,6 +54,7 @@ export function chunkSegments(segments: TranscriptSegmentRow[], opts: ChunkOptio
     const segDuration = seg.end_ms - seg.start_ms
 
     if (buffer.length === 0) {
+      seedFromPrev()
       buffer.push(seg)
       bufferDuration += segDuration
       continue
@@ -51,8 +64,9 @@ export function chunkSegments(segments: TranscriptSegmentRow[], opts: ChunkOptio
 
     if (newDuration > maxMs && bufferDuration >= minMs) {
       flush()
+      seedFromPrev()
       buffer.push(seg)
-      bufferDuration = segDuration
+      bufferDuration += segDuration
       continue
     }
 

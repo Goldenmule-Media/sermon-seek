@@ -50,13 +50,45 @@ describe("chunkSegments", () => {
     }
   })
 
-  it("concatenated text covers every segment text exactly once", () => {
+  it("every segment appears in at least one chunk; covers full transcript", () => {
     const segs = Array.from({ length: 10 }, (_, i) =>
       makeSeg(`${i}`, i * 5_000, (i + 1) * 5_000, `word-${i}`),
     )
     const chunks = chunkSegments(segs, { minMs: 20_000, targetMs: 30_000, maxMs: 40_000 })
-    const allWords = chunks.flatMap((c) => c.text.split(" "))
-    expect(allWords.sort()).toEqual(segs.map((s) => s.text).sort())
+    const coveredIds = new Set(chunks.flatMap((c) => c.segment_ids))
+    expect(coveredIds.size).toBe(segs.length)
+    for (const s of segs) expect(coveredIds.has(s.id)).toBe(true)
+  })
+
+  it("adjacent chunks share their boundary segment (overlap of one)", () => {
+    const segs = Array.from({ length: 20 }, (_, i) => makeSeg(`${i}`, i * 5_000, (i + 1) * 5_000))
+    const chunks = chunkSegments(segs, { minMs: 30_000, targetMs: 45_000, maxMs: 60_000 })
+    expect(chunks.length).toBeGreaterThanOrEqual(2)
+    for (let i = 1; i < chunks.length; i++) {
+      const prev = chunks[i - 1]
+      const cur = chunks[i]
+      if (!prev || !cur) continue
+      const prevLast = prev.segment_ids[prev.segment_ids.length - 1]
+      const curFirst = cur.segment_ids[0]
+      expect(curFirst).toBe(prevLast)
+    }
+  })
+
+  it("a phrase straddling a chunk boundary still appears whole in some chunk", () => {
+    // Build segments so that the join "Psalm" + "127" lives across what would
+    // otherwise be a chunk boundary. With overlap, "127" should be reachable
+    // from the chunk that contains "Psalm".
+    const segs: TranscriptSegmentRow[] = [
+      ...Array.from({ length: 8 }, (_, i) => makeSeg(`${i}`, i * 5_000, (i + 1) * 5_000, "filler")),
+      makeSeg("psalm", 8 * 5_000, 9 * 5_000, "Psalm"),
+      makeSeg("num", 9 * 5_000, 10 * 5_000, "127"),
+      ...Array.from({ length: 8 }, (_, i) =>
+        makeSeg(`tail-${i}`, (10 + i) * 5_000, (11 + i) * 5_000, "tail"),
+      ),
+    ]
+    const chunks = chunkSegments(segs, { minMs: 30_000, targetMs: 45_000, maxMs: 60_000 })
+    const phraseChunk = chunks.find((c) => c.text.includes("Psalm 127"))
+    expect(phraseChunk).toBeDefined()
   })
 
   it("single long segment > maxMs becomes one chunk on its own", () => {
@@ -69,12 +101,10 @@ describe("chunkSegments", () => {
   })
 
   it("last chunk may be shorter than minMs", () => {
-    // 9 × 5000ms = 45000ms → first chunk; 1 × 5000ms = 5000ms → last chunk (< minMs=30000)
     const segs = Array.from({ length: 10 }, (_, i) => makeSeg(`${i}`, i * 5_000, (i + 1) * 5_000))
     const chunks = chunkSegments(segs, { minMs: 30_000, targetMs: 45_000, maxMs: 60_000 })
     expect(chunks.length).toBeGreaterThanOrEqual(1)
-    // all segments are covered
-    const coveredIds = chunks.flatMap((c) => c.segment_ids)
-    expect(coveredIds.sort()).toEqual(segs.map((s) => s.id).sort())
+    const coveredIds = new Set(chunks.flatMap((c) => c.segment_ids))
+    expect(coveredIds.size).toBe(segs.length)
   })
 })

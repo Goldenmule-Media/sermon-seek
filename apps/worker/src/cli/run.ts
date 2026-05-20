@@ -5,6 +5,7 @@ import { runEnrichBackfill } from "../enrich/run.js"
 import { ingestChannel } from "../ingest/channel.js"
 import { runEmbedBackfill } from "../ingest/embed.js"
 import { ingestPlaylist } from "../ingest/playlist.js"
+import { runRechunk } from "../ingest/rechunk.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
 import { runTranscriptsBackfill } from "../ingest/transcripts_backfill.js"
 import { runViewStats } from "../ingest/view_stats.js"
@@ -20,13 +21,14 @@ interface ParsedArgs {
   viewStats: boolean
   transcripts: boolean
   embed: boolean
+  rechunk: boolean
   enrich: boolean
   related: boolean
   force: boolean
 }
 
 const USAGE =
-  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --smoke-test | --view-stats | --transcripts | --embed | --enrich [--force] | --related [--force])"
+  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --smoke-test | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force])"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
@@ -36,6 +38,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   let viewStats = false
   let transcripts = false
   let embed = false
+  let rechunk = false
   let enrich = false
   let related = false
   let force = false
@@ -103,6 +106,13 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     if (arg?.startsWith("--embed=")) {
       throw new Error("--embed does not take a value")
     }
+    if (arg === "--rechunk") {
+      rechunk = true
+      continue
+    }
+    if (arg?.startsWith("--rechunk=")) {
+      throw new Error("--rechunk does not take a value")
+    }
     if (arg === "--enrich") {
       enrich = true
       continue
@@ -137,6 +147,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     viewStats ? "--view-stats" : null,
     transcripts ? "--transcripts" : null,
     embed ? "--embed" : null,
+    rechunk ? "--rechunk" : null,
     enrich ? "--enrich" : null,
     related ? "--related" : null,
   ].filter((v): v is string => v !== null)
@@ -145,7 +156,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --enrich, or --related",
+      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, or --related",
     )
   }
   return {
@@ -156,6 +167,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     viewStats,
     transcripts,
     embed,
+    rechunk,
     enrich,
     related,
     force,
@@ -182,6 +194,20 @@ export async function main(argv: readonly string[]): Promise<number> {
     try {
       const embedder = createOpenAIEmbedder({ apiKey })
       const summary = await runEmbedBackfill({ db, embedder, log: console.log })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    } catch (err) {
+      console.error(err instanceof Error ? (err.stack ?? err.message) : String(err))
+      return 1
+    } finally {
+      await db.destroy()
+    }
+  }
+
+  if (parsed.rechunk) {
+    const db = createDb()
+    try {
+      const summary = await runRechunk({ db, log: console.log })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     } catch (err) {
