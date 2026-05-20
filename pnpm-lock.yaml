@@ -145,6 +145,9 @@ importers:
       '@sermon-search/embeddings':
         specifier: workspace:*
         version: link:../../packages/embeddings
+      '@sermon-search/scripture':
+        specifier: workspace:*
+        version: link:../../packages/scripture
       '@sermon-search/types':
         specifier: workspace:*
         version: link:../../packages/types
@@ -195,6 +198,18 @@ importers:
       openai:
         specifier: ^4.77.0
         version: 4.104.0(ws@8.20.1)(zod@3.25.76)
+    devDependencies:
+      '@types/node':
+        specifier: ^20.17.0
+        version: 20.19.41
+      typescript:
+        specifier: 5.6.3
+        version: 5.6.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@20.19.41)(jsdom@26.1.0)
+
+  packages/scripture:
     devDependencies:
       '@types/node':
         specifier: ^20.17.0
