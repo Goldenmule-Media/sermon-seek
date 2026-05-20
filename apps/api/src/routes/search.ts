@@ -52,6 +52,7 @@ const searchHitSchema = z.object({
   snippet: z.string(),
   start_ms: z.number(),
   score: z.number(),
+  match_type: z.enum(["lexical", "semantic"]),
 })
 
 const searchResultSchema = z.object({
@@ -122,6 +123,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
               snippet: h.snippet,
               start_ms: h.start_ms,
               score: h.score,
+              match_type: h.match_type,
             })),
             scripture_refs: refs.perVideo.get(v.youtube_video_id) ?? [],
           })),

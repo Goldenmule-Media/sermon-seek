@@ -2,6 +2,7 @@ import type { Database } from "@sermon-search/db"
 import { extract } from "@sermon-search/scripture"
 import type { Kysely, SqlBool } from "kysely"
 import { sql } from "kysely"
+import { buildTsQuery } from "./build-tsquery.js"
 import type { FtsResult } from "./fts.js"
 
 export class BadRefError extends Error {
@@ -113,21 +114,20 @@ export async function searchVideosByRef(
     videoScores.set(v.youtube_video_id, v.ref_score)
   }
 
+  const { tsquery } = buildTsQuery(rawQuery)
   const chunkRows = await db
     .selectFrom("transcript_chunks as c")
     .select([
       "c.video_id",
       "c.start_ms",
       "c.end_ms",
-      sql<number>`ts_rank_cd(c.text_tsv, plainto_tsquery('english', ${rawQuery}))`.as(
-        "chunk_score",
-      ),
-      sql<string>`ts_headline('english', c.text, plainto_tsquery('english', ${rawQuery}), 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=20,MinWords=10')`.as(
+      sql<number>`ts_rank_cd(c.text_tsv, ${tsquery})`.as("chunk_score"),
+      sql<string>`ts_headline('english', c.text, ${tsquery}, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=20,MinWords=10')`.as(
         "snippet",
       ),
     ])
     .where("c.video_id", "in", videoIds)
-    .where(sql<SqlBool>`c.text_tsv @@ plainto_tsquery('english', ${rawQuery})`)
+    .where(sql<SqlBool>`c.text_tsv @@ ${tsquery}`)
     .orderBy("c.video_id", "asc")
     .orderBy("c.start_ms", "asc")
     .execute()
@@ -144,6 +144,7 @@ export async function searchVideosByRef(
       end_ms: Number(c.end_ms),
       score: c.chunk_score,
       snippet: c.snippet,
+      match_type: "lexical",
     })
   }
 

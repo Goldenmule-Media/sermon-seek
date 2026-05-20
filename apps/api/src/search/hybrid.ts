@@ -1,6 +1,7 @@
 import type { Database } from "@sermon-search/db"
 import type { Embedder } from "@sermon-search/embeddings"
 import type { Kysely } from "kysely"
+import { buildTsQuery } from "./build-tsquery.js"
 import type { FtsResponse, FtsResult } from "./fts.js"
 import { searchSegments } from "./fts.js"
 import { searchSemantic } from "./semantic.js"
@@ -11,6 +12,10 @@ export const FTS_WEIGHT = 1.0
 // from FTS) outranks a marginal keyword hit (rank 1 in FTS, absent from semantic).
 // Docs in both lists still win — they accumulate from both sides.
 export const SEMANTIC_WEIGHT = 1.5
+// When the user opts into a phrase via double quotes, they want literal-text
+// results. Drop semantic to FTS-equivalent weight so it can only break ties /
+// add adjacent related passages, not outrank verbatim phrase hits.
+export const SEMANTIC_WEIGHT_WITH_PHRASE = 1.0
 
 export interface HybridOptions {
   q: string
@@ -110,7 +115,9 @@ export async function searchHybrid(
     }),
   ])
 
-  const fused = fuseRRF(ftsResponse.results, semanticResponse.results)
+  const { hasPhrases } = buildTsQuery(q)
+  const semanticWeight = hasPhrases ? SEMANTIC_WEIGHT_WITH_PHRASE : SEMANTIC_WEIGHT
+  const fused = fuseRRF(ftsResponse.results, semanticResponse.results, { semanticWeight })
 
   return { results: fused.slice(offset, offset + limit), total: fused.length }
 }

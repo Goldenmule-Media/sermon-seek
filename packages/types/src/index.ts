@@ -2,6 +2,7 @@ export interface SearchHit {
   snippet: string
   start_ms: number
   score: number
+  match_type: "lexical" | "semantic"
 }
 
 export interface SearchResult {

@@ -1,5 +1,6 @@
 import type { Database } from "@sermon-search/db"
 import { type Kysely, type SqlBool, sql } from "kysely"
+import { buildTsQuery } from "./build-tsquery.js"
 import type { FtsResult } from "./fts.js"
 
 // Chunks are 30–60s rolling windows, so a chunk's start_ms can sit well before the
@@ -23,6 +24,8 @@ export async function refineSegmentStarts(
   if (results.length === 0) return results
   if (q.trim().length === 0) return results
 
+  const { tsquery: strictTsQuery } = buildTsQuery(q)
+
   return Promise.all(
     results.map(async (r) => {
       try {
@@ -33,7 +36,7 @@ export async function refineSegmentStarts(
           .where("v.youtube_video_id", "=", r.youtube_video_id)
           .where("s.start_ms", ">=", r.start_ms)
           .where("s.start_ms", "<", r.end_ms)
-          .where(sql<SqlBool>`s.text_tsv @@ plainto_tsquery('english', ${q})`)
+          .where(sql<SqlBool>`s.text_tsv @@ ${strictTsQuery}`)
           .executeTakeFirst()
         if (andRow?.refined != null) return { ...r, start_ms: Number(andRow.refined) }
 

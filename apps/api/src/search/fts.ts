@@ -1,6 +1,7 @@
 import type { Database } from "@sermon-search/db"
 import type { Kysely, SqlBool } from "kysely"
 import { sql } from "kysely"
+import { buildTsQuery } from "./build-tsquery.js"
 
 export interface FtsOptions {
   q: string
@@ -13,6 +14,8 @@ export interface FtsOptions {
   publishedBefore?: Date
 }
 
+export type MatchType = "lexical" | "semantic"
+
 export interface FtsResult {
   youtube_video_id: string
   title: string
@@ -23,6 +26,10 @@ export interface FtsResult {
   end_ms: number
   score: number
   snippet: string
+  // "lexical" = the chunk's text actually matched the query (FTS hit). "semantic"
+  // = the chunk matched only by embedding similarity; the snippet is an excerpt
+  // of the chunk but the user's literal words may not appear in it.
+  match_type: MatchType
 }
 
 export interface FtsResponse {
@@ -40,7 +47,7 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
   // in the same tsvector, so multi-word queries like "Psalm 127" silently miss
   // any time their lexemes fall in adjacent cues. Chunks (with overlap) ensure
   // the lexemes co-locate in at least one row.
-  const tsquery = sql<string>`plainto_tsquery('english', ${q})`
+  const { tsquery } = buildTsQuery(q)
   const ftsMatch = sql<SqlBool>`c.text_tsv @@ ${tsquery}`
 
   let baseQuery = db
@@ -63,7 +70,7 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
     .selectFrom("transcript_chunks as c")
     .innerJoin("videos as v", "v.id", "c.video_id")
     .select(sql<string>`count(*)`.as("count"))
-    .where(sql<SqlBool>`c.text_tsv @@ ${tsquery}`)
+    .where(ftsMatch)
 
   if (videoId !== undefined) {
     baseQuery = baseQuery.where("v.youtube_video_id", "=", videoId)
@@ -99,7 +106,7 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
   ])
 
   return {
-    results: rows,
+    results: rows.map((r) => ({ ...r, match_type: "lexical" as const })),
     total: Number(countRow.count),
   }
 }

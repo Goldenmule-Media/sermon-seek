@@ -1,4 +1,4 @@
-import type { FtsResult } from "./fts.js"
+import type { FtsResult, MatchType } from "./fts.js"
 
 // Cap each video's hit list so a video full of weak matches doesn't push a
 // massive payload. 10 keeps the result card scannable without truncating
@@ -9,6 +9,7 @@ export interface GroupedHit {
   snippet: string
   start_ms: number
   score: number
+  match_type: MatchType
 }
 
 export interface GroupedVideo {
@@ -41,7 +42,12 @@ export function groupByVideo(
 
   for (const c of chunks) {
     const existing = map.get(c.youtube_video_id)
-    const hit: GroupedHit = { snippet: c.snippet, start_ms: c.start_ms, score: c.score }
+    const hit: GroupedHit = {
+      snippet: c.snippet,
+      start_ms: c.start_ms,
+      score: c.score,
+      match_type: c.match_type,
+    }
     if (existing) {
       existing.score += c.score
       existing.hits.push(hit)

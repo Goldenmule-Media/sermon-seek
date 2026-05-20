@@ -33,14 +33,12 @@ function escapeHtml(s: string): string {
   })
 }
 
-function escapeRegex(s: string): string {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
-}
-
-// Build an FTS-style snippet: window of ~20 words centered on the first query-token hit
-// (or the start of the chunk if no token appears), with matched tokens wrapped in <mark>.
-// Matches `ts_headline` visual treatment so semantic-only hits don't read as "the
-// search ignored my words" next to keyword hits.
+// Build a plain-text excerpt of the chunk for semantic hits. ~20 words centered
+// on the first query-token hit when one exists, otherwise the start of the
+// chunk. NO <mark> highlighting — semantic matches don't have a meaningful
+// "matching span" (the whole chunk's embedding produced the similarity score),
+// so lexical highlights would misrepresent the match. The card UI labels these
+// as "Related / semantic match" so the user knows what they're looking at.
 function buildSnippet(text: string, q: string, words = 22): string {
   const tokens = q
     .toLowerCase()
@@ -58,15 +56,7 @@ function buildSnippet(text: string, q: string, words = 22): string {
   }
 
   const window = allWords.slice(start, start + words).join(" ")
-  if (tokens.length === 0) return escapeHtml(window)
-
-  // Wrap matches with sentinels (impossible in real text), escape HTML, then swap
-  // sentinels for <mark> — avoids escaping our own tags or injecting raw user text.
-  const pattern = new RegExp(`(${tokens.map(escapeRegex).join("|")})`, "gi")
-  const OPEN = "\x00MK\x00"
-  const CLOSE = "\x00/MK\x00"
-  const marked = window.replace(pattern, `${OPEN}$1${CLOSE}`)
-  return escapeHtml(marked).replaceAll(OPEN, "<mark>").replaceAll(CLOSE, "</mark>")
+  return escapeHtml(window)
 }
 
 export async function searchSemantic(
@@ -149,6 +139,7 @@ export async function searchSemantic(
     end_ms: r.end_ms,
     score: r.score,
     snippet: buildSnippet(r.text, q),
+    match_type: "semantic" as const,
   }))
 
   return { results, total: Number(countRow.count) }

@@ -58,9 +58,17 @@ export function SearchResultCard({ result }: SearchResultCardProps) {
                       {formatDuration(hit.start_ms)}
                     </span>
                   )}
+                  {hit.match_type === "semantic" && (
+                    <span
+                      className="shrink-0 rounded border border-muted-foreground/30 px-1 py-0 text-[9px] uppercase tracking-wide text-muted-foreground"
+                      title="Semantic match — conceptually related but your words may not appear in this excerpt"
+                    >
+                      Related
+                    </span>
+                  )}
                   {hit.snippet && (
                     <span
-                      className="snippet text-muted-foreground line-clamp-2"
+                      className={`snippet line-clamp-2 ${hit.match_type === "semantic" ? "italic text-muted-foreground/80" : "text-muted-foreground"}`}
                       // biome-ignore lint/security/noDangerouslySetInnerHtml: ts_headline HTML-escapes source text; only emits configured <mark> tags
                       dangerouslySetInnerHTML={{ __html: hit.snippet }}
                     />
