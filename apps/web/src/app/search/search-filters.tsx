@@ -3,6 +3,7 @@
 import { DateFilterChip } from "@/components/date-filter-chip"
 import { FilterChip } from "@/components/filter-chip"
 import type { PlaylistWithStats } from "@sermon-search/types"
+import { ListMusic } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
 
 export interface FilterValues {
@@ -32,7 +33,7 @@ export function SearchFilters({ values, playlists }: SearchFiltersProps) {
   const playlistOptions = playlists.map((p) => ({ value: p.slug, label: p.title }))
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="flex items-center gap-0.5">
       <FilterChip
         label="Playlist"
         emptyLabel="All playlists"
@@ -41,11 +42,14 @@ export function SearchFilters({ values, playlists }: SearchFiltersProps) {
         onChange={(v) => commit({ playlist: v })}
         searchable
         searchPlaceholder="Search playlists"
+        variant="icon"
+        icon={ListMusic}
       />
       <DateFilterChip
         from={values.from}
         to={values.to}
         onChange={(from, to) => commit({ from, to })}
+        variant="icon"
       />
     </div>
   )

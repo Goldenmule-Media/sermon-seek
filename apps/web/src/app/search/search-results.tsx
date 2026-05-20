@@ -1,6 +1,7 @@
 "use client"
 
 import { ScriptureRefBox } from "@/components/scripture-ref-box"
+import { SearchBox } from "@/components/search-box"
 import { SearchResultCard } from "@/components/search-result-card"
 import { SearchResultsSkeleton } from "@/components/search-result-skeleton"
 import { TopicBox } from "@/components/topic-box"
@@ -12,9 +13,10 @@ import { type FilterValues, SearchFilters } from "./search-filters"
 
 interface SearchResultsProps {
   playlists: PlaylistWithStats[]
+  initialQuery?: string
 }
 
-export function SearchResults({ playlists }: SearchResultsProps) {
+export function SearchResults({ playlists, initialQuery }: SearchResultsProps) {
   const searchParams = useSearchParams()
   const q = searchParams.get("q") ?? ""
   const ref = searchParams.get("ref") ?? ""
@@ -81,7 +83,11 @@ export function SearchResults({ playlists }: SearchResultsProps) {
   return (
     <div className="space-y-4">
       <div className="max-w-3xl mx-auto space-y-4">
-        <SearchFilters values={filters} playlists={playlists} />
+        <SearchBox
+          initialQuery={initialQuery}
+          showHint={false}
+          filtersSlot={<SearchFilters values={filters} playlists={playlists} />}
+        />
 
         {!q && !ref && (
           <p className="text-muted-foreground text-sm">Enter a query above to search sermons.</p>

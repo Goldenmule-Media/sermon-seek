@@ -1,6 +1,6 @@
 "use client"
 
-import { Check, ChevronDown, X } from "lucide-react"
+import { Calendar, Check, ChevronDown, X } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 interface DateFilterChipProps {
@@ -8,6 +8,9 @@ interface DateFilterChipProps {
   from: string
   to: string
   onChange: (from: string, to: string) => void
+  // "pill" (default): full chip with label and value. "icon": small icon-only
+  // trigger with an active-state dot indicator.
+  variant?: "pill" | "icon"
 }
 
 interface Preset {
@@ -65,7 +68,7 @@ function describeRange(from: string, to: string): string {
   return ""
 }
 
-export function DateFilterChip({ from, to, onChange }: DateFilterChipProps) {
+export function DateFilterChip({ from, to, onChange, variant = "pill" }: DateFilterChipProps) {
   const [open, setOpen] = useState(false)
   const [customFrom, setCustomFrom] = useState(from)
   const [customTo, setCustomTo] = useState(to)
@@ -109,50 +112,71 @@ export function DateFilterChip({ from, to, onChange }: DateFilterChipProps) {
 
   return (
     <div ref={containerRef} className="relative inline-block">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition-colors ${
-          active
-            ? "border-primary bg-primary/10 text-foreground"
-            : "border-input bg-background text-muted-foreground hover:bg-accent"
-        }`}
-        aria-expanded={open}
-        aria-haspopup="listbox"
-      >
-        <span className="font-medium text-foreground">Date</span>
-        {active && (
-          <>
-            <span className="text-foreground/70">:</span>
-            <span className="text-foreground">{display}</span>
-          </>
-        )}
-        {active ? (
-          <span
-            role="button"
-            tabIndex={0}
-            aria-label="Clear date filter"
-            className="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-foreground/10"
-            onClick={(e) => {
-              e.stopPropagation()
-              onChange("", "")
-              setOpen(false)
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault()
+      {variant === "icon" ? (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className={`relative inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors ${
+            active
+              ? "text-primary hover:bg-accent"
+              : "text-muted-foreground hover:bg-accent hover:text-foreground"
+          }`}
+          aria-expanded={open}
+          aria-haspopup="listbox"
+          aria-label="Filter by date"
+          title={active ? `Date: ${display}` : "Filter by date"}
+        >
+          <Calendar className="h-4 w-4" aria-hidden />
+          {active && (
+            <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-primary" />
+          )}
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition-colors ${
+            active
+              ? "border-primary bg-primary/10 text-foreground"
+              : "border-input bg-background text-muted-foreground hover:bg-accent"
+          }`}
+          aria-expanded={open}
+          aria-haspopup="listbox"
+        >
+          <span className="font-medium text-foreground">Date</span>
+          {active && (
+            <>
+              <span className="text-foreground/70">:</span>
+              <span className="text-foreground">{display}</span>
+            </>
+          )}
+          {active ? (
+            <span
+              role="button"
+              tabIndex={0}
+              aria-label="Clear date filter"
+              className="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-foreground/10"
+              onClick={(e) => {
                 e.stopPropagation()
                 onChange("", "")
                 setOpen(false)
-              }
-            }}
-          >
-            <X className="h-3 w-3" />
-          </span>
-        ) : (
-          <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
-        )}
-      </button>
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  onChange("", "")
+                  setOpen(false)
+                }
+              }}
+            >
+              <X className="h-3 w-3" />
+            </span>
+          ) : (
+            <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+          )}
+        </button>
+      )}
 
       {open && (
         <div

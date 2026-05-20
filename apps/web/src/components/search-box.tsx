@@ -1,17 +1,20 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { isRefLike } from "@/lib/scripture-ref-detect"
 import { useRouter, useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { type ReactNode, useEffect, useState } from "react"
 
 interface SearchBoxProps {
   initialQuery?: string
   showHint?: boolean
+  // Optional content rendered inside the input's field area (right side),
+  // e.g. icon-only filter triggers. The field itself loses its own border so
+  // the filters appear flush inside it.
+  filtersSlot?: ReactNode
 }
 
-export function SearchBox({ initialQuery, showHint = true }: SearchBoxProps) {
+export function SearchBox({ initialQuery, showHint = true, filtersSlot }: SearchBoxProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const urlQuery = searchParams?.get("q") ?? searchParams?.get("ref") ?? ""
@@ -37,19 +40,27 @@ export function SearchBox({ initialQuery, showHint = true }: SearchBoxProps) {
   return (
     <div className="w-full space-y-2">
       <form onSubmit={handleSubmit} className="flex gap-2">
-        <Input
-          autoFocus
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search sermons..."
-          className="flex-1 h-12 text-base"
-        />
+        <div className="flex-1 flex items-center h-12 rounded-md border border-input bg-background ring-offset-background focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
+          <input
+            // biome-ignore lint/a11y/noAutofocus: the search bar is the primary action on these pages
+            autoFocus
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search sermons..."
+            className="flex-1 min-w-0 h-full bg-transparent border-0 outline-none px-3 text-base placeholder:text-muted-foreground"
+          />
+          {filtersSlot && (
+            <div className="flex items-center gap-0.5 pr-1.5 shrink-0">{filtersSlot}</div>
+          )}
+        </div>
         <Button type="submit" className="h-12 px-6">
           Search
         </Button>
       </form>
       {showHint && (
-        <p className="text-sm text-muted-foreground text-center">try: armor of god, Romans 8, etc</p>
+        <p className="text-sm text-muted-foreground text-center">
+          try: armor of god, Romans 8, what does jubilee think about elders?
+        </p>
       )}
     </div>
   )

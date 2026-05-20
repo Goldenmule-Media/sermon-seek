@@ -1,6 +1,6 @@
 "use client"
 
-import { Check, ChevronDown, X } from "lucide-react"
+import { Check, ChevronDown, type LucideIcon, X } from "lucide-react"
 import { useEffect, useMemo, useRef, useState } from "react"
 
 export interface FilterChipOption {
@@ -19,6 +19,12 @@ interface FilterChipProps {
   // options as the user types.
   searchable?: boolean
   searchPlaceholder?: string
+  // "pill" (default): full chip with label and value. "icon": small icon-only
+  // button trigger with an active-state dot indicator — for embedding inside
+  // tight UI like the search input field.
+  variant?: "pill" | "icon"
+  // Required when variant === "icon".
+  icon?: LucideIcon
 }
 
 export function FilterChip({
@@ -29,6 +35,8 @@ export function FilterChip({
   emptyLabel,
   searchable = false,
   searchPlaceholder,
+  variant = "pill",
+  icon: Icon,
 }: FilterChipProps) {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState("")
@@ -71,50 +79,71 @@ export function FilterChip({
 
   return (
     <div ref={containerRef} className="relative inline-block">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition-colors ${
-          active
-            ? "border-primary bg-primary/10 text-foreground"
-            : "border-input bg-background text-muted-foreground hover:bg-accent"
-        }`}
-        aria-expanded={open}
-        aria-haspopup="listbox"
-      >
-        <span className="font-medium text-foreground">{label}</span>
-        {active && (
-          <>
-            <span className="text-foreground/70">:</span>
-            <span className="text-foreground">{display}</span>
-          </>
-        )}
-        {active ? (
-          <span
-            role="button"
-            tabIndex={0}
-            aria-label={`Clear ${label} filter`}
-            className="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-foreground/10"
-            onClick={(e) => {
-              e.stopPropagation()
-              onChange("")
-              setOpen(false)
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault()
+      {variant === "icon" && Icon ? (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className={`relative inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors ${
+            active
+              ? "text-primary hover:bg-accent"
+              : "text-muted-foreground hover:bg-accent hover:text-foreground"
+          }`}
+          aria-expanded={open}
+          aria-haspopup="listbox"
+          aria-label={label}
+          title={active ? `${label}: ${display}` : label}
+        >
+          <Icon className="h-4 w-4" aria-hidden />
+          {active && (
+            <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-primary" />
+          )}
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition-colors ${
+            active
+              ? "border-primary bg-primary/10 text-foreground"
+              : "border-input bg-background text-muted-foreground hover:bg-accent"
+          }`}
+          aria-expanded={open}
+          aria-haspopup="listbox"
+        >
+          <span className="font-medium text-foreground">{label}</span>
+          {active && (
+            <>
+              <span className="text-foreground/70">:</span>
+              <span className="text-foreground">{display}</span>
+            </>
+          )}
+          {active ? (
+            <span
+              role="button"
+              tabIndex={0}
+              aria-label={`Clear ${label} filter`}
+              className="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-foreground/10"
+              onClick={(e) => {
                 e.stopPropagation()
                 onChange("")
                 setOpen(false)
-              }
-            }}
-          >
-            <X className="h-3 w-3" />
-          </span>
-        ) : (
-          <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
-        )}
-      </button>
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  onChange("")
+                  setOpen(false)
+                }
+              }}
+            >
+              <X className="h-3 w-3" />
+            </span>
+          ) : (
+            <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+          )}
+        </button>
+      )}
 
       {open && (
         <div
