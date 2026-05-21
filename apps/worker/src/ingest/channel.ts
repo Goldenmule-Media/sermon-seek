@@ -48,7 +48,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
       title: channelTitle,
     })
     .onConflict((oc) =>
-      oc.column("youtube_channel_id").doUpdateSet({ church_id: churchId, title: channelTitle }),
+      oc.column("youtube_channel_id").doUpdateSet({ title: channelTitle }),
     )
     .returning(["id"])
     .executeTakeFirstOrThrow()
@@ -122,7 +122,6 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
       })
       .onConflict((oc) =>
         oc.column("youtube_playlist_id").doUpdateSet({
-          church_id: churchId,
           channel_id: channelDbId,
           slug,
           title,
@@ -237,7 +236,6 @@ async function upsertVideoFromPlaylistItem(
     })
     .onConflict((oc) =>
       oc.column("youtube_video_id").doUpdateSet({
-        church_id: churchId,
         title,
         description,
         published_at: publishedAt,

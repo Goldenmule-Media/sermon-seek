@@ -81,6 +81,7 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
         response: {
           200: channelResponseSchema,
           404: z.object({ error: z.string() }),
+          409: z.object({ error: z.string() }),
         },
       },
     },
@@ -96,9 +97,18 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
       const row = await scopedDb
         .insertInto("channels")
         .values({ youtube_channel_id: resolved.youtubeChannelId, title: resolved.title })
-        .onConflict((oc) => oc.column("youtube_channel_id").doUpdateSet({ title: resolved.title }))
+        .onConflict((oc) =>
+          oc
+            .column("youtube_channel_id")
+            .doUpdateSet({ title: resolved.title })
+            .where("channels.church_id", "=", church.id),
+        )
         .returning(["id", "youtube_channel_id", "title", "ingested_at"])
-        .executeTakeFirstOrThrow()
+        .executeTakeFirst()
+
+      if (!row) {
+        return reply.code(409).send({ error: "Channel is already registered to another church" })
+      }
 
       return reply.send({
         id: row.id,
