@@ -9,9 +9,19 @@ BACKUP_DIR="/opt/sermon-search/backups"
 COMPOSE_FILE="/opt/sermon-search/repo/infra/docker-compose.prod.yml"
 COMPOSE="docker compose -f $COMPOSE_FILE --project-directory /opt/sermon-search/repo"
 
-# Source env for POSTGRES_USER, POSTGRES_DB, and BACKUP_RETENTION_DAYS.
-# shellcheck disable=SC1091
-[[ -f /opt/sermon-search/repo/.env ]] && source /opt/sermon-search/repo/.env
+# Read only the three vars we need from .env without sourcing it.
+# Sourcing executes arbitrary shell — comment lines and values with $, backticks,
+# or special chars in URLs (e.g. ALERT_WEBHOOK_URL) would expand unexpectedly.
+_env_file="/opt/sermon-search/repo/.env"
+_read_env() {
+  local key="$1"
+  grep -E "^${key}=" "$_env_file" 2>/dev/null | head -1 | cut -d= -f2- | sed "s/^['\"]//;s/['\"]$//"
+}
+if [[ -f "$_env_file" ]]; then
+  POSTGRES_USER="$(_read_env POSTGRES_USER)"
+  POSTGRES_DB="$(_read_env POSTGRES_DB)"
+  BACKUP_RETENTION_DAYS="$(_read_env BACKUP_RETENTION_DAYS)"
+fi
 
 POSTGRES_USER="${POSTGRES_USER:-sermon_search}"
 POSTGRES_DB="${POSTGRES_DB:-sermon_search}"
