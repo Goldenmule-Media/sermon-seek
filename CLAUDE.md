@@ -14,3 +14,4 @@ Searches sermons.
 ## Working with the assistant
 
 - Do not use chrome-devtools (navigate_page, take_screenshot, list_pages, etc.) unless the user explicitly asks for browser interaction. Trust API-level verification (curl, typecheck, tests) and let the user drive the browser themselves.
+@HOTSEAT.md

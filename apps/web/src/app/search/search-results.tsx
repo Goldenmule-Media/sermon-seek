@@ -6,6 +6,10 @@ import { SearchResultCard } from "@/components/search-result-card"
 import { SearchResultsSkeleton } from "@/components/search-result-skeleton"
 import { TopicBox } from "@/components/topic-box"
 import { fetchSearch } from "@/lib/api"
+
+// Temporarily hidden above the results list — keeping the components wired
+// so we can flip back without rebuilding the integration.
+const SHOW_RELATED_FACETS = false
 import type { PlaylistWithStats, SearchResponse } from "@sermon-search/types"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -106,8 +110,12 @@ export function SearchResults({ playlists, initialQuery }: SearchResultsProps) {
             <p className="text-sm text-muted-foreground">
               {data.total} result{data.total !== 1 ? "s" : ""} ({data.took_ms} ms)
             </p>
-            <ScriptureRefBox refs={data.scripture_refs} label="Related searches" />
-            <TopicBox topics={data.topics} label="Related topics" />
+            {SHOW_RELATED_FACETS && (
+              <>
+                <ScriptureRefBox refs={data.scripture_refs} label="Related searches" />
+                <TopicBox topics={data.topics} label="Related topics" />
+              </>
+            )}
             {data.results.length === 0 && (
               <p className="text-muted-foreground text-sm">
                 {ref
