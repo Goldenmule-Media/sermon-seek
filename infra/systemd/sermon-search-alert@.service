@@ -1,0 +1,12 @@
+[Unit]
+Description=Sermon-Search alert handler for failed unit %i
+# Templated service: instance name (%i) is the name of the failed unit.
+# Wire it up via: OnFailure=sermon-search-alert@%n.service in the job unit.
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/sermon-search/repo
+ExecStart=/opt/sermon-search/repo/infra/scripts/alert.sh %i
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sermon-search-alert

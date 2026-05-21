@@ -84,6 +84,20 @@ if [[ "${TARGET_USER:-root}" != "root" ]]; then
   chown -R "$TARGET_USER:$TARGET_USER" /opt/sermon-search
 fi
 
+say "Installing systemd units"
+cp /opt/sermon-search/repo/infra/systemd/*.service /etc/systemd/system/
+cp /opt/sermon-search/repo/infra/systemd/*.timer  /etc/systemd/system/
+systemctl daemon-reload
+# Enable timers (the alert@ template needs no explicit enable — instances start via OnFailure=).
+for timer in \
+  sermon-search-pg-dump.timer \
+  sermon-search-view-stats.timer \
+  sermon-search-smoke-test.timer \
+  sermon-search-rss-poll.timer; do
+  systemctl enable --now "$timer"
+done
+say "Systemd timers installed and enabled."
+
 say "Configuring ufw firewall"
 ufw allow OpenSSH
 ufw allow 80/tcp
@@ -146,6 +160,34 @@ remote "$COMPOSE_CMD up -d" \
 say "Running database migrations..."
 remote "$COMPOSE_CMD exec -T api node /app/packages/db/dist/cli/migrate.js" \
   || die "database migrations failed"
+
+# Step 7b: re-install systemd units if any changed (idempotent)
+say "Re-installing systemd units (idempotent)..."
+remote bash -s <<'UNITS_SCRIPT'
+set -euo pipefail
+CHANGED=false
+for f in /opt/sermon-search/repo/infra/systemd/*.service \
+          /opt/sermon-search/repo/infra/systemd/*.timer; do
+  dest="/etc/systemd/system/$(basename "$f")"
+  if ! diff -q "$f" "$dest" &>/dev/null 2>&1; then
+    cp "$f" "$dest"
+    CHANGED=true
+  fi
+done
+if $CHANGED; then
+  systemctl daemon-reload
+  for timer in \
+    sermon-search-pg-dump.timer \
+    sermon-search-view-stats.timer \
+    sermon-search-smoke-test.timer \
+    sermon-search-rss-poll.timer; do
+    systemctl restart "$timer" 2>/dev/null || systemctl enable --now "$timer"
+  done
+  echo "[units] updated and reloaded."
+else
+  echo "[units] no changes."
+fi
+UNITS_SCRIPT
 
 # Step 8: poll service states for ~15 s
 say "Polling service health (~15 s)..."

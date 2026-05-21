@@ -1,0 +1,10 @@
+[Unit]
+Description=Sermon-Search hourly RSS poll timer
+
+[Timer]
+OnCalendar=*:17
+Persistent=true
+Unit=sermon-search-rss-poll.service
+
+[Install]
+WantedBy=timers.target

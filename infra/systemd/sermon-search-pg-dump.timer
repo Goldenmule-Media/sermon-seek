@@ -1,0 +1,10 @@
+[Unit]
+Description=Sermon-Search nightly pg_dump timer
+
+[Timer]
+OnCalendar=*-*-* 02:00:00 UTC
+Persistent=true
+Unit=sermon-search-pg-dump.service
+
+[Install]
+WantedBy=timers.target
