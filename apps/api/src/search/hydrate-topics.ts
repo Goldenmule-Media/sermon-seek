@@ -35,7 +35,7 @@ export async function hydrateTopics(
   for (const row of rows) {
     const list = perVideo.get(row.youtube_video_id)
     if (list && list.length < PER_VIDEO_LIMIT) {
-      list.push({ slug: row.slug, label: row.label, video_count: 1, church_id: db.churchId })
+      list.push({ slug: row.slug, label: row.label, video_count: 1 })
     }
 
     const existing = aggregateMap.get(row.slug)
@@ -46,7 +46,6 @@ export async function hydrateTopics(
         slug: row.slug,
         label: row.label,
         video_count: 1,
-        church_id: db.churchId,
       })
     }
   }

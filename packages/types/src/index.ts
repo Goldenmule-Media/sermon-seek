@@ -7,7 +7,6 @@ export interface SearchHit {
 
 export interface SearchResult {
   video_id: string
-  church_id: string
   title: string
   thumbnail_url: string
   summary: string
@@ -40,7 +39,6 @@ export interface ChurchRef {
 
 export interface Video {
   id: string
-  church_id: string
   title: string
   thumbnail_url: string
   published_at: string
@@ -50,7 +48,6 @@ export interface Video {
 
 export interface Playlist {
   id: string
-  church_id: string
   slug: string
   title: string
 }
@@ -120,7 +117,6 @@ export interface Topic {
   slug: string
   label: string
   video_count: number
-  church_id: string
 }
 
 export interface TopicVideos {
@@ -153,8 +149,6 @@ export interface ScriptureRefDetail {
 
 export interface VideoDetailResponse {
   id: string
-  church_id: string
-  church_slug?: string
   youtube_video_id: string
   title: string
   channel: ChannelRef
