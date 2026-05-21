@@ -115,6 +115,7 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
             .innerJoin("videos_with_transcripts as videos", "videos.id", "video_playlists.video_id")
             .select(app.db.fn.countAll<string>().as("count"))
             .where("video_playlists.playlist_id", "=", playlist.id)
+            .where("videos.church_id", "=", request.scopedDb.churchId)
             .executeTakeFirstOrThrow()
         ).count,
       )

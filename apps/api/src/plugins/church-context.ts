@@ -29,13 +29,15 @@ export async function resolveChurchOrReply(
   return church
 }
 
+const SLUG_MISS = Symbol("miss")
+
 export const churchContextPlugin = fp(
   async (app) => {
-    const cache = new Map<string, ChurchRecord>()
+    const cache = new Map<string, ChurchRecord | typeof SLUG_MISS>()
 
     const resolveChurchBySlug = async (slug: string): Promise<ChurchRecord | null> => {
       const cached = cache.get(slug)
-      if (cached) return cached
+      if (cached !== undefined) return cached === SLUG_MISS ? null : cached
 
       const row = await app.db
         .selectFrom("churches")
@@ -43,7 +45,10 @@ export const churchContextPlugin = fp(
         .where("slug", "=", slug)
         .executeTakeFirst()
 
-      if (!row) return null
+      if (!row) {
+        cache.set(slug, SLUG_MISS)
+        return null
+      }
       const record: ChurchRecord = { id: row.id, slug: row.slug, name: row.name }
       cache.set(slug, record)
       return record

@@ -103,6 +103,7 @@ export const topicsRoutes: FastifyPluginAsyncZod = async (app) => {
             .innerJoin("videos_with_transcripts as videos", "videos.id", "video_topics.video_id")
             .select(app.db.fn.countAll<string>().as("count"))
             .where("video_topics.topic_id", "=", topic.id)
+            .where("videos.church_id", "=", request.scopedDb.churchId)
             .executeTakeFirstOrThrow()
         ).count,
       )
