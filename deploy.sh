@@ -9,6 +9,11 @@ set -euo pipefail
 #
 # --setup   Bootstrap a fresh Ubuntu host (Docker, dirs, ufw). Run once.
 #           After setup, run again without --setup to deploy.
+#
+# Requirements:
+#   The SSH user must have passwordless sudo. This is the default for the
+#   `ubuntu` user on Ubuntu AMIs and `ec2-user` on Amazon Linux AMIs
+#   (granted via /etc/sudoers.d/90-cloud-init-users by cloud-init).
 # ---------------------------------------------------------------------------
 
 DOMAIN="sermonseek.ai"
@@ -53,7 +58,7 @@ die() { echo "FATAL: $*" >&2; exit 1; }
 if $SETUP; then
   say "=== SETUP MODE: bootstrapping $TARGET ==="
 
-  remote bash -s <<'SETUP_SCRIPT'
+  remote sudo bash -s <<'SETUP_SCRIPT'
 set -euo pipefail
 
 say() { echo "  [setup] $*"; }
@@ -163,7 +168,7 @@ remote "$COMPOSE_CMD exec -T api node /app/packages/db/dist/cli/migrate.js" \
 
 # Step 7b: re-install systemd units if any changed (idempotent)
 say "Re-installing systemd units (idempotent)..."
-remote bash -s <<'UNITS_SCRIPT'
+remote sudo bash -s <<'UNITS_SCRIPT'
 set -euo pipefail
 CHANGED=false
 for f in /opt/sermon-search/repo/infra/systemd/*.service \
