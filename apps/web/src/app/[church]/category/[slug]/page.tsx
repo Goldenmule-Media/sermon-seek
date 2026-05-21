@@ -6,16 +6,16 @@ import { notFound } from "next/navigation"
 const PAGE_SIZE = 20
 
 interface CategoryPageProps {
-  params: Promise<{ slug: string }>
+  params: Promise<{ church: string; slug: string }>
   searchParams: Promise<{ offset?: string }>
 }
 
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
-  const { slug } = await params
+  const { church, slug } = await params
   const { offset: rawOffset } = await searchParams
   const offset = Math.max(0, Number(rawOffset ?? 0))
 
-  const data = await fetchPlaylist(slug, { limit: PAGE_SIZE, offset })
+  const data = await fetchPlaylist(church, slug, { limit: PAGE_SIZE, offset })
   if (!data) notFound()
 
   const { playlist, videos, total } = data
@@ -26,7 +26,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-8">
-      <Link href="/" className="text-sm text-primary hover:underline mb-4 inline-block">
+      <Link href={`/${church}`} className="text-sm text-primary hover:underline mb-4 inline-block">
         ← back to home
       </Link>
       <div className="mb-6">
@@ -40,7 +40,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {videos.map((video) => (
-            <VideoCard key={video.id} video={video} />
+            <VideoCard key={video.id} video={video} church={church} />
           ))}
         </div>
       )}
@@ -48,7 +48,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         <div className="flex gap-4 mt-8">
           {hasPrev && (
             <Link
-              href={`/category/${slug}?offset=${prevOffset}`}
+              href={`/${church}/category/${slug}?offset=${prevOffset}`}
               className="text-sm text-primary hover:underline"
             >
               ← previous
@@ -56,7 +56,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           )}
           {hasNext && (
             <Link
-              href={`/category/${slug}?offset=${nextOffset}`}
+              href={`/${church}/category/${slug}?offset=${nextOffset}`}
               className="text-sm text-primary hover:underline ml-auto"
             >
               next →

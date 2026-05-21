@@ -13,6 +13,7 @@ const PER_CARD_REF_LIMIT = 6
 const COLLAPSED_HIT_LIMIT = 3
 
 interface SearchResultCardProps {
+  church: string
   result: SearchResult
   // When this card is the one currently playing inline, this is the start
   // timestamp (in seconds) of the active hit. null when not expanded.
@@ -22,6 +23,7 @@ interface SearchResultCardProps {
 }
 
 export function SearchResultCard({
+  church,
   result,
   expandedStart,
   onPlayHit,
@@ -29,7 +31,7 @@ export function SearchResultCard({
 }: SearchResultCardProps) {
   const refs = result.scripture_refs.slice(0, PER_CARD_REF_LIMIT)
   const overflow = result.scripture_refs.length - refs.length
-  const videoHref = `/videos/${result.video_id}`
+  const videoHref = `/${church}/videos/${result.video_id}`
   const isExpanded = expandedStart !== null
 
   const [hitsExpanded, setHitsExpanded] = useState(false)
@@ -76,6 +78,7 @@ export function SearchResultCard({
 
       {isExpanded && expandedStart !== null && (
         <ExpandedVideoView
+          church={church}
           videoId={result.video_id}
           startSeconds={expandedStart}
           onClose={onClosePlayer}
@@ -159,7 +162,7 @@ export function SearchResultCard({
           {refs.map((r) => (
             <Link
               key={`${r.start_coord}-${r.end_coord}`}
-              href={`/search?ref=${encodeURIComponent(r.display)}`}
+              href={`/${church}/search?ref=${encodeURIComponent(r.display)}`}
               className="inline-flex items-center gap-1 rounded border border-amber-300/60 bg-amber-50 px-2 py-0.5 text-[11px] text-amber-950 hover:bg-amber-100 dark:border-amber-700/40 dark:bg-amber-950/40 dark:text-amber-100 dark:hover:bg-amber-900/50 transition-colors"
             >
               <BookOpen className="h-3 w-3 opacity-70" aria-hidden />
@@ -180,7 +183,7 @@ export function SearchResultCard({
           {result.topics.map((t) => (
             <Link
               key={t.slug}
-              href={`/topics/${t.slug}`}
+              href={`/${church}/topics/${t.slug}`}
               className="inline-flex items-center text-muted-foreground hover:text-foreground hover:underline transition-colors"
             >
               <Hash className="h-3 w-3 opacity-60" aria-hidden />

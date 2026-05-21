@@ -3,12 +3,13 @@ import Link from "next/link"
 import { VideoCard } from "./video-card"
 
 interface VideoStripProps {
+  church: string
   title: string
   seeAllHref?: string
   videos: Video[]
 }
 
-export function VideoStrip({ title, seeAllHref, videos }: VideoStripProps) {
+export function VideoStrip({ church, title, seeAllHref, videos }: VideoStripProps) {
   if (videos.length === 0) return null
 
   return (
@@ -23,7 +24,7 @@ export function VideoStrip({ title, seeAllHref, videos }: VideoStripProps) {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {videos.map((video) => (
-          <VideoCard key={video.id} video={video} />
+          <VideoCard key={video.id} video={video} church={church} />
         ))}
       </div>
     </section>

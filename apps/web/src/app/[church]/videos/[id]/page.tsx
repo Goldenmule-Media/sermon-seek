@@ -6,20 +6,24 @@ import { formatDate, formatDuration } from "@/lib/utils"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
-export default async function VideoDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
+export default async function VideoDetailPage({
+  params,
+}: {
+  params: Promise<{ church: string; id: string }>
+}) {
+  const { church, id } = await params
 
   const [video, transcript, related] = await Promise.all([
-    fetchVideo(id),
-    fetchTranscript(id),
-    fetchRelated(id),
+    fetchVideo(church, id),
+    fetchTranscript(church, id),
+    fetchRelated(church, id),
   ])
 
   if (!video) notFound()
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-8">
-      <Link href="/" className="text-sm text-primary hover:underline mb-4 inline-block">
+      <Link href={`/${church}`} className="text-sm text-primary hover:underline mb-4 inline-block">
         ← back to home
       </Link>
       <div className="mb-4 space-y-1">
@@ -43,13 +47,14 @@ export default async function VideoDetailPage({ params }: { params: Promise<{ id
         )}
       </div>
       <VideoEnrichment
+        church={church}
         summary={video.summary}
         topics={video.topics}
         scriptureRefs={video.scripture_refs}
       />
       <VideoDetailShell video={video} transcript={transcript} />
       <div className="mt-8">
-        <RelatedVideosSlot related={related} />
+        <RelatedVideosSlot related={related} church={church} />
       </div>
     </main>
   )

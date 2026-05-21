@@ -48,10 +48,7 @@ export function VideoDetailShell({ video, transcript }: Props) {
           onTimeUpdate={setCurrentMs}
         />
       </div>
-      <div
-        className="lg:col-span-2 flex flex-col min-h-0"
-        style={{ height: playerHeight ?? 384 }}
-      >
+      <div className="lg:col-span-2 flex flex-col min-h-0" style={{ height: playerHeight ?? 384 }}>
         <h2 className="text-sm font-semibold mb-2">Transcript</h2>
         {transcript ? (
           <TranscriptView

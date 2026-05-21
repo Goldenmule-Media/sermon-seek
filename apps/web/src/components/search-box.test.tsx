@@ -15,30 +15,31 @@ describe("SearchBox", () => {
   })
 
   function submit(query: string) {
-    render(<SearchBox />)
+    render(<SearchBox church="jubileestl" />)
     const input = screen.getByPlaceholderText("Search sermons...")
     fireEvent.change(input, { target: { value: query } })
+    // biome-ignore lint/style/noNonNullAssertion: form always exists in test render
     fireEvent.submit(input.closest("form")!)
   }
 
   it("routes non-ref query to ?q=", () => {
     submit("grace")
-    expect(mockPush).toHaveBeenCalledWith("/search?q=grace")
+    expect(mockPush).toHaveBeenCalledWith("/jubileestl/search?q=grace")
   })
 
   it("routes 'Romans 8' to ?ref=", () => {
     submit("Romans 8")
-    expect(mockPush).toHaveBeenCalledWith("/search?ref=Romans%208")
+    expect(mockPush).toHaveBeenCalledWith("/jubileestl/search?ref=Romans%208")
   })
 
   it("routes '1 Corinthians 13:4-7' to ?ref=", () => {
     submit("1 Corinthians 13:4-7")
-    expect(mockPush).toHaveBeenCalledWith("/search?ref=1%20Corinthians%2013%3A4-7")
+    expect(mockPush).toHaveBeenCalledWith("/jubileestl/search?ref=1%20Corinthians%2013%3A4-7")
   })
 
   it("routes lowercase ASR-style 'john 3 16' to ?ref=", () => {
     submit("john 3 16")
-    expect(mockPush).toHaveBeenCalledWith("/search?ref=john%203%2016")
+    expect(mockPush).toHaveBeenCalledWith("/jubileestl/search?ref=john%203%2016")
   })
 
   it("does not navigate on empty submit", () => {

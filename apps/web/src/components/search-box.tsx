@@ -8,12 +8,13 @@ import { type ReactNode, useEffect, useState } from "react"
 
 const SUGGESTIONS = ["armor of god", "Romans 8", "what does jubilee think about elders?"]
 
-function suggestionHref(q: string): string {
+function suggestionHref(church: string, q: string): string {
   const param = isRefLike(q) ? "ref" : "q"
-  return `/search?${param}=${encodeURIComponent(q)}`
+  return `/${church}/search?${param}=${encodeURIComponent(q)}`
 }
 
 interface SearchBoxProps {
+  church: string
   initialQuery?: string
   showHint?: boolean
   // Optional content rendered inside the input's field area (right side),
@@ -22,7 +23,7 @@ interface SearchBoxProps {
   filtersSlot?: ReactNode
 }
 
-export function SearchBox({ initialQuery, showHint = true, filtersSlot }: SearchBoxProps) {
+export function SearchBox({ church, initialQuery, showHint = true, filtersSlot }: SearchBoxProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const urlQuery = searchParams?.get("q") ?? searchParams?.get("ref") ?? ""
@@ -39,9 +40,9 @@ export function SearchBox({ initialQuery, showHint = true, filtersSlot }: Search
     const q = query.trim()
     if (!q) return
     if (isRefLike(q)) {
-      router.push(`/search?ref=${encodeURIComponent(q)}`)
+      router.push(`/${church}/search?ref=${encodeURIComponent(q)}`)
     } else {
-      router.push(`/search?q=${encodeURIComponent(q)}`)
+      router.push(`/${church}/search?q=${encodeURIComponent(q)}`)
     }
   }
 
@@ -71,7 +72,7 @@ export function SearchBox({ initialQuery, showHint = true, filtersSlot }: Search
           {SUGGESTIONS.map((s, i) => (
             <span key={s}>
               {i > 0 && ", "}
-              <Link href={suggestionHref(s)} className="text-primary hover:underline">
+              <Link href={suggestionHref(church, s)} className="text-primary hover:underline">
                 {s}
               </Link>
             </span>

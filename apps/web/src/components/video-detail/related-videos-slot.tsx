@@ -17,11 +17,11 @@ function reasonPrefix(kind: RelatedVideoReason["kind"]): string {
   }
 }
 
-function RelatedCard({ video }: { video: RelatedVideo }) {
+function RelatedCard({ video, church }: { video: RelatedVideo; church: string }) {
   const reasonDetail = video.reason.text.replace(/^[^:]+:\s*/, "")
   return (
     <Link
-      href={`/videos/${video.video_id}`}
+      href={`/${church}/videos/${video.video_id}`}
       className="group block rounded-md overflow-hidden hover:bg-muted/60 transition-colors"
     >
       <div className="relative w-full aspect-video bg-muted">
@@ -46,7 +46,10 @@ function RelatedCard({ video }: { video: RelatedVideo }) {
   )
 }
 
-export function RelatedVideosSlot({ related }: { related: RelatedVideo[] }) {
+export function RelatedVideosSlot({
+  related,
+  church,
+}: { related: RelatedVideo[]; church: string }) {
   if (related.length === 0) return null
 
   return (
@@ -54,7 +57,7 @@ export function RelatedVideosSlot({ related }: { related: RelatedVideo[] }) {
       <h2 className="text-lg font-semibold mb-4">Related videos</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {related.map((video) => (
-          <RelatedCard key={video.video_id} video={video} />
+          <RelatedCard key={video.video_id} video={video} church={church} />
         ))}
       </div>
     </aside>

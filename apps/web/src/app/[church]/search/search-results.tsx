@@ -16,11 +16,12 @@ import { useEffect, useState } from "react"
 import { type FilterValues, SearchFilters } from "./search-filters"
 
 interface SearchResultsProps {
+  church: string
   playlists: PlaylistWithStats[]
   initialQuery?: string
 }
 
-export function SearchResults({ playlists, initialQuery }: SearchResultsProps) {
+export function SearchResults({ church, playlists, initialQuery }: SearchResultsProps) {
   const searchParams = useSearchParams()
   const q = searchParams.get("q") ?? ""
   const ref = searchParams.get("ref") ?? ""
@@ -43,6 +44,7 @@ export function SearchResults({ playlists, initialQuery }: SearchResultsProps) {
     setError(false)
     setApiError(null)
     fetchSearch({
+      church,
       q: q || undefined,
       ref: ref || undefined,
       playlist: playlist || undefined,
@@ -69,17 +71,16 @@ export function SearchResults({ playlists, initialQuery }: SearchResultsProps) {
     return () => {
       cancelled = true
     }
-  }, [q, ref, playlist, from, to])
+  }, [church, q, ref, playlist, from, to])
 
   const filters: FilterValues = { playlist, from, to }
 
   // Only one expanded inline player at a time across the page.
-  const [activeHit, setActiveHit] = useState<{ videoId: string; startSeconds: number } | null>(
-    null,
-  )
+  const [activeHit, setActiveHit] = useState<{ videoId: string; startSeconds: number } | null>(null)
 
   // Collapse the active player whenever the search query or filters change —
   // the underlying result it referenced may no longer be on the page.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: deps are change signals, not values read inside the effect
   useEffect(() => {
     setActiveHit(null)
   }, [q, ref, playlist, from, to])
@@ -88,9 +89,10 @@ export function SearchResults({ playlists, initialQuery }: SearchResultsProps) {
     <div className="space-y-4">
       <div className="max-w-3xl mx-auto space-y-4">
         <SearchBox
+          church={church}
           initialQuery={initialQuery}
           showHint={false}
-          filtersSlot={<SearchFilters values={filters} playlists={playlists} />}
+          filtersSlot={<SearchFilters church={church} values={filters} playlists={playlists} />}
         />
 
         {!q && !ref && (
@@ -130,11 +132,11 @@ export function SearchResults({ playlists, initialQuery }: SearchResultsProps) {
       {!loading && !error && !apiError && data && data.results.length > 0 && (
         <ul className="space-y-3">
           {data.results.map((result) => {
-            const expanded =
-              activeHit?.videoId === result.video_id ? activeHit.startSeconds : null
+            const expanded = activeHit?.videoId === result.video_id ? activeHit.startSeconds : null
             return (
               <li key={result.video_id}>
                 <SearchResultCard
+                  church={church}
                   result={result}
                   expandedStart={expanded}
                   onPlayHit={(startSeconds) =>
