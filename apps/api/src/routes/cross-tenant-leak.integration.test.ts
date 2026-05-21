@@ -83,6 +83,22 @@ describeIfDb("cross-tenant isolation", () => {
     }
   })
 
+  it("every /v1/:church route on the app is listed in TENANT_SCOPED_ROUTES", () => {
+    const routeRe = /(\/\S+)\s+\(([^)]+)\)/
+    for (const line of app.printRoutes({ commonPrefix: false }).split("\n")) {
+      const m = line.match(routeRe)
+      if (!m || !m[1] || !m[2]) continue
+      const url = m[1]
+      if (!url.startsWith("/v1/:church/")) continue
+      const path = url.slice("/v1/:church".length)
+      const methods = m[2].split(", ").filter((meth) => meth !== "HEAD")
+      for (const method of methods) {
+        const listed = TENANT_SCOPED_ROUTES.some((r) => r.method === method && r.path === path)
+        expect(listed, `unlisted tenant route: ${method} ${path}`).toBe(true)
+      }
+    }
+  })
+
   // ─── /home ──────────────────────────────────────────────────────────────────
 
   describe("GET /home", () => {
