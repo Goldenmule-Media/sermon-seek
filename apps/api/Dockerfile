@@ -25,7 +25,9 @@ COPY packages/scripture/package.json ./packages/scripture/
 
 RUN pnpm install --frozen-lockfile --filter @sermon-search/api...
 
-# Sources.
+# ---- builder ----
+FROM base AS builder
+
 COPY packages/types ./packages/types
 COPY packages/scripture ./packages/scripture
 COPY packages/embeddings ./packages/embeddings
@@ -33,13 +35,40 @@ COPY packages/db ./packages/db
 COPY apps/worker ./apps/worker
 COPY apps/api ./apps/api
 
-RUN pnpm --filter @sermon-search/api... build
+RUN pnpm --filter @sermon-search/api... build \
+ && pnpm prune --prod
 
-WORKDIR /app/apps/api
+# ---- runtime ----
+FROM node:20-bookworm-slim AS runtime
+
+ENV NODE_ENV=production \
+    NODE_OPTIONS="--conditions=dist"
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/packages/types/dist ./packages/types/dist
+COPY --from=builder /app/packages/types/package.json ./packages/types/package.json
+COPY --from=builder /app/packages/db/dist ./packages/db/dist
+COPY --from=builder /app/packages/db/package.json ./packages/db/package.json
+COPY --from=builder /app/packages/embeddings/dist ./packages/embeddings/dist
+COPY --from=builder /app/packages/embeddings/package.json ./packages/embeddings/package.json
+COPY --from=builder /app/packages/scripture/dist ./packages/scripture/dist
+COPY --from=builder /app/packages/scripture/package.json ./packages/scripture/package.json
+COPY --from=builder /app/apps/worker/dist ./apps/worker/dist
+COPY --from=builder /app/apps/worker/package.json ./apps/worker/package.json
+COPY --from=builder /app/apps/api/dist ./apps/api/dist
+COPY --from=builder /app/apps/api/package.json ./apps/api/package.json
 
 EXPOSE 3001
 
 HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=3 \
   CMD curl -fsS http://127.0.0.1:3001/v1/health || exit 1
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "apps/api/dist/index.js"]
