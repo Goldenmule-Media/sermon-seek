@@ -2,7 +2,7 @@
 # Nightly pg_dump with rotation.
 # Triggered by the sermon-search-pg-dump.timer systemd unit.
 # Dumps land at /opt/sermon-search/backups/pgdump-<UTC-timestamp>.dump.
-# Keeps the ${BACKUP_RETENTION_DAYS:-14} most-recent dumps; older files are pruned.
+# Keeps the ${BACKUP_RETENTION_COUNT:-14} most-recent dumps; older files are pruned.
 set -euo pipefail
 
 BACKUP_DIR="/opt/sermon-search/backups"
@@ -20,12 +20,12 @@ _read_env() {
 if [[ -f "$_env_file" ]]; then
   POSTGRES_USER="$(_read_env POSTGRES_USER)"
   POSTGRES_DB="$(_read_env POSTGRES_DB)"
-  BACKUP_RETENTION_DAYS="$(_read_env BACKUP_RETENTION_DAYS)"
+  BACKUP_RETENTION_COUNT="$(_read_env BACKUP_RETENTION_COUNT)"
 fi
 
 POSTGRES_USER="${POSTGRES_USER:-sermon_search}"
 POSTGRES_DB="${POSTGRES_DB:-sermon_search}"
-KEEP="${BACKUP_RETENTION_DAYS:-14}"
+KEEP="${BACKUP_RETENTION_COUNT:-14}"
 
 TIMESTAMP=$(date -u +%Y%m%dT%H%M%SZ)
 TMP="$BACKUP_DIR/pgdump-${TIMESTAMP}.tmp"

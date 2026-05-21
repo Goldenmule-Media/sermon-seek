@@ -160,6 +160,10 @@ journalctl -u 'sermon-search-alert@*' -n 20 --no-pager
 
 ## nginx path-prefix routing (`infra/nginx/sermon-search.conf`)
 
+> **Legacy reference** — the prod stack now uses Caddy (`infra/Caddyfile`).
+> This section is retained for operators who run their own nginx reverse proxy
+> in front of the stack. See `infra/Caddyfile` for the current configuration.
+
 ### What it does
 
 `sermon-search.conf` is a drop-in nginx snippet that implements path-prefix

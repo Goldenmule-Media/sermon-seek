@@ -128,7 +128,9 @@ rsync -az --delete \
   -e "ssh $SSH_OPTS" \
   --exclude='.git/' \
   --exclude='node_modules/' \
-  --exclude='.env*' \
+  --exclude='.env' \
+  --exclude='.env.prod' \
+  --exclude='.env.local' \
   --exclude='.hotseat/worktrees/' \
   --exclude='apps/**/dist/' \
   --exclude='apps/**/.next/' \

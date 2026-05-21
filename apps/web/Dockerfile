@@ -37,6 +37,8 @@ WORKDIR /app
 COPY --from=builder /app/apps/web/.next/standalone ./
 # With outputFileTracingRoot set to monorepo root, static assets sit alongside server.js.
 COPY --from=builder /app/apps/web/.next/static ./apps/web/.next/static
+# apps/web/public/ does not exist yet; add this copy when static assets land there.
+# COPY --from=builder /app/apps/web/public ./apps/web/public
 
 EXPOSE 3000
 

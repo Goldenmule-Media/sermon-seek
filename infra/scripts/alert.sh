@@ -25,12 +25,17 @@ HOST=$(hostname -f 2>/dev/null || hostname)
 # Capture the last 40 journal lines for the failed unit.
 JOURNAL=$(journalctl -u "$UNIT" -n 40 --no-pager --output=short-iso 2>/dev/null || echo "(journal unavailable)")
 
-# Escape for JSON: replace backslash, double-quote, newline, tab.
+# Escape for JSON. jq produces a correct string literal (handles control chars,
+# unicode, etc.); fall back to sed/awk for hosts without jq.
 escape_json() {
-  printf '%s' "$1" \
-    | sed 's/\\/\\\\/g; s/"/\\"/g' \
-    | awk '{printf "%s\\n", $0}' \
-    | sed '$ s/\\n$//'
+  if command -v jq &>/dev/null; then
+    printf '%s' "$1" | jq -Rs '.'  | sed 's/^"//;s/"$//'
+  else
+    printf '%s' "$1" \
+      | sed 's/\\/\\\\/g; s/"/\\"/g' \
+      | awk '{printf "%s\\n", $0}' \
+      | sed '$ s/\\n$//'
+  fi
 }
 
 ESCAPED_JOURNAL=$(escape_json "$JOURNAL")
