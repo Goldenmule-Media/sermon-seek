@@ -59,4 +59,4 @@ COPY apps/worker ./apps/worker
 RUN pnpm --filter @sermon-search/worker... build
 
 WORKDIR /app/apps/worker
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/cli/run.js"]
