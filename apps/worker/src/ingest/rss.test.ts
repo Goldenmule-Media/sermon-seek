@@ -1,16 +1,18 @@
-import { describe, expect, it } from "vitest"
+import type { Database } from "@sermon-search/db"
+import type { Kysely } from "kysely"
+import { afterEach, describe, expect, it, vi } from "vitest"
+import type { YoutubeClient } from "../youtube/client.js"
+import { parseVideoIds, pollRssForNewUploads } from "./rss.js"
 
-// Expose the internal parser for unit testing without network calls.
-// We re-implement the same regex here to keep the test self-contained.
-function parseVideoIds(xml: string): string[] {
-  const ids: string[] = []
-  const re = /<yt:videoId>([A-Za-z0-9_-]{11})<\/yt:videoId>/g
-  let m: RegExpExecArray | null
-  while ((m = re.exec(xml)) !== null) {
-    ids.push(m[1])
-  }
-  return ids
-}
+vi.mock("./transcript.js", () => ({
+  ingestVideoTranscript: vi.fn().mockResolvedValue({
+    status: "ok",
+    videoDbId: "v1",
+    transcriptId: "t1",
+    segmentCount: 10,
+    wordCount: 100,
+  }),
+}))
 
 const FEED_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns:yt="http://www.youtube.com/xml/schemas/2015">
@@ -59,5 +61,41 @@ describe("dedupe logic", () => {
     const existingSet = new Set(["aB3cD4eF5gH", "iJ6kL7mN8oP"])
     const toIngest = feedIds.filter((id) => !existingSet.has(id))
     expect(toIngest).toEqual([])
+  })
+})
+
+describe("pollRssForNewUploads", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it("returns seen/newIds/ingested counts when some ids are already known", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        statusText: "OK",
+        text: vi.fn().mockResolvedValue(FEED_FIXTURE),
+      }),
+    )
+
+    const execute = vi.fn().mockResolvedValue([{ youtube_video_id: "iJ6kL7mN8oP" }])
+    const where = vi.fn().mockReturnValue({ execute })
+    const select = vi.fn().mockReturnValue({ where })
+    const db = {
+      selectFrom: vi.fn().mockReturnValue({ select }),
+    } as unknown as Kysely<Database>
+
+    const client = {} as unknown as YoutubeClient
+
+    const result = await pollRssForNewUploads({
+      youtubeChannelId: "UC_test",
+      churchId: "church_test",
+      db,
+      client,
+    })
+
+    expect(result).toEqual({ seen: 3, newIds: 2, ingested: 2 })
   })
 })

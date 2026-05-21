@@ -21,7 +21,7 @@ const RSS_URL = (channelId: string) =>
 
 // YouTube's RSS feed returns at most ~15 entries. The <yt:videoId> element is
 // stable and has appeared in this format since the feed was introduced.
-function parseVideoIds(xml: string): string[] {
+export function parseVideoIds(xml: string): string[] {
   const ids: string[] = []
   const re = /<yt:videoId>([A-Za-z0-9_-]{11})<\/yt:videoId>/g
   let m: RegExpExecArray | null
