@@ -149,6 +149,19 @@ export interface RelatedVideosTable {
   computed_at: Generated<Timestamptz>
 }
 
+export type IngestionFilterRuleType = "include" | "exclude"
+export type IngestionFilterTargetKind = "playlist"
+
+export interface ChannelFilterRulesTable {
+  id: Generated<string>
+  channel_id: string
+  rule_type: IngestionFilterRuleType
+  target_kind: IngestionFilterTargetKind
+  target_id: string
+  note: string | null
+  created_at: Generated<Timestamptz>
+}
+
 export interface Database {
   channels: ChannelsTable
   playlists: PlaylistsTable
@@ -167,6 +180,7 @@ export interface Database {
   video_topics: VideoTopicsTable
   video_scripture_refs: VideoScriptureRefsTable
   related_videos: RelatedVideosTable
+  channel_filter_rules: ChannelFilterRulesTable
 }
 
 export type ChannelRow = Selectable<ChannelsTable>
@@ -224,6 +238,10 @@ export type VideoScriptureRefUpdate = Updateable<VideoScriptureRefsTable>
 export type RelatedVideoRow = Selectable<RelatedVideosTable>
 export type RelatedVideoInsert = Insertable<RelatedVideosTable>
 export type RelatedVideoUpdate = Updateable<RelatedVideosTable>
+
+export type ChannelFilterRuleRow = Selectable<ChannelFilterRulesTable>
+export type ChannelFilterRuleInsert = Insertable<ChannelFilterRulesTable>
+export type ChannelFilterRuleUpdate = Updateable<ChannelFilterRulesTable>
 
 export function resolveDatabaseUrl(connectionString?: string): string {
   const url = connectionString ?? process.env.DATABASE_URL

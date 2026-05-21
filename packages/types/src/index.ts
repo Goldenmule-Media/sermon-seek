@@ -163,3 +163,16 @@ export interface TranscriptResponse {
   language: string
   segments: TranscriptSegmentWithWords[]
 }
+
+export type IngestionFilterRuleType = "include" | "exclude"
+export type IngestionFilterTargetKind = "playlist"
+
+export interface IngestionFilterRule {
+  id: string
+  channel_id: string
+  rule_type: IngestionFilterRuleType
+  target_kind: IngestionFilterTargetKind
+  target_id: string
+  note: string | null
+  created_at: string
+}
