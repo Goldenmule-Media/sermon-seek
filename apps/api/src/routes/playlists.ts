@@ -44,15 +44,11 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
         response: { 200: playlistsListResponseSchema },
       },
     },
-    async () => {
-      const rows = await app.db
+    async (request) => {
+      const rows = await request.scopedDb
         .selectFrom("playlists")
         .leftJoin("video_playlists", "video_playlists.playlist_id", "playlists.id")
-        .leftJoin(
-          "videos_with_transcripts as videos",
-          "videos.id",
-          "video_playlists.video_id",
-        )
+        .leftJoin("videos_with_transcripts as videos", "videos.id", "video_playlists.video_id")
         .select([
           "playlists.slug",
           "playlists.title",
@@ -93,14 +89,10 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
       const { slug } = request.params
       const { limit, offset } = request.query
 
-      const playlist = await app.db
+      const playlist = await request.scopedDb
         .selectFrom("playlists")
         .leftJoin("video_playlists", "video_playlists.playlist_id", "playlists.id")
-        .leftJoin(
-          "videos_with_transcripts as videos",
-          "videos.id",
-          "video_playlists.video_id",
-        )
+        .leftJoin("videos_with_transcripts as videos", "videos.id", "video_playlists.video_id")
         .select([
           "playlists.id",
           "playlists.slug",
@@ -118,20 +110,16 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
 
       const total = Number(
         (
-          await app.db
+          await request.scopedDb
             .selectFrom("video_playlists")
-            .innerJoin(
-              "videos_with_transcripts as videos",
-              "videos.id",
-              "video_playlists.video_id",
-            )
+            .innerJoin("videos_with_transcripts as videos", "videos.id", "video_playlists.video_id")
             .select(app.db.fn.countAll<string>().as("count"))
             .where("video_playlists.playlist_id", "=", playlist.id)
             .executeTakeFirstOrThrow()
         ).count,
       )
 
-      const videoRows = await app.db
+      const videoRows = await request.scopedDb
         .selectFrom("videos_with_transcripts as videos")
         .innerJoin("video_playlists", "video_playlists.video_id", "videos.id")
         .select([
@@ -152,7 +140,7 @@ export const playlistsRoutes: FastifyPluginAsyncZod = async (app) => {
 
       const vpRows =
         videoIds.length > 0
-          ? await app.db
+          ? await request.scopedDb
               .selectFrom("video_playlists")
               .select(["video_id", "playlist_id"])
               .where("video_id", "in", videoIds)

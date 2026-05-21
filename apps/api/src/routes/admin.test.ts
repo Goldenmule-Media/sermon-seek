@@ -29,8 +29,9 @@ const { filterRulesRoutes } = await import("./filter-rules.js")
 
 const CORRECT_KEY = "test-key-abc"
 const WRONG_KEY = "wrong-key"
+const STUB_CHURCH = { id: "ch-1", slug: "jubileestl", name: "Jubilee" }
 
-async function buildTestApp() {
+async function buildTestApp(resolveChurch: unknown = vi.fn().mockResolvedValue(STUB_CHURCH)) {
   const app = Fastify().withTypeProvider<ZodTypeProvider>()
   app.setValidatorCompiler(validatorCompiler)
   app.setSerializerCompiler(serializerCompiler)
@@ -40,6 +41,7 @@ async function buildTestApp() {
   // Stub decorators that adminRoutes depends on
   app.decorate("db", {} as Kysely<Database>)
   app.decorate("youtube", {} as never)
+  app.decorate("resolveChurchBySlug", resolveChurch as never)
 
   await app.register(adminRoutes)
   await app.register(filterRulesRoutes)
@@ -63,23 +65,34 @@ describe("admin routes — auth gate", () => {
     const res = await app.inject({
       method: "POST",
       url: "/admin/channels",
-      payload: { handle: "@foo" },
+      payload: { churchSlug: "jubileestl", handle: "@foo" },
     })
     expect(res.statusCode).toBe(401)
   })
 
   it("POST /admin/ingest/refresh — missing key → 401", async () => {
-    const res = await app.inject({ method: "POST", url: "/admin/ingest/refresh" })
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/ingest/refresh?churchSlug=jubileestl",
+    })
     expect(res.statusCode).toBe(401)
   })
 
   it("POST /admin/ingest/view-stats — missing key → 401", async () => {
-    const res = await app.inject({ method: "POST", url: "/admin/ingest/view-stats" })
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/ingest/view-stats",
+      payload: { churchSlug: "jubileestl" },
+    })
     expect(res.statusCode).toBe(401)
   })
 
   it("POST /admin/videos/:id/retranscribe — missing key → 401", async () => {
-    const res = await app.inject({ method: "POST", url: "/admin/videos/abc123/retranscribe" })
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/videos/abc123/retranscribe",
+      payload: { churchSlug: "jubileestl" },
+    })
     expect(res.statusCode).toBe(401)
   })
 
@@ -113,7 +126,7 @@ describe("admin routes — auth gate", () => {
       method: "POST",
       url: "/admin/channels",
       headers: { "x-admin-key": WRONG_KEY },
-      payload: { handle: "@foo" },
+      payload: { churchSlug: "jubileestl", handle: "@foo" },
     })
     expect(res.statusCode).toBe(401)
   })
@@ -172,7 +185,7 @@ describe("admin routes — schema validation", () => {
         method: "POST",
         url: "/admin/channels",
         headers: { "x-admin-key": WRONG_KEY, "content-type": "application/json" },
-        payload: { handle: "@foo" },
+        payload: { churchSlug: "jubileestl", handle: "@foo" },
       })
       expect(res.statusCode).toBe(401)
     })
@@ -182,9 +195,45 @@ describe("admin routes — schema validation", () => {
         method: "POST",
         url: "/admin/channels",
         headers: { "x-admin-key": WRONG_KEY, "content-type": "application/json" },
-        payload: { youtubeChannelId: "UCxxx" },
+        payload: { churchSlug: "jubileestl", youtubeChannelId: "UCxxx" },
       })
       expect(res.statusCode).toBe(401)
     })
+  })
+})
+
+describe("admin routes — churchSlug validation", () => {
+  let app: Awaited<ReturnType<typeof buildTestApp>>
+
+  beforeEach(async () => {
+    app = await buildTestApp()
+    vi.clearAllMocks()
+  })
+
+  afterEach(async () => {
+    await app.close()
+  })
+
+  it("POST /admin/channels — missing churchSlug → 400", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/channels",
+      headers: { "x-admin-key": CORRECT_KEY, "content-type": "application/json" },
+      payload: { handle: "@foo" },
+    })
+    expect(res.statusCode).toBe(400)
+  })
+
+  it("POST /admin/channels — unknown churchSlug → 404", async () => {
+    const unknownApp = await buildTestApp(vi.fn().mockResolvedValue(null))
+    const res = await unknownApp.inject({
+      method: "POST",
+      url: "/admin/channels",
+      headers: { "x-admin-key": CORRECT_KEY, "content-type": "application/json" },
+      payload: { churchSlug: "no-such-church", handle: "@foo" },
+    })
+    await unknownApp.close()
+    expect(res.statusCode).toBe(404)
+    expect(res.json()).toMatchObject({ error: "church not found" })
   })
 })

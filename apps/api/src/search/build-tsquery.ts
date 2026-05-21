@@ -44,9 +44,7 @@ export function buildTsQuery(q: string): BuiltQuery {
     }
   }
 
-  const parts: RawBuilder<string>[] = phrases.map(
-    (p) => sql`phraseto_tsquery('english', ${p})`,
-  )
+  const parts: RawBuilder<string>[] = phrases.map((p) => sql`phraseto_tsquery('english', ${p})`)
   if (remainder.length > 0) {
     parts.push(plainToOrTsquery(remainder))
   }

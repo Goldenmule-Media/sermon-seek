@@ -1,5 +1,5 @@
-import type { Database } from "@sermon-search/db"
-import type { Kysely, SqlBool } from "kysely"
+import type { ScopedDb } from "@sermon-search/db"
+import type { SqlBool } from "kysely"
 import { sql } from "kysely"
 import { buildTsQuery } from "./build-tsquery.js"
 
@@ -37,7 +37,7 @@ export interface FtsResponse {
   total: number
 }
 
-export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Promise<FtsResponse> {
+export async function searchSegments(db: ScopedDb, opts: FtsOptions): Promise<FtsResponse> {
   const { q, videoId, limit, offset, topicSlug, playlistSlug, publishedAfter, publishedBefore } =
     opts
 
@@ -77,12 +77,12 @@ export async function searchSegments(db: Kysely<Database>, opts: FtsOptions): Pr
     countBase = countBase.where("v.youtube_video_id", "=", videoId)
   }
   if (topicSlug !== undefined) {
-    const pred = sql<SqlBool>`v.id IN (SELECT vt.video_id FROM video_topics vt INNER JOIN topics t ON t.id = vt.topic_id WHERE t.slug = ${topicSlug})`
+    const pred = sql<SqlBool>`v.id IN (SELECT vt.video_id FROM video_topics vt INNER JOIN topics t ON t.id = vt.topic_id WHERE t.slug = ${topicSlug} AND t.church_id = ${db.churchId})`
     baseQuery = baseQuery.where(pred)
     countBase = countBase.where(pred)
   }
   if (playlistSlug !== undefined) {
-    const pred = sql<SqlBool>`v.id IN (SELECT vp.video_id FROM video_playlists vp INNER JOIN playlists p ON p.id = vp.playlist_id WHERE p.slug = ${playlistSlug})`
+    const pred = sql<SqlBool>`v.id IN (SELECT vp.video_id FROM video_playlists vp INNER JOIN playlists p ON p.id = vp.playlist_id WHERE p.slug = ${playlistSlug} AND p.church_id = ${db.churchId})`
     baseQuery = baseQuery.where(pred)
     countBase = countBase.where(pred)
   }

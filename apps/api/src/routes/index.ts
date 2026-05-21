@@ -12,9 +12,14 @@ import { videoRelatedRoutes } from "./video-related.js"
 import { videoSearchRoutes } from "./video-search.js"
 import { videoTranscriptRoutes } from "./video-transcript.js"
 
-export async function registerRoutes(app: FastifyInstance): Promise<void> {
+export async function registerRootRoutes(app: FastifyInstance): Promise<void> {
   await app.register(healthRoutes)
   await app.register(echoRoutes)
+  await app.register(adminRoutes)
+  await app.register(filterRulesRoutes)
+}
+
+export async function registerTenantRoutes(app: FastifyInstance): Promise<void> {
   await app.register(homeRoutes)
   await app.register(playlistsRoutes)
   await app.register(searchRoutes)
@@ -23,6 +28,4 @@ export async function registerRoutes(app: FastifyInstance): Promise<void> {
   await app.register(videoRelatedRoutes)
   await app.register(videoSearchRoutes)
   await app.register(videoTranscriptRoutes)
-  await app.register(adminRoutes)
-  await app.register(filterRulesRoutes)
 }

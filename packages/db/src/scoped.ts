@@ -1,13 +1,4 @@
-import type {
-  DeleteQueryBuilder,
-  DeleteResult,
-  InsertQueryBuilder,
-  InsertResult,
-  Kysely,
-  SelectQueryBuilder,
-  UpdateQueryBuilder,
-  UpdateResult,
-} from "kysely"
+import type { InsertQueryBuilder, InsertResult, Insertable, Kysely } from "kysely"
 import type { Database } from "./index.js"
 
 export const TENANT_TABLES = new Set<string>([
@@ -43,6 +34,13 @@ function parseTableRef(ref: string): { table: string; alias: string } {
   return { table: ref, alias: ref }
 }
 
+// Tenant-table inserts come in pre-scoped via the wrapper, so callers must not
+// be required to supply church_id. This Insertable variant lets the church_id
+// column be omitted (or, if present, must match the scope at runtime).
+type ScopedInsertable<TB extends keyof Database & string> = TB extends TenantTable
+  ? Omit<Insertable<Database[TB]>, "church_id"> & { church_id?: string }
+  : Insertable<Database[TB]>
+
 /**
  * The only legitimate way to query tenant-bearing tables. Wraps a Kysely
  * instance and auto-applies a church_id filter to every tenant-scoped query.
@@ -63,13 +61,14 @@ export class ScopedDb {
     return this.#churchId
   }
 
-  selectFrom<TB extends keyof Database & string>(
-    ref: TB,
-  ): SelectQueryBuilder<Database, TB, {}>
-  selectFrom<TB extends keyof Database & string>(
-    ref: `${TB} as ${string}`,
-  ): SelectQueryBuilder<Database, TB, {}>
-  selectFrom(ref: string): SelectQueryBuilder<Database, keyof Database & string, {}> {
+  // The method signatures defer to the underlying Kysely instance so the full
+  // suite of selectFrom/updateTable/deleteFrom overloads (aliased tables,
+  // expression-based from clauses, etc.) is preserved for callers.
+  readonly selectFrom: Kysely<Database>["selectFrom"] = ((ref: unknown) => {
+    if (typeof ref !== "string") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return this.#db.selectFrom(ref as any)
+    }
     const { table, alias } = parseTableRef(ref)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const qb = this.#db.selectFrom(ref as any)
@@ -77,19 +76,15 @@ export class ScopedDb {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return (qb as any).where(`${alias}.church_id`, "=", this.#churchId)
     }
+    return qb
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return qb as any
-  }
+  }) as any
 
-  updateTable<TB extends keyof Database & string>(
-    ref: TB,
-  ): UpdateQueryBuilder<Database, TB, TB, UpdateResult>
-  updateTable<TB extends keyof Database & string>(
-    ref: `${TB} as ${string}`,
-  ): UpdateQueryBuilder<Database, TB, TB, UpdateResult>
-  updateTable(
-    ref: string,
-  ): UpdateQueryBuilder<Database, keyof Database & string, keyof Database & string, UpdateResult> {
+  readonly updateTable: Kysely<Database>["updateTable"] = ((ref: unknown) => {
+    if (typeof ref !== "string") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return this.#db.updateTable(ref as any)
+    }
     const { table, alias } = parseTableRef(ref)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const qb = this.#db.updateTable(ref as any)
@@ -97,19 +92,15 @@ export class ScopedDb {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return (qb as any).where(`${alias}.church_id`, "=", this.#churchId)
     }
+    return qb
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return qb as any
-  }
+  }) as any
 
-  deleteFrom<TB extends keyof Database & string>(
-    ref: TB,
-  ): DeleteQueryBuilder<Database, TB, DeleteResult>
-  deleteFrom<TB extends keyof Database & string>(
-    ref: `${TB} as ${string}`,
-  ): DeleteQueryBuilder<Database, TB, DeleteResult>
-  deleteFrom(
-    ref: string,
-  ): DeleteQueryBuilder<Database, keyof Database & string, DeleteResult> {
+  readonly deleteFrom: Kysely<Database>["deleteFrom"] = ((ref: unknown) => {
+    if (typeof ref !== "string") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return this.#db.deleteFrom(ref as any)
+    }
     const { table, alias } = parseTableRef(ref)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const qb = this.#db.deleteFrom(ref as any)
@@ -117,16 +108,19 @@ export class ScopedDb {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return (qb as any).where(`${alias}.church_id`, "=", this.#churchId)
     }
+    return qb
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return qb as any
-  }
+  }) as any
 
   insertInto<TB extends keyof Database & string>(
     table: TB,
-  ): InsertQueryBuilder<Database, TB, InsertResult> {
+  ): Omit<InsertQueryBuilder<Database, TB, InsertResult>, "values"> & {
+    values(insert: ScopedInsertable<TB> | ReadonlyArray<ScopedInsertable<TB>>): InsertQueryBuilder<Database, TB, InsertResult>
+  } {
     const inner = this.#db.insertInto(table)
     if (!TENANT_TABLES.has(table)) {
-      return inner
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return inner as any
     }
     const churchId = this.#churchId
     return new Proxy(inner, {
@@ -154,7 +148,8 @@ export class ScopedDb {
         const val = Reflect.get(target, prop, receiver)
         return typeof val === "function" ? val.bind(target) : val
       },
-    }) as unknown as InsertQueryBuilder<Database, TB, InsertResult>
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    }) as any
   }
 }
 

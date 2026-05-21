@@ -1,6 +1,6 @@
-import type { Database } from "@sermon-search/db"
+import type { ScopedDb } from "@sermon-search/db"
 import { extract } from "@sermon-search/scripture"
-import type { Kysely, SqlBool } from "kysely"
+import type { SqlBool } from "kysely"
 import { sql } from "kysely"
 import { buildTsQuery } from "./build-tsquery.js"
 import type { FtsResult } from "./fts.js"
@@ -40,7 +40,7 @@ export interface RefSearchParams {
 // route layer groups the chunks back into per-video result cards using the
 // returned videoScores map as the video-level ranking signal.
 export async function searchVideosByRef(
-  db: Kysely<Database>,
+  db: ScopedDb,
   params: RefSearchParams,
 ): Promise<{ results: FtsResult[]; videoScores: Map<string, number> }> {
   const {
@@ -71,12 +71,12 @@ export async function searchVideosByRef(
     .where(overlapStart)
 
   if (topicSlug !== undefined) {
-    const pred = sql<SqlBool>`v.id IN (SELECT vt.video_id FROM video_topics vt INNER JOIN topics t ON t.id = vt.topic_id WHERE t.slug = ${topicSlug})`
+    const pred = sql<SqlBool>`v.id IN (SELECT vt.video_id FROM video_topics vt INNER JOIN topics t ON t.id = vt.topic_id WHERE t.slug = ${topicSlug} AND t.church_id = ${db.churchId})`
     videosQuery = videosQuery.where(pred)
   }
 
   if (playlistSlug !== undefined) {
-    const pred = sql<SqlBool>`v.id IN (SELECT vp.video_id FROM video_playlists vp INNER JOIN playlists p ON p.id = vp.playlist_id WHERE p.slug = ${playlistSlug})`
+    const pred = sql<SqlBool>`v.id IN (SELECT vp.video_id FROM video_playlists vp INNER JOIN playlists p ON p.id = vp.playlist_id WHERE p.slug = ${playlistSlug} AND p.church_id = ${db.churchId})`
     videosQuery = videosQuery.where(pred)
   }
 

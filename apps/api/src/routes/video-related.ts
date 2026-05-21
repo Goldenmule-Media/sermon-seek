@@ -100,7 +100,7 @@ export const videoRelatedRoutes: FastifyPluginAsyncZod = async (app) => {
       const { id } = request.params
       const { limit } = request.query
 
-      const videoRow = await app.db
+      const videoRow = await request.scopedDb
         .selectFrom("videos")
         .select("id")
         .where("youtube_video_id", "=", id)
@@ -131,6 +131,7 @@ export const videoRelatedRoutes: FastifyPluginAsyncZod = async (app) => {
         FROM related_videos rv
         JOIN videos_with_transcripts v ON v.id = rv.related_video_id
         WHERE rv.video_id = ${videoRow.id}
+          AND v.church_id = ${request.churchId}
       `.execute(app.db)
 
       type Candidate = {

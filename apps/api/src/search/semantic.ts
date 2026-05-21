@@ -1,6 +1,6 @@
-import type { Database } from "@sermon-search/db"
+import type { ScopedDb } from "@sermon-search/db"
 import type { Embedder } from "@sermon-search/embeddings"
-import type { Kysely, SqlBool } from "kysely"
+import type { SqlBool } from "kysely"
 import { sql } from "kysely"
 import type { FtsResponse, FtsResult } from "./fts.js"
 
@@ -16,19 +16,53 @@ export interface SemanticOptions {
 }
 
 const STOPWORDS = new Set([
-  "the", "and", "for", "with", "that", "this", "from", "you", "your", "are", "but",
-  "not", "what", "when", "where", "how", "why", "who", "which", "about", "have", "has",
-  "was", "were", "will", "would", "could", "should", "into", "than", "then", "them",
+  "the",
+  "and",
+  "for",
+  "with",
+  "that",
+  "this",
+  "from",
+  "you",
+  "your",
+  "are",
+  "but",
+  "not",
+  "what",
+  "when",
+  "where",
+  "how",
+  "why",
+  "who",
+  "which",
+  "about",
+  "have",
+  "has",
+  "was",
+  "were",
+  "will",
+  "would",
+  "could",
+  "should",
+  "into",
+  "than",
+  "then",
+  "them",
 ])
 
 function escapeHtml(s: string): string {
   return s.replace(/[&<>"']/g, (c) => {
     switch (c) {
-      case "&": return "&amp;"
-      case "<": return "&lt;"
-      case ">": return "&gt;"
-      case '"': return "&quot;"
-      default: return "&#39;"
+      case "&":
+        return "&amp;"
+      case "<":
+        return "&lt;"
+      case ">":
+        return "&gt;"
+      case '"':
+        return "&quot;"
+      default:
+        return "&#39;"
     }
   })
 }
@@ -60,7 +94,7 @@ function buildSnippet(text: string, q: string, words = 22): string {
 }
 
 export async function searchSemantic(
-  db: Kysely<Database>,
+  db: ScopedDb,
   embedder: Embedder,
   opts: SemanticOptions,
 ): Promise<FtsResponse> {
@@ -110,12 +144,12 @@ export async function searchSemantic(
     countQuery = countQuery.where("v.youtube_video_id", "=", videoId)
   }
   if (topicSlug !== undefined) {
-    const pred = sql<SqlBool>`v.id IN (SELECT vt.video_id FROM video_topics vt INNER JOIN topics t ON t.id = vt.topic_id WHERE t.slug = ${topicSlug})`
+    const pred = sql<SqlBool>`v.id IN (SELECT vt.video_id FROM video_topics vt INNER JOIN topics t ON t.id = vt.topic_id WHERE t.slug = ${topicSlug} AND t.church_id = ${db.churchId})`
     query = query.where(pred)
     countQuery = countQuery.where(pred)
   }
   if (playlistSlug !== undefined) {
-    const pred = sql<SqlBool>`v.id IN (SELECT vp.video_id FROM video_playlists vp INNER JOIN playlists p ON p.id = vp.playlist_id WHERE p.slug = ${playlistSlug})`
+    const pred = sql<SqlBool>`v.id IN (SELECT vp.video_id FROM video_playlists vp INNER JOIN playlists p ON p.id = vp.playlist_id WHERE p.slug = ${playlistSlug} AND p.church_id = ${db.churchId})`
     query = query.where(pred)
     countQuery = countQuery.where(pred)
   }

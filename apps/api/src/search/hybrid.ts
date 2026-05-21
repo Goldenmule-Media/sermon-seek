@@ -1,6 +1,5 @@
-import type { Database } from "@sermon-search/db"
+import type { ScopedDb } from "@sermon-search/db"
 import type { Embedder } from "@sermon-search/embeddings"
-import type { Kysely } from "kysely"
 import { buildTsQuery } from "./build-tsquery.js"
 import type { FtsResponse, FtsResult } from "./fts.js"
 import { searchSegments } from "./fts.js"
@@ -70,7 +69,7 @@ export function fuseRRF(
 }
 
 export async function searchHybrid(
-  db: Kysely<Database>,
+  db: ScopedDb,
   embedder: Embedder | null,
   opts: HybridOptions,
 ): Promise<FtsResponse> {

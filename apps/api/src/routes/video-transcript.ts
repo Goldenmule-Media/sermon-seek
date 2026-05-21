@@ -43,7 +43,7 @@ export const videoTranscriptRoutes: FastifyPluginAsyncZod = async (app) => {
     async (request, reply) => {
       const { id } = request.params
 
-      const videoRow = await app.db
+      const videoRow = await request.scopedDb
         .selectFrom("videos")
         .select("id")
         .where("youtube_video_id", "=", id)
@@ -53,7 +53,7 @@ export const videoTranscriptRoutes: FastifyPluginAsyncZod = async (app) => {
         return reply.code(404).send({ error: "video not found" })
       }
 
-      const transcriptRow = await app.db
+      const transcriptRow = await request.scopedDb
         .selectFrom("transcripts")
         .select(["id", "source", "language"])
         .where("video_id", "=", videoRow.id)
@@ -66,13 +66,13 @@ export const videoTranscriptRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       const [segments, words] = await Promise.all([
-        app.db
+        request.scopedDb
           .selectFrom("transcript_segments")
           .select(["id", "start_ms", "end_ms", "text"])
           .where("transcript_id", "=", transcriptRow.id)
           .orderBy("start_ms", "asc")
           .execute(),
-        app.db
+        request.scopedDb
           .selectFrom("transcript_words")
           .select(["segment_id", "text", "start_ms", "end_ms", "position"])
           .where("transcript_id", "=", transcriptRow.id)

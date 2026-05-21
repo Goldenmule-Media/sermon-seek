@@ -1,6 +1,5 @@
-import type { Database } from "@sermon-search/db"
+import type { ScopedDb } from "@sermon-search/db"
 import type { Topic } from "@sermon-search/types"
-import type { Kysely } from "kysely"
 
 const PER_VIDEO_LIMIT = 8
 
@@ -12,7 +11,7 @@ export interface HydratedTopics {
 }
 
 export async function hydrateTopics(
-  db: Kysely<Database>,
+  db: ScopedDb,
   youtubeVideoIds: string[],
 ): Promise<HydratedTopics> {
   if (youtubeVideoIds.length === 0) {
@@ -36,14 +35,19 @@ export async function hydrateTopics(
   for (const row of rows) {
     const list = perVideo.get(row.youtube_video_id)
     if (list && list.length < PER_VIDEO_LIMIT) {
-      list.push({ slug: row.slug, label: row.label, video_count: 1 })
+      list.push({ slug: row.slug, label: row.label, video_count: 1, church_id: db.churchId })
     }
 
     const existing = aggregateMap.get(row.slug)
     if (existing) {
       existing.video_count += 1
     } else {
-      aggregateMap.set(row.slug, { slug: row.slug, label: row.label, video_count: 1 })
+      aggregateMap.set(row.slug, {
+        slug: row.slug,
+        label: row.label,
+        video_count: 1,
+        church_id: db.churchId,
+      })
     }
   }
 

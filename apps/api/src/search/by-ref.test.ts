@@ -1,8 +1,10 @@
-import type { Database } from "@sermon-search/db"
+import { type Database, createScopedDb } from "@sermon-search/db"
 import { coord } from "@sermon-search/scripture"
 import type { Kysely } from "kysely"
 import { describe, expect, it, vi } from "vitest"
 import { BadRefError, parseRefQuery, searchVideosByRef } from "./by-ref.js"
+
+const TEST_CHURCH_ID = "ch-test"
 
 // Romans 8 has 39 verses (max_verse[7] = 39)
 const ROMANS_8_VERSE_COUNT = 39
@@ -65,7 +67,7 @@ describe("searchVideosByRef", () => {
 
   it("returns empty results and empty videoScores when no candidate videos", async () => {
     const db = { selectFrom: vi.fn(() => makeChain([])) } as unknown as Kysely<Database>
-    const result = await searchVideosByRef(db, {
+    const result = await searchVideosByRef(createScopedDb(db, TEST_CHURCH_ID), {
       startCoord: 1,
       endCoord: 1,
       rawQuery: "no match",
@@ -107,7 +109,7 @@ describe("searchVideosByRef", () => {
       selectFrom: vi.fn(() => makeChain(responses[call++] ?? [])),
     } as unknown as Kysely<Database>
 
-    const result = await searchVideosByRef(db, {
+    const result = await searchVideosByRef(createScopedDb(db, TEST_CHURCH_ID), {
       startCoord: coord(45, 8, 3),
       endCoord: coord(45, 8, 3),
       rawQuery: "Romans 8:3",
@@ -140,7 +142,7 @@ describe("searchVideosByRef", () => {
     const selectFrom = vi.fn(() => makeChain(responses[call++] ?? []))
     const db = { selectFrom } as unknown as Kysely<Database>
 
-    await searchVideosByRef(db, {
+    await searchVideosByRef(createScopedDb(db, TEST_CHURCH_ID), {
       startCoord: coord(45, 8, 3),
       endCoord: coord(45, 8, 3),
       rawQuery: "Romans 8:3",
