@@ -76,10 +76,11 @@ LOCAL_MIGRATION=$(psql "$DATABASE_URL" -tAc \
 [[ -n "$LOCAL_MIGRATION" ]] \
   || die "Could not read local schema version — is the local DB migrated?"
 
-REMOTE_MIGRATION=$(remote "$COMPOSE_CMD exec -T postgres sh -c \
-  'psql -U \"\$POSTGRES_USER\" -d \"\$POSTGRES_DB\" -tAc \
-   \"SELECT name FROM kysely_migration ORDER BY name DESC LIMIT 1\"'" \
-  2>/dev/null || true)
+# shellcheck disable=SC2086
+REMOTE_MIGRATION=$(ssh $SSH_OPTS "$TARGET" bash 2>/dev/null <<EOS || true
+$COMPOSE_CMD exec -T postgres sh -c 'psql -U "\$POSTGRES_USER" -d "\$POSTGRES_DB" -tAc "SELECT name FROM kysely_migration ORDER BY name DESC LIMIT 1"'
+EOS
+)
 [[ -n "$REMOTE_MIGRATION" ]] \
   || die "Could not read remote schema version — did migrations run on the remote? Run deploy.sh first."
 
@@ -120,9 +121,11 @@ count_local() {
 }
 
 count_remote() {
-  remote "$COMPOSE_CMD exec -T postgres sh -c \
-    'psql -U \"\$POSTGRES_USER\" -d \"\$POSTGRES_DB\" -tAc \"SELECT COUNT(*) FROM $1\"'" \
-    2>/dev/null || echo "?"
+  local TABLE="$1"
+  # shellcheck disable=SC2086
+  ssh $SSH_OPTS "$TARGET" bash 2>/dev/null <<EOS || echo "?"
+$COMPOSE_CMD exec -T postgres sh -c 'psql -U "\$POSTGRES_USER" -d "\$POSTGRES_DB" -tAc "SELECT COUNT(*) FROM $TABLE"'
+EOS
 }
 
 LOCAL_VIDEOS=$(count_local videos)
@@ -152,10 +155,10 @@ fi
 say "Restoring dump on remote..."
 
 # The backups dir is bind-mounted to /backups inside the postgres container.
-remote "$COMPOSE_CMD exec -T postgres sh -c \
-  'pg_restore --clean --if-exists --no-owner --no-acl \
-   -U \"\$POSTGRES_USER\" -d \"\$POSTGRES_DB\" \
-   /backups/seed-${TIMESTAMP}.dump'"
+# shellcheck disable=SC2086
+ssh $SSH_OPTS "$TARGET" bash <<EOS
+$COMPOSE_CMD exec -T postgres sh -c 'pg_restore --clean --if-exists --no-owner --no-acl -U "\$POSTGRES_USER" -d "\$POSTGRES_DB" /backups/seed-${TIMESTAMP}.dump'
+EOS
 
 say "Restore complete."
 
