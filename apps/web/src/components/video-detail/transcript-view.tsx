@@ -115,8 +115,7 @@ export function TranscriptView({ segments, currentMs, onSeek }: Props) {
                 {isActive && segment.words.length > 0 ? (
                   <span>
                     {segment.words.map((word, wi) => {
-                      const isActiveWord =
-                        word.start_ms <= currentMs && currentMs < word.end_ms
+                      const isActiveWord = word.start_ms <= currentMs && currentMs < word.end_ms
                       return (
                         <span
                           // biome-ignore lint/suspicious/noArrayIndexKey: word position is stable

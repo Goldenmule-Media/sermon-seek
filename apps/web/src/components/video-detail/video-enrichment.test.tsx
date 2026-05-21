@@ -33,35 +33,35 @@ function makeRef(overrides: Partial<ScriptureRefDetail> = {}): ScriptureRefDetai
 describe("VideoEnrichment", () => {
   it("renders nothing when summary, topics, and refs are all empty", () => {
     const { container } = render(
-      <VideoEnrichment summary="" topics={[]} scriptureRefs={[]} />,
+      <VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={[]} />,
     )
     expect(container.firstChild).toBeNull()
   })
 
   it("renders ref display text verbatim, never a reconstructed string", () => {
     const ref = makeRef({ display: "Romans 8:1-5" })
-    render(<VideoEnrichment summary="" topics={[]} scriptureRefs={[ref]} />)
+    render(<VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={[ref]} />)
     expect(screen.getByText("Romans 8:1-5")).toBeInTheDocument()
   })
 
   it("does not show occurrence suffix when occurrences === 1", () => {
     const ref = makeRef({ occurrences: 1, display: "Romans 8" })
-    render(<VideoEnrichment summary="" topics={[]} scriptureRefs={[ref]} />)
+    render(<VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={[ref]} />)
     const link = screen.getByRole("link", { name: "Romans 8" })
     expect(link.textContent).toBe("Romans 8")
   })
 
   it("shows ×N suffix when occurrences > 1", () => {
     const ref = makeRef({ occurrences: 3, display: "Romans 8:1-5" })
-    render(<VideoEnrichment summary="" topics={[]} scriptureRefs={[ref]} />)
+    render(<VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={[ref]} />)
     expect(screen.getByText("Romans 8:1-5 ×3")).toBeInTheDocument()
   })
 
-  it("links each ref to /search?ref=<encoded display>", () => {
+  it("links each ref to /<church>/search?ref=<encoded display>", () => {
     const ref = makeRef({ display: "Romans 8:1-5" })
-    render(<VideoEnrichment summary="" topics={[]} scriptureRefs={[ref]} />)
+    render(<VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={[ref]} />)
     const link = screen.getByRole("link", { name: "Romans 8:1-5" })
-    expect(link).toHaveAttribute("href", "/search?ref=Romans%208%3A1-5")
+    expect(link).toHaveAttribute("href", "/jubileestl/search?ref=Romans%208%3A1-5")
   })
 
   it("preserves the API-provided order without re-sorting", () => {
@@ -69,7 +69,7 @@ describe("VideoEnrichment", () => {
       makeRef({ display: "John 3:16", book_id: 43, start_coord: 43003016, end_coord: 43003016 }),
       makeRef({ display: "Romans 8:1", book_id: 45, start_coord: 45008001, end_coord: 45008001 }),
     ]
-    render(<VideoEnrichment summary="" topics={[]} scriptureRefs={refs} />)
+    render(<VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={refs} />)
     const links = screen.getAllByRole("link")
     expect(links[0]).toHaveAttribute("href", expect.stringContaining("John"))
     expect(links[1]).toHaveAttribute("href", expect.stringContaining("Romans"))
@@ -84,7 +84,7 @@ describe("VideoEnrichment", () => {
         end_coord: (i + 1) * 1000,
       }),
     )
-    render(<VideoEnrichment summary="" topics={[]} scriptureRefs={refs} />)
+    render(<VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={refs} />)
     expect(screen.queryByText("Book 1:1")).toBeInTheDocument()
     expect(screen.queryByText("Book 8:1")).toBeInTheDocument()
     expect(screen.queryByText("Book 9:1")).not.toBeInTheDocument()
@@ -100,7 +100,7 @@ describe("VideoEnrichment", () => {
         end_coord: (i + 1) * 1000,
       }),
     )
-    render(<VideoEnrichment summary="" topics={[]} scriptureRefs={refs} />)
+    render(<VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={refs} />)
     const btn = screen.getByRole("button", { name: /show all/ })
     fireEvent.click(btn)
     expect(screen.queryByText("Book 9:1")).toBeInTheDocument()
@@ -117,7 +117,7 @@ describe("VideoEnrichment", () => {
         end_coord: (i + 1) * 1000,
       }),
     )
-    render(<VideoEnrichment summary="" topics={[]} scriptureRefs={refs} />)
+    render(<VideoEnrichment church="jubileestl" summary="" topics={[]} scriptureRefs={refs} />)
     expect(screen.queryByRole("button", { name: /show all/ })).not.toBeInTheDocument()
     expect(screen.queryByText("Book 8:1")).toBeInTheDocument()
   })

@@ -43,8 +43,8 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
         response: { 200: homeResponseSchema },
       },
     },
-    async () => {
-      const db = app.db
+    async (request) => {
+      const db = request.scopedDb
 
       const recentRows = await db
         .selectFrom("videos_with_transcripts")

@@ -10,10 +10,11 @@ import {
 } from "fastify-type-provider-zod"
 import { config } from "./config.js"
 import { adminAuthPlugin } from "./plugins/admin-auth.js"
+import { churchContextPlugin } from "./plugins/church-context.js"
 import { dbPlugin } from "./plugins/db.js"
 import { embedderPlugin } from "./plugins/embedder.js"
 import { youtubePlugin } from "./plugins/youtube.js"
-import { registerRoutes } from "./routes/index.js"
+import { registerRootRoutes, registerTenantRoutes } from "./routes/index.js"
 
 export async function buildApp(): Promise<FastifyInstance> {
   if (!config.ADMIN_API_KEY) {
@@ -58,6 +59,7 @@ export async function buildApp(): Promise<FastifyInstance> {
   await app.register(dbPlugin)
   await app.register(embedderPlugin)
   await app.register(youtubePlugin)
+  await app.register(churchContextPlugin)
 
   await app.register(
     async (v1) => {
@@ -68,7 +70,15 @@ export async function buildApp(): Promise<FastifyInstance> {
         uiConfig: { docExpansion: "list", deepLinking: false },
       })
 
-      await registerRoutes(v1)
+      await registerRootRoutes(v1)
+
+      await v1.register(
+        async (tenant) => {
+          tenant.addHook("preHandler", tenant.requireChurchContext)
+          await registerTenantRoutes(tenant)
+        },
+        { prefix: "/:church" },
+      )
     },
     { prefix: "/v1" },
   )

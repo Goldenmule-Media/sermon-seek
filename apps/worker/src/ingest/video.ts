@@ -9,6 +9,7 @@ export interface EnsureVideoMetadataOptions {
   db: Kysely<Database>
   client: YoutubeClient
   youtubeVideoId: string
+  churchId: string
 }
 
 export interface EnsureVideoMetadataResult {
@@ -20,7 +21,7 @@ export interface EnsureVideoMetadataResult {
 export async function ensureVideoMetadata(
   opts: EnsureVideoMetadataOptions,
 ): Promise<EnsureVideoMetadataResult> {
-  const { db, client, youtubeVideoId } = opts
+  const { db, client, youtubeVideoId, churchId } = opts
 
   const { videos } = await getVideosBatched(client, [youtubeVideoId])
   const video = videos.get(youtubeVideoId)
@@ -39,10 +40,13 @@ export async function ensureVideoMetadata(
   const channelRow = await db
     .insertInto("channels")
     .values({
+      church_id: churchId,
       youtube_channel_id: youtubeChannelId,
       title: channelTitle,
     })
-    .onConflict((oc) => oc.column("youtube_channel_id").doUpdateSet({ title: channelTitle }))
+    .onConflict((oc) =>
+      oc.column("youtube_channel_id").doUpdateSet({ church_id: churchId, title: channelTitle }),
+    )
     .returning(["id"])
     .executeTakeFirstOrThrow()
 
@@ -59,6 +63,7 @@ export async function ensureVideoMetadata(
   const videoRow = await db
     .insertInto("videos")
     .values({
+      church_id: churchId,
       channel_id: channelDbId,
       youtube_video_id: youtubeVideoId,
       title,
@@ -69,6 +74,7 @@ export async function ensureVideoMetadata(
     })
     .onConflict((oc) =>
       oc.column("youtube_video_id").doUpdateSet({
+        church_id: churchId,
         channel_id: channelDbId,
         title,
         description,

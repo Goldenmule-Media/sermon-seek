@@ -1,7 +1,6 @@
-import type { Database } from "@sermon-search/db"
+import type { ScopedDb } from "@sermon-search/db"
 import { display } from "@sermon-search/scripture"
 import type { ScriptureRefDetail } from "@sermon-search/types"
-import type { Kysely } from "kysely"
 
 const PER_RESULT_LIMIT = 6
 
@@ -44,7 +43,7 @@ function detailFromRow(r: {
 }
 
 export async function hydrateScriptureRefs(
-  db: Kysely<Database>,
+  db: ScopedDb,
   youtubeVideoIds: string[],
 ): Promise<HydratedRefs> {
   if (youtubeVideoIds.length === 0) {
@@ -67,6 +66,7 @@ export async function hydrateScriptureRefs(
       "r.first_position",
     ])
     .where("v.youtube_video_id", "in", youtubeVideoIds)
+    .where("v.church_id", "=", db.churchId)
     .orderBy("r.occurrences", "desc")
     .orderBy("r.first_position", "asc")
     .execute()

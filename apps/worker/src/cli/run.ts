@@ -18,6 +18,7 @@ interface ParsedArgs {
   channel?: string
   video?: string
   playlist?: string
+  church?: string
   smokeTest: boolean
   viewStats: boolean
   transcripts: boolean
@@ -29,12 +30,13 @@ interface ParsedArgs {
 }
 
 const USAGE =
-  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --smoke-test | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | filters list|add|remove)"
+  "usage: worker:run --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force]) | --smoke-test | filters list|add|remove"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
   let video: string | undefined
   let playlist: string | undefined
+  let church: string | undefined
   let smokeTest = false
   let viewStats = false
   let transcripts = false
@@ -46,6 +48,17 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
     if (arg === "--") continue
+    if (arg === "--church") {
+      const next = argv[i + 1]
+      if (next === undefined) throw new Error("--church requires a value")
+      church = next
+      i += 1
+      continue
+    }
+    if (arg?.startsWith("--church=")) {
+      church = arg.slice("--church=".length)
+      continue
+    }
     if (arg === "--channel") {
       const next = argv[i + 1]
       if (next === undefined) throw new Error("--channel requires a value")
@@ -164,6 +177,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     channel,
     video,
     playlist,
+    church,
     smokeTest,
     viewStats,
     transcripts,
@@ -173,6 +187,16 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     related,
     force,
   }
+}
+
+async function resolveChurchId(db: ReturnType<typeof createDb>, slug: string): Promise<string> {
+  const row = await db
+    .selectFrom("churches")
+    .select(["id"])
+    .where("slug", "=", slug)
+    .executeTakeFirst()
+  if (!row) throw new Error(`Unknown church: ${slug}`)
+  return row.id
 }
 
 export async function main(argv: readonly string[]): Promise<number> {
@@ -189,6 +213,12 @@ export async function main(argv: readonly string[]): Promise<number> {
     return 2
   }
 
+  if (!parsed.smokeTest && !parsed.church) {
+    console.error("--church <slug> is required for this command")
+    console.error(USAGE)
+    return 2
+  }
+
   if (parsed.embed) {
     const apiKey = process.env.OPENAI_API_KEY
     if (!apiKey) {
@@ -197,8 +227,9 @@ export async function main(argv: readonly string[]): Promise<number> {
     }
     const db = createDb()
     try {
+      const churchId = await resolveChurchId(db, parsed.church as string)
       const embedder = createOpenAIEmbedder({ apiKey })
-      const summary = await runEmbedBackfill({ db, embedder, log: console.log })
+      const summary = await runEmbedBackfill({ db, embedder, churchId, log: console.log })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     } catch (err) {
@@ -212,7 +243,8 @@ export async function main(argv: readonly string[]): Promise<number> {
   if (parsed.rechunk) {
     const db = createDb()
     try {
-      const summary = await runRechunk({ db, log: console.log })
+      const churchId = await resolveChurchId(db, parsed.church as string)
+      const summary = await runRechunk({ db, churchId, log: console.log })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     } catch (err) {
@@ -232,10 +264,12 @@ export async function main(argv: readonly string[]): Promise<number> {
     const model = process.env.ENRICHMENT_MODEL ?? "gpt-4o-mini"
     const db = createDb()
     try {
+      const churchId = await resolveChurchId(db, parsed.church as string)
       const enricher = createOpenAIEnricher({ apiKey, model })
       const summary = await runEnrichBackfill({
         db,
         enricher,
+        churchId,
         force: parsed.force,
         log: console.log,
       })
@@ -252,7 +286,8 @@ export async function main(argv: readonly string[]): Promise<number> {
   if (parsed.related) {
     const db = createDb()
     try {
-      const summary = await runRelatedBackfill({ db, force: parsed.force, log: console.log })
+      const churchId = await resolveChurchId(db, parsed.church as string)
+      const summary = await runRelatedBackfill({ db, churchId, force: parsed.force, log: console.log })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     } catch (err) {
@@ -278,27 +313,43 @@ export async function main(argv: readonly string[]): Promise<number> {
 
   const db = createDb()
   try {
+    const churchId = await resolveChurchId(db, parsed.church as string)
     if (parsed.viewStats) {
-      const summary = await runViewStats({ db, client })
+      const summary = await runViewStats({ db, client, churchId })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     }
     if (parsed.video) {
-      const result = await ingestVideoTranscript({ db, client, youtubeVideoId: parsed.video })
+      const result = await ingestVideoTranscript({
+        db,
+        client,
+        youtubeVideoId: parsed.video,
+        churchId,
+      })
       console.log(JSON.stringify(result, null, 2))
       return 0
     }
     if (parsed.playlist) {
-      const summary = await ingestPlaylist({ db, client, youtubePlaylistId: parsed.playlist })
+      const summary = await ingestPlaylist({
+        db,
+        client,
+        youtubePlaylistId: parsed.playlist,
+        churchId,
+      })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     }
     if (parsed.transcripts) {
-      const summary = await runTranscriptsBackfill({ db, client, log: console.log })
+      const summary = await runTranscriptsBackfill({ db, client, churchId, log: console.log })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     }
-    const summary = await ingestChannel({ db, client, handleOrId: parsed.channel as string })
+    const summary = await ingestChannel({
+      db,
+      client,
+      handleOrId: parsed.channel as string,
+      churchId,
+    })
     console.log(JSON.stringify(summary, null, 2))
     return 0
   } catch (err) {

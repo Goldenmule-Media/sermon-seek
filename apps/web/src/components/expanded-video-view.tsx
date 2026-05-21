@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
 interface Props {
+  church: string
   videoId: string
   startSeconds: number
   onClose: () => void
@@ -19,7 +20,7 @@ interface Props {
 // Mirrors VideoDetailShell on /videos but coordinates its own seek/time state
 // and supports start_ms updates from the parent (clicking a different hit on
 // the same card seeks instead of remounting the iframe).
-export function ExpandedVideoView({ videoId, startSeconds, onClose }: Props) {
+export function ExpandedVideoView({ church, videoId, startSeconds, onClose }: Props) {
   const router = useRouter()
   const playerRef = useRef<YouTubePlayerHandle>(null)
   const playerWrapperRef = useRef<HTMLDivElement>(null)
@@ -33,7 +34,7 @@ export function ExpandedVideoView({ videoId, startSeconds, onClose }: Props) {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    fetchTranscript(videoId).then((t) => {
+    fetchTranscript(church, videoId).then((t) => {
       if (cancelled) return
       setTranscript(t)
       setLoading(false)
@@ -41,7 +42,7 @@ export function ExpandedVideoView({ videoId, startSeconds, onClose }: Props) {
     return () => {
       cancelled = true
     }
-  }, [videoId])
+  }, [church, videoId])
 
   // Seek when a different hit on the same video is selected.
   useEffect(() => {
@@ -70,7 +71,7 @@ export function ExpandedVideoView({ videoId, startSeconds, onClose }: Props) {
   function jumpToFullPage() {
     const current = playerRef.current?.getCurrentTime() ?? 0
     const t = Math.floor(current > 0 ? current : startSeconds)
-    router.push(`/videos/${videoId}?t=${t}`)
+    router.push(`/${church}/videos/${videoId}?t=${t}`)
   }
 
   return (

@@ -22,6 +22,7 @@ export interface IngestChannelOptions {
   db: Kysely<Database>
   client: YoutubeClient
   handleOrId: string
+  churchId: string
   force?: boolean
 }
 
@@ -33,7 +34,7 @@ export interface IngestChannelSummary {
 }
 
 export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestChannelSummary> {
-  const { db, client, handleOrId, force } = opts
+  const { db, client, handleOrId, churchId, force } = opts
 
   const resolved = await resolveChannel(client, handleOrId)
   const { channel } = await getChannelMetadata(client, resolved.youtubeChannelId, { force })
@@ -42,10 +43,13 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
   const channelRow = await db
     .insertInto("channels")
     .values({
+      church_id: churchId,
       youtube_channel_id: resolved.youtubeChannelId,
       title: channelTitle,
     })
-    .onConflict((oc) => oc.column("youtube_channel_id").doUpdateSet({ title: channelTitle }))
+    .onConflict((oc) =>
+      oc.column("youtube_channel_id").doUpdateSet({ title: channelTitle }),
+    )
     .returning(["id"])
     .executeTakeFirstOrThrow()
 
@@ -107,6 +111,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
     const playlistRow = await db
       .insertInto("playlists")
       .values({
+        church_id: churchId,
         channel_id: channelDbId,
         youtube_playlist_id: pl.id,
         slug,
@@ -153,7 +158,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
 
   await db.transaction().execute(async (trx) => {
     for (const [videoId, item] of videoFirstSeen) {
-      await upsertVideoFromPlaylistItem(trx, channelDbId, videoId, item)
+      await upsertVideoFromPlaylistItem(trx, channelDbId, churchId, videoId, item)
     }
     const youtubeVideoIds = Array.from(videoFirstSeen.keys())
     const videoDbIdByYoutubeId = new Map<string, string>()
@@ -209,6 +214,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
 async function upsertVideoFromPlaylistItem(
   trx: Transaction<Database>,
   channelDbId: string,
+  churchId: string,
   videoId: string,
   item: YoutubePlaylistItem,
 ): Promise<void> {
@@ -220,6 +226,7 @@ async function upsertVideoFromPlaylistItem(
   await trx
     .insertInto("videos")
     .values({
+      church_id: churchId,
       channel_id: channelDbId,
       youtube_video_id: videoId,
       title,

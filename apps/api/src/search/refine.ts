@@ -1,5 +1,5 @@
-import type { Database } from "@sermon-search/db"
-import { type Kysely, type SqlBool, sql } from "kysely"
+import type { ScopedDb } from "@sermon-search/db"
+import { type SqlBool, sql } from "kysely"
 import { buildTsQuery } from "./build-tsquery.js"
 import type { FtsResult } from "./fts.js"
 
@@ -17,7 +17,7 @@ import type { FtsResult } from "./fts.js"
 //
 // If both tiers find nothing, keep the chunk start_ms.
 export async function refineSegmentStarts(
-  db: Kysely<Database>,
+  db: ScopedDb,
   q: string,
   results: FtsResult[],
 ): Promise<FtsResult[]> {
@@ -34,6 +34,7 @@ export async function refineSegmentStarts(
           .innerJoin("videos as v", "v.id", "s.video_id")
           .select(sql<number | null>`MIN(s.start_ms)`.as("refined"))
           .where("v.youtube_video_id", "=", r.youtube_video_id)
+          .where("v.church_id", "=", db.churchId)
           .where("s.start_ms", ">=", r.start_ms)
           .where("s.start_ms", "<", r.end_ms)
           .where(sql<SqlBool>`s.text_tsv @@ ${strictTsQuery}`)
@@ -49,6 +50,7 @@ export async function refineSegmentStarts(
           .innerJoin("videos as v", "v.id", "s.video_id")
           .select(["s.start_ms"])
           .where("v.youtube_video_id", "=", r.youtube_video_id)
+          .where("v.church_id", "=", db.churchId)
           .where("s.start_ms", ">=", r.start_ms)
           .where("s.start_ms", "<", r.end_ms)
           .where(sql<SqlBool>`s.text_tsv @@ ${orQuery}`)

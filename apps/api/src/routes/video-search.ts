@@ -81,7 +81,7 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
 
       // Verify video exists by running a scoped search; if no rows at all and
       // no video record, return 404. We check by looking up the video directly.
-      const videoRow = await app.db
+      const videoRow = await request.scopedDb
         .selectFrom("videos")
         .select("id")
         .where("youtube_video_id", "=", id)
@@ -92,12 +92,17 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       const t0 = Date.now()
-      const { results: rawResults, total } = await searchSegments(app.db, { q, videoId: id, limit, offset })
-      const refined = await refineSegmentStarts(app.db, q, rawResults)
+      const { results: rawResults, total } = await searchSegments(request.scopedDb, {
+        q,
+        videoId: id,
+        limit,
+        offset,
+      })
+      const refined = await refineSegmentStarts(request.scopedDb, q, rawResults)
       const [refs, summaries, topics] = await Promise.all([
-        hydrateScriptureRefs(app.db, [id]),
-        hydrateSummaries(app.db, [id]),
-        hydrateTopics(app.db, [id]),
+        hydrateScriptureRefs(request.scopedDb, [id]),
+        hydrateSummaries(request.scopedDb, [id]),
+        hydrateTopics(request.scopedDb, [id]),
       ])
       const videoRefs = refs.perVideo.get(id) ?? []
       const videoTopics = topics.perVideo.get(id) ?? []

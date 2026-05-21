@@ -50,7 +50,11 @@ const PRESETS: Preset[] = [
     label: "Year to date",
     range: () => ({ from: startOfYear(), to: isoDate(new Date()) }),
   },
-  { key: "year", label: "Past year", range: () => ({ from: daysAgo(365), to: isoDate(new Date()) }) },
+  {
+    key: "year",
+    label: "Past year",
+    range: () => ({ from: daysAgo(365), to: isoDate(new Date()) }),
+  },
 ]
 
 function matchPreset(from: string, to: string): Preset | null {

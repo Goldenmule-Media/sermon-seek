@@ -43,11 +43,23 @@ describeIfDb("filter-rules integration", () => {
   })
 
   beforeEach(async () => {
-    await sql`TRUNCATE channel_filter_rules, channels RESTART IDENTITY CASCADE`.execute(db)
+    await sql`TRUNCATE channel_filter_rules, channels, churches RESTART IDENTITY CASCADE`.execute(
+      db,
+    )
+
+    const church = await db
+      .insertInto("churches")
+      .values({ slug: "test-church", name: "Test Church" })
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
 
     const row = await db
       .insertInto("channels")
-      .values({ youtube_channel_id: YT_CHANNEL_ID, title: "Test Channel" })
+      .values({
+        church_id: church.id,
+        youtube_channel_id: YT_CHANNEL_ID,
+        title: "Test Channel",
+      })
       .returning(["id"])
       .executeTakeFirstOrThrow()
     channelId = row.id

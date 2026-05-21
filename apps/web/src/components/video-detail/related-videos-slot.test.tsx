@@ -36,12 +36,12 @@ function makeVideo(overrides: Partial<RelatedVideo> = {}): RelatedVideo {
 
 describe("RelatedVideosSlot", () => {
   it("renders nothing when related list is empty", () => {
-    const { container } = render(<RelatedVideosSlot related={[]} />)
+    const { container } = render(<RelatedVideosSlot related={[]} church="jubileestl" />)
     expect(container.firstChild).toBeNull()
   })
 
   it("renders the section heading when there are related videos", () => {
-    render(<RelatedVideosSlot related={[makeVideo()]} />)
+    render(<RelatedVideosSlot related={[makeVideo()]} church="jubileestl" />)
     expect(screen.getByText("Related videos")).toBeInTheDocument()
   })
 
@@ -49,7 +49,7 @@ describe("RelatedVideosSlot", () => {
     const video = makeVideo({
       reason: { kind: "same_series", text: "Same series: Romans", playlist_id: "pl-1" },
     })
-    render(<RelatedVideosSlot related={[video]} />)
+    render(<RelatedVideosSlot related={[video]} church="jubileestl" />)
     expect(screen.getByText(/Romans/)).toBeInTheDocument()
     expect(screen.getByText(/Series:/)).toBeInTheDocument()
   })
@@ -62,7 +62,7 @@ describe("RelatedVideosSlot", () => {
         matched_chunk_start_ms: 12000,
       },
     })
-    render(<RelatedVideosSlot related={[video]} />)
+    render(<RelatedVideosSlot related={[video]} church="jubileestl" />)
     expect(screen.getByText(/Passage:/)).toBeInTheDocument()
     expect(screen.getByText(/For God so loved/)).toBeInTheDocument()
   })
@@ -75,7 +75,7 @@ describe("RelatedVideosSlot", () => {
         topics: ["grace", "justification"],
       },
     })
-    render(<RelatedVideosSlot related={[video]} />)
+    render(<RelatedVideosSlot related={[video]} church="jubileestl" />)
     expect(screen.getByText(/Topic:/)).toBeInTheDocument()
     expect(screen.getByText(/grace, justification/)).toBeInTheDocument()
   })
@@ -88,7 +88,7 @@ describe("RelatedVideosSlot", () => {
         references: ["Rom 8:1-11"],
       },
     })
-    render(<RelatedVideosSlot related={[video]} />)
+    render(<RelatedVideosSlot related={[video]} church="jubileestl" />)
     expect(screen.getByText(/Scripture:/)).toBeInTheDocument()
     expect(screen.getByText(/Rom 8:1-11/)).toBeInTheDocument()
   })
@@ -98,14 +98,14 @@ describe("RelatedVideosSlot", () => {
       makeVideo({ video_id: "v1", title: "Sermon One" }),
       makeVideo({ video_id: "v2", title: "Sermon Two" }),
     ]
-    render(<RelatedVideosSlot related={videos} />)
+    render(<RelatedVideosSlot related={videos} church="jubileestl" />)
     expect(screen.getByText("Sermon One")).toBeInTheDocument()
     expect(screen.getByText("Sermon Two")).toBeInTheDocument()
   })
 
   it("links each card to the video detail page", () => {
-    render(<RelatedVideosSlot related={[makeVideo({ video_id: "yt-xyz" })]} />)
+    render(<RelatedVideosSlot related={[makeVideo({ video_id: "yt-xyz" })]} church="jubileestl" />)
     const link = screen.getByRole("link")
-    expect(link).toHaveAttribute("href", "/videos/yt-xyz")
+    expect(link).toHaveAttribute("href", "/jubileestl/videos/yt-xyz")
   })
 })

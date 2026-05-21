@@ -7,12 +7,13 @@ import { useState } from "react"
 const COLLAPSE_THRESHOLD = 8
 
 interface VideoEnrichmentProps {
+  church: string
   summary: string
   topics: Array<{ slug: string; label: string }>
   scriptureRefs: ScriptureRefDetail[]
 }
 
-export function VideoEnrichment({ summary, topics, scriptureRefs }: VideoEnrichmentProps) {
+export function VideoEnrichment({ church, summary, topics, scriptureRefs }: VideoEnrichmentProps) {
   const [showAll, setShowAll] = useState(false)
 
   if (!summary && topics.length === 0 && scriptureRefs.length === 0) return null
@@ -30,7 +31,7 @@ export function VideoEnrichment({ summary, topics, scriptureRefs }: VideoEnrichm
           {topics.map((t) => (
             <Link
               key={t.slug}
-              href={`/topics/${t.slug}`}
+              href={`/${church}/topics/${t.slug}`}
               className="inline-block px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
             >
               {t.label}
@@ -44,7 +45,7 @@ export function VideoEnrichment({ summary, topics, scriptureRefs }: VideoEnrichm
             {visibleRefs.map((ref) => (
               <Link
                 key={`${ref.book_id}-${ref.start_coord}-${ref.end_coord}`}
-                href={`/search?ref=${encodeURIComponent(ref.display)}`}
+                href={`/${church}/search?ref=${encodeURIComponent(ref.display)}`}
                 className="inline-block px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
               >
                 {ref.display}

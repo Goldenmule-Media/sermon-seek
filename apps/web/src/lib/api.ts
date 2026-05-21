@@ -14,7 +14,16 @@ function apiBase(): string {
   return process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001"
 }
 
+function churchHeaders(church: string): HeadersInit {
+  return { "X-Church-Slug": church }
+}
+
+function churchUrl(church: string, path: string): string {
+  return `${apiBase()}/v1/${encodeURIComponent(church)}${path}`
+}
+
 export interface SearchParams {
+  church: string
   q?: string
   ref?: string
   playlist?: string
@@ -27,19 +36,22 @@ export interface SearchParams {
 export async function fetchSearch(
   params: SearchParams,
 ): Promise<SearchResponse | { error: string }> {
+  const { church, ...rest } = params
   try {
     const sp = new URLSearchParams()
-    if (params.ref) {
-      sp.set("ref", params.ref)
-    } else if (params.q) {
-      sp.set("q", params.q)
+    if (rest.ref) {
+      sp.set("ref", rest.ref)
+    } else if (rest.q) {
+      sp.set("q", rest.q)
     }
-    if (params.playlist) sp.set("playlist", params.playlist)
-    if (params.from) sp.set("from", params.from)
-    if (params.to) sp.set("to", params.to)
-    if (params.limit != null) sp.set("limit", String(params.limit))
-    if (params.offset != null) sp.set("offset", String(params.offset))
-    const res = await fetch(`${apiBase()}/v1/search?${sp.toString()}`)
+    if (rest.playlist) sp.set("playlist", rest.playlist)
+    if (rest.from) sp.set("from", rest.from)
+    if (rest.to) sp.set("to", rest.to)
+    if (rest.limit != null) sp.set("limit", String(rest.limit))
+    if (rest.offset != null) sp.set("offset", String(rest.offset))
+    const res = await fetch(`${churchUrl(church, "/search")}?${sp.toString()}`, {
+      headers: churchHeaders(church),
+    })
     if (!res.ok) {
       try {
         const body = (await res.json()) as { message?: unknown }
@@ -53,21 +65,23 @@ export async function fetchSearch(
   }
 }
 
-export async function fetchHome(): Promise<HomeResponse> {
+export async function fetchHome(church: string): Promise<HomeResponse | null> {
   try {
-    const res = await fetch(`${apiBase()}/v1/home`, {
+    const res = await fetch(churchUrl(church, "/home"), {
+      headers: churchHeaders(church),
       next: { revalidate: 60 },
     })
-    if (!res.ok) return { recent: [], category_strips: [] }
+    if (!res.ok) return null
     return res.json() as Promise<HomeResponse>
   } catch {
-    return { recent: [], category_strips: [] }
+    return null
   }
 }
 
-export async function fetchVideo(id: string): Promise<VideoDetailResponse | null> {
+export async function fetchVideo(church: string, id: string): Promise<VideoDetailResponse | null> {
   try {
-    const res = await fetch(`${apiBase()}/v1/videos/${id}`, {
+    const res = await fetch(churchUrl(church, `/videos/${id}`), {
+      headers: churchHeaders(church),
       next: { revalidate: 60 },
     })
     if (!res.ok) return null
@@ -77,9 +91,13 @@ export async function fetchVideo(id: string): Promise<VideoDetailResponse | null
   }
 }
 
-export async function fetchTranscript(id: string): Promise<TranscriptResponse | null> {
+export async function fetchTranscript(
+  church: string,
+  id: string,
+): Promise<TranscriptResponse | null> {
   try {
-    const res = await fetch(`${apiBase()}/v1/videos/${id}/transcript`, {
+    const res = await fetch(churchUrl(church, `/videos/${id}/transcript`), {
+      headers: churchHeaders(church),
       next: { revalidate: 60 },
     })
     if (!res.ok) return null
@@ -89,11 +107,15 @@ export async function fetchTranscript(id: string): Promise<TranscriptResponse | 
   }
 }
 
-export async function fetchVideoSearch(id: string, q: string): Promise<SearchResponse | null> {
+export async function fetchVideoSearch(
+  church: string,
+  id: string,
+  q: string,
+): Promise<SearchResponse | null> {
   try {
-    const url = new URL(`${apiBase()}/v1/videos/${id}/search`)
+    const url = new URL(churchUrl(church, `/videos/${id}/search`))
     url.searchParams.set("q", q)
-    const res = await fetch(url.toString())
+    const res = await fetch(url.toString(), { headers: churchHeaders(church) })
     if (!res.ok) return null
     return res.json() as Promise<SearchResponse>
   } catch {
@@ -101,9 +123,12 @@ export async function fetchVideoSearch(id: string, q: string): Promise<SearchRes
   }
 }
 
-export async function fetchTopics(): Promise<Topic[]> {
+export async function fetchTopics(church: string): Promise<Topic[]> {
   try {
-    const res = await fetch(`${apiBase()}/v1/topics`, { next: { revalidate: 60 } })
+    const res = await fetch(churchUrl(church, "/topics"), {
+      headers: churchHeaders(church),
+      next: { revalidate: 60 },
+    })
     if (!res.ok) return []
     const data = (await res.json()) as { topics: Topic[] }
     return data.topics
@@ -112,12 +137,17 @@ export async function fetchTopics(): Promise<Topic[]> {
   }
 }
 
-export async function fetchRelated(id: string, limit?: number): Promise<RelatedVideo[]> {
+export async function fetchRelated(
+  church: string,
+  id: string,
+  limit?: number,
+): Promise<RelatedVideo[]> {
   try {
     const sp = new URLSearchParams()
     if (limit != null) sp.set("limit", String(limit))
     const qs = sp.toString()
-    const res = await fetch(`${apiBase()}/v1/videos/${id}/related${qs ? `?${qs}` : ""}`, {
+    const res = await fetch(`${churchUrl(church, `/videos/${id}/related`)}${qs ? `?${qs}` : ""}`, {
+      headers: churchHeaders(church),
       next: { revalidate: 60 },
     })
     if (!res.ok) return []
@@ -129,6 +159,7 @@ export async function fetchRelated(id: string, limit?: number): Promise<RelatedV
 }
 
 export async function fetchTopic(
+  church: string,
   slug: string,
   opts: { limit?: number; offset?: number } = {},
 ): Promise<TopicVideos | null> {
@@ -137,7 +168,8 @@ export async function fetchTopic(
     if (opts.limit != null) sp.set("limit", String(opts.limit))
     if (opts.offset != null) sp.set("offset", String(opts.offset))
     const qs = sp.toString()
-    const res = await fetch(`${apiBase()}/v1/topics/${slug}${qs ? `?${qs}` : ""}`, {
+    const res = await fetch(`${churchUrl(church, `/topics/${slug}`)}${qs ? `?${qs}` : ""}`, {
+      headers: churchHeaders(church),
       next: { revalidate: 60 },
     })
     if (!res.ok) return null
@@ -147,9 +179,12 @@ export async function fetchTopic(
   }
 }
 
-export async function fetchPlaylists(): Promise<PlaylistWithStats[]> {
+export async function fetchPlaylists(church: string): Promise<PlaylistWithStats[]> {
   try {
-    const res = await fetch(`${apiBase()}/v1/playlists`, { next: { revalidate: 60 } })
+    const res = await fetch(churchUrl(church, "/playlists"), {
+      headers: churchHeaders(church),
+      next: { revalidate: 60 },
+    })
     if (!res.ok) return []
     const data = (await res.json()) as { playlists: PlaylistWithStats[] }
     return data.playlists
@@ -159,6 +194,7 @@ export async function fetchPlaylists(): Promise<PlaylistWithStats[]> {
 }
 
 export async function fetchPlaylist(
+  church: string,
   slug: string,
   opts: { limit?: number; offset?: number } = {},
 ): Promise<PlaylistVideos | null> {
@@ -167,9 +203,10 @@ export async function fetchPlaylist(
     if (opts.limit != null) sp.set("limit", String(opts.limit))
     if (opts.offset != null) sp.set("offset", String(opts.offset))
     const qs = sp.toString()
-    const res = await fetch(`${apiBase()}/v1/playlists/${slug}/videos${qs ? `?${qs}` : ""}`, {
-      next: { revalidate: 60 },
-    })
+    const res = await fetch(
+      `${churchUrl(church, `/playlists/${slug}/videos`)}${qs ? `?${qs}` : ""}`,
+      { headers: churchHeaders(church), next: { revalidate: 60 } },
+    )
     if (!res.ok) return null
     return res.json() as Promise<PlaylistVideos>
   } catch {

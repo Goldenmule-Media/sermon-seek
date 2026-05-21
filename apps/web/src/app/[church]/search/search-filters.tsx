@@ -13,11 +13,12 @@ export interface FilterValues {
 }
 
 interface SearchFiltersProps {
+  church: string
   values: FilterValues
   playlists: PlaylistWithStats[]
 }
 
-export function SearchFilters({ values, playlists }: SearchFiltersProps) {
+export function SearchFilters({ church, values, playlists }: SearchFiltersProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -27,7 +28,7 @@ export function SearchFilters({ values, playlists }: SearchFiltersProps) {
       if (value) sp.set(key, value)
       else sp.delete(key)
     }
-    router.replace(`/search?${sp.toString()}`)
+    router.replace(`/${church}/search?${sp.toString()}`)
   }
 
   const playlistOptions = playlists.map((p) => ({ value: p.slug, label: p.title }))

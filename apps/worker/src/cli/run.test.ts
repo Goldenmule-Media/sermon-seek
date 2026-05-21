@@ -10,6 +10,7 @@ describe("parseArgs", () => {
       channel: "@example",
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -27,6 +28,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: "19l5OI_8ljQ",
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -44,6 +46,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: "19l5OI_8ljQ",
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -61,6 +64,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: "PL4R8x7Q9Xp09xzyHuw6T9xdzQVUjwGIAE",
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -78,6 +82,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: "PL4R8x7Q9Xp09xzyHuw6T9xdzQVUjwGIAE",
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -127,6 +132,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: true,
       viewStats: false,
       transcripts: false,
@@ -144,6 +150,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: true,
       transcripts: false,
@@ -201,6 +208,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -234,6 +242,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -251,6 +260,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -272,6 +282,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -289,6 +300,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: false,
@@ -338,6 +350,7 @@ describe("parseArgs", () => {
       channel: undefined,
       video: undefined,
       playlist: undefined,
+      church: undefined,
       smokeTest: false,
       viewStats: false,
       transcripts: true,
@@ -395,5 +408,45 @@ describe("parseArgs", () => {
   // The dispatch in main() handles it before parseArgs is ever called.
   it("rejects 'filters' as an unknown arg (dispatch in main() catches it first)", () => {
     expect(() => parseArgs(["filters", "--help"])).toThrow(/Unknown argument/)
+  })
+
+  it("accepts --church with space form", () => {
+    const parsed = parseArgs(["--channel", "@example", "--church", "mychurch"])
+    expect(parsed).toEqual({
+      channel: "@example",
+      video: undefined,
+      playlist: undefined,
+      church: "mychurch",
+      smokeTest: false,
+      viewStats: false,
+      transcripts: false,
+      embed: false,
+      rechunk: false,
+      enrich: false,
+      related: false,
+      force: false,
+    })
+  })
+
+  it("accepts --church= with equals form", () => {
+    const parsed = parseArgs(["--channel", "@example", "--church=mychurch"])
+    expect(parsed).toEqual({
+      channel: "@example",
+      video: undefined,
+      playlist: undefined,
+      church: "mychurch",
+      smokeTest: false,
+      viewStats: false,
+      transcripts: false,
+      embed: false,
+      rechunk: false,
+      enrich: false,
+      related: false,
+      force: false,
+    })
+  })
+
+  it("rejects --church without a value", () => {
+    expect(() => parseArgs(["--channel", "@example", "--church"])).toThrow(/requires a value/)
   })
 })

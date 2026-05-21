@@ -32,7 +32,7 @@ const emptyResponse: SearchResponse = {
 describe("SearchResults", () => {
   it("renders the API 400 error message when fetchSearch returns { error }", async () => {
     mockFetchSearch.mockResolvedValueOnce({ error: "no scripture reference found in query" })
-    render(<SearchResults playlists={[]} />)
+    render(<SearchResults church="jubileestl" playlists={[]} />)
     await waitFor(() =>
       expect(screen.getByText("no scripture reference found in query")).toBeInTheDocument(),
     )
@@ -40,7 +40,7 @@ describe("SearchResults", () => {
 
   it("renders the format hint on zero results (regression guard)", async () => {
     mockFetchSearch.mockResolvedValueOnce(emptyResponse)
-    render(<SearchResults playlists={[]} />)
+    render(<SearchResults church="jubileestl" playlists={[]} />)
     await waitFor(() =>
       expect(screen.getByText(/No results found for scripture reference/)).toBeInTheDocument(),
     )

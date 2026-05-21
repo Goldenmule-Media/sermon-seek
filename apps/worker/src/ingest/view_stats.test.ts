@@ -89,11 +89,19 @@ function makeFakeClient(state: FakeClientState): YoutubeClient {
   return partial as YoutubeClient
 }
 
-async function seedFixture(db: Kysely<Database>, fixture: ChannelFixture[]): Promise<void> {
+async function seedFixture(
+  db: Kysely<Database>,
+  fixture: ChannelFixture[],
+  churchId: string,
+): Promise<void> {
   for (const channel of fixture) {
     const channelRow = await db
       .insertInto("channels")
-      .values({ youtube_channel_id: channel.youtubeChannelId, title: channel.title })
+      .values({
+        church_id: churchId,
+        youtube_channel_id: channel.youtubeChannelId,
+        title: channel.title,
+      })
       .returning(["id"])
       .executeTakeFirstOrThrow()
     const channelDbId = channelRow.id
@@ -102,6 +110,7 @@ async function seedFixture(db: Kysely<Database>, fixture: ChannelFixture[]): Pro
       const playlistRow = await db
         .insertInto("playlists")
         .values({
+          church_id: churchId,
           channel_id: channelDbId,
           youtube_playlist_id: playlist.youtubePlaylistId,
           slug: playlist.slug,
@@ -126,6 +135,7 @@ async function seedFixture(db: Kysely<Database>, fixture: ChannelFixture[]): Pro
             await db
               .insertInto("videos")
               .values({
+                church_id: churchId,
                 channel_id: channelDbId,
                 youtube_video_id: youtubeVideoId,
                 title: `Video ${youtubeVideoId}`,
@@ -146,6 +156,7 @@ async function seedFixture(db: Kysely<Database>, fixture: ChannelFixture[]): Pro
 describeIfDb("runViewStats (aggregates)", () => {
   let tmpRoot: string
   let db: Kysely<Database>
+  let churchId: string
   // biome-ignore lint/suspicious/noExplicitAny: dynamic ESM import for test environment.
   let runViewStats: any
 
@@ -162,6 +173,13 @@ describeIfDb("runViewStats (aggregates)", () => {
     const mod = await import("./view_stats.js")
     runViewStats = mod.runViewStats
     db = createDb(TEST_DATABASE_URL)
+    const churchRow = await db
+      .insertInto("churches")
+      .values({ slug: "test-church", name: "Test Church" })
+      .onConflict((oc) => oc.column("slug").doUpdateSet({ name: "Test Church" }))
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
+    churchId = churchRow.id
   })
 
   afterAll(async () => {
@@ -194,7 +212,7 @@ describeIfDb("runViewStats (aggregates)", () => {
         ],
       },
     ]
-    await seedFixture(db, fixture)
+    await seedFixture(db, fixture, churchId)
 
     const viewCountByVideoId = new Map<string, string | undefined>([
       ["vA1", "10"],
@@ -204,7 +222,7 @@ describeIfDb("runViewStats (aggregates)", () => {
     ])
     const client = makeFakeClient({ channels: fixture, viewCountByVideoId })
 
-    const summary = await runViewStats({ db, client })
+    const summary = await runViewStats({ db, client, churchId })
     expect(summary.channelCount).toBe(1)
     expect(summary.playlistCount).toBe(2)
     expect(summary.videoCount).toBe(4)
@@ -253,14 +271,14 @@ describeIfDb("runViewStats (aggregates)", () => {
         ],
       },
     ]
-    await seedFixture(db, fixture)
+    await seedFixture(db, fixture, churchId)
 
     const counts1 = new Map<string, string | undefined>([
       ["vT1", "5"],
       ["vT2", "7"],
     ])
     const client1 = makeFakeClient({ channels: fixture, viewCountByVideoId: counts1 })
-    await runViewStats({ db, client: client1 })
+    await runViewStats({ db, client: client1, churchId })
 
     const playlistRowsBefore = await db.selectFrom("playlists").select(["id"]).execute()
     const videoRowsBefore = await db.selectFrom("videos").select(["id"]).execute()
@@ -271,7 +289,7 @@ describeIfDb("runViewStats (aggregates)", () => {
       ["vT2", "13"],
     ])
     const client2 = makeFakeClient({ channels: fixture, viewCountByVideoId: counts2 })
-    await runViewStats({ db, client: client2 })
+    await runViewStats({ db, client: client2, churchId })
 
     expect((await db.selectFrom("playlists").select(["id"]).execute()).length).toBe(
       playlistRowsBefore.length,
@@ -307,14 +325,14 @@ describeIfDb("runViewStats (aggregates)", () => {
         ],
       },
     ]
-    await seedFixture(db, fixture)
+    await seedFixture(db, fixture, churchId)
 
     const counts = new Map<string, string | undefined>([
       ["vM1", "42"],
       ["vM2", undefined],
     ])
     const client = makeFakeClient({ channels: fixture, viewCountByVideoId: counts })
-    await runViewStats({ db, client })
+    await runViewStats({ db, client, churchId })
 
     const vM2 = await db
       .selectFrom("videos")

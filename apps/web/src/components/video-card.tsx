@@ -3,9 +3,9 @@ import type { Video } from "@sermon-search/types"
 import Image from "next/image"
 import Link from "next/link"
 
-export function VideoCard({ video }: { video: Video }) {
+export function VideoCard({ video, church }: { video: Video; church: string }) {
   return (
-    <Link href={`/videos/${video.id}`} className="group flex flex-col gap-2 min-w-0">
+    <Link href={`/${church}/videos/${video.id}`} className="group flex flex-col gap-2 min-w-0">
       <div className="relative aspect-video rounded-md overflow-hidden bg-muted">
         <Image
           src={video.thumbnail_url || "/placeholder.svg"}

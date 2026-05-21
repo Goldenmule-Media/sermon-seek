@@ -1,4 +1,5 @@
 import type { Database } from "@sermon-search/db"
+import { createScopedDb } from "@sermon-search/db"
 import Fastify from "fastify"
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"
 import type { ZodTypeProvider } from "fastify-type-provider-zod"
@@ -71,7 +72,20 @@ async function buildTestApp(mockDb: Kysely<Database>) {
   const app = Fastify().withTypeProvider<ZodTypeProvider>()
   app.setValidatorCompiler(validatorCompiler)
   app.setSerializerCompiler(serializerCompiler)
+
+  const scopedDb = createScopedDb(mockDb, "test-church-id")
+
   app.decorate("db", mockDb)
+  // biome-ignore lint/suspicious/noExplicitAny: scopedDb is populated by the preHandler
+  app.decorateRequest("scopedDb", null as any)
+  app.decorateRequest("churchId", "")
+  app.decorateRequest("churchSlug", "")
+  app.addHook("preHandler", async (request) => {
+    request.scopedDb = scopedDb
+    request.churchId = "test-church-id"
+    request.churchSlug = "test-church"
+  })
+
   await app.register(videoDetailRoutes)
   await app.ready()
   return app

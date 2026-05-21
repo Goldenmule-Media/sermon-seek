@@ -66,7 +66,7 @@ export const videoDetailRoutes: FastifyPluginAsyncZod = async (app) => {
     async (request, reply) => {
       const { id } = request.params
 
-      const videoRow = await app.db
+      const videoRow = await request.scopedDb
         .selectFrom("videos")
         .innerJoin("channels", "videos.channel_id", "channels.id")
         .select([
@@ -88,25 +88,25 @@ export const videoDetailRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       const [playlistRows, enrichmentRow, topicRows, refRows] = await Promise.all([
-        app.db
+        request.scopedDb
           .selectFrom("playlists")
           .innerJoin("video_playlists", "playlists.id", "video_playlists.playlist_id")
           .select(["playlists.id", "playlists.slug", "playlists.title"])
           .where("video_playlists.video_id", "=", videoRow.id)
           .execute(),
-        app.db
+        request.scopedDb
           .selectFrom("video_enrichments")
           .select(["summary"])
           .where("video_id", "=", videoRow.id)
           .executeTakeFirst(),
-        app.db
+        request.scopedDb
           .selectFrom("topics")
           .innerJoin("video_topics", "topics.id", "video_topics.topic_id")
           .select(["topics.slug", "topics.label", "video_topics.position"])
           .where("video_topics.video_id", "=", videoRow.id)
           .orderBy("video_topics.position", "asc")
           .execute(),
-        app.db
+        request.scopedDb
           .selectFrom("video_scripture_refs")
           .select([
             "book_id",

@@ -5,6 +5,7 @@ import { TOP_N_PER_SIGNAL, jaccard, pickQuotedSnippet, topN } from "./signals.js
 
 export interface RelatedBackfillOptions {
   db: Kysely<Database>
+  churchId: string
   force?: boolean
   log?: (msg: string) => void
 }
@@ -27,6 +28,7 @@ const EMBED_MODEL = process.env.EMBEDDING_MODEL ?? "text-embedding-3-small"
 async function computeChunkSimilarity(
   db: Kysely<Database>,
   srcVideoId: string,
+  churchId: string,
 ): Promise<RelatedRow[]> {
   const srcChunks = await db
     .selectFrom("transcript_chunks as tc")
@@ -59,6 +61,7 @@ async function computeChunkSimilarity(
       JOIN transcript_chunks tc ON tc.id = e.chunk_id
       WHERE e.model = ${EMBED_MODEL}
         AND tc.video_id <> ${srcVideoId}
+        AND tc.church_id = ${churchId}
       ORDER BY e.vector <=> ${chunk.vector}::vector ASC
       LIMIT ${TOP_N_PER_SIGNAL * 3}
     `.execute(db)
@@ -177,18 +180,25 @@ async function computeSameSeries(db: Kysely<Database>, srcVideoId: string): Prom
 
 export async function runRelatedBackfill({
   db,
+  churchId,
   force = false,
   log = () => {},
 }: RelatedBackfillOptions): Promise<RelatedBackfillResult> {
   const totals: RelatedBackfillResult = { videosProcessed: 0, videosSkipped: 0, rowsInserted: 0 }
 
-  const videos = await db.selectFrom("videos").select(["id", "youtube_video_id"]).execute()
+  const videos = await db
+    .selectFrom("videos")
+    .select(["id", "youtube_video_id"])
+    .where("church_id", "=", churchId)
+    .execute()
 
-  // Pre-load all topic slugs and scripture refs for efficient in-app Jaccard
+  // Pre-load topic slugs and scripture refs scoped to this church
   const allTopicRows = await db
     .selectFrom("video_topics as vt")
     .innerJoin("topics as t", "t.id", "vt.topic_id")
+    .innerJoin("videos as v", "v.id", "vt.video_id")
     .select(["vt.video_id", "t.slug"])
+    .where("v.church_id", "=", churchId)
     .execute()
   const allVideoTopics = new Map<string, string[]>()
   for (const row of allTopicRows) {
@@ -198,8 +208,10 @@ export async function runRelatedBackfill({
   }
 
   const allRefRows = await db
-    .selectFrom("video_scripture_refs")
-    .select(["video_id", "start_coord", "end_coord"])
+    .selectFrom("video_scripture_refs as vsr")
+    .innerJoin("videos as v", "v.id", "vsr.video_id")
+    .select(["vsr.video_id", "vsr.start_coord", "vsr.end_coord"])
+    .where("v.church_id", "=", churchId)
     .execute()
   const allVideoRefs = new Map<string, string[]>()
   for (const row of allRefRows) {
@@ -240,7 +252,7 @@ export async function runRelatedBackfill({
     log(`computing related for ${video.youtube_video_id}`)
 
     const [chunkRows, topicRows, scriptureRows, seriesRows] = await Promise.all([
-      computeChunkSimilarity(db, video.id),
+      computeChunkSimilarity(db, video.id, churchId),
       computeTopicOverlap(db, video.id, allVideoTopics),
       computeScriptureOverlap(db, video.id, allVideoRefs),
       computeSameSeries(db, video.id),

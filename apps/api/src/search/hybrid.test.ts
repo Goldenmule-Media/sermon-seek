@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
-import { RRF_K, fuseRRF } from "./hybrid.js"
 import type { FtsResult } from "./fts.js"
+import { RRF_K, fuseRRF } from "./hybrid.js"
 
 function makeResult(
   youtube_video_id: string,
@@ -16,6 +16,7 @@ function makeResult(
     score,
     title: "Test Video",
     thumbnail_url: null,
+    match_type: "lexical",
   }
 }
 

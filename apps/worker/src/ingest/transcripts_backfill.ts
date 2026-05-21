@@ -7,6 +7,7 @@ import { ingestVideoTranscript } from "./transcript.js"
 export interface TranscriptsBackfillOptions {
   db: Kysely<Database>
   client: YoutubeClient
+  churchId: string
   log?: (msg: string) => void
   spawner?: Spawner
   ytDlpBin?: string
@@ -22,6 +23,7 @@ export interface TranscriptsBackfillResult {
 export async function runTranscriptsBackfill({
   db,
   client,
+  churchId,
   log = () => {},
   spawner,
   ytDlpBin,
@@ -33,7 +35,11 @@ export async function runTranscriptsBackfill({
     videosFailed: 0,
   }
 
-  const videos = await db.selectFrom("videos").select(["id", "youtube_video_id"]).execute()
+  const videos = await db
+    .selectFrom("videos")
+    .select(["id", "youtube_video_id"])
+    .where("church_id", "=", churchId)
+    .execute()
 
   for (const video of videos) {
     try {
@@ -41,6 +47,7 @@ export async function runTranscriptsBackfill({
         db,
         client,
         youtubeVideoId: video.youtube_video_id,
+        churchId,
         spawner,
         ytDlpBin,
       })

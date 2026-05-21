@@ -24,6 +24,19 @@ export interface SearchResponse {
   topics: Topic[]
 }
 
+export interface SearchRequest {
+  church: string
+  q: string
+  limit?: number
+  offset?: number
+}
+
+export interface ChurchRef {
+  id: string
+  slug: string
+  name: string
+}
+
 export interface Video {
   id: string
   title: string

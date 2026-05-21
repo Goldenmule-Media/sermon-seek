@@ -122,16 +122,17 @@ function makeClient(counts: Map<string, string>): YoutubeClient {
   return partial as YoutubeClient
 }
 
-async function seedSchema(db: Kysely<Database>): Promise<void> {
+async function seedSchema(db: Kysely<Database>, churchId: string): Promise<void> {
   const channel = await db
     .insertInto("channels")
-    .values({ youtube_channel_id: CHANNEL_ID, title: "Integration Channel" })
+    .values({ church_id: churchId, youtube_channel_id: CHANNEL_ID, title: "Integration Channel" })
     .returning(["id"])
     .executeTakeFirstOrThrow()
   for (const pl of PLAYLISTS) {
     const playlistRow = await db
       .insertInto("playlists")
       .values({
+        church_id: churchId,
         channel_id: channel.id,
         youtube_playlist_id: pl.youtubePlaylistId,
         slug: pl.slug,
@@ -154,6 +155,7 @@ async function seedSchema(db: Kysely<Database>): Promise<void> {
           await db
             .insertInto("videos")
             .values({
+              church_id: churchId,
               channel_id: channel.id,
               youtube_video_id: youtubeVideoId,
               title: `Video ${youtubeVideoId}`,
@@ -173,6 +175,7 @@ async function seedSchema(db: Kysely<Database>): Promise<void> {
 describeIfDb("runViewStats (integration)", () => {
   let tmpRoot: string
   let db: Kysely<Database>
+  let churchId: string
   // biome-ignore lint/suspicious/noExplicitAny: dynamic ESM import for test environment.
   let runViewStats: any
 
@@ -189,6 +192,13 @@ describeIfDb("runViewStats (integration)", () => {
     const mod = await import("./view_stats.js")
     runViewStats = mod.runViewStats
     db = createDb(TEST_DATABASE_URL)
+    const churchRow = await db
+      .insertInto("churches")
+      .values({ slug: "test-church-int", name: "Test Church Int" })
+      .onConflict((oc) => oc.column("slug").doUpdateSet({ name: "Test Church Int" }))
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
+    churchId = churchRow.id
   })
 
   afterAll(async () => {
@@ -201,10 +211,10 @@ describeIfDb("runViewStats (integration)", () => {
   })
 
   it("populates view_count and per-playlist aggregates; top-3 ORDER BY works", async () => {
-    await seedSchema(db)
+    await seedSchema(db, churchId)
 
     const client = makeClient(viewCountsRun1())
-    const summary = await runViewStats({ db, client })
+    const summary = await runViewStats({ db, client, churchId })
     expect(summary.channelCount).toBe(1)
     expect(summary.playlistCount).toBe(PLAYLISTS.length)
 
@@ -241,9 +251,9 @@ describeIfDb("runViewStats (integration)", () => {
   })
 
   it("second run refreshes counts; row counts unchanged", async () => {
-    await seedSchema(db)
+    await seedSchema(db, churchId)
 
-    await runViewStats({ db, client: makeClient(viewCountsRun1()) })
+    await runViewStats({ db, client: makeClient(viewCountsRun1()), churchId })
     const channelsAfter1 = await db.selectFrom("channels").select(["id"]).execute()
     const playlistsAfter1 = await db.selectFrom("playlists").select(["id"]).execute()
     const videosAfter1 = await db.selectFrom("videos").select(["id"]).execute()
@@ -261,7 +271,7 @@ describeIfDb("runViewStats (integration)", () => {
 
     await new Promise((resolve) => setTimeout(resolve, 10))
 
-    await runViewStats({ db, client: makeClient(viewCountsRun2()) })
+    await runViewStats({ db, client: makeClient(viewCountsRun2()), churchId })
 
     expect((await db.selectFrom("channels").select(["id"]).execute()).length).toBe(
       channelsAfter1.length,

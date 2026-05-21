@@ -114,13 +114,13 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         refineQuery: string,
         videoScores?: Map<string, number>,
       ) => {
-        const refined = await refineSegmentStarts(app.db, refineQuery, candidates)
+        const refined = await refineSegmentStarts(request.scopedDb, refineQuery, candidates)
         const { videos, total } = groupByVideo(refined, { limit, offset, videoScores })
         const ids = videos.map((v) => v.youtube_video_id)
         const [refs, summaries, topics] = await Promise.all([
-          hydrateScriptureRefs(app.db, ids),
-          hydrateSummaries(app.db, ids),
-          hydrateTopics(app.db, ids),
+          hydrateScriptureRefs(request.scopedDb, ids),
+          hydrateSummaries(request.scopedDb, ids),
+          hydrateTopics(request.scopedDb, ids),
         ])
         return {
           results: videos.map((v) => ({
@@ -156,7 +156,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
           throw err
         }
 
-        const { results, videoScores } = await searchVideosByRef(app.db, {
+        const { results, videoScores } = await searchVideosByRef(request.scopedDb, {
           startCoord: interval.start_coord,
           endCoord: interval.end_coord,
           rawQuery: ref,
@@ -175,7 +175,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         if (!app.embedder) {
           return reply.code(503).send({ message: "OPENAI_API_KEY is not configured" } as never)
         }
-        const { results } = await searchSemantic(app.db, app.embedder, {
+        const { results } = await searchSemantic(request.scopedDb, app.embedder, {
           q: qStr,
           limit: candidateLimit,
           offset: 0,
@@ -188,7 +188,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       if (mode === "hybrid") {
-        const { results } = await searchHybrid(app.db, app.embedder, {
+        const { results } = await searchHybrid(request.scopedDb, app.embedder, {
           q: qStr,
           limit: candidateLimit,
           offset: 0,
@@ -200,7 +200,7 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         return respond(results, qStr)
       }
 
-      const { results } = await searchSegments(app.db, {
+      const { results } = await searchSegments(request.scopedDb, {
         q: qStr,
         limit: candidateLimit,
         offset: 0,
