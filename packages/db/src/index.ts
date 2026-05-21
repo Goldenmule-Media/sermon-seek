@@ -279,3 +279,10 @@ export function createDb(connectionString?: string): Kysely<Database> {
 }
 
 export { migrateToLatest } from "./migrate.js"
+export {
+  ScopedDb,
+  createScopedDb,
+  TENANT_TABLES,
+  assertChurchId,
+  type TenantTable,
+} from "./scoped.js"
