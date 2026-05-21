@@ -6,6 +6,7 @@ import { ingestChannel } from "../ingest/channel.js"
 import { runEmbedBackfill } from "../ingest/embed.js"
 import { ingestPlaylist } from "../ingest/playlist.js"
 import { runRechunk } from "../ingest/rechunk.js"
+import { pollRssForNewUploads } from "../ingest/rss.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
 import { runTranscriptsBackfill } from "../ingest/transcripts_backfill.js"
 import { runViewStats } from "../ingest/view_stats.js"
@@ -26,11 +27,12 @@ interface ParsedArgs {
   rechunk: boolean
   enrich: boolean
   related: boolean
+  rssPoll: boolean
   force: boolean
 }
 
 const USAGE =
-  "usage: worker:run --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force]) | --smoke-test | filters list|add|remove"
+  "usage: worker:run --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | filters list|add|remove"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
@@ -44,6 +46,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   let rechunk = false
   let enrich = false
   let related = false
+  let rssPoll = false
   let force = false
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
@@ -141,6 +144,13 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     if (arg?.startsWith("--related=")) {
       throw new Error("--related does not take a value")
     }
+    if (arg === "--rss-poll") {
+      rssPoll = true
+      continue
+    }
+    if (arg?.startsWith("--rss-poll=")) {
+      throw new Error("--rss-poll does not take a value")
+    }
     if (arg === "--force") {
       force = true
       continue
@@ -153,8 +163,11 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   if (force && !enrich && !related) {
     throw new Error("--force requires --enrich or --related")
   }
+  if (rssPoll && !channel) {
+    throw new Error("--rss-poll requires --channel <youtube-channel-id>")
+  }
   const modes = [
-    channel ? "--channel" : null,
+    channel && !rssPoll ? "--channel" : null,
     video ? "--video" : null,
     playlist ? "--playlist" : null,
     smokeTest ? "--smoke-test" : null,
@@ -164,13 +177,14 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     rechunk ? "--rechunk" : null,
     enrich ? "--enrich" : null,
     related ? "--related" : null,
+    rssPoll ? "--rss-poll" : null,
   ].filter((v): v is string => v !== null)
   if (modes.length > 1) {
     throw new Error(`${modes.join(", ")} are mutually exclusive`)
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, or --related",
+      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, --related, or --rss-poll --channel <youtube-channel-id>",
     )
   }
   return {
@@ -185,6 +199,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     rechunk,
     enrich,
     related,
+    rssPoll,
     force,
   }
 }
@@ -314,6 +329,16 @@ export async function main(argv: readonly string[]): Promise<number> {
   const db = createDb()
   try {
     const churchId = await resolveChurchId(db, parsed.church as string)
+    if (parsed.rssPoll) {
+      const summary = await pollRssForNewUploads({
+        youtubeChannelId: parsed.channel as string,
+        churchId,
+        db,
+        client,
+      })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    }
     if (parsed.viewStats) {
       const summary = await runViewStats({ db, client, churchId })
       console.log(JSON.stringify(summary, null, 2))

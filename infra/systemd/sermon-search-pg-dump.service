@@ -1,0 +1,14 @@
+[Unit]
+Description=Sermon-Search nightly pg_dump
+Documentation=https://github.com/Goldenmule-Media/sermon-search/blob/main/infra/README.md
+After=docker.service
+Requires=docker.service
+OnFailure=sermon-search-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/sermon-search/repo
+ExecStart=/opt/sermon-search/repo/infra/scripts/pg-dump.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sermon-search-pg-dump

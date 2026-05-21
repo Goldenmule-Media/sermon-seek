@@ -14,6 +14,8 @@ export type {
   IngestVideoTranscriptOptions,
   IngestVideoTranscriptResult,
 } from "./ingest/transcript.js"
+export { pollRssForNewUploads } from "./ingest/rss.js"
+export type { PollRssOptions, PollRssSummary } from "./ingest/rss.js"
 export { cache } from "./cache/cache.js"
 export type { Cache } from "./cache/cache.js"
 export { YoutubeClient } from "./youtube/client.js"

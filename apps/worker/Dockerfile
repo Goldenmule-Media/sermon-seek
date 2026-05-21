@@ -20,7 +20,8 @@ ENV PNPM_HOME=/root/.local/share/pnpm \
     PATH=/root/.local/share/pnpm:$PATH \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1 \
-    PIP_DISABLE_PIP_VERSION_CHECK=1
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    NODE_OPTIONS="--conditions=dist"
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
@@ -43,15 +44,19 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.base.json tsconfig
 COPY apps/worker/package.json ./apps/worker/
 COPY packages/types/package.json ./packages/types/
 COPY packages/db/package.json ./packages/db/
+COPY packages/embeddings/package.json ./packages/embeddings/
+COPY packages/scripture/package.json ./packages/scripture/
 
 RUN pnpm install --frozen-lockfile --filter @sermon-search/worker...
 
 # Sources.
 COPY packages/types ./packages/types
+COPY packages/scripture ./packages/scripture
+COPY packages/embeddings ./packages/embeddings
 COPY packages/db ./packages/db
 COPY apps/worker ./apps/worker
 
 RUN pnpm --filter @sermon-search/worker... build
 
 WORKDIR /app/apps/worker
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/cli/run.js"]

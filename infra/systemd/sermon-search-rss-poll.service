@@ -1,0 +1,21 @@
+[Unit]
+Description=Sermon-Search hourly RSS poll for new uploads
+Documentation=https://github.com/Goldenmule-Media/sermon-search/blob/main/infra/README.md
+After=docker.service
+Requires=docker.service
+OnFailure=sermon-search-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/sermon-search/repo
+EnvironmentFile=/opt/sermon-search/repo/.env
+ExecStartPre=/bin/sh -c '[ -n "${CHURCH_SLUG}" ] || { echo "CHURCH_SLUG is empty — populate .env and restart"; exit 1; }'
+ExecStartPre=/bin/sh -c '[ -n "${RSS_CHANNEL_ID}" ] || { echo "RSS_CHANNEL_ID is empty — populate .env or mask this timer: systemctl mask sermon-search-rss-poll.timer"; exit 1; }'
+ExecStart=/usr/bin/docker compose -f /opt/sermon-search/repo/infra/docker-compose.prod.yml \
+  --project-directory /opt/sermon-search/repo \
+  exec -T worker \
+  node /app/apps/worker/dist/cli/run.js \
+  --church ${CHURCH_SLUG} --rss-poll --channel ${RSS_CHANNEL_ID}
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sermon-search-rss-poll

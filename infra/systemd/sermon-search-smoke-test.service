@@ -1,0 +1,18 @@
+[Unit]
+Description=Sermon-Search daily caption smoke-test
+Documentation=https://github.com/Goldenmule-Media/sermon-search/blob/main/infra/README.md
+After=docker.service
+Requires=docker.service
+OnFailure=sermon-search-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/sermon-search/repo
+ExecStart=/usr/bin/docker compose -f /opt/sermon-search/repo/infra/docker-compose.prod.yml \
+  --project-directory /opt/sermon-search/repo \
+  exec -T worker \
+  node /app/apps/worker/dist/cli/run.js \
+  --smoke-test
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sermon-search-smoke-test

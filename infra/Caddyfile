@@ -1,0 +1,19 @@
+{
+  email {$ACME_EMAIL}
+}
+
+{$DOMAIN:sermonseek.ai} {
+  encode gzip
+
+  handle /_health {
+    respond "ok" 200
+  }
+
+  handle /v1/* {
+    reverse_proxy api:3001
+  }
+
+  handle {
+    reverse_proxy web:3000
+  }
+}

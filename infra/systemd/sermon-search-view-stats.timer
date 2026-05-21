@@ -1,0 +1,10 @@
+[Unit]
+Description=Sermon-Search daily view-stats refresh timer
+
+[Timer]
+OnCalendar=*-*-* 03:00:00 UTC
+Persistent=true
+Unit=sermon-search-view-stats.service
+
+[Install]
+WantedBy=timers.target
