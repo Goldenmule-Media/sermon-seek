@@ -1,4 +1,6 @@
 export * as ingest from "./ingest/index.js"
+export { validatePlaylistTarget } from "./ingest/filter_rules.js"
+export type { ValidatePlaylistResult } from "./ingest/filter_rules.js"
 export * as youtube from "./youtube/index.js"
 export { main as runWorkerCli } from "./cli/run.js"
 export { ingestChannel } from "./ingest/channel.js"
@@ -8,7 +10,10 @@ export type { ResolvedChannel } from "./ingest/handle.js"
 export { runViewStats } from "./ingest/view_stats.js"
 export type { RunViewStatsOptions, RunViewStatsSummary } from "./ingest/view_stats.js"
 export { ingestVideoTranscript } from "./ingest/transcript.js"
-export type { IngestVideoTranscriptOptions, IngestVideoTranscriptResult } from "./ingest/transcript.js"
+export type {
+  IngestVideoTranscriptOptions,
+  IngestVideoTranscriptResult,
+} from "./ingest/transcript.js"
 export { cache } from "./cache/cache.js"
 export type { Cache } from "./cache/cache.js"
 export { YoutubeClient } from "./youtube/client.js"

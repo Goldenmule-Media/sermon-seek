@@ -1,6 +1,6 @@
 import type { ChannelFilterRuleRow } from "@sermon-search/db"
 import type { IngestionFilterRule } from "@sermon-search/types"
-import { youtube } from "@sermon-search/worker"
+import { validatePlaylistTarget } from "@sermon-search/worker"
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
 
@@ -113,22 +113,13 @@ export const filterRulesRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       // Validate target_id is a real playlist on this channel
-      try {
-        const plResponse = await app.youtube.listPlaylistsById(target_id)
-        const playlist = plResponse.items?.[0]
-        if (!playlist) {
-          return reply.code(422).send({ error: `Playlist not found on YouTube: ${target_id}` })
-        }
-        if (playlist.snippet?.channelId !== channel.youtube_channel_id) {
-          return reply
-            .code(422)
-            .send({ error: `Playlist ${target_id} does not belong to this channel` })
-        }
-      } catch (err) {
-        if (err instanceof youtube.YoutubeApiError) {
-          return reply.code(422).send({ error: `YouTube API error: ${err.message}` })
-        }
-        throw err
+      const validation = await validatePlaylistTarget({
+        youtube: app.youtube,
+        youtubeChannelId: channel.youtube_channel_id,
+        targetId: target_id,
+      })
+      if (!validation.ok) {
+        return reply.code(422).send({ error: validation.message })
       }
 
       try {

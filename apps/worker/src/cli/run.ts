@@ -12,6 +12,7 @@ import { runViewStats } from "../ingest/view_stats.js"
 import { runRelatedBackfill } from "../related/run.js"
 import { runSmokeTest } from "../smoke/index.js"
 import { YoutubeClient } from "../youtube/client.js"
+import { runFiltersCli } from "./filters.js"
 
 interface ParsedArgs {
   channel?: string
@@ -28,7 +29,7 @@ interface ParsedArgs {
 }
 
 const USAGE =
-  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --smoke-test | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force])"
+  "usage: worker:run (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --smoke-test | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | filters list|add|remove)"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
@@ -175,6 +176,10 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
 }
 
 export async function main(argv: readonly string[]): Promise<number> {
+  if (argv[0] === "filters") {
+    return runFiltersCli(argv.slice(1))
+  }
+
   let parsed: ParsedArgs
   try {
     parsed = parseArgs(argv)

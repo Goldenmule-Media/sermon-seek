@@ -1,6 +1,7 @@
-import { describe, expect, it } from "vitest"
+import { describe, expect, it, vi } from "vitest"
+import { YoutubeApiError, type YoutubeClient } from "../youtube/client.js"
 import type { YoutubePlaylist } from "../youtube/types.js"
-import { applyPlaylistFilterRules } from "./filter_rules.js"
+import { applyPlaylistFilterRules, validatePlaylistTarget } from "./filter_rules.js"
 import type { PlaylistFilterMode } from "./filter_rules.js"
 
 function pl(id: string, title = id): YoutubePlaylist {
@@ -66,5 +67,113 @@ describe("applyPlaylistFilterRules", () => {
     ])
     expect(mode).toBe<PlaylistFilterMode>("none")
     expect(ids(kept)).toEqual(ids(ALL))
+  })
+})
+
+describe("validatePlaylistTarget", () => {
+  it("returns ok:true when playlist exists and belongs to the channel", async () => {
+    const youtube = {
+      listPlaylistsById: vi.fn().mockResolvedValue({
+        items: [{ id: "PLabc", snippet: { channelId: "UCxyz" } }],
+      }),
+    } as unknown as YoutubeClient
+
+    const result = await validatePlaylistTarget({
+      youtube,
+      youtubeChannelId: "UCxyz",
+      targetId: "PLabc",
+    })
+
+    expect(result).toEqual({ ok: true })
+  })
+
+  it("returns not_found when items is empty", async () => {
+    const youtube = {
+      listPlaylistsById: vi.fn().mockResolvedValue({ items: [] }),
+    } as unknown as YoutubeClient
+
+    const result = await validatePlaylistTarget({
+      youtube,
+      youtubeChannelId: "UCxyz",
+      targetId: "PLabc",
+    })
+
+    expect(result).toEqual({
+      ok: false,
+      reason: "not_found",
+      message: expect.stringContaining("Playlist not found"),
+    })
+  })
+
+  it("returns not_found when items is undefined", async () => {
+    const youtube = {
+      listPlaylistsById: vi.fn().mockResolvedValue({}),
+    } as unknown as YoutubeClient
+
+    const result = await validatePlaylistTarget({
+      youtube,
+      youtubeChannelId: "UCxyz",
+      targetId: "PLabc",
+    })
+
+    expect(result).toEqual({
+      ok: false,
+      reason: "not_found",
+      message: expect.stringContaining("Playlist not found"),
+    })
+  })
+
+  it("returns wrong_channel when playlist belongs to a different channel", async () => {
+    const youtube = {
+      listPlaylistsById: vi.fn().mockResolvedValue({
+        items: [{ id: "PLabc", snippet: { channelId: "UCother" } }],
+      }),
+    } as unknown as YoutubeClient
+
+    const result = await validatePlaylistTarget({
+      youtube,
+      youtubeChannelId: "UCxyz",
+      targetId: "PLabc",
+    })
+
+    expect(result).toEqual({
+      ok: false,
+      reason: "wrong_channel",
+      message: expect.stringContaining("does not belong"),
+    })
+  })
+
+  it("returns youtube_error when YoutubeApiError is thrown", async () => {
+    const youtube = {
+      listPlaylistsById: vi
+        .fn()
+        .mockRejectedValue(new YoutubeApiError(403, "{}", "Quota exceeded")),
+    } as unknown as YoutubeClient
+
+    const result = await validatePlaylistTarget({
+      youtube,
+      youtubeChannelId: "UCxyz",
+      targetId: "PLabc",
+    })
+
+    expect(result).toEqual({
+      ok: false,
+      reason: "youtube_error",
+      message: expect.stringContaining("YouTube API error"),
+    })
+  })
+
+  it("rethrows non-YoutubeApiError errors", async () => {
+    const youtube = {
+      listPlaylistsById: vi.fn().mockRejectedValue(new Error("Network failure")),
+    } as unknown as YoutubeClient
+
+    await expect(
+      validatePlaylistTarget({
+        youtube,
+        youtubeChannelId: "UCxyz",
+        targetId: "PLabc",
+      }),
+    ).rejects.toThrow("Network failure")
   })
 })
