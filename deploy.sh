@@ -89,20 +89,6 @@ if [[ "${TARGET_USER:-root}" != "root" ]]; then
   chown -R "$TARGET_USER:$TARGET_USER" /opt/sermon-search
 fi
 
-say "Installing systemd units"
-cp /opt/sermon-search/repo/infra/systemd/*.service /etc/systemd/system/
-cp /opt/sermon-search/repo/infra/systemd/*.timer  /etc/systemd/system/
-systemctl daemon-reload
-# Enable timers (the alert@ template needs no explicit enable — instances start via OnFailure=).
-for timer in \
-  sermon-search-pg-dump.timer \
-  sermon-search-view-stats.timer \
-  sermon-search-smoke-test.timer \
-  sermon-search-rss-poll.timer; do
-  systemctl enable --now "$timer"
-done
-say "Systemd timers installed and enabled."
-
 say "Configuring ufw firewall"
 ufw allow OpenSSH
 ufw allow 80/tcp
@@ -166,8 +152,8 @@ say "Running database migrations..."
 remote "$COMPOSE_CMD exec -T api node /app/packages/db/dist/cli/migrate.js" \
   || die "database migrations failed"
 
-# Step 7b: re-install systemd units if any changed (idempotent)
-say "Re-installing systemd units (idempotent)..."
+# Step 7b: install/update systemd units (first deploy or any subsequent change)
+say "Installing/updating systemd units..."
 remote sudo bash -s <<'UNITS_SCRIPT'
 set -euo pipefail
 CHANGED=false
