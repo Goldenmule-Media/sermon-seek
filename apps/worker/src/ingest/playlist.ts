@@ -47,7 +47,7 @@ export async function ingestPlaylist(opts: IngestPlaylistOptions): Promise<Inges
       title: channelTitle,
     })
     .onConflict((oc) =>
-      oc.column("youtube_channel_id").doUpdateSet({ church_id: churchId, title: channelTitle }),
+      oc.columns(["church_id", "youtube_channel_id"]).doUpdateSet({ title: channelTitle }),
     )
     .returning(["id"])
     .executeTakeFirstOrThrow()
@@ -84,8 +84,7 @@ export async function ingestPlaylist(opts: IngestPlaylistOptions): Promise<Inges
       video_count: playlist.contentDetails?.itemCount ?? null,
     })
     .onConflict((oc) =>
-      oc.column("youtube_playlist_id").doUpdateSet({
-        church_id: churchId,
+      oc.columns(["church_id", "youtube_playlist_id"]).doUpdateSet({
         channel_id: channelDbId,
         slug,
         title,

@@ -5,21 +5,38 @@ import type { Kysely } from "kysely"
 import { sql } from "kysely"
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
 import { buildApp } from "../server.js"
-import { type SeedResult, seedChurches } from "../test/seed-churches.js"
+import { TEST_EMBEDDING_MODEL, type SeedResult, seedChurches } from "../test/seed-churches.js"
 import { TENANT_SCOPED_ROUTES } from "../test/tenant-scoped-routes.js"
 
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL
 const describeIfDb = TEST_DATABASE_URL ? describe : describe.skip
+
+// Deterministic embedder: always returns dim-0=+1 so cosine similarity is +1
+// for Alpha chunks (dim-0=+1) and -1 for Bravo chunks (dim-0=-1). If ScopedDb
+// ever fails to filter embeddings by church_id, Bravo chunks would surface.
+vi.mock("@sermon-search/embeddings", () => ({
+  createOpenAIEmbedder: () => ({
+    model: TEST_EMBEDDING_MODEL,
+    dimensions: 1536,
+    embed: async (texts: string[]) =>
+      texts.map(() => {
+        const v = new Array(1536).fill(0)
+        v[0] = 1
+        return v
+      }),
+  }),
+}))
 
 vi.mock("../config.js", () => ({
   config: {
     DATABASE_URL: process.env.TEST_DATABASE_URL ?? "",
     ADMIN_API_KEY: "test-admin-key",
     YOUTUBE_API_KEY: "fake-yt-key",
+    OPENAI_API_KEY: "sk-test",
     PORT: 3001,
     HOST: "0.0.0.0",
     CORS_ORIGIN: "http://localhost:3000",
-    EMBEDDING_MODEL: "text-embedding-3-small",
+    EMBEDDING_MODEL: TEST_EMBEDDING_MODEL,
   },
 }))
 
@@ -61,14 +78,21 @@ describeIfDb("cross-tenant isolation", () => {
       .get(`/v1/${seed.aSlug}${path}${qs}`)
   }
 
+  function injectB(path: string, query?: Record<string, string>) {
+    const qs = query ? `?${new URLSearchParams(query).toString()}` : ""
+    return app
+      .inject()
+      .headers({ "x-church-slug": seed.bSlug })
+      .get(`/v1/${seed.bSlug}${path}${qs}`)
+  }
+
   // Header says B but path says A → should get 400.
   function injectMismatch(path: string) {
     return app.inject().headers({ "x-church-slug": seed.bSlug }).get(`/v1/${seed.aSlug}${path}`)
   }
 
   function assertNoLeakB(body: string) {
-    expect(body).not.toContain(seed.ytB1)
-    expect(body).not.toContain(seed.ytB2)
+    expect(body).not.toContain(seed.bOnlyYtVideoId)
     expect(body).not.toContain("Bravo")
   }
 
@@ -128,6 +152,22 @@ describeIfDb("cross-tenant isolation", () => {
       const res = await injectA("/search", { q: "alpha", mode: "fulltext" })
       expect(res.statusCode).toBe(200)
       assertNoLeakB(JSON.stringify(res.json()))
+    })
+
+    it("isolation: mode=semantic returns only church A results", async () => {
+      const res = await injectA("/search", { q: "grace", mode: "semantic" })
+      expect(res.statusCode).toBe(200)
+      const body = res.json() as { results: unknown[] }
+      expect(body.results.length).toBeGreaterThan(0)
+      assertNoLeakB(JSON.stringify(body))
+    })
+
+    it("isolation: mode=hybrid returns only church A results", async () => {
+      const res = await injectA("/search", { q: "grace", mode: "hybrid" })
+      expect(res.statusCode).toBe(200)
+      const body = res.json() as { results: unknown[] }
+      expect(body.results.length).toBeGreaterThan(0)
+      assertNoLeakB(JSON.stringify(body))
     })
 
     it("mismatch header vs path → 400", async () => {
@@ -227,24 +267,48 @@ describeIfDb("cross-tenant isolation", () => {
 
   describe("GET /videos/:id", () => {
     it("isolation: church A can fetch own video", async () => {
-      const res = await injectA(`/videos/${seed.ytA1}`)
+      const res = await injectA(`/videos/${seed.aOnlyYtVideoId}`)
       expect(res.statusCode).toBe(200)
       assertNoLeakB(JSON.stringify(res.json()))
     })
 
     it("cross-tenant: church A fetching church B video → 404", async () => {
-      const res = await injectA(`/videos/${seed.ytB1}`)
+      const res = await injectA(`/videos/${seed.bOnlyYtVideoId}`)
       expect(res.statusCode).toBe(404)
     })
 
     it("mismatch header vs path → 400", async () => {
-      const res = await injectMismatch(`/videos/${seed.ytA1}`)
+      const res = await injectMismatch(`/videos/${seed.aOnlyYtVideoId}`)
       expect(res.statusCode).toBe(400)
     })
 
     it("unknown church slug → 404", async () => {
-      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.ytA1}`)
+      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}`)
       expect(res.statusCode).toBe(404)
+    })
+  })
+
+  // ─── /videos/:id — shared youtube id ─────────────────────────────────────────
+  // Proves that sharing a youtube_video_id across churches (permitted by the
+  // compound unique from #860) does not cause a cross-tenant row-takeover.
+
+  describe("GET /videos/:id — shared youtube id", () => {
+    it("church A fetching shared id returns Alpha row, not Bravo", async () => {
+      const res = await injectA(`/videos/${seed.sharedYtVideoId}`)
+      expect(res.statusCode).toBe(200)
+      const body = JSON.stringify(res.json())
+      expect(body).toContain(seed.aSharedTitle)
+      expect(body).not.toContain(seed.bSharedTitle)
+      expect(body).not.toContain("Bravo")
+    })
+
+    it("church B fetching shared id returns Bravo row, not Alpha", async () => {
+      const res = await injectB(`/videos/${seed.sharedYtVideoId}`)
+      expect(res.statusCode).toBe(200)
+      const body = JSON.stringify(res.json())
+      expect(body).toContain(seed.bSharedTitle)
+      expect(body).not.toContain(seed.aSharedTitle)
+      expect(body).not.toContain("Alpha")
     })
   })
 
@@ -252,23 +316,23 @@ describeIfDb("cross-tenant isolation", () => {
 
   describe("GET /videos/:id/transcript", () => {
     it("isolation: church A can fetch own video transcript", async () => {
-      const res = await injectA(`/videos/${seed.ytA1}/transcript`)
+      const res = await injectA(`/videos/${seed.aOnlyYtVideoId}/transcript`)
       expect(res.statusCode).toBe(200)
       assertNoLeakB(JSON.stringify(res.json()))
     })
 
     it("cross-tenant: church A fetching church B transcript → 404", async () => {
-      const res = await injectA(`/videos/${seed.ytB1}/transcript`)
+      const res = await injectA(`/videos/${seed.bOnlyYtVideoId}/transcript`)
       expect(res.statusCode).toBe(404)
     })
 
     it("mismatch header vs path → 400", async () => {
-      const res = await injectMismatch(`/videos/${seed.ytA1}/transcript`)
+      const res = await injectMismatch(`/videos/${seed.aOnlyYtVideoId}/transcript`)
       expect(res.statusCode).toBe(400)
     })
 
     it("unknown church slug → 404", async () => {
-      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.ytA1}/transcript`)
+      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/transcript`)
       expect(res.statusCode).toBe(404)
     })
   })
@@ -277,25 +341,25 @@ describeIfDb("cross-tenant isolation", () => {
 
   describe("GET /videos/:id/related", () => {
     it("isolation: related videos only from church A", async () => {
-      const res = await injectA(`/videos/${seed.ytA1}/related`)
+      const res = await injectA(`/videos/${seed.sharedYtVideoId}/related`)
       expect(res.statusCode).toBe(200)
       assertNoLeakB(JSON.stringify(res.json()))
       const body = res.json() as { related: Array<{ video_id: string }> }
-      expect(body.related.some((r) => r.video_id === seed.ytA2)).toBe(true)
+      expect(body.related.some((r) => r.video_id === seed.aOnlyYtVideoId)).toBe(true)
     })
 
     it("cross-tenant: church A fetching related for church B video → 404", async () => {
-      const res = await injectA(`/videos/${seed.ytB1}/related`)
+      const res = await injectA(`/videos/${seed.bOnlyYtVideoId}/related`)
       expect(res.statusCode).toBe(404)
     })
 
     it("mismatch header vs path → 400", async () => {
-      const res = await injectMismatch(`/videos/${seed.ytA1}/related`)
+      const res = await injectMismatch(`/videos/${seed.aOnlyYtVideoId}/related`)
       expect(res.statusCode).toBe(400)
     })
 
     it("unknown church slug → 404", async () => {
-      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.ytA1}/related`)
+      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/related`)
       expect(res.statusCode).toBe(404)
     })
   })
@@ -304,23 +368,23 @@ describeIfDb("cross-tenant isolation", () => {
 
   describe("GET /videos/:id/search", () => {
     it("isolation: in-video search returns only church A results", async () => {
-      const res = await injectA(`/videos/${seed.ytA1}/search`, { q: "alpha" })
+      const res = await injectA(`/videos/${seed.aOnlyYtVideoId}/search`, { q: "alpha" })
       expect(res.statusCode).toBe(200)
       assertNoLeakB(JSON.stringify(res.json()))
     })
 
     it("cross-tenant: in-video search against church B video → 404", async () => {
-      const res = await injectA(`/videos/${seed.ytB1}/search`, { q: "bravo" })
+      const res = await injectA(`/videos/${seed.bOnlyYtVideoId}/search`, { q: "bravo" })
       expect(res.statusCode).toBe(404)
     })
 
     it("mismatch header vs path → 400", async () => {
-      const res = await injectMismatch(`/videos/${seed.ytA1}/search`)
+      const res = await injectMismatch(`/videos/${seed.aOnlyYtVideoId}/search`)
       expect(res.statusCode).toBe(400)
     })
 
     it("unknown church slug → 404", async () => {
-      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.ytA1}/search?q=alpha`)
+      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/search?q=alpha`)
       expect(res.statusCode).toBe(404)
     })
   })
