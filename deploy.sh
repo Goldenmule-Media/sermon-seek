@@ -115,6 +115,12 @@ fi
 # Step 2: require .env.prod
 [[ -f ".env.prod" ]] || die ".env.prod not found in $(pwd). Create it from .env.prod.example."
 
+# Step 2b: validate ACME_EMAIL — must be set and not the placeholder
+ACME_EMAIL_VAL=$(grep -E '^ACME_EMAIL=' .env.prod | cut -d= -f2-)
+if [[ -z "$ACME_EMAIL_VAL" || "$ACME_EMAIL_VAL" == "you@example.com" ]]; then
+  die "ACME_EMAIL in .env.prod is missing or still the placeholder 'you@example.com'. Set it to a real email before deploying."
+fi
+
 # Step 3: rsync repo to host
 say "Syncing repo to $TARGET:/opt/sermon-search/repo/"
 # shellcheck disable=SC2086
