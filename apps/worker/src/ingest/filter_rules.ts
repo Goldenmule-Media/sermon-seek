@@ -1,4 +1,4 @@
-import type { IngestionFilterRuleType, IngestionFilterTargetKind } from "@sermon-search/db"
+import type { IngestionFilterRuleType } from "@sermon-search/db"
 import { YoutubeApiError, type YoutubeClient } from "../youtube/client.js"
 import type { YoutubePlaylist } from "../youtube/types.js"
 
@@ -6,7 +6,7 @@ export type PlaylistFilterMode = "none" | "allowlist" | "denylist"
 
 interface RuleRow {
   rule_type: IngestionFilterRuleType
-  target_kind: IngestionFilterTargetKind
+  target_kind: string
   target_id: string
 }
 

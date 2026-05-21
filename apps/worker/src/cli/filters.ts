@@ -182,7 +182,16 @@ export async function runFiltersCli(
     if (parsed.subcommand === "list") {
       let channelId: string
       if (UUID_RE.test(parsed.channel)) {
-        channelId = parsed.channel
+        const channelRow = await db
+          .selectFrom("channels")
+          .select(["id"])
+          .where("id", "=", parsed.channel)
+          .executeTakeFirst()
+        if (!channelRow) {
+          console.error(`Channel not found: ${parsed.channel}`)
+          return 1
+        }
+        channelId = channelRow.id
       } else {
         const client = getYoutubeClient(deps.client)
         const resolved = await resolveChannel(client, parsed.channel)
@@ -209,21 +218,20 @@ export async function runFiltersCli(
     }
 
     if (parsed.subcommand === "remove") {
-      const result = await db
+      const deleted = await db
         .deleteFrom("channel_filter_rules")
         .where("id", "=", parsed.ruleId)
+        .returning(["id", "channel_id"])
         .executeTakeFirst()
-      if (result.numDeletedRows === 0n) {
+      if (!deleted) {
         console.error(`rule not found: ${parsed.ruleId}`)
         return 1
       }
-      console.log(JSON.stringify({ ok: true, deleted: parsed.ruleId }, null, 2))
+      console.log(JSON.stringify({ ok: true, deleted: deleted.id, channel_id: deleted.channel_id }, null, 2))
       return 0
     }
 
     // add
-    const client = getYoutubeClient(deps.client)
-
     let channelId: string
     let youtubeChannelId: string
 
@@ -240,7 +248,7 @@ export async function runFiltersCli(
       }
       youtubeChannelId = channelRow.youtube_channel_id
     } else {
-      const resolved = await resolveChannel(client, parsed.channel)
+      const resolved = await resolveChannel(getYoutubeClient(deps.client), parsed.channel)
       youtubeChannelId = resolved.youtubeChannelId
       const channelRow = await db
         .selectFrom("channels")
@@ -254,6 +262,7 @@ export async function runFiltersCli(
       channelId = channelRow.id
     }
 
+    const client = getYoutubeClient(deps.client)
     const validation = await validatePlaylistTarget({
       youtube: client,
       youtubeChannelId,
@@ -263,6 +272,16 @@ export async function runFiltersCli(
       console.error(validation.message)
       return 1
     }
+
+    const oppositeType = parsed.ruleType === "include" ? "exclude" : "include"
+    const conflicting = await db
+      .selectFrom("channel_filter_rules")
+      .select(["id"])
+      .where("channel_id", "=", channelId)
+      .where("target_kind", "=", "playlist")
+      .where("target_id", "=", parsed.playlist)
+      .where("rule_type", "=", oppositeType)
+      .executeTakeFirst()
 
     try {
       const row = await db
@@ -277,6 +296,11 @@ export async function runFiltersCli(
         .returningAll()
         .executeTakeFirstOrThrow()
       console.log(JSON.stringify(toDto(row), null, 2))
+      if (conflicting) {
+        console.error(
+          `warning: an ${oppositeType} rule for playlist ${parsed.playlist} already exists; the include rule will win at enforcement time`,
+        )
+      }
       return 0
     } catch (err) {
       const pgErr = err as { code?: string }

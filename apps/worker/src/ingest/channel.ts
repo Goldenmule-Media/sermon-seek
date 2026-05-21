@@ -68,9 +68,9 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
     keptCount,
   } = applyPlaylistFilterRules(rawPlaylists, ruleRows)
 
-  if (ruleRows.length > 0) {
+  if (ruleRows.length > 0 && mode !== "none") {
     console.log(
-      `channel ${channelDbId}: ${keptCount}/${total} playlists pass filters (${mode} mode)`,
+      `channel ${channelDbId} (${channelTitle}): ${keptCount}/${total} playlists pass filters (${mode} mode)`,
     )
   }
 

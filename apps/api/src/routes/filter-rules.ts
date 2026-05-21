@@ -30,6 +30,8 @@ const ruleResponse = z.object({
   created_at: z.string(),
 })
 
+const createRuleResponse = ruleResponse.extend({ warning: z.string().optional() })
+
 function toDto(row: ChannelFilterRuleRow): IngestionFilterRule {
   return {
     id: row.id,
@@ -91,7 +93,7 @@ export const filterRulesRoutes: FastifyPluginAsyncZod = async (app) => {
         params: channelParams,
         body: createBody,
         response: {
-          200: ruleResponse,
+          200: createRuleResponse,
           404: z.object({ error: z.string() }),
           409: z.object({ error: z.string() }),
           422: z.object({ error: z.string() }),
@@ -122,6 +124,16 @@ export const filterRulesRoutes: FastifyPluginAsyncZod = async (app) => {
         return reply.code(422).send({ error: validation.message })
       }
 
+      const oppositeType = rule_type === "include" ? "exclude" : "include"
+      const conflicting = await app.db
+        .selectFrom("channel_filter_rules")
+        .select(["id"])
+        .where("channel_id", "=", channelId)
+        .where("target_kind", "=", target_kind)
+        .where("target_id", "=", target_id)
+        .where("rule_type", "=", oppositeType)
+        .executeTakeFirst()
+
       try {
         const row = await app.db
           .insertInto("channel_filter_rules")
@@ -135,7 +147,14 @@ export const filterRulesRoutes: FastifyPluginAsyncZod = async (app) => {
           .returningAll()
           .executeTakeFirstOrThrow()
 
-        return reply.send(toDto(row))
+        const dto = toDto(row)
+        if (conflicting) {
+          return reply.send({
+            ...dto,
+            warning: `An ${oppositeType} rule for this playlist already exists; the include rule will win at enforcement time`,
+          })
+        }
+        return reply.send(dto)
       } catch (err) {
         const pgErr = err as { code?: string }
         if (pgErr.code === "23505") {

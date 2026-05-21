@@ -58,12 +58,8 @@ describe("applyPlaylistFilterRules", () => {
   })
 
   it("rules with non-playlist target_kind are ignored", () => {
-    // Simulate a future enum value that this function should not treat as a playlist rule
-    const futurKind = "video" as Parameters<
-      typeof applyPlaylistFilterRules
-    >[1][number]["target_kind"]
     const { kept, mode } = applyPlaylistFilterRules(ALL, [
-      { rule_type: "include", target_kind: futurKind, target_id: "PL_aaa" },
+      { rule_type: "include", target_kind: "video", target_id: "PL_aaa" },
     ])
     expect(mode).toBe<PlaylistFilterMode>("none")
     expect(ids(kept)).toEqual(ids(ALL))

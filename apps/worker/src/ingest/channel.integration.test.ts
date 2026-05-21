@@ -163,13 +163,18 @@ describeIfDb("ingestChannel filter rules (integration)", () => {
     const plRows = await db
       .selectFrom("playlists")
       .innerJoin("channels", "channels.id", "playlists.channel_id")
-      .select(["playlists.youtube_playlist_id"])
+      .select(["playlists.youtube_playlist_id", "playlists.title"])
       .where("channels.youtube_channel_id", "=", YT_CHANNEL_ID)
       .execute()
-    // From the second ingestion pass, only sermons playlist upserted
-    // (from the first pass all three exist, but the second pass only touched sermons)
+    // All three rows from the first pass remain; the filter does not delete or re-upsert
+    // the excluded ones (DB-level assertion that they were not re-touched)
     const secondRunPlaylistIds = plRows.map((r) => r.youtube_playlist_id)
+    expect(plRows).toHaveLength(3)
     expect(secondRunPlaylistIds).toContain(SERMONS_PL_ID)
+    expect(secondRunPlaylistIds).toContain(ANNOUNCE_PL_ID)
+    expect(secondRunPlaylistIds).toContain(KIDS_PL_ID)
+    expect(plRows.find((r) => r.youtube_playlist_id === ANNOUNCE_PL_ID)?.title).toBe("Announcements")
+    expect(plRows.find((r) => r.youtube_playlist_id === KIDS_PL_ID)?.title).toBe("Kids Ministry")
 
     // listPlaylistItems must NOT have been called for the filtered-out playlists
     const itemCalls = (client.listPlaylistItems as ReturnType<typeof vi.fn>).mock.calls.map(
