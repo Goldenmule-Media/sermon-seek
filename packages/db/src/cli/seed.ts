@@ -17,9 +17,18 @@ async function seed() {
 
     console.log("Seeding database…")
 
+    const [churchRow] = await db
+      .insertInto("churches")
+      .values({ slug: "jubileestl", name: "Jubilee Church STL" })
+      .onConflict((oc) => oc.column("slug").doUpdateSet((eb) => ({ name: eb.ref("excluded.name") })))
+      .returning("id")
+      .execute()
+    if (!churchRow) throw new Error("Failed to insert church")
+    const churchId = churchRow.id
+
     const channelRows = await db
       .insertInto("channels")
-      .values({ youtube_channel_id: "UC_seed", title: "Seed Church" })
+      .values({ church_id: churchId, youtube_channel_id: "UC_seed", title: "Seed Church" })
       .returning("id")
       .execute()
 
@@ -30,6 +39,7 @@ async function seed() {
       .insertInto("playlists")
       .values([
         {
+          church_id: churchId,
           channel_id: channel.id,
           youtube_playlist_id: "PL_seed_1",
           slug: "grace-and-truth",
@@ -38,6 +48,7 @@ async function seed() {
           video_count: 5,
         },
         {
+          church_id: churchId,
           channel_id: channel.id,
           youtube_playlist_id: "PL_seed_2",
           slug: "romans-8",
@@ -46,6 +57,7 @@ async function seed() {
           video_count: 5,
         },
         {
+          church_id: churchId,
           channel_id: channel.id,
           youtube_playlist_id: "PL_seed_3",
           slug: "forgiveness",
@@ -54,6 +66,7 @@ async function seed() {
           video_count: 3,
         },
         {
+          church_id: churchId,
           channel_id: channel.id,
           youtube_playlist_id: "PL_seed_4",
           slug: "faith-foundations",
@@ -62,6 +75,7 @@ async function seed() {
           video_count: 2,
         },
         {
+          church_id: churchId,
           channel_id: channel.id,
           youtube_playlist_id: "PL_seed_5",
           slug: "advent-2024",
@@ -118,6 +132,7 @@ async function seed() {
       .insertInto("videos")
       .values(
         videoSpec.map((v) => ({
+          church_id: churchId,
           channel_id: channel.id,
           youtube_video_id: v.id,
           title: v.title,
@@ -146,17 +161,17 @@ async function seed() {
 
     // Seed topics
     const topicDefs = [
-      { slug: "grace", label: "grace" },
-      { slug: "forgiveness", label: "forgiveness" },
-      { slug: "faith", label: "faith" },
-      { slug: "romans-8", label: "romans 8" },
-      { slug: "holy-spirit", label: "holy spirit" },
-      { slug: "hope", label: "hope" },
+      { church_id: churchId, slug: "grace", label: "grace" },
+      { church_id: churchId, slug: "forgiveness", label: "forgiveness" },
+      { church_id: churchId, slug: "faith", label: "faith" },
+      { church_id: churchId, slug: "romans-8", label: "romans 8" },
+      { church_id: churchId, slug: "holy-spirit", label: "holy spirit" },
+      { church_id: churchId, slug: "hope", label: "hope" },
     ]
     const insertedTopics = await db
       .insertInto("topics")
       .values(topicDefs)
-      .onConflict((oc) => oc.column("slug").doNothing())
+      .onConflict((oc) => oc.columns(["church_id", "slug"]).doNothing())
       .returning(["id", "slug"])
       .execute()
 

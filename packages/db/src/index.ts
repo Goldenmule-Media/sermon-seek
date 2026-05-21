@@ -11,8 +11,16 @@ import pg from "pg"
 
 type Timestamptz = ColumnType<Date, Date | string, Date | string>
 
+export interface ChurchesTable {
+  id: Generated<string>
+  slug: string
+  name: string
+  created_at: Generated<Timestamptz>
+}
+
 export interface ChannelsTable {
   id: Generated<string>
+  church_id: string
   youtube_channel_id: string
   title: string
   ingested_at: Generated<Timestamptz>
@@ -20,6 +28,7 @@ export interface ChannelsTable {
 
 export interface PlaylistsTable {
   id: Generated<string>
+  church_id: string
   channel_id: string
   youtube_playlist_id: string
   slug: string
@@ -33,6 +42,7 @@ export interface PlaylistsTable {
 
 export interface VideosTable {
   id: Generated<string>
+  church_id: string
   channel_id: string
   youtube_video_id: string
   title: string
@@ -86,6 +96,7 @@ export interface TranscriptWordsTable {
 
 export interface TranscriptChunksTable {
   id: Generated<string>
+  church_id: string
   video_id: string
   transcript_id: string
   start_ms: number
@@ -97,6 +108,7 @@ export interface TranscriptChunksTable {
 }
 
 export interface EmbeddingsTable {
+  church_id: string
   chunk_id: string
   model: string
   vector: ColumnType<string, string, string>
@@ -113,6 +125,7 @@ export interface VideoEnrichmentsTable {
 
 export interface TopicsTable {
   id: Generated<string>
+  church_id: string
   slug: string
   label: string
   created_at: Generated<Timestamptz>
@@ -163,6 +176,7 @@ export interface ChannelFilterRulesTable {
 }
 
 export interface Database {
+  churches: ChurchesTable
   channels: ChannelsTable
   playlists: PlaylistsTable
   videos: VideosTable
@@ -182,6 +196,10 @@ export interface Database {
   related_videos: RelatedVideosTable
   channel_filter_rules: ChannelFilterRulesTable
 }
+
+export type ChurchRow = Selectable<ChurchesTable>
+export type ChurchInsert = Insertable<ChurchesTable>
+export type ChurchUpdate = Updateable<ChurchesTable>
 
 export type ChannelRow = Selectable<ChannelsTable>
 export type ChannelInsert = Insertable<ChannelsTable>
