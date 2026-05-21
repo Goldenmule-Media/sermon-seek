@@ -86,7 +86,7 @@ export interface RelatedVideosResponse {
 
 export interface HomeResponse {
   recent: Video[]
-  top_playlists: Array<{ playlist: PlaylistWithStats; videos: Video[] }>
+  category_strips: Array<{ playlist: PlaylistWithStats; videos: Video[] }>
 }
 
 export interface PlaylistRef {
@@ -162,4 +162,17 @@ export interface TranscriptResponse {
   source: string
   language: string
   segments: TranscriptSegmentWithWords[]
+}
+
+export type IngestionFilterRuleType = "include" | "exclude"
+export type IngestionFilterTargetKind = "playlist"
+
+export interface IngestionFilterRule {
+  id: string
+  channel_id: string
+  rule_type: IngestionFilterRuleType
+  target_kind: IngestionFilterTargetKind
+  target_id: string
+  note: string | null
+  created_at: string
 }

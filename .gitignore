@@ -13,3 +13,4 @@ coverage/
 *.log
 *.tsbuildinfo
 tsconfig.tsbuildinfo
+.hotseat/worktrees

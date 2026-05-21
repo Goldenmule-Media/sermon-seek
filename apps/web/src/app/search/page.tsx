@@ -1,4 +1,3 @@
-import { SearchBox } from "@/components/search-box"
 import { fetchPlaylists } from "@/lib/api"
 import { Suspense } from "react"
 import { SearchResults } from "./search-results"
@@ -13,11 +12,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-      <div className="max-w-3xl mx-auto">
-        <SearchBox initialQuery={q ?? ref} showHint={false} />
-      </div>
       <Suspense fallback={<p className="text-muted-foreground text-sm">Loading…</p>}>
-        <SearchResults playlists={playlists} />
+        <SearchResults playlists={playlists} initialQuery={q ?? ref} />
       </Suspense>
     </main>
   )

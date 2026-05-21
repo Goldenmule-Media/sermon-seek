@@ -15,10 +15,10 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex items-center gap-2 font-semibold tracking-tight hover:opacity-80 transition-opacity"
-          aria-label="Sermon Search home"
+          aria-label="SermonSeek.ai home"
         >
           <Search className="h-5 w-5 text-primary" aria-hidden />
-          <span>Sermon Search</span>
+          <span>SermonSeek.ai</span>
         </Link>
       </div>
     </header>

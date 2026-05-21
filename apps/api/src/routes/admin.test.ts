@@ -25,6 +25,7 @@ vi.mock("@sermon-search/worker", () => ({
 
 const { adminAuthPlugin } = await import("../plugins/admin-auth.js")
 const { adminRoutes } = await import("./admin.js")
+const { filterRulesRoutes } = await import("./filter-rules.js")
 
 const CORRECT_KEY = "test-key-abc"
 const WRONG_KEY = "wrong-key"
@@ -41,6 +42,7 @@ async function buildTestApp() {
   app.decorate("youtube", {} as never)
 
   await app.register(adminRoutes)
+  await app.register(filterRulesRoutes)
   await app.ready()
   return app
 }
@@ -78,6 +80,31 @@ describe("admin routes — auth gate", () => {
 
   it("POST /admin/videos/:id/retranscribe — missing key → 401", async () => {
     const res = await app.inject({ method: "POST", url: "/admin/videos/abc123/retranscribe" })
+    expect(res.statusCode).toBe(401)
+  })
+
+  it("GET /admin/channels/:id/filter-rules — missing key → 401", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/channels/00000000-0000-0000-0000-000000000001/filter-rules",
+    })
+    expect(res.statusCode).toBe(401)
+  })
+
+  it("POST /admin/channels/:id/filter-rules — missing key → 401", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/channels/00000000-0000-0000-0000-000000000001/filter-rules",
+      payload: { rule_type: "include", target_kind: "playlist", target_id: "PLxxx" },
+    })
+    expect(res.statusCode).toBe(401)
+  })
+
+  it("DELETE /admin/channels/:id/filter-rules/:ruleId — missing key → 401", async () => {
+    const res = await app.inject({
+      method: "DELETE",
+      url: "/admin/channels/00000000-0000-0000-0000-000000000001/filter-rules/00000000-0000-0000-0000-000000000002",
+    })
     expect(res.statusCode).toBe(401)
   })
 

@@ -1,10 +1,15 @@
 "use client"
 
 import { ScriptureRefBox } from "@/components/scripture-ref-box"
+import { SearchBox } from "@/components/search-box"
 import { SearchResultCard } from "@/components/search-result-card"
 import { SearchResultsSkeleton } from "@/components/search-result-skeleton"
 import { TopicBox } from "@/components/topic-box"
 import { fetchSearch } from "@/lib/api"
+
+// Temporarily hidden above the results list — keeping the components wired
+// so we can flip back without rebuilding the integration.
+const SHOW_RELATED_FACETS = false
 import type { PlaylistWithStats, SearchResponse } from "@sermon-search/types"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -12,9 +17,10 @@ import { type FilterValues, SearchFilters } from "./search-filters"
 
 interface SearchResultsProps {
   playlists: PlaylistWithStats[]
+  initialQuery?: string
 }
 
-export function SearchResults({ playlists }: SearchResultsProps) {
+export function SearchResults({ playlists, initialQuery }: SearchResultsProps) {
   const searchParams = useSearchParams()
   const q = searchParams.get("q") ?? ""
   const ref = searchParams.get("ref") ?? ""
@@ -81,7 +87,11 @@ export function SearchResults({ playlists }: SearchResultsProps) {
   return (
     <div className="space-y-4">
       <div className="max-w-3xl mx-auto space-y-4">
-        <SearchFilters values={filters} playlists={playlists} />
+        <SearchBox
+          initialQuery={initialQuery}
+          showHint={false}
+          filtersSlot={<SearchFilters values={filters} playlists={playlists} />}
+        />
 
         {!q && !ref && (
           <p className="text-muted-foreground text-sm">Enter a query above to search sermons.</p>
@@ -100,8 +110,12 @@ export function SearchResults({ playlists }: SearchResultsProps) {
             <p className="text-sm text-muted-foreground">
               {data.total} result{data.total !== 1 ? "s" : ""} ({data.took_ms} ms)
             </p>
-            <ScriptureRefBox refs={data.scripture_refs} label="Related searches" />
-            <TopicBox topics={data.topics} label="Related topics" />
+            {SHOW_RELATED_FACETS && (
+              <>
+                <ScriptureRefBox refs={data.scripture_refs} label="Related searches" />
+                <TopicBox topics={data.topics} label="Related topics" />
+              </>
+            )}
             {data.results.length === 0 && (
               <p className="text-muted-foreground text-sm">
                 {ref

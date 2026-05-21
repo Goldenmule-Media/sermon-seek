@@ -390,4 +390,10 @@ describe("parseArgs", () => {
       /--force requires --enrich or --related/,
     )
   })
+
+  // 'filters' is not a valid flag for parseArgs — it would be caught as an unknown arg.
+  // The dispatch in main() handles it before parseArgs is ever called.
+  it("rejects 'filters' as an unknown arg (dispatch in main() catches it first)", () => {
+    expect(() => parseArgs(["filters", "--help"])).toThrow(/Unknown argument/)
+  })
 })

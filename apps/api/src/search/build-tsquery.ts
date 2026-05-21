@@ -12,10 +12,20 @@ export interface BuiltQuery {
 
 const QUOTED = /"([^"]+)"/g
 
+// Build an OR-joined tsquery from free-form text by routing through
+// plainto_tsquery (which strips stopwords and stems lexemes via the english
+// config) and then converting its `&` AND-joins to `|`. Required for
+// natural-language queries like "how does X choose Y?" — strict-AND drops to
+// zero hits if any single content word is absent from a chunk; OR lets
+// ts_rank_cd reward chunks that hit more terms and have them closer together.
+function plainToOrTsquery(text: string): RawBuilder<string> {
+  return sql`replace(plainto_tsquery('english', ${text})::text, ' & ', ' | ')::tsquery`
+}
+
 // Parse the user's query into a Postgres tsquery. A double-quoted segment
-// becomes a `phraseto_tsquery` (adjacency-required) and is AND-combined with a
-// `plainto_tsquery` over whatever non-quoted text remains. Without quotes the
-// behavior is identical to plainto_tsquery.
+// becomes a `phraseto_tsquery` (adjacency-required) and is AND-combined with
+// an OR-joined query over whatever non-quoted text remains. Without quotes
+// the whole query is OR-joined content lexemes.
 export function buildTsQuery(q: string): BuiltQuery {
   const phrases: string[] = []
   const remainder = q
@@ -29,7 +39,7 @@ export function buildTsQuery(q: string): BuiltQuery {
 
   if (phrases.length === 0) {
     return {
-      tsquery: sql`plainto_tsquery('english', ${q})`,
+      tsquery: plainToOrTsquery(q),
       hasPhrases: false,
     }
   }
@@ -38,7 +48,7 @@ export function buildTsQuery(q: string): BuiltQuery {
     (p) => sql`phraseto_tsquery('english', ${p})`,
   )
   if (remainder.length > 0) {
-    parts.push(sql`plainto_tsquery('english', ${remainder})`)
+    parts.push(plainToOrTsquery(remainder))
   }
 
   let combined: RawBuilder<string> = parts[0]!

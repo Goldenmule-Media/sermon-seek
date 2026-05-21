@@ -11,7 +11,7 @@ export default async function HomePage() {
       <section className="flex flex-col items-center py-12 gap-4">
         <h1 className="flex items-center gap-3 text-3xl font-bold tracking-tight">
           <Search className="h-8 w-8 text-primary" aria-hidden />
-          <span>Sermon Search</span>
+          <span>Sermon Seek</span>
         </h1>
         <p className="text-muted-foreground">
           Search thousands of sermons by topic, scripture, or keyword.
@@ -23,7 +23,7 @@ export default async function HomePage() {
 
       <VideoStrip title="Recent Uploads" videos={data.recent} />
 
-      {data.top_playlists.map(({ playlist, videos }) => (
+      {data.category_strips.map(({ playlist, videos }) => (
         <VideoStrip
           key={playlist.id}
           title={playlist.title}

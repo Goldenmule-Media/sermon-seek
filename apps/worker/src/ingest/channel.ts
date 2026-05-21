@@ -14,6 +14,7 @@ import {
   pickThumbnailUrl,
 } from "../youtube/types.js"
 import { iso8601DurationToSeconds } from "./duration.js"
+import { applyPlaylistFilterRules } from "./filter_rules.js"
 import { resolveChannel } from "./handle.js"
 import { uniqueSlugForPlaylist } from "./slug.js"
 
@@ -50,7 +51,28 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
 
   const channelDbId = channelRow.id
 
-  const { playlists } = await getChannelPlaylists(client, resolved.youtubeChannelId, { force })
+  const { playlists: rawPlaylists } = await getChannelPlaylists(client, resolved.youtubeChannelId, {
+    force,
+  })
+
+  const ruleRows = await db
+    .selectFrom("channel_filter_rules")
+    .select(["rule_type", "target_kind", "target_id"])
+    .where("channel_id", "=", channelDbId)
+    .execute()
+
+  const {
+    kept: playlists,
+    mode,
+    total,
+    keptCount,
+  } = applyPlaylistFilterRules(rawPlaylists, ruleRows)
+
+  if (ruleRows.length > 0 && mode !== "none") {
+    console.log(
+      `channel ${channelDbId} (${channelTitle}): ${keptCount}/${total} playlists pass filters (${mode} mode)`,
+    )
+  }
 
   // Preload existing slugs for this channel so re-ingestion reuses them (sticky)
   // and new playlists can't collide with stored ones regardless of API ordering.
@@ -179,7 +201,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
   return {
     channelId: channelDbId,
     youtubeChannelId: resolved.youtubeChannelId,
-    playlistCount: playlists.length,
+    playlistCount: keptCount,
     videoCount: videoFirstSeen.size,
   }
 }

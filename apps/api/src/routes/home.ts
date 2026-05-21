@@ -3,7 +3,6 @@ import { sql } from "kysely"
 import { z } from "zod"
 
 const STRIP_SIZE = 12
-const TOP_PLAYLISTS = 3
 
 const videoSchema = z.object({
   id: z.string(),
@@ -24,7 +23,7 @@ const playlistWithStatsSchema = z.object({
 
 const homeResponseSchema = z.object({
   recent: z.array(videoSchema),
-  top_playlists: z.array(
+  category_strips: z.array(
     z.object({
       playlist: playlistWithStatsSchema,
       videos: z.array(videoSchema),
@@ -39,7 +38,8 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
       schema: {
         tags: ["home"],
         summary: "Landing-page aggregate data",
-        description: "Returns recent videos and top playlists for the landing page.",
+        description:
+          "Returns recent videos and a strip per category represented in the recent uploads, ordered by the recency of the most recent upload in that category.",
         response: { 200: homeResponseSchema },
       },
     },
@@ -61,15 +61,44 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
         .limit(STRIP_SIZE)
         .execute()
 
-      const topPlaylistRows = await db
-        .selectFrom("playlists")
-        .select(["id", "slug", "title", "total_views", "video_count"])
-        .orderBy(sql`total_views DESC NULLS LAST`)
-        .limit(TOP_PLAYLISTS)
-        .execute()
+      const recentVideoIds = recentRows.map((v) => v.id)
 
-      const playlistVideoRows = await Promise.all(
-        topPlaylistRows.map((p) =>
+      // Categories shown on the homepage are the playlists each recent upload
+      // belongs to, ordered by the most-recent recent-upload that hits them.
+      // A playlist whose newest recent-upload is from yesterday ranks above
+      // one whose newest recent-upload is from last month.
+      const categoryRows =
+        recentVideoIds.length > 0
+          ? await db
+              .selectFrom("playlists")
+              .innerJoin("video_playlists", "video_playlists.playlist_id", "playlists.id")
+              .innerJoin(
+                "videos_with_transcripts as videos",
+                "videos.id",
+                "video_playlists.video_id",
+              )
+              .select([
+                "playlists.id",
+                "playlists.slug",
+                "playlists.title",
+                "playlists.total_views",
+                "playlists.video_count",
+                sql<Date>`MAX(videos.published_at)`.as("max_recent_published_at"),
+              ])
+              .where("videos.id", "in", recentVideoIds)
+              .groupBy([
+                "playlists.id",
+                "playlists.slug",
+                "playlists.title",
+                "playlists.total_views",
+                "playlists.video_count",
+              ])
+              .orderBy("max_recent_published_at", "desc")
+              .execute()
+          : []
+
+      const categoryVideoRows = await Promise.all(
+        categoryRows.map((p) =>
           db
             .selectFrom("videos_with_transcripts as videos")
             .innerJoin("video_playlists", "videos.id", "video_playlists.video_id")
@@ -90,7 +119,7 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
 
       const allVideoIds = [
         ...recentRows.map((v) => v.id),
-        ...playlistVideoRows.flat().map((v) => v.id),
+        ...categoryVideoRows.flat().map((v) => v.id),
       ]
       const uniqueVideoIds = [...new Set(allVideoIds)]
 
@@ -130,7 +159,7 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
 
       return {
         recent: recentRows.map(toVideo),
-        top_playlists: topPlaylistRows.map((p, i) => ({
+        category_strips: categoryRows.map((p, i) => ({
           playlist: {
             id: p.id,
             slug: p.slug,
@@ -138,7 +167,7 @@ export const homeRoutes: FastifyPluginAsyncZod = async (app) => {
             video_count: p.video_count ?? 0,
             total_views: p.total_views ? Number(p.total_views) : 0,
           },
-          videos: (playlistVideoRows[i] ?? []).map(toVideo),
+          videos: (categoryVideoRows[i] ?? []).map(toVideo),
         })),
       }
     },
