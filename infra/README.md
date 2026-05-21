@@ -21,6 +21,28 @@ This gives per-run logs via `journalctl` and clean failure alerting via
 Unit files live in `infra/systemd/` and are installed to `/etc/systemd/system/`
 by `deploy.sh --setup` (and kept up-to-date on each deploy).
 
+### Preconditions for rss-poll and view-stats
+
+Both units read `CHURCH_SLUG` and `RSS_CHANNEL_ID` from `/opt/sermon-search/repo/.env`
+via `EnvironmentFile=`. Each unit has `ExecStartPre` guards that abort with a
+clear `journalctl` message if either required variable is empty.
+
+**`sermon-search-rss-poll.timer` must be masked until `RSS_CHANNEL_ID` is set.**
+An empty value causes the unit to fail every hour and fire `ALERT_WEBHOOK_URL`.
+Mask it immediately after `--setup` if the channel ID is not yet known:
+
+```bash
+systemctl mask sermon-search-rss-poll.timer
+```
+
+Once `RSS_CHANNEL_ID` is populated in `.env.prod` and deployed, unmask and reload:
+
+```bash
+systemctl unmask sermon-search-rss-poll.timer
+systemctl daemon-reload
+systemctl enable --now sermon-search-rss-poll.timer
+```
+
 All timers have `Persistent=true` so a missed fire (e.g. host was down) catches
 up on the next boot.
 

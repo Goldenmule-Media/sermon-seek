@@ -9,6 +9,8 @@ OnFailure=sermon-search-alert@%n.service
 Type=oneshot
 WorkingDirectory=/opt/sermon-search/repo
 EnvironmentFile=/opt/sermon-search/repo/.env
+ExecStartPre=/bin/sh -c '[ -n "${CHURCH_SLUG}" ] || { echo "CHURCH_SLUG is empty — populate .env and restart"; exit 1; }'
+ExecStartPre=/bin/sh -c '[ -n "${RSS_CHANNEL_ID}" ] || { echo "RSS_CHANNEL_ID is empty — populate .env or mask this timer: systemctl mask sermon-search-rss-poll.timer"; exit 1; }'
 ExecStart=/usr/bin/docker compose -f /opt/sermon-search/repo/infra/docker-compose.prod.yml \
   --project-directory /opt/sermon-search/repo \
   exec -T worker \
