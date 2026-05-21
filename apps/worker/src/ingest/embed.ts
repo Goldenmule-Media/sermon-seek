@@ -7,6 +7,7 @@ import { chunkSegments } from "../chunking/chunk.js"
 export interface EmbedBackfillOptions {
   db: Kysely<Database>
   embedder: Embedder
+  churchId: string
   log?: (msg: string) => void
 }
 
@@ -20,6 +21,7 @@ export interface EmbedBackfillResult {
 export async function runEmbedBackfill({
   db,
   embedder,
+  churchId,
   log = () => {},
 }: EmbedBackfillOptions): Promise<EmbedBackfillResult> {
   const totals: EmbedBackfillResult = {
@@ -29,7 +31,11 @@ export async function runEmbedBackfill({
     embeddingsInserted: 0,
   }
 
-  const videos = await db.selectFrom("videos").select(["id", "youtube_video_id"]).execute()
+  const videos = await db
+    .selectFrom("videos")
+    .select(["id", "youtube_video_id"])
+    .where("church_id", "=", churchId)
+    .execute()
 
   for (const video of videos) {
     const transcript = await db
@@ -96,6 +102,7 @@ export async function runEmbedBackfill({
         const newChunks = chunkSegments(segments)
         if (newChunks.length > 0) {
           const chunkRows = newChunks.map((chunk, position) => ({
+            church_id: churchId,
             video_id: video.id,
             transcript_id: transcript.id,
             start_ms: chunk.start_ms,
@@ -147,8 +154,8 @@ export async function runEmbedBackfill({
         const chunkId = toEmbed[i]?.id
         const vec = `[${(vectors[i] as number[]).join(",")}]`
         await sql`
-          INSERT INTO embeddings (chunk_id, model, vector)
-          VALUES (${chunkId}, ${embedder.model}, ${vec}::vector)
+          INSERT INTO embeddings (chunk_id, model, vector, church_id)
+          VALUES (${chunkId}, ${embedder.model}, ${vec}::vector, ${churchId})
           ON CONFLICT (chunk_id, model) DO NOTHING
         `.execute(trx)
       }

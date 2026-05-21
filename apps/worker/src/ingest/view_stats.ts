@@ -8,6 +8,7 @@ import type { YoutubeVideo } from "../youtube/types.js"
 export interface RunViewStatsOptions {
   db: Kysely<Database>
   client: YoutubeClient
+  churchId: string
 }
 
 export interface RunViewStatsSummary {
@@ -25,9 +26,13 @@ function parseViewCount(video: YoutubeVideo): string | null {
 }
 
 export async function runViewStats(opts: RunViewStatsOptions): Promise<RunViewStatsSummary> {
-  const { db, client } = opts
+  const { db, client, churchId } = opts
 
-  const channels = await db.selectFrom("channels").select(["id", "youtube_channel_id"]).execute()
+  const channels = await db
+    .selectFrom("channels")
+    .select(["id", "youtube_channel_id"])
+    .where("church_id", "=", churchId)
+    .execute()
 
   let playlistCount = 0
   let videoCount = 0

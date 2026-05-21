@@ -13,6 +13,7 @@ export interface IngestPlaylistOptions {
   db: Kysely<Database>
   client: YoutubeClient
   youtubePlaylistId: string
+  churchId: string
 }
 
 export interface IngestPlaylistSummary {
@@ -27,7 +28,7 @@ export interface IngestPlaylistSummary {
 }
 
 export async function ingestPlaylist(opts: IngestPlaylistOptions): Promise<IngestPlaylistSummary> {
-  const { db, client, youtubePlaylistId } = opts
+  const { db, client, youtubePlaylistId, churchId } = opts
 
   const { playlist } = await getPlaylistById(client, youtubePlaylistId)
   const youtubeChannelId = playlist.snippet?.channelId
@@ -41,10 +42,13 @@ export async function ingestPlaylist(opts: IngestPlaylistOptions): Promise<Inges
   const channelRow = await db
     .insertInto("channels")
     .values({
+      church_id: churchId,
       youtube_channel_id: youtubeChannelId,
       title: channelTitle,
     })
-    .onConflict((oc) => oc.column("youtube_channel_id").doUpdateSet({ title: channelTitle }))
+    .onConflict((oc) =>
+      oc.column("youtube_channel_id").doUpdateSet({ church_id: churchId, title: channelTitle }),
+    )
     .returning(["id"])
     .executeTakeFirstOrThrow()
 
@@ -70,6 +74,7 @@ export async function ingestPlaylist(opts: IngestPlaylistOptions): Promise<Inges
   const playlistRow = await db
     .insertInto("playlists")
     .values({
+      church_id: churchId,
       channel_id: channelDbId,
       youtube_playlist_id: youtubePlaylistId,
       slug,
@@ -80,6 +85,7 @@ export async function ingestPlaylist(opts: IngestPlaylistOptions): Promise<Inges
     })
     .onConflict((oc) =>
       oc.column("youtube_playlist_id").doUpdateSet({
+        church_id: churchId,
         channel_id: channelDbId,
         slug,
         title,
@@ -108,7 +114,7 @@ export async function ingestPlaylist(opts: IngestPlaylistOptions): Promise<Inges
   const ingestedVideoDbIds: Array<{ videoDbId: string; position: number }> = []
 
   for (const { youtubeVideoId, position } of videoIds) {
-    const result = await ingestVideoTranscript({ db, client, youtubeVideoId })
+    const result = await ingestVideoTranscript({ db, client, youtubeVideoId, churchId })
     if (result.status === "ok") ingested++
     else if (result.status === "skipped") skipped++
     else if (result.status === "no_captions") noCaptions++

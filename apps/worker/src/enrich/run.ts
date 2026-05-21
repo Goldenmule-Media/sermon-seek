@@ -7,6 +7,7 @@ import { slugifyTopic } from "./topics.js"
 export interface EnrichBackfillOptions {
   db: Kysely<Database>
   enricher: Enricher
+  churchId: string
   force?: boolean
   log?: (msg: string) => void
 }
@@ -21,6 +22,7 @@ export interface EnrichBackfillResult {
 export async function runEnrichBackfill({
   db,
   enricher,
+  churchId,
   force = false,
   log = () => {},
 }: EnrichBackfillOptions): Promise<EnrichBackfillResult> {
@@ -31,7 +33,11 @@ export async function runEnrichBackfill({
     refsInserted: 0,
   }
 
-  const videos = await db.selectFrom("videos").select(["id", "youtube_video_id", "title"]).execute()
+  const videos = await db
+    .selectFrom("videos")
+    .select(["id", "youtube_video_id", "title"])
+    .where("church_id", "=", churchId)
+    .execute()
 
   for (const video of videos) {
     const transcript = await db
@@ -123,13 +129,14 @@ export async function runEnrichBackfill({
         const label = output.topics[topicSlugs.indexOf(slug)] ?? slug
         await trx
           .insertInto("topics")
-          .values({ slug, label })
-          .onConflict((oc) => oc.column("slug").doNothing())
+          .values({ church_id: churchId, slug, label })
+          .onConflict((oc) => oc.columns(["church_id", "slug"]).doNothing())
           .execute()
 
         const topic = await trx
           .selectFrom("topics")
           .select("id")
+          .where("church_id", "=", churchId)
           .where("slug", "=", slug)
           .executeTakeFirstOrThrow()
 

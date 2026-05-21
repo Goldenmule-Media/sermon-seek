@@ -11,6 +11,7 @@ export interface IngestVideoTranscriptOptions {
   db: Kysely<Database>
   client: YoutubeClient
   youtubeVideoId: string
+  churchId: string
   spawner?: Spawner
   ytDlpBin?: string
 }
@@ -83,12 +84,13 @@ export function assertTranscriptQuality(input: AssertTranscriptQualityInput): vo
 export async function ingestVideoTranscript(
   opts: IngestVideoTranscriptOptions,
 ): Promise<IngestVideoTranscriptResult> {
-  const { db, client, youtubeVideoId, spawner, ytDlpBin } = opts
+  const { db, client, youtubeVideoId, churchId, spawner, ytDlpBin } = opts
 
   const { videoDbId, durationSeconds } = await ensureVideoMetadata({
     db,
     client,
     youtubeVideoId,
+    churchId,
   })
 
   const existing = await db

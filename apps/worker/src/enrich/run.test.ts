@@ -166,6 +166,7 @@ describe("runEnrichBackfill", () => {
     const result = await runEnrichBackfill({
       db: db as never,
       enricher,
+      churchId: "test-church-id",
     })
 
     // LLM path must not run

@@ -3,6 +3,7 @@ import type { Kysely } from "kysely"
 
 export interface RechunkOptions {
   db: Kysely<Database>
+  churchId: string
   log?: (msg: string) => void
 }
 
@@ -12,16 +13,22 @@ export interface RechunkResult {
 }
 
 /**
- * Delete all transcript_chunks for every transcript. Embeddings cascade via
- * the embeddings_chunk_id_fk FK. The next `--embed` run will rebuild chunks
- * (with the current chunkSegments logic, including overlap) and re-embed.
+ * Delete all transcript_chunks for every transcript belonging to `churchId`.
+ * Embeddings cascade via the embeddings_chunk_id_fk FK. The next `--embed`
+ * run will rebuild chunks and re-embed.
  */
-export async function runRechunk({ db, log = () => {} }: RechunkOptions): Promise<RechunkResult> {
+export async function runRechunk({
+  db,
+  churchId,
+  log = () => {},
+}: RechunkOptions): Promise<RechunkResult> {
   const totals: RechunkResult = { transcriptsScanned: 0, chunksDeleted: 0 }
 
   const transcripts = await db
     .selectFrom("transcripts")
-    .select(["id", "video_id"])
+    .innerJoin("videos", "videos.id", "transcripts.video_id")
+    .select(["transcripts.id", "transcripts.video_id"])
+    .where("videos.church_id", "=", churchId)
     .execute()
 
   for (const transcript of transcripts) {
