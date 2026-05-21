@@ -171,8 +171,9 @@ for f in /opt/sermon-search/repo/infra/systemd/*.service \
     CHANGED=true
   fi
 done
+systemctl daemon-reload
+systemctl enable sermon-search-alert@.service
 if $CHANGED; then
-  systemctl daemon-reload
   for timer in \
     sermon-search-pg-dump.timer \
     sermon-search-view-stats.timer \
