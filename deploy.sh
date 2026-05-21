@@ -180,21 +180,31 @@ else
 fi
 UNITS_SCRIPT
 
-# Step 8: poll service states for ~15 s
-say "Polling service health (~15 s)..."
-POLL_DEADLINE=$(( $(date +%s) + 15 ))
+# Step 8: poll service states for up to 60 s
+# api healthcheck: start_period=30s + interval=10s * retries=3 = 60s max
+say "Polling service health (up to 60 s)..."
+POLL_DEADLINE=$(( $(date +%s) + 60 ))
 while true; do
-  STATES=$(remote "$COMPOSE_CMD ps --format '{{.Service}}={{.State}}'" 2>/dev/null || true)
-  BAD=$(echo "$STATES" | grep -E '=(restarting|exited|dead)' || true)
-  if [[ -z "$BAD" ]]; then
-    say "All services running."
-    break
+  STATES=$(remote "$COMPOSE_CMD ps --format '{{.Service}}={{.State}}={{.Health}}'" 2>/dev/null || true)
+  BAD=$(echo "$STATES" | grep -E '=(restarting|exited|dead)=' || true)
+  if [[ -n "$BAD" ]]; then
+    if [[ $(date +%s) -ge $POLL_DEADLINE ]]; then
+      echo "$STATES"
+      die "Services in bad state after 60 s: $(echo "$BAD" | tr '\n' ' ')"
+    fi
+    sleep 2
+    continue
   fi
-  if [[ $(date +%s) -ge $POLL_DEADLINE ]]; then
-    echo "$STATES"
-    die "Services in bad state after 15 s: $(echo "$BAD" | tr '\n' ' ')"
+  if ! echo "$STATES" | grep -q '^api=running=healthy$'; then
+    if [[ $(date +%s) -ge $POLL_DEADLINE ]]; then
+      echo "$STATES"
+      die "api not healthy after 60 s"
+    fi
+    sleep 2
+    continue
   fi
-  sleep 1
+  say "All services running; api healthy."
+  break
 done
 
 # Step 9: post-deploy health checks from operator's machine
