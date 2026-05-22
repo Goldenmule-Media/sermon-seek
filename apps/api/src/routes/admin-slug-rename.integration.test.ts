@@ -70,6 +70,12 @@ describeIfDb("admin slug rename + alias integration", () => {
         { id: BRAVO_ID, slug: "bravo", name: "Bravo Church" },
       ])
       .execute()
+    // The in-process slug cache is NOT cleared by TRUNCATE. Evict every slug
+    // touched by any test so no test inherits a stale cache entry from a prior
+    // run (e.g. test 6's alias GET caches "alpha" → alpha2, which would cause
+    // test 8's priming assertion to receive 308 instead of 200).
+    app.evictSlug("alpha")
+    app.evictSlug("alpha2")
   })
 
   function patchChurch(id: string, body: object) {
