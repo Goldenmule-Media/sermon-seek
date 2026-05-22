@@ -15,6 +15,7 @@ This gives per-run logs via `journalctl` and clean failure alerting via
 |-----|------|---------|-----------|
 | nightly pg_dump | `sermon-search-pg-dump` | daily 02:00 UTC | `infra/scripts/pg-dump.sh` |
 | caption smoke-test | `sermon-search-smoke-test` | daily 04:00 UTC | worker `--smoke-test` |
+| expired-alias sweep | `sermon-search-sweep-aliases` | daily 05:00 UTC | worker `--sweep-aliases` |
 | view-stats refresh | `sermon-search-view-stats` | *disabled* | worker `--view-stats` |
 | RSS upload poll | `sermon-search-rss-poll` | *disabled* | worker `--rss-poll` |
 

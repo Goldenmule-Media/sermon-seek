@@ -188,7 +188,8 @@ done
 if $CHANGED; then
   for timer in \
     sermon-search-pg-dump.timer \
-    sermon-search-smoke-test.timer; do
+    sermon-search-smoke-test.timer \
+    sermon-search-sweep-aliases.timer; do
     systemctl restart "$timer" 2>/dev/null || systemctl enable --now "$timer"
   done
   echo "[units] updated and reloaded."
