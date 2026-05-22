@@ -55,16 +55,22 @@ WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/packages/types/dist ./packages/types/dist
 COPY --from=builder /app/packages/types/package.json ./packages/types/package.json
+COPY --from=builder /app/packages/types/node_modules ./packages/types/node_modules
 COPY --from=builder /app/packages/db/dist ./packages/db/dist
 COPY --from=builder /app/packages/db/package.json ./packages/db/package.json
+COPY --from=builder /app/packages/db/node_modules ./packages/db/node_modules
 COPY --from=builder /app/packages/embeddings/dist ./packages/embeddings/dist
 COPY --from=builder /app/packages/embeddings/package.json ./packages/embeddings/package.json
+COPY --from=builder /app/packages/embeddings/node_modules ./packages/embeddings/node_modules
 COPY --from=builder /app/packages/scripture/dist ./packages/scripture/dist
 COPY --from=builder /app/packages/scripture/package.json ./packages/scripture/package.json
+COPY --from=builder /app/packages/scripture/node_modules ./packages/scripture/node_modules
 COPY --from=builder /app/apps/worker/dist ./apps/worker/dist
 COPY --from=builder /app/apps/worker/package.json ./apps/worker/package.json
+COPY --from=builder /app/apps/worker/node_modules ./apps/worker/node_modules
 COPY --from=builder /app/apps/api/dist ./apps/api/dist
 COPY --from=builder /app/apps/api/package.json ./apps/api/package.json
+COPY --from=builder /app/apps/api/node_modules ./apps/api/node_modules
 
 EXPOSE 3001
 
