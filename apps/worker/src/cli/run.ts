@@ -1,5 +1,6 @@
 import { createDb } from "@sermon-search/db"
 import { createOpenAIEmbedder } from "@sermon-search/embeddings"
+import { runAliasSweep } from "../aliases/sweep.js"
 import { createOpenAIEnricher } from "../enrich/llm.js"
 import { runEnrichBackfill } from "../enrich/run.js"
 import { ingestChannel } from "../ingest/channel.js"
@@ -28,11 +29,12 @@ interface ParsedArgs {
   enrich: boolean
   related: boolean
   rssPoll: boolean
+  sweepAliases: boolean
   force: boolean
 }
 
 const USAGE =
-  "usage: worker:run --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | filters list|add|remove"
+  "usage: worker:run --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | --sweep-aliases | filters list|add|remove"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
@@ -47,6 +49,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   let enrich = false
   let related = false
   let rssPoll = false
+  let sweepAliases = false
   let force = false
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
@@ -151,6 +154,13 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     if (arg?.startsWith("--rss-poll=")) {
       throw new Error("--rss-poll does not take a value")
     }
+    if (arg === "--sweep-aliases") {
+      sweepAliases = true
+      continue
+    }
+    if (arg?.startsWith("--sweep-aliases=")) {
+      throw new Error("--sweep-aliases does not take a value")
+    }
     if (arg === "--force") {
       force = true
       continue
@@ -178,13 +188,14 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     enrich ? "--enrich" : null,
     related ? "--related" : null,
     rssPoll ? "--rss-poll" : null,
+    sweepAliases ? "--sweep-aliases" : null,
   ].filter((v): v is string => v !== null)
   if (modes.length > 1) {
     throw new Error(`${modes.join(", ")} are mutually exclusive`)
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, --related, or --rss-poll --channel <youtube-channel-id>",
+      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, --related, --rss-poll --channel <youtube-channel-id>, or --sweep-aliases",
     )
   }
   return {
@@ -200,6 +211,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     enrich,
     related,
     rssPoll,
+    sweepAliases,
     force,
   }
 }
@@ -228,10 +240,24 @@ export async function main(argv: readonly string[]): Promise<number> {
     return 2
   }
 
-  if (!parsed.smokeTest && !parsed.church) {
+  if (!parsed.smokeTest && !parsed.sweepAliases && !parsed.church) {
     console.error("--church <slug> is required for this command")
     console.error(USAGE)
     return 2
+  }
+
+  if (parsed.sweepAliases) {
+    const db = createDb()
+    try {
+      const summary = await runAliasSweep({ db })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    } catch (err) {
+      console.error(err instanceof Error ? (err.stack ?? err.message) : String(err))
+      return 1
+    } finally {
+      await db.destroy()
+    }
   }
 
   if (parsed.embed) {

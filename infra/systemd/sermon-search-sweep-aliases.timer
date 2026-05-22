@@ -1,0 +1,10 @@
+[Unit]
+Description=Sermon-Search daily expired-alias sweep timer
+
+[Timer]
+OnCalendar=*-*-* 05:00:00 UTC
+Persistent=true
+Unit=sermon-search-sweep-aliases.service
+
+[Install]
+WantedBy=timers.target

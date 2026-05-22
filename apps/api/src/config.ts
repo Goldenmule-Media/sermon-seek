@@ -10,6 +10,7 @@ const envSchema = z.object({
   EMBEDDING_MODEL: z.string().default("text-embedding-3-small"),
   YOUTUBE_API_KEY: z.string().optional(),
   CACHE_DIR: z.string().optional(),
+  SLUG_ALIAS_TTL_DAYS: z.coerce.number().int().positive().default(90),
 })
 
 export type Config = z.infer<typeof envSchema>

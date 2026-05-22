@@ -18,6 +18,14 @@ export interface ChurchesTable {
   created_at: Generated<Timestamptz>
 }
 
+export interface ChurchSlugAliasesTable {
+  id: Generated<string>
+  church_id: string
+  slug: string
+  created_at: Generated<Timestamptz>
+  expires_at: Timestamptz | null
+}
+
 export interface ChannelsTable {
   id: Generated<string>
   church_id: string
@@ -177,6 +185,7 @@ export interface ChannelFilterRulesTable {
 
 export interface Database {
   churches: ChurchesTable
+  church_slug_aliases: ChurchSlugAliasesTable
   channels: ChannelsTable
   playlists: PlaylistsTable
   videos: VideosTable
@@ -200,6 +209,10 @@ export interface Database {
 export type ChurchRow = Selectable<ChurchesTable>
 export type ChurchInsert = Insertable<ChurchesTable>
 export type ChurchUpdate = Updateable<ChurchesTable>
+
+export type ChurchSlugAliasRow = Selectable<ChurchSlugAliasesTable>
+export type ChurchSlugAliasInsert = Insertable<ChurchSlugAliasesTable>
+export type ChurchSlugAliasUpdate = Updateable<ChurchSlugAliasesTable>
 
 export type ChannelRow = Selectable<ChannelsTable>
 export type ChannelInsert = Insertable<ChannelsTable>

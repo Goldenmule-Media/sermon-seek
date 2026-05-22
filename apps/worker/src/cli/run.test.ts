@@ -19,6 +19,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -38,6 +39,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -57,6 +59,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -76,6 +79,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -95,6 +99,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -146,6 +151,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -165,6 +171,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -224,6 +231,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -259,6 +267,7 @@ describe("parseArgs", () => {
       enrich: true,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -278,6 +287,7 @@ describe("parseArgs", () => {
       enrich: true,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: true,
     })
   })
@@ -301,6 +311,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: true,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -320,6 +331,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: true,
       rssPoll: false,
+      sweepAliases: false,
       force: true,
     })
   })
@@ -371,6 +383,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -438,6 +451,7 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
@@ -457,11 +471,56 @@ describe("parseArgs", () => {
       enrich: false,
       related: false,
       rssPoll: false,
+      sweepAliases: false,
       force: false,
     })
   })
 
   it("rejects --church without a value", () => {
     expect(() => parseArgs(["--channel", "@example", "--church"])).toThrow(/requires a value/)
+  })
+
+  it("accepts --sweep-aliases alone", () => {
+    const parsed = parseArgs(["--sweep-aliases"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      playlist: undefined,
+      church: undefined,
+      smokeTest: false,
+      viewStats: false,
+      transcripts: false,
+      embed: false,
+      rechunk: false,
+      enrich: false,
+      related: false,
+      rssPoll: false,
+      sweepAliases: true,
+      force: false,
+    })
+  })
+
+  it("rejects --sweep-aliases=value (boolean flag form only)", () => {
+    expect(() => parseArgs(["--sweep-aliases=anything"])).toThrow(/does not take a value/)
+  })
+
+  it("rejects --sweep-aliases combined with --view-stats", () => {
+    expect(() => parseArgs(["--sweep-aliases", "--view-stats"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --sweep-aliases combined with --smoke-test", () => {
+    expect(() => parseArgs(["--sweep-aliases", "--smoke-test"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --sweep-aliases combined with --channel", () => {
+    expect(() => parseArgs(["--sweep-aliases", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --sweep-aliases combined with --video", () => {
+    expect(() => parseArgs(["--sweep-aliases", "--video", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --sweep-aliases combined with --related", () => {
+    expect(() => parseArgs(["--sweep-aliases", "--related"])).toThrow(/mutually exclusive/)
   })
 })

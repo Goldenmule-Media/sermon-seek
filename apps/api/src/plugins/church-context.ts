@@ -7,6 +7,7 @@ type ChurchRecord = { id: string; slug: string; name: string }
 declare module "fastify" {
   interface FastifyInstance {
     resolveChurchBySlug(slug: string): Promise<ChurchRecord | null>
+    evictSlug(slug: string): void
     requireChurchContext: (request: FastifyRequest, reply: FastifyReply) => Promise<void>
   }
   interface FastifyRequest {
@@ -45,16 +46,36 @@ export const churchContextPlugin = fp(
         .where("slug", "=", slug)
         .executeTakeFirst()
 
-      if (!row) {
+      if (row) {
+        const record: ChurchRecord = { id: row.id, slug: row.slug, name: row.name }
+        cache.set(slug, record)
+        return record
+      }
+
+      const aliasRow = await app.db
+        .selectFrom("church_slug_aliases as a")
+        .innerJoin("churches as c", "c.id", "a.church_id")
+        .select(["c.id", "c.slug", "c.name"])
+        .where("a.slug", "=", slug)
+        .executeTakeFirst()
+
+      if (!aliasRow) {
         cache.set(slug, SLUG_MISS)
         return null
       }
-      const record: ChurchRecord = { id: row.id, slug: row.slug, name: row.name }
-      cache.set(slug, record)
-      return record
+      const aliasRecord: ChurchRecord = {
+        id: aliasRow.id,
+        slug: aliasRow.slug,
+        name: aliasRow.name,
+      }
+      cache.set(slug, aliasRecord)
+      return aliasRecord
     }
 
     app.decorate("resolveChurchBySlug", resolveChurchBySlug)
+    app.decorate("evictSlug", (slug: string) => {
+      cache.delete(slug)
+    })
     app.decorateRequest("churchId", "")
     app.decorateRequest("churchSlug", "")
     // biome-ignore lint/suspicious/noExplicitAny: scopedDb is populated by the preHandler
@@ -84,6 +105,21 @@ export const churchContextPlugin = fp(
       if (!church) {
         await reply.code(404).send({ error: "church not found" })
         return
+      }
+
+      const isAlias = church.slug !== slug
+      if (isAlias && pathSlug) {
+        const segment = `/${pathSlug}`
+        const idx = request.url.indexOf(segment)
+        const newUrl =
+          idx === -1
+            ? request.url
+            : `${request.url.slice(0, idx)}/${church.slug}${request.url.slice(idx + segment.length)}`
+        await reply.code(308).header("Location", newUrl).send()
+        return
+      }
+      if (isAlias) {
+        reply.header("X-Canonical-Church-Slug", church.slug)
       }
 
       request.churchId = church.id
