@@ -9,16 +9,33 @@ const { churchContextPlugin } = await import("./church-context.js")
 const KNOWN_SLUG = "jubileestl"
 const KNOWN_ROW = { id: "ch-1", slug: KNOWN_SLUG, name: "Jubilee" }
 
-function buildMockDb(knownSlug: string, knownRow: typeof KNOWN_ROW | null = KNOWN_ROW) {
-  const selectFromSpy = vi.fn((_table: string) => {
+type MockOptions = {
+  canonicalSlug?: string | null
+  canonicalRow?: typeof KNOWN_ROW | null
+  aliasSlug?: string | null
+}
+
+function buildMockDb(opts: MockOptions = {}) {
+  const canonicalSlug = opts.canonicalSlug === undefined ? KNOWN_SLUG : opts.canonicalSlug
+  const canonicalRow = opts.canonicalRow === undefined ? KNOWN_ROW : opts.canonicalRow
+  const aliasSlug = opts.aliasSlug ?? null
+
+  const selectFromSpy = vi.fn((table: string) => {
     let capturedVal: unknown
+    const isAliasTable = table === "church_slug_aliases as a"
     const chain = {
       select: vi.fn(() => chain),
+      innerJoin: vi.fn(() => chain),
       where: vi.fn((_col: unknown, _op: unknown, val: unknown) => {
         capturedVal = val
         return chain
       }),
-      executeTakeFirst: vi.fn(() => Promise.resolve(capturedVal === knownSlug ? knownRow : null)),
+      executeTakeFirst: vi.fn(() => {
+        if (isAliasTable) {
+          return Promise.resolve(capturedVal === aliasSlug ? canonicalRow : null)
+        }
+        return Promise.resolve(capturedVal === canonicalSlug ? canonicalRow : null)
+      }),
     }
     return chain
   })
@@ -71,7 +88,7 @@ describe("churchContextPlugin", () => {
   let app: Awaited<ReturnType<typeof buildTestApp>>
 
   beforeEach(async () => {
-    mockDb = buildMockDb(KNOWN_SLUG)
+    mockDb = buildMockDb()
     app = await buildTestApp(mockDb.db)
   })
 
@@ -131,5 +148,73 @@ describe("churchContextPlugin", () => {
     await app.inject({ method: "GET", url: `/${KNOWN_SLUG}/ping` })
     await app.inject({ method: "GET", url: `/${KNOWN_SLUG}/ping` })
     expect(mockDb.selectFromSpy.mock.calls).toHaveLength(1)
+  })
+
+  describe("alias resolution", () => {
+    const OLD_SLUG = "oldslug"
+    let aliasMockDb: ReturnType<typeof buildMockDb>
+    let aliasApp: Awaited<ReturnType<typeof buildTestApp>>
+
+    beforeEach(async () => {
+      aliasMockDb = buildMockDb({ aliasSlug: OLD_SLUG })
+      aliasApp = await buildTestApp(aliasMockDb.db)
+    })
+
+    afterEach(async () => {
+      await aliasApp.close()
+    })
+
+    it("path-slug alias → 308 with Location to canonical slug", async () => {
+      const res = await aliasApp.inject({ method: "GET", url: `/${OLD_SLUG}/ping` })
+      expect(res.statusCode).toBe(308)
+      expect(res.headers.location).toBe(`/${KNOWN_SLUG}/ping`)
+    })
+
+    it("path-slug alias preserves query string in Location", async () => {
+      const res = await aliasApp.inject({
+        method: "GET",
+        url: `/${OLD_SLUG}/ping?q=1&x=2`,
+      })
+      expect(res.statusCode).toBe(308)
+      expect(res.headers.location).toBe(`/${KNOWN_SLUG}/ping?q=1&x=2`)
+    })
+
+    it("header-only alias → 200 with X-Canonical-Church-Slug header", async () => {
+      const res = await aliasApp.inject({
+        method: "GET",
+        url: "/header-ping",
+        headers: { "x-church-slug": OLD_SLUG },
+      })
+      expect(res.statusCode).toBe(200)
+      expect(res.headers["x-canonical-church-slug"]).toBe(KNOWN_SLUG)
+      expect(res.json()).toMatchObject({ churchId: KNOWN_ROW.id, churchSlug: KNOWN_SLUG })
+    })
+
+    it("evictSlug forces DB re-query for an alias", async () => {
+      await aliasApp.inject({ method: "GET", url: `/${OLD_SLUG}/ping` })
+      const callsBefore = aliasMockDb.selectFromSpy.mock.calls.length
+      aliasApp.evictSlug(OLD_SLUG)
+      await aliasApp.inject({ method: "GET", url: `/${OLD_SLUG}/ping` })
+      expect(aliasMockDb.selectFromSpy.mock.calls.length).toBeGreaterThan(callsBefore)
+    })
+
+    it("canonical wins over alias when both match the same slug", async () => {
+      // Both churches.slug and church_slug_aliases.slug match the same input slug.
+      // The canonical row's slug equals the input so this is a true canonical hit
+      // (not flagged as an alias).
+      const collisionMockDb = buildMockDb({
+        canonicalSlug: OLD_SLUG,
+        canonicalRow: { id: "ch-1", slug: OLD_SLUG, name: "Jubilee" },
+        aliasSlug: OLD_SLUG,
+      })
+      const collisionApp = await buildTestApp(collisionMockDb.db)
+      try {
+        const res = await collisionApp.inject({ method: "GET", url: `/${OLD_SLUG}/ping` })
+        expect(res.statusCode).toBe(200)
+        expect(res.headers["x-canonical-church-slug"]).toBeUndefined()
+      } finally {
+        await collisionApp.close()
+      }
+    })
   })
 })
