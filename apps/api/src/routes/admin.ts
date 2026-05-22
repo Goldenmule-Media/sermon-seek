@@ -320,6 +320,8 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
       const currentSlug = church.slug
       const slugChanged = newSlug !== undefined && newSlug !== currentSlug
 
+      // Validation runs even for no-op renames (newSlug === currentSlug) so
+      // policy changes can't turn an idempotent PATCH into a silent stale write.
       if (newSlug !== undefined) {
         const validation = validateSlug(newSlug)
         if (!validation.ok) {
@@ -352,7 +354,7 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
             .values({
               church_id: id,
               slug: currentSlug,
-              expires_at: sql`now() + (${String(config.SLUG_ALIAS_TTL_DAYS)} || ' days')::interval`,
+              expires_at: sql`now() + ${config.SLUG_ALIAS_TTL_DAYS} * interval '1 day'`,
             })
             .execute()
         }

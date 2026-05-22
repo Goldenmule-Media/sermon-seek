@@ -109,7 +109,12 @@ export const churchContextPlugin = fp(
 
       const isAlias = church.slug !== slug
       if (isAlias && pathSlug) {
-        const newUrl = request.url.replace(`/${pathSlug}`, `/${church.slug}`)
+        const segment = `/${pathSlug}`
+        const idx = request.url.indexOf(segment)
+        const newUrl =
+          idx === -1
+            ? request.url
+            : `${request.url.slice(0, idx)}/${church.slug}${request.url.slice(idx + segment.length)}`
         await reply.code(308).header("Location", newUrl).send()
         return
       }

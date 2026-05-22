@@ -17,7 +17,7 @@ const RESERVED_SET = new Set(RESERVED_SLUGS)
 export function validateSlug(
   slug: string,
 ): { ok: true } | { ok: false; reason: "format" | "reserved" } {
-  if (!SLUG_REGEX.test(slug)) return { ok: false, reason: "format" }
   if (RESERVED_SET.has(slug)) return { ok: false, reason: "reserved" }
+  if (!SLUG_REGEX.test(slug)) return { ok: false, reason: "format" }
   return { ok: true }
 }

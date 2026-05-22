@@ -1,6 +1,6 @@
 import { createDb, migrateToLatest } from "@sermon-search/db"
 import type { Database } from "@sermon-search/db"
-import { RESERVED_SLUGS, SLUG_REGEX } from "@sermon-search/types"
+import { RESERVED_SLUGS } from "@sermon-search/types"
 import Fastify, { type FastifyInstance } from "fastify"
 import {
   type ZodTypeProvider,
@@ -116,15 +116,7 @@ describeIfDb("admin slug rename + alias integration", () => {
         const res = await patchChurch(ALPHA_ID, { slug: reserved })
         expect(res.statusCode).toBe(400)
         const body = res.json() as { error: string }
-        // The validator runs format before reserved. Entries that contain '.'
-        // (robots.txt, sitemap.xml) fail format first; everything else hits
-        // the reserved branch. Either response satisfies "this name can never
-        // be a slug", so we accept both for the format-failing entries.
-        if (SLUG_REGEX.test(reserved)) {
-          expect(body.error).toBe("invalid slug: reserved")
-        } else {
-          expect(["invalid slug: reserved", "invalid slug: format"]).toContain(body.error)
-        }
+        expect(body.error).toBe("invalid slug: reserved")
       })
     }
   })

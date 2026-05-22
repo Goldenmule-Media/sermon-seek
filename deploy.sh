@@ -190,6 +190,8 @@ if $CHANGED; then
     sermon-search-pg-dump.timer \
     sermon-search-smoke-test.timer \
     sermon-search-sweep-aliases.timer; do
+    # restart if the unit is already known; enable --now starts it and marks it
+    # for auto-start on first install (when restart would fail with "not found").
     systemctl restart "$timer" 2>/dev/null || systemctl enable --now "$timer"
   done
   echo "[units] updated and reloaded."

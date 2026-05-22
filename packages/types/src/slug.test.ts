@@ -55,18 +55,9 @@ describe("validateSlug — format", () => {
 })
 
 describe("validateSlug — reserved words", () => {
-  const formatReserved = ["robots.txt", "sitemap.xml", "_next"]
-  const slugReserved = RESERVED_SLUGS.filter((s) => !formatReserved.includes(s))
-
-  for (const word of slugReserved) {
+  for (const word of RESERVED_SLUGS) {
     it(`rejects reserved slug "${word}" with reason 'reserved'`, () => {
       expect(validateSlug(word)).toEqual({ ok: false, reason: "reserved" })
-    })
-  }
-
-  for (const word of formatReserved) {
-    it(`rejects "${word}" with reason 'format' (fails regex)`, () => {
-      expect(validateSlug(word)).toEqual({ ok: false, reason: "format" })
     })
   }
 
