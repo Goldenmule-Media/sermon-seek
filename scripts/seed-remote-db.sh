@@ -101,6 +101,37 @@ fi
 
 say "Postgres major versions match: pg${LOCAL_PG_MAJOR}"
 
+# ── Step 1c: pgvector extension version check ────────────────────────────────
+# A dump from a newer pgvector can reference column type modifiers, operators,
+# or functions that an older pgvector on the remote doesn't understand. Enforce
+# strict equality — drift in either direction is suspicious for a seed flow.
+say "Comparing pgvector extension versions..."
+
+PGVECTOR_SQL="SELECT extversion FROM pg_extension WHERE extname = 'vector'"
+
+LOCAL_PGVECTOR=$(psql "$DATABASE_URL" -tAc "$PGVECTOR_SQL" 2>/dev/null || true)
+[[ -n "$LOCAL_PGVECTOR" ]] \
+  || die "pgvector extension is not installed on the local DB (or could not be read). Install it locally before seeding."
+
+# shellcheck disable=SC2086
+REMOTE_PGVECTOR=$(ssh $SSH_OPTS "$TARGET" bash 2>/dev/null <<EOS || true
+$COMPOSE_CMD exec -T postgres sh -c 'psql -U "\$POSTGRES_USER" -d "\$POSTGRES_DB" -tAc "$PGVECTOR_SQL"'
+EOS
+)
+[[ -n "$REMOTE_PGVECTOR" ]] \
+  || die "pgvector extension is not installed on the remote DB (or could not be read). Did migrations run?"
+
+if [[ "$LOCAL_PGVECTOR" != "$REMOTE_PGVECTOR" ]]; then
+  die "pgvector extension version mismatch — dumps from a newer pgvector can reference
+types/functions the older extension does not understand.
+  Local:  pgvector $LOCAL_PGVECTOR
+  Remote: pgvector $REMOTE_PGVECTOR
+Either bump the remote postgres image in infra/docker-compose.prod.yml to a tag that
+bundles the matching pgvector, or downgrade local pgvector to match remote."
+fi
+
+say "pgvector extension versions match: $LOCAL_PGVECTOR"
+
 # ── Step 2: schema version check ─────────────────────────────────────────────
 say "Comparing schema versions..."
 
