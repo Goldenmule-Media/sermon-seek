@@ -1,3 +1,5 @@
+export * from "./slug.js"
+
 export interface SearchHit {
   snippet: string
   start_ms: number
