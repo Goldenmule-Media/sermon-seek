@@ -1,3 +1,8 @@
+# NOTE: This unit is NOT enabled by deploy.sh by default.
+# It will be re-enabled once per-church recurring-job config lands (see follow-up
+# card): add rss_channel_id / recurring_jobs_enabled columns to the churches table,
+# rework the worker CLI to enumerate eligible churches from the DB, then restore
+# this unit and sermon-search-rss-poll to the deploy.sh timer enable loop.
 [Unit]
 Description=Sermon-Search daily view-stats refresh
 Documentation=https://github.com/Goldenmule-Media/sermon-search/blob/main/infra/README.md
@@ -9,12 +14,11 @@ OnFailure=sermon-search-alert@%n.service
 Type=oneshot
 WorkingDirectory=/opt/sermon-search/repo
 EnvironmentFile=/opt/sermon-search/repo/.env
-ExecStartPre=/bin/sh -c '[ -n "${CHURCH_SLUG}" ] || { echo "CHURCH_SLUG is empty — populate .env and restart"; exit 1; }'
 ExecStart=/usr/bin/docker compose -f /opt/sermon-search/repo/infra/docker-compose.prod.yml \
   --project-directory /opt/sermon-search/repo \
   exec -T worker \
   node /app/apps/worker/dist/cli/run.js \
-  --church ${CHURCH_SLUG} --view-stats
+  --view-stats
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=sermon-search-view-stats

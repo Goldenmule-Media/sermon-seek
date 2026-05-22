@@ -14,34 +14,19 @@ This gives per-run logs via `journalctl` and clean failure alerting via
 | Job | Unit | Cadence | What runs |
 |-----|------|---------|-----------|
 | nightly pg_dump | `sermon-search-pg-dump` | daily 02:00 UTC | `infra/scripts/pg-dump.sh` |
-| view-stats refresh | `sermon-search-view-stats` | daily 03:00 UTC | worker `--view-stats` |
 | caption smoke-test | `sermon-search-smoke-test` | daily 04:00 UTC | worker `--smoke-test` |
-| RSS upload poll | `sermon-search-rss-poll` | hourly at :17 | worker `--rss-poll` |
+| view-stats refresh | `sermon-search-view-stats` | *disabled* | worker `--view-stats` |
+| RSS upload poll | `sermon-search-rss-poll` | *disabled* | worker `--rss-poll` |
 
 Unit files live in `infra/systemd/` and are installed to `/etc/systemd/system/`
 by `deploy.sh --setup` (and kept up-to-date on each deploy).
 
-### Preconditions for rss-poll and view-stats
-
-Both units read `CHURCH_SLUG` and `RSS_CHANNEL_ID` from `/opt/sermon-search/repo/.env`
-via `EnvironmentFile=`. Each unit has `ExecStartPre` guards that abort with a
-clear `journalctl` message if either required variable is empty.
-
-**`sermon-search-rss-poll.timer` must be masked until `RSS_CHANNEL_ID` is set.**
-An empty value causes the unit to fail every hour and fire `ALERT_WEBHOOK_URL`.
-Mask it immediately after `--setup` if the channel ID is not yet known:
-
-```bash
-systemctl mask sermon-search-rss-poll.timer
-```
-
-Once `RSS_CHANNEL_ID` is populated in `.env.prod` and deployed, unmask and reload:
-
-```bash
-systemctl unmask sermon-search-rss-poll.timer
-systemctl daemon-reload
-systemctl enable --now sermon-search-rss-poll.timer
-```
+`pg-dump` and `smoke-test` timers are enabled automatically on every deploy.
+`view-stats` and `rss-poll` are **not enabled by deploy.sh** — they require
+per-church config (`rss_channel_id`, `recurring_jobs_enabled` columns in the
+`churches` table) that does not exist yet. They will be re-enabled in a
+follow-up card once the worker CLI is updated to enumerate eligible churches
+from the DB rather than accepting `--church` / `--channel` flags.
 
 All timers have `Persistent=true` so a missed fire (e.g. host was down) catches
 up on the next boot.

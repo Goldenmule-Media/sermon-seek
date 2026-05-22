@@ -175,12 +175,20 @@ for f in /opt/sermon-search/repo/infra/systemd/*.service \
 done
 systemctl daemon-reload
 systemctl enable sermon-search-alert@.service
+# Disable per-church timers that were enabled by older deploys — they require
+# per-church config (churches table) that doesn't exist yet. They will be
+# re-enabled once the follow-up card lands.
+for timer in sermon-search-view-stats.timer sermon-search-rss-poll.timer; do
+  if systemctl is-enabled --quiet "$timer" 2>/dev/null || \
+     systemctl is-active  --quiet "$timer" 2>/dev/null; then
+    systemctl disable --now "$timer" 2>/dev/null || true
+    echo "[units] disabled $timer (pending per-church config)"
+  fi
+done
 if $CHANGED; then
   for timer in \
     sermon-search-pg-dump.timer \
-    sermon-search-view-stats.timer \
-    sermon-search-smoke-test.timer \
-    sermon-search-rss-poll.timer; do
+    sermon-search-smoke-test.timer; do
     systemctl restart "$timer" 2>/dev/null || systemctl enable --now "$timer"
   done
   echo "[units] updated and reloaded."
