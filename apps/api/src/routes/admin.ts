@@ -1,4 +1,5 @@
 import { createScopedDb } from "@sermon-search/db"
+import { validateSlug } from "@sermon-search/types"
 import {
   cache,
   ingestChannel,
@@ -7,7 +8,9 @@ import {
   runViewStats,
 } from "@sermon-search/worker"
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
+import { sql } from "kysely"
 import { z } from "zod"
+import { config } from "../config.js"
 import { resolveChurchOrReply } from "../plugins/church-context.js"
 
 const churchSlugSchema = z.string().min(1)
@@ -66,6 +69,26 @@ const retranscribeBodySchema = z.object({
 
 const retranscribeResponseSchema = z.object({
   transcriptId: z.string(),
+})
+
+const renameChurchParamsSchema = z.object({
+  id: z.string().uuid(),
+})
+
+const renameChurchBodySchema = z
+  .object({
+    slug: z.string().min(1).optional(),
+    name: z.string().min(1).optional(),
+  })
+  .refine((d) => d.slug !== undefined || d.name !== undefined, {
+    message: "At least one of slug or name must be provided",
+  })
+
+const renameChurchResponseSchema = z.object({
+  id: z.string(),
+  slug: z.string(),
+  name: z.string(),
+  previous_slug: z.string(),
 })
 
 export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
@@ -261,6 +284,100 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       return reply.send({ transcriptId: result.transcriptId })
+    },
+  )
+
+  app.patch(
+    "/admin/churches/:id",
+    {
+      schema: {
+        tags: ["admin"],
+        summary: "Rename a church's slug and/or display name",
+        params: renameChurchParamsSchema,
+        body: renameChurchBodySchema,
+        response: {
+          200: renameChurchResponseSchema,
+          400: z.object({ error: z.string() }),
+          404: z.object({ error: z.string() }),
+          409: z.object({ error: z.string() }),
+        },
+      },
+    },
+    async (request, reply) => {
+      const { id } = request.params
+      const { slug: newSlug, name: newName } = request.body
+
+      const church = await app.db
+        .selectFrom("churches")
+        .select(["id", "slug", "name"])
+        .where("id", "=", id)
+        .executeTakeFirst()
+
+      if (!church) {
+        return reply.code(404).send({ error: "church not found" })
+      }
+
+      const currentSlug = church.slug
+      const slugChanged = newSlug !== undefined && newSlug !== currentSlug
+
+      if (newSlug !== undefined) {
+        const validation = validateSlug(newSlug)
+        if (!validation.ok) {
+          return reply.code(400).send({ error: `invalid slug: ${validation.reason}` })
+        }
+
+        if (slugChanged) {
+          const collision = await app.db
+            .selectFrom("churches")
+            .select("id")
+            .where("slug", "=", newSlug)
+            .unionAll(
+              app.db
+                .selectFrom("church_slug_aliases")
+                .select("id")
+                .where("slug", "=", newSlug),
+            )
+            .executeTakeFirst()
+
+          if (collision) {
+            return reply.code(409).send({ error: "slug already in use" })
+          }
+        }
+      }
+
+      await app.db.transaction().execute(async (trx) => {
+        if (slugChanged) {
+          await trx
+            .insertInto("church_slug_aliases")
+            .values({
+              church_id: id,
+              slug: currentSlug,
+              expires_at: sql`now() + (${String(config.SLUG_ALIAS_TTL_DAYS)} || ' days')::interval`,
+            })
+            .execute()
+        }
+
+        const updates: { slug?: string; name?: string } = {}
+        if (slugChanged) updates.slug = newSlug
+        if (newName !== undefined) updates.name = newName
+
+        await trx.updateTable("churches").set(updates).where("id", "=", id).execute()
+      })
+
+      if (slugChanged) {
+        app.evictSlug(currentSlug)
+        app.evictSlug(newSlug as string)
+      }
+
+      const finalSlug = slugChanged ? (newSlug as string) : currentSlug
+      const finalName = newName ?? church.name
+
+      return reply.send({
+        id,
+        slug: finalSlug,
+        name: finalName,
+        previous_slug: currentSlug,
+      })
     },
   )
 }

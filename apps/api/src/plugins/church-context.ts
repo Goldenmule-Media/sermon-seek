@@ -7,6 +7,7 @@ type ChurchRecord = { id: string; slug: string; name: string }
 declare module "fastify" {
   interface FastifyInstance {
     resolveChurchBySlug(slug: string): Promise<ChurchRecord | null>
+    evictSlug(slug: string): void
     requireChurchContext: (request: FastifyRequest, reply: FastifyReply) => Promise<void>
   }
   interface FastifyRequest {
@@ -55,6 +56,9 @@ export const churchContextPlugin = fp(
     }
 
     app.decorate("resolveChurchBySlug", resolveChurchBySlug)
+    app.decorate("evictSlug", (slug: string) => {
+      cache.delete(slug)
+    })
     app.decorateRequest("churchId", "")
     app.decorateRequest("churchSlug", "")
     // biome-ignore lint/suspicious/noExplicitAny: scopedDb is populated by the preHandler
