@@ -19,10 +19,10 @@ services:
 
   api:
     build:
-      context: ..
+      context: .
       dockerfile: apps/api/Dockerfile
     restart: unless-stopped
-    env_file: ../.env
+    env_file: .env
     depends_on:
       postgres:
         condition: service_healthy
@@ -35,22 +35,22 @@ services:
 
   web:
     build:
-      context: ..
+      context: .
       dockerfile: apps/web/Dockerfile
       args:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://sermonseek.ai}
     restart: unless-stopped
-    env_file: ../.env
+    env_file: .env
     depends_on:
       api:
         condition: service_healthy
 
   worker:
     build:
-      context: ..
+      context: .
       dockerfile: apps/worker/Dockerfile
     restart: unless-stopped
-    env_file: ../.env
+    env_file: .env
     environment:
       CACHE_DIR: /var/lib/sermon-search/cache
     volumes:
@@ -75,7 +75,7 @@ services:
       DOMAIN: ${DOMAIN:-sermonseek.ai}
       ACME_EMAIL: ${ACME_EMAIL}
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
       - /opt/sermon-search/caddy/data:/data
       - /opt/sermon-search/caddy/config:/config
     depends_on:
