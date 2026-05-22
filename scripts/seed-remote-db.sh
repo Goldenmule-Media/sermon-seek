@@ -68,6 +68,39 @@ POSTGRES_STATE=$(remote "$COMPOSE_CMD ps --format '{{.State}}' postgres" 2>/dev/
 [[ "$POSTGRES_STATE" == *"running"* || "$POSTGRES_STATE" == *"healthy"* ]] \
   || die "Remote postgres container is not running (state: '${POSTGRES_STATE:-unknown}'). Run deploy.sh first."
 
+# ── Step 1b: postgres major-version check ────────────────────────────────────
+# pg_dump's custom-format file header is tied to the source server's major.
+# If local pg_dump is newer than remote pg_restore, the restore fails with
+# "unsupported version (1.NN) in file header" — but only after the expensive
+# dump + scp. Catch it here.
+say "Comparing postgres server versions..."
+
+LOCAL_PG_NUM=$(psql "$DATABASE_URL" -tAc "SHOW server_version_num" 2>/dev/null || true)
+[[ -n "$LOCAL_PG_NUM" ]] \
+  || die "Could not read local postgres server_version_num — is the local DB reachable via DATABASE_URL?"
+
+# shellcheck disable=SC2086
+REMOTE_PG_NUM=$(ssh $SSH_OPTS "$TARGET" bash 2>/dev/null <<EOS || true
+$COMPOSE_CMD exec -T postgres sh -c 'psql -U "\$POSTGRES_USER" -d "\$POSTGRES_DB" -tAc "SHOW server_version_num"'
+EOS
+)
+[[ -n "$REMOTE_PG_NUM" ]] \
+  || die "Could not read remote postgres server_version_num — is the postgres container healthy?"
+
+LOCAL_PG_MAJOR=$(( LOCAL_PG_NUM / 10000 ))
+REMOTE_PG_MAJOR=$(( REMOTE_PG_NUM / 10000 ))
+
+if [[ "$LOCAL_PG_MAJOR" != "$REMOTE_PG_MAJOR" ]]; then
+  die "Postgres major-version mismatch — pg_restore on the remote cannot read a newer pg_dump.
+  Local:  pg${LOCAL_PG_MAJOR} (server_version_num=$LOCAL_PG_NUM)
+  Remote: pg${REMOTE_PG_MAJOR} (server_version_num=$REMOTE_PG_NUM)
+Either bump the remote postgres image in infra/docker-compose.prod.yml to match local
+and redeploy, or run pg_dump from a matching-version container (e.g.
+\`docker run --rm postgres:${REMOTE_PG_MAJOR} pg_dump ...\`) and restore manually."
+fi
+
+say "Postgres major versions match: pg${LOCAL_PG_MAJOR}"
+
 # ── Step 2: schema version check ─────────────────────────────────────────────
 say "Comparing schema versions..."
 
