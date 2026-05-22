@@ -18,6 +18,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -36,6 +37,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -54,6 +56,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -72,6 +75,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -90,6 +94,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -140,6 +145,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -158,6 +164,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -216,6 +223,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -250,6 +258,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: true,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -268,6 +277,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: true,
       related: false,
+      rssPoll: false,
       force: true,
     })
   })
@@ -290,6 +300,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: true,
+      rssPoll: false,
       force: false,
     })
   })
@@ -308,6 +319,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: true,
+      rssPoll: false,
       force: true,
     })
   })
@@ -358,6 +370,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -424,6 +437,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })
@@ -442,6 +456,7 @@ describe("parseArgs", () => {
       rechunk: false,
       enrich: false,
       related: false,
+      rssPoll: false,
       force: false,
     })
   })

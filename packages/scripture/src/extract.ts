@@ -105,10 +105,13 @@ export function extract(text: string): ExtractedRef[] {
         let sm: RegExpExecArray | null
         // biome-ignore lint/suspicious/noAssignInExpressions: standard global-regex loop pattern
         while ((sm = subRe.exec(extraRaw)) !== null) {
-          const ev = Number.parseInt(sm[1], 10)
+          const numStr = sm[1]
+          const matchStr = sm[0]
+          if (numStr === undefined || matchStr === undefined) continue
+          const ev = Number.parseInt(numStr, 10)
           if (!Number.isNaN(ev) && ev > 0) {
-            const evPos = extraStart + sm.index + sm[0].length - sm[1].length
-            pendingRefs.push({ cs: chapterStart, vs: ev, ce: chapterStart, ve: ev, raw: sm[1], pos: evPos })
+            const evPos = extraStart + sm.index + matchStr.length - numStr.length
+            pendingRefs.push({ cs: chapterStart, vs: ev, ce: chapterStart, ve: ev, raw: numStr, pos: evPos })
           }
         }
       }

@@ -26,7 +26,8 @@ export function parseVideoIds(xml: string): string[] {
   const re = /<yt:videoId>([A-Za-z0-9_-]{11})<\/yt:videoId>/g
   let m: RegExpExecArray | null
   while ((m = re.exec(xml)) !== null) {
-    ids.push(m[1])
+    const id = m[1]
+    if (id !== undefined) ids.push(id)
   }
   return ids
 }

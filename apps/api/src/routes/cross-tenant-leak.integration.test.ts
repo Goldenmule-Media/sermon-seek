@@ -5,8 +5,15 @@ import type { Kysely } from "kysely"
 import { sql } from "kysely"
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
 import { buildApp } from "../server.js"
-import { TEST_EMBEDDING_MODEL, type SeedResult, seedChurches } from "../test/seed-churches.js"
+import { type SeedResult, seedChurches } from "../test/seed-churches.js"
 import { TENANT_SCOPED_ROUTES } from "../test/tenant-scoped-routes.js"
+
+// Hoisted so the vi.mock factories below (which are themselves hoisted to the
+// top of the module) can reference this value. Keep in sync with
+// TEST_EMBEDDING_MODEL exported from ../test/seed-churches.js.
+const { TEST_EMBEDDING_MODEL } = vi.hoisted(() => ({
+  TEST_EMBEDDING_MODEL: "text-embedding-3-small",
+}))
 
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL
 const describeIfDb = TEST_DATABASE_URL ? describe : describe.skip
