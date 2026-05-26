@@ -58,7 +58,7 @@ const startQuerySchema = z.object({
 })
 
 const callbackQuerySchema = z.object({
-  code: z.string(),
+  code: z.string().optional(),
   state: z.string(),
   error: z.string().optional(),
 })
@@ -128,6 +128,10 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
 
       if (oauthError) {
         return reply.code(400).send({ error: `OAuth error: ${oauthError}` })
+      }
+
+      if (!code) {
+        return reply.code(400).send({ error: "missing authorization code" })
       }
 
       // Read + validate signed state cookie
