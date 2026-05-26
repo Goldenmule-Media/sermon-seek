@@ -2,6 +2,7 @@ import cookie from "@fastify/cookie"
 import { createDb, migrateToLatest } from "@sermon-search/db"
 import type { Database } from "@sermon-search/db"
 import Fastify from "fastify"
+import fp from "fastify-plugin"
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"
 import type { ZodTypeProvider } from "fastify-type-provider-zod"
 import type { Kysely } from "kysely"
@@ -76,7 +77,7 @@ describeIfDb("auth integration", () => {
     app.setSerializerCompiler(serializerCompiler)
 
     await app.register(cookie, { secret: COOKIE_SECRET })
-    app.decorate("db", db)
+    await app.register(fp(async (instance) => { instance.decorate("db", db) }, { name: "db" }))
     app.decorate("googleOAuth", stubOAuth)
     await app.register(sessionPlugin)
     await app.register(authRoutes)
