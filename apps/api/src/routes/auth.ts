@@ -96,8 +96,7 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
         path: "/v1/auth/google",
       })
 
-      const redirectUri =
-        config.GOOGLE_OAUTH_REDIRECT_URI ?? `${config.WEB_BASE_URL}/v1/auth/google/callback`
+      const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI
       const url = app.googleOAuth.buildAuthorizeUrl({
         state,
         codeChallenge: challenge,
@@ -154,7 +153,7 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
       // Clear state cookie immediately
       reply.clearCookie(config.STATE_COOKIE_NAME, { path: "/v1/auth/google" })
 
-      const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI ?? ""
+      const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI
 
       let idToken: string
       try {
