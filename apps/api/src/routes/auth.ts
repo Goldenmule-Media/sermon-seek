@@ -93,7 +93,7 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
         ...COOKIE_OPTS,
         maxAge: 300, // 5 minutes
         signed: true,
-        path: "/v1/auth/google",
+        path: `${app.prefix ?? ""}/auth/google`,
       })
 
       const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI
@@ -151,7 +151,7 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
       }
 
       // Clear state cookie immediately
-      reply.clearCookie(config.STATE_COOKIE_NAME, { path: "/v1/auth/google" })
+      reply.clearCookie(config.STATE_COOKIE_NAME, { path: `${app.prefix ?? ""}/auth/google` })
 
       const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI
 
