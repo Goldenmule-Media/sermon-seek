@@ -143,17 +143,16 @@ export const sessionPlugin = fp(
 
     app.decorate("requireUser", async (request: FastifyRequest, reply: FastifyReply) => {
       if (!request.user) {
-        await reply.code(401).send({ error: "unauthenticated" })
+        return reply.code(401).send({ error: "unauthenticated" })
       }
     })
 
     app.decorate("requireAdmin", async (request: FastifyRequest, reply: FastifyReply) => {
       if (!request.user) {
-        await reply.code(401).send({ error: "unauthenticated" })
-        return
+        return reply.code(401).send({ error: "unauthenticated" })
       }
       if (!request.user.is_admin) {
-        await reply.code(403).send({ error: "forbidden" })
+        return reply.code(403).send({ error: "forbidden" })
       }
     })
   },
