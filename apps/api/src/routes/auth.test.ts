@@ -15,6 +15,9 @@ vi.mock("../config.js", () => ({
 
 const { requireCsrfHeader } = await import("./auth.js")
 
+type Req = Parameters<typeof requireCsrfHeader>[0]
+type Reply = Parameters<typeof requireCsrfHeader>[1]
+
 function makeReply() {
   const reply = {
     sentCode: 0,
@@ -35,14 +38,14 @@ describe("requireCsrfHeader", () => {
   it("passes when x-sermon-csrf is '1'", async () => {
     const req = { headers: { "x-sermon-csrf": "1" } }
     const reply = makeReply()
-    await requireCsrfHeader(req as never, reply as never)
+    await requireCsrfHeader(req as unknown as Req, reply as unknown as Reply)
     expect(reply.sentCode).toBe(0)
   })
 
   it("returns 400 when x-sermon-csrf is missing", async () => {
     const req = { headers: {} }
     const reply = makeReply()
-    await requireCsrfHeader(req as never, reply as never)
+    await requireCsrfHeader(req as unknown as Req, reply as unknown as Reply)
     expect(reply.sentCode).toBe(400)
     expect(reply.sentBody).toMatchObject({ error: "missing CSRF header" })
   })
@@ -50,7 +53,7 @@ describe("requireCsrfHeader", () => {
   it("returns 400 when x-sermon-csrf is wrong value", async () => {
     const req = { headers: { "x-sermon-csrf": "true" } }
     const reply = makeReply()
-    await requireCsrfHeader(req as never, reply as never)
+    await requireCsrfHeader(req as unknown as Req, reply as unknown as Reply)
     expect(reply.sentCode).toBe(400)
   })
 })

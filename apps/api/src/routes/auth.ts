@@ -1,10 +1,11 @@
 import { createHash, randomBytes, timingSafeEqual } from "node:crypto"
 import type { AuthMeResponse } from "@sermon-search/types"
+import type { FastifyReply, FastifyRequest } from "fastify"
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { sql } from "kysely"
 import { z } from "zod"
 import { config } from "../config.js"
-import { createSession, revokeSession } from "../plugins/session.js"
+import { SESSION_DURATION_MS, createSession, revokeSession } from "../plugins/session.js"
 
 const COOKIE_OPTS = {
   httpOnly: true,
@@ -43,14 +44,13 @@ function validateReturnTo(value: string | undefined): string {
   return config.WEB_BASE_URL
 }
 
-export function requireCsrfHeader(
-  request: { headers: Record<string, string | string[] | undefined> },
-  reply: { code: (n: number) => { send: (b: unknown) => Promise<void> } },
+export async function requireCsrfHeader(
+  request: FastifyRequest,
+  reply: FastifyReply,
 ): Promise<void> {
   if (request.headers["x-sermon-csrf"] !== "1") {
-    return reply.code(400).send({ error: "missing CSRF header" })
+    await reply.code(400).send({ error: "missing CSRF header" })
   }
-  return Promise.resolve()
 }
 
 const startQuerySchema = z.object({
@@ -201,7 +201,7 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
 
       reply.setCookie(config.SESSION_COOKIE_NAME, token, {
         ...COOKIE_OPTS,
-        expires: expiresAt,
+        maxAge: SESSION_DURATION_MS / 1000,
       })
 
       return reply.redirect(cookiePayload.returnTo, 302)
@@ -212,7 +212,7 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
   app.post(
     "/auth/logout",
     {
-      preHandler: [requireCsrfHeader as never, app.requireUser],
+      preHandler: [requireCsrfHeader, app.requireUser],
       schema: {
         tags: ["auth"],
         summary: "Revoke current session",

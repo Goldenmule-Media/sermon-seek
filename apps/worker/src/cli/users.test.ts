@@ -54,5 +54,9 @@ describe("parseUsersArgs", () => {
     it("rejects unknown subcommands", () => {
       expect(() => parseUsersArgs(["list"])).toThrow(/Unknown users subcommand/)
     })
+
+    it("rejects unknown subcommands with args (unknown takes precedence over too-many)", () => {
+      expect(() => parseUsersArgs(["unknown-sub", "x"])).toThrow(/Unknown users subcommand/)
+    })
   })
 })

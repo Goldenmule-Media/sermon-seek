@@ -28,6 +28,7 @@ export function UserMenu() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [open, setOpen] = useState(false)
+  const [avatarError, setAvatarError] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -75,15 +76,16 @@ export function UserMenu() {
         className="flex items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         aria-label="Account menu"
         aria-expanded={open}
-        aria-haspopup="menu"
+        aria-haspopup="true"
       >
-        {user.avatar_url ? (
+        {user.avatar_url && !avatarError ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={user.avatar_url}
             alt={user.display_name ?? "Avatar"}
             className="h-8 w-8 rounded-full object-cover"
             referrerPolicy="no-referrer"
+            onError={() => setAvatarError(true)}
           />
         ) : (
           <AvatarFallback name={user.display_name} />
@@ -92,12 +94,10 @@ export function UserMenu() {
 
       {open && (
         <div
-          role="menu"
           className="absolute right-0 mt-2 w-44 rounded-md border bg-popover text-popover-foreground shadow-md z-50"
         >
           <div className="flex flex-col py-1">
             <span
-              role="menuitem"
               aria-disabled="true"
               tabIndex={-1}
               className="px-3 py-2 text-sm text-muted-foreground cursor-default select-none"
@@ -106,7 +106,6 @@ export function UserMenu() {
             </span>
             <button
               type="button"
-              role="menuitem"
               onClick={handleSignOut}
               className="px-3 py-2 text-sm text-left hover:bg-accent hover:text-accent-foreground transition-colors"
             >

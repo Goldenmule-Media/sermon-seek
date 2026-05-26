@@ -30,7 +30,7 @@ export function mintToken(): string {
   return randomBytes(32).toString("hex")
 }
 
-const SESSION_DURATION_MS = 30 * 24 * 60 * 60 * 1000 // 30 days
+export const SESSION_DURATION_MS = 30 * 24 * 60 * 60 * 1000 // 30 days
 const ABSOLUTE_CAP_MS = 90 * 24 * 60 * 60 * 1000 // 90 days
 const ROLL_THRESHOLD_MS = 7 * 24 * 60 * 60 * 1000 // roll when < 7 days remain
 const LAST_SEEN_THROTTLE_MS = 60 * 1000 // update last_seen_at at most once per minute
