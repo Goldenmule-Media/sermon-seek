@@ -45,7 +45,7 @@ function toDto(row: ChannelFilterRuleRow): IngestionFilterRule {
 }
 
 export const filterRulesRoutes: FastifyPluginAsyncZod = async (app) => {
-  app.addHook("preHandler", app.requireAdmin)
+  app.addHook("preHandler", app.requireAdminApiKey)
 
   app.get(
     "/admin/channels/:channelId/filter-rules",

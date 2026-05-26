@@ -44,6 +44,15 @@ vi.mock("../config.js", () => ({
     HOST: "0.0.0.0",
     CORS_ORIGIN: "http://localhost:3000",
     EMBEDDING_MODEL: TEST_EMBEDDING_MODEL,
+    GOOGLE_OAUTH_CLIENT_ID: "test-client-id",
+    GOOGLE_OAUTH_CLIENT_SECRET: "test-client-secret",
+    GOOGLE_OAUTH_REDIRECT_URI: "http://localhost:3001/v1/auth/google/callback",
+    COOKIE_SECRET: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    SESSION_COOKIE_NAME: "sermon_session",
+    STATE_COOKIE_NAME: "sermon_oauth_state",
+    WEB_BASE_URL: "http://localhost:3000",
+    COOKIE_SECURE: false,
+    SLUG_ALIAS_TTL_DAYS: 90,
   },
 }))
 
@@ -339,7 +348,9 @@ describeIfDb("cross-tenant isolation", () => {
     })
 
     it("unknown church slug → 404", async () => {
-      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/transcript`)
+      const res = await app
+        .inject()
+        .get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/transcript`)
       expect(res.statusCode).toBe(404)
     })
   })
@@ -391,7 +402,9 @@ describeIfDb("cross-tenant isolation", () => {
     })
 
     it("unknown church slug → 404", async () => {
-      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/search?q=alpha`)
+      const res = await app
+        .inject()
+        .get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/search?q=alpha`)
       expect(res.statusCode).toBe(404)
     })
   })

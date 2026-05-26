@@ -1,5 +1,6 @@
 import type { FastifyInstance } from "fastify"
 import { adminRoutes } from "./admin.js"
+import { authRoutes } from "./auth.js"
 import { echoRoutes } from "./echo.js"
 import { filterRulesRoutes } from "./filter-rules.js"
 import { healthRoutes } from "./health.js"
@@ -17,6 +18,7 @@ export async function registerRootRoutes(app: FastifyInstance): Promise<void> {
   await app.register(echoRoutes)
   await app.register(adminRoutes)
   await app.register(filterRulesRoutes)
+  await app.register(authRoutes)
 }
 
 export async function registerTenantRoutes(app: FastifyInstance): Promise<void> {

@@ -15,6 +15,7 @@ import { runRelatedBackfill } from "../related/run.js"
 import { runSmokeTest } from "../smoke/index.js"
 import { YoutubeClient } from "../youtube/client.js"
 import { runFiltersCli } from "./filters.js"
+import { runUsersCli } from "./users.js"
 
 interface ParsedArgs {
   channel?: string
@@ -34,7 +35,7 @@ interface ParsedArgs {
 }
 
 const USAGE =
-  "usage: worker:run --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | --sweep-aliases | filters list|add|remove"
+  "usage: worker:run --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | --sweep-aliases | filters list|add|remove | users promote|demote <google_sub>"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
@@ -229,6 +230,10 @@ async function resolveChurchId(db: ReturnType<typeof createDb>, slug: string): P
 export async function main(argv: readonly string[]): Promise<number> {
   if (argv[0] === "filters") {
     return runFiltersCli(argv.slice(1))
+  }
+
+  if (argv[0] === "users") {
+    return runUsersCli(argv.slice(1))
   }
 
   let parsed: ParsedArgs

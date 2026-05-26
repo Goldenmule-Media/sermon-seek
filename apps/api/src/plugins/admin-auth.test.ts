@@ -10,12 +10,12 @@ const { adminAuthPlugin } = await import("./admin-auth.js")
 async function buildTestApp() {
   const app = Fastify()
   await app.register(adminAuthPlugin)
-  app.get("/probe", { preHandler: app.requireAdmin }, async () => ({ ok: true }))
+  app.get("/probe", { preHandler: app.requireAdminApiKey }, async () => ({ ok: true }))
   await app.ready()
   return app
 }
 
-describe("requireAdmin middleware", () => {
+describe("requireAdminApiKey middleware", () => {
   let app: Awaited<ReturnType<typeof buildTestApp>>
 
   afterEach(async () => {

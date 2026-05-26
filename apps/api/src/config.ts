@@ -11,6 +11,14 @@ const envSchema = z.object({
   YOUTUBE_API_KEY: z.string().optional(),
   CACHE_DIR: z.string().optional(),
   SLUG_ALIAS_TTL_DAYS: z.coerce.number().int().positive().default(90),
+  GOOGLE_OAUTH_CLIENT_ID: z.string().optional(),
+  GOOGLE_OAUTH_CLIENT_SECRET: z.string().optional(),
+  GOOGLE_OAUTH_REDIRECT_URI: z.string().url().optional(),
+  COOKIE_SECRET: z.string().min(32).optional(),
+  SESSION_COOKIE_NAME: z.string().default("sermon_session"),
+  STATE_COOKIE_NAME: z.string().default("sermon_oauth_state"),
+  WEB_BASE_URL: z.string().url().default("http://localhost:3000"),
+  COOKIE_SECURE: z.coerce.boolean().optional(),
 })
 
 export type Config = z.infer<typeof envSchema>
