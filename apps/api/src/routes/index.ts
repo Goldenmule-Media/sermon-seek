@@ -5,6 +5,7 @@ import { echoRoutes } from "./echo.js"
 import { filterRulesRoutes } from "./filter-rules.js"
 import { healthRoutes } from "./health.js"
 import { homeRoutes } from "./home.js"
+import { meRequestsRoutes } from "./me-requests.js"
 import { playlistsRoutes } from "./playlists.js"
 import { requestsRoutes } from "./requests.js"
 import { searchRoutes } from "./search.js"
@@ -21,6 +22,7 @@ export async function registerRootRoutes(app: FastifyInstance): Promise<void> {
   await app.register(filterRulesRoutes)
   await app.register(authRoutes)
   await app.register(requestsRoutes)
+  await app.register(meRequestsRoutes)
 }
 
 export async function registerTenantRoutes(app: FastifyInstance): Promise<void> {

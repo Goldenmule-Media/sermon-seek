@@ -246,3 +246,33 @@ export interface IngestionRequest {
   created_at: string
   updated_at: string
 }
+
+export interface IngestionRequestSummary {
+  id: string
+  requested_slug: string
+  status: IngestionRequestStatus
+  videos_discovered: number
+  videos_ingested: number
+  tokens_ingested: number
+  tokens_cap: number
+  search_url: string | null
+  limit_reached: boolean
+  created_at: string
+}
+
+export interface IngestionRequestDetail extends IngestionRequestSummary {
+  requested_name: string
+  youtube_handle_or_url: string
+  contact_email: string
+  include_playlist_ids: string[]
+  exclude_playlist_ids: string[]
+  admin_note: string | null
+  updated_at: string
+}
+
+export interface MeRequestsListResponse {
+  requests: IngestionRequestSummary[]
+  total: number
+  limit: number
+  offset: number
+}
