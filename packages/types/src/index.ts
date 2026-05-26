@@ -1,5 +1,27 @@
 export * from "./slug.js"
 
+export type UserStatus = "active" | "suspended" | "deleted"
+
+export interface User {
+  id: string
+  display_name: string | null
+  avatar_url: string | null
+  is_admin: boolean
+  status: UserStatus
+  created_at: string
+  last_seen_at: string
+}
+
+export interface Session {
+  id: string
+  user_id: string
+  user_agent: string | null
+  ip: string | null
+  created_at: string
+  expires_at: string
+  revoked_at: string | null
+}
+
 export interface SearchHit {
   snippet: string
   start_ms: number

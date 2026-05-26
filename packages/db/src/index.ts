@@ -11,6 +11,30 @@ import pg from "pg"
 
 type Timestamptz = ColumnType<Date, Date | string, Date | string>
 
+export type UserStatus = "active" | "suspended" | "deleted"
+
+export interface UsersTable {
+  id: Generated<string>
+  google_sub: string
+  display_name: string | null
+  avatar_url: string | null
+  is_admin: Generated<boolean>
+  status: Generated<UserStatus>
+  created_at: Generated<Timestamptz>
+  last_seen_at: Generated<Timestamptz>
+}
+
+export interface SessionsTable {
+  id: Generated<string>
+  user_id: string
+  session_token_hash: string
+  user_agent: string | null
+  ip: string | null
+  created_at: Generated<Timestamptz>
+  expires_at: Timestamptz
+  revoked_at: Timestamptz | null
+}
+
 export interface ChurchesTable {
   id: Generated<string>
   slug: string
@@ -184,6 +208,8 @@ export interface ChannelFilterRulesTable {
 }
 
 export interface Database {
+  users: UsersTable
+  sessions: SessionsTable
   churches: ChurchesTable
   church_slug_aliases: ChurchSlugAliasesTable
   channels: ChannelsTable
@@ -205,6 +231,14 @@ export interface Database {
   related_videos: RelatedVideosTable
   channel_filter_rules: ChannelFilterRulesTable
 }
+
+export type UserRow = Selectable<UsersTable>
+export type UserInsert = Insertable<UsersTable>
+export type UserUpdate = Updateable<UsersTable>
+
+export type SessionRow = Selectable<SessionsTable>
+export type SessionInsert = Insertable<SessionsTable>
+export type SessionUpdate = Updateable<SessionsTable>
 
 export type ChurchRow = Selectable<ChurchesTable>
 export type ChurchInsert = Insertable<ChurchesTable>
