@@ -32,7 +32,8 @@ export function mintToken(): string {
 
 const SESSION_DURATION_MS = 30 * 24 * 60 * 60 * 1000 // 30 days
 const ABSOLUTE_CAP_MS = 90 * 24 * 60 * 60 * 1000 // 90 days
-const ROLL_THRESHOLD_MS = 24 * 60 * 60 * 1000 // roll when < 29 days remain
+const ROLL_THRESHOLD_MS = 7 * 24 * 60 * 60 * 1000 // roll when < 7 days remain
+const LAST_SEEN_THROTTLE_MS = 60 * 1000 // update last_seen_at at most once per minute
 
 export async function createSession(
   db: Kysely<Database>,
@@ -91,6 +92,7 @@ export const sessionPlugin = fp(
           "users.avatar_url",
           "users.is_admin",
           "users.status",
+          "users.last_seen_at",
         ])
         .where("sessions.session_token_hash", "=", hash)
         .where("sessions.revoked_at", "is", null)
@@ -114,7 +116,7 @@ export const sessionPlugin = fp(
       const absoluteCap = new Date(createdAt.getTime() + ABSOLUTE_CAP_MS)
       const remainingMs = expiresAt.getTime() - now.getTime()
 
-      if (remainingMs < SESSION_DURATION_MS - ROLL_THRESHOLD_MS && now < absoluteCap) {
+      if (remainingMs < ROLL_THRESHOLD_MS && now < absoluteCap) {
         const newExpiry = new Date(
           Math.min(now.getTime() + SESSION_DURATION_MS, absoluteCap.getTime()),
         )
@@ -127,13 +129,16 @@ export const sessionPlugin = fp(
           .catch(() => {})
       }
 
-      // best-effort last_seen_at update
-      void app.db
-        .updateTable("users")
-        .set({ last_seen_at: sql`now()` })
-        .where("id", "=", row.userId)
-        .execute()
-        .catch(() => {})
+      // best-effort last_seen_at update — throttled to avoid a write on every request
+      const lastSeenAt = row.last_seen_at as unknown as Date
+      if (now.getTime() - lastSeenAt.getTime() > LAST_SEEN_THROTTLE_MS) {
+        void app.db
+          .updateTable("users")
+          .set({ last_seen_at: sql`now()` })
+          .where("id", "=", row.userId)
+          .execute()
+          .catch(() => {})
+      }
     })
 
     app.decorate("requireUser", async (request: FastifyRequest, reply: FastifyReply) => {
