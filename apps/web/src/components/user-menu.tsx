@@ -2,6 +2,7 @@
 
 import { googleStartUrl, postLogout } from "@/lib/auth"
 import { useUser } from "@/lib/use-user"
+import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "./ui/button"
@@ -93,17 +94,15 @@ export function UserMenu() {
       </button>
 
       {open && (
-        <div
-          className="absolute right-0 mt-2 w-44 rounded-md border bg-popover text-popover-foreground shadow-md z-50"
-        >
+        <div className="absolute right-0 mt-2 w-44 rounded-md border bg-popover text-popover-foreground shadow-md z-50">
           <div className="flex flex-col py-1">
-            <span
-              aria-disabled="true"
-              tabIndex={-1}
-              className="px-3 py-2 text-sm text-muted-foreground cursor-default select-none"
+            <Link
+              href="/me/requests"
+              onClick={() => setOpen(false)}
+              className="px-3 py-2 text-sm text-left hover:bg-accent hover:text-accent-foreground transition-colors"
             >
               My requests
-            </span>
+            </Link>
             <button
               type="button"
               onClick={handleSignOut}
