@@ -6,6 +6,7 @@ import { filterRulesRoutes } from "./filter-rules.js"
 import { healthRoutes } from "./health.js"
 import { homeRoutes } from "./home.js"
 import { playlistsRoutes } from "./playlists.js"
+import { requestsRoutes } from "./requests.js"
 import { searchRoutes } from "./search.js"
 import { topicsRoutes } from "./topics.js"
 import { videoDetailRoutes } from "./video-detail.js"
@@ -19,6 +20,7 @@ export async function registerRootRoutes(app: FastifyInstance): Promise<void> {
   await app.register(adminRoutes)
   await app.register(filterRulesRoutes)
   await app.register(authRoutes)
+  await app.register(requestsRoutes)
 }
 
 export async function registerTenantRoutes(app: FastifyInstance): Promise<void> {
