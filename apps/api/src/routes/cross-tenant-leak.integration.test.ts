@@ -44,6 +44,15 @@ vi.mock("../config.js", () => ({
     HOST: "0.0.0.0",
     CORS_ORIGIN: "http://localhost:3000",
     EMBEDDING_MODEL: TEST_EMBEDDING_MODEL,
+    GOOGLE_OAUTH_CLIENT_ID: "test-client-id",
+    GOOGLE_OAUTH_CLIENT_SECRET: "test-client-secret",
+    GOOGLE_OAUTH_REDIRECT_URI: "http://localhost:3001/v1/auth/google/callback",
+    COOKIE_SECRET: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    SESSION_COOKIE_NAME: "sermon_session",
+    STATE_COOKIE_NAME: "sermon_oauth_state",
+    WEB_BASE_URL: "http://localhost:3000",
+    COOKIE_SECURE: false,
+    SLUG_ALIAS_TTL_DAYS: 90,
   },
 }))
 
