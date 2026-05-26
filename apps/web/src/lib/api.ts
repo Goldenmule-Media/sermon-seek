@@ -10,7 +10,7 @@ import type {
   VideoDetailResponse,
 } from "@sermon-search/types"
 
-function apiBase(): string {
+export function apiBase(): string {
   return process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001"
 }
 
