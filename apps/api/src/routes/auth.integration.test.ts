@@ -122,7 +122,7 @@ describeIfDb("auth integration", () => {
       cookies: { [STATE_COOKIE]: stateCookieValue },
     })
     expect(callbackRes.statusCode).toBe(302)
-    expect(callbackRes.headers.location).toBe("/my-page")
+    expect(callbackRes.headers.location).toBe("http://localhost:3000/my-page")
 
     // Session cookie set
     const sessionCookieHeader = callbackRes.headers["set-cookie"]

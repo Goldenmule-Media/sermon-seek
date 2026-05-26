@@ -31,9 +31,12 @@ function safeStateCompare(a: string, b: string): boolean {
 
 function validateReturnTo(value: string | undefined): string {
   if (!value) return config.WEB_BASE_URL
-  // Accept relative paths only
-  if (/^\/[^/]/.test(value) || value === "/") return value
-  // Accept same-origin absolute URLs
+  // Accept relative paths — anchor them to the web origin, since the callback
+  // runs on the API origin and a bare "/foo" would otherwise redirect there.
+  if (/^\/[^/]/.test(value) || value === "/") {
+    return new URL(value, config.WEB_BASE_URL).toString()
+  }
+  // Accept same-origin absolute URLs (relative to the web app)
   try {
     const u = new URL(value)
     const base = new URL(config.WEB_BASE_URL)
