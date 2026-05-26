@@ -92,7 +92,7 @@ const renameChurchResponseSchema = z.object({
 })
 
 export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
-  app.addHook("preHandler", app.requireAdmin)
+  app.addHook("preHandler", app.requireAdminApiKey)
 
   app.post(
     "/admin/channels",
@@ -334,10 +334,7 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
             .select("id")
             .where("slug", "=", newSlug)
             .unionAll(
-              app.db
-                .selectFrom("church_slug_aliases")
-                .select("id")
-                .where("slug", "=", newSlug),
+              app.db.selectFrom("church_slug_aliases").select("id").where("slug", "=", newSlug),
             )
             .executeTakeFirst()
 

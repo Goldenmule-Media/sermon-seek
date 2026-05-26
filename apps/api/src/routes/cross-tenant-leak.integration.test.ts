@@ -339,7 +339,9 @@ describeIfDb("cross-tenant isolation", () => {
     })
 
     it("unknown church slug → 404", async () => {
-      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/transcript`)
+      const res = await app
+        .inject()
+        .get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/transcript`)
       expect(res.statusCode).toBe(404)
     })
   })
@@ -391,7 +393,9 @@ describeIfDb("cross-tenant isolation", () => {
     })
 
     it("unknown church slug → 404", async () => {
-      const res = await app.inject().get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/search?q=alpha`)
+      const res = await app
+        .inject()
+        .get(`/v1/no-such-church/videos/${seed.aOnlyYtVideoId}/search?q=alpha`)
       expect(res.statusCode).toBe(404)
     })
   })

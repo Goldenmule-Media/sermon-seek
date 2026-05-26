@@ -22,6 +22,8 @@ export interface Session {
   revoked_at: string | null
 }
 
+export type AuthMeResponse = Pick<User, "id" | "display_name" | "avatar_url" | "is_admin">
+
 export interface SearchHit {
   snippet: string
   start_ms: number

@@ -5,7 +5,7 @@ import { config } from "../config.js"
 
 declare module "fastify" {
   interface FastifyInstance {
-    requireAdmin: (request: FastifyRequest, reply: FastifyReply) => Promise<void>
+    requireAdminApiKey: (request: FastifyRequest, reply: FastifyReply) => Promise<void>
   }
 }
 
@@ -22,7 +22,7 @@ function safeEqual(a: string, b: string): boolean {
 
 export const adminAuthPlugin = fp(
   async (app) => {
-    app.decorate("requireAdmin", async (request: FastifyRequest, reply: FastifyReply) => {
+    app.decorate("requireAdminApiKey", async (request: FastifyRequest, reply: FastifyReply) => {
       const provided = request.headers["x-admin-key"]
       const expected = config.ADMIN_API_KEY
 

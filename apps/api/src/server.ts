@@ -1,3 +1,4 @@
+import cookie from "@fastify/cookie"
 import cors from "@fastify/cors"
 import swagger from "@fastify/swagger"
 import swaggerUi from "@fastify/swagger-ui"
@@ -13,6 +14,8 @@ import { adminAuthPlugin } from "./plugins/admin-auth.js"
 import { churchContextPlugin } from "./plugins/church-context.js"
 import { dbPlugin } from "./plugins/db.js"
 import { embedderPlugin } from "./plugins/embedder.js"
+import { googleOAuthPlugin } from "./plugins/google-oauth.js"
+import { sessionPlugin } from "./plugins/session.js"
 import { youtubePlugin } from "./plugins/youtube.js"
 import { registerRootRoutes, registerTenantRoutes } from "./routes/index.js"
 
@@ -22,6 +25,18 @@ export async function buildApp(): Promise<FastifyInstance> {
   }
   if (!config.YOUTUBE_API_KEY) {
     throw new Error("YOUTUBE_API_KEY is required when admin routes are mounted")
+  }
+  if (!config.GOOGLE_OAUTH_CLIENT_ID) {
+    throw new Error("GOOGLE_OAUTH_CLIENT_ID is required")
+  }
+  if (!config.GOOGLE_OAUTH_CLIENT_SECRET) {
+    throw new Error("GOOGLE_OAUTH_CLIENT_SECRET is required")
+  }
+  if (!config.GOOGLE_OAUTH_REDIRECT_URI) {
+    throw new Error("GOOGLE_OAUTH_REDIRECT_URI is required")
+  }
+  if (!config.COOKIE_SECRET) {
+    throw new Error("COOKIE_SECRET is required")
   }
 
   const app = Fastify({
@@ -35,6 +50,8 @@ export async function buildApp(): Promise<FastifyInstance> {
     origin: config.CORS_ORIGIN,
     credentials: true,
   })
+
+  await app.register(cookie, { secret: config.COOKIE_SECRET })
 
   await app.register(swagger, {
     openapi: {
@@ -59,6 +76,8 @@ export async function buildApp(): Promise<FastifyInstance> {
   await app.register(dbPlugin)
   await app.register(embedderPlugin)
   await app.register(youtubePlugin)
+  await app.register(googleOAuthPlugin)
+  await app.register(sessionPlugin)
   await app.register(churchContextPlugin)
 
   await app.register(
