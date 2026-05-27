@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "lint": "biome check src",
     "eval": "tsx --env-file=../../.env eval/score.ts",
-    "perf": "tsx --env-file=../../.env eval/perf.ts"
+    "perf": "tsx --env-file=../../.env eval/perf.ts",
+    "admin:grant": "tsx --env-file=../../.env src/cli/admin-grant.ts"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",

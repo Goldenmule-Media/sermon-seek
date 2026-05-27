@@ -65,12 +65,25 @@ services:
     #   docker compose exec worker pnpm worker:run --channel @JubileeChurchSTL
     command: ["tail", "-f", "/dev/null"]
 
+  admin:
+    build:
+      context: .
+      dockerfile: apps/admin/Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://sermonseek.ai}
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      api:
+        condition: service_healthy
+
   proxy:
     image: caddy:2-alpine
     restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
+      - "8443:8443"
     environment:
       DOMAIN: ${DOMAIN:-sermonseek.ai}
       ACME_EMAIL: ${ACME_EMAIL}

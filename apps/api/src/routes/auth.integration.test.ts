@@ -7,10 +7,11 @@ import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod
 import type { ZodTypeProvider } from "fastify-type-provider-zod"
 import type { Kysely } from "kysely"
 import { sql } from "kysely"
-import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
 import type { GoogleIdTokenClaims, GoogleOAuthClient } from "../plugins/google-oauth.js"
 import { hashToken, sessionPlugin } from "../plugins/session.js"
 import { authRoutes } from "./auth.js"
+import { config as mockConfig } from "../config.js"
 
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL
 const describeIfDb = TEST_DATABASE_URL ? describe : describe.skip
@@ -26,6 +27,7 @@ vi.mock("../config.js", () => ({
     WEB_BASE_URL: "http://localhost:3000",
     COOKIE_SECURE: false,
     SLUG_ALIAS_TTL_DAYS: 90,
+    ADMIN_ALLOWED_EMAILS: undefined as string | undefined,
   },
 }))
 
@@ -241,6 +243,68 @@ describeIfDb("auth integration", () => {
     const res = await app.inject({ method: "GET", url: "/me" })
     expect(res.statusCode).toBe(401)
     await app.close()
+  })
+
+  describe("ADMIN_ALLOWED_EMAILS auto-promotion", () => {
+    afterEach(() => {
+      mockConfig.ADMIN_ALLOWED_EMAILS = undefined
+    })
+
+    async function doFullCallback(app: Awaited<ReturnType<typeof buildApp>>) {
+      const startRes = await app.inject({ method: "GET", url: "/auth/google/start" })
+      const state = new URL(startRes.headers.location as string).searchParams.get("state") ?? ""
+      const stateCookieValue = (startRes.headers["set-cookie"] as string[])[0]
+        ?.split(";")[0]
+        ?.split("=")
+        .slice(1)
+        .join("=")
+      await app.inject({
+        method: "GET",
+        url: `/auth/google/callback?code=fake&state=${state}`,
+        cookies: { [STATE_COOKIE]: stateCookieValue },
+      })
+    }
+
+    it("auto-promotes a user on first sign-in when email is in ADMIN_ALLOWED_EMAILS", async () => {
+      mockConfig.ADMIN_ALLOWED_EMAILS = "test@example.com"
+      const app = await buildApp()
+      await doFullCallback(app)
+
+      const user = await db.selectFrom("users").selectAll().executeTakeFirst()
+      expect(user?.is_admin).toBe(true)
+      await app.close()
+    })
+
+    it("does not promote a user whose email is NOT in ADMIN_ALLOWED_EMAILS", async () => {
+      mockConfig.ADMIN_ALLOWED_EMAILS = "other@example.com"
+      const app = await buildApp()
+      await doFullCallback(app)
+
+      const user = await db.selectFrom("users").selectAll().executeTakeFirst()
+      expect(user?.is_admin).toBe(false)
+      await app.close()
+    })
+
+    it("does not demote a previously-promoted user when email is removed from the list", async () => {
+      // First sign-in: promoted
+      mockConfig.ADMIN_ALLOWED_EMAILS = "test@example.com"
+      const app1 = await buildApp()
+      await doFullCallback(app1)
+      await app1.close()
+
+      // Manually verify is_admin=true
+      const before = await db.selectFrom("users").selectAll().executeTakeFirst()
+      expect(before?.is_admin).toBe(true)
+
+      // Second sign-in: email removed from list
+      mockConfig.ADMIN_ALLOWED_EMAILS = undefined
+      const app2 = await buildApp()
+      await doFullCallback(app2)
+      await app2.close()
+
+      const after = await db.selectFrom("users").selectAll().executeTakeFirst()
+      expect(after?.is_admin).toBe(true) // still admin
+    })
   })
 
   it("/callback rejects mismatched state", async () => {

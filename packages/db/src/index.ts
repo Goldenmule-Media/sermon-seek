@@ -44,6 +44,33 @@ export interface SessionsTable {
   revoked_at: Timestamptz | null
 }
 
+export interface AdminAuditLogTable {
+  id: Generated<string>
+  user_id: string | null
+  action: string
+  target_type: string
+  target_id: string
+  payload: ColumnType<unknown | null, unknown | null, unknown | null>
+  created_at: Generated<Timestamptz>
+}
+
+export type WorkerHeartbeatStatus = "idle" | "busy" | "error"
+
+export interface WorkerHeartbeatsTable {
+  worker_id: string
+  kind: string
+  last_beat_at: Timestamptz
+  last_job_id: string | null
+  status: WorkerHeartbeatStatus
+  message: string | null
+}
+
+export interface SystemRunsTable {
+  kind: string
+  last_run_at: Timestamptz
+  last_status: string
+}
+
 export interface ChurchesTable {
   id: Generated<string>
   slug: string
@@ -241,6 +268,7 @@ export interface ChannelFilterRulesTable {
 export interface Database {
   users: UsersTable
   sessions: SessionsTable
+  admin_audit_log: AdminAuditLogTable
   churches: ChurchesTable
   ingestion_requests: IngestionRequestsTable
   church_slug_aliases: ChurchSlugAliasesTable
@@ -262,6 +290,8 @@ export interface Database {
   video_scripture_refs: VideoScriptureRefsTable
   related_videos: RelatedVideosTable
   channel_filter_rules: ChannelFilterRulesTable
+  worker_heartbeats: WorkerHeartbeatsTable
+  system_runs: SystemRunsTable
 }
 
 export type UserRow = Selectable<UsersTable>
@@ -271,6 +301,10 @@ export type UserUpdate = Updateable<UsersTable>
 export type SessionRow = Selectable<SessionsTable>
 export type SessionInsert = Insertable<SessionsTable>
 export type SessionUpdate = Updateable<SessionsTable>
+
+export type AdminAuditLogRow = Selectable<AdminAuditLogTable>
+export type AdminAuditLogInsert = Insertable<AdminAuditLogTable>
+export type AdminAuditLogUpdate = Updateable<AdminAuditLogTable>
 
 export type ChurchRow = Selectable<ChurchesTable>
 export type ChurchInsert = Insertable<ChurchesTable>
@@ -343,6 +377,14 @@ export type RelatedVideoUpdate = Updateable<RelatedVideosTable>
 export type ChannelFilterRuleRow = Selectable<ChannelFilterRulesTable>
 export type ChannelFilterRuleInsert = Insertable<ChannelFilterRulesTable>
 export type ChannelFilterRuleUpdate = Updateable<ChannelFilterRulesTable>
+
+export type WorkerHeartbeatRow = Selectable<WorkerHeartbeatsTable>
+export type WorkerHeartbeatInsert = Insertable<WorkerHeartbeatsTable>
+export type WorkerHeartbeatUpdate = Updateable<WorkerHeartbeatsTable>
+
+export type SystemRunRow = Selectable<SystemRunsTable>
+export type SystemRunInsert = Insertable<SystemRunsTable>
+export type SystemRunUpdate = Updateable<SystemRunsTable>
 
 export function resolveDatabaseUrl(connectionString?: string): string {
   const url = connectionString ?? process.env.DATABASE_URL

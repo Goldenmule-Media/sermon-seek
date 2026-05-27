@@ -152,11 +152,22 @@ journalctl -u 'sermon-search-alert@*' -n 20 --no-pager
 
 ### What it does
 
-`sermon-search.conf` is a drop-in nginx snippet that implements path-prefix
-multi-tenancy routing (see the [Per-church namespacing wiki page][wiki]):
+`sermon-search.conf` is a **complete nginx config** containing two `server {}`
+blocks:
 
-- `/<church>/...` — proxied to the Next.js app **with** `X-Church-Slug: <church>` set.
-- `/`, `/about`, `/privacy`, `/terms`, `/_next/...` — proxied **without** `X-Church-Slug`.
+- **`:443`** — public site (`app:3000`): implements path-prefix multi-tenancy
+  routing (see the [Per-church namespacing wiki page][wiki]):
+  - `/<church>/...` — proxied **with** `X-Church-Slug: <church>` set.
+  - `/`, `/about`, `/privacy`, `/terms`, `/_next/...` — proxied **without**
+    `X-Church-Slug`.
+
+- **`:8443`** — admin panel (`admin:3000`): a single `location /` block that
+  proxies all paths to the admin container. No church-slug routing — the admin
+  app owns its entire path space (`/`, `/requests`, `/churches`, etc.)
+  independently of the public site.
+
+Both blocks share the same TLS certificate (SAN-ready if a separate admin
+hostname is added later).
 
 The church-prefix regex `[a-z0-9-]+` requires at least one character, so a
 bare `/` request never matches it and falls through to the exact-match locations.
@@ -168,7 +179,7 @@ bare `/` request never matches it and falls through to the exact-match locations
 - The API also reads `X-Church-Slug` and cross-checks it against the `:church`
   path param. A mismatch returns HTTP 400; an unknown slug returns 404.
 
-### Dropping the snippet into your prod nginx config
+### Deploying the config
 
 1. Copy the file into your server's nginx config directory, e.g.:
 
@@ -176,36 +187,32 @@ bare `/` request never matches it and falls through to the exact-match locations
    /etc/nginx/sites-available/sermon-search.conf
    ```
 
-2. Wrap it in a `server` block (supply your own TLS config):
+2. Substitute `${DOMAIN}` and adjust the `ssl_certificate` / `ssl_certificate_key`
+   paths to match your cert management (Certbot default paths are already in
+   the file). You can use `envsubst` at deploy time:
 
-   ```nginx
-   server {
-       listen 443 ssl;
-       server_name example.com;
-
-       # TLS — out of scope here; configure certbot / managed cert separately.
-
-       include /etc/nginx/sites-available/sermon-search.conf;
-   }
+   ```bash
+   envsubst '${DOMAIN}' < sermon-search.conf > /etc/nginx/sites-available/sermon-search.conf
    ```
 
-3. Point `upstream app` at your Next.js container. The default is `app:3000`
-   (the service name in a Docker Compose stack). Change it to match your
-   environment:
+3. Enable the site and reload:
+
+   ```bash
+   ln -s /etc/nginx/sites-available/sermon-search.conf /etc/nginx/sites-enabled/
+   nginx -t && nginx -s reload
+   ```
+
+4. The `upstream` blocks default to compose service names (`app:3000`,
+   `admin:3000`). For bare-metal / systemd deployments, change them to match
+   your environment:
 
    ```nginx
    upstream app {
-       server 127.0.0.1:3000;  # bare-metal / systemd
+       server 127.0.0.1:3000;
    }
-   ```
-
-   Or use `envsubst` to substitute at deploy time if you manage the config
-   as a template.
-
-4. Test and reload:
-
-   ```bash
-   nginx -t && nginx -s reload
+   upstream admin {
+       server 127.0.0.1:3002;
+   }
    ```
 
 ### Adding more root-level (non-church) routes

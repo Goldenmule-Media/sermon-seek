@@ -11,6 +11,7 @@ import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { sql } from "kysely"
 import { z } from "zod"
 import { config } from "../config.js"
+import { auditActor, auditWrite } from "../lib/audit.js"
 import { resolveChurchOrReply } from "../plugins/church-context.js"
 
 const churchSlugSchema = z.string().min(1)
@@ -92,7 +93,7 @@ const renameChurchResponseSchema = z.object({
 })
 
 export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
-  app.addHook("preHandler", app.requireAdminApiKey)
+  app.addHook("preHandler", app.requireAdminOrApiKey)
 
   app.post(
     "/admin/channels",
@@ -121,10 +122,7 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
         .insertInto("channels")
         .values({ youtube_channel_id: resolved.youtubeChannelId, title: resolved.title })
         .onConflict((oc) =>
-          oc
-            .column("youtube_channel_id")
-            .doUpdateSet({ title: resolved.title })
-            .where("channels.church_id", "=", church.id),
+          oc.columns(["church_id", "youtube_channel_id"]).doUpdateSet({ title: resolved.title }),
         )
         .returning(["id", "youtube_channel_id", "title", "ingested_at"])
         .executeTakeFirst()
@@ -132,6 +130,21 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
       if (!row) {
         return reply.code(409).send({ error: "Channel is already registered to another church" })
       }
+
+      const { user_id, actor } = auditActor(request)
+      await auditWrite(app.db, {
+        user_id,
+        action: "channel.register",
+        target_type: "channel",
+        target_id: row.id,
+        payload: {
+          actor,
+          churchSlug,
+          handle,
+          youtubeChannelId,
+          youtube_channel_id: resolved.youtubeChannelId,
+        },
+      })
 
       return reply.send({
         id: row.id,
@@ -201,6 +214,21 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
         }
       }
 
+      const { user_id: refreshUserId, actor: refreshActor } = auditActor(request)
+      await auditWrite(app.db, {
+        user_id: refreshUserId,
+        action: "ingest.refresh",
+        target_type: "church",
+        target_id: church.id,
+        payload: {
+          actor: refreshActor,
+          churchSlug,
+          force,
+          channel,
+          channels: results.map((r) => r.youtubeChannelId),
+        },
+      })
+
       return reply.send({ channels: results })
     },
   )
@@ -223,11 +251,48 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
       const church = await resolveChurchOrReply(app, churchSlug, reply)
       if (!church) return
 
-      const summary = await runViewStats({
-        db: app.db,
-        client: app.youtube,
-        churchId: church.id,
+      let summary: Awaited<ReturnType<typeof runViewStats>>
+      try {
+        summary = await runViewStats({
+          db: app.db,
+          client: app.youtube,
+          churchId: church.id,
+        })
+      } catch (err) {
+        try {
+          await app.db
+            .insertInto("system_runs")
+            .values({ kind: "view-stats", last_run_at: sql`now()`, last_status: "failed" })
+            .onConflict((oc) =>
+              oc.column("kind").doUpdateSet({ last_run_at: sql`now()`, last_status: "failed" }),
+            )
+            .execute()
+        } catch {
+          // best-effort — don't mask the original error
+        }
+        throw err
+      }
+      try {
+        await app.db
+          .insertInto("system_runs")
+          .values({ kind: "view-stats", last_run_at: sql`now()`, last_status: "success" })
+          .onConflict((oc) =>
+            oc.column("kind").doUpdateSet({ last_run_at: sql`now()`, last_status: "success" }),
+          )
+          .execute()
+      } catch {
+        // best-effort
+      }
+
+      const { user_id: vsUserId, actor: vsActor } = auditActor(request)
+      await auditWrite(app.db, {
+        user_id: vsUserId,
+        action: "ingest.view_stats",
+        target_type: "church",
+        target_id: church.id,
+        payload: { actor: vsActor, churchSlug },
       })
+
       return reply.send(summary)
     },
   )
@@ -279,9 +344,31 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
         churchId: church.id,
       })
 
+      const { user_id: rtUserId, actor: rtActor } = auditActor(request)
+
       if (result.status === "no_captions") {
+        await auditWrite(app.db, {
+          user_id: rtUserId,
+          action: "video.retranscribe",
+          target_type: "video",
+          target_id: id,
+          payload: { actor: rtActor, churchSlug, outcome: "no_captions", video_uuid: video.id },
+        })
         return reply.code(422).send({ error: "No captions available for this video" })
       }
+
+      await auditWrite(app.db, {
+        user_id: rtUserId,
+        action: "video.retranscribe",
+        target_type: "video",
+        target_id: id,
+        payload: {
+          actor: rtActor,
+          churchSlug,
+          transcriptId: result.transcriptId,
+          video_uuid: video.id,
+        },
+      })
 
       return reply.send({ transcriptId: result.transcriptId })
     },
@@ -344,6 +431,8 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
         }
       }
 
+      const { user_id: renameUserId, actor: renameActor } = auditActor(request)
+
       await app.db.transaction().execute(async (trx) => {
         if (slugChanged) {
           await trx
@@ -361,6 +450,20 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
         if (newName !== undefined) updates.name = newName
 
         await trx.updateTable("churches").set(updates).where("id", "=", id).execute()
+
+        await auditWrite(trx, {
+          user_id: renameUserId,
+          action: "church.rename",
+          target_type: "church",
+          target_id: id,
+          payload: {
+            actor: renameActor,
+            previous_slug: currentSlug,
+            new_slug: newSlug ?? null,
+            new_name: newName ?? null,
+            slug_changed: slugChanged,
+          },
+        })
       })
 
       if (slugChanged) {

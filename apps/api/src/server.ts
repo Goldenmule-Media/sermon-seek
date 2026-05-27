@@ -74,12 +74,12 @@ export async function buildApp(): Promise<FastifyInstance> {
     transform: jsonSchemaTransform,
   })
 
-  await app.register(adminAuthPlugin)
   await app.register(dbPlugin)
   await app.register(embedderPlugin)
   await app.register(youtubePlugin)
   await app.register(googleOAuthPlugin)
   await app.register(sessionPlugin)
+  await app.register(adminAuthPlugin)
   await app.register(rateLimitPlugin)
   await app.register(churchContextPlugin)
 

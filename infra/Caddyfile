@@ -17,3 +17,17 @@
     reverse_proxy web:3000
   }
 }
+
+# Admin panel — same hostname, separate external port.
+# No church-slug routing; the admin app owns its entire path space.
+{$DOMAIN:sermonseek.ai}:8443 {
+  encode gzip
+
+  handle /_health {
+    respond "ok" 200
+  }
+
+  handle {
+    reverse_proxy admin:3000
+  }
+}

@@ -155,6 +155,7 @@ describeIfDb("runIngestionRequest (integration)", () => {
     await sql`TRUNCATE ingestion_requests RESTART IDENTITY CASCADE`.execute(db)
     await sql`TRUNCATE churches RESTART IDENTITY CASCADE`.execute(db)
     await sql`TRUNCATE users RESTART IDENTITY CASCADE`.execute(db)
+    await sql`TRUNCATE worker_heartbeats`.execute(db)
 
     // Insert a test user
     const user = await db
@@ -181,8 +182,6 @@ describeIfDb("runIngestionRequest (integration)", () => {
       .returning(["id"])
       .executeTakeFirstOrThrow()
 
-    const spawner = makeFakeSpawner()
-
     await runIngestionRequest({
       db,
       client: makeFakeClient(),
@@ -192,6 +191,7 @@ describeIfDb("runIngestionRequest (integration)", () => {
       notificationConfig: { from: "noreply@test.com" },
       webBaseUrl: "http://localhost:3000",
       requestId: req.id,
+      workerId: "test-runner:1",
       log: () => {},
       // inject spawner via dynamic module override isn't easily done here,
       // so we accept that ingestVideoTranscript uses its default spawner path,
@@ -221,6 +221,17 @@ describeIfDb("runIngestionRequest (integration)", () => {
     expect(church.status).toBe("active")
     expect(church.slug).toBe("runner-int-church")
     expect(church.youtube_channel_id).toBe(CHANNEL_ID)
+
+    // Heartbeat row was written
+    const hb = await db
+      .selectFrom("worker_heartbeats")
+      .selectAll()
+      .where("worker_id", "=", "test-runner:1")
+      .executeTakeFirst()
+    expect(hb).toBeDefined()
+    expect(hb?.kind).toBe("ingest")
+    expect(hb?.last_job_id).toBe(req.id)
+    expect(hb?.status).toBe("idle")
   }, 30_000)
 
   it("resumes cleanly on re-run with status=approved: completes without hitting cap", async () => {
@@ -370,6 +381,7 @@ describeIfDb("runIngestionRequest (integration)", () => {
         notificationConfig: { from: "noreply@test.com" },
         webBaseUrl: "http://localhost:3000",
         requestId: req.id,
+        workerId: "test-runner:fail",
         log: () => {},
       }),
     ).rejects.toThrow("YouTube quota exceeded")
@@ -382,5 +394,15 @@ describeIfDb("runIngestionRequest (integration)", () => {
 
     expect(updatedReq.status).toBe("failed")
     expect(updatedReq.admin_note).toContain("YouTube quota exceeded")
+
+    // Heartbeat row written with error status
+    const hb = await db
+      .selectFrom("worker_heartbeats")
+      .selectAll()
+      .where("worker_id", "=", "test-runner:fail")
+      .executeTakeFirst()
+    expect(hb).toBeDefined()
+    expect(hb?.status).toBe("error")
+    expect(hb?.last_job_id).toBe(req.id)
   }, 30_000)
 })
