@@ -109,7 +109,7 @@ const post429Schema = z.object({
   error: z.string(),
   retry_after_seconds: z.number(),
 })
-const errorSchema = z.object({ error: z.string() })
+const errorSchema = z.object({ error: z.string(), sign_in_url: z.string().optional() })
 
 const slugParamsSchema = z.object({
   slug: z.string().min(1).max(64),

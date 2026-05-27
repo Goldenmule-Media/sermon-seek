@@ -94,7 +94,7 @@ export const meRequestsRoutes: FastifyPluginAsyncZod = async (app) => {
         querystring: listQuerySchema,
         response: {
           200: listResponseSchema,
-          401: z.object({ error: z.string() }),
+          401: z.object({ error: z.string(), sign_in_url: z.string().optional() }),
         },
       },
     },
@@ -153,7 +153,7 @@ export const meRequestsRoutes: FastifyPluginAsyncZod = async (app) => {
         params: detailParamsSchema,
         response: {
           200: detailResponseSchema,
-          401: z.object({ error: z.string() }),
+          401: z.object({ error: z.string(), sign_in_url: z.string().optional() }),
           403: z.object({ error: z.string() }),
           404: z.object({ error: z.string() }),
         },

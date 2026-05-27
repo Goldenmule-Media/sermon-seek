@@ -92,7 +92,7 @@ const denyResponseSchema = z.object({
   status: z.string(),
 })
 
-const errorSchema = z.object({ error: z.string() })
+const errorSchema = z.object({ error: z.string(), sign_in_url: z.string().optional() })
 const conflictSchema = z.object({ error: z.string(), current_status: z.string() })
 
 // --- Dependency injection ---
