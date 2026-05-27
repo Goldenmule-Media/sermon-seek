@@ -22,6 +22,13 @@ async function lookupSlugCollision(db: Kysely<Database>, slug: string): Promise<
     .select("id")
     .where("slug", "=", slug)
     .unionAll(db.selectFrom("church_slug_aliases").select("id").where("slug", "=", slug))
+    .unionAll(
+      db
+        .selectFrom("ingestion_requests")
+        .select("id")
+        .where("requested_slug", "=", slug)
+        .where("status", "not in", ["denied", "failed", "complete"]),
+    )
     .limit(1)
     .executeTakeFirst()
   return hit !== undefined
@@ -92,7 +99,7 @@ const postBodySchema = z.object({
 const post201Schema = z.object({
   request_id: z.string(),
   status_url: z.string(),
-  search_url: z.string(),
+  search_url: z.string().nullable(),
 })
 
 const post400Schema = z.object({ error: z.string(), reason: z.string().optional() })
@@ -276,7 +283,7 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
         return reply.code(201).send({
           request_id: row.id,
           status_url: statusUrlFor(row.id),
-          search_url: searchUrlFor(requested_slug),
+          search_url: null,
         })
       },
     )

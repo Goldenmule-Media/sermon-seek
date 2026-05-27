@@ -53,9 +53,17 @@ export default function RequestDetailPage() {
 
   const [pageState, setPageState] = useState<PageState>({ kind: "loading" })
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const abortRef = useRef<AbortController | null>(null)
 
   const load = useCallback(async () => {
-    const { status, body } = await fetchMyRequest(id)
+    // Abort any in-flight fetch so stale responses don't overwrite newer ones.
+    abortRef.current?.abort()
+    const controller = new AbortController()
+    abortRef.current = controller
+
+    const { status, body } = await fetchMyRequest(id, controller.signal)
+    if (controller.signal.aborted) return
+
     if (status === 401) {
       setPageState({ kind: "auth" })
       if (intervalRef.current) clearInterval(intervalRef.current)
@@ -86,6 +94,7 @@ export default function RequestDetailPage() {
     intervalRef.current = setInterval(load, POLL_INTERVAL_MS)
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
+      abortRef.current?.abort()
     }
   }, [user, userStatus, load])
 

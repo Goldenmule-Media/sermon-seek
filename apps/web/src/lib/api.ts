@@ -218,14 +218,19 @@ export async function fetchMyRequests(
 
 export async function fetchMyRequest(
   id: string,
+  signal?: AbortSignal,
 ): Promise<{ status: number; body: IngestionRequestDetail | { error: string } }> {
   try {
     const res = await fetch(`${apiBase()}/v1/me/requests/${encodeURIComponent(id)}`, {
       credentials: "include",
+      signal,
     })
     const body = await res.json()
     return { status: res.status, body: body as IngestionRequestDetail | { error: string } }
-  } catch {
+  } catch (err) {
+    if (err instanceof Error && err.name === "AbortError") {
+      return { status: 0, body: { error: "aborted" } }
+    }
     return { status: 0, body: { error: "network_error" } }
   }
 }

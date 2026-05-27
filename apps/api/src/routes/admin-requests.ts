@@ -124,10 +124,13 @@ function makeDefaultDeps(): AdminRequestsRouteDeps {
 // --- Plugin factory ---
 
 export function createAdminRequestsRoutes(
-  deps: AdminRequestsRouteDeps = makeDefaultDeps(),
+  deps?: AdminRequestsRouteDeps,
 ): FastifyPluginAsyncZod {
   return async (app) => {
-    const { sender, notificationConfig, notifyFn, webBaseUrl } = deps
+    // Resolve deps lazily (inside the plugin body) so that loadConfigFromEnv()
+    // and createEmailSender() are not called at module-import time when no deps
+    // are supplied — e.g. from tooling that doesn't intend to send mail.
+    const { sender, notificationConfig, notifyFn, webBaseUrl } = deps ?? makeDefaultDeps()
     const tokensCap = config.LIMITED_INGEST_TOKEN_CAP
 
     async function buildSearchUrlForRequest(
@@ -273,7 +276,11 @@ export function createAdminRequestsRoutes(
           return reply.code(404).send({ error: "not_found" })
         }
 
-        // Load discovered playlists if linked to a church
+        // Load discovered playlists if linked to a church.
+        // TODO: playlists are keyed by church_id only; a church that gets
+        // re-ingested after a deny+re-request cycle may retain stale rows from
+        // the prior run.  Filter by current channel_id or add a generation
+        // column to bound the staleness window.
         const playlists = row.church_id
           ? await app.db
               .selectFrom("playlists")
