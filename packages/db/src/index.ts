@@ -44,6 +44,16 @@ export interface SessionsTable {
   revoked_at: Timestamptz | null
 }
 
+export interface AdminAuditLogTable {
+  id: Generated<string>
+  user_id: string | null
+  action: string
+  target_type: string
+  target_id: string
+  payload: ColumnType<unknown | null, unknown | null, unknown | null>
+  created_at: Generated<Timestamptz>
+}
+
 export interface ChurchesTable {
   id: Generated<string>
   slug: string
@@ -241,6 +251,7 @@ export interface ChannelFilterRulesTable {
 export interface Database {
   users: UsersTable
   sessions: SessionsTable
+  admin_audit_log: AdminAuditLogTable
   churches: ChurchesTable
   ingestion_requests: IngestionRequestsTable
   church_slug_aliases: ChurchSlugAliasesTable
@@ -271,6 +282,10 @@ export type UserUpdate = Updateable<UsersTable>
 export type SessionRow = Selectable<SessionsTable>
 export type SessionInsert = Insertable<SessionsTable>
 export type SessionUpdate = Updateable<SessionsTable>
+
+export type AdminAuditLogRow = Selectable<AdminAuditLogTable>
+export type AdminAuditLogInsert = Insertable<AdminAuditLogTable>
+export type AdminAuditLogUpdate = Updateable<AdminAuditLogTable>
 
 export type ChurchRow = Selectable<ChurchesTable>
 export type ChurchInsert = Insertable<ChurchesTable>
