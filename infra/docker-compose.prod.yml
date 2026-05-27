@@ -83,6 +83,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "8443:8443"
     environment:
       DOMAIN: ${DOMAIN:-sermonseek.ai}
       ACME_EMAIL: ${ACME_EMAIL}
