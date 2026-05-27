@@ -324,6 +324,58 @@ describe("runIngestionRequest", () => {
     expect(calls[0][1]).toBe("failed")
   })
 
+  it("seeds counters from persisted row on approved resume (not reset to 0)", async () => {
+    const { runIngestionRequest } = await import("./runner.js")
+    const { countTranscriptTokens } = await import("./limited-ingest-token-cap.js")
+    // Each video costs 100 tokens (default mock). Persisted row has 800k tokens and 1 video already.
+    ;(countTranscriptTokens as Mock).mockReturnValue(100)
+
+    const db = buildDb(
+      makeRequest({
+        church_id: "church-1",
+        status: "approved",
+        tokens_ingested: "800000", // bigint arrives from DB as a string
+        videos_ingested: 1,
+      }),
+      { id: "church-1", slug: "testchurch", status: "pending" },
+    )
+
+    // Inject one candidate video so the loop runs at least once
+    const fakeVideos = [{ id: "v1", youtube_video_id: "yt1", title: "Sermon 1", church_id: "church-1" }]
+    const origSelectFrom = db.selectFrom.bind(db)
+    db.selectFrom = (table: string) => {
+      if (table === "videos") {
+        return {
+          selectAll: () => db.selectFrom(table),
+          select: () => ({
+            where: () => ({
+              where: () => ({
+                orderBy: () => ({
+                  execute: async () => fakeVideos,
+                }),
+              }),
+            }),
+          }),
+          where: () => ({
+            where: () => ({
+              execute: async () => fakeVideos,
+            }),
+          }),
+          execute: async () => fakeVideos,
+          executeTakeFirst: async () => fakeVideos[0],
+          executeTakeFirstOrThrow: async () => fakeVideos[0] ?? (() => { throw new Error("not found") })(),
+        } as ReturnType<typeof db.selectFrom>
+      }
+      return origSelectFrom(table)
+    }
+
+    await runIngestionRequest(makeOpts(db))
+
+    // Counters must NOT be reset to 0; they advance from the persisted baseline
+    expect(db._req.tokens_ingested).toBeGreaterThanOrEqual(800000)
+    expect(db._req.videos_ingested).toBeGreaterThanOrEqual(2)
+  })
+
   it("runs uncapped when status is 'approved' (resume path)", async () => {
     const { runIngestionRequest } = await import("./runner.js")
     const { countTranscriptTokens } = await import("./limited-ingest-token-cap.js")

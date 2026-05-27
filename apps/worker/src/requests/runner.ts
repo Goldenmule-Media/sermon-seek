@@ -375,8 +375,8 @@ async function runPipeline({
   let allVideoTopics = await loadVideoTopics(db, churchId)
   let allVideoRefs = await loadVideoRefs(db, churchId)
 
-  let tokensIngested = 0
-  let videosIngested = 0
+  let tokensIngested = request.tokens_ingested
+  let videosIngested = request.videos_ingested
   let capHit = false
 
   for (const video of candidates) {

@@ -283,6 +283,61 @@ describeIfDb("runIngestionRequest (integration)", () => {
     expect(updatedChurch.status).toBe("active")
   }, 30_000)
 
+  it("resumes with pre-seeded counters: tokens_ingested and videos_ingested advance from the persisted baseline", async () => {
+    // Simulate a prior capped run that already processed one video and accumulated 750k tokens.
+    const church = await db
+      .insertInto("churches")
+      .values({
+        slug: "runner-int-resume-counters",
+        name: "Runner Int Resume Counters",
+        youtube_channel_id: CHANNEL_ID,
+        status: "pending",
+      })
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
+
+    const req = await db
+      .insertInto("ingestion_requests")
+      .values({
+        user_id: testUserId,
+        church_id: church.id,
+        requested_slug: "runner-int-resume-counters",
+        requested_name: "Runner Int Resume Counters",
+        youtube_handle_or_url: "@RunnerIntTest",
+        contact_email: "test@example.com",
+        status: "approved",
+        tokens_ingested: 750000,
+        videos_discovered: 2,
+        videos_ingested: 1,
+      })
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
+
+    await runIngestionRequest({
+      db,
+      client: makeFakeClient(),
+      embedder: makeFakeEmbedder(),
+      enricher: makeFakeEnricher(),
+      sender: createLogSender(),
+      notificationConfig: { from: "noreply@test.com" },
+      webBaseUrl: "http://localhost:3000",
+      requestId: req.id,
+      tokenCap: Number.POSITIVE_INFINITY,
+      log: () => {},
+    })
+
+    const updatedReq = await db
+      .selectFrom("ingestion_requests")
+      .selectAll()
+      .where("id", "=", req.id)
+      .executeTakeFirstOrThrow()
+
+    // Counters must advance from the persisted baseline, not be reset to 0
+    expect(Number(updatedReq.tokens_ingested)).toBeGreaterThanOrEqual(750000)
+    expect(updatedReq.videos_ingested).toBeGreaterThanOrEqual(1)
+    expect(updatedReq.status).toBe("complete")
+  }, 30_000)
+
   it("sets status=failed and stores admin_note when pipeline throws", async () => {
     const req = await db
       .insertInto("ingestion_requests")
