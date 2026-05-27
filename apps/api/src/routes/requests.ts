@@ -57,6 +57,10 @@ interface InFlightRequest {
   user_id: string
 }
 
+// NOTE: Only finds requests that already have church_id set. A freshly-submitted
+// request has church_id=null until the worker creates the church row on its first
+// run, so the YouTube-channel dedupe window doesn't open until then.
+// Follow-up: widen to non-terminal requests sharing the same resolved youtube_channel_id.
 async function lookupInFlightRequestForChurch(
   db: Kysely<Database>,
   churchId: string,
@@ -96,6 +100,11 @@ const postBodySchema = z.object({
   contact_email: z.string().email(),
 })
 
+/**
+ * `search_url` is always null at submit time because `church_id` is not yet
+ * populated — the worker links the church row on its first run and the status
+ * page falls back to `/${requested_slug}/` until then.
+ */
 const post201Schema = z.object({
   request_id: z.string(),
   status_url: z.string(),

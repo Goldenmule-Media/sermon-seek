@@ -136,7 +136,9 @@ export default function RequestDetailPage() {
   const isComplete = req.status === "complete"
 
   const videosProgress =
-    req.videos_discovered > 0 ? (req.videos_ingested / req.videos_discovered) * 100 : 0
+    req.videos_discovered > 0
+      ? Math.min((req.videos_ingested / req.videos_discovered) * 100, 100)
+      : 0
   const tokensProgress =
     req.tokens_cap > 0 ? Math.min((req.tokens_ingested / req.tokens_cap) * 100, 100) : 0
 
