@@ -21,7 +21,6 @@ const recentIngestSchema = z.object({
 const summaryResponseSchema = z.object({
   requests: requestCountsSchema,
   recent_ingests: z.array(recentIngestSchema),
-  // null until the worker-heartbeat card wires in the system_runs table
   last_view_stats_at: z.string().nullable(),
   last_smoke_test_at: z.string().nullable(),
   active_users: z.number(),
@@ -46,7 +45,7 @@ function createDashboardSummaryRoutes(): FastifyPluginAsyncZod {
         },
       },
       async (_request, reply) => {
-        const [statusRows, recentRows, userCountRow] = await Promise.all([
+        const [statusRows, recentRows, userCountRow, systemRows] = await Promise.all([
           app.db
             .selectFrom("ingestion_requests")
             .select(["status", sql<number>`count(*)::int`.as("count")])
@@ -71,9 +70,16 @@ function createDashboardSummaryRoutes(): FastifyPluginAsyncZod {
             .select(sql<number>`count(*)::int`.as("count"))
             .where("status", "=", "active")
             .executeTakeFirstOrThrow(),
+
+          app.db
+            .selectFrom("system_runs")
+            .selectAll()
+            .where("kind", "in", ["view-stats", "smoke-test"])
+            .execute(),
         ])
 
         const countByStatus = Object.fromEntries(statusRows.map((r) => [r.status, r.count]))
+        const systemByKind = new Map(systemRows.map((r) => [r.kind, r]))
 
         return reply.send({
           requests: {
@@ -90,8 +96,18 @@ function createDashboardSummaryRoutes(): FastifyPluginAsyncZod {
             status: r.status,
             updated_at: (r.updated_at as unknown as Date).toISOString(),
           })),
-          last_view_stats_at: null,
-          last_smoke_test_at: null,
+          last_view_stats_at: (() => {
+            const r = systemByKind.get("view-stats")
+            if (!r) return null
+            const d = r.last_run_at instanceof Date ? r.last_run_at : new Date(r.last_run_at as string)
+            return d.toISOString()
+          })(),
+          last_smoke_test_at: (() => {
+            const r = systemByKind.get("smoke-test")
+            if (!r) return null
+            const d = r.last_run_at instanceof Date ? r.last_run_at : new Date(r.last_run_at as string)
+            return d.toISOString()
+          })(),
           active_users: userCountRow.count,
         })
       },
