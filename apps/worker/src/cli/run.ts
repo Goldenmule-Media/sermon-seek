@@ -281,6 +281,17 @@ export async function main(argv: readonly string[]): Promise<number> {
     }
     const model = process.env.ENRICHMENT_MODEL ?? "gpt-4o-mini"
     const webBaseUrl = process.env.WEB_BASE_URL ?? "http://localhost:3000"
+    let tokenCap: number | undefined
+    if (process.env.LIMITED_INGEST_TOKEN_CAP !== undefined) {
+      const parsedCap = Number(process.env.LIMITED_INGEST_TOKEN_CAP)
+      if (!Number.isInteger(parsedCap) || parsedCap <= 0) {
+        console.error(
+          `LIMITED_INGEST_TOKEN_CAP must be a positive integer; got '${process.env.LIMITED_INGEST_TOKEN_CAP}'`,
+        )
+        return 2
+      }
+      tokenCap = parsedCap
+    }
     const db = createDb()
     try {
       const notificationConfig = loadConfigFromEnv()
@@ -293,6 +304,7 @@ export async function main(argv: readonly string[]): Promise<number> {
         notificationConfig,
         webBaseUrl,
         requestId: parsed.request,
+        tokenCap,
         log: console.log,
       })
       console.log(JSON.stringify(summary, null, 2))
