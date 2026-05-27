@@ -1,5 +1,6 @@
 import type { FastifyInstance } from "fastify"
 import { adminChurchesRoutes } from "./admin-churches.js"
+import { dashboardSummaryRoutes } from "./admin-dashboard.js"
 import { adminRequestsRoutes } from "./admin-requests.js"
 import { adminRoutes } from "./admin.js"
 import { authRoutes } from "./auth.js"
@@ -27,6 +28,7 @@ export async function registerRootRoutes(app: FastifyInstance): Promise<void> {
   await app.register(meRequestsRoutes)
   await app.register(adminRequestsRoutes)
   await app.register(adminChurchesRoutes)
+  await app.register(dashboardSummaryRoutes)
 }
 
 export async function registerTenantRoutes(app: FastifyInstance): Promise<void> {
