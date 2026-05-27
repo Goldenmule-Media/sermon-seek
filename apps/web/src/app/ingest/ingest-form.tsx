@@ -284,7 +284,7 @@ export function IngestForm({ user: _user }: IngestFormProps) {
               setSlug(e.target.value)
               setFieldErrors((prev) => ({ ...prev, requested_slug: "" }))
             }}
-            placeholder="my-church"
+            placeholder="st-mary-victories"
             autoComplete="off"
             aria-describedby="slug-status"
           />
@@ -299,7 +299,7 @@ export function IngestForm({ user: _user }: IngestFormProps) {
             id="requested_name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="First Baptist Church"
+            placeholder="St Mary of Victories"
           />
         </Field>
 
@@ -319,7 +319,7 @@ export function IngestForm({ user: _user }: IngestFormProps) {
               setCallout(null)
               setPreflight(null)
             }}
-            placeholder="@MyChurch"
+            placeholder="@StMaryVictories"
             autoComplete="off"
           />
           {preflightLoading && (
