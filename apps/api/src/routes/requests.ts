@@ -169,6 +169,16 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
       keyFn: (req) => req.ip,
     })
 
+    // Separate, higher IP bucket for typing-feedback endpoints (slug-available + channel-preflight).
+    // These are hit per keystroke (~300ms debounce) and must not share the POST submission bucket —
+    // users on shared NAT would exhaust 60/hr before anyone can submit.
+    const ipTypingRateLimit: RateLimitPreHandler = app.rateLimit({
+      bucket: "requests:typing:ip",
+      limit: 600,
+      windowMs: HOUR_MS,
+      keyFn: (req) => req.ip,
+    })
+
     const postUserRateLimit: RateLimitPreHandler = app.rateLimit({
       bucket: "requests:post:user",
       limit: 5,
@@ -292,7 +302,7 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
     app.head(
       "/requests/slug-available/:slug",
       {
-        preHandler: [app.requireUser, ipRateLimit, preflightUserRateLimit],
+        preHandler: [app.requireUser, ipTypingRateLimit, preflightUserRateLimit],
         schema: {
           tags: ["requests"],
           summary: "Check if a slug is available",
@@ -327,7 +337,7 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
     app.get(
       "/requests/channel-preflight",
       {
-        preHandler: [app.requireUser, ipRateLimit, preflightUserRateLimit],
+        preHandler: [app.requireUser, ipTypingRateLimit, preflightUserRateLimit],
         schema: {
           tags: ["requests"],
           summary: "Pre-flight check for a YouTube channel handle",

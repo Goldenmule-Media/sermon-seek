@@ -67,7 +67,7 @@ export const rateLimitPlugin = fp(
         const result = checkAndIncrement(bucket, key, limit, windowMs)
         if (!result.allowed) {
           reply.header("Retry-After", String(result.retryAfterSeconds))
-          await reply.code(429).send({
+          return reply.code(429).send({
             error: "rate_limited",
             retry_after_seconds: result.retryAfterSeconds,
           })
