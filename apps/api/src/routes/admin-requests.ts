@@ -237,7 +237,11 @@ export function createAdminRequestsRoutes(
           .selectFrom("ingestion_requests")
           .leftJoin("users", "users.id", "ingestion_requests.user_id")
           .leftJoin("churches", "churches.id", "ingestion_requests.church_id")
-          .leftJoin("channels", "channels.church_id", "ingestion_requests.church_id")
+          .leftJoin("channels", (join) =>
+            join
+              .onRef("channels.church_id", "=", "ingestion_requests.church_id")
+              .onRef("channels.youtube_channel_id", "=", "churches.youtube_channel_id"),
+          )
           .where("ingestion_requests.id", "=", id)
           .select([
             "ingestion_requests.id",
