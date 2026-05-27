@@ -10,17 +10,16 @@ const ACTIONS = [
   "admin.grant",
   "channel.register",
   "church.rename",
-  "filter-rule.create",
-  "filter-rule.delete",
-  "filter-rule.update",
+  "filter_rule.create",
+  "filter_rule.delete",
   "ingest.refresh",
-  "ingest.view-stats",
+  "ingest.view_stats",
   "request.approve",
   "request.deny",
   "video.retranscribe",
 ]
 
-const TARGET_TYPES = ["channel", "church", "filter-rule", "request", "user", "video"]
+const TARGET_TYPES = ["channel", "church", "filter_rule", "request", "user", "video"]
 
 interface AuditEntry {
   id: string
