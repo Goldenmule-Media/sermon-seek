@@ -3,6 +3,7 @@ import type { IngestionFilterRule } from "@sermon-search/types"
 import { validatePlaylistTarget } from "@sermon-search/worker"
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { z } from "zod"
+import { auditActor, auditWrite } from "../lib/audit.js"
 
 const channelParams = z.object({
   channelId: z.string().uuid(),
@@ -148,6 +149,21 @@ export const filterRulesRoutes: FastifyPluginAsyncZod = async (app) => {
           .executeTakeFirstOrThrow()
 
         const dto = toDto(row)
+        const { user_id: frUserId, actor: frActor } = auditActor(request)
+        await auditWrite(app.db, {
+          user_id: frUserId,
+          action: "filter_rule.create",
+          target_type: "filter_rule",
+          target_id: row.id,
+          payload: {
+            actor: frActor,
+            channel_id: channelId,
+            rule_type,
+            target_kind,
+            target_id,
+            note: note ?? null,
+          },
+        })
         if (conflicting) {
           return reply.send({
             ...dto,
@@ -200,6 +216,15 @@ export const filterRulesRoutes: FastifyPluginAsyncZod = async (app) => {
       if (result.numDeletedRows === 0n) {
         return reply.code(404).send({ error: `Rule not found: ${ruleId}` })
       }
+
+      const { user_id: drUserId, actor: drActor } = auditActor(request)
+      await auditWrite(app.db, {
+        user_id: drUserId,
+        action: "filter_rule.delete",
+        target_type: "filter_rule",
+        target_id: ruleId,
+        payload: { actor: drActor, channel_id: channelId },
+      })
 
       return reply.send({ ok: true as const })
     },

@@ -9,6 +9,7 @@ import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { sql } from "kysely"
 import { z } from "zod"
 import { config } from "../config.js"
+import { auditWrite } from "../lib/audit.js"
 import { buildSearchUrl } from "./me-requests.js"
 
 // --- Zod schemas ---
@@ -123,9 +124,7 @@ function makeDefaultDeps(): AdminRequestsRouteDeps {
 
 // --- Plugin factory ---
 
-export function createAdminRequestsRoutes(
-  deps?: AdminRequestsRouteDeps,
-): FastifyPluginAsyncZod {
+export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): FastifyPluginAsyncZod {
   return async (app) => {
     // Resolve deps lazily (inside the plugin body) so that loadConfigFromEnv()
     // and createEmailSender() are not called at module-import time when no deps
@@ -390,6 +389,20 @@ export function createAdminRequestsRoutes(
           .where("id", "=", id)
           .execute()
 
+        await auditWrite(app.db, {
+          user_id: request.user?.id ?? null,
+          action: "request.approve",
+          target_type: "request",
+          target_id: id,
+          payload: {
+            actor: "session",
+            from_status: req.status,
+            to_status: "approved",
+            requested_slug: req.requested_slug,
+            user_id_of_subject: req.user_id,
+          },
+        })
+
         // Best-effort notification
         try {
           const searchUrl = await buildSearchUrlForRequest(req.church_slug)
@@ -493,6 +506,21 @@ export function createAdminRequestsRoutes(
               .set({ admin_note: note, updated_at: sql`now()` })
               .where("id", "=", id)
               .execute()
+            await auditWrite(app.db, {
+              user_id: request.user?.id ?? null,
+              action: "request.deny",
+              target_type: "request",
+              target_id: id,
+              payload: {
+                actor: "session",
+                from_status: "denied",
+                to_status: "denied",
+                admin_note: note,
+                requested_slug: req.requested_slug,
+                user_id_of_subject: req.user_id,
+                church_id: req.church_id ?? null,
+              },
+            })
           }
           return reply.send({ id: req.id, status: "denied" })
         }
@@ -512,6 +540,22 @@ export function createAdminRequestsRoutes(
               .where("id", "=", req.church_id)
               .execute()
           }
+
+          await auditWrite(trx, {
+            user_id: request.user?.id ?? null,
+            action: "request.deny",
+            target_type: "request",
+            target_id: id,
+            payload: {
+              actor: "session",
+              from_status: req.status,
+              to_status: "denied",
+              admin_note: note,
+              requested_slug: req.requested_slug,
+              user_id_of_subject: req.user_id,
+              church_id: req.church_id ?? null,
+            },
+          })
         })
 
         // Best-effort notification

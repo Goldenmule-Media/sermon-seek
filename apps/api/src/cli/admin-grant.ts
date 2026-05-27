@@ -1,5 +1,5 @@
 import { createDb } from "@sermon-search/db"
-import { writeAuditRow } from "../lib/audit.js"
+import { auditWrite } from "../lib/audit.js"
 
 const email = process.argv[2]?.trim().toLowerCase()
 
@@ -44,7 +44,7 @@ try {
 
   await db.updateTable("users").set({ is_admin: true }).where("id", "=", row.userId).execute()
 
-  await writeAuditRow(db, {
+  await auditWrite(db, {
     user_id: null,
     action: "admin.grant",
     target_type: "user",
