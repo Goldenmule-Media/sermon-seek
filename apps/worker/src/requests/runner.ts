@@ -5,6 +5,7 @@ import { notify } from "@sermon-search/notifications"
 import type { IngestionRequest } from "@sermon-search/types"
 import { type Kysely, sql } from "kysely"
 import type { Enricher } from "../enrich/llm.js"
+import { getWorkerId, heartbeat } from "../lib/heartbeat.js"
 import { enrichVideo } from "../enrich/run.js"
 import {
   findVideosMissingDuration,
@@ -39,6 +40,7 @@ export interface RunIngestionRequestOptions {
   webBaseUrl: string
   requestId: string
   tokenCap?: number
+  workerId?: string
   log?: (msg: string) => void
 }
 
@@ -83,8 +85,13 @@ export async function runIngestionRequest({
   webBaseUrl,
   requestId,
   tokenCap,
+  workerId = getWorkerId(),
   log = () => {},
 }: RunIngestionRequestOptions): Promise<RunIngestionRequestResult> {
+  const beat = (stage: string) =>
+    heartbeat(db, { workerId, kind: "ingest", status: "busy", lastJobId: requestId, message: stage })
+
+  void beat("start")
   const request = await reloadRequest(db, requestId)
 
   const capped = request.status === "received"
@@ -111,6 +118,7 @@ export async function runIngestionRequest({
       request,
       cap,
       log,
+      beat,
     })
 
     const finalRequest = await reloadRequest(db, requestId)
@@ -131,6 +139,7 @@ export async function runIngestionRequest({
         { request: updatedRequest, webBaseUrl, searchUrl: searchUrl ?? "" },
         notificationConfig,
       )
+      void heartbeat(db, { workerId, kind: "ingest", status: "idle", lastJobId: requestId, message: "awaiting_approval" })
       return {
         status: "awaiting_approval",
         videosDiscovered: updatedRequest.videos_discovered,
@@ -158,6 +167,7 @@ export async function runIngestionRequest({
       { request: completedRequest, webBaseUrl, searchUrl: searchUrl ?? "" },
       notificationConfig,
     )
+    void heartbeat(db, { workerId, kind: "ingest", status: "idle", lastJobId: requestId, message: "complete" })
     return {
       status: "complete",
       videosDiscovered: completedRequest.videos_discovered,
@@ -171,6 +181,7 @@ export async function runIngestionRequest({
       .set({ status: "failed", admin_note: note, updated_at: sql`now()` })
       .where("id", "=", requestId)
       .execute()
+    void heartbeat(db, { workerId, kind: "ingest", status: "error", lastJobId: requestId, message: note })
     try {
       const failedRequest = await reloadRequest(db, requestId)
       const searchUrl = failedRequest.church_id
@@ -214,6 +225,7 @@ async function runPipeline({
   request,
   cap,
   log,
+  beat,
 }: {
   db: Kysely<Database>
   client: YoutubeClient
@@ -222,8 +234,10 @@ async function runPipeline({
   request: IngestionRequest
   cap: number
   log: (msg: string) => void
+  beat: (stage: string) => void
 }): Promise<PipelineResult> {
   // Step 2: Resolve channel
+  void beat("resolve_channel")
   const resolved = await resolveChannel(client, request.youtube_handle_or_url)
   log(`resolved channel ${resolved.youtubeChannelId}: ${resolved.title}`)
 
@@ -231,6 +245,7 @@ async function runPipeline({
   const churchId = await ensureChurch(db, request, resolved.youtubeChannelId, resolved.title)
 
   // Upsert channels row
+  void beat("upsert_channel")
   const { channel } = await getChannelMetadata(client, resolved.youtubeChannelId)
   const channelTitle = channel.snippet?.title ?? resolved.title
   const channelRow = await db
@@ -249,6 +264,7 @@ async function runPipeline({
   log(`upserted channel row ${channelDbId}`)
 
   // Step 3: Enumerate playlists with include/exclude filtering
+  void beat("enumerate_playlists")
   const { playlists: rawPlaylists } = await getChannelPlaylists(client, resolved.youtubeChannelId)
   const playlists = filterPlaylists(
     rawPlaylists,
@@ -306,6 +322,7 @@ async function runPipeline({
   }
 
   // Step 4: Enumerate videos (deduped)
+  void beat("enumerate_videos")
   const videoFirstSeen = new Map<string, YoutubePlaylistItem>()
   const joinRows: Array<{ youtubeVideoId: string; youtubePlaylistId: string; position: number }> =
     []
@@ -357,6 +374,7 @@ async function runPipeline({
   const allYoutubeIds = Array.from(videoFirstSeen.keys())
   const idsMissingDuration = await findVideosMissingDuration(db, allYoutubeIds)
   if (idsMissingDuration.length > 0) {
+    void beat("backfill_durations")
     const { videos } = await getVideosBatched(client, idsMissingDuration)
     await db.transaction().execute(async (trx) => {
       for (const ytId of idsMissingDuration) {
@@ -394,9 +412,11 @@ async function runPipeline({
   let capHit = false
 
   for (const video of candidates) {
+    void beat(`video:${video.youtube_video_id}`)
     log(`processing ${video.youtube_video_id}`)
 
     // Stage 2: transcripts
+    void beat(`transcript:${video.youtube_video_id}`)
     const transcriptResult = await ingestVideoTranscript({
       db,
       client,
@@ -428,9 +448,11 @@ async function runPipeline({
     }
 
     // Stage 3: embeddings (idempotent — no-ops if already done)
+    void beat(`embed:${video.youtube_video_id}`)
     await embedVideo({ db, embedder, churchId, videoDbId: video.id })
 
     // Stage 4: enrichment (idempotent — no-ops if already done)
+    void beat(`enrich:${video.youtube_video_id}`)
     await enrichVideo({ db, enricher, churchId, videoDbId: video.id, title: video.title })
 
     // Refresh topic/ref maps so this video's data is available for related computation
@@ -438,6 +460,7 @@ async function runPipeline({
     allVideoRefs = await loadVideoRefs(db, churchId)
 
     // Stage 5: related (idempotent — no-ops if already done)
+    void beat(`related:${video.youtube_video_id}`)
     await computeRelatedForVideo({
       db,
       churchId,

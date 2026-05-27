@@ -223,11 +223,38 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
       const church = await resolveChurchOrReply(app, churchSlug, reply)
       if (!church) return
 
-      const summary = await runViewStats({
-        db: app.db,
-        client: app.youtube,
-        churchId: church.id,
-      })
+      let summary: Awaited<ReturnType<typeof runViewStats>>
+      try {
+        summary = await runViewStats({
+          db: app.db,
+          client: app.youtube,
+          churchId: church.id,
+        })
+      } catch (err) {
+        try {
+          await app.db
+            .insertInto("system_runs")
+            .values({ kind: "view-stats", last_run_at: sql`now()`, last_status: "failed" })
+            .onConflict((oc) =>
+              oc.column("kind").doUpdateSet({ last_run_at: sql`now()`, last_status: "failed" }),
+            )
+            .execute()
+        } catch {
+          // best-effort — don't mask the original error
+        }
+        throw err
+      }
+      try {
+        await app.db
+          .insertInto("system_runs")
+          .values({ kind: "view-stats", last_run_at: sql`now()`, last_status: "success" })
+          .onConflict((oc) =>
+            oc.column("kind").doUpdateSet({ last_run_at: sql`now()`, last_status: "success" }),
+          )
+          .execute()
+      } catch {
+        // best-effort
+      }
       return reply.send(summary)
     },
   )
