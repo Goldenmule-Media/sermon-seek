@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@sermon-search/db": "workspace:*",
+    "@sermon-search/notifications": "workspace:*",
     "js-tiktoken": "^1.0.16",
     "@sermon-search/embeddings": "workspace:*",
     "@sermon-search/scripture": "workspace:*",

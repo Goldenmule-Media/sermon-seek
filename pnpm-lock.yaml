@@ -154,6 +154,9 @@ importers:
       '@sermon-search/embeddings':
         specifier: workspace:*
         version: link:../../packages/embeddings
+      '@sermon-search/notifications':
+        specifier: workspace:*
+        version: link:../../packages/notifications
       '@sermon-search/scripture':
         specifier: workspace:*
         version: link:../../packages/scripture

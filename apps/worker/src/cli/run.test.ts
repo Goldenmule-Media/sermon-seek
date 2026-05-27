@@ -523,4 +523,28 @@ describe("parseArgs", () => {
   it("rejects --sweep-aliases combined with --related", () => {
     expect(() => parseArgs(["--sweep-aliases", "--related"])).toThrow(/mutually exclusive/)
   })
+
+  it("accepts --request <id> with space form", () => {
+    const parsed = parseArgs(["--request", "abc-123"])
+    expect(parsed.request).toBe("abc-123")
+    expect(parsed.channel).toBeUndefined()
+    expect(parsed.church).toBeUndefined()
+  })
+
+  it("accepts --request=<id> with equals form", () => {
+    const parsed = parseArgs(["--request=abc-123"])
+    expect(parsed.request).toBe("abc-123")
+  })
+
+  it("rejects --request without a value", () => {
+    expect(() => parseArgs(["--request"])).toThrow(/requires a value/)
+  })
+
+  it("rejects --request combined with --channel", () => {
+    expect(() => parseArgs(["--request", "abc", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --request combined with --smoke-test", () => {
+    expect(() => parseArgs(["--request", "abc", "--smoke-test"])).toThrow(/mutually exclusive/)
+  })
 })
