@@ -50,14 +50,15 @@ function wrapHtml(subject: string, body: string): string {
 }
 
 function link(text: string, href: string): string {
-  return `<a href="${href}">${text}</a>`
+  return `<a href="${escapeHtml(href)}">${escapeHtml(text)}</a>`
 }
 
 export function renderTemplate(name: TemplateName, ctx: TemplateContext): RenderedEmail {
   const { request, searchUrl, audience } = ctx
   const slug = request.requested_slug
   const deepLink = requestDeepLink(ctx)
-  // Escaped versions for use inside HTML bodies only; plain-text uses the originals.
+  // Escaped versions for use inside HTML bodies only. Plain-text uses the originals
+  // (intentional — text/plain doesn't need entity escaping; do not reuse in any future text/html fallback).
   const safeName = escapeHtml(request.requested_name)
   const safeSlug = escapeHtml(slug)
   const safeAdminNote = request.admin_note ? escapeHtml(request.admin_note) : null
