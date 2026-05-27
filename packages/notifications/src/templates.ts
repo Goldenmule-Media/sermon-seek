@@ -1,5 +1,14 @@
 import type { IngestionRequest } from "@sermon-search/types"
 
+export function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+}
+
 export type TemplateName =
   | "received"
   | "running"
@@ -48,6 +57,10 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
   const { request, searchUrl, audience } = ctx
   const slug = request.requested_slug
   const deepLink = requestDeepLink(ctx)
+  // Escaped versions for use inside HTML bodies only; plain-text uses the originals.
+  const safeName = escapeHtml(request.requested_name)
+  const safeSlug = escapeHtml(slug)
+  const safeAdminNote = request.admin_note ? escapeHtml(request.admin_note) : null
 
   switch (name) {
     case "received": {
@@ -60,7 +73,7 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
       ].join("\n")
       const html = wrapHtml(
         subject,
-        `<p>We've received your ingestion request for <strong>${request.requested_name}</strong> (${slug}).</p>` +
+        `<p>We've received your ingestion request for <strong>${safeName}</strong> (${safeSlug}).</p>` +
           `<p>Track your request: ${link(deepLink, deepLink)}</p>` +
           `<p>Your search will eventually live at: ${link(searchUrl, searchUrl)}</p>`,
       )
@@ -77,7 +90,7 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
       ].join("\n")
       const html = wrapHtml(
         subject,
-        `<p>Indexing has started for <strong>${request.requested_name}</strong> (${slug}).</p>` +
+        `<p>Indexing has started for <strong>${safeName}</strong> (${safeSlug}).</p>` +
           `<p>Track your request: ${link(deepLink, deepLink)}</p>` +
           `<p>Your search will eventually live at: ${link(searchUrl, searchUrl)}</p>`,
       )
@@ -100,7 +113,7 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
         ].join("\n")
         const html = wrapHtml(
           subject,
-          `<p>Ingestion request <strong>${request.requested_name}</strong> (${slug}) has hit the token cap and needs your approval.</p>` +
+          `<p>Ingestion request <strong>${safeName}</strong> (${safeSlug}) has hit the token cap and needs your approval.</p>` +
             `<p>${counters}</p>` +
             `<p>Review: ${link(adminLink, adminLink)}</p>` +
             `<p>Submitter page: ${link(deepLink, deepLink)}</p>`,
@@ -118,7 +131,7 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
       ].join("\n")
       const html = wrapHtml(
         subject,
-        `<p>Your ingestion request for <strong>${request.requested_name}</strong> (${slug}) is awaiting admin approval.</p>` +
+        `<p>Your ingestion request for <strong>${safeName}</strong> (${safeSlug}) is awaiting admin approval.</p>` +
           `<p>${counters}</p>` +
           `<p>Track your request: ${link(deepLink, deepLink)}</p>` +
           `<p>Your search will eventually live at: ${link(searchUrl, searchUrl)}</p>`,
@@ -138,7 +151,7 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
       ].join("\n")
       const html = wrapHtml(
         subject,
-        `<p>Great news! Your ingestion request for <strong>${request.requested_name}</strong> (${slug}) has been approved.</p>` +
+        `<p>Great news! Your ingestion request for <strong>${safeName}</strong> (${safeSlug}) has been approved.</p>` +
           `<p>Indexing will resume shortly and your full sermon library will be indexed.</p>` +
           `<p>Track your request: ${link(deepLink, deepLink)}</p>` +
           `<p>Your search will live at: ${link(searchUrl, searchUrl)}</p>`,
@@ -155,10 +168,10 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
         "",
         `Track your request status: ${deepLink}`,
       ].join("\n")
-      const noteHtml = request.admin_note ? `<p><em>Admin note: ${request.admin_note}</em></p>` : ""
+      const noteHtml = safeAdminNote ? `<p><em>Admin note: ${safeAdminNote}</em></p>` : ""
       const html = wrapHtml(
         subject,
-        `<p>Your ingestion request for <strong>${request.requested_name}</strong> (${slug}) was denied.</p>${noteHtml}<p>Track your request: ${link(deepLink, deepLink)}</p>`,
+        `<p>Your ingestion request for <strong>${safeName}</strong> (${safeSlug}) was denied.</p>${noteHtml}<p>Track your request: ${link(deepLink, deepLink)}</p>`,
       )
       return { subject, text, html }
     }
@@ -176,10 +189,10 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
           `Review: ${adminLink}`,
           `Submitter request page: ${deepLink}`,
         ].join("\n")
-        const noteHtml = request.admin_note ? `<p><em>Note: ${request.admin_note}</em></p>` : ""
+        const noteHtml = safeAdminNote ? `<p><em>Note: ${safeAdminNote}</em></p>` : ""
         const html = wrapHtml(
           subject,
-          `<p>Ingestion request <strong>${request.requested_name}</strong> (${slug}) has failed.</p>${noteHtml}<p>Review: ${link(adminLink, adminLink)}</p><p>Submitter page: ${link(deepLink, deepLink)}</p>`,
+          `<p>Ingestion request <strong>${safeName}</strong> (${safeSlug}) has failed.</p>${noteHtml}<p>Review: ${link(adminLink, adminLink)}</p><p>Submitter page: ${link(deepLink, deepLink)}</p>`,
         )
         return { subject, text, html }
       }
@@ -191,10 +204,10 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
         `Track your request status: ${deepLink}`,
         `Your search will eventually live at: ${searchUrl}`,
       ].join("\n")
-      const noteHtml = request.admin_note ? `<p><em>Note: ${request.admin_note}</em></p>` : ""
+      const noteHtml = safeAdminNote ? `<p><em>Note: ${safeAdminNote}</em></p>` : ""
       const html = wrapHtml(
         subject,
-        `<p>Your ingestion request for <strong>${request.requested_name}</strong> (${slug}) has failed.</p>${noteHtml}<p>Track your request: ${link(deepLink, deepLink)}</p><p>Your search will eventually live at: ${link(searchUrl, searchUrl)}</p>`,
+        `<p>Your ingestion request for <strong>${safeName}</strong> (${safeSlug}) has failed.</p>${noteHtml}<p>Track your request: ${link(deepLink, deepLink)}</p><p>Your search will eventually live at: ${link(searchUrl, searchUrl)}</p>`,
       )
       return { subject, text, html }
     }
@@ -214,7 +227,7 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
         ].join("\n")
         const html = wrapHtml(
           subject,
-          `<p>Ingestion request <strong>${request.requested_name}</strong> (${slug}) is complete.</p>` +
+          `<p>Ingestion request <strong>${safeName}</strong> (${safeSlug}) is complete.</p>` +
             `<p>${request.videos_ingested}/${request.videos_discovered} videos indexed.</p>` +
             `<p>Review: ${link(adminLink, adminLink)}</p>` +
             `<p>Live search: ${link(searchUrl, searchUrl)}</p>`,
@@ -231,7 +244,7 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
       ].join("\n")
       const html = wrapHtml(
         subject,
-        `<p>Your sermon search for <strong>${request.requested_name}</strong> is live!</p>` +
+        `<p>Your sermon search for <strong>${safeName}</strong> is live!</p>` +
           `<p>${link("Search now", searchUrl)}: ${link(searchUrl, searchUrl)}</p>` +
           `<p>Track your request: ${link(deepLink, deepLink)}</p>`,
       )

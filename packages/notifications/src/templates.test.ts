@@ -1,6 +1,6 @@
 import type { IngestionRequest } from "@sermon-search/types"
 import { describe, expect, it } from "vitest"
-import { ADMIN_NOTIFY_STATUSES, renderTemplate } from "./templates.js"
+import { ADMIN_NOTIFY_STATUSES, escapeHtml, renderTemplate } from "./templates.js"
 import type { TemplateContext, TemplateName } from "./templates.js"
 
 const WEB_BASE_URL = "http://localhost:3000"
@@ -225,5 +225,59 @@ describe("renderTemplate", () => {
       // biome-ignore lint/suspicious/noExplicitAny: testing exhaustiveness guard
       renderTemplate("unknown" as any, makeCtx("received", "submitter")),
     ).toThrow("Unknown template")
+  })
+})
+
+describe("escapeHtml", () => {
+  it("escapes the five special HTML characters", () => {
+    expect(escapeHtml('&<>"\'`')).toBe("&amp;&lt;&gt;&quot;&#39;`")
+  })
+
+  it("leaves safe text unchanged", () => {
+    expect(escapeHtml("Hello, World!")).toBe("Hello, World!")
+  })
+})
+
+describe("HTML escaping in templates", () => {
+  it("escapes requested_name in html but not in text", () => {
+    const ctx = makeCtx("received", "submitter", {
+      requested_name: '<script>alert("xss")</script>',
+    })
+    const { html, text } = renderTemplate("received", ctx)
+    expect(html).not.toContain("<script>")
+    expect(html).toContain("&lt;script&gt;")
+    // plain text renders the raw value
+    expect(text).toContain('<script>alert("xss")</script>')
+  })
+
+  it("escapes admin_note in denied html but not in text", () => {
+    const ctx = makeCtx("denied", "submitter", {
+      admin_note: '<b>bad</b> & "worse"',
+    })
+    const { html, text } = renderTemplate("denied", ctx)
+    expect(html).not.toContain("<b>")
+    expect(html).toContain("&lt;b&gt;bad&lt;/b&gt; &amp; &quot;worse&quot;")
+    expect(text).toContain('<b>bad</b> & "worse"')
+  })
+
+  it("escapes admin_note in failed html (submitter audience)", () => {
+    const ctx = makeCtx("failed", "submitter", { admin_note: "<em>oops</em>" })
+    const { html } = renderTemplate("failed", ctx)
+    expect(html).not.toContain("<em>oops</em>")
+    expect(html).toContain("&lt;em&gt;oops&lt;/em&gt;")
+  })
+
+  it("escapes admin_note in failed html (admin audience)", () => {
+    const ctx = makeCtx("failed", "admin", { admin_note: "<em>oops</em>" })
+    const { html } = renderTemplate("failed", ctx)
+    expect(html).not.toContain("<em>oops</em>")
+    expect(html).toContain("&lt;em&gt;oops&lt;/em&gt;")
+  })
+
+  it("escapes ampersands in requested_name", () => {
+    const ctx = makeCtx("approved", "submitter", { requested_name: "Faith & Hope Church" })
+    const { html, text } = renderTemplate("approved", ctx)
+    expect(html).toContain("Faith &amp; Hope Church")
+    expect(text).toContain("Faith & Hope Church")
   })
 })
