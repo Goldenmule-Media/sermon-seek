@@ -48,7 +48,7 @@ describeIfDb("Admin churches integration", () => {
   })
 
   beforeEach(async () => {
-    await sql`TRUNCATE church_slug_aliases, channels, videos, ingestion_requests, playlists, sessions, users, churches RESTART IDENTITY CASCADE`.execute(
+    await sql`TRUNCATE church_slug_aliases, channels, transcripts, videos, ingestion_requests, playlists, sessions, users, churches RESTART IDENTITY CASCADE`.execute(
       db,
     )
   })
@@ -127,14 +127,33 @@ describeIfDb("Admin churches integration", () => {
     return row.id
   }
 
-  async function insertVideo(churchId: string, channelId: string) {
+  async function insertVideo(
+    churchId: string,
+    channelId: string,
+    opts: { published_at?: Date | null; title?: string } = {},
+  ) {
     const row = await db
       .insertInto("videos")
       .values({
         church_id: churchId,
         channel_id: channelId,
         youtube_video_id: `vid-${Math.random().toString(36).slice(2)}`,
-        title: "Test Video",
+        title: opts.title ?? "Test Video",
+        ...(opts.published_at !== undefined ? { published_at: opts.published_at } : {}),
+      })
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
+    return row.id
+  }
+
+  async function insertTranscript(videoId: string, opts: { created_at?: Date } = {}) {
+    const row = await db
+      .insertInto("transcripts")
+      .values({
+        video_id: videoId,
+        source: "youtube_public",
+        full_text: "test transcript",
+        ...(opts.created_at ? { created_at: opts.created_at } : {}),
       })
       .returning(["id"])
       .executeTakeFirstOrThrow()
@@ -405,6 +424,236 @@ describeIfDb("Admin churches integration", () => {
     expect(body.channels).toHaveLength(0)
     expect(body.channel_count).toBe(0)
     expect(body.video_count).toBe(0)
+    await app.close()
+  })
+
+  // --- GET /admin/churches/:id/videos ---
+
+  it("videos: 401 with no session", async () => {
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/churches/00000000-0000-0000-0000-000000000001/videos",
+    })
+    expect(res.statusCode).toBe(401)
+    await app.close()
+  })
+
+  it("videos: 403 for non-admin session", async () => {
+    const app = await buildApp()
+    const userId = await insertUser({ is_admin: false })
+    const token = await insertSession(userId)
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/churches/00000000-0000-0000-0000-000000000001/videos",
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(403)
+    await app.close()
+  })
+
+  it("videos: 404 for non-existent church", async () => {
+    const app = await buildApp()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/churches/00000000-0000-0000-0000-000000000001/videos",
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(404)
+    await app.close()
+  })
+
+  it("videos: returns empty list when church has no videos", async () => {
+    const app = await buildApp()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const churchId = await insertChurch("empty-church")
+
+    const res = await app.inject({
+      method: "GET",
+      url: `/admin/churches/${churchId}/videos`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+    const body = res.json()
+    expect(body.items).toEqual([])
+    expect(body.total).toBe(0)
+    expect(body.limit).toBe(50)
+    expect(body.offset).toBe(0)
+    await app.close()
+  })
+
+  it("videos: latest-first ordering, null published_at sorts last", async () => {
+    const app = await buildApp()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const churchId = await insertChurch("order-church")
+    const channelId = await insertChannel(churchId)
+
+    const older = await insertVideo(churchId, channelId, {
+      published_at: new Date("2024-01-01T00:00:00Z"),
+      title: "Older",
+    })
+    const newer = await insertVideo(churchId, channelId, {
+      published_at: new Date("2024-06-01T00:00:00Z"),
+      title: "Newer",
+    })
+    const noDate = await insertVideo(churchId, channelId, { published_at: null, title: "NoDate" })
+
+    const res = await app.inject({
+      method: "GET",
+      url: `/admin/churches/${churchId}/videos`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+    const items = res.json().items as Array<{ id: string }>
+    expect(items[0].id).toBe(newer)
+    expect(items[1].id).toBe(older)
+    expect(items[2].id).toBe(noDate)
+    await app.close()
+  })
+
+  it("videos: paging returns correct slice and total", async () => {
+    const app = await buildApp()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const churchId = await insertChurch("page-church")
+    const channelId = await insertChannel(churchId)
+
+    for (let i = 0; i < 5; i++) {
+      await insertVideo(churchId, channelId, {
+        published_at: new Date(Date.now() - i * 86400000),
+      })
+    }
+
+    const res = await app.inject({
+      method: "GET",
+      url: `/admin/churches/${churchId}/videos?limit=2&offset=1`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+    const body = res.json()
+    expect(body.total).toBe(5)
+    expect(body.items).toHaveLength(2)
+    expect(body.limit).toBe(2)
+    expect(body.offset).toBe(1)
+    await app.close()
+  })
+
+  it("videos: has_transcript filter and per-row boolean", async () => {
+    const app = await buildApp()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const churchId = await insertChurch("filter-church")
+    const channelId = await insertChannel(churchId)
+
+    const withTx = await insertVideo(churchId, channelId, { title: "Has transcript" })
+    const noTx = await insertVideo(churchId, channelId, { title: "No transcript" })
+    await insertTranscript(withTx)
+
+    const [resTrue, resFalse, resAll] = await Promise.all([
+      app.inject({
+        method: "GET",
+        url: `/admin/churches/${churchId}/videos?has_transcript=true`,
+        cookies: { [SESSION_COOKIE]: token },
+      }),
+      app.inject({
+        method: "GET",
+        url: `/admin/churches/${churchId}/videos?has_transcript=false`,
+        cookies: { [SESSION_COOKIE]: token },
+      }),
+      app.inject({
+        method: "GET",
+        url: `/admin/churches/${churchId}/videos`,
+        cookies: { [SESSION_COOKIE]: token },
+      }),
+    ])
+
+    expect(resTrue.statusCode).toBe(200)
+    const trueBody = resTrue.json()
+    expect(trueBody.total).toBe(1)
+    expect(trueBody.items[0].id).toBe(withTx)
+    expect(trueBody.items[0].has_transcript).toBe(true)
+
+    expect(resFalse.statusCode).toBe(200)
+    const falseBody = resFalse.json()
+    expect(falseBody.total).toBe(1)
+    expect(falseBody.items[0].id).toBe(noTx)
+    expect(falseBody.items[0].has_transcript).toBe(false)
+
+    expect(resAll.statusCode).toBe(200)
+    expect(resAll.json().total).toBe(2)
+    await app.close()
+  })
+
+  it("videos: last_retranscribed_at is max transcript created_at, null when none", async () => {
+    const app = await buildApp()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const churchId = await insertChurch("retranscribe-church")
+    const channelId = await insertChannel(churchId)
+
+    const videoWithTwo = await insertVideo(churchId, channelId, { title: "Two transcripts" })
+    const videoNone = await insertVideo(churchId, channelId, { title: "No transcript" })
+
+    const earlier = new Date("2024-03-01T12:00:00Z")
+    const later = new Date("2024-09-15T12:00:00Z")
+    await insertTranscript(videoWithTwo, { created_at: earlier })
+    await insertTranscript(videoWithTwo, { created_at: later })
+
+    const res = await app.inject({
+      method: "GET",
+      url: `/admin/churches/${churchId}/videos`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+    const items = res.json().items as Array<{
+      id: string
+      last_retranscribed_at: string | null
+    }>
+
+    const twoItem = items.find((x) => x.id === videoWithTwo)
+    const noneItem = items.find((x) => x.id === videoNone)
+
+    expect(twoItem?.last_retranscribed_at).toBe(later.toISOString())
+    expect(noneItem?.last_retranscribed_at).toBeNull()
+    await app.close()
+  })
+
+  it("videos: cross-tenant isolation returns only videos for the requested church", async () => {
+    const app = await buildApp()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+
+    const churchAId = await insertChurch("tenant-a")
+    const channelAId = await insertChannel(churchAId)
+
+    const churchBId = await insertChurch("tenant-b")
+    const channelBId = await insertChannel(churchBId)
+
+    for (let i = 0; i < 3; i++) await insertVideo(churchAId, channelAId)
+    for (let i = 0; i < 2; i++) await insertVideo(churchBId, channelBId)
+
+    const [resA, resB] = await Promise.all([
+      app.inject({
+        method: "GET",
+        url: `/admin/churches/${churchAId}/videos`,
+        cookies: { [SESSION_COOKIE]: token },
+      }),
+      app.inject({
+        method: "GET",
+        url: `/admin/churches/${churchBId}/videos`,
+        cookies: { [SESSION_COOKIE]: token },
+      }),
+    ])
+
+    expect(resA.statusCode).toBe(200)
+    expect(resA.json().total).toBe(3)
+
+    expect(resB.statusCode).toBe(200)
+    expect(resB.json().total).toBe(2)
     await app.close()
   })
 })

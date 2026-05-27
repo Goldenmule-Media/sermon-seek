@@ -56,6 +56,28 @@ const detailResponseSchema = z.object({
   channels: z.array(channelSchema),
 })
 
+const videosQuerySchema = z.object({
+  limit: z.coerce.number().int().min(1).max(100).default(50),
+  offset: z.coerce.number().int().min(0).default(0),
+  has_transcript: z.coerce.boolean().optional(),
+})
+
+const videoItemSchema = z.object({
+  id: z.string(),
+  youtube_id: z.string(),
+  title: z.string(),
+  published_at: z.string().nullable(),
+  has_transcript: z.boolean(),
+  last_retranscribed_at: z.string().nullable(),
+})
+
+const videosResponseSchema = z.object({
+  items: z.array(videoItemSchema),
+  total: z.number(),
+  limit: z.number(),
+  offset: z.number(),
+})
+
 const errorSchema = z.object({ error: z.string() })
 
 export const adminChurchesRoutes: FastifyPluginAsyncZod = async (app) => {
@@ -193,6 +215,96 @@ export const adminChurchesRoutes: FastifyPluginAsyncZod = async (app) => {
           title: c.title,
           ingested_at: (c.ingested_at as unknown as Date).toISOString(),
         })),
+      })
+    },
+  )
+
+  // --- GET /admin/churches/:id/videos ---
+  app.get(
+    "/admin/churches/:id/videos",
+    {
+      preHandler: app.requireAdmin,
+      schema: {
+        tags: ["admin"],
+        summary: "List videos for a church (admin)",
+        params: idParamsSchema,
+        querystring: videosQuerySchema,
+        response: {
+          200: videosResponseSchema,
+          401: errorSchema,
+          403: errorSchema,
+          404: errorSchema,
+        },
+      },
+    },
+    async (request, reply) => {
+      const { id } = request.params
+      const { limit, offset, has_transcript } = request.query
+
+      const church = await app.db
+        .selectFrom("churches")
+        .select("id")
+        .where("id", "=", id)
+        .executeTakeFirst()
+
+      if (!church) {
+        return reply.code(404).send({ error: "not_found" })
+      }
+
+      let baseQuery = app.db.selectFrom("videos as v").where("v.church_id", "=", id)
+
+      if (has_transcript === true) {
+        baseQuery = baseQuery.where(
+          sql<boolean>`EXISTS (SELECT 1 FROM transcripts t WHERE t.video_id = v.id)`,
+          "=",
+          true,
+        )
+      } else if (has_transcript === false) {
+        baseQuery = baseQuery.where(
+          sql<boolean>`NOT EXISTS (SELECT 1 FROM transcripts t WHERE t.video_id = v.id)`,
+          "=",
+          true,
+        )
+      }
+
+      const [rows, countResult] = await Promise.all([
+        baseQuery
+          .select([
+            "v.id",
+            "v.youtube_video_id",
+            "v.title",
+            "v.published_at",
+            sql<boolean>`EXISTS (SELECT 1 FROM transcripts t WHERE t.video_id = v.id)`.as(
+              "has_transcript",
+            ),
+            sql<Date | null>`(SELECT MAX(t.created_at) FROM transcripts t WHERE t.video_id = v.id)`.as(
+              "last_retranscribed_at",
+            ),
+          ])
+          .orderBy("v.published_at", sql`DESC NULLS LAST`)
+          .orderBy("v.id", "asc")
+          .limit(limit)
+          .offset(offset)
+          .execute(),
+        baseQuery.select(sql<string>`count(*)`.as("count")).executeTakeFirstOrThrow(),
+      ])
+
+      return reply.send({
+        items: rows.map((row) => ({
+          id: row.id,
+          youtube_id: row.youtube_video_id,
+          title: row.title,
+          published_at: row.published_at
+            ? (row.published_at as unknown as Date).toISOString()
+            : null,
+          has_transcript: row.has_transcript,
+          last_retranscribed_at: row.last_retranscribed_at
+            ? (row.last_retranscribed_at as unknown as Date).toISOString()
+            : null,
+        })),
+        total: Number(countResult.count),
+        limit,
+        offset,
       })
     },
   )
