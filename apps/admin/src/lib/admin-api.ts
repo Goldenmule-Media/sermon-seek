@@ -72,3 +72,35 @@ export async function getChurch(id: string): Promise<ChurchDetail | null> {
   if (!res.ok) throw new Error(`GET /admin/churches/:id failed: ${res.status}`)
   return res.json() as Promise<ChurchDetail>
 }
+
+export interface AdminVideo {
+  id: string
+  youtube_id: string
+  title: string
+  published_at: string | null
+  has_transcript: boolean
+  last_retranscribed_at: string | null
+}
+
+export async function getChurchVideos(
+  churchId: string,
+  params: { limit: number; offset: number; has_transcript?: boolean },
+): Promise<{ items: AdminVideo[]; total: number; limit: number; offset: number }> {
+  const sp = new URLSearchParams({
+    limit: String(params.limit),
+    offset: String(params.offset),
+  })
+  if (params.has_transcript !== undefined) {
+    sp.set("has_transcript", String(params.has_transcript))
+  }
+  const res = await adminFetch(
+    `/admin/churches/${encodeURIComponent(churchId)}/videos?${sp.toString()}`,
+  )
+  if (!res.ok) throw new Error(`GET /admin/churches/:id/videos failed: ${res.status}`)
+  return res.json() as Promise<{
+    items: AdminVideo[]
+    total: number
+    limit: number
+    offset: number
+  }>
+}
