@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic"
 interface RequestCounts {
   pending: number
   awaiting_approval: number
+  approved: number
   running: number
   failed: number
   complete: number
@@ -31,6 +32,7 @@ interface DashboardSummary {
 const STATUS_TILES: { label: string; key: keyof RequestCounts; queryStatus: string }[] = [
   { label: "Pending", key: "pending", queryStatus: "received" },
   { label: "Awaiting approval", key: "awaiting_approval", queryStatus: "awaiting_approval" },
+  { label: "Approved", key: "approved", queryStatus: "approved" },
   { label: "Running", key: "running", queryStatus: "running" },
   { label: "Failed", key: "failed", queryStatus: "failed" },
   { label: "Complete", key: "complete", queryStatus: "complete" },
@@ -68,7 +70,7 @@ export default async function DashboardPage() {
         <h2 className="mb-3 text-sm font-medium text-muted-foreground uppercase tracking-wider">
           Requests
         </h2>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-7">
           {STATUS_TILES.map(({ label, key, queryStatus }) => (
             <Link
               key={key}

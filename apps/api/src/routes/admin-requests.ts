@@ -9,7 +9,7 @@ import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { sql } from "kysely"
 import { z } from "zod"
 import { config } from "../config.js"
-import { auditWrite } from "../lib/audit.js"
+import { auditActor, auditWrite } from "../lib/audit.js"
 import { buildSearchUrl } from "./me-requests.js"
 
 // --- Zod schemas ---
@@ -389,13 +389,14 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
           .where("id", "=", id)
           .execute()
 
+        const { user_id: approveUserId, actor: approveActor } = auditActor(request)
         await auditWrite(app.db, {
-          user_id: request.user?.id ?? null,
+          user_id: approveUserId,
           action: "request.approve",
           target_type: "request",
           target_id: id,
           payload: {
-            actor: "session",
+            actor: approveActor,
             from_status: req.status,
             to_status: "approved",
             requested_slug: req.requested_slug,
@@ -506,13 +507,14 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
               .set({ admin_note: note, updated_at: sql`now()` })
               .where("id", "=", id)
               .execute()
+            const { user_id: denyIdempotentUserId, actor: denyIdempotentActor } = auditActor(request)
             await auditWrite(app.db, {
-              user_id: request.user?.id ?? null,
+              user_id: denyIdempotentUserId,
               action: "request.deny",
               target_type: "request",
               target_id: id,
               payload: {
-                actor: "session",
+                actor: denyIdempotentActor,
                 from_status: "denied",
                 to_status: "denied",
                 admin_note: note,
@@ -541,13 +543,14 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
               .execute()
           }
 
+          const { user_id: denyUserId, actor: denyActor } = auditActor(request)
           await auditWrite(trx, {
-            user_id: request.user?.id ?? null,
+            user_id: denyUserId,
             action: "request.deny",
             target_type: "request",
             target_id: id,
             payload: {
-              actor: "session",
+              actor: denyActor,
               from_status: req.status,
               to_status: "denied",
               admin_note: note,

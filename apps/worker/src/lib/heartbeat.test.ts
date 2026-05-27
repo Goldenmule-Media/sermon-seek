@@ -92,16 +92,13 @@ describeIfDb("heartbeat (integration)", () => {
 describe("getWorkerId", () => {
   it("returns WORKER_ID env var when set", () => {
     vi.stubEnv("WORKER_ID", "custom-worker-id")
-    // getWorkerId() is memoized at module load time, so we test the raw logic
-    const id = process.env.WORKER_ID || `${os.hostname()}:${process.pid}`
-    expect(id).toBe("custom-worker-id")
+    expect(getWorkerId()).toBe("custom-worker-id")
     vi.unstubAllEnvs()
   })
 
   it("defaults to hostname:pid format", () => {
     vi.stubEnv("WORKER_ID", "")
-    const id = process.env.WORKER_ID || `${os.hostname()}:${process.pid}`
-    expect(id).toBe(`${os.hostname()}:${process.pid}`)
+    expect(getWorkerId()).toBe(`${os.hostname()}:${process.pid}`)
     vi.unstubAllEnvs()
   })
 

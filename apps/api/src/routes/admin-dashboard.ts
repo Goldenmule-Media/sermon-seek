@@ -5,6 +5,7 @@ import { z } from "zod"
 const requestCountsSchema = z.object({
   pending: z.number(),
   awaiting_approval: z.number(),
+  approved: z.number(),
   running: z.number(),
   failed: z.number(),
   complete: z.number(),
@@ -85,6 +86,7 @@ function createDashboardSummaryRoutes(): FastifyPluginAsyncZod {
           requests: {
             pending: countByStatus["received"] ?? 0,
             awaiting_approval: countByStatus["awaiting_approval"] ?? 0,
+            approved: countByStatus["approved"] ?? 0,
             running: countByStatus["running"] ?? 0,
             failed: countByStatus["failed"] ?? 0,
             complete: countByStatus["complete"] ?? 0,

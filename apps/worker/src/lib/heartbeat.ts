@@ -5,10 +5,8 @@ import { sql } from "kysely"
 
 export type HeartbeatStatus = "idle" | "busy" | "error"
 
-const _workerId = process.env.WORKER_ID || `${os.hostname()}:${process.pid}`
-
 export function getWorkerId(): string {
-  return _workerId
+  return process.env.WORKER_ID || `${os.hostname()}:${process.pid}`
 }
 
 export interface HeartbeatParams {
