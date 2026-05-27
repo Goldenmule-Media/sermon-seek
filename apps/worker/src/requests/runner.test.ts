@@ -18,18 +18,24 @@ vi.mock("../ingest/handle.js", () => ({
 }))
 
 vi.mock("../youtube/cache_aware.js", () => ({
-  getChannelMetadata: vi.fn().mockResolvedValue({ channel: { snippet: { title: "Test Channel" } } }),
+  getChannelMetadata: vi
+    .fn()
+    .mockResolvedValue({ channel: { snippet: { title: "Test Channel" } } }),
   getChannelPlaylists: vi.fn().mockResolvedValue({ playlists: [] }),
   getPlaylistItems: vi.fn().mockResolvedValue({ items: [] }),
   getVideosBatched: vi.fn().mockResolvedValue({ videos: new Map() }),
 }))
 
 vi.mock("../ingest/transcript.js", () => ({
-  ingestVideoTranscript: vi.fn().mockResolvedValue({ status: "ok", transcriptId: "t1", videoDbId: "v1" }),
+  ingestVideoTranscript: vi
+    .fn()
+    .mockResolvedValue({ status: "ok", transcriptId: "t1", videoDbId: "v1" }),
 }))
 
 vi.mock("../ingest/embed.js", () => ({
-  embedVideo: vi.fn().mockResolvedValue({ chunksInserted: 0, embeddingsInserted: 0, skipped: false }),
+  embedVideo: vi
+    .fn()
+    .mockResolvedValue({ chunksInserted: 0, embeddingsInserted: 0, skipped: false }),
 }))
 
 vi.mock("../enrich/run.js", () => ({
@@ -109,7 +115,9 @@ function buildDb(initialRequest: Record<string, unknown>, initialChurch?: Record
     onConflict: () => makeInsert(collection, row),
     doUpdateSet: () => makeInsert(collection, row),
     returning: () => makeSelect([{ id: row.id ?? "generated-id", ...row }]),
-    execute: async () => { collection.push(row) },
+    execute: async () => {
+      collection.push(row)
+    },
     executeTakeFirstOrThrow: async () => {
       collection.push(row)
       return { id: row.id ?? "generated-id", ...row }
@@ -129,7 +137,11 @@ function buildDb(initialRequest: Record<string, unknown>, initialChurch?: Record
       if (table === "playlists") return makeSelect(playlistRows)
       if (table === "videos") return makeSelect(videoRows)
       if (table === "transcripts") {
-        return makeSelect(transcriptRows.length > 0 ? transcriptRows : [{ full_text: "some transcript text about Jesus" }])
+        return makeSelect(
+          transcriptRows.length > 0
+            ? transcriptRows
+            : [{ full_text: "some transcript text about Jesus" }],
+        )
       }
       return makeSelect([])
     },
@@ -142,7 +154,8 @@ function buildDb(initialRequest: Record<string, unknown>, initialChurch?: Record
       if (table === "channels") return makeInsert(channelRows, { id: "chan-1" })
       if (table === "playlists") return makeInsert(playlistRows, { id: "pl-1" })
       if (table === "videos") return makeInsert(videoRows, { id: "vid-1" })
-      if (table === "churches") return makeInsert([churchRow], { id: "church-1", status: "pending" })
+      if (table === "churches")
+        return makeInsert([churchRow], { id: "church-1", status: "pending" })
       return makeInsert([], { id: "row-1" })
     },
     transaction() {
@@ -210,17 +223,20 @@ describe("runIngestionRequest", () => {
     const { notify } = await import("@sermon-search/notifications")
 
     const db = buildDb(makeRequest({ status: "complete" }))
-    await expect(runIngestionRequest(makeOpts(db))).rejects.toThrow(/expected 'received' or 'approved'/)
+    await expect(runIngestionRequest(makeOpts(db))).rejects.toThrow(
+      /expected 'received' or 'approved'/,
+    )
     expect(notify).not.toHaveBeenCalled()
   })
 
   it("sets status to 'running' before starting the pipeline", async () => {
     const { runIngestionRequest } = await import("./runner.js")
     // Provide a church so ensureChurch short-circuits
-    const db = buildDb(
-      makeRequest({ church_id: "church-1" }),
-      { id: "church-1", slug: "testchurch", status: "pending" },
-    )
+    const db = buildDb(makeRequest({ church_id: "church-1" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
     await runIngestionRequest(makeOpts(db))
     // The first status write is 'running'; subsequent ones depend on outcome
     // We verify the final status (complete) rather than the transient 'running'
@@ -231,10 +247,11 @@ describe("runIngestionRequest", () => {
     const { runIngestionRequest } = await import("./runner.js")
     const { notify } = await import("@sermon-search/notifications")
 
-    const db = buildDb(
-      makeRequest({ church_id: "church-1" }),
-      { id: "church-1", slug: "testchurch", status: "pending" },
-    )
+    const db = buildDb(makeRequest({ church_id: "church-1" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
     const result = await runIngestionRequest(makeOpts(db))
 
     expect(result.status).toBe("complete")
@@ -254,10 +271,11 @@ describe("runIngestionRequest", () => {
     ;(countTranscriptTokens as Mock).mockReturnValue(600)
 
     // Provide two candidate videos via the videos table mock
-    const db = buildDb(
-      makeRequest({ church_id: "church-1" }),
-      { id: "church-1", slug: "testchurch", status: "pending" },
-    )
+    const db = buildDb(makeRequest({ church_id: "church-1" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
     // Inject two videos
     const fakeVideos = [
       { id: "v1", youtube_video_id: "yt1", title: "Sermon 1", church_id: "church-1" },
@@ -285,7 +303,11 @@ describe("runIngestionRequest", () => {
           }),
           execute: async () => rows,
           executeTakeFirst: async () => rows[0],
-          executeTakeFirstOrThrow: async () => rows[0] ?? (() => { throw new Error("not found") })(),
+          executeTakeFirstOrThrow: async () =>
+            rows[0] ??
+            (() => {
+              throw new Error("not found")
+            })(),
         } as ReturnType<typeof db.selectFrom>
       }
       return origSelectFrom(table)
@@ -309,10 +331,11 @@ describe("runIngestionRequest", () => {
     const { resolveChannel } = await import("../ingest/handle.js")
     ;(resolveChannel as Mock).mockRejectedValueOnce(new Error("YouTube quota exceeded"))
 
-    const db = buildDb(
-      makeRequest({ church_id: "church-1" }),
-      { id: "church-1", slug: "testchurch", status: "pending" },
-    )
+    const db = buildDb(makeRequest({ church_id: "church-1" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
 
     await expect(runIngestionRequest(makeOpts(db))).rejects.toThrow("YouTube quota exceeded")
     expect(db._req.status).toBe("failed")
@@ -341,7 +364,9 @@ describe("runIngestionRequest", () => {
     )
 
     // Inject one candidate video so the loop runs at least once
-    const fakeVideos = [{ id: "v1", youtube_video_id: "yt1", title: "Sermon 1", church_id: "church-1" }]
+    const fakeVideos = [
+      { id: "v1", youtube_video_id: "yt1", title: "Sermon 1", church_id: "church-1" },
+    ]
     const origSelectFrom = db.selectFrom.bind(db)
     db.selectFrom = (table: string) => {
       if (table === "videos") {
@@ -363,7 +388,11 @@ describe("runIngestionRequest", () => {
           }),
           execute: async () => fakeVideos,
           executeTakeFirst: async () => fakeVideos[0],
-          executeTakeFirstOrThrow: async () => fakeVideos[0] ?? (() => { throw new Error("not found") })(),
+          executeTakeFirstOrThrow: async () =>
+            fakeVideos[0] ??
+            (() => {
+              throw new Error("not found")
+            })(),
         } as ReturnType<typeof db.selectFrom>
       }
       return origSelectFrom(table)
@@ -376,16 +405,83 @@ describe("runIngestionRequest", () => {
     expect(db._req.videos_ingested).toBeGreaterThanOrEqual(2)
   })
 
+  it("does not double-count tokens or videos_ingested when all candidates are already skipped on resume", async () => {
+    const { runIngestionRequest } = await import("./runner.js")
+    const { ingestVideoTranscript } = await import("../ingest/transcript.js")
+    const { countTranscriptTokens } = await import("./limited-ingest-token-cap.js")
+    // All candidates have existing transcripts — ingestVideoTranscript returns 'skipped'
+    ;(ingestVideoTranscript as Mock).mockResolvedValue({
+      status: "skipped",
+      transcriptId: "t-existing",
+      videoDbId: "v1",
+    })
+
+    const db = buildDb(
+      makeRequest({
+        church_id: "church-1",
+        status: "approved",
+        tokens_ingested: "800000",
+        videos_ingested: 5,
+      }),
+      { id: "church-1", slug: "testchurch", status: "pending" },
+    )
+
+    // Three candidate videos, all of which will return 'skipped'
+    const fakeVideos = [
+      { id: "v1", youtube_video_id: "yt1", title: "Sermon 1", church_id: "church-1" },
+      { id: "v2", youtube_video_id: "yt2", title: "Sermon 2", church_id: "church-1" },
+      { id: "v3", youtube_video_id: "yt3", title: "Sermon 3", church_id: "church-1" },
+    ]
+    const origSelectFrom = db.selectFrom.bind(db)
+    db.selectFrom = (table: string) => {
+      if (table === "videos") {
+        return {
+          selectAll: () => db.selectFrom(table),
+          select: () => ({
+            where: () => ({
+              where: () => ({
+                orderBy: () => ({
+                  execute: async () => fakeVideos,
+                }),
+              }),
+            }),
+          }),
+          where: () => ({
+            where: () => ({
+              execute: async () => fakeVideos,
+            }),
+          }),
+          execute: async () => fakeVideos,
+          executeTakeFirst: async () => fakeVideos[0],
+          executeTakeFirstOrThrow: async () =>
+            fakeVideos[0] ??
+            (() => {
+              throw new Error("not found")
+            })(),
+        } as ReturnType<typeof db.selectFrom>
+      }
+      return origSelectFrom(table)
+    }
+
+    await runIngestionRequest(makeOpts(db))
+
+    // Counters must not advance — every candidate was already counted in the prior pass
+    expect(Number(db._req.tokens_ingested)).toBe(800000)
+    expect(db._req.videos_ingested).toBe(5)
+    expect(countTranscriptTokens).not.toHaveBeenCalled()
+  })
+
   it("runs uncapped when status is 'approved' (resume path)", async () => {
     const { runIngestionRequest } = await import("./runner.js")
     const { countTranscriptTokens } = await import("./limited-ingest-token-cap.js")
     // Tokens per video >> default cap, but since uncapped the run still completes
     ;(countTranscriptTokens as Mock).mockReturnValue(999_999)
 
-    const db = buildDb(
-      makeRequest({ church_id: "church-1", status: "approved" }),
-      { id: "church-1", slug: "testchurch", status: "pending" },
-    )
+    const db = buildDb(makeRequest({ church_id: "church-1", status: "approved" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
     const result = await runIngestionRequest(makeOpts(db))
 
     // Uncapped run should drain and complete, not hit awaiting_approval
@@ -430,7 +526,11 @@ describe("filterPlaylists (via include/exclude behavior)", () => {
 
     const { runIngestionRequest } = await import("./runner.js")
     const db = buildDb(
-      makeRequest({ church_id: "c1", include_playlist_ids: ["PL1", "PL3"], exclude_playlist_ids: [] }),
+      makeRequest({
+        church_id: "c1",
+        include_playlist_ids: ["PL1", "PL3"],
+        exclude_playlist_ids: [],
+      }),
       { id: "c1", slug: "testchurch", status: "pending" },
     )
     await runIngestionRequest(makeOpts(db))

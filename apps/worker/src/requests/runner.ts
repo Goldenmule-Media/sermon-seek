@@ -4,23 +4,18 @@ import type { EmailSender, NotificationConfig } from "@sermon-search/notificatio
 import { notify } from "@sermon-search/notifications"
 import type { IngestionRequest } from "@sermon-search/types"
 import { type Kysely, sql } from "kysely"
+import type { Enricher } from "../enrich/llm.js"
 import { enrichVideo } from "../enrich/run.js"
-import { embedVideo } from "../ingest/embed.js"
 import {
   findVideosMissingDuration,
   updateVideoFromMetadata,
   upsertVideoFromPlaylistItem,
 } from "../ingest/channel.js"
+import { embedVideo } from "../ingest/embed.js"
 import { resolveChannel } from "../ingest/handle.js"
 import { uniqueSlugForPlaylist } from "../ingest/slug.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
-import {
-  computeRelatedForVideo,
-  loadVideoRefs,
-  loadVideoTopics,
-} from "../related/run.js"
-import { countTranscriptTokens, LIMITED_INGEST_TOKEN_CAP_DEFAULT } from "./limited-ingest-token-cap.js"
-import type { Enricher } from "../enrich/llm.js"
+import { computeRelatedForVideo, loadVideoRefs, loadVideoTopics } from "../related/run.js"
 import {
   getChannelMetadata,
   getChannelPlaylists,
@@ -29,6 +24,10 @@ import {
 } from "../youtube/cache_aware.js"
 import type { YoutubeClient } from "../youtube/client.js"
 import type { YoutubePlaylistItem } from "../youtube/types.js"
+import {
+  LIMITED_INGEST_TOKEN_CAP_DEFAULT,
+  countTranscriptTokens,
+} from "./limited-ingest-token-cap.js"
 
 export interface RunIngestionRequestOptions {
   db: Kysely<Database>
@@ -65,8 +64,10 @@ async function reloadRequest(db: Kysely<Database>, requestId: string): Promise<I
     tokens_ingested: Number(row.tokens_ingested),
     include_playlist_ids: row.include_playlist_ids as string[],
     exclude_playlist_ids: row.exclude_playlist_ids as string[],
-    created_at: row.created_at instanceof Date ? row.created_at.toISOString() : String(row.created_at),
-    updated_at: row.updated_at instanceof Date ? row.updated_at.toISOString() : String(row.updated_at),
+    created_at:
+      row.created_at instanceof Date ? row.created_at.toISOString() : String(row.created_at),
+    updated_at:
+      row.updated_at instanceof Date ? row.updated_at.toISOString() : String(row.updated_at),
     admin_note: row.admin_note ?? null,
     church_id: row.church_id ?? null,
   }
@@ -234,7 +235,11 @@ async function runPipeline({
   const channelTitle = channel.snippet?.title ?? resolved.title
   const channelRow = await db
     .insertInto("channels")
-    .values({ church_id: churchId, youtube_channel_id: resolved.youtubeChannelId, title: channelTitle })
+    .values({
+      church_id: churchId,
+      youtube_channel_id: resolved.youtubeChannelId,
+      title: channelTitle,
+    })
     .onConflict((oc) =>
       oc.columns(["church_id", "youtube_channel_id"]).doUpdateSet({ title: channelTitle }),
     )
@@ -258,7 +263,9 @@ async function runPipeline({
     .select(["youtube_playlist_id", "slug"])
     .where("channel_id", "=", channelDbId)
     .execute()
-  const existingSlugByPlaylistId = new Map(existingPlaylistRows.map((r) => [r.youtube_playlist_id, r.slug]))
+  const existingSlugByPlaylistId = new Map(
+    existingPlaylistRows.map((r) => [r.youtube_playlist_id, r.slug]),
+  )
   const takenSlugs = new Set(existingPlaylistRows.map((r) => r.slug))
   const positionByPlaylistId = new Map(playlists.map((pl, i) => [pl.id, i]))
   const sortedPlaylists = [...playlists].sort((a, b) => a.id.localeCompare(b.id))
@@ -300,14 +307,19 @@ async function runPipeline({
 
   // Step 4: Enumerate videos (deduped)
   const videoFirstSeen = new Map<string, YoutubePlaylistItem>()
-  const joinRows: Array<{ youtubeVideoId: string; youtubePlaylistId: string; position: number }> = []
+  const joinRows: Array<{ youtubeVideoId: string; youtubePlaylistId: string; position: number }> =
+    []
 
   for (const pl of playlists) {
     const { items } = await getPlaylistItems(client, resolved.youtubeChannelId, pl.id)
     for (const item of items) {
       const videoId = item.contentDetails?.videoId ?? item.snippet?.resourceId?.videoId
       if (!videoId) continue
-      joinRows.push({ youtubeVideoId: videoId, youtubePlaylistId: pl.id, position: item.snippet?.position ?? 0 })
+      joinRows.push({
+        youtubeVideoId: videoId,
+        youtubePlaylistId: pl.id,
+        position: item.snippet?.position ?? 0,
+      })
       if (!videoFirstSeen.has(videoId)) videoFirstSeen.set(videoId, item)
     }
   }
@@ -334,7 +346,9 @@ async function runPipeline({
       await trx
         .insertInto("video_playlists")
         .values({ video_id: videoDbId, playlist_id: playlistDbId, position: row.position })
-        .onConflict((oc) => oc.columns(["video_id", "playlist_id"]).doUpdateSet({ position: row.position }))
+        .onConflict((oc) =>
+          oc.columns(["video_id", "playlist_id"]).doUpdateSet({ position: row.position }),
+        )
         .execute()
     }
   })
@@ -395,42 +409,55 @@ async function runPipeline({
       continue
     }
 
-    // Count tokens
-    const transcript = await db
-      .selectFrom("transcripts")
-      .select(["full_text"])
-      .where("id", "=", transcriptResult.transcriptId)
-      .executeTakeFirstOrThrow()
-    const videoTokens = countTranscriptTokens(transcript.full_text)
-    tokensIngested += videoTokens
+    let videoTokens = 0
+    if (transcriptResult.status === "ok") {
+      // Count tokens only for newly ingested transcripts
+      const transcript = await db
+        .selectFrom("transcripts")
+        .select(["full_text"])
+        .where("id", "=", transcriptResult.transcriptId)
+        .executeTakeFirstOrThrow()
+      videoTokens = countTranscriptTokens(transcript.full_text)
+      tokensIngested += videoTokens
 
-    await db
-      .updateTable("ingestion_requests")
-      .set({ tokens_ingested: tokensIngested, updated_at: sql`now()` })
-      .where("id", "=", request.id)
-      .execute()
+      await db
+        .updateTable("ingestion_requests")
+        .set({ tokens_ingested: tokensIngested, updated_at: sql`now()` })
+        .where("id", "=", request.id)
+        .execute()
+    }
 
-    // Stage 3: embeddings
+    // Stage 3: embeddings (idempotent — no-ops if already done)
     await embedVideo({ db, embedder, churchId, videoDbId: video.id })
 
-    // Stage 4: enrichment
+    // Stage 4: enrichment (idempotent — no-ops if already done)
     await enrichVideo({ db, enricher, churchId, videoDbId: video.id, title: video.title })
 
     // Refresh topic/ref maps so this video's data is available for related computation
     allVideoTopics = await loadVideoTopics(db, churchId)
     allVideoRefs = await loadVideoRefs(db, churchId)
 
-    // Stage 5: related
-    await computeRelatedForVideo({ db, churchId, videoDbId: video.id, allVideoTopics, allVideoRefs })
+    // Stage 5: related (idempotent — no-ops if already done)
+    await computeRelatedForVideo({
+      db,
+      churchId,
+      videoDbId: video.id,
+      allVideoTopics,
+      allVideoRefs,
+    })
 
-    videosIngested += 1
-    await db
-      .updateTable("ingestion_requests")
-      .set({ videos_ingested: videosIngested, updated_at: sql`now()` })
-      .where("id", "=", request.id)
-      .execute()
+    if (transcriptResult.status === "ok") {
+      videosIngested += 1
+      await db
+        .updateTable("ingestion_requests")
+        .set({ videos_ingested: videosIngested, updated_at: sql`now()` })
+        .where("id", "=", request.id)
+        .execute()
 
-    log(`done ${video.youtube_video_id} (tokens: ${videoTokens}, total: ${tokensIngested})`)
+      log(`done ${video.youtube_video_id} (tokens: ${videoTokens}, total: ${tokensIngested})`)
+    } else {
+      log(`skip ${video.youtube_video_id}: transcript already present (status=skipped)`)
+    }
 
     if (cap !== Number.POSITIVE_INFINITY && tokensIngested >= cap) {
       capHit = true
@@ -457,7 +484,9 @@ async function ensureChurch(
       .executeTakeFirst()
     if (existing) {
       if (existing.status === "denied" || existing.status === "suspended") {
-        throw new Error(`Church ${request.church_id} has status '${existing.status}'; cannot run ingestion`)
+        throw new Error(
+          `Church ${request.church_id} has status '${existing.status}'; cannot run ingestion`,
+        )
       }
       return existing.id
     }
