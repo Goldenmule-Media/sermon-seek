@@ -147,7 +147,7 @@ export async function runIngestionRequest({
     }
     await db
       .updateTable("ingestion_requests")
-      .set({ status: "complete", updated_at: sql`now()` })
+      .set({ status: "complete", limit_reached: false, updated_at: sql`now()` })
       .where("id", "=", requestId)
       .execute()
     const completedRequest = await reloadRequest(db, requestId)
