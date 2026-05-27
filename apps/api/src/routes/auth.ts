@@ -29,22 +29,35 @@ function safeStateCompare(a: string, b: string): boolean {
   return timingSafeEqual(Buffer.from(a), Buffer.from(b))
 }
 
-function validateReturnTo(value: string | undefined): string {
+export function validateReturnTo(value: string | undefined): string {
   if (!value) return config.WEB_BASE_URL
   // Accept relative paths — anchor them to the web origin, since the callback
   // runs on the API origin and a bare "/foo" would otherwise redirect there.
   if (/^\/[^/]/.test(value) || value === "/") {
     return new URL(value, config.WEB_BASE_URL).toString()
   }
-  // Accept same-origin absolute URLs (relative to the web app)
+  // Accept same-origin absolute URLs for WEB_BASE_URL or ADMIN_BASE_URL (when set)
   try {
     const u = new URL(value)
-    const base = new URL(config.WEB_BASE_URL)
-    if (u.origin === base.origin) return value
+    const webOrigin = new URL(config.WEB_BASE_URL).origin
+    if (u.origin === webOrigin) return value
+    if (config.ADMIN_BASE_URL) {
+      const adminOrigin = new URL(config.ADMIN_BASE_URL).origin
+      if (u.origin === adminOrigin) return value
+    }
   } catch {
     // fall through
   }
   return config.WEB_BASE_URL
+}
+
+function parseAdminAllowedEmails(): Set<string> {
+  if (!config.ADMIN_ALLOWED_EMAILS) return new Set()
+  return new Set(
+    config.ADMIN_ALLOWED_EMAILS.split(",")
+      .map((e) => e.trim().toLowerCase())
+      .filter(Boolean),
+  )
 }
 
 export async function requireCsrfHeader(
@@ -170,7 +183,7 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
         return reply.code(400).send({ error: "token exchange failed" })
       }
 
-      let claims: { sub: string; name?: string; picture?: string }
+      let claims: { sub: string; name?: string; picture?: string; email?: string }
       try {
         claims = await app.googleOAuth.verifyIdToken(idToken)
       } catch {
@@ -193,11 +206,26 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
             last_seen_at: sql`now()`,
           }),
         )
-        .returning(["id", "status"])
+        .returning(["id", "status", "is_admin"])
         .executeTakeFirstOrThrow()
 
       if (user.status !== "active") {
         return reply.code(403).send({ error: "account suspended or deleted" })
+      }
+
+      // Auto-promote first-time sign-in for emails in ADMIN_ALLOWED_EMAILS.
+      // Idempotent: only runs when is_admin is still false. Removing an email
+      // from the list does NOT demote.
+      if (!user.is_admin && claims.email) {
+        const allowed = parseAdminAllowedEmails()
+        if (allowed.has(claims.email.toLowerCase().trim())) {
+          await app.db
+            .updateTable("users")
+            .set({ is_admin: true })
+            .where("id", "=", user.id)
+            .where("is_admin", "=", false)
+            .execute()
+        }
       }
 
       const { token, expiresAt } = await createSession(app.db, user.id, request)

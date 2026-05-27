@@ -17,7 +17,8 @@
     "db:reset": "pnpm --filter @sermon-search/db reset",
     "db:psql": "pnpm --filter @sermon-search/db psql",
     "db:seed": "pnpm --filter @sermon-search/db seed",
-    "worker:run": "pnpm --filter @sermon-search/worker worker:run --"
+    "worker:run": "pnpm --filter @sermon-search/worker worker:run --",
+    "admin:grant": "pnpm --filter @sermon-search/api admin:grant --"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

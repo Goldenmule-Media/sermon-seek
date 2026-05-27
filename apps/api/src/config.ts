@@ -18,6 +18,8 @@ const envSchema = z.object({
   SESSION_COOKIE_NAME: z.string().default("sermon_session"),
   STATE_COOKIE_NAME: z.string().default("sermon_oauth_state"),
   WEB_BASE_URL: z.string().url().default("http://localhost:3000"),
+  ADMIN_BASE_URL: z.string().url().optional(),
+  ADMIN_ALLOWED_EMAILS: z.string().optional(),
   COOKIE_SECURE: z.coerce.boolean().optional(),
   LIMITED_INGEST_TOKEN_CAP: z.coerce.number().int().positive().default(750_000),
 })

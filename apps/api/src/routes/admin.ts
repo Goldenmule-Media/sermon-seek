@@ -92,7 +92,7 @@ const renameChurchResponseSchema = z.object({
 })
 
 export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
-  app.addHook("preHandler", app.requireAdminApiKey)
+  app.addHook("preHandler", app.requireAdminOrApiKey)
 
   app.post(
     "/admin/channels",
