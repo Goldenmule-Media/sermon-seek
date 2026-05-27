@@ -1,5 +1,7 @@
 import type {
   HomeResponse,
+  IngestionRequestDetail,
+  MeRequestsListResponse,
   PlaylistVideos,
   PlaylistWithStats,
   RelatedVideo,
@@ -190,6 +192,46 @@ export async function fetchPlaylists(church: string): Promise<PlaylistWithStats[
     return data.playlists
   } catch {
     return []
+  }
+}
+
+export async function fetchMyRequests(
+  opts: {
+    limit?: number
+    offset?: number
+  } = {},
+): Promise<MeRequestsListResponse | null> {
+  try {
+    const sp = new URLSearchParams()
+    if (opts.limit != null) sp.set("limit", String(opts.limit))
+    if (opts.offset != null) sp.set("offset", String(opts.offset))
+    const qs = sp.toString()
+    const res = await fetch(`${apiBase()}/v1/me/requests${qs ? `?${qs}` : ""}`, {
+      credentials: "include",
+    })
+    if (!res.ok) return null
+    return res.json() as Promise<MeRequestsListResponse>
+  } catch {
+    return null
+  }
+}
+
+export async function fetchMyRequest(
+  id: string,
+  signal?: AbortSignal,
+): Promise<{ status: number; body: IngestionRequestDetail | { error: string } }> {
+  try {
+    const res = await fetch(`${apiBase()}/v1/me/requests/${encodeURIComponent(id)}`, {
+      credentials: "include",
+      signal,
+    })
+    const body = await res.json()
+    return { status: res.status, body: body as IngestionRequestDetail | { error: string } }
+  } catch (err) {
+    if (err instanceof Error && err.name === "AbortError") {
+      return { status: 0, body: { error: "aborted" } }
+    }
+    return { status: 0, body: { error: "network_error" } }
   }
 }
 

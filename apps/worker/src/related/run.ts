@@ -16,6 +16,11 @@ export interface RelatedBackfillResult {
   rowsInserted: number
 }
 
+export interface ComputeRelatedForVideoResult {
+  rowsInserted: number
+  skipped: boolean
+}
+
 interface RelatedRow {
   related_video_id: string
   signal: string
@@ -94,11 +99,10 @@ async function computeChunkSimilarity(
   )
 }
 
-async function computeTopicOverlap(
-  db: Kysely<Database>,
+function computeTopicOverlap(
   srcVideoId: string,
   allVideoTopics: Map<string, string[]>,
-): Promise<RelatedRow[]> {
+): RelatedRow[] {
   const srcTopics = allVideoTopics.get(srcVideoId) ?? []
   if (srcTopics.length === 0) return []
 
@@ -119,11 +123,10 @@ async function computeTopicOverlap(
   return topN(rows)
 }
 
-async function computeScriptureOverlap(
-  db: Kysely<Database>,
+function computeScriptureOverlap(
   srcVideoId: string,
   allVideoRefs: Map<string, string[]>,
-): Promise<RelatedRow[]> {
+): RelatedRow[] {
   const srcRefs = allVideoRefs.get(srcVideoId) ?? []
   if (srcRefs.length === 0) return []
 
@@ -178,6 +181,111 @@ async function computeSameSeries(db: Kysely<Database>, srcVideoId: string): Prom
   return topN(result)
 }
 
+export async function computeRelatedForVideo({
+  db,
+  churchId,
+  videoDbId,
+  allVideoTopics,
+  allVideoRefs,
+  force = false,
+}: {
+  db: Kysely<Database>
+  churchId: string
+  videoDbId: string
+  allVideoTopics: Map<string, string[]>
+  allVideoRefs: Map<string, string[]>
+  force?: boolean
+}): Promise<ComputeRelatedForVideoResult> {
+  const hasChunks = await db
+    .selectFrom("transcript_chunks")
+    .select("id")
+    .where("video_id", "=", videoDbId)
+    .limit(1)
+    .executeTakeFirst()
+
+  if (!hasChunks) return { rowsInserted: 0, skipped: true }
+
+  if (!force) {
+    const existing = await db
+      .selectFrom("related_videos")
+      .select("video_id")
+      .where("video_id", "=", videoDbId)
+      .limit(1)
+      .executeTakeFirst()
+
+    if (existing) return { rowsInserted: 0, skipped: true }
+  }
+
+  const [chunkRows, topicRows, scriptureRows, seriesRows] = await Promise.all([
+    computeChunkSimilarity(db, videoDbId, churchId),
+    Promise.resolve(computeTopicOverlap(videoDbId, allVideoTopics)),
+    Promise.resolve(computeScriptureOverlap(videoDbId, allVideoRefs)),
+    computeSameSeries(db, videoDbId),
+  ])
+
+  const allRows = [...chunkRows, ...topicRows, ...scriptureRows, ...seriesRows]
+
+  await db.transaction().execute(async (trx) => {
+    await trx.deleteFrom("related_videos").where("video_id", "=", videoDbId).execute()
+
+    if (allRows.length > 0) {
+      await trx
+        .insertInto("related_videos")
+        .values(
+          allRows.map((r) => ({
+            video_id: videoDbId,
+            related_video_id: r.related_video_id,
+            signal: r.signal,
+            score: r.score,
+            payload: JSON.stringify(r.payload),
+          })),
+        )
+        .execute()
+    }
+  })
+
+  return { rowsInserted: allRows.length, skipped: false }
+}
+
+export async function loadVideoTopics(
+  db: Kysely<Database>,
+  churchId: string,
+): Promise<Map<string, string[]>> {
+  const allTopicRows = await db
+    .selectFrom("video_topics as vt")
+    .innerJoin("topics as t", "t.id", "vt.topic_id")
+    .innerJoin("videos as v", "v.id", "vt.video_id")
+    .select(["vt.video_id", "t.slug"])
+    .where("v.church_id", "=", churchId)
+    .execute()
+  const allVideoTopics = new Map<string, string[]>()
+  for (const row of allTopicRows) {
+    const list = allVideoTopics.get(row.video_id) ?? []
+    list.push(row.slug)
+    allVideoTopics.set(row.video_id, list)
+  }
+  return allVideoTopics
+}
+
+export async function loadVideoRefs(
+  db: Kysely<Database>,
+  churchId: string,
+): Promise<Map<string, string[]>> {
+  const allRefRows = await db
+    .selectFrom("video_scripture_refs as vsr")
+    .innerJoin("videos as v", "v.id", "vsr.video_id")
+    .select(["vsr.video_id", "vsr.start_coord", "vsr.end_coord"])
+    .where("v.church_id", "=", churchId)
+    .execute()
+  const allVideoRefs = new Map<string, string[]>()
+  for (const row of allRefRows) {
+    const list = allVideoRefs.get(row.video_id) ?? []
+    list.push(`${row.start_coord}:${row.end_coord}`)
+    allVideoRefs.set(row.video_id, list)
+  }
+  return allVideoRefs
+}
+
 export async function runRelatedBackfill({
   db,
   churchId,
@@ -192,96 +300,27 @@ export async function runRelatedBackfill({
     .where("church_id", "=", churchId)
     .execute()
 
-  // Pre-load topic slugs and scripture refs scoped to this church
-  const allTopicRows = await db
-    .selectFrom("video_topics as vt")
-    .innerJoin("topics as t", "t.id", "vt.topic_id")
-    .innerJoin("videos as v", "v.id", "vt.video_id")
-    .select(["vt.video_id", "t.slug"])
-    .where("v.church_id", "=", churchId)
-    .execute()
-  const allVideoTopics = new Map<string, string[]>()
-  for (const row of allTopicRows) {
-    const list = allVideoTopics.get(row.video_id) ?? []
-    list.push(row.slug)
-    allVideoTopics.set(row.video_id, list)
-  }
-
-  const allRefRows = await db
-    .selectFrom("video_scripture_refs as vsr")
-    .innerJoin("videos as v", "v.id", "vsr.video_id")
-    .select(["vsr.video_id", "vsr.start_coord", "vsr.end_coord"])
-    .where("v.church_id", "=", churchId)
-    .execute()
-  const allVideoRefs = new Map<string, string[]>()
-  for (const row of allRefRows) {
-    const list = allVideoRefs.get(row.video_id) ?? []
-    list.push(`${row.start_coord}:${row.end_coord}`)
-    allVideoRefs.set(row.video_id, list)
-  }
+  const allVideoTopics = await loadVideoTopics(db, churchId)
+  const allVideoRefs = await loadVideoRefs(db, churchId)
 
   for (const video of videos) {
-    const hasChunks = await db
-      .selectFrom("transcript_chunks")
-      .select("id")
-      .where("video_id", "=", video.id)
-      .limit(1)
-      .executeTakeFirst()
-
-    if (!hasChunks) {
-      log(`skip ${video.youtube_video_id}: no chunks`)
+    log(`computing related for ${video.youtube_video_id}`)
+    const result = await computeRelatedForVideo({
+      db,
+      churchId,
+      videoDbId: video.id,
+      allVideoTopics,
+      allVideoRefs,
+      force,
+    })
+    if (result.skipped) {
+      log(`skip ${video.youtube_video_id}: no chunks or already computed`)
       totals.videosSkipped++
       continue
     }
-
-    if (!force) {
-      const existing = await db
-        .selectFrom("related_videos")
-        .select("video_id")
-        .where("video_id", "=", video.id)
-        .limit(1)
-        .executeTakeFirst()
-
-      if (existing) {
-        log(`skip ${video.youtube_video_id}: already computed`)
-        totals.videosSkipped++
-        continue
-      }
-    }
-
-    log(`computing related for ${video.youtube_video_id}`)
-
-    const [chunkRows, topicRows, scriptureRows, seriesRows] = await Promise.all([
-      computeChunkSimilarity(db, video.id, churchId),
-      computeTopicOverlap(db, video.id, allVideoTopics),
-      computeScriptureOverlap(db, video.id, allVideoRefs),
-      computeSameSeries(db, video.id),
-    ])
-
-    const allRows = [...chunkRows, ...topicRows, ...scriptureRows, ...seriesRows]
-
-    await db.transaction().execute(async (trx) => {
-      await trx.deleteFrom("related_videos").where("video_id", "=", video.id).execute()
-
-      if (allRows.length > 0) {
-        await trx
-          .insertInto("related_videos")
-          .values(
-            allRows.map((r) => ({
-              video_id: video.id,
-              related_video_id: r.related_video_id,
-              signal: r.signal,
-              score: r.score,
-              payload: JSON.stringify(r.payload),
-            })),
-          )
-          .execute()
-      }
-    })
-
-    totals.rowsInserted += allRows.length
+    totals.rowsInserted += result.rowsInserted
     totals.videosProcessed++
-    log(`done ${video.youtube_video_id}: ${allRows.length} rows`)
+    log(`done ${video.youtube_video_id}: ${result.rowsInserted} rows`)
   }
 
   return totals

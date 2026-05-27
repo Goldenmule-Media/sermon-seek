@@ -215,3 +215,64 @@ export interface IngestionFilterRule {
   note: string | null
   created_at: string
 }
+
+export type ChurchStatus = "pending" | "active" | "suspended" | "denied"
+
+export type IngestionRequestStatus =
+  | "received"
+  | "running"
+  | "awaiting_approval"
+  | "approved"
+  | "denied"
+  | "failed"
+  | "complete"
+
+export interface IngestionRequest {
+  id: string
+  user_id: string
+  church_id: string | null
+  requested_slug: string
+  requested_name: string
+  youtube_handle_or_url: string
+  include_playlist_ids: string[]
+  exclude_playlist_ids: string[]
+  contact_email: string
+  status: IngestionRequestStatus
+  videos_discovered: number
+  videos_ingested: number
+  tokens_ingested: number
+  limit_reached: boolean
+  admin_note: string | null
+  created_at: string
+  updated_at: string
+}
+
+export interface IngestionRequestSummary {
+  id: string
+  requested_slug: string
+  status: IngestionRequestStatus
+  videos_discovered: number
+  videos_ingested: number
+  tokens_ingested: number
+  tokens_cap: number
+  search_url: string | null
+  limit_reached: boolean
+  created_at: string
+}
+
+export interface IngestionRequestDetail extends IngestionRequestSummary {
+  requested_name: string
+  youtube_handle_or_url: string
+  contact_email: string
+  include_playlist_ids: string[]
+  exclude_playlist_ids: string[]
+  admin_note: string | null
+  updated_at: string
+}
+
+export interface MeRequestsListResponse {
+  requests: IngestionRequestSummary[]
+  total: number
+  limit: number
+  offset: number
+}

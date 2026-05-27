@@ -12,6 +12,15 @@ import pg from "pg"
 type Timestamptz = ColumnType<Date, Date | string, Date | string>
 
 export type UserStatus = "active" | "suspended" | "deleted"
+export type ChurchStatus = "pending" | "active" | "suspended" | "denied"
+export type IngestionRequestStatus =
+  | "received"
+  | "running"
+  | "awaiting_approval"
+  | "approved"
+  | "denied"
+  | "failed"
+  | "complete"
 
 export interface UsersTable {
   id: Generated<string>
@@ -39,7 +48,29 @@ export interface ChurchesTable {
   id: Generated<string>
   slug: string
   name: string
+  youtube_channel_id: string | null
+  status: Generated<ChurchStatus>
   created_at: Generated<Timestamptz>
+}
+
+export interface IngestionRequestsTable {
+  id: Generated<string>
+  user_id: string
+  church_id: string | null
+  requested_slug: string
+  requested_name: string
+  youtube_handle_or_url: string
+  include_playlist_ids: Generated<string[]>
+  exclude_playlist_ids: Generated<string[]>
+  contact_email: string
+  status: IngestionRequestStatus
+  videos_discovered: Generated<number>
+  videos_ingested: Generated<number>
+  tokens_ingested: ColumnType<string, string | number, string | number>
+  limit_reached: Generated<boolean>
+  admin_note: string | null
+  created_at: Generated<Timestamptz>
+  updated_at: Generated<Timestamptz>
 }
 
 export interface ChurchSlugAliasesTable {
@@ -211,6 +242,7 @@ export interface Database {
   users: UsersTable
   sessions: SessionsTable
   churches: ChurchesTable
+  ingestion_requests: IngestionRequestsTable
   church_slug_aliases: ChurchSlugAliasesTable
   channels: ChannelsTable
   playlists: PlaylistsTable
@@ -247,6 +279,10 @@ export type ChurchUpdate = Updateable<ChurchesTable>
 export type ChurchSlugAliasRow = Selectable<ChurchSlugAliasesTable>
 export type ChurchSlugAliasInsert = Insertable<ChurchSlugAliasesTable>
 export type ChurchSlugAliasUpdate = Updateable<ChurchSlugAliasesTable>
+
+export type IngestionRequestRow = Selectable<IngestionRequestsTable>
+export type IngestionRequestInsert = Insertable<IngestionRequestsTable>
+export type IngestionRequestUpdate = Updateable<IngestionRequestsTable>
 
 export type ChannelRow = Selectable<ChannelsTable>
 export type ChannelInsert = Insertable<ChannelsTable>

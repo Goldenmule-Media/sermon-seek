@@ -211,7 +211,7 @@ export async function ingestChannel(opts: IngestChannelOptions): Promise<IngestC
   }
 }
 
-async function upsertVideoFromPlaylistItem(
+export async function upsertVideoFromPlaylistItem(
   trx: Transaction<Database>,
   channelDbId: string,
   churchId: string,
@@ -245,7 +245,7 @@ async function upsertVideoFromPlaylistItem(
     .execute()
 }
 
-async function updateVideoFromMetadata(
+export async function updateVideoFromMetadata(
   trx: Transaction<Database>,
   videoId: string,
   video: YoutubeVideo,
@@ -271,7 +271,7 @@ async function updateVideoFromMetadata(
     .execute()
 }
 
-async function findVideosMissingDuration(
+export async function findVideosMissingDuration(
   db: Kysely<Database>,
   youtubeVideoIds: readonly string[],
 ): Promise<string[]> {

@@ -20,10 +20,13 @@
     "test:watch": "vitest",
     "lint": "biome check src",
     "worker:run": "tsx --env-file=../../.env src/cli/run.ts",
-    "enrich:preview": "tsx --env-file=../../.env src/cli/enrich-preview.ts"
+    "enrich:preview": "tsx --env-file=../../.env src/cli/enrich-preview.ts",
+    "calibrate-token-cap": "tsx --env-file=../../.env src/requests/calibrate-token-cap.ts"
   },
   "dependencies": {
     "@sermon-search/db": "workspace:*",
+    "@sermon-search/notifications": "workspace:*",
+    "js-tiktoken": "^1.0.16",
     "@sermon-search/embeddings": "workspace:*",
     "@sermon-search/scripture": "workspace:*",
     "@sermon-search/types": "workspace:*",

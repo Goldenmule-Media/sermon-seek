@@ -143,7 +143,11 @@ export const sessionPlugin = fp(
 
     app.decorate("requireUser", async (request: FastifyRequest, reply: FastifyReply) => {
       if (!request.user) {
-        return reply.code(401).send({ error: "unauthenticated" })
+        const returnTo = encodeURIComponent(request.url)
+        return reply.code(401).send({
+          error: "unauthenticated",
+          sign_in_url: `/v1/auth/google/start?return_to=${returnTo}`,
+        })
       }
     })
 

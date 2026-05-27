@@ -1,5 +1,6 @@
 import { createDb } from "@sermon-search/db"
 import { createOpenAIEmbedder } from "@sermon-search/embeddings"
+import { createEmailSender, loadConfigFromEnv } from "@sermon-search/notifications"
 import { runAliasSweep } from "../aliases/sweep.js"
 import { createOpenAIEnricher } from "../enrich/llm.js"
 import { runEnrichBackfill } from "../enrich/run.js"
@@ -12,6 +13,7 @@ import { ingestVideoTranscript } from "../ingest/transcript.js"
 import { runTranscriptsBackfill } from "../ingest/transcripts_backfill.js"
 import { runViewStats } from "../ingest/view_stats.js"
 import { runRelatedBackfill } from "../related/run.js"
+import { runIngestionRequest } from "../requests/runner.js"
 import { runSmokeTest } from "../smoke/index.js"
 import { YoutubeClient } from "../youtube/client.js"
 import { runFiltersCli } from "./filters.js"
@@ -22,6 +24,7 @@ interface ParsedArgs {
   video?: string
   playlist?: string
   church?: string
+  request?: string
   smokeTest: boolean
   viewStats: boolean
   transcripts: boolean
@@ -35,13 +38,14 @@ interface ParsedArgs {
 }
 
 const USAGE =
-  "usage: worker:run --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | --sweep-aliases | filters list|add|remove | users promote|demote <google_sub>"
+  "usage: worker:run --request <id> | --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | --sweep-aliases | filters list|add|remove | users promote|demote <google_sub>"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
   let video: string | undefined
   let playlist: string | undefined
   let church: string | undefined
+  let request: string | undefined
   let smokeTest = false
   let viewStats = false
   let transcripts = false
@@ -64,6 +68,17 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     }
     if (arg?.startsWith("--church=")) {
       church = arg.slice("--church=".length)
+      continue
+    }
+    if (arg === "--request") {
+      const next = argv[i + 1]
+      if (next === undefined) throw new Error("--request requires a value")
+      request = next
+      i += 1
+      continue
+    }
+    if (arg?.startsWith("--request=")) {
+      request = arg.slice("--request=".length)
       continue
     }
     if (arg === "--channel") {
@@ -178,6 +193,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     throw new Error("--rss-poll requires --channel <youtube-channel-id>")
   }
   const modes = [
+    request ? "--request" : null,
     channel && !rssPoll ? "--channel" : null,
     video ? "--video" : null,
     playlist ? "--playlist" : null,
@@ -196,7 +212,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, --related, --rss-poll --channel <youtube-channel-id>, or --sweep-aliases",
+      "Missing required --request <id>, --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, --related, --rss-poll --channel <youtube-channel-id>, or --sweep-aliases",
     )
   }
   return {
@@ -204,6 +220,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     video,
     playlist,
     church,
+    request,
     smokeTest,
     viewStats,
     transcripts,
@@ -245,10 +262,59 @@ export async function main(argv: readonly string[]): Promise<number> {
     return 2
   }
 
-  if (!parsed.smokeTest && !parsed.sweepAliases && !parsed.church) {
+  if (!parsed.smokeTest && !parsed.sweepAliases && !parsed.request && !parsed.church) {
     console.error("--church <slug> is required for this command")
     console.error(USAGE)
     return 2
+  }
+
+  if (parsed.request) {
+    const youtubeApiKey = process.env.YOUTUBE_API_KEY
+    if (!youtubeApiKey) {
+      console.error("YOUTUBE_API_KEY is not set")
+      return 2
+    }
+    const openaiApiKey = process.env.OPENAI_API_KEY
+    if (!openaiApiKey) {
+      console.error("OPENAI_API_KEY is not set")
+      return 2
+    }
+    const model = process.env.ENRICHMENT_MODEL ?? "gpt-4o-mini"
+    const webBaseUrl = process.env.WEB_BASE_URL ?? "http://localhost:3000"
+    let tokenCap: number | undefined
+    if (process.env.LIMITED_INGEST_TOKEN_CAP !== undefined) {
+      const parsedCap = Number(process.env.LIMITED_INGEST_TOKEN_CAP)
+      if (!Number.isInteger(parsedCap) || parsedCap <= 0) {
+        console.error(
+          `LIMITED_INGEST_TOKEN_CAP must be a positive integer; got '${process.env.LIMITED_INGEST_TOKEN_CAP}'`,
+        )
+        return 2
+      }
+      tokenCap = parsedCap
+    }
+    const db = createDb()
+    try {
+      const notificationConfig = loadConfigFromEnv()
+      const summary = await runIngestionRequest({
+        db,
+        client: new YoutubeClient({ apiKey: youtubeApiKey }),
+        embedder: createOpenAIEmbedder({ apiKey: openaiApiKey }),
+        enricher: createOpenAIEnricher({ apiKey: openaiApiKey, model }),
+        sender: createEmailSender(notificationConfig),
+        notificationConfig,
+        webBaseUrl,
+        requestId: parsed.request,
+        tokenCap,
+        log: console.log,
+      })
+      console.log(JSON.stringify(summary, null, 2))
+      return 0
+    } catch (err) {
+      console.error(err instanceof Error ? (err.stack ?? err.message) : String(err))
+      return 1
+    } finally {
+      await db.destroy()
+    }
   }
 
   if (parsed.sweepAliases) {

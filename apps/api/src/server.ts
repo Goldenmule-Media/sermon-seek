@@ -15,6 +15,7 @@ import { churchContextPlugin } from "./plugins/church-context.js"
 import { dbPlugin } from "./plugins/db.js"
 import { embedderPlugin } from "./plugins/embedder.js"
 import { googleOAuthPlugin } from "./plugins/google-oauth.js"
+import { rateLimitPlugin } from "./plugins/rate-limit.js"
 import { sessionPlugin } from "./plugins/session.js"
 import { youtubePlugin } from "./plugins/youtube.js"
 import { registerRootRoutes, registerTenantRoutes } from "./routes/index.js"
@@ -67,6 +68,7 @@ export async function buildApp(): Promise<FastifyInstance> {
         { name: "search", description: "Full-text search endpoints" },
         { name: "videos", description: "Video metadata and transcript endpoints" },
         { name: "admin", description: "Admin / ingestion control endpoints" },
+        { name: "requests", description: "Self-service ingestion request endpoints" },
       ],
     },
     transform: jsonSchemaTransform,
@@ -78,6 +80,7 @@ export async function buildApp(): Promise<FastifyInstance> {
   await app.register(youtubePlugin)
   await app.register(googleOAuthPlugin)
   await app.register(sessionPlugin)
+  await app.register(rateLimitPlugin)
   await app.register(churchContextPlugin)
 
   await app.register(
