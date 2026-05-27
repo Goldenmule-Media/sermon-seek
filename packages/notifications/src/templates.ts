@@ -4,6 +4,7 @@ export type TemplateName =
   | "received"
   | "running"
   | "awaiting_approval"
+  | "approved"
   | "denied"
   | "failed"
   | "complete"
@@ -121,6 +122,26 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
           `<p>${counters}</p>` +
           `<p>Track your request: ${link(deepLink, deepLink)}</p>` +
           `<p>Your search will eventually live at: ${link(searchUrl, searchUrl)}</p>`,
+      )
+      return { subject, text, html }
+    }
+
+    case "approved": {
+      const subject = `[sermon-search] approved – ${slug}`
+      const text = [
+        `Great news! Your ingestion request for "${request.requested_name}" (${slug}) has been approved.`,
+        "",
+        "Indexing will resume shortly and your full sermon library will be indexed.",
+        "",
+        `Track your request status: ${deepLink}`,
+        `Your search will live at: ${searchUrl}`,
+      ].join("\n")
+      const html = wrapHtml(
+        subject,
+        `<p>Great news! Your ingestion request for <strong>${request.requested_name}</strong> (${slug}) has been approved.</p>` +
+          `<p>Indexing will resume shortly and your full sermon library will be indexed.</p>` +
+          `<p>Track your request: ${link(deepLink, deepLink)}</p>` +
+          `<p>Your search will live at: ${link(searchUrl, searchUrl)}</p>`,
       )
       return { subject, text, html }
     }

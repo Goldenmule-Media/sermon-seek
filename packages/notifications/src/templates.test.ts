@@ -113,6 +113,29 @@ describe("renderTemplate", () => {
     })
   })
 
+  describe("approved", () => {
+    it("subject contains slug and 'approved'", () => {
+      const { subject } = renderTemplate("approved", makeCtx("approved", "submitter"))
+      expect(subject).toContain("mychurch")
+      expect(subject).toContain("approved")
+    })
+
+    it("submitter text includes deep-link and searchUrl", () => {
+      const { text } = renderTemplate("approved", makeCtx("approved", "submitter"))
+      expect(text).toContain(DEEP_LINK)
+      expect(text).toContain(SEARCH_URL)
+    })
+
+    it("submitter html includes at least one anchor", () => {
+      const { html } = renderTemplate("approved", makeCtx("approved", "submitter"))
+      expect(html).toContain("<a href=")
+    })
+
+    it("is not in ADMIN_NOTIFY_STATUSES", () => {
+      expect(ADMIN_NOTIFY_STATUSES.has("approved")).toBe(false)
+    })
+  })
+
   describe("denied", () => {
     it("submitter text includes deep-link and admin_note when present", () => {
       const { text } = renderTemplate(
