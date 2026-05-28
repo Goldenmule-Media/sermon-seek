@@ -22,6 +22,7 @@ COPY packages/types/package.json ./packages/types/
 COPY packages/db/package.json ./packages/db/
 COPY packages/embeddings/package.json ./packages/embeddings/
 COPY packages/scripture/package.json ./packages/scripture/
+COPY packages/notifications/package.json ./packages/notifications/
 
 RUN pnpm install --frozen-lockfile --filter @sermon-search/api...
 
@@ -31,6 +32,7 @@ FROM base AS builder
 COPY packages/types ./packages/types
 COPY packages/scripture ./packages/scripture
 COPY packages/embeddings ./packages/embeddings
+COPY packages/notifications ./packages/notifications
 COPY packages/db ./packages/db
 COPY apps/worker ./apps/worker
 COPY apps/api ./apps/api
@@ -65,6 +67,9 @@ COPY --from=builder /app/packages/embeddings/node_modules ./packages/embeddings/
 COPY --from=builder /app/packages/scripture/dist ./packages/scripture/dist
 COPY --from=builder /app/packages/scripture/package.json ./packages/scripture/package.json
 COPY --from=builder /app/packages/scripture/node_modules ./packages/scripture/node_modules
+COPY --from=builder /app/packages/notifications/dist ./packages/notifications/dist
+COPY --from=builder /app/packages/notifications/package.json ./packages/notifications/package.json
+COPY --from=builder /app/packages/notifications/node_modules ./packages/notifications/node_modules
 COPY --from=builder /app/apps/worker/dist ./apps/worker/dist
 COPY --from=builder /app/apps/worker/package.json ./apps/worker/package.json
 COPY --from=builder /app/apps/worker/node_modules ./apps/worker/node_modules

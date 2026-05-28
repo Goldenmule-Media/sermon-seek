@@ -46,6 +46,7 @@ COPY packages/types/package.json ./packages/types/
 COPY packages/db/package.json ./packages/db/
 COPY packages/embeddings/package.json ./packages/embeddings/
 COPY packages/scripture/package.json ./packages/scripture/
+COPY packages/notifications/package.json ./packages/notifications/
 
 RUN pnpm install --frozen-lockfile --filter @sermon-search/worker...
 
@@ -53,6 +54,7 @@ RUN pnpm install --frozen-lockfile --filter @sermon-search/worker...
 COPY packages/types ./packages/types
 COPY packages/scripture ./packages/scripture
 COPY packages/embeddings ./packages/embeddings
+COPY packages/notifications ./packages/notifications
 COPY packages/db ./packages/db
 COPY apps/worker ./apps/worker
 

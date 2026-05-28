@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { adminBaseUrl } from "@/lib/env"
 
+export const dynamic = "force-dynamic"
+
 export default function LoginPage() {
   const returnTo = encodeURIComponent(`${adminBaseUrl()}/`)
   const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001"
