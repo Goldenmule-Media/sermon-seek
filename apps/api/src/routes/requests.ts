@@ -1,9 +1,10 @@
 import type { Database } from "@sermon-search/db"
 import { validateSlug } from "@sermon-search/types"
-import { resolveChannel } from "@sermon-search/worker"
+import { resolveChannel, validatePlaylistTarget } from "@sermon-search/worker"
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import type { Kysely } from "kysely"
 import { z } from "zod"
+import { columnsToPlaylistFilters, playlistFiltersToColumns } from "../lib/playlist-filters.js"
 import type { RateLimitPreHandler } from "../plugins/rate-limit.js"
 
 const HOUR_MS = 60 * 60 * 1000
@@ -91,12 +92,19 @@ export async function resolveChannelOrNull(
 
 // --- Zod schemas ---
 
+const playlistFiltersSchema = z
+  .discriminatedUnion("mode", [
+    z.object({ mode: z.literal("none"), playlist_ids: z.array(z.string()).max(0).default([]) }),
+    z.object({ mode: z.literal("include"), playlist_ids: z.array(z.string()).min(1) }),
+    z.object({ mode: z.literal("exclude"), playlist_ids: z.array(z.string()).min(1) }),
+  ])
+  .default({ mode: "none", playlist_ids: [] })
+
 const postBodySchema = z.object({
   requested_slug: z.string().min(1).max(64),
   requested_name: z.string().min(1),
   youtube_handle_or_url: z.string().min(1),
-  include_playlist_ids: z.array(z.string()).default([]),
-  exclude_playlist_ids: z.array(z.string()).default([]),
+  playlist_filters: playlistFiltersSchema,
   contact_email: z.string().email(),
 })
 
@@ -120,7 +128,13 @@ const post409Schema = z.object({
   request_id: z.string().optional(),
   note: z.string().optional(),
 })
-const post422Schema = z.object({ error: z.string() })
+const post422Schema = z.union([
+  z.object({ error: z.literal("unknown_handle") }),
+  z.object({
+    error: z.literal("invalid_playlist_filters"),
+    playlist_errors: z.record(z.string()),
+  }),
+])
 const post429Schema = z.object({
   error: z.string(),
   retry_after_seconds: z.number(),
@@ -229,8 +243,7 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
           requested_slug,
           requested_name,
           youtube_handle_or_url,
-          include_playlist_ids,
-          exclude_playlist_ids,
+          playlist_filters,
           contact_email,
         } = request.body
 
@@ -250,6 +263,51 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
         const resolved = await deps.resolveChannelOrNull(app.youtube, youtube_handle_or_url)
         if (!resolved) {
           return reply.code(422).send({ error: "unknown_handle" })
+        }
+
+        // 3.5 Validate playlist filters
+        if (playlist_filters.mode !== "none") {
+          const PLAYLIST_ID_RE = /^[A-Za-z0-9_-]{13,64}$/
+          const playlist_errors: Record<string, string> = {}
+
+          const ids = playlist_filters.playlist_ids
+          const syntaxOk: string[] = []
+          for (const id of ids) {
+            if (!PLAYLIST_ID_RE.test(id)) {
+              playlist_errors[id] = "invalid_format"
+            } else {
+              syntaxOk.push(id)
+            }
+          }
+
+          if (syntaxOk.length > 0) {
+            const results = await Promise.all(
+              syntaxOk.map((id) =>
+                validatePlaylistTarget({
+                  youtube: app.youtube,
+                  youtubeChannelId: resolved.youtubeChannelId,
+                  targetId: id,
+                }),
+              ),
+            )
+            for (let i = 0; i < syntaxOk.length; i++) {
+              const id = syntaxOk[i]
+              const result = results[i]
+              if (id !== undefined && result !== undefined && !result.ok) {
+                const code =
+                  result.reason === "not_found"
+                    ? "not_found_on_youtube"
+                    : result.reason === "wrong_channel"
+                      ? "wrong_channel"
+                      : "youtube_error"
+                playlist_errors[id] = code
+              }
+            }
+          }
+
+          if (Object.keys(playlist_errors).length > 0) {
+            return reply.code(422).send({ error: "invalid_playlist_filters", playlist_errors })
+          }
         }
 
         // 4. Channel dedupe
@@ -282,6 +340,8 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
         }
 
         // 5. Insert ingestion request
+        const { include_playlist_ids, exclude_playlist_ids } =
+          playlistFiltersToColumns(playlist_filters)
         const row = await app.db
           .insertInto("ingestion_requests")
           .values({

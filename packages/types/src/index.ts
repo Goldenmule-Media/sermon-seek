@@ -203,6 +203,13 @@ export interface TranscriptResponse {
   segments: TranscriptSegmentWithWords[]
 }
 
+export type PlaylistFilterMode = "none" | "include" | "exclude"
+
+export interface PlaylistFilters {
+  mode: PlaylistFilterMode
+  playlist_ids: string[]
+}
+
 export type IngestionFilterRuleType = "include" | "exclude"
 export type IngestionFilterTargetKind = "playlist"
 
@@ -264,8 +271,7 @@ export interface IngestionRequestDetail extends IngestionRequestSummary {
   requested_name: string
   youtube_handle_or_url: string
   contact_email: string
-  include_playlist_ids: string[]
-  exclude_playlist_ids: string[]
+  playlist_filters: PlaylistFilters
   admin_note: string | null
   updated_at: string
 }

@@ -128,7 +128,15 @@ type ResolverFn = (
   handle: string,
 ) => Promise<{ youtubeChannelId: string; title: string } | null>
 
-async function buildApp(db: Kysely<Database>, resolverFn: ResolverFn = async () => STUB_RESOLVED) {
+interface YoutubeStub {
+  listPlaylistsById: (id: string) => Promise<{ items?: Array<{ snippet?: { channelId?: string } }> }>
+}
+
+async function buildApp(
+  db: Kysely<Database>,
+  resolverFn: ResolverFn = async () => STUB_RESOLVED,
+  youtubeStub?: YoutubeStub,
+) {
   const { calls, notifyFn } = makeNotifyCapture()
   const stubSender: EmailSender = { send: async () => {} }
   const stubConfig: NotificationConfig = { from: "no-reply@test.com" }
@@ -153,7 +161,9 @@ async function buildApp(db: Kysely<Database>, resolverFn: ResolverFn = async () 
 
   await app.register(cookie, { secret: COOKIE_SECRET })
   await app.register(fp(async (inst) => { inst.decorate("db", db) }, { name: "db" }))
-  await app.register(fp(async (inst) => { inst.decorate("youtube", {}) }, { name: "youtube" }))
+  await app.register(
+    fp(async (inst) => { inst.decorate("youtube", youtubeStub ?? {}) }, { name: "youtube" }),
+  )
   await app.register(sessionPlugin)
   await app.register(rateLimitPlugin)
   await app.register(requestRoutes)
@@ -791,6 +801,314 @@ describeIfDb("requests integration", () => {
       expect(typeof overflow.json().retry_after_seconds).toBe("number")
       expect(overflow.json().retry_after_seconds).toBeGreaterThan(0)
       expect(Number(overflow.headers["retry-after"])).toBeGreaterThan(0)
+
+      await app.close()
+    })
+  })
+
+  // ── Playlist filters ──────────────────────────────────────────────────────────
+
+  describe("playlist filters", () => {
+    const VALID_BASE = {
+      requested_slug: "filterchurch",
+      requested_name: "Filter Church",
+      youtube_handle_or_url: "@FilterChannel",
+      contact_email: "filter@example.com",
+    }
+
+    function makePlaylistStub(responses: Record<string, string | null>): YoutubeStub {
+      return {
+        listPlaylistsById: async (id: string) => {
+          const channelId = responses[id]
+          if (channelId === undefined || channelId === null) {
+            return { items: [] }
+          }
+          return { items: [{ snippet: { channelId } }] }
+        },
+      }
+    }
+
+    it("happy path — mode:none stores empty arrays and GET returns mode:none", async () => {
+      const { app } = await buildApp(db)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+
+      const postRes = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: { ...VALID_BASE, playlist_filters: { mode: "none", playlist_ids: [] } },
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(postRes.statusCode).toBe(201)
+      const { request_id } = postRes.json()
+
+      const dbRow = await db
+        .selectFrom("ingestion_requests")
+        .select(["include_playlist_ids", "exclude_playlist_ids"])
+        .where("id", "=", request_id)
+        .executeTakeFirstOrThrow()
+      expect(dbRow.include_playlist_ids).toEqual([])
+      expect(dbRow.exclude_playlist_ids).toEqual([])
+
+      const getRes = await app.inject({
+        method: "GET",
+        url: `/me/requests/${request_id}`,
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(getRes.statusCode).toBe(200)
+      expect(getRes.json().playlist_filters).toEqual({ mode: "none", playlist_ids: [] })
+
+      await app.close()
+    })
+
+    it("happy path — mode:none is default when playlist_filters is omitted", async () => {
+      const { app } = await buildApp(db)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+
+      const postRes = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: VALID_BASE,
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(postRes.statusCode).toBe(201)
+      const { request_id } = postRes.json()
+
+      const getRes = await app.inject({
+        method: "GET",
+        url: `/me/requests/${request_id}`,
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(getRes.json().playlist_filters).toEqual({ mode: "none", playlist_ids: [] })
+
+      await app.close()
+    })
+
+    it("happy path — mode:include stores include_playlist_ids and GET returns mode:include", async () => {
+      const stub = makePlaylistStub({ PL_AAAAAAAAAAAAA: STUB_CHANNEL_ID, PL_BBBBBBBBBBBBB: STUB_CHANNEL_ID })
+      const { app } = await buildApp(db, async () => STUB_RESOLVED, stub)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+
+      const postRes = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: {
+          ...VALID_BASE,
+          playlist_filters: { mode: "include", playlist_ids: ["PL_AAAAAAAAAAAAA", "PL_BBBBBBBBBBBBB"] },
+        },
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(postRes.statusCode).toBe(201)
+      const { request_id } = postRes.json()
+
+      const dbRow = await db
+        .selectFrom("ingestion_requests")
+        .select(["include_playlist_ids", "exclude_playlist_ids"])
+        .where("id", "=", request_id)
+        .executeTakeFirstOrThrow()
+      expect(dbRow.include_playlist_ids).toEqual(["PL_AAAAAAAAAAAAA", "PL_BBBBBBBBBBBBB"])
+      expect(dbRow.exclude_playlist_ids).toEqual([])
+
+      const getRes = await app.inject({
+        method: "GET",
+        url: `/me/requests/${request_id}`,
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(getRes.json().playlist_filters).toEqual({
+        mode: "include",
+        playlist_ids: ["PL_AAAAAAAAAAAAA", "PL_BBBBBBBBBBBBB"],
+      })
+
+      await app.close()
+    })
+
+    it("happy path — mode:exclude stores exclude_playlist_ids and GET returns mode:exclude", async () => {
+      const stub = makePlaylistStub({ PL_CCCCCCCCCCCCC: STUB_CHANNEL_ID })
+      const { app } = await buildApp(db, async () => STUB_RESOLVED, stub)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+
+      const postRes = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: {
+          ...VALID_BASE,
+          playlist_filters: { mode: "exclude", playlist_ids: ["PL_CCCCCCCCCCCCC"] },
+        },
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(postRes.statusCode).toBe(201)
+      const { request_id } = postRes.json()
+
+      const dbRow = await db
+        .selectFrom("ingestion_requests")
+        .select(["include_playlist_ids", "exclude_playlist_ids"])
+        .where("id", "=", request_id)
+        .executeTakeFirstOrThrow()
+      expect(dbRow.include_playlist_ids).toEqual([])
+      expect(dbRow.exclude_playlist_ids).toEqual(["PL_CCCCCCCCCCCCC"])
+
+      const getRes = await app.inject({
+        method: "GET",
+        url: `/me/requests/${request_id}`,
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(getRes.json().playlist_filters).toEqual({
+        mode: "exclude",
+        playlist_ids: ["PL_CCCCCCCCCCCCC"],
+      })
+
+      await app.close()
+    })
+
+    it("422 invalid_playlist_filters — syntactically bad ID (contains space)", async () => {
+      let stubCalled = false
+      const stub: YoutubeStub = {
+        listPlaylistsById: async () => {
+          stubCalled = true
+          return { items: [] }
+        },
+      }
+      const { app } = await buildApp(db, async () => STUB_RESOLVED, stub)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+
+      const res = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: {
+          ...VALID_BASE,
+          playlist_filters: { mode: "include", playlist_ids: ["bad id"] },
+        },
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(res.statusCode).toBe(422)
+      expect(res.json()).toMatchObject({
+        error: "invalid_playlist_filters",
+        playlist_errors: { "bad id": "invalid_format" },
+      })
+      expect(stubCalled).toBe(false)
+
+      await app.close()
+    })
+
+    it("422 invalid_playlist_filters — not found on YouTube", async () => {
+      const stub = makePlaylistStub({ PL_GHOSTGHOST00000: null })
+      const { app } = await buildApp(db, async () => STUB_RESOLVED, stub)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+
+      const res = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: {
+          ...VALID_BASE,
+          playlist_filters: { mode: "include", playlist_ids: ["PL_GHOSTGHOST00000"] },
+        },
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(res.statusCode).toBe(422)
+      expect(res.json()).toMatchObject({
+        error: "invalid_playlist_filters",
+        playlist_errors: { PL_GHOSTGHOST00000: "not_found_on_youtube" },
+      })
+
+      await app.close()
+    })
+
+    it("422 invalid_playlist_filters — wrong channel", async () => {
+      const stub = makePlaylistStub({ PL_WRONGCHANNEL000: "UCsomeoneelseXXXXXXXXXXXX" })
+      const { app } = await buildApp(db, async () => STUB_RESOLVED, stub)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+
+      const res = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: {
+          ...VALID_BASE,
+          playlist_filters: { mode: "include", playlist_ids: ["PL_WRONGCHANNEL000"] },
+        },
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(res.statusCode).toBe(422)
+      expect(res.json()).toMatchObject({
+        error: "invalid_playlist_filters",
+        playlist_errors: { PL_WRONGCHANNEL000: "wrong_channel" },
+      })
+
+      await app.close()
+    })
+
+    it("400 — mode:include with empty playlist_ids (Zod shape rejection)", async () => {
+      const { app } = await buildApp(db)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+
+      const res = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: {
+          ...VALID_BASE,
+          playlist_filters: { mode: "include", playlist_ids: [] },
+        },
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(res.statusCode).toBe(400)
+
+      await app.close()
+    })
+
+    it("admin list and detail endpoints return playlist_filters", async () => {
+      const { app } = await buildApp(db)
+      const userId = await insertUser(db)
+      const adminId = await insertUser(db, { is_admin: true })
+      const adminToken = await insertSession(db, adminId)
+
+      const requestId = await db
+        .insertInto("ingestion_requests")
+        .values({
+          user_id: userId,
+          church_id: null,
+          requested_slug: "adminfilterchurch",
+          requested_name: "Admin Filter Church",
+          youtube_handle_or_url: "@AdminChannel",
+          contact_email: "admin@example.com",
+          include_playlist_ids: ["PL_XXXXXXXXXX00001"],
+          exclude_playlist_ids: [],
+          status: "received",
+          tokens_ingested: 0,
+        })
+        .returning("id")
+        .executeTakeFirstOrThrow()
+        .then((r) => r.id)
+
+      const listRes = await app.inject({
+        method: "GET",
+        url: "/admin/requests",
+        cookies: { [SESSION_COOKIE]: adminToken },
+      })
+      expect(listRes.statusCode).toBe(200)
+      const listBody = listRes.json()
+      const found = listBody.requests.find((r: { id: string }) => r.id === requestId)
+      expect(found).toBeDefined()
+      expect(found.playlist_filters).toEqual({
+        mode: "include",
+        playlist_ids: ["PL_XXXXXXXXXX00001"],
+      })
+
+      const detailRes = await app.inject({
+        method: "GET",
+        url: `/admin/requests/${requestId}`,
+        cookies: { [SESSION_COOKIE]: adminToken },
+      })
+      expect(detailRes.statusCode).toBe(200)
+      expect(detailRes.json().playlist_filters).toEqual({
+        mode: "include",
+        playlist_ids: ["PL_XXXXXXXXXX00001"],
+      })
 
       await app.close()
     })

@@ -10,6 +10,7 @@ import { sql } from "kysely"
 import { z } from "zod"
 import { config } from "../config.js"
 import { auditActor, auditWrite } from "../lib/audit.js"
+import { columnsToPlaylistFilters } from "../lib/playlist-filters.js"
 import { buildSearchUrl } from "./me-requests.js"
 
 // --- Zod schemas ---
@@ -52,6 +53,10 @@ const requestSummaryShape = z.object({
   search_url: z.string().nullable(),
   limit_reached: z.boolean(),
   created_at: z.string(),
+  playlist_filters: z.object({
+    mode: z.enum(["none", "include", "exclude"]),
+    playlist_ids: z.array(z.string()),
+  }),
 })
 
 const listResponseSchema = z.object({
@@ -65,8 +70,6 @@ const detailResponseSchema = requestSummaryShape.extend({
   requested_name: z.string(),
   youtube_handle_or_url: z.string(),
   contact_email: z.string(),
-  include_playlist_ids: z.array(z.string()),
-  exclude_playlist_ids: z.array(z.string()),
   admin_note: z.string().nullable(),
   updated_at: z.string(),
   church_slug: z.string().nullable(),
@@ -181,6 +184,8 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
               "ingestion_requests.tokens_ingested",
               "ingestion_requests.limit_reached",
               "ingestion_requests.created_at",
+              "ingestion_requests.include_playlist_ids",
+              "ingestion_requests.exclude_playlist_ids",
               "users.display_name",
               "churches.slug as church_slug",
             ])
@@ -204,6 +209,10 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
           search_url: buildSearchUrl(row.church_slug),
           limit_reached: row.limit_reached,
           created_at: (row.created_at as unknown as Date).toISOString(),
+          playlist_filters: columnsToPlaylistFilters(
+            row.include_playlist_ids as string[],
+            row.exclude_playlist_ids as string[],
+          ),
         }))
 
         return reply.send({
@@ -297,8 +306,10 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
           requested_name: row.requested_name,
           youtube_handle_or_url: row.youtube_handle_or_url,
           contact_email: row.contact_email,
-          include_playlist_ids: row.include_playlist_ids as string[],
-          exclude_playlist_ids: row.exclude_playlist_ids as string[],
+          playlist_filters: columnsToPlaylistFilters(
+            row.include_playlist_ids as string[],
+            row.exclude_playlist_ids as string[],
+          ),
           status: row.status,
           videos_discovered: row.videos_discovered,
           videos_ingested: row.videos_ingested,
