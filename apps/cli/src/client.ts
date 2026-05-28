@@ -1,4 +1,13 @@
+import type { AdminLogRecord, AdminLogsResponse, LogLevelLabel } from "@sermon-search/types"
 import type { ResolvedInstance } from "./instance.js"
+
+export type { AdminLogRecord, LogLevelLabel }
+
+export interface LogQuery {
+  level?: LogLevelLabel
+  since?: string
+  limit?: number
+}
 
 export interface HealthWorker {
   worker_id: string
@@ -23,6 +32,7 @@ export interface HealthResponse {
 
 export interface AdminClient {
   health(): Promise<HealthResponse>
+  recentLogs(q?: LogQuery): Promise<AdminLogRecord[]>
 }
 
 export function createClient(instance: ResolvedInstance): AdminClient {
@@ -61,6 +71,15 @@ export function createClient(instance: ResolvedInstance): AdminClient {
   return {
     health(): Promise<HealthResponse> {
       return request<HealthResponse>("/admin/health")
+    },
+    async recentLogs(q: LogQuery = {}): Promise<AdminLogRecord[]> {
+      const params = new URLSearchParams()
+      if (q.level) params.set("level", q.level)
+      if (q.since) params.set("since", q.since)
+      if (q.limit != null) params.set("limit", String(q.limit))
+      const qs = params.toString()
+      const data = await request<AdminLogsResponse>(`/admin/logs${qs ? `?${qs}` : ""}`)
+      return data.records
     },
   }
 }

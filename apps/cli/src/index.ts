@@ -3,6 +3,7 @@ import { Command } from "commander"
 import { makeConfigCommand } from "./commands/config.js"
 import { makeHealthCommand } from "./commands/health.js"
 import { makeLoginCommand } from "./commands/login.js"
+import { makeLogsCommand } from "./commands/logs.js"
 
 const program = new Command()
   .name("sermon-admin")
@@ -15,6 +16,7 @@ const program = new Command()
 program.addCommand(makeConfigCommand())
 program.addCommand(makeLoginCommand())
 program.addCommand(makeHealthCommand())
+program.addCommand(makeLogsCommand())
 
 const invokedDirectly = (() => {
   try {

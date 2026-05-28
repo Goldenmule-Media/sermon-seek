@@ -1,3 +1,4 @@
+import type { AdminLogRecord } from "@sermon-search/types"
 import type { HealthResponse } from "./client.js"
 
 export function printJson(data: unknown): void {
@@ -20,4 +21,28 @@ export function printHealth(data: HealthResponse): void {
     s.last_run_at ? `${s.last_run_at} (${s.last_status ?? "?"})` : "never"
   console.log(`View-stats: ${fmt(data.view_stats)}`)
   console.log(`Smoke-test: ${fmt(data.smoke_test)}`)
+}
+
+function hms(epochMs: number): string {
+  const d = new Date(epochMs)
+  const pad = (n: number) => String(n).padStart(2, "0")
+  return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`
+}
+
+export function printLogRecord(rec: AdminLogRecord, opts: { json?: boolean } = {}): void {
+  if (opts.json) {
+    process.stdout.write(`${JSON.stringify(rec)}\n`)
+    return
+  }
+
+  const fieldEntries = Object.entries(rec.fields)
+  let suffix = ""
+  if (fieldEntries.length > 0) {
+    suffix = ` ${fieldEntries
+      .map(([k, v]) => `${k}=${typeof v === "string" ? v : JSON.stringify(v)}`)
+      .join(" ")}`
+  }
+  console.log(
+    `${hms(rec.time)} ${rec.levelLabel.toUpperCase().padEnd(5)} ${rec.msg ?? ""}${suffix}`,
+  )
 }
