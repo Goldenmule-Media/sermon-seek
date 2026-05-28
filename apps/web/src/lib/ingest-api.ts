@@ -1,4 +1,7 @@
+import type { PlaylistFilters } from "@sermon-search/types"
 import { apiBase } from "./api"
+
+export type { PlaylistFilters }
 
 export interface PreflightAvailable {
   state: "available"
@@ -38,8 +41,7 @@ export interface PostIngestionBody {
   requested_slug: string
   requested_name: string
   youtube_handle_or_url: string
-  include_playlist_ids: string[]
-  exclude_playlist_ids: string[]
+  playlist_filters: PlaylistFilters
   contact_email: string
 }
 
@@ -56,7 +58,8 @@ export type PostIngestionResult =
       request_id?: string
       note?: string
     }
-  | { status: 422; error: string }
+  | { status: 422; error: "unknown_handle" }
+  | { status: 422; error: "invalid_playlist_filters"; playlist_errors: Record<string, string> }
   | { status: 429; error: string; retry_after_seconds: number }
   | { status: "error"; error: string }
 
@@ -131,7 +134,14 @@ export async function postIngestionRequest(body: PostIngestionBody): Promise<Pos
       }
     }
     if (res.status === 422) {
-      return { status: 422, error: json.error as string }
+      if (json.error === "invalid_playlist_filters") {
+        return {
+          status: 422,
+          error: "invalid_playlist_filters",
+          playlist_errors: json.playlist_errors as Record<string, string>,
+        }
+      }
+      return { status: 422, error: "unknown_handle" }
     }
     if (res.status === 429) {
       return {

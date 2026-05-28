@@ -5,22 +5,45 @@ import { Input } from "@/components/ui/input"
 import { X } from "lucide-react"
 import { useRef, useState } from "react"
 
-interface ChipListProps {
-  label: string
-  ids: string[]
-  onAdd: (id: string) => void
-  onRemove: (id: string) => void
-  inputId: string
+const ERROR_MESSAGES: Record<string, string> = {
+  invalid_format: "Doesn't look like a playlist ID.",
+  not_found_on_youtube: "Not found on YouTube.",
+  wrong_channel: "Doesn't belong to this channel.",
+  youtube_error: "YouTube couldn't verify this playlist. Try again.",
 }
 
-function ChipList({ label, ids, onAdd, onRemove, inputId }: ChipListProps) {
+interface PlaylistPickerProps {
+  mode: "include" | "exclude"
+  ids: string[]
+  onChange: (ids: string[]) => void
+  errors: Record<string, string>
+  onClearError: (id: string) => void
+  emptyError?: string | null
+}
+
+export function PlaylistPicker({
+  mode,
+  ids,
+  onChange,
+  errors,
+  onClearError,
+  emptyError,
+}: PlaylistPickerProps) {
   const [draft, setDraft] = useState("")
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const legend =
+    mode === "include" ? "Only ingest these playlists" : "Ingest all except these playlists"
+  const helpText =
+    mode === "include"
+      ? "Only these playlists will be ingested. Add at least one."
+      : "All playlists will be ingested except these."
 
   function commit() {
     const trimmed = draft.trim()
     if (trimmed && !ids.includes(trimmed)) {
-      onAdd(trimmed)
+      onChange([...ids, trimmed])
+      onClearError(trimmed)
     }
     setDraft("")
     inputRef.current?.focus()
@@ -33,11 +56,17 @@ function ChipList({ label, ids, onAdd, onRemove, inputId }: ChipListProps) {
     }
   }
 
+  function remove(id: string) {
+    onChange(ids.filter((x) => x !== id))
+    onClearError(id)
+  }
+
+  const inputId = `playlist-ids-${mode}`
+
   return (
-    <div className="flex flex-col gap-2">
-      <label htmlFor={inputId} className="text-sm font-medium">
-        {label}
-      </label>
+    <fieldset className="flex flex-col gap-2 rounded-md border px-4 py-4">
+      <legend className="px-1 text-sm font-semibold">{legend}</legend>
+      <p className="text-xs text-muted-foreground">{helpText}</p>
       <div className="flex gap-2">
         <Input
           id={inputId}
@@ -52,64 +81,44 @@ function ChipList({ label, ids, onAdd, onRemove, inputId }: ChipListProps) {
           Add
         </Button>
       </div>
+      {emptyError && (
+        <p role="alert" className="text-xs text-destructive">
+          {emptyError}
+        </p>
+      )}
       {ids.length > 0 && (
-        <ul className="flex flex-wrap gap-2" aria-label={`${label} list`}>
-          {ids.map((id) => (
-            <li
-              key={id}
-              className="flex items-center gap-1 rounded-full border bg-muted px-3 py-1 text-xs"
-            >
-              <span className="font-mono">{id}</span>
-              <button
-                type="button"
-                onClick={() => onRemove(id)}
-                aria-label={`Remove ${id}`}
-                className="ml-1 text-muted-foreground hover:text-foreground"
-              >
-                <X className="h-3 w-3" />
-              </button>
-            </li>
-          ))}
+        <ul className="flex flex-col gap-1" aria-label={`${legend} list`}>
+          {ids.map((id) => {
+            const errorCode = errors[id]
+            const errorMsg = errorCode ? (ERROR_MESSAGES[errorCode] ?? errorCode) : undefined
+            const chipId = `chip-error-${id}`
+            return (
+              <li key={id} className="flex flex-col gap-0.5">
+                <div
+                  className={`flex items-center gap-1 rounded-full border px-3 py-1 text-xs w-fit ${errorCode ? "border-destructive bg-destructive/10" : "bg-muted"}`}
+                >
+                  <span className="font-mono" aria-describedby={errorMsg ? chipId : undefined}>
+                    {id}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => remove(id)}
+                    aria-label={`Remove ${id}`}
+                    className="ml-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                </div>
+                {errorMsg && (
+                  <span id={chipId} role="alert" className="text-xs text-destructive pl-3">
+                    {errorMsg}
+                  </span>
+                )}
+              </li>
+            )
+          })}
         </ul>
       )}
-    </div>
-  )
-}
-
-interface PlaylistPickerProps {
-  includeIds: string[]
-  excludeIds: string[]
-  onIncludeChange: (ids: string[]) => void
-  onExcludeChange: (ids: string[]) => void
-}
-
-export function PlaylistPicker({
-  includeIds,
-  excludeIds,
-  onIncludeChange,
-  onExcludeChange,
-}: PlaylistPickerProps) {
-  return (
-    <fieldset className="flex flex-col gap-4 rounded-md border px-4 py-4">
-      <legend className="px-1 text-sm font-semibold">Playlist filters (optional)</legend>
-      <p className="text-xs text-muted-foreground">
-        Leave both lists empty to ingest all playlists. Add playlist IDs to include only specific
-        playlists, or to exclude specific playlists from an otherwise full ingest.
-      </p>
-      <ChipList
-        label="Include only"
-        ids={includeIds}
-        onAdd={(id) => onIncludeChange([...includeIds, id])}
-        onRemove={(id) => onIncludeChange(includeIds.filter((x) => x !== id))}
-        inputId="include-playlist-ids"
-      />
-      <ChipList
-        label="Exclude"
-        ids={excludeIds}
-        onAdd={(id) => onExcludeChange([...excludeIds, id])}
-        onRemove={(id) => onExcludeChange(excludeIds.filter((x) => x !== id))}
-        inputId="exclude-playlist-ids"
-      />
     </fieldset>
   )
 }
