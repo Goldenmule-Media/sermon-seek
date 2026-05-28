@@ -1,12 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import type { PlaylistFilters } from "@/lib/api"
+import type { IngestionRequestStatus, PlaylistFilters } from "@/lib/api"
 import { useRef, useState, useTransition } from "react"
 import { approveAction, denyAction } from "./actions"
 
 interface Props {
   requestId: string
+  status: IngestionRequestStatus
   playlistFilters: PlaylistFilters
 }
 
@@ -17,7 +18,7 @@ function filterSummary(filters: PlaylistFilters): string {
   return `${label}: ${playlist_ids.join(", ")}`
 }
 
-export function ApproveDenyButtons({ requestId, playlistFilters }: Props) {
+export function ApproveDenyButtons({ requestId, status, playlistFilters }: Props) {
   const [isPending, startTransition] = useTransition()
   const [approveOpen, setApproveOpen] = useState(false)
   const [approveError, setApproveError] = useState<string | null>(null)
@@ -25,6 +26,7 @@ export function ApproveDenyButtons({ requestId, playlistFilters }: Props) {
   const [denyNote, setDenyNote] = useState("")
   const [denyError, setDenyError] = useState<string | null>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const canApprove = status === "awaiting_approval"
 
   function handleApproveConfirm() {
     setApproveError(null)
@@ -59,17 +61,24 @@ export function ApproveDenyButtons({ requestId, playlistFilters }: Props) {
 
   return (
     <>
-      <div className="flex gap-3">
-        <Button onClick={() => setApproveOpen(true)} disabled={isPending}>
-          Approve
-        </Button>
+      <div className="flex flex-wrap items-center gap-3">
+        {canApprove ? (
+          <Button onClick={() => setApproveOpen(true)} disabled={isPending}>
+            Approve
+          </Button>
+        ) : (
+          <p className="text-sm text-muted-foreground">
+            Approve is unavailable — the request must be processed by the worker and reach{" "}
+            <span className="font-medium">Awaiting approval</span> first.
+          </p>
+        )}
         <Button variant="destructive" onClick={openDeny} disabled={isPending}>
           Deny
         </Button>
       </div>
 
       {/* Approve confirmation dialog */}
-      {approveOpen && (
+      {canApprove && approveOpen && (
         <div
           role="presentation"
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
