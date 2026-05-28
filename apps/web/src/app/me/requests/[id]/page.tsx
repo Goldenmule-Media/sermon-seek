@@ -241,6 +241,32 @@ export default function RequestDetailPage() {
         </div>
       </div>
 
+      {/* Playlist filters */}
+      <div className="rounded-lg border p-4 text-sm space-y-2">
+        <p className="font-medium">Playlist filters</p>
+        {req.playlist_filters.mode === "none" ? (
+          <p className="text-muted-foreground">Ingest all playlists</p>
+        ) : (
+          <>
+            <p className="text-muted-foreground">
+              {req.playlist_filters.mode === "include"
+                ? "Only these playlists"
+                : "All except these playlists"}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {req.playlist_filters.playlist_ids.map((id) => (
+                <span
+                  key={id}
+                  className="inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-xs font-mono"
+                >
+                  {id}
+                </span>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
       {req.admin_note && (
         <div className="rounded-lg border p-4 text-sm">
           <p className="font-medium mb-1">Admin note</p>
