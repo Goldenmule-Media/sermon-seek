@@ -128,7 +128,7 @@ const post409Schema = z.object({
   request_id: z.string().optional(),
   note: z.string().optional(),
 })
-const post422Schema = z.union([
+const post422Schema = z.discriminatedUnion("error", [
   z.object({ error: z.literal("unknown_handle") }),
   z.object({
     error: z.literal("invalid_playlist_filters"),
