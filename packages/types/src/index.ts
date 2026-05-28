@@ -282,3 +282,17 @@ export interface MeRequestsListResponse {
   limit: number
   offset: number
 }
+
+export type LogLevelLabel = "trace" | "debug" | "info" | "warn" | "error" | "fatal"
+
+export interface AdminLogRecord {
+  time: number
+  level: number
+  levelLabel: LogLevelLabel
+  msg: string | null
+  fields: Record<string, unknown>
+}
+
+export interface AdminLogsResponse {
+  records: AdminLogRecord[]
+}

@@ -22,6 +22,7 @@ const envSchema = z.object({
   ADMIN_ALLOWED_EMAILS: z.string().optional(),
   COOKIE_SECURE: z.coerce.boolean().optional(),
   LIMITED_INGEST_TOKEN_CAP: z.coerce.number().int().positive().default(750_000),
+  LOG_BUFFER_SIZE: z.coerce.number().int().positive().default(1000),
 })
 
 export type Config = z.infer<typeof envSchema>

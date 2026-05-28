@@ -9,7 +9,9 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from "fastify-type-provider-zod"
+import pino from "pino"
 import { config } from "./config.js"
+import { createLogBufferStream, logBuffer } from "./lib/log-buffer.js"
 import { adminAuthPlugin } from "./plugins/admin-auth.js"
 import { churchContextPlugin } from "./plugins/church-context.js"
 import { dbPlugin } from "./plugins/db.js"
@@ -40,8 +42,15 @@ export async function buildApp(): Promise<FastifyInstance> {
     throw new Error("COOKIE_SECRET is required")
   }
 
+  const logLevel = process.env.LOG_LEVEL ?? "info"
   const app = Fastify({
-    logger: { level: process.env.LOG_LEVEL ?? "info" },
+    logger: {
+      level: logLevel,
+      stream: pino.multistream([
+        { stream: process.stdout },
+        { stream: createLogBufferStream(logBuffer) },
+      ]),
+    },
   }).withTypeProvider<ZodTypeProvider>()
 
   app.setValidatorCompiler(validatorCompiler)
