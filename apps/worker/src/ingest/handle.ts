@@ -8,20 +8,56 @@ export interface ResolvedChannel {
   title: string
 }
 
+/**
+ * Accepts bare handles (`@foo`, `foo`), channel IDs (`UC…`), and the YouTube
+ * URL forms the ingest form's hint advertises (`https://youtube.com/@foo`,
+ * `/channel/UC…`, `/c/foo`, `/user/foo`). Returns a string suitable for the
+ * resolution branches below; falls back to the trimmed input when the URL
+ * shape isn't recognised so the caller still emits `unknown_handle`.
+ */
+export function normalizeHandleInput(input: string): string {
+  const trimmed = input.trim()
+  if (!/^https?:\/\//i.test(trimmed)) return trimmed
+
+  let url: URL
+  try {
+    url = new URL(trimmed)
+  } catch {
+    return trimmed
+  }
+
+  const host = url.hostname.toLowerCase().replace(/^www\./, "")
+  if (host !== "youtube.com" && host !== "m.youtube.com" && host !== "youtu.be") {
+    return trimmed
+  }
+
+  const segments = url.pathname.split("/").filter(Boolean)
+  const first = segments[0] ?? ""
+
+  if (first.startsWith("@")) return first
+  const kind = first.toLowerCase()
+  if ((kind === "channel" || kind === "c" || kind === "user") && segments[1]) {
+    return segments[1]
+  }
+  return trimmed
+}
+
 export async function resolveChannel(
   client: YoutubeClient,
   handleOrId: string,
 ): Promise<ResolvedChannel> {
-  if (CHANNEL_ID_RE.test(handleOrId)) {
-    const response = await client.listChannelsById(handleOrId)
+  const normalized = normalizeHandleInput(handleOrId)
+
+  if (CHANNEL_ID_RE.test(normalized)) {
+    const response = await client.listChannelsById(normalized)
     const channel = response.items?.[0]
     if (!channel) {
-      throw new Error(`No channel found with id: ${handleOrId}`)
+      throw new Error(`No channel found with id: ${normalized}`)
     }
     return toResolved(channel)
   }
 
-  const bare = handleOrId.startsWith("@") ? handleOrId.slice(1) : handleOrId
+  const bare = normalized.startsWith("@") ? normalized.slice(1) : normalized
 
   const byHandle = await client.listChannelsByHandle(`@${bare}`)
   const handleChannel = byHandle.items?.[0]
