@@ -10,6 +10,7 @@ import { sql } from "kysely"
 import { z } from "zod"
 import { config } from "../config.js"
 import { auditActor, auditWrite } from "../lib/audit.js"
+import { columnsToPlaylistFilters } from "../lib/playlist-filters.js"
 import { buildSearchUrl } from "./me-requests.js"
 
 // --- Zod schemas ---
@@ -52,6 +53,10 @@ const requestSummaryShape = z.object({
   search_url: z.string().nullable(),
   limit_reached: z.boolean(),
   created_at: z.string(),
+  playlist_filters: z.object({
+    mode: z.enum(["none", "include", "exclude"]),
+    playlist_ids: z.array(z.string()),
+  }),
 })
 
 const listResponseSchema = z.object({
@@ -65,8 +70,6 @@ const detailResponseSchema = requestSummaryShape.extend({
   requested_name: z.string(),
   youtube_handle_or_url: z.string(),
   contact_email: z.string(),
-  include_playlist_ids: z.array(z.string()),
-  exclude_playlist_ids: z.array(z.string()),
   admin_note: z.string().nullable(),
   updated_at: z.string(),
   church_slug: z.string().nullable(),
@@ -181,6 +184,8 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
               "ingestion_requests.tokens_ingested",
               "ingestion_requests.limit_reached",
               "ingestion_requests.created_at",
+              "ingestion_requests.include_playlist_ids",
+              "ingestion_requests.exclude_playlist_ids",
               "users.display_name",
               "churches.slug as church_slug",
             ])
@@ -204,6 +209,10 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
           search_url: buildSearchUrl(row.church_slug),
           limit_reached: row.limit_reached,
           created_at: (row.created_at as unknown as Date).toISOString(),
+          playlist_filters: columnsToPlaylistFilters(
+            row.include_playlist_ids as string[],
+            row.exclude_playlist_ids as string[],
+          ),
         }))
 
         return reply.send({
@@ -297,8 +306,10 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
           requested_name: row.requested_name,
           youtube_handle_or_url: row.youtube_handle_or_url,
           contact_email: row.contact_email,
-          include_playlist_ids: row.include_playlist_ids as string[],
-          exclude_playlist_ids: row.exclude_playlist_ids as string[],
+          playlist_filters: columnsToPlaylistFilters(
+            row.include_playlist_ids as string[],
+            row.exclude_playlist_ids as string[],
+          ),
           status: row.status,
           videos_discovered: row.videos_discovered,
           videos_ingested: row.videos_ingested,
@@ -383,25 +394,79 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
           return reply.code(409).send({ error: "invalid_transition", current_status: req.status })
         }
 
-        await app.db
-          .updateTable("ingestion_requests")
-          .set({ status: "approved", updated_at: sql`now()` })
-          .where("id", "=", id)
-          .execute()
+        // Look up the channel created during the initial ingest run.
+        const channelRow = req.church_id
+          ? await app.db
+              .selectFrom("channels")
+              .select(["id"])
+              .where("church_id", "=", req.church_id)
+              .executeTakeFirst()
+          : null
 
         const { user_id: approveUserId, actor: approveActor } = auditActor(request)
-        await auditWrite(app.db, {
-          user_id: approveUserId,
-          action: "request.approve",
-          target_type: "request",
-          target_id: id,
-          payload: {
-            actor: approveActor,
-            from_status: req.status,
-            to_status: "approved",
-            requested_slug: req.requested_slug,
-            user_id_of_subject: req.user_id,
-          },
+
+        await app.db.transaction().execute(async (trx) => {
+          await trx
+            .updateTable("ingestion_requests")
+            .set({ status: "approved", updated_at: sql`now()` })
+            .where("id", "=", id)
+            .execute()
+
+          await auditWrite(trx, {
+            user_id: approveUserId,
+            action: "request.approve",
+            target_type: "request",
+            target_id: id,
+            payload: {
+              actor: approveActor,
+              from_status: req.status,
+              to_status: "approved",
+              requested_slug: req.requested_slug,
+              user_id_of_subject: req.user_id,
+            },
+          })
+
+          if (channelRow) {
+            const filters = columnsToPlaylistFilters(
+              req.include_playlist_ids as string[],
+              req.exclude_playlist_ids as string[],
+            )
+            if (filters.mode !== "none") {
+              for (const targetId of filters.playlist_ids) {
+                const ruleRow = await trx
+                  .insertInto("channel_filter_rules")
+                  .values({
+                    channel_id: channelRow.id,
+                    rule_type: filters.mode,
+                    target_kind: "playlist",
+                    target_id: targetId,
+                    note: null,
+                  })
+                  .onConflict((oc) => oc.doNothing())
+                  .returning(["id"])
+                  .executeTakeFirst()
+
+                if (ruleRow) {
+                  await auditWrite(trx, {
+                    user_id: approveUserId,
+                    action: "filter_rule.create",
+                    target_type: "filter_rule",
+                    target_id: ruleRow.id,
+                    payload: {
+                      actor: approveActor,
+                      channel_id: channelRow.id,
+                      rule_type: filters.mode,
+                      target_kind: "playlist",
+                      target_id: targetId,
+                      note: null,
+                      source: "request.approve",
+                      request_id: id,
+                    },
+                  })
+                }
+              }
+            }
+          }
         })
 
         // Best-effort notification
@@ -507,7 +572,8 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
               .set({ admin_note: note, updated_at: sql`now()` })
               .where("id", "=", id)
               .execute()
-            const { user_id: denyIdempotentUserId, actor: denyIdempotentActor } = auditActor(request)
+            const { user_id: denyIdempotentUserId, actor: denyIdempotentActor } =
+              auditActor(request)
             await auditWrite(app.db, {
               user_id: denyIdempotentUserId,
               action: "request.deny",

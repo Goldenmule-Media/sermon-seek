@@ -3,6 +3,7 @@ import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { sql } from "kysely"
 import { z } from "zod"
 import { config } from "../config.js"
+import { columnsToPlaylistFilters } from "../lib/playlist-filters.js"
 
 const listQuerySchema = z.object({
   limit: z.coerce.number().int().min(1).max(100).default(20),
@@ -45,8 +46,10 @@ const detailResponseSchema = summaryShape.extend({
   requested_name: z.string(),
   youtube_handle_or_url: z.string(),
   contact_email: z.string(),
-  include_playlist_ids: z.array(z.string()),
-  exclude_playlist_ids: z.array(z.string()),
+  playlist_filters: z.object({
+    mode: z.enum(["none", "include", "exclude"]),
+    playlist_ids: z.array(z.string()),
+  }),
   admin_note: z.string().nullable(),
   updated_at: z.string(),
 })
@@ -203,8 +206,10 @@ export const meRequestsRoutes: FastifyPluginAsyncZod = async (app) => {
         requested_name: row.requested_name,
         youtube_handle_or_url: row.youtube_handle_or_url,
         contact_email: row.contact_email,
-        include_playlist_ids: row.include_playlist_ids,
-        exclude_playlist_ids: row.exclude_playlist_ids,
+        playlist_filters: columnsToPlaylistFilters(
+          row.include_playlist_ids,
+          row.exclude_playlist_ids,
+        ),
         admin_note: row.admin_note,
         updated_at: (row.updated_at as unknown as Date).toISOString(),
       }

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import type { PostIngestionResult, PreflightResponse, SlugAvailability } from "@/lib/ingest-api"
 import { checkSlugAvailable, fetchChannelPreflight, postIngestionRequest } from "@/lib/ingest-api"
-import type { AuthMeResponse } from "@sermon-search/types"
+import type { AuthMeResponse, PlaylistFilterMode } from "@sermon-search/types"
 import { useRouter } from "next/navigation"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { ChannelPreflightCallout, type PreflightCalloutData } from "./channel-preflight-callout"
@@ -125,8 +125,10 @@ export function IngestForm({ user: _user }: IngestFormProps) {
   const [name, setName] = useState("")
   const [handle, setHandle] = useState("")
   const [email, setEmail] = useState("")
-  const [includeIds, setIncludeIds] = useState<string[]>([])
-  const [excludeIds, setExcludeIds] = useState<string[]>([])
+  const [filterMode, setFilterMode] = useState<PlaylistFilterMode>("none")
+  const [playlistIds, setPlaylistIds] = useState<string[]>([])
+  const [playlistErrors, setPlaylistErrors] = useState<Record<string, string>>({})
+  const [emptyListError, setEmptyListError] = useState<string | null>(null)
 
   const [slugAvailability, setSlugAvailability] = useState<SlugAvailability | "idle" | "checking">(
     "idle",
@@ -195,16 +197,26 @@ export function IngestForm({ user: _user }: IngestFormProps) {
   // --- Submit enable logic ---
   const requiredFilled = slug.trim() && name.trim() && handle.trim() && email.trim()
   const calloutBlocksSubmit = callout !== null && callout.state !== "available"
+  const hasPlaylistErrors = Object.keys(playlistErrors).length > 0
+  const includeListEmpty = filterMode === "include" && playlistIds.length === 0
   const canSubmit =
     !submitting &&
     Boolean(requiredFilled) &&
     slugAvailability === "available" &&
     preflight?.state === "available" &&
-    !calloutBlocksSubmit
+    !calloutBlocksSubmit &&
+    !hasPlaylistErrors &&
+    !includeListEmpty
 
   // --- Submit ---
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+
+    if (filterMode === "include" && playlistIds.length === 0) {
+      setEmptyListError("Pick at least one playlist or switch to 'Ingest all'.")
+      return
+    }
+
     if (!canSubmit) return
 
     setSubmitting(true)
@@ -217,8 +229,10 @@ export function IngestForm({ user: _user }: IngestFormProps) {
       requested_name: name.trim(),
       youtube_handle_or_url: handle.trim(),
       contact_email: email.trim(),
-      include_playlist_ids: includeIds,
-      exclude_playlist_ids: excludeIds,
+      playlist_filters: {
+        mode: filterMode,
+        playlist_ids: filterMode === "none" ? [] : playlistIds,
+      },
     })
 
     setSubmitting(false)
@@ -247,7 +261,11 @@ export function IngestForm({ user: _user }: IngestFormProps) {
     }
 
     if (result.status === 422) {
-      setFieldErrors({ youtube_handle_or_url: "We couldn't resolve that YouTube handle or URL." })
+      if (result.error === "invalid_playlist_filters") {
+        setPlaylistErrors(result.playlist_errors)
+      } else {
+        setFieldErrors({ youtube_handle_or_url: "We couldn't resolve that YouTube handle or URL." })
+      }
       return
     }
 
@@ -259,7 +277,27 @@ export function IngestForm({ user: _user }: IngestFormProps) {
     setSubmitError("Something went wrong. Please try again.")
   }
 
-  const showPlaylistPicker = preflight?.state === "available"
+  const showFilterSection = preflight?.state === "available"
+
+  function handleModeChange(mode: PlaylistFilterMode) {
+    setFilterMode(mode)
+    setPlaylistIds([])
+    setPlaylistErrors({})
+    setEmptyListError(null)
+  }
+
+  function handlePlaylistChange(ids: string[]) {
+    setPlaylistIds(ids)
+    if (ids.length > 0) setEmptyListError(null)
+    // Clear errors for IDs that were removed
+    setPlaylistErrors((prev) => {
+      const next = { ...prev }
+      for (const key of Object.keys(next)) {
+        if (!ids.includes(key)) delete next[key]
+      }
+      return next
+    })
+  }
 
   return (
     <main className="mx-auto max-w-xl px-4 py-16 sm:px-6">
@@ -330,14 +368,47 @@ export function IngestForm({ user: _user }: IngestFormProps) {
         {/* Preflight callout — rendered above submit */}
         {callout && <ChannelPreflightCallout data={callout} />}
 
-        {/* Playlist picker — only when channel resolves cleanly */}
-        {showPlaylistPicker && (
-          <PlaylistPicker
-            includeIds={includeIds}
-            excludeIds={excludeIds}
-            onIncludeChange={setIncludeIds}
-            onExcludeChange={setExcludeIds}
-          />
+        {/* Playlist filter section — only when channel resolves cleanly */}
+        {showFilterSection && (
+          <fieldset className="flex flex-col gap-3 rounded-md border px-4 py-4">
+            <legend className="px-1 text-sm font-semibold">Limit which playlists are ingested</legend>
+            <div className="flex flex-col gap-1.5" role="radiogroup" aria-label="Playlist filter mode">
+              {(
+                [
+                  { value: "none", label: "Ingest all playlists" },
+                  { value: "include", label: "Only these playlists" },
+                  { value: "exclude", label: "All except these playlists" },
+                ] as { value: PlaylistFilterMode; label: string }[]
+              ).map(({ value, label }) => (
+                <label key={value} className="flex items-center gap-2 text-sm cursor-pointer">
+                  <input
+                    type="radio"
+                    name="filter-mode"
+                    value={value}
+                    checked={filterMode === value}
+                    onChange={() => handleModeChange(value)}
+                  />
+                  {label}
+                </label>
+              ))}
+            </div>
+            {(filterMode === "include" || filterMode === "exclude") && (
+              <PlaylistPicker
+                mode={filterMode}
+                ids={playlistIds}
+                onChange={handlePlaylistChange}
+                errors={playlistErrors}
+                onClearError={(id) =>
+                  setPlaylistErrors((prev) => {
+                    const next = { ...prev }
+                    delete next[id]
+                    return next
+                  })
+                }
+                emptyError={emptyListError}
+              />
+            )}
+          </fieldset>
         )}
 
         {/* Contact email */}

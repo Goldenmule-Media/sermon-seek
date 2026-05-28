@@ -51,8 +51,7 @@ function makeDetail(overrides: Partial<IngestionRequestDetail> = {}): IngestionR
     requested_name: "Test Church",
     youtube_handle_or_url: "@TestChurch",
     contact_email: "test@example.com",
-    include_playlist_ids: [],
-    exclude_playlist_ids: [],
+    playlist_filters: { mode: "none" as const, playlist_ids: [] },
     status: "running",
     videos_discovered: 42,
     videos_ingested: 17,
@@ -212,6 +211,62 @@ describe("RequestDetailPage", () => {
     } finally {
       vi.useRealTimers()
     }
+  })
+
+  it("shows 'Ingest all playlists' when filter mode is none", async () => {
+    mockUseUser.mockReturnValue({
+      user: { id: "u1", display_name: "Alice", avatar_url: null, is_admin: false },
+      status: "ready",
+      refresh: vi.fn(),
+    })
+    mockFetchMyRequest.mockResolvedValue({
+      status: 200,
+      body: makeDetail({ playlist_filters: { mode: "none", playlist_ids: [] } }),
+    })
+
+    render(<RequestDetailPage />)
+
+    await waitFor(() => expect(screen.getByText("Ingest all playlists")).toBeInTheDocument())
+    expect(screen.queryByRole("list")).not.toBeInTheDocument()
+  })
+
+  it("shows include chips when filter mode is include", async () => {
+    mockUseUser.mockReturnValue({
+      user: { id: "u1", display_name: "Alice", avatar_url: null, is_admin: false },
+      status: "ready",
+      refresh: vi.fn(),
+    })
+    mockFetchMyRequest.mockResolvedValue({
+      status: 200,
+      body: makeDetail({
+        playlist_filters: { mode: "include", playlist_ids: ["PLabc", "PLdef"] },
+      }),
+    })
+
+    render(<RequestDetailPage />)
+
+    await waitFor(() => expect(screen.getByText("Only these playlists")).toBeInTheDocument())
+    expect(screen.getByText("PLabc")).toBeInTheDocument()
+    expect(screen.getByText("PLdef")).toBeInTheDocument()
+  })
+
+  it("shows exclude chips when filter mode is exclude", async () => {
+    mockUseUser.mockReturnValue({
+      user: { id: "u1", display_name: "Alice", avatar_url: null, is_admin: false },
+      status: "ready",
+      refresh: vi.fn(),
+    })
+    mockFetchMyRequest.mockResolvedValue({
+      status: 200,
+      body: makeDetail({
+        playlist_filters: { mode: "exclude", playlist_ids: ["PLxyz"] },
+      }),
+    })
+
+    render(<RequestDetailPage />)
+
+    await waitFor(() => expect(screen.getByText("All except these playlists")).toBeInTheDocument())
+    expect(screen.getByText("PLxyz")).toBeInTheDocument()
   })
 
   it("shows amber warning when limit_reached is true", async () => {

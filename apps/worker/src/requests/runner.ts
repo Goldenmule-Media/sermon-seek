@@ -13,6 +13,7 @@ import {
   upsertVideoFromPlaylistItem,
 } from "../ingest/channel.js"
 import { embedVideo } from "../ingest/embed.js"
+import { applyPlaylistFilterRules } from "../ingest/filter_rules.js"
 import { resolveChannel } from "../ingest/handle.js"
 import { uniqueSlugForPlaylist } from "../ingest/slug.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
@@ -266,11 +267,19 @@ async function runPipeline({
   // Step 3: Enumerate playlists with include/exclude filtering
   void beat("enumerate_playlists")
   const { playlists: rawPlaylists } = await getChannelPlaylists(client, resolved.youtubeChannelId)
-  const playlists = filterPlaylists(
-    rawPlaylists,
-    request.include_playlist_ids,
-    request.exclude_playlist_ids,
-  )
+  const requestRules = [
+    ...request.include_playlist_ids.map((id) => ({
+      rule_type: "include" as const,
+      target_kind: "playlist",
+      target_id: id,
+    })),
+    ...request.exclude_playlist_ids.map((id) => ({
+      rule_type: "exclude" as const,
+      target_kind: "playlist",
+      target_id: id,
+    })),
+  ]
+  const { kept: playlists } = applyPlaylistFilterRules(rawPlaylists, requestRules)
   log(`${playlists.length}/${rawPlaylists.length} playlists after filtering`)
 
   // Persist playlist rows
@@ -554,20 +563,4 @@ async function ensureChurch(
     .execute()
 
   return churchRow.id
-}
-
-function filterPlaylists<T extends { id: string }>(
-  playlists: T[],
-  include: string[],
-  exclude: string[],
-): T[] {
-  if (include.length > 0) {
-    const includeSet = new Set(include)
-    return playlists.filter((pl) => includeSet.has(pl.id))
-  }
-  if (exclude.length > 0) {
-    const excludeSet = new Set(exclude)
-    return playlists.filter((pl) => !excludeSet.has(pl.id))
-  }
-  return playlists
 }

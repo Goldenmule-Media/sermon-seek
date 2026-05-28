@@ -200,10 +200,10 @@ describe("IngestPage", () => {
       expect(screen.getByRole("button", { name: /submit request/i })).toBeDisabled()
     })
 
-    it("available — shows playlist picker", async () => {
+    it("available — shows playlist filter section", async () => {
       await renderWithPreflight({ state: "available", youtube_channel_id: "UCtest" })
 
-      await waitFor(() => expect(screen.getByText(/playlist filters/i)).toBeInTheDocument())
+      await waitFor(() => expect(screen.getByText(/limit which playlists/i)).toBeInTheDocument())
     })
   })
 
@@ -227,7 +227,7 @@ describe("IngestPage", () => {
       await waitFor(() => expect(screen.getByText("Available")).toBeInTheDocument(), {
         timeout: DEBOUNCE_TIMEOUT,
       })
-      await waitFor(() => expect(screen.getByText(/playlist filters/i)).toBeInTheDocument(), {
+      await waitFor(() => expect(screen.getByText(/limit which playlists/i)).toBeInTheDocument(), {
         timeout: DEBOUNCE_TIMEOUT,
       })
     }
@@ -261,6 +261,137 @@ describe("IngestPage", () => {
 
       await waitFor(() => expect(screen.getByText("Go to existing search")).toBeInTheDocument())
       expect(screen.getByRole("button", { name: /submit request/i })).toBeDisabled()
+    })
+
+    it("default mode submits playlist_filters with mode none and empty playlist_ids", async () => {
+      await setupReadyToSubmit()
+      mockPost.mockResolvedValueOnce({
+        status: 201,
+        request_id: "req-1",
+        status_url: "/me/requests/req-1",
+        search_url: "/my-church/",
+      })
+
+      const submitBtn = screen.getByRole("button", { name: /submit request/i })
+      fireEvent.submit(submitBtn.closest("form") ?? submitBtn)
+
+      await waitFor(() => expect(mockPost).toHaveBeenCalled())
+      const body = mockPost.mock.calls[0][0]
+      expect(body.playlist_filters).toEqual({ mode: "none", playlist_ids: [] })
+      expect(body).not.toHaveProperty("include_playlist_ids")
+      expect(body).not.toHaveProperty("exclude_playlist_ids")
+    })
+
+    it("include mode submits the entered IDs", async () => {
+      await setupReadyToSubmit()
+      mockPost.mockResolvedValueOnce({
+        status: 201,
+        request_id: "req-1",
+        status_url: "/me/requests/req-1",
+        search_url: "/my-church/",
+      })
+
+      fireEvent.click(screen.getByRole("radio", { name: /only these/i }))
+
+      const input = screen.getByPlaceholderText(/paste a playlist id/i)
+      fireEvent.change(input, { target: { value: "PLaaa" } })
+      fireEvent.keyDown(input, { key: "Enter" })
+      fireEvent.change(input, { target: { value: "PLbbb" } })
+      fireEvent.keyDown(input, { key: "Enter" })
+
+      const submitBtn = screen.getByRole("button", { name: /submit request/i })
+      fireEvent.submit(submitBtn.closest("form") ?? submitBtn)
+
+      await waitFor(() => expect(mockPost).toHaveBeenCalled())
+      expect(mockPost.mock.calls[0][0].playlist_filters).toEqual({
+        mode: "include",
+        playlist_ids: ["PLaaa", "PLbbb"],
+      })
+    })
+
+    it("exclude mode submits the entered IDs", async () => {
+      await setupReadyToSubmit()
+      mockPost.mockResolvedValueOnce({
+        status: 201,
+        request_id: "req-1",
+        status_url: "/me/requests/req-1",
+        search_url: "/my-church/",
+      })
+
+      fireEvent.click(screen.getByRole("radio", { name: /all except/i }))
+
+      const input = screen.getByPlaceholderText(/paste a playlist id/i)
+      fireEvent.change(input, { target: { value: "PLccc" } })
+      fireEvent.keyDown(input, { key: "Enter" })
+
+      const submitBtn = screen.getByRole("button", { name: /submit request/i })
+      fireEvent.submit(submitBtn.closest("form") ?? submitBtn)
+
+      await waitFor(() => expect(mockPost).toHaveBeenCalled())
+      expect(mockPost.mock.calls[0][0].playlist_filters).toEqual({
+        mode: "exclude",
+        playlist_ids: ["PLccc"],
+      })
+    })
+
+    it("include mode with empty list disables submit and shows inline error on submit attempt", async () => {
+      await setupReadyToSubmit()
+
+      fireEvent.click(screen.getByRole("radio", { name: /only these/i }))
+
+      expect(screen.getByRole("button", { name: /submit request/i })).toBeDisabled()
+
+      // Attempt submit directly via form to trigger the defensive guard
+      const submitBtn = screen.getByRole("button", { name: /submit request/i })
+      // The button is disabled so we trigger the form element directly
+      const form = submitBtn.closest("form")
+      if (form) fireEvent.submit(form)
+
+      await waitFor(() =>
+        expect(screen.getByText(/pick at least one playlist/i)).toBeInTheDocument(),
+      )
+      expect(mockPost).not.toHaveBeenCalled()
+    })
+
+    it("server per-ID errors render on the matching chip and block resubmit until removed", async () => {
+      await setupReadyToSubmit()
+
+      fireEvent.click(screen.getByRole("radio", { name: /only these/i }))
+
+      const input = screen.getByPlaceholderText(/paste a playlist id/i)
+      fireEvent.change(input, { target: { value: "PLaaa" } })
+      fireEvent.keyDown(input, { key: "Enter" })
+      fireEvent.change(input, { target: { value: "PLbbb" } })
+      fireEvent.keyDown(input, { key: "Enter" })
+
+      mockPost.mockResolvedValueOnce({
+        status: 422,
+        error: "invalid_playlist_filters",
+        playlist_errors: { PLaaa: "not_found_on_youtube" },
+      })
+
+      const submitBtn = screen.getByRole("button", { name: /submit request/i })
+      fireEvent.submit(submitBtn.closest("form") ?? submitBtn)
+
+      await waitFor(() =>
+        expect(screen.getByText("Not found on YouTube.")).toBeInTheDocument(),
+      )
+
+      // Error is near PLaaa chip, not PLbbb
+      const plaaaChip = screen.getByText("PLaaa").closest("li")
+      expect(plaaaChip).toHaveTextContent("Not found on YouTube.")
+      const plbbbChip = screen.getByText("PLbbb").closest("li")
+      expect(plbbbChip).not.toHaveTextContent("Not found on YouTube.")
+
+      // Submit is still disabled
+      expect(screen.getByRole("button", { name: /submit request/i })).toBeDisabled()
+
+      // Remove the offending chip — error clears and submit re-enables
+      fireEvent.click(screen.getByRole("button", { name: /remove PLaaa/i }))
+      await waitFor(() =>
+        expect(screen.queryByText("Not found on YouTube.")).not.toBeInTheDocument(),
+      )
+      expect(screen.getByRole("button", { name: /submit request/i })).not.toBeDisabled()
     })
   })
 })
