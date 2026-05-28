@@ -8,6 +8,7 @@ import type { ZodTypeProvider } from "fastify-type-provider-zod"
 import type { Kysely } from "kysely"
 import { sql } from "kysely"
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
+import { adminAuthPlugin } from "../plugins/admin-auth.js"
 import { hashToken, mintToken, sessionPlugin } from "../plugins/session.js"
 import { adminHealthRoutes } from "./admin-health.js"
 
@@ -16,6 +17,8 @@ const describeIfDb = TEST_DATABASE_URL ? describe : describe.skip
 
 const COOKIE_SECRET = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 const SESSION_COOKIE = "sermon_session"
+
+const TEST_ADMIN_API_KEY = "test-admin-api-key-secret"
 
 vi.mock("../config.js", () => ({
   config: {
@@ -29,6 +32,7 @@ vi.mock("../config.js", () => ({
     COOKIE_SECURE: false,
     SLUG_ALIAS_TTL_DAYS: 90,
     LIMITED_INGEST_TOKEN_CAP: 750_000,
+    ADMIN_API_KEY: TEST_ADMIN_API_KEY,
   },
 }))
 
@@ -62,6 +66,7 @@ describeIfDb("GET /admin/health (integration)", () => {
       fp(async (instance) => { instance.decorate("db", db) }, { name: "db" }),
     )
     await app.register(sessionPlugin)
+    await app.register(adminAuthPlugin)
     await app.register(adminHealthRoutes)
     await app.ready()
     return app
@@ -89,9 +94,31 @@ describeIfDb("GET /admin/health (integration)", () => {
     return token
   }
 
-  it("returns 401 with no session", async () => {
+  it("returns 401 with no session and no key", async () => {
     const app = await buildApp()
     const res = await app.inject({ method: "GET", url: "/admin/health" })
+    expect(res.statusCode).toBe(401)
+    await app.close()
+  })
+
+  it("returns 200 with a valid x-admin-key (no session)", async () => {
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/health",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY },
+    })
+    expect(res.statusCode).toBe(200)
+    await app.close()
+  })
+
+  it("returns 401 with a wrong x-admin-key and no session", async () => {
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/health",
+      headers: { "x-admin-key": "wrong-key" },
+    })
     expect(res.statusCode).toBe(401)
     await app.close()
   })
