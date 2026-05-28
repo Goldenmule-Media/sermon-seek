@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 import { Command } from "commander"
+import { makeAuditCommand } from "./commands/audit.js"
+import { makeChannelCommand } from "./commands/channel.js"
+import { makeChurchesCommand } from "./commands/churches.js"
 import { makeConfigCommand } from "./commands/config.js"
 import { makeHealthCommand } from "./commands/health.js"
 import { makeLoginCommand } from "./commands/login.js"
 import { makeLogsCommand } from "./commands/logs.js"
 import { makeMcpCommand } from "./commands/mcp.js"
+import { makeRequestsCommand } from "./commands/requests.js"
 
 const program = new Command()
   .name("sermon-admin")
@@ -17,6 +21,10 @@ const program = new Command()
 program.addCommand(makeConfigCommand())
 program.addCommand(makeLoginCommand())
 program.addCommand(makeHealthCommand())
+program.addCommand(makeChurchesCommand())
+program.addCommand(makeRequestsCommand())
+program.addCommand(makeChannelCommand())
+program.addCommand(makeAuditCommand())
 program.addCommand(makeLogsCommand())
 program.addCommand(makeMcpCommand())
 

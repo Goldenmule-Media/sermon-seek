@@ -296,3 +296,157 @@ export interface AdminLogRecord {
 export interface AdminLogsResponse {
   records: AdminLogRecord[]
 }
+
+// ── Admin: churches ──────────────────────────────────────────────────────────
+
+export interface AdminChurchSummary {
+  id: string
+  slug: string
+  name: string
+  status: ChurchStatus
+  channel_count: number
+  video_count: number
+  created_at: string
+}
+
+export interface AdminChurchListResponse {
+  items: AdminChurchSummary[]
+  total: number
+}
+
+export interface AdminChurchAlias {
+  id: string
+  slug: string
+  created_at: string
+  expires_at: string | null
+}
+
+export interface AdminChurchChannel {
+  id: string
+  youtube_channel_id: string
+  title: string
+  ingested_at: string
+}
+
+export interface AdminChurchDetail {
+  id: string
+  slug: string
+  name: string
+  status: ChurchStatus
+  youtube_channel_id: string | null
+  created_at: string
+  channel_count: number
+  video_count: number
+  aliases: AdminChurchAlias[]
+  channels: AdminChurchChannel[]
+}
+
+export interface AdminChurchVideoItem {
+  id: string
+  youtube_id: string
+  title: string
+  published_at: string | null
+  has_transcript: boolean
+  last_retranscribed_at: string | null
+}
+
+export interface AdminChurchVideosResponse {
+  items: AdminChurchVideoItem[]
+  total: number
+  limit: number
+  offset: number
+}
+
+// ── Admin: requests ──────────────────────────────────────────────────────────
+
+export interface AdminRequestSummary {
+  id: string
+  user_id: string
+  display_name: string | null
+  requested_slug: string
+  status: IngestionRequestStatus
+  videos_discovered: number
+  videos_ingested: number
+  tokens_ingested: number
+  tokens_cap: number
+  search_url: string | null
+  limit_reached: boolean
+  created_at: string
+  playlist_filters: PlaylistFilters
+}
+
+export interface AdminRequestListResponse {
+  requests: AdminRequestSummary[]
+  total: number
+  limit: number
+  offset: number
+}
+
+export interface AdminDiscoveredPlaylist {
+  id: string
+  title: string
+  slug: string
+  video_count: number | null
+}
+
+export interface AdminRequestDetail extends AdminRequestSummary {
+  requested_name: string
+  youtube_handle_or_url: string
+  contact_email: string
+  admin_note: string | null
+  updated_at: string
+  church_slug: string | null
+  church_status: string | null
+  youtube_channel_id: string | null
+  channel_title: string | null
+  discovered_playlists: AdminDiscoveredPlaylist[]
+}
+
+export interface AdminRequestStatusChangeResponse {
+  id: string
+  status: string
+}
+
+// ── Admin: channels ──────────────────────────────────────────────────────────
+
+export interface AdminChannelResponse {
+  id: string
+  youtube_channel_id: string
+  title: string
+  ingested_at: string
+}
+
+export interface AdminRefreshChannelResult {
+  youtubeChannelId: string
+  playlistCount: number
+  videoCount: number
+}
+
+export interface AdminRefreshResponse {
+  channels: AdminRefreshChannelResult[]
+}
+
+export interface AdminViewStatsResponse {
+  channelCount: number
+  playlistCount: number
+  videoCount: number
+  fetchedFromApi: number
+}
+
+// ── Admin: audit ─────────────────────────────────────────────────────────────
+
+export interface AdminAuditEntry {
+  id: string
+  user_id: string | null
+  user_display_name: string | null
+  action: string
+  target_type: string
+  target_id: string
+  payload: unknown
+  created_at: string
+}
+
+export interface AdminAuditListResponse {
+  items: AdminAuditEntry[]
+  total: number
+}

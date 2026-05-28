@@ -84,7 +84,7 @@ export const adminChurchesRoutes: FastifyPluginAsyncZod = async (app) => {
   app.get(
     "/admin/churches",
     {
-      preHandler: app.requireAdmin,
+      preHandler: app.requireAdminOrApiKey,
       schema: {
         tags: ["admin"],
         summary: "List all churches (admin)",
@@ -149,7 +149,7 @@ export const adminChurchesRoutes: FastifyPluginAsyncZod = async (app) => {
   app.get(
     "/admin/churches/:id",
     {
-      preHandler: app.requireAdmin,
+      preHandler: app.requireAdminOrApiKey,
       schema: {
         tags: ["admin"],
         summary: "Get church detail (admin)",
@@ -223,7 +223,7 @@ export const adminChurchesRoutes: FastifyPluginAsyncZod = async (app) => {
   app.get(
     "/admin/churches/:id/videos",
     {
-      preHandler: app.requireAdmin,
+      preHandler: app.requireAdminOrApiKey,
       schema: {
         tags: ["admin"],
         summary: "List videos for a church (admin)",

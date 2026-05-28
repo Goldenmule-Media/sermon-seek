@@ -195,13 +195,38 @@ export interface AuditListQuery {
 
 // --- Client interface ---
 
+export interface ChurchVideosQuery {
+  limit?: number
+  offset?: number
+  has_transcript?: boolean
+}
+
+export interface ChurchVideoItem {
+  id: string
+  youtube_id: string
+  title: string
+  published_at: string | null
+  has_transcript: boolean
+  last_retranscribed_at: string | null
+}
+
+export interface ChurchVideosResponse {
+  items: ChurchVideoItem[]
+  total: number
+  limit: number
+  offset: number
+}
+
 export interface AdminClient {
   health(): Promise<HealthResponse>
   recentLogs(q?: LogQuery): Promise<AdminLogRecord[]>
   churchesList(q?: ChurchesListQuery): Promise<ChurchesListResponse>
   churchGet(id: string): Promise<ChurchDetail>
+  churchVideos(id: string, q?: ChurchVideosQuery): Promise<ChurchVideosResponse>
   requestsList(q?: RequestsListQuery): Promise<RequestsListResponse>
   requestGet(id: string): Promise<RequestDetail>
+  requestApprove(id: string): Promise<{ id: string; status: string }>
+  requestDeny(id: string, note: string): Promise<{ id: string; status: string }>
   channelAdd(body: ChannelAddBody): Promise<ChannelAddResponse>
   channelRefresh(q: ChannelRefreshQuery): Promise<ChannelRefreshResponse>
   channelViewStats(churchSlug: string): Promise<ChannelViewStatsResponse>
@@ -282,6 +307,17 @@ export function createClient(instance: ResolvedInstance): AdminClient {
       return get<ChurchDetail>(`/admin/churches/${encodeURIComponent(id)}`)
     },
 
+    async churchVideos(id: string, q: ChurchVideosQuery = {}): Promise<ChurchVideosResponse> {
+      const params = new URLSearchParams()
+      if (q.limit != null) params.set("limit", String(q.limit))
+      if (q.offset != null) params.set("offset", String(q.offset))
+      if (q.has_transcript != null) params.set("has_transcript", String(q.has_transcript))
+      const qs = params.toString()
+      return get<ChurchVideosResponse>(
+        `/admin/churches/${encodeURIComponent(id)}/videos${qs ? `?${qs}` : ""}`,
+      )
+    },
+
     async requestsList(q: RequestsListQuery = {}): Promise<RequestsListResponse> {
       const params = new URLSearchParams()
       if (q.status) params.set("status", q.status)
@@ -294,6 +330,19 @@ export function createClient(instance: ResolvedInstance): AdminClient {
 
     requestGet(id: string): Promise<RequestDetail> {
       return get<RequestDetail>(`/admin/requests/${encodeURIComponent(id)}`)
+    },
+
+    requestApprove(id: string): Promise<{ id: string; status: string }> {
+      return post<{ id: string; status: string }>(
+        `/admin/requests/${encodeURIComponent(id)}/approve`,
+      )
+    },
+
+    requestDeny(id: string, note: string): Promise<{ id: string; status: string }> {
+      return post<{ id: string; status: string }>(
+        `/admin/requests/${encodeURIComponent(id)}/deny`,
+        { note },
+      )
     },
 
     channelAdd(body: ChannelAddBody): Promise<ChannelAddResponse> {

@@ -8,6 +8,7 @@ import type { ZodTypeProvider } from "fastify-type-provider-zod"
 import type { Kysely } from "kysely"
 import { sql } from "kysely"
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
+import { adminAuthPlugin } from "../plugins/admin-auth.js"
 import { hashToken, mintToken, sessionPlugin } from "../plugins/session.js"
 import { adminAuditRoutes } from "./admin-audit.js"
 
@@ -16,6 +17,8 @@ const describeIfDb = TEST_DATABASE_URL ? describe : describe.skip
 
 const COOKIE_SECRET = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 const SESSION_COOKIE = "sermon_session"
+
+const ADMIN_API_KEY = "test-admin-key-audit"
 
 vi.mock("../config.js", () => ({
   config: {
@@ -29,6 +32,7 @@ vi.mock("../config.js", () => ({
     COOKIE_SECURE: false,
     SLUG_ALIAS_TTL_DAYS: 90,
     LIMITED_INGEST_TOKEN_CAP: 750_000,
+    ADMIN_API_KEY: "test-admin-key-audit",
   },
 }))
 
@@ -69,6 +73,7 @@ describeIfDb("Admin audit integration", () => {
       ),
     )
     await app.register(sessionPlugin)
+    await app.register(adminAuthPlugin)
     await app.register(adminAuditRoutes)
     await app.ready()
     return app
@@ -124,6 +129,20 @@ describeIfDb("Admin audit integration", () => {
 
   // --- Auth guard tests ---
 
+  it("returns 200 via x-admin-key on GET /admin/audit", async () => {
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/audit",
+      headers: { "x-admin-key": ADMIN_API_KEY },
+    })
+    expect(res.statusCode).toBe(200)
+    const body = res.json()
+    expect(body.items).toEqual([])
+    expect(body.total).toBe(0)
+    await app.close()
+  })
+
   it("returns 401 with no session on GET /admin/audit", async () => {
     const app = await buildApp()
     const res = await app.inject({ method: "GET", url: "/admin/audit" })
@@ -167,9 +186,21 @@ describeIfDb("Admin audit integration", () => {
     const adminId = await insertUser({ is_admin: true })
     const token = await insertSession(adminId)
 
-    const id1 = await insertAudit({ action: "church.rename", target_type: "church", target_id: "a" })
-    const id2 = await insertAudit({ action: "church.rename", target_type: "church", target_id: "b" })
-    const id3 = await insertAudit({ action: "church.rename", target_type: "church", target_id: "c" })
+    const id1 = await insertAudit({
+      action: "church.rename",
+      target_type: "church",
+      target_id: "a",
+    })
+    const id2 = await insertAudit({
+      action: "church.rename",
+      target_type: "church",
+      target_id: "b",
+    })
+    const id3 = await insertAudit({
+      action: "church.rename",
+      target_type: "church",
+      target_id: "c",
+    })
 
     const res = await app.inject({
       method: "GET",
@@ -191,7 +222,11 @@ describeIfDb("Admin audit integration", () => {
     const token = await insertSession(adminId)
 
     for (let i = 0; i < 5; i++) {
-      await insertAudit({ action: "request.approve", target_type: "request", target_id: `req-${i}` })
+      await insertAudit({
+        action: "request.approve",
+        target_type: "request",
+        target_id: `req-${i}`,
+      })
     }
 
     const res = await app.inject({
@@ -257,9 +292,24 @@ describeIfDb("Admin audit integration", () => {
     const userA = await insertUser()
     const userB = await insertUser()
 
-    await insertAudit({ user_id: userA, action: "church.rename", target_type: "church", target_id: "c1" })
-    await insertAudit({ user_id: userA, action: "request.approve", target_type: "request", target_id: "r1" })
-    await insertAudit({ user_id: userB, action: "church.rename", target_type: "church", target_id: "c2" })
+    await insertAudit({
+      user_id: userA,
+      action: "church.rename",
+      target_type: "church",
+      target_id: "c1",
+    })
+    await insertAudit({
+      user_id: userA,
+      action: "request.approve",
+      target_type: "request",
+      target_id: "r1",
+    })
+    await insertAudit({
+      user_id: userB,
+      action: "church.rename",
+      target_type: "church",
+      target_id: "c2",
+    })
 
     const res = await app.inject({
       method: "GET",
@@ -299,7 +349,12 @@ describeIfDb("Admin audit integration", () => {
     const adminId = await insertUser({ is_admin: true, display_name: "Alice Admin" })
     const token = await insertSession(adminId)
 
-    await insertAudit({ user_id: adminId, action: "church.rename", target_type: "church", target_id: "c1" })
+    await insertAudit({
+      user_id: adminId,
+      action: "church.rename",
+      target_type: "church",
+      target_id: "c1",
+    })
 
     const res = await app.inject({
       method: "GET",
