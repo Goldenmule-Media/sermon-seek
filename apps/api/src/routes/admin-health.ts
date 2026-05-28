@@ -39,7 +39,7 @@ export const adminHealthRoutes: FastifyPluginAsyncZod = async (app) => {
           403: errorSchema,
         },
       },
-      preHandler: app.requireAdmin,
+      preHandler: app.requireAdminOrApiKey,
     },
     async (_request, reply) => {
       const now = Date.now()

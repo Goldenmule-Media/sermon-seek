@@ -32,7 +32,7 @@ export const adminAuditRoutes: FastifyPluginAsyncZod = async (app) => {
   app.get(
     "/admin/audit",
     {
-      preHandler: app.requireAdmin,
+      preHandler: app.requireAdminOrApiKey,
       schema: {
         tags: ["admin"],
         summary: "List admin audit log entries",

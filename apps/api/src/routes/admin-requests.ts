@@ -145,7 +145,7 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
     app.get(
       "/admin/requests",
       {
-        preHandler: app.requireAdmin,
+        preHandler: app.requireAdminOrApiKey,
         schema: {
           tags: ["admin"],
           summary: "List all ingestion requests (admin)",
@@ -228,7 +228,7 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
     app.get(
       "/admin/requests/:id",
       {
-        preHandler: app.requireAdmin,
+        preHandler: app.requireAdminOrApiKey,
         schema: {
           tags: ["admin"],
           summary: "Get ingestion request detail (admin)",
@@ -338,7 +338,7 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
     app.post(
       "/admin/requests/:id/approve",
       {
-        preHandler: app.requireAdmin,
+        preHandler: app.requireAdminOrApiKey,
         schema: {
           tags: ["admin"],
           summary: "Approve an ingestion request (admin)",
@@ -509,7 +509,7 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
     app.post(
       "/admin/requests/:id/deny",
       {
-        preHandler: app.requireAdmin,
+        preHandler: app.requireAdminOrApiKey,
         schema: {
           tags: ["admin"],
           summary: "Deny an ingestion request (admin)",

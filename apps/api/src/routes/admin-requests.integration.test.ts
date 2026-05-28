@@ -11,6 +11,7 @@ import type { ZodTypeProvider } from "fastify-type-provider-zod"
 import type { Kysely } from "kysely"
 import { sql } from "kysely"
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
+import { adminAuthPlugin } from "../plugins/admin-auth.js"
 import { hashToken, mintToken, sessionPlugin } from "../plugins/session.js"
 import { createAdminRequestsRoutes } from "./admin-requests.js"
 
@@ -21,6 +22,8 @@ const COOKIE_SECRET = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 const SESSION_COOKIE = "sermon_session"
 const TOKEN_CAP = 750_000
 const WEB_BASE_URL = "http://localhost:3000"
+
+const ADMIN_API_KEY = "test-admin-key-requests"
 
 vi.mock("../config.js", () => ({
   config: {
@@ -34,6 +37,7 @@ vi.mock("../config.js", () => ({
     COOKIE_SECURE: false,
     SLUG_ALIAS_TTL_DAYS: 90,
     LIMITED_INGEST_TOKEN_CAP: 750_000,
+    ADMIN_API_KEY: "test-admin-key-requests",
   },
 }))
 
@@ -108,6 +112,7 @@ describeIfDb("Admin requests integration", () => {
       ),
     )
     await app.register(sessionPlugin)
+    await app.register(adminAuthPlugin)
     await app.register(adminRequestsRoutes)
     await app.ready()
     return { app, calls }
@@ -138,6 +143,7 @@ describeIfDb("Admin requests integration", () => {
       ),
     )
     await app.register(sessionPlugin)
+    await app.register(adminAuthPlugin)
     await app.register(adminRequestsRoutes)
     await app.ready()
     return { app, calls }
@@ -262,6 +268,19 @@ describeIfDb("Admin requests integration", () => {
   }
 
   // --- Auth guard tests ---
+
+  it("returns 200 via x-admin-key on GET /admin/requests", async () => {
+    const { app } = await buildAppWithCapture()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/requests",
+      headers: { "x-admin-key": ADMIN_API_KEY },
+    })
+    expect(res.statusCode).toBe(200)
+    const body = res.json()
+    expect(body.requests).toEqual([])
+    await app.close()
+  })
 
   it("returns 401 with no session on GET /admin/requests", async () => {
     const { app } = await buildAppWithCapture()
@@ -971,6 +990,29 @@ describeIfDb("Admin requests integration", () => {
       cookies: { [SESSION_COOKIE]: token },
     })
     expect(res.statusCode).toBe(409)
+    await app.close()
+  })
+
+  it("approve via x-admin-key writes audit row with actor=cli", async () => {
+    const { app } = await buildAppWithCapture()
+    const userId = await insertUser()
+    const requestId = await insertRequest(userId, { status: "awaiting_approval" })
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/approve`,
+      headers: { "x-admin-key": ADMIN_API_KEY },
+    })
+    expect(res.statusCode).toBe(200)
+
+    const auditRow = await db
+      .selectFrom("admin_audit_log")
+      .select(["action", "payload"])
+      .where("action", "=", "request.approve")
+      .where("target_id", "=", requestId)
+      .executeTakeFirstOrThrow()
+    expect(auditRow.action).toBe("request.approve")
+    expect((auditRow.payload as { actor: string }).actor).toBe("cli")
     await app.close()
   })
 })
