@@ -4,6 +4,7 @@ import { StatusBadge } from "@/lib/status-badge"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ApproveDenyButtons } from "./approve-deny-buttons"
+import { PlaylistFiltersPanel } from "./playlist-filters-panel"
 
 interface Props {
   params: Promise<{ id: string }>
@@ -258,10 +259,13 @@ export default async function RequestDetailPage({ params }: Props) {
         </section>
       )}
 
+      {/* Playlist filters */}
+      <PlaylistFiltersPanel filters={req.playlist_filters} />
+
       {/* Actions */}
       {!isTerminal && (
         <section className="space-y-2">
-          <ApproveDenyButtons requestId={req.id} />
+          <ApproveDenyButtons requestId={req.id} playlistFilters={req.playlist_filters} />
         </section>
       )}
     </main>

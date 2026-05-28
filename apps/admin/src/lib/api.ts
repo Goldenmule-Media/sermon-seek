@@ -25,6 +25,11 @@ export type IngestionRequestStatus =
   | "failed"
   | "complete"
 
+export interface PlaylistFilters {
+  mode: "none" | "include" | "exclude"
+  playlist_ids: string[]
+}
+
 export interface AdminRequestSummary {
   id: string
   user_id: string
@@ -38,14 +43,13 @@ export interface AdminRequestSummary {
   search_url: string | null
   limit_reached: boolean
   created_at: string
+  playlist_filters: PlaylistFilters
 }
 
 export interface AdminRequestDetail extends AdminRequestSummary {
   requested_name: string
   youtube_handle_or_url: string
   contact_email: string
-  include_playlist_ids: string[]
-  exclude_playlist_ids: string[]
   admin_note: string | null
   updated_at: string
   church_slug: string | null

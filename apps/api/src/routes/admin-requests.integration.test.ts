@@ -53,7 +53,7 @@ describeIfDb("Admin requests integration", () => {
   })
 
   beforeEach(async () => {
-    await sql`TRUNCATE ingestion_requests, sessions, users, churches, playlists RESTART IDENTITY CASCADE`.execute(
+    await sql`TRUNCATE ingestion_requests, sessions, users, churches, playlists, channel_filter_rules RESTART IDENTITY CASCADE`.execute(
       db,
     )
   })
@@ -197,6 +197,8 @@ describeIfDb("Admin requests integration", () => {
       videos_discovered?: number
       videos_ingested?: number
       admin_note?: string
+      include_playlist_ids?: string[]
+      exclude_playlist_ids?: string[]
     } = {},
   ): Promise<string> {
     const row = await db
@@ -213,6 +215,12 @@ describeIfDb("Admin requests integration", () => {
         videos_discovered: overrides.videos_discovered ?? 0,
         videos_ingested: overrides.videos_ingested ?? 0,
         ...(overrides.admin_note ? { admin_note: overrides.admin_note } : {}),
+        ...(overrides.include_playlist_ids
+          ? { include_playlist_ids: overrides.include_playlist_ids }
+          : {}),
+        ...(overrides.exclude_playlist_ids
+          ? { exclude_playlist_ids: overrides.exclude_playlist_ids }
+          : {}),
       })
       .returning(["id"])
       .executeTakeFirstOrThrow()
@@ -631,6 +639,155 @@ describeIfDb("Admin requests integration", () => {
       cookies: { [SESSION_COOKIE]: token },
     })
     expect(res.statusCode).toBe(409)
+    await app.close()
+  })
+
+  it("approve: mode=none — no channel_filter_rules rows written", async () => {
+    const { app } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const userId = await insertUser()
+    const churchId = await insertChurch("grace-chapel", { youtube_channel_id: "UCtest001" })
+    const channelId = await insertChannel(churchId, { youtube_channel_id: "UCtest001" })
+    const requestId = await insertRequest(userId, {
+      church_id: churchId,
+      status: "awaiting_approval",
+    })
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/approve`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+    expect(res.json().status).toBe("approved")
+
+    const rules = await db
+      .selectFrom("channel_filter_rules")
+      .selectAll()
+      .where("channel_id", "=", channelId)
+      .execute()
+    expect(rules).toHaveLength(0)
+    await app.close()
+  })
+
+  it("approve: mode=include — writes include channel_filter_rules rows with audit entries", async () => {
+    const { app } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const userId = await insertUser()
+    const churchId = await insertChurch("grace-chapel-2", { youtube_channel_id: "UCtest002" })
+    const channelId = await insertChannel(churchId, { youtube_channel_id: "UCtest002" })
+    const requestId = await insertRequest(userId, {
+      church_id: churchId,
+      status: "awaiting_approval",
+      include_playlist_ids: ["PLaaa", "PLbbb"],
+    })
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/approve`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+
+    const rules = await db
+      .selectFrom("channel_filter_rules")
+      .selectAll()
+      .where("channel_id", "=", channelId)
+      .orderBy("target_id", "asc")
+      .execute()
+    expect(rules).toHaveLength(2)
+    expect(rules[0].rule_type).toBe("include")
+    expect(rules[0].target_kind).toBe("playlist")
+    expect(rules[0].target_id).toBe("PLaaa")
+    expect(rules[1].target_id).toBe("PLbbb")
+
+    const auditRows = await db
+      .selectFrom("admin_audit_log")
+      .select(["action", "target_id"])
+      .where("action", "in", ["request.approve", "filter_rule.create"])
+      .where("target_id", "in", [requestId, rules[0].id, rules[1].id])
+      .execute()
+    const actions = auditRows.map((r) => r.action)
+    expect(actions.filter((a) => a === "filter_rule.create")).toHaveLength(2)
+    expect(actions.filter((a) => a === "request.approve")).toHaveLength(1)
+    await app.close()
+  })
+
+  it("approve: mode=exclude — writes exclude channel_filter_rules rows", async () => {
+    const { app } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const userId = await insertUser()
+    const churchId = await insertChurch("grace-chapel-3", { youtube_channel_id: "UCtest003" })
+    const channelId = await insertChannel(churchId, { youtube_channel_id: "UCtest003" })
+    const requestId = await insertRequest(userId, {
+      church_id: churchId,
+      status: "awaiting_approval",
+      exclude_playlist_ids: ["PLxxx", "PLyyy"],
+    })
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/approve`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+
+    const rules = await db
+      .selectFrom("channel_filter_rules")
+      .selectAll()
+      .where("channel_id", "=", channelId)
+      .orderBy("target_id", "asc")
+      .execute()
+    expect(rules).toHaveLength(2)
+    expect(rules[0].rule_type).toBe("exclude")
+    expect(rules[0].target_kind).toBe("playlist")
+    expect(rules.map((r) => r.target_id).sort()).toEqual(["PLxxx", "PLyyy"])
+    await app.close()
+  })
+
+  it("approve: idempotent rule materialization — pre-existing rule is not duplicated", async () => {
+    const { app } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const userId = await insertUser()
+    const churchId = await insertChurch("grace-chapel-4", { youtube_channel_id: "UCtest004" })
+    const channelId = await insertChannel(churchId, { youtube_channel_id: "UCtest004" })
+    const requestId = await insertRequest(userId, {
+      church_id: churchId,
+      status: "awaiting_approval",
+      include_playlist_ids: ["PLaaa", "PLbbb"],
+    })
+
+    // Pre-insert one of the rules to simulate a partial-failure retry scenario.
+    await db
+      .insertInto("channel_filter_rules")
+      .values({
+        channel_id: channelId,
+        rule_type: "include",
+        target_kind: "playlist",
+        target_id: "PLaaa",
+        note: null,
+      })
+      .execute()
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/approve`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+
+    const rules = await db
+      .selectFrom("channel_filter_rules")
+      .selectAll()
+      .where("channel_id", "=", channelId)
+      .execute()
+    // Should have exactly 2: the pre-existing PLaaa + the newly inserted PLbbb.
+    expect(rules).toHaveLength(2)
+    expect(rules.map((r) => r.target_id).sort()).toEqual(["PLaaa", "PLbbb"])
     await app.close()
   })
 

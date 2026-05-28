@@ -394,25 +394,79 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
           return reply.code(409).send({ error: "invalid_transition", current_status: req.status })
         }
 
-        await app.db
-          .updateTable("ingestion_requests")
-          .set({ status: "approved", updated_at: sql`now()` })
-          .where("id", "=", id)
-          .execute()
+        // Look up the channel created during the initial ingest run.
+        const channelRow = req.church_id
+          ? await app.db
+              .selectFrom("channels")
+              .select(["id"])
+              .where("church_id", "=", req.church_id)
+              .executeTakeFirst()
+          : null
 
         const { user_id: approveUserId, actor: approveActor } = auditActor(request)
-        await auditWrite(app.db, {
-          user_id: approveUserId,
-          action: "request.approve",
-          target_type: "request",
-          target_id: id,
-          payload: {
-            actor: approveActor,
-            from_status: req.status,
-            to_status: "approved",
-            requested_slug: req.requested_slug,
-            user_id_of_subject: req.user_id,
-          },
+
+        await app.db.transaction().execute(async (trx) => {
+          await trx
+            .updateTable("ingestion_requests")
+            .set({ status: "approved", updated_at: sql`now()` })
+            .where("id", "=", id)
+            .execute()
+
+          await auditWrite(trx, {
+            user_id: approveUserId,
+            action: "request.approve",
+            target_type: "request",
+            target_id: id,
+            payload: {
+              actor: approveActor,
+              from_status: req.status,
+              to_status: "approved",
+              requested_slug: req.requested_slug,
+              user_id_of_subject: req.user_id,
+            },
+          })
+
+          if (channelRow) {
+            const filters = columnsToPlaylistFilters(
+              req.include_playlist_ids as string[],
+              req.exclude_playlist_ids as string[],
+            )
+            if (filters.mode !== "none") {
+              for (const targetId of filters.playlist_ids) {
+                const ruleRow = await trx
+                  .insertInto("channel_filter_rules")
+                  .values({
+                    channel_id: channelRow.id,
+                    rule_type: filters.mode,
+                    target_kind: "playlist",
+                    target_id: targetId,
+                    note: null,
+                  })
+                  .onConflict((oc) => oc.doNothing())
+                  .returning(["id"])
+                  .executeTakeFirst()
+
+                if (ruleRow) {
+                  await auditWrite(trx, {
+                    user_id: approveUserId,
+                    action: "filter_rule.create",
+                    target_type: "filter_rule",
+                    target_id: ruleRow.id,
+                    payload: {
+                      actor: approveActor,
+                      channel_id: channelRow.id,
+                      rule_type: filters.mode,
+                      target_kind: "playlist",
+                      target_id: targetId,
+                      note: null,
+                      source: "request.approve",
+                      request_id: id,
+                    },
+                  })
+                }
+              }
+            }
+          }
         })
 
         // Best-effort notification
@@ -518,7 +572,8 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
               .set({ admin_note: note, updated_at: sql`now()` })
               .where("id", "=", id)
               .execute()
-            const { user_id: denyIdempotentUserId, actor: denyIdempotentActor } = auditActor(request)
+            const { user_id: denyIdempotentUserId, actor: denyIdempotentActor } =
+              auditActor(request)
             await auditWrite(app.db, {
               user_id: denyIdempotentUserId,
               action: "request.deny",
