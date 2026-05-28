@@ -261,7 +261,9 @@ export default async function AuditPage({
 
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <span>
-              {total === 0 ? "No results" : `Showing ${offset + 1}–${offset + count} of ${total}`}
+              {total === 0
+                ? "No results"
+                : `Showing ${offset + 1}–${offset + count} of ${total}`}
             </span>
             <div className="flex gap-2">
               {hasPrev ? (

@@ -291,9 +291,9 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
               ),
             )
             for (let i = 0; i < syntaxOk.length; i++) {
-              const id = syntaxOk[i]
-              const result = results[i]
-              if (id !== undefined && result !== undefined && !result.ok) {
+              const id = syntaxOk[i]!
+              const result = results[i]!
+              if (!result.ok) {
                 const code =
                   result.reason === "not_found"
                     ? "not_found_on_youtube"
