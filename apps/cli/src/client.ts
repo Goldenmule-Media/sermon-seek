@@ -12,6 +12,8 @@ export interface LogQuery {
   level?: LogLevelLabel
   since?: string
   limit?: number
+  source?: "api" | "worker" | "all"
+  workerId?: string
 }
 
 export interface HealthWorker {
@@ -289,6 +291,8 @@ export function createClient(instance: ResolvedInstance): AdminClient {
       if (q.level) params.set("level", q.level)
       if (q.since) params.set("since", q.since)
       if (q.limit != null) params.set("limit", String(q.limit))
+      if (q.source) params.set("source", q.source)
+      if (q.workerId) params.set("workerId", q.workerId)
       const qs = params.toString()
       const data = await get<AdminLogsResponse>(`/admin/logs${qs ? `?${qs}` : ""}`)
       return data.records

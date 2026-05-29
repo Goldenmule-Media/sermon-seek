@@ -236,7 +236,15 @@ export function printLogRecord(rec: AdminLogRecord, opts: { json?: boolean } = {
       .map(([k, v]) => `${k}=${typeof v === "string" ? v : JSON.stringify(v)}`)
       .join(" ")}`
   }
+
+  let sourceTag = ""
+  if (rec.source === "worker") {
+    sourceTag = rec.workerId ? `[worker:${rec.workerId}] ` : "[worker] "
+  } else if (rec.source === "api") {
+    sourceTag = "[api] "
+  }
+
   console.log(
-    `${hms(rec.time)} ${rec.levelLabel.toUpperCase().padEnd(5)} ${rec.msg ?? ""}${suffix}`,
+    `${hms(rec.time)} ${rec.levelLabel.toUpperCase().padEnd(5)} ${sourceTag}${rec.msg ?? ""}${suffix}`,
   )
 }

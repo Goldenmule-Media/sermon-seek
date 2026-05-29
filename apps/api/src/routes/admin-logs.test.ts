@@ -3,7 +3,7 @@ import Fastify from "fastify"
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"
 import type { ZodTypeProvider } from "fastify-type-provider-zod"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
-import { logBuffer } from "../lib/log-buffer.js"
+import { logBuffer, workerLogBuffer } from "../lib/log-buffer.js"
 import { adminAuthPlugin } from "../plugins/admin-auth.js"
 import { adminLogsRoutes } from "./admin-logs.js"
 
@@ -152,7 +152,147 @@ describe("GET /admin/logs", () => {
     await app.close()
   })
 
+  it("source=api (default) returns only api-sourced records", async () => {
+    const apiRec = makeRecord({ msg: "api-only", source: "api" })
+    const workerRec = makeRecord({ msg: "worker-only", source: "worker", workerId: "w1" })
+    logBuffer.push(apiRec)
+    workerLogBuffer.push(workerRec)
+
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/logs",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY },
+    })
+    expect(res.statusCode).toBe(200)
+    const { records } = res.json()
+    const msgs = records.map((r: { msg: string }) => r.msg)
+    expect(msgs).toContain("api-only")
+    expect(msgs).not.toContain("worker-only")
+    await app.close()
+  })
+
+  it("source=worker returns only worker-sourced records", async () => {
+    const apiRec = makeRecord({ msg: "api-source-test", source: "api" })
+    const workerRec = makeRecord({ msg: "worker-source-test", source: "worker", workerId: "w2" })
+    logBuffer.push(apiRec)
+    workerLogBuffer.push(workerRec)
+
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/logs?source=worker",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY },
+    })
+    expect(res.statusCode).toBe(200)
+    const { records } = res.json()
+    const msgs = records.map((r: { msg: string }) => r.msg)
+    expect(msgs).toContain("worker-source-test")
+    expect(msgs).not.toContain("api-source-test")
+    await app.close()
+  })
+
+  it("source=all returns records from both buffers", async () => {
+    const apiRec = makeRecord({ msg: "all-api", source: "api" })
+    const workerRec = makeRecord({ msg: "all-worker", source: "worker", workerId: "w3" })
+    logBuffer.push(apiRec)
+    workerLogBuffer.push(workerRec)
+
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/logs?source=all",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY },
+    })
+    expect(res.statusCode).toBe(200)
+    const { records } = res.json()
+    const msgs = records.map((r: { msg: string }) => r.msg)
+    expect(msgs).toContain("all-api")
+    expect(msgs).toContain("all-worker")
+    await app.close()
+  })
+
+  it("workerId filter returns only records for that worker", async () => {
+    const rec1 = makeRecord({ msg: "wid-match", source: "worker", workerId: "target-worker" })
+    const rec2 = makeRecord({ msg: "wid-other", source: "worker", workerId: "other-worker" })
+    workerLogBuffer.push(rec1)
+    workerLogBuffer.push(rec2)
+
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "GET",
+      url: "/admin/logs?source=worker&workerId=target-worker",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY },
+    })
+    expect(res.statusCode).toBe(200)
+    const { records } = res.json()
+    const msgs = records.map((r: { msg: string }) => r.msg)
+    expect(msgs).toContain("wid-match")
+    expect(msgs).not.toContain("wid-other")
+    await app.close()
+  })
+
   // SSE follow mode (follow=true) is tested by the CLI logs tail card and via manual curl.
   // Fastify's inject() collects the full response body, so it cannot observe an open
   // streaming response without additional scaffolding.
+})
+
+describe("POST /admin/logs/ingest", () => {
+  it("returns 401 with no key", async () => {
+    const app = await buildApp()
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/logs/ingest",
+      payload: { records: [] },
+    })
+    expect(res.statusCode).toBe(401)
+    await app.close()
+  })
+
+  it("ingests records and makes them available via GET ?source=worker", async () => {
+    const app = await buildApp()
+    const rec = makeRecord({ msg: "ingest-round-trip" })
+    const ingestRes = await app.inject({
+      method: "POST",
+      url: "/admin/logs/ingest",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY, "x-worker-id": "ingest-worker-1" },
+      payload: { records: [rec] },
+    })
+    expect(ingestRes.statusCode).toBe(200)
+    expect(ingestRes.json().ingested).toBe(1)
+
+    const getRes = await app.inject({
+      method: "GET",
+      url: "/admin/logs?source=worker",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY },
+    })
+    expect(getRes.statusCode).toBe(200)
+    const { records } = getRes.json()
+    const found = records.find(
+      (r: { msg: string; workerId?: string }) =>
+        r.msg === "ingest-round-trip" && r.workerId === "ingest-worker-1",
+    )
+    expect(found).toBeDefined()
+    await app.close()
+  })
+
+  it("falls back to body workerId when x-worker-id header is absent", async () => {
+    const app = await buildApp()
+    const rec = makeRecord({ msg: "ingest-body-wid" })
+    await app.inject({
+      method: "POST",
+      url: "/admin/logs/ingest",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY },
+      payload: { records: [rec], workerId: "body-wid" },
+    })
+
+    const getRes = await app.inject({
+      method: "GET",
+      url: "/admin/logs?source=worker&workerId=body-wid",
+      headers: { "x-admin-key": TEST_ADMIN_API_KEY },
+    })
+    const { records } = getRes.json()
+    expect(records.some((r: { msg: string }) => r.msg === "ingest-body-wid")).toBe(true)
+    await app.close()
+  })
 })

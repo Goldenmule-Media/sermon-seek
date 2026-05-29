@@ -11,6 +11,8 @@ export const logRecordSchema = z.object({
   levelLabel: z.enum(LOG_LEVELS),
   msg: z.string().nullable(),
   fields: z.record(z.unknown()),
+  source: z.enum(["api", "worker"]).optional(),
+  workerId: z.string().nullable().optional(),
 }) satisfies z.ZodType<AdminLogRecord>
 
 export function parseLogLine(data: string): AdminLogRecord | null {
@@ -63,6 +65,8 @@ function buildSseUrl(baseUrl: string, query: LogQuery, lastSeenTime: number): st
   const params = new URLSearchParams({ follow: "true" })
   if (query.level) params.set("level", query.level)
   if (query.limit != null) params.set("limit", String(query.limit))
+  if (query.source) params.set("source", query.source)
+  if (query.workerId) params.set("workerId", query.workerId)
 
   // After reconnect, tighten the `since` window to bound buffered replay.
   // Convert lastSeenTime (epoch ms) into a seconds-based since value.
