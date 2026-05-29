@@ -2,6 +2,9 @@
   "mcpServers": {
     "hotseat": {
       "command": "./.hotseat/bin/hotseat-mcp"
+    },
+    "sermon-admin": {
+      "command": "./apps/cli/bin/sermon-admin-mcp"
     }
   }
 }
