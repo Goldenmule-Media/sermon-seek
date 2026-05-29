@@ -662,6 +662,86 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
         return reply.send({ id, status: "denied" })
       },
     )
+
+    // --- POST /admin/requests/:id/retry ---
+    app.post(
+      "/admin/requests/:id/retry",
+      {
+        preHandler: app.requireAdminOrApiKey,
+        schema: {
+          tags: ["admin"],
+          summary: "Retry a failed ingestion request (admin)",
+          params: idParamsSchema,
+          response: {
+            200: approveResponseSchema,
+            401: errorSchema,
+            403: errorSchema,
+            404: errorSchema,
+            409: conflictSchema,
+          },
+        },
+      },
+      async (request, reply) => {
+        const { id } = request.params
+
+        const req = await app.db
+          .selectFrom("ingestion_requests")
+          .where("id", "=", id)
+          .select(["id", "user_id", "requested_slug", "status"])
+          .executeTakeFirst()
+
+        if (!req) {
+          return reply.code(404).send({ error: "not_found" })
+        }
+
+        // Idempotent: already re-queued (e.g. double-click) — no-op, no audit row.
+        if (req.status === "received") {
+          return reply.send({ id: req.id, status: req.status })
+        }
+
+        // Only failed requests can be retried.
+        if (req.status !== "failed") {
+          return reply.code(409).send({ error: "invalid_transition", current_status: req.status })
+        }
+
+        const { user_id: retryUserId, actor: retryActor } = auditActor(request)
+
+        // Transition failed → received so the worker re-claims it (it claims
+        // status IN ('received','approved')). Clear the stale error note,
+        // reset the reaper's retry budget, and drop any prior cap flag. Leave
+        // videos_discovered / videos_ingested / tokens_ingested alone — the
+        // ingest pipeline is idempotent and only counts newly-ingested work.
+        await app.db.transaction().execute(async (trx) => {
+          await trx
+            .updateTable("ingestion_requests")
+            .set({
+              status: "received",
+              retry_count: 0,
+              limit_reached: false,
+              admin_note: null,
+              updated_at: sql`now()`,
+            })
+            .where("id", "=", id)
+            .execute()
+
+          await auditWrite(trx, {
+            user_id: retryUserId,
+            action: "request.retry",
+            target_type: "request",
+            target_id: id,
+            payload: {
+              actor: retryActor,
+              from_status: req.status,
+              to_status: "received",
+              requested_slug: req.requested_slug,
+              user_id_of_subject: req.user_id,
+            },
+          })
+        })
+
+        return reply.send({ id, status: "received" })
+      },
+    )
   }
 }
 

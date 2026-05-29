@@ -67,6 +67,10 @@ export async function fetchCaptions(opts: FetchCaptionsOptions): Promise<FetchCa
 
   const workDir = await fsp.mkdtemp(join(tmpdir(), `sermon-captions-${videoId}-`))
   try {
+    // Keep `youtube:player_client=android`: it avoids needing a JS runtime in
+    // the worker image. The default (web) client now requires deno/Node to
+    // solve the player challenge, which the image doesn't ship. Verified
+    // against yt-dlp 2026.3.17 — see apps/worker/src/captions/version.ts.
     const args = [
       "--skip-download",
       "--write-auto-subs",

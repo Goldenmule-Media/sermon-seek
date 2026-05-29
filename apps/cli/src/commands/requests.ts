@@ -61,5 +61,16 @@ export function makeRequestsCommand(): Command {
       })
     })
 
+  cmd
+    .command("retry <id>")
+    .description("Retry a failed ingestion request (re-queues it for the worker)")
+    .action(async (id: string, _opts, self) => {
+      await run(self, async (client, json) => {
+        const data = await client.requestRetry(id)
+        if (json) printJson(data)
+        else console.log(`Request ${data.id} is now ${data.status}.`)
+      })
+    })
+
   return cmd
 }

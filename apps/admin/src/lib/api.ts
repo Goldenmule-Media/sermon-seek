@@ -119,3 +119,12 @@ export async function denyAdminRequest(
   const body = (await res.json().catch(() => ({ error: "unknown" }))) as { error: string }
   return { ok: false, error: body.error ?? "unknown", httpStatus: res.status }
 }
+
+export async function retryAdminRequest(
+  id: string,
+): Promise<{ ok: true } | { ok: false; error: string; httpStatus: number }> {
+  const res = await adminApiFetch(`/v1/admin/requests/${id}/retry`, { method: "POST" })
+  if (res.ok) return { ok: true }
+  const body = (await res.json().catch(() => ({ error: "unknown" }))) as { error: string }
+  return { ok: false, error: body.error ?? "unknown", httpStatus: res.status }
+}

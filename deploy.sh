@@ -250,3 +250,31 @@ check_url "https://$DOMAIN/v1/health"
 check_url "https://$DOMAIN/"
 
 say "=== Deploy complete: https://$DOMAIN/ ==="
+
+# ── log cheat-sheet ───────────────────────────────────────────────────────────
+# Print the exact commands to tail logs for this deploy. Two sources:
+#   1. App-level structured logs (the instance ring buffer) via the admin CLI.
+#   2. Raw container logs on the host via docker compose over SSH.
+SSH_DISPLAY="ssh"
+[[ -n "$SSH_KEY" ]] && SSH_DISPLAY="$SSH_DISPLAY -i $SSH_KEY"
+SSH_DISPLAY="$SSH_DISPLAY $TARGET"
+ADMIN_CLI="pnpm --filter @sermon-search/cli start --"
+
+cat <<EOF
+
+── Logs ───────────────────────────────────────────────────────────────────────
+App logs (structured ring buffer; needs the admin CLI pointed at this instance,
+e.g. \`$ADMIN_CLI login --url https://$DOMAIN --key <ADMIN_API_KEY> --instance prod\`):
+  $ADMIN_CLI logs tail --source api --since 10m       # recent API logs
+  $ADMIN_CLI logs tail --source worker --follow       # live worker logs
+  $ADMIN_CLI logs tail --source all --level warn      # warnings+ across both
+
+Container logs (raw stdout on the host; covers proxy/Caddy, postgres, web too):
+  $SSH_DISPLAY '$COMPOSE_CMD logs -f --tail=100 api'
+  $SSH_DISPLAY '$COMPOSE_CMD logs -f --tail=100 worker'
+  $SSH_DISPLAY '$COMPOSE_CMD logs --tail=200 proxy'    # Caddy / TLS issuance
+  $SSH_DISPLAY '$COMPOSE_CMD logs --tail=200 admin'
+  $SSH_DISPLAY '$COMPOSE_CMD ps'                       # service status
+  # services: postgres, api, web, worker, admin, proxy
+────────────────────────────────────────────────────────────────────────────────
+EOF

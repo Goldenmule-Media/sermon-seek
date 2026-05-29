@@ -121,6 +121,17 @@ describe("createClient", () => {
     expect(JSON.parse((init as RequestInit).body as string)).toEqual({ note: "Spam channel" })
   })
 
+  it("requestRetry sends POST /v1/admin/requests/:id/retry with no body", async () => {
+    fetchSpy.mockResolvedValue(makeOkResponse({ id: "req-1", status: "received" }))
+    const client = createClient(INSTANCE)
+    const result = await client.requestRetry("req-1")
+    expect(result.status).toBe("received")
+    const [url, init] = fetchSpy.mock.calls[0]
+    expect(url).toContain("/v1/admin/requests/req-1/retry")
+    expect((init as RequestInit).method).toBe("POST")
+    expect((init as RequestInit).body).toBeUndefined()
+  })
+
   // ── Channels ───────────────────────────────────────────────────────────────
 
   it("channelAdd sends POST /v1/admin/channels with body", async () => {

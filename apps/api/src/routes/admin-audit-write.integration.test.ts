@@ -662,6 +662,59 @@ describeIfDb("audit-log writes — every admin mutation", () => {
   })
 
   // ---------------------------------------------------------------------------
+  // request.retry
+  // ---------------------------------------------------------------------------
+
+  it("POST /admin/requests/:id/retry — writes one audit row action=request.retry", async () => {
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const subjectId = await insertUser()
+    const reqId = await insertIngestionRequest(subjectId, {
+      status: "failed",
+      admin_note: "yt-dlp boom",
+    })
+
+    const app = await buildRequestsApp()
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${reqId}/retry`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+
+    const rows = await auditRows("request.retry", "request", reqId)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]?.user_id).toBe(adminId)
+    expect((rows[0]?.payload as { actor: string }).actor).toBe("session")
+    expect((rows[0]?.payload as { from_status: string }).from_status).toBe("failed")
+    expect((rows[0]?.payload as { to_status: string }).to_status).toBe("received")
+
+    await app.close()
+  })
+
+  it("POST /admin/requests/:id/retry — idempotent: already-received request writes zero audit rows", async () => {
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const subjectId = await insertUser()
+    const reqId = await insertIngestionRequest(subjectId, { status: "received" })
+
+    const app = await buildRequestsApp()
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${reqId}/retry`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+
+    const rows = await auditRows("request.retry")
+    expect(rows).toHaveLength(0)
+
+    await app.close()
+  })
+
+  // ---------------------------------------------------------------------------
   // filter_rule.create
   // ---------------------------------------------------------------------------
 

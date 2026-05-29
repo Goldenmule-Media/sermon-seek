@@ -229,6 +229,7 @@ export interface AdminClient {
   requestGet(id: string): Promise<RequestDetail>
   requestApprove(id: string): Promise<{ id: string; status: string }>
   requestDeny(id: string, note: string): Promise<{ id: string; status: string }>
+  requestRetry(id: string): Promise<{ id: string; status: string }>
   channelAdd(body: ChannelAddBody): Promise<ChannelAddResponse>
   channelRefresh(q: ChannelRefreshQuery): Promise<ChannelRefreshResponse>
   channelViewStats(churchSlug: string): Promise<ChannelViewStatsResponse>
@@ -347,6 +348,10 @@ export function createClient(instance: ResolvedInstance): AdminClient {
         `/admin/requests/${encodeURIComponent(id)}/deny`,
         { note },
       )
+    },
+
+    requestRetry(id: string): Promise<{ id: string; status: string }> {
+      return post<{ id: string; status: string }>(`/admin/requests/${encodeURIComponent(id)}/retry`)
     },
 
     channelAdd(body: ChannelAddBody): Promise<ChannelAddResponse> {

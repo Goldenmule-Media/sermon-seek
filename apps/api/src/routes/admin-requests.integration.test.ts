@@ -1015,4 +1015,104 @@ describeIfDb("Admin requests integration", () => {
     expect((auditRow.payload as { actor: string }).actor).toBe("cli")
     await app.close()
   })
+
+  it("retry: 404 for unknown request", async () => {
+    const { app } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/requests/00000000-0000-0000-0000-000000000000/retry",
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(404)
+    await app.close()
+  })
+
+  it("retry: flips failed → received, clears note/cap, resets retry_count, writes audit, no notify", async () => {
+    const { app, calls } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const userId = await insertUser()
+    const requestId = await insertRequest(userId, { status: "failed", admin_note: "yt-dlp boom" })
+    // Simulate a request that previously hit the cap and burned reaper retries.
+    await db
+      .updateTable("ingestion_requests")
+      .set({ limit_reached: true, retry_count: 2 })
+      .where("id", "=", requestId)
+      .execute()
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/retry`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+    expect(res.json()).toEqual({ id: requestId, status: "received" })
+    // Internal re-queue — submitter is not notified.
+    expect(calls).toHaveLength(0)
+
+    const row = await db
+      .selectFrom("ingestion_requests")
+      .select(["status", "admin_note", "limit_reached", "retry_count"])
+      .where("id", "=", requestId)
+      .executeTakeFirstOrThrow()
+    expect(row.status).toBe("received")
+    expect(row.admin_note).toBeNull()
+    expect(row.limit_reached).toBe(false)
+    expect(row.retry_count).toBe(0)
+
+    const auditRow = await db
+      .selectFrom("admin_audit_log")
+      .select(["action", "payload"])
+      .where("action", "=", "request.retry")
+      .where("target_id", "=", requestId)
+      .executeTakeFirstOrThrow()
+    expect((auditRow.payload as { from_status: string }).from_status).toBe("failed")
+    expect((auditRow.payload as { to_status: string }).to_status).toBe("received")
+    await app.close()
+  })
+
+  it("retry: 409 when status is not failed (complete)", async () => {
+    const { app } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const userId = await insertUser()
+    const requestId = await insertRequest(userId, { status: "complete" })
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/retry`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(409)
+    expect(res.json().current_status).toBe("complete")
+    await app.close()
+  })
+
+  it("retry: idempotent — already received returns 200 with no audit row", async () => {
+    const { app } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const userId = await insertUser()
+    const requestId = await insertRequest(userId, { status: "received" })
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/retry`,
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+    expect(res.json().status).toBe("received")
+
+    const audit = await db
+      .selectFrom("admin_audit_log")
+      .select(["id"])
+      .where("action", "=", "request.retry")
+      .where("target_id", "=", requestId)
+      .execute()
+    expect(audit).toHaveLength(0)
+    await app.close()
+  })
 })

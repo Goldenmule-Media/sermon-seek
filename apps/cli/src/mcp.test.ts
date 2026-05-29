@@ -22,6 +22,7 @@ function makeMock(): MockClient {
     channelRefresh: vi.fn(),
     channelViewStats: vi.fn(),
     auditList: vi.fn(),
+    requestRetry: vi.fn(),
   }
 }
 
@@ -64,6 +65,7 @@ describe("buildMcpServer — tool list", () => {
           "health",
           "recent_logs",
           "request_get",
+          "request_retry",
           "requests_list",
         ].sort(),
       )
@@ -264,6 +266,48 @@ describe("requests_list tool", () => {
       await mcp.callTool({ name: "requests_list", arguments: { status: "awaiting_approval" } })
       const call = mock.requestsList.mock.calls[0][0] as RequestsListQuery
       expect(call.status).toBe("awaiting_approval")
+    } finally {
+      await close()
+    }
+  })
+})
+
+// ---------------------------------------------------------------------------
+// request_retry — forwards id to client.requestRetry
+// ---------------------------------------------------------------------------
+
+describe("request_retry tool", () => {
+  it("forwards id to client.requestRetry and returns JSON content", async () => {
+    const mock = makeMock()
+    mock.requestRetry.mockResolvedValueOnce({ id: "req-1", status: "received" })
+
+    const { mcp, close } = await makeClient(mock as unknown as AdminClient)
+    try {
+      const result = await mcp.callTool({
+        name: "request_retry",
+        arguments: { id: "11111111-1111-1111-1111-111111111111" },
+      })
+      expect(mock.requestRetry).toHaveBeenCalledWith("11111111-1111-1111-1111-111111111111")
+      expect(result.isError).toBeFalsy()
+      const parsed = JSON.parse((result.content[0] as { text: string }).text)
+      expect(parsed.status).toBe("received")
+    } finally {
+      await close()
+    }
+  })
+
+  it("returns isError:true when client.requestRetry throws", async () => {
+    const mock = makeMock()
+    mock.requestRetry.mockRejectedValueOnce(new Error("HTTP 409 from instance: invalid_transition"))
+
+    const { mcp, close } = await makeClient(mock as unknown as AdminClient)
+    try {
+      const result = await mcp.callTool({
+        name: "request_retry",
+        arguments: { id: "11111111-1111-1111-1111-111111111111" },
+      })
+      expect(result.isError).toBe(true)
+      expect((result.content[0] as { text: string }).text).toContain("invalid_transition")
     } finally {
       await close()
     }

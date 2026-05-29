@@ -112,6 +112,19 @@ export function buildMcpServer(client: AdminClient): McpServer {
   )
 
   server.tool(
+    "request_retry",
+    "Retry a failed ingestion request — re-queues it for the worker (admin mutation — writes audit row with actor=cli)",
+    { id: z.string().uuid().describe("Request UUID") },
+    async ({ id }) => {
+      try {
+        return ok(await client.requestRetry(id))
+      } catch (e) {
+        return err(e)
+      }
+    },
+  )
+
+  server.tool(
     "channel_add",
     "Register a YouTube channel for a church (admin mutation — writes audit row with actor=cli)",
     {

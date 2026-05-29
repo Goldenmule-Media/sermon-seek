@@ -10,6 +10,7 @@ Searches sermons.
 - Workspace layout: `apps/{web,api,worker}` + `packages/types`; `infra/` reserved for docker-compose (C2 / C22).
 - Per-app TS config extends `tsconfig.base.json` at the repo root.
 - Environment variables: copy `.env.example` to `.env` for local development.
+- Integration tests in `apps/api` and `apps/worker` share one `TEST_DATABASE_URL` database and `TRUNCATE` it in `beforeEach`, so their `test` scripts run with `--no-file-parallelism` — do not remove that flag or the files will stomp each other's rows (manifests as spurious 401s / missing-row failures).
 
 ## sermonseek-admin MCP
 
@@ -20,4 +21,5 @@ The `sermon-admin` CLI (`apps/cli`) doubles as an stdio MCP server, registered i
 ## Working with the assistant
 
 - Do not use chrome-devtools (navigate_page, take_screenshot, list_pages, etc.) unless the user explicitly asks for browser interaction. Trust API-level verification (curl, typecheck, tests) and let the user drive the browser themselves.
+- Do not claim work is "done", "ready", "verified", or "fixed" until you have actually run the relevant checks — at minimum `pnpm lint` and the package's `typecheck`, plus `test` and a build (`pnpm build` / `docker build`) where the change affects them. State precisely what you ran and what you did *not* run; if a check is impractical locally, say so and name it as an outstanding risk rather than implying completion.
 @HOTSEAT.md

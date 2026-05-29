@@ -4,4 +4,4 @@
 // review. The value is also written into `transcripts.model_version` as part
 // of the (video_id, source, model_version) idempotency key, so bumping it
 // naturally triggers a fresh transcript row.
-export const YT_DLP_VERSION = "2025.01.26"
+export const YT_DLP_VERSION = "2026.3.17"

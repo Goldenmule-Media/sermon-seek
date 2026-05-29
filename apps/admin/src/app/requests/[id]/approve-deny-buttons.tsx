@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import type { IngestionRequestStatus, PlaylistFilters } from "@/lib/api"
 import { useRef, useState, useTransition } from "react"
-import { approveAction, denyAction } from "./actions"
+import { approveAction, denyAction, retryAction } from "./actions"
 
 interface Props {
   requestId: string
@@ -25,8 +25,10 @@ export function ApproveDenyButtons({ requestId, status, playlistFilters }: Props
   const [denyOpen, setDenyOpen] = useState(false)
   const [denyNote, setDenyNote] = useState("")
   const [denyError, setDenyError] = useState<string | null>(null)
+  const [retryError, setRetryError] = useState<string | null>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const canApprove = status === "awaiting_approval"
+  const canRetry = status === "failed"
 
   function handleApproveConfirm() {
     setApproveError(null)
@@ -59,6 +61,16 @@ export function ApproveDenyButtons({ requestId, status, playlistFilters }: Props
     })
   }
 
+  function handleRetry() {
+    setRetryError(null)
+    startTransition(async () => {
+      const result = await retryAction(requestId)
+      if (!result.ok) {
+        setRetryError(result.error ?? "Retry failed.")
+      }
+    })
+  }
+
   return (
     <>
       <div className="flex flex-wrap items-center gap-3">
@@ -67,15 +79,23 @@ export function ApproveDenyButtons({ requestId, status, playlistFilters }: Props
             Approve
           </Button>
         ) : (
-          <p className="text-sm text-muted-foreground">
-            Approve is unavailable — the request must be processed by the worker and reach{" "}
-            <span className="font-medium">Awaiting approval</span> first.
-          </p>
+          !canRetry && (
+            <p className="text-sm text-muted-foreground">
+              Approve is unavailable — the request must be processed by the worker and reach{" "}
+              <span className="font-medium">Awaiting approval</span> first.
+            </p>
+          )
+        )}
+        {canRetry && (
+          <Button variant="outline" onClick={handleRetry} disabled={isPending}>
+            Retry
+          </Button>
         )}
         <Button variant="destructive" onClick={openDeny} disabled={isPending}>
           Deny
         </Button>
       </div>
+      {retryError && <p className="text-sm text-destructive">{retryError}</p>}
 
       {/* Approve confirmation dialog */}
       {canApprove && approveOpen && (

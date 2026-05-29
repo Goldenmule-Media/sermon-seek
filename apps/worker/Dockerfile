@@ -1,6 +1,6 @@
 # Worker image: Node 20 + Python 3 + a pinned yt-dlp.
 #
-# yt-dlp pin: 2025.01.26
+# yt-dlp pin: 2026.3.17
 #   Pinned so caption fetches are byte-reproducible across machines and CI. The
 #   spec's "Operational practices" calls for a deliberate, manual bump policy:
 #   bump only when YouTube ships an extractor-breaking change and the new
@@ -31,7 +31,7 @@ RUN apt-get update \
         curl \
  && rm -rf /var/lib/apt/lists/* \
  && python3 -m venv /opt/yt-dlp \
- && /opt/yt-dlp/bin/pip install 'yt-dlp==2025.01.26' \
+ && /opt/yt-dlp/bin/pip install 'yt-dlp==2026.3.17' \
  && ln -s /opt/yt-dlp/bin/yt-dlp /usr/local/bin/yt-dlp \
  && yt-dlp --version
 

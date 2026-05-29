@@ -39,7 +39,14 @@ const invokedDirectly = (() => {
 })()
 
 if (invokedDirectly) {
-  program.parseAsync(process.argv).catch((err) => {
+  // pnpm's filtered `run <script> -- <args>` forwards a literal `--` as the
+  // first script argument. Commander treats `--` as end-of-options and would
+  // silently swallow every subcommand flag (e.g. `--follow`, `--status`) as a
+  // positional operand. Strip one leading `--` so flags parse identically
+  // whether invoked via tsx directly or `pnpm --filter … start -- …`.
+  const argv = process.argv.slice()
+  if (argv[2] === "--") argv.splice(2, 1)
+  program.parseAsync(argv).catch((err) => {
     console.error(err instanceof Error ? err.message : String(err))
     process.exit(1)
   })
