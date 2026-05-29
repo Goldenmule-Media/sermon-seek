@@ -6,7 +6,7 @@ vi.mock("../config.js", () => ({
 }))
 
 import type { AdminLogRecord } from "@sermon-search/types"
-import { LogBuffer, createLogBufferStream } from "./log-buffer.js"
+import { LogBuffer, createLogBufferStream, ingestWorkerRecords, mergeRecent } from "./log-buffer.js"
 
 function makeRecord(overrides: Partial<AdminLogRecord> = {}): AdminLogRecord {
   return {
@@ -85,6 +85,56 @@ describe("LogBuffer", () => {
     unsub()
     buf.push(makeRecord())
     expect(received).toHaveLength(0)
+  })
+})
+
+describe("mergeRecent", () => {
+  it("merges and sorts records from multiple buffers by time", () => {
+    const buf1 = new LogBuffer(100)
+    const buf2 = new LogBuffer(100)
+    buf1.push(makeRecord({ time: 1000, msg: "from-buf1" }))
+    buf2.push(makeRecord({ time: 500, msg: "from-buf2" }))
+    buf1.push(makeRecord({ time: 2000, msg: "from-buf1-2" }))
+    const merged = mergeRecent([buf1, buf2], { limit: 10 })
+    expect(merged.map((r) => r.msg)).toEqual(["from-buf2", "from-buf1", "from-buf1-2"])
+  })
+
+  it("applies limit across merged result", () => {
+    const buf1 = new LogBuffer(100)
+    const buf2 = new LogBuffer(100)
+    for (let i = 0; i < 5; i++) buf1.push(makeRecord({ time: i * 100, msg: `a-${i}` }))
+    for (let i = 0; i < 5; i++) buf2.push(makeRecord({ time: i * 100 + 50, msg: `b-${i}` }))
+    const merged = mergeRecent([buf1, buf2], { limit: 3 })
+    expect(merged).toHaveLength(3)
+    // last 3 of the sorted 10 (times: 350,400,450)
+    expect(merged[2].time).toBe(450)
+  })
+
+  it("single buffer produces same result as buffer.recent", () => {
+    const buf = new LogBuffer(100)
+    for (let i = 0; i < 5; i++) buf.push(makeRecord({ msg: `m-${i}` }))
+    expect(mergeRecent([buf], { limit: 10 })).toEqual(buf.recent({ limit: 10 }))
+  })
+})
+
+describe("ingestWorkerRecords", () => {
+  it("stamps source=worker and workerId on each record", () => {
+    const buf = new LogBuffer(100)
+    const rec = makeRecord({ msg: "from-worker" })
+    ingestWorkerRecords(buf, [rec], "worker-abc")
+    const stored = buf.recent()
+    expect(stored).toHaveLength(1)
+    expect(stored[0].source).toBe("worker")
+    expect(stored[0].workerId).toBe("worker-abc")
+    expect(stored[0].msg).toBe("from-worker")
+  })
+
+  it("does not mutate the original record", () => {
+    const buf = new LogBuffer(100)
+    const rec = makeRecord()
+    ingestWorkerRecords(buf, [rec], "wid")
+    expect(rec.source).toBeUndefined()
+    expect(rec.workerId).toBeUndefined()
   })
 })
 

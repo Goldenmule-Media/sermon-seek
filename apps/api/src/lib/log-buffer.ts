@@ -42,6 +42,26 @@ export class LogBuffer {
   }
 }
 
+export function mergeRecent(
+  buffers: LogBuffer[],
+  opts: { minLevel?: number; sinceMs?: number; limit?: number } = {},
+): AdminLogRecord[] {
+  const { limit = 200 } = opts
+  const all = buffers.flatMap((b) => b.recent(opts))
+  all.sort((a, b) => a.time - b.time)
+  return all.slice(-limit)
+}
+
+export function ingestWorkerRecords(
+  workerBuffer: LogBuffer,
+  records: AdminLogRecord[],
+  workerId: string,
+): void {
+  for (const rec of records) {
+    workerBuffer.push({ ...rec, source: "worker", workerId })
+  }
+}
+
 export function createLogBufferStream(buffer: LogBuffer): Writable {
   let partial = ""
 
@@ -63,6 +83,7 @@ export function createLogBufferStream(buffer: LogBuffer): Writable {
             levelLabel: (pino.levels.labels[numLevel] ?? "info") as LogLevelLabel,
             msg: typeof msg === "string" ? msg : null,
             fields: rest,
+            source: "api",
           }
           buffer.push(rec)
         } catch {
@@ -79,3 +100,4 @@ export function levelValueFromLabel(label: string): number {
 }
 
 export const logBuffer = new LogBuffer(config.LOG_BUFFER_SIZE)
+export const workerLogBuffer = new LogBuffer(config.LOG_BUFFER_SIZE)

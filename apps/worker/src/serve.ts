@@ -3,6 +3,7 @@ import { createOpenAIEmbedder } from "@sermon-search/embeddings"
 import { createEmailSender, loadConfigFromEnv } from "@sermon-search/notifications"
 import { createOpenAIEnricher } from "./enrich/llm.js"
 import { getWorkerId, heartbeat } from "./lib/heartbeat.js"
+import { createWorkerLogger } from "./lib/logger.js"
 import { claimNextRequest } from "./requests/claim.js"
 import { reapStaleRequests } from "./requests/reaper.js"
 import { runClaimedRequest } from "./requests/runner.js"
@@ -46,6 +47,7 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
   const notificationConfig = loadConfigFromEnv()
   const sender = createEmailSender(notificationConfig)
   const workerId = getWorkerId()
+  const logger = createWorkerLogger(workerId)
 
   const inFlight = new Set<Promise<unknown>>()
   let shuttingDown = false
@@ -53,7 +55,7 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
   function onShutdown() {
     if (shuttingDown) return
     shuttingDown = true
-    console.log("[serve] shutdown signal received; draining in-flight requests…")
+    logger.info("[serve] shutdown signal received; draining in-flight requests…")
   }
 
   process.on("SIGTERM", onShutdown)
@@ -75,9 +77,14 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
 
       // Reap stale running requests.
       try {
-        await reapStaleRequests({ db, staleMs, maxRetries, log: console.log })
+        await reapStaleRequests({
+          db,
+          staleMs,
+          maxRetries,
+          log: (msg) => logger.info(msg),
+        })
       } catch (err) {
-        console.error("[serve] reaper error:", err instanceof Error ? err.message : String(err))
+        logger.error(`[serve] reaper error: ${err instanceof Error ? err.message : String(err)}`)
       }
 
       // Claim and dispatch new requests while slots are available.
@@ -90,7 +97,7 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
         try {
           claimResult = await claimNextRequest(db)
         } catch (err) {
-          console.error("[serve] claim error:", err instanceof Error ? err.message : String(err))
+          logger.error(`[serve] claim error: ${err instanceof Error ? err.message : String(err)}`)
           break
         }
 
@@ -98,7 +105,7 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
 
         claimed = true
         const { request, priorStatus } = claimResult
-        console.log(`[serve] claimed request ${request.id} (prior status: ${priorStatus})`)
+        logger.info(`[serve] claimed request ${request.id} (prior status: ${priorStatus})`)
 
         const run = runClaimedRequest({
           db,
@@ -112,15 +119,14 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
           capped: priorStatus === "received",
           tokenCap,
           workerId: slotWorkerId,
-          log: console.log,
+          log: (msg) => logger.info(msg),
         }).then(
           (result) => {
-            console.log(`[serve] request ${request.id} finished: ${result.status}`)
+            logger.info(`[serve] request ${request.id} finished: ${result.status}`)
           },
           (err: unknown) => {
-            console.error(
-              `[serve] request ${request.id} failed:`,
-              err instanceof Error ? err.message : String(err),
+            logger.error(
+              `[serve] request ${request.id} failed: ${err instanceof Error ? err.message : String(err)}`,
             )
           },
         )
@@ -129,7 +135,7 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
       }
 
       if (inFlight.size >= concurrency && !shuttingDown) {
-        console.log(
+        logger.info(
           `[serve] concurrency cap reached (${inFlight.size}/${concurrency}); deferring further claims`,
         )
       }
@@ -143,12 +149,13 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
   } finally {
     // Drain remaining in-flight requests before exiting.
     if (inFlight.size > 0) {
-      console.log(`[serve] waiting for ${inFlight.size} in-flight request(s) to complete…`)
+      logger.info(`[serve] waiting for ${inFlight.size} in-flight request(s) to complete…`)
       await Promise.allSettled(inFlight)
     }
+    await logger.flush()
     process.off("SIGTERM", onShutdown)
     process.off("SIGINT", onShutdown)
     await db.destroy()
-    console.log("[serve] shutdown complete")
+    logger.info("[serve] shutdown complete")
   }
 }

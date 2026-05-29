@@ -6,6 +6,9 @@ import { LOG_LEVEL_LABELS, streamLogs } from "../logs.js"
 import type { LogLevelLabel } from "../logs.js"
 import { printLogRecord } from "../output.js"
 
+const LOG_SOURCES = ["api", "worker", "all"] as const
+type LogSource = (typeof LOG_SOURCES)[number]
+
 interface GlobalOpts {
   instance?: string
   json?: boolean
@@ -25,6 +28,11 @@ function parseSince(value: string): string {
   throw new Error(`Invalid --since "${value}". Use a value like 5m, 30s, or 2h.`)
 }
 
+function parseSource(value: string): LogSource {
+  if ((LOG_SOURCES as readonly string[]).includes(value)) return value as LogSource
+  throw new Error(`Invalid --source "${value}". Valid values: ${LOG_SOURCES.join(", ")}`)
+}
+
 export function makeLogsCommand(): Command {
   const cmd = new Command("logs").description("Log operations")
 
@@ -42,8 +50,23 @@ export function makeLogsCommand(): Command {
       "Show only records from the past duration (e.g. 5m, 30s, 2h)",
       parseSince,
     )
+    .option(
+      "--source <source>",
+      `Log source to stream (${LOG_SOURCES.join("|")}); default: api`,
+      parseSource,
+    )
+    .option("--worker <id>", "Filter to a specific worker ID (implies --source worker if not set)")
     .action(
-      async (opts: { follow?: boolean; level?: LogLevelLabel; since?: string }, cmd: Command) => {
+      async (
+        opts: {
+          follow?: boolean
+          level?: LogLevelLabel
+          since?: string
+          source?: LogSource
+          worker?: string
+        },
+        cmd: Command,
+      ) => {
         const globals = cmd.optsWithGlobals<GlobalOpts>()
 
         let instance: ResolvedInstance
@@ -59,7 +82,13 @@ export function makeLogsCommand(): Command {
         }
 
         const json = globals.json ?? false
-        const query = { level: opts.level, since: opts.since }
+        const source = opts.source ?? (opts.worker ? "worker" : undefined)
+        const query = {
+          level: opts.level,
+          since: opts.since,
+          source,
+          workerId: opts.worker,
+        }
 
         if (!opts.follow) {
           const client = createClient(instance)

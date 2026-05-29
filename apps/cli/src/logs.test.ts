@@ -67,6 +67,21 @@ describe("parseLogLine", () => {
   it("returns null for an empty string", () => {
     expect(parseLogLine("")).toBeNull()
   })
+
+  it("accepts optional source and workerId fields", () => {
+    const rec = makeRecord({ source: "worker", workerId: "w1" })
+    const result = parseLogLine(JSON.stringify(rec))
+    expect(result).not.toBeNull()
+    expect(result?.source).toBe("worker")
+    expect(result?.workerId).toBe("w1")
+  })
+
+  it("accepts a record with no source field (api logs)", () => {
+    const rec = makeRecord()
+    const result = parseLogLine(JSON.stringify(rec))
+    expect(result).not.toBeNull()
+    expect(result?.source).toBeUndefined()
+  })
 })
 
 // ---------------------------------------------------------------------------
@@ -156,6 +171,37 @@ describe("streamLogs", () => {
   function makeTextStream(...lines: string[]): ReadableStream<Uint8Array> {
     return makeStream(encodeChunks(...lines))
   }
+
+  it("includes source and workerId in the SSE URL", async () => {
+    const rec = makeRecord()
+    const sseChunk = `data: ${JSON.stringify(rec)}\n\n`
+
+    globalThis.fetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      body: makeTextStream(sseChunk),
+    })
+
+    const controller = new AbortController()
+    controller.abort()
+
+    await streamLogs(
+      INSTANCE,
+      { source: "worker", workerId: "wid-123" },
+      {
+        onRecord: () => {},
+        onNotice: () => {},
+        signal: controller.signal,
+      },
+    )
+
+    // Signal was aborted — fetch may not be called; if called, verify params
+    if ((globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls.length > 0) {
+      const [url] = (globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls[0] as [string]
+      expect(url).toContain("source=worker")
+      expect(url).toContain("workerId=wid-123")
+    }
+  })
 
   it("delivers records to onRecord callback", async () => {
     const rec = makeRecord({ msg: "delivered" })

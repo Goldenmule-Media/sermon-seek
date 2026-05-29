@@ -285,12 +285,16 @@ export interface MeRequestsListResponse {
 
 export type LogLevelLabel = "trace" | "debug" | "info" | "warn" | "error" | "fatal"
 
+export type LogSource = "api" | "worker" | "all"
+
 export interface AdminLogRecord {
   time: number
   level: number
   levelLabel: LogLevelLabel
   msg: string | null
   fields: Record<string, unknown>
+  source?: "api" | "worker"
+  workerId?: string | null
 }
 
 export interface AdminLogsResponse {
