@@ -9,6 +9,7 @@ import { makeLoginCommand } from "./commands/login.js"
 import { makeLogsCommand } from "./commands/logs.js"
 import { makeMcpCommand } from "./commands/mcp.js"
 import { makeRequestsCommand } from "./commands/requests.js"
+import { makeWorkerCommand } from "./commands/worker.js"
 
 const program = new Command()
   .name("sermon-admin")
@@ -27,6 +28,7 @@ program.addCommand(makeChannelCommand())
 program.addCommand(makeAuditCommand())
 program.addCommand(makeLogsCommand())
 program.addCommand(makeMcpCommand())
+program.addCommand(makeWorkerCommand())
 
 const invokedDirectly = (() => {
   try {

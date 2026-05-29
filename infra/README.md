@@ -16,21 +16,23 @@ Registration/observability is unchanged (heartbeats appear in `/v1/admin/health`
 logs ship to the server ring buffer and are visible via `sermon-admin logs tail
 --source worker`).
 
-Run it as two always-on launchd agents (macOS):
+Manage it entirely through the admin CLI (macOS; needs node + yt-dlp on PATH and
+`.env.prod` present). It generates two always-on launchd agents —
+`com.sermonseek.tunnel` (SSH tunnel localhost:15432 → prod Postgres) and
+`com.sermonseek.worker` (`sermon-admin worker run`, the `--serve` daemon):
 
 ```bash
-# one-time install (re-runnable); needs node + yt-dlp on PATH and .env.prod present
-scripts/install-local-worker.sh -i <key.pem> <user@host>
-#   com.sermonseek.tunnel  → SSH tunnel: localhost:15432 → prod Postgres
-#   com.sermonseek.worker  → scripts/worker-local-serve.sh (the --serve daemon)
-launchctl list | grep sermonseek
-tail -f ~/Library/Logs/sermonseek-{tunnel,worker}.log
+sermon-admin worker install -i <key.pem> --target <user@host>   # one-time, re-runnable
+sermon-admin worker status      # launchd state + tunnel reachability + live server heartbeat
+sermon-admin worker logs --follow
+sermon-admin worker restart     # or: start | stop | uninstall
+sermon-admin worker run         # foreground (no launchd) — for quick testing
 ```
 
-Templates: `infra/local/com.sermonseek.{tunnel,worker}.plist`. Wrapper that
-builds the env from `.env.prod` and launches the daemon:
-`scripts/worker-local-serve.sh`. The queue only drains while this machine is up;
-requests wait safely in `received` until then.
+(Run the CLI however you invoke it in this repo, e.g.
+`pnpm --filter @sermon-search/cli start -- worker status`.) Secrets stay in
+`.env.prod` (read at daemon start), not in the plists. The queue only drains
+while this machine is up; requests wait safely in `received` until then.
 
 ## Recurring jobs (systemd timers)
 
