@@ -1,0 +1,154 @@
+import { createDb } from "@sermon-search/db"
+import { createOpenAIEmbedder } from "@sermon-search/embeddings"
+import { createEmailSender, loadConfigFromEnv } from "@sermon-search/notifications"
+import { createOpenAIEnricher } from "./enrich/llm.js"
+import { getWorkerId, heartbeat } from "./lib/heartbeat.js"
+import { claimNextRequest } from "./requests/claim.js"
+import { reapStaleRequests } from "./requests/reaper.js"
+import { runClaimedRequest } from "./requests/runner.js"
+import { YoutubeClient } from "./youtube/client.js"
+
+export interface ServeLoopOptions {
+  youtubeApiKey: string
+  openaiApiKey: string
+  model: string
+  webBaseUrl: string
+  tokenCap: number | undefined
+  pollIntervalMs: number
+  concurrency: number
+  staleMs: number
+  maxRetries: number
+  dbPoolMax: number
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
+  const {
+    youtubeApiKey,
+    openaiApiKey,
+    model,
+    webBaseUrl,
+    tokenCap,
+    pollIntervalMs,
+    concurrency,
+    staleMs,
+    maxRetries,
+    dbPoolMax,
+  } = opts
+
+  const db = createDb(undefined, { max: dbPoolMax })
+  const client = new YoutubeClient({ apiKey: youtubeApiKey })
+  const embedder = createOpenAIEmbedder({ apiKey: openaiApiKey })
+  const enricher = createOpenAIEnricher({ apiKey: openaiApiKey, model })
+  const notificationConfig = loadConfigFromEnv()
+  const sender = createEmailSender(notificationConfig)
+  const workerId = getWorkerId()
+
+  const inFlight = new Set<Promise<unknown>>()
+  let shuttingDown = false
+
+  function onShutdown() {
+    if (shuttingDown) return
+    shuttingDown = true
+    console.log("[serve] shutdown signal received; draining in-flight requests…")
+  }
+
+  process.on("SIGTERM", onShutdown)
+  process.on("SIGINT", onShutdown)
+
+  try {
+    while (!shuttingDown) {
+      // Remove completed in-flight promises.
+      for (const p of inFlight) {
+        const settled = await Promise.race([
+          p.then(
+            () => true,
+            () => true,
+          ),
+          Promise.resolve(false),
+        ])
+        if (settled) inFlight.delete(p)
+      }
+
+      // Reap stale running requests.
+      try {
+        await reapStaleRequests({ db, staleMs, maxRetries, log: console.log })
+      } catch (err) {
+        console.error("[serve] reaper error:", err instanceof Error ? err.message : String(err))
+      }
+
+      // Claim and dispatch new requests while slots are available.
+      let claimed = false
+      while (inFlight.size < concurrency && !shuttingDown) {
+        const slot = inFlight.size
+        const slotWorkerId = concurrency > 1 ? `${workerId}#${slot}` : workerId
+
+        let claimResult: Awaited<ReturnType<typeof claimNextRequest>>
+        try {
+          claimResult = await claimNextRequest(db)
+        } catch (err) {
+          console.error("[serve] claim error:", err instanceof Error ? err.message : String(err))
+          break
+        }
+
+        if (!claimResult) break
+
+        claimed = true
+        const { request, priorStatus } = claimResult
+        console.log(`[serve] claimed request ${request.id} (prior status: ${priorStatus})`)
+
+        const run = runClaimedRequest({
+          db,
+          client,
+          embedder,
+          enricher,
+          sender,
+          notificationConfig,
+          webBaseUrl,
+          request,
+          capped: priorStatus === "received",
+          tokenCap,
+          workerId: slotWorkerId,
+          log: console.log,
+        }).then(
+          (result) => {
+            console.log(`[serve] request ${request.id} finished: ${result.status}`)
+          },
+          (err: unknown) => {
+            console.error(
+              `[serve] request ${request.id} failed:`,
+              err instanceof Error ? err.message : String(err),
+            )
+          },
+        )
+
+        inFlight.add(run)
+      }
+
+      if (inFlight.size >= concurrency && !shuttingDown) {
+        console.log(
+          `[serve] concurrency cap reached (${inFlight.size}/${concurrency}); deferring further claims`,
+        )
+      }
+
+      if (!claimed || inFlight.size >= concurrency) {
+        // Queue empty or pool full — emit idle heartbeat and wait.
+        void heartbeat(db, { workerId, kind: "ingest", status: "idle", message: "idle" })
+        await sleep(pollIntervalMs)
+      }
+    }
+  } finally {
+    // Drain remaining in-flight requests before exiting.
+    if (inFlight.size > 0) {
+      console.log(`[serve] waiting for ${inFlight.size} in-flight request(s) to complete…`)
+      await Promise.allSettled(inFlight)
+    }
+    process.off("SIGTERM", onShutdown)
+    process.off("SIGINT", onShutdown)
+    await db.destroy()
+    console.log("[serve] shutdown complete")
+  }
+}

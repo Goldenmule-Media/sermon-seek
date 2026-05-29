@@ -20,6 +20,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -40,6 +41,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -60,6 +62,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -80,6 +83,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -100,6 +104,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -109,7 +114,9 @@ describe("parseArgs", () => {
   })
 
   it("rejects --playlist combined with --channel", () => {
-    expect(() => parseArgs(["--playlist", "PLabc", "--channel", "@x"])).toThrow(/mutually exclusive/)
+    expect(() => parseArgs(["--playlist", "PLabc", "--channel", "@x"])).toThrow(
+      /mutually exclusive/,
+    )
   })
 
   it("rejects --playlist combined with --video", () => {
@@ -152,6 +159,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -172,6 +180,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -232,6 +241,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -268,6 +278,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -288,6 +299,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: true,
     })
   })
@@ -312,6 +324,7 @@ describe("parseArgs", () => {
       related: true,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -332,6 +345,7 @@ describe("parseArgs", () => {
       related: true,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: true,
     })
   })
@@ -384,6 +398,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -452,6 +467,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -472,6 +488,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: false,
+      serve: false,
       force: false,
     })
   })
@@ -496,6 +513,7 @@ describe("parseArgs", () => {
       related: false,
       rssPoll: false,
       sweepAliases: true,
+      serve: false,
       force: false,
     })
   })
@@ -546,5 +564,39 @@ describe("parseArgs", () => {
 
   it("rejects --request combined with --smoke-test", () => {
     expect(() => parseArgs(["--request", "abc", "--smoke-test"])).toThrow(/mutually exclusive/)
+  })
+
+  it("accepts --serve alone", () => {
+    const parsed = parseArgs(["--serve"])
+    expect(parsed).toEqual({
+      channel: undefined,
+      video: undefined,
+      playlist: undefined,
+      church: undefined,
+      request: undefined,
+      smokeTest: false,
+      viewStats: false,
+      transcripts: false,
+      embed: false,
+      rechunk: false,
+      enrich: false,
+      related: false,
+      rssPoll: false,
+      sweepAliases: false,
+      serve: true,
+      force: false,
+    })
+  })
+
+  it("rejects --serve combined with --request", () => {
+    expect(() => parseArgs(["--serve", "--request", "abc"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --serve combined with --channel", () => {
+    expect(() => parseArgs(["--serve", "--channel", "@x"])).toThrow(/mutually exclusive/)
+  })
+
+  it("rejects --serve=value (boolean flag form only)", () => {
+    expect(() => parseArgs(["--serve=anything"])).toThrow(/does not take a value/)
   })
 })

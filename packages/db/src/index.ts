@@ -96,6 +96,7 @@ export interface IngestionRequestsTable {
   tokens_ingested: ColumnType<string, string | number, string | number>
   limit_reached: Generated<boolean>
   admin_note: string | null
+  retry_count: Generated<number>
   created_at: Generated<Timestamptz>
   updated_at: Generated<Timestamptz>
 }
@@ -396,8 +397,8 @@ export function resolveDatabaseUrl(connectionString?: string): string {
   return url
 }
 
-export function createDb(connectionString?: string): Kysely<Database> {
-  const pool = new pg.Pool({ connectionString: resolveDatabaseUrl(connectionString) })
+export function createDb(connectionString?: string, options?: { max?: number }): Kysely<Database> {
+  const pool = new pg.Pool({ connectionString: resolveDatabaseUrl(connectionString), max: options?.max })
   return new Kysely<Database>({
     dialect: new PostgresDialect({ pool }),
   })

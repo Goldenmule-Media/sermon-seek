@@ -58,12 +58,10 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    # No cron yet (C24). Container stays up so operators can exec into it.
-    # Use `docker compose exec` (not `docker compose run`) to invoke worker
-    # commands — `run` would spawn a new container that ignores this override
-    # and immediately run the worker entry-point instead of tailing. Example:
-    #   docker compose exec worker pnpm worker:run --channel @JubileeChurchSTL
-    command: ["tail", "-f", "/dev/null"]
+    # Daemon that polls the ingestion_requests queue (--serve mode, C1137).
+    # restart: unless-stopped handles crashes. For one-shot manual runs use:
+    #   docker compose exec worker node dist/cli/run.js --request <id>
+    command: ["node", "dist/cli/run.js", "--serve"]
 
   admin:
     build:

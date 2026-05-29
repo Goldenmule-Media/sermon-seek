@@ -14,6 +14,7 @@ import { runTranscriptsBackfill } from "../ingest/transcripts_backfill.js"
 import { runViewStats } from "../ingest/view_stats.js"
 import { runRelatedBackfill } from "../related/run.js"
 import { runIngestionRequest } from "../requests/runner.js"
+import { runServeLoop } from "../serve.js"
 import { runSmokeTest } from "../smoke/index.js"
 import { YoutubeClient } from "../youtube/client.js"
 import { runFiltersCli } from "./filters.js"
@@ -34,11 +35,12 @@ interface ParsedArgs {
   related: boolean
   rssPoll: boolean
   sweepAliases: boolean
+  serve: boolean
   force: boolean
 }
 
 const USAGE =
-  "usage: worker:run --request <id> | --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | --sweep-aliases | filters list|add|remove | users promote|demote <google_sub>"
+  "usage: worker:run --serve | --request <id> | --church <slug> (--channel <handle-or-id> | --video <youtube-video-id> | --playlist <youtube-playlist-id> | --view-stats | --transcripts | --embed | --rechunk | --enrich [--force] | --related [--force] | --rss-poll --channel <youtube-channel-id>) | --smoke-test | --sweep-aliases | filters list|add|remove | users promote|demote <google_sub>"
 
 export function parseArgs(argv: readonly string[]): ParsedArgs {
   let channel: string | undefined
@@ -55,6 +57,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
   let related = false
   let rssPoll = false
   let sweepAliases = false
+  let serve = false
   let force = false
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
@@ -177,6 +180,13 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     if (arg?.startsWith("--sweep-aliases=")) {
       throw new Error("--sweep-aliases does not take a value")
     }
+    if (arg === "--serve") {
+      serve = true
+      continue
+    }
+    if (arg?.startsWith("--serve=")) {
+      throw new Error("--serve does not take a value")
+    }
     if (arg === "--force") {
       force = true
       continue
@@ -206,13 +216,14 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     related ? "--related" : null,
     rssPoll ? "--rss-poll" : null,
     sweepAliases ? "--sweep-aliases" : null,
+    serve ? "--serve" : null,
   ].filter((v): v is string => v !== null)
   if (modes.length > 1) {
     throw new Error(`${modes.join(", ")} are mutually exclusive`)
   }
   if (modes.length === 0) {
     throw new Error(
-      "Missing required --request <id>, --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, --related, --rss-poll --channel <youtube-channel-id>, or --sweep-aliases",
+      "Missing required --serve, --request <id>, --channel <handle-or-id>, --video <youtube-video-id>, --playlist <youtube-playlist-id>, --smoke-test, --view-stats, --transcripts, --embed, --rechunk, --enrich, --related, --rss-poll --channel <youtube-channel-id>, or --sweep-aliases",
     )
   }
   return {
@@ -230,6 +241,7 @@ export function parseArgs(argv: readonly string[]): ParsedArgs {
     related,
     rssPoll,
     sweepAliases,
+    serve,
     force,
   }
 }
@@ -260,6 +272,55 @@ export async function main(argv: readonly string[]): Promise<number> {
     console.error(err instanceof Error ? err.message : String(err))
     console.error(USAGE)
     return 2
+  }
+
+  if (parsed.serve) {
+    const youtubeApiKey = process.env.YOUTUBE_API_KEY
+    if (!youtubeApiKey) {
+      console.error("YOUTUBE_API_KEY is not set")
+      return 2
+    }
+    const openaiApiKey = process.env.OPENAI_API_KEY
+    if (!openaiApiKey) {
+      console.error("OPENAI_API_KEY is not set")
+      return 2
+    }
+    const model = process.env.ENRICHMENT_MODEL ?? "gpt-4o-mini"
+    const webBaseUrl = process.env.WEB_BASE_URL ?? "http://localhost:3000"
+    let tokenCap: number | undefined
+    if (process.env.LIMITED_INGEST_TOKEN_CAP !== undefined) {
+      const parsedCap = Number(process.env.LIMITED_INGEST_TOKEN_CAP)
+      if (!Number.isInteger(parsedCap) || parsedCap <= 0) {
+        console.error(
+          `LIMITED_INGEST_TOKEN_CAP must be a positive integer; got '${process.env.LIMITED_INGEST_TOKEN_CAP}'`,
+        )
+        return 2
+      }
+      tokenCap = parsedCap
+    }
+    const pollIntervalMs = Number(process.env.WORKER_POLL_INTERVAL_MS ?? "5000")
+    const concurrency = Number(process.env.WORKER_CONCURRENCY ?? "1")
+    const staleMs = Number(process.env.WORKER_STALE_MS ?? "300000")
+    const maxRetries = Number(process.env.WORKER_MAX_RETRIES ?? "3")
+    const dbPoolMax = Number(process.env.WORKER_DB_POOL_MAX ?? "5")
+    try {
+      await runServeLoop({
+        youtubeApiKey,
+        openaiApiKey,
+        model,
+        webBaseUrl,
+        tokenCap,
+        pollIntervalMs,
+        concurrency,
+        staleMs,
+        maxRetries,
+        dbPoolMax,
+      })
+      return 0
+    } catch (err) {
+      console.error(err instanceof Error ? (err.stack ?? err.message) : String(err))
+      return 1
+    }
   }
 
   if (!parsed.smokeTest && !parsed.sweepAliases && !parsed.request && !parsed.church) {
@@ -399,7 +460,12 @@ export async function main(argv: readonly string[]): Promise<number> {
     const db = createDb()
     try {
       const churchId = await resolveChurchId(db, parsed.church as string)
-      const summary = await runRelatedBackfill({ db, churchId, force: parsed.force, log: console.log })
+      const summary = await runRelatedBackfill({
+        db,
+        churchId,
+        force: parsed.force,
+        log: console.log,
+      })
       console.log(JSON.stringify(summary, null, 2))
       return 0
     } catch (err) {

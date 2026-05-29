@@ -6,6 +6,7 @@ import type { IngestionRequest } from "@sermon-search/types"
 import { type Kysely, sql } from "kysely"
 import type { Enricher } from "../enrich/llm.js"
 import { getWorkerId, heartbeat } from "../lib/heartbeat.js"
+import { claimRequestById } from "./claim.js"
 import { enrichVideo } from "../enrich/run.js"
 import {
   findVideosMissingDuration,
@@ -40,6 +41,23 @@ export interface RunIngestionRequestOptions {
   notificationConfig: NotificationConfig
   webBaseUrl: string
   requestId: string
+  tokenCap?: number
+  workerId?: string
+  log?: (msg: string) => void
+}
+
+export interface RunClaimedRequestOptions {
+  db: Kysely<Database>
+  client: YoutubeClient
+  embedder: Embedder
+  enricher: Enricher
+  sender: EmailSender
+  notificationConfig: NotificationConfig
+  webBaseUrl: string
+  /** Request already in status='running' (returned from a claimRequest* call). */
+  request: IngestionRequest
+  /** Whether a token cap applies (true when prior status was 'received'). */
+  capped: boolean
   tokenCap?: number
   workerId?: string
   log?: (msg: string) => void
@@ -89,26 +107,48 @@ export async function runIngestionRequest({
   workerId = getWorkerId(),
   log = () => {},
 }: RunIngestionRequestOptions): Promise<RunIngestionRequestResult> {
+  const claimed = await claimRequestById(db, requestId)
+  if (!claimed) {
+    throw new Error(
+      `Cannot run request ${requestId}: already claimed or not in a runnable state (expected 'received' or 'approved')`,
+    )
+  }
+  return runClaimedRequest({
+    db,
+    client,
+    embedder,
+    enricher,
+    sender,
+    notificationConfig,
+    webBaseUrl,
+    request: claimed.request,
+    capped: claimed.priorStatus === "received",
+    tokenCap,
+    workerId,
+    log,
+  })
+}
+
+export async function runClaimedRequest({
+  db,
+  client,
+  embedder,
+  enricher,
+  sender,
+  notificationConfig,
+  webBaseUrl,
+  request,
+  capped,
+  tokenCap,
+  workerId = getWorkerId(),
+  log = () => {},
+}: RunClaimedRequestOptions): Promise<RunIngestionRequestResult> {
+  const requestId = request.id
   const beat = (stage: string) =>
     heartbeat(db, { workerId, kind: "ingest", status: "busy", lastJobId: requestId, message: stage })
 
   void beat("start")
-  const request = await reloadRequest(db, requestId)
-
-  const capped = request.status === "received"
-  const uncapped = request.status === "approved"
-  if (!capped && !uncapped) {
-    throw new Error(
-      `Cannot run request ${requestId}: status is '${request.status}' (expected 'received' or 'approved')`,
-    )
-  }
   const cap = capped ? (tokenCap ?? LIMITED_INGEST_TOKEN_CAP_DEFAULT) : Number.POSITIVE_INFINITY
-
-  await db
-    .updateTable("ingestion_requests")
-    .set({ status: "running", updated_at: sql`now()` })
-    .where("id", "=", requestId)
-    .execute()
 
   try {
     const result = await runPipeline({
