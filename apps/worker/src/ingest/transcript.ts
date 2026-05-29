@@ -34,7 +34,22 @@ export type IngestVideoTranscriptResult =
       videoDbId: string
     }
 
-const MIN_COVERAGE_RATIO = 0.9
+// Minimum fraction of the video's runtime that spoken caption segments must
+// cover. Worship-service videos contain long non-speech spans (music, singing,
+// silence) that auto-captions never transcribe, so a *complete* transcript can
+// legitimately cover only ~70% of the runtime. The default is deliberately
+// permissive; raise it per-deployment via TRANSCRIPT_MIN_COVERAGE (a 0–1
+// fraction) without a code change. Invalid/out-of-range values fall back to the
+// default rather than failing ingestion.
+const DEFAULT_MIN_COVERAGE_RATIO = 0.5
+
+function resolveMinCoverageRatio(): number {
+  const raw = process.env.TRANSCRIPT_MIN_COVERAGE
+  if (raw === undefined || raw.trim() === "") return DEFAULT_MIN_COVERAGE_RATIO
+  const parsed = Number(raw)
+  if (!Number.isFinite(parsed) || parsed < 0 || parsed > 1) return DEFAULT_MIN_COVERAGE_RATIO
+  return parsed
+}
 
 export class TranscriptQualityError extends Error {
   readonly reason: "low_coverage" | "word_out_of_range"
@@ -58,13 +73,14 @@ export function assertTranscriptQuality(input: AssertTranscriptQualityInput): vo
     for (const s of segments) {
       totalMs += Math.max(0, s.end_ms - s.start_ms)
     }
-    const requiredMs = durationSeconds * 1000 * MIN_COVERAGE_RATIO
+    const minRatio = resolveMinCoverageRatio()
+    const requiredMs = durationSeconds * 1000 * minRatio
     if (totalMs < requiredMs) {
       throw new TranscriptQualityError(
         "low_coverage",
         `Transcript covers ${totalMs}ms of audio but video duration is ${
           durationSeconds * 1000
-        }ms; below the ${MIN_COVERAGE_RATIO * 100}% threshold (${requiredMs}ms required).`,
+        }ms; below the ${minRatio * 100}% threshold (${requiredMs}ms required).`,
       )
     }
   }

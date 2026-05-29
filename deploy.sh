@@ -148,9 +148,10 @@ say "Building images on host (this takes ~2 min on first run)..."
 remote "$COMPOSE_CMD build" \
   || die "docker compose build failed"
 
-# Step 6: bring stack up
+# Step 6: bring stack up. --remove-orphans tears down the now-removed `worker`
+# service (the worker runs locally — see infra/README.md → "Worker (runs locally)").
 say "Starting services..."
-remote "$COMPOSE_CMD up -d" \
+remote "$COMPOSE_CMD up -d --remove-orphans" \
   || die "docker compose up -d failed"
 
 # Step 7: run migrations
@@ -175,25 +176,28 @@ for f in /opt/sermon-search/repo/infra/systemd/*.service \
 done
 systemctl daemon-reload
 systemctl enable sermon-search-alert@.service
-# Disable per-church timers that were enabled by older deploys — they require
-# per-church config (churches table) that doesn't exist yet. They will be
-# re-enabled once the follow-up card lands.
-for timer in sermon-search-view-stats.timer sermon-search-rss-poll.timer; do
+# Disable timers that have no run target on this host:
+#  - view-stats / rss-poll: pending per-church config (churches table).
+#  - smoke-test / sweep-aliases: these `docker compose exec worker …`, but the
+#    worker now runs locally (not on this host), so they'd fail every fire and
+#    trip the alert handler. Re-home them later — smoke-test in particular MUST
+#    run where captions work (the local worker). See infra/README.md.
+for timer in \
+  sermon-search-view-stats.timer \
+  sermon-search-rss-poll.timer \
+  sermon-search-smoke-test.timer \
+  sermon-search-sweep-aliases.timer; do
   if systemctl is-enabled --quiet "$timer" 2>/dev/null || \
      systemctl is-active  --quiet "$timer" 2>/dev/null; then
     systemctl disable --now "$timer" 2>/dev/null || true
-    echo "[units] disabled $timer (pending per-church config)"
+    echo "[units] disabled $timer (no worker on this host / pending config)"
   fi
 done
 if $CHANGED; then
-  for timer in \
-    sermon-search-pg-dump.timer \
-    sermon-search-smoke-test.timer \
-    sermon-search-sweep-aliases.timer; do
-    # restart if the unit is already known; enable --now starts it and marks it
-    # for auto-start on first install (when restart would fail with "not found").
-    systemctl restart "$timer" 2>/dev/null || systemctl enable --now "$timer"
-  done
+  # pg-dump is the only worker-independent timer (it pg_dumps via the postgres
+  # container), so it's the only one we keep enabled here.
+  systemctl restart sermon-search-pg-dump.timer 2>/dev/null \
+    || systemctl enable --now sermon-search-pg-dump.timer
   echo "[units] updated and reloaded."
 else
   echo "[units] no changes."

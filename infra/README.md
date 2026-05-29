@@ -2,12 +2,43 @@
 
 Infrastructure configuration for Sermon-Search.
 
+## Worker (runs locally)
+
+The ingestion worker **does not run on the server.** YouTube bot-blocks caption
+fetches (yt-dlp) from the datacenter IP, so the worker runs on a local
+(residential-IP) machine and connects to the prod Postgres over an SSH tunnel.
+There is intentionally no `worker` service in `infra/docker-compose.prod.yml`.
+
+It's the same `--serve` daemon as before, just relocated: it polls the prod
+`ingestion_requests` queue, claims requests, and runs the full pipeline
+(captions → embed → enrich → related), finalizing request + church status.
+Registration/observability is unchanged (heartbeats appear in `/v1/admin/health`;
+logs ship to the server ring buffer and are visible via `sermon-admin logs tail
+--source worker`).
+
+Run it as two always-on launchd agents (macOS):
+
+```bash
+# one-time install (re-runnable); needs node + yt-dlp on PATH and .env.prod present
+scripts/install-local-worker.sh -i <key.pem> <user@host>
+#   com.sermonseek.tunnel  → SSH tunnel: localhost:15432 → prod Postgres
+#   com.sermonseek.worker  → scripts/worker-local-serve.sh (the --serve daemon)
+launchctl list | grep sermonseek
+tail -f ~/Library/Logs/sermonseek-{tunnel,worker}.log
+```
+
+Templates: `infra/local/com.sermonseek.{tunnel,worker}.plist`. Wrapper that
+builds the env from `.env.prod` and launches the daemon:
+`scripts/worker-local-serve.sh`. The queue only drains while this machine is up;
+requests wait safely in `received` until then.
+
 ## Recurring jobs (systemd timers)
 
-All recurring jobs run as **host-level systemd oneshot services** that call
-`docker compose exec -T worker` into the running worker container.
-This gives per-run logs via `journalctl` and clean failure alerting via
-`OnFailure=` without a sidecar cron container.
+Recurring jobs run as **host-level systemd oneshot services**, giving per-run
+logs via `journalctl` and clean failure alerting via `OnFailure=` without a
+sidecar cron container. Historically most shelled into the worker container via
+`docker compose exec -T worker`; since the worker moved local (above), those are
+now disabled here and only `pg-dump` runs on the host (see below).
 
 ### Schedule
 
@@ -22,12 +53,14 @@ This gives per-run logs via `journalctl` and clean failure alerting via
 Unit files live in `infra/systemd/` and are installed to `/etc/systemd/system/`
 by `deploy.sh --setup` (and kept up-to-date on each deploy).
 
-`pg-dump` and `smoke-test` timers are enabled automatically on every deploy.
-`view-stats` and `rss-poll` are **not enabled by deploy.sh** — they require
-per-church config (`rss_channel_id`, `recurring_jobs_enabled` columns in the
-`churches` table) that does not exist yet. They will be re-enabled in a
-follow-up card once the worker CLI is updated to enumerate eligible churches
-from the DB rather than accepting `--church` / `--channel` flags.
+Only **`pg-dump`** is enabled on deploy now (it `pg_dump`s via the `postgres`
+container and needs no worker). The worker-dependent timers — `smoke-test` and
+`sweep-aliases` — are **disabled by deploy.sh**, because the worker no longer
+runs on this host (see "Worker (runs locally)" above); they would otherwise fail
+every fire and trip the alert handler. They need re-homing — `smoke-test` in
+particular must run where captions work (the local worker). `view-stats` and
+`rss-poll` remain disabled pending per-church config (`rss_channel_id`,
+`recurring_jobs_enabled` columns in the `churches` table) that does not exist yet.
 
 All timers have `Persistent=true` so a missed fire (e.g. host was down) catches
 up on the next boot.

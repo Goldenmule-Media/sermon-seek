@@ -45,23 +45,12 @@ services:
       api:
         condition: service_healthy
 
-  worker:
-    build:
-      context: .
-      dockerfile: apps/worker/Dockerfile
-    restart: unless-stopped
-    env_file: .env
-    environment:
-      CACHE_DIR: /var/lib/sermon-search/cache
-    volumes:
-      - /opt/sermon-search/data/cache:/var/lib/sermon-search/cache
-    depends_on:
-      postgres:
-        condition: service_healthy
-    # Daemon that polls the ingestion_requests queue (--serve mode, C1137).
-    # restart: unless-stopped handles crashes. For one-shot manual runs use:
-    #   docker compose exec worker node dist/cli/run.js --request <id>
-    command: ["node", "dist/cli/run.js", "--serve"]
+  # NOTE: there is intentionally no `worker` service here. The worker runs on a
+  # local (residential-IP) machine, because YouTube bot-blocks caption fetches
+  # (yt-dlp) from this datacenter IP. It connects to this Postgres over an SSH
+  # tunnel and processes the ingestion_requests queue via `--serve`. See
+  # infra/local/ (launchd agents), scripts/worker-local-serve.sh, and
+  # infra/README.md → "Worker (runs locally)".
 
   admin:
     build:

@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises"
 import { fileURLToPath } from "node:url"
-import { describe, expect, it } from "vitest"
+import { describe, expect, it, vi } from "vitest"
 import { parseVtt } from "../captions/parse.js"
 import type { Segment, Word } from "../captions/parse.js"
 import { TranscriptQualityError, assertTranscriptQuality } from "./transcript.js"
@@ -20,7 +20,7 @@ function makeSegment(start_ms: number, end_ms: number, text = "x", words: Word[]
 }
 
 describe("assertTranscriptQuality", () => {
-  it("passes when segment coverage meets the 90% threshold and words are in range", () => {
+  it("passes when segment coverage meets the threshold and words are in range", () => {
     const segments = [
       makeSegment(0, 9000, "x", [makeWord(0, 1000, 0)]),
       makeSegment(9000, 10000, "x", [makeWord(9500, 9900, 1)]),
@@ -28,7 +28,7 @@ describe("assertTranscriptQuality", () => {
     expect(() => assertTranscriptQuality({ segments, durationSeconds: 10 })).not.toThrow()
   })
 
-  it("throws low_coverage when summed segment durations cover <90% of video duration", () => {
+  it("throws low_coverage when summed segment durations cover less than the threshold", () => {
     const segments = [makeSegment(0, 5000, "x", [makeWord(0, 1000, 0)])]
     try {
       assertTranscriptQuality({ segments, durationSeconds: 100 })
@@ -36,6 +36,34 @@ describe("assertTranscriptQuality", () => {
     } catch (err) {
       expect(err).toBeInstanceOf(TranscriptQualityError)
       expect((err as TranscriptQualityError).reason).toBe("low_coverage")
+    }
+  })
+
+  it("accepts ~70% coverage under the default 0.5 threshold (worship-service case)", () => {
+    // A complete service transcript: 7000ms of speech in a 10s video (music fills the rest).
+    const segments = [makeSegment(0, 7000, "x", [makeWord(0, 1000, 0)])]
+    expect(() => assertTranscriptQuality({ segments, durationSeconds: 10 })).not.toThrow()
+  })
+
+  it("honors TRANSCRIPT_MIN_COVERAGE to raise the threshold", () => {
+    const segments = [makeSegment(0, 7000, "x", [makeWord(0, 1000, 0)])]
+    vi.stubEnv("TRANSCRIPT_MIN_COVERAGE", "0.9")
+    try {
+      expect(() => assertTranscriptQuality({ segments, durationSeconds: 10 })).toThrow(
+        TranscriptQualityError,
+      )
+    } finally {
+      vi.unstubAllEnvs()
+    }
+  })
+
+  it("falls back to the default when TRANSCRIPT_MIN_COVERAGE is invalid", () => {
+    const segments = [makeSegment(0, 7000, "x", [makeWord(0, 1000, 0)])]
+    vi.stubEnv("TRANSCRIPT_MIN_COVERAGE", "not-a-number")
+    try {
+      expect(() => assertTranscriptQuality({ segments, durationSeconds: 10 })).not.toThrow()
+    } finally {
+      vi.unstubAllEnvs()
     }
   })
 

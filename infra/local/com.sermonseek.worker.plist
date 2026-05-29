@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd agent: the worker `--serve` daemon. Runs scripts/worker-local-serve.sh,
+  which connects to prod Postgres via the tunnel (com.sermonseek.tunnel) and
+  processes the ingestion queue. KeepAlive restarts it on crash. The serve loop
+  tolerates the DB being briefly unreachable (claim/reaper errors are caught and
+  retried), so it rides out tunnel restarts. Tokens (@…@) are filled in by
+  scripts/install-local-worker.sh.
+
+  PATH must include node AND yt-dlp — launchd does not inherit your shell PATH.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.sermonseek.worker</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>@REPO@/scripts/worker-local-serve.sh</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>@REPO@</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>@PATH@</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>ThrottleInterval</key>
+  <integer>15</integer>
+  <key>StandardOutPath</key>
+  <string>@LOG_DIR@/sermonseek-worker.log</string>
+  <key>StandardErrorPath</key>
+  <string>@LOG_DIR@/sermonseek-worker.log</string>
+</dict>
+</plist>
