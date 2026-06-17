@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { type ReactNode, useEffect, useState } from "react"
 
-const SUGGESTIONS = ["armor of god", "Romans 8", "what does jubilee think about elders?"]
+const SUGGESTIONS = ["armor of god", "Romans 8", "how are elders chosen?"]
 
 function suggestionHref(church: string, q: string): string {
   const param = isRefLike(q) ? "ref" : "q"
