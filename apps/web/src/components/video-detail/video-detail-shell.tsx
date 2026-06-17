@@ -36,6 +36,9 @@ export function VideoDetailShell({ video, transcript }: Props) {
   function handleSeek(ms: number) {
     setCurrentMs(ms)
     playerRef.current?.seekTo(ms / 1000)
+    const url = new URL(window.location.href)
+    url.searchParams.set("t", String(Math.floor(ms / 1000)))
+    window.history.replaceState(window.history.state, "", url.toString())
   }
 
   return (

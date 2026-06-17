@@ -2,6 +2,7 @@
 
 import { msToTimecode } from "@/lib/utils"
 import type { TranscriptSegmentWithWords } from "@sermon-search/types"
+import { Check, Link2 } from "lucide-react"
 import { useEffect, useMemo, useRef, useState } from "react"
 
 interface Props {
@@ -34,9 +35,20 @@ function renderWithHighlight(text: string, query: string) {
 }
 
 export function TranscriptView({ segments, currentMs, onSeek }: Props) {
-  const activeSegmentRef = useRef<HTMLButtonElement>(null)
+  const activeSegmentRef = useRef<HTMLDivElement>(null)
   const [query, setQuery] = useState("")
+  const [copiedMs, setCopiedMs] = useState<number | null>(null)
   const trimmedQuery = query.trim()
+
+  function copyTimestampLink(startMs: number) {
+    const url = new URL(window.location.href)
+    url.searchParams.set("t", String(Math.floor(startMs / 1000)))
+    void navigator.clipboard?.writeText(url.toString())
+    setCopiedMs(startMs)
+    window.setTimeout(() => {
+      setCopiedMs((current) => (current === startMs ? null : current))
+    }, 1500)
+  }
 
   const filteredSegments = useMemo(() => {
     if (!trimmedQuery) return segments
@@ -98,43 +110,60 @@ export function TranscriptView({ segments, currentMs, onSeek }: Props) {
             const originalIdx = segments.indexOf(segment)
             const isActive = !trimmedQuery && originalIdx === activeIdx
             return (
-              <button
+              <div
                 key={segment.id}
                 ref={isActive ? activeSegmentRef : undefined}
-                type="button"
-                onClick={() => onSeek(segment.start_ms)}
-                className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                className={`group relative flex items-start gap-1 rounded-md text-sm transition-colors ${
                   isActive
                     ? "bg-primary/10 text-primary"
                     : "hover:bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <span className="text-xs font-mono mr-2 opacity-60">
-                  {msToTimecode(segment.start_ms)}
-                </span>
-                {isActive && segment.words.length > 0 ? (
-                  <span>
-                    {segment.words.map((word, wi) => {
-                      const isActiveWord = word.start_ms <= currentMs && currentMs < word.end_ms
-                      return (
-                        <span
-                          // biome-ignore lint/suspicious/noArrayIndexKey: word position is stable
-                          key={wi}
-                          className={
-                            isActiveWord
-                              ? "bg-yellow-200 dark:bg-yellow-800 rounded px-0.5"
-                              : undefined
-                          }
-                        >
-                          {word.text}{" "}
-                        </span>
-                      )
-                    })}
+                <button
+                  type="button"
+                  onClick={() => onSeek(segment.start_ms)}
+                  className="flex-1 min-w-0 text-left px-3 py-2"
+                >
+                  <span className="text-xs font-mono mr-2 opacity-60">
+                    {msToTimecode(segment.start_ms)}
                   </span>
-                ) : (
-                  <span>{renderWithHighlight(segment.text, trimmedQuery)}</span>
-                )}
-              </button>
+                  {isActive && segment.words.length > 0 ? (
+                    <span>
+                      {segment.words.map((word, wi) => {
+                        const isActiveWord = word.start_ms <= currentMs && currentMs < word.end_ms
+                        return (
+                          <span
+                            // biome-ignore lint/suspicious/noArrayIndexKey: word position is stable
+                            key={wi}
+                            className={
+                              isActiveWord
+                                ? "bg-yellow-200 dark:bg-yellow-800 rounded px-0.5"
+                                : undefined
+                            }
+                          >
+                            {word.text}{" "}
+                          </span>
+                        )
+                      })}
+                    </span>
+                  ) : (
+                    <span>{renderWithHighlight(segment.text, trimmedQuery)}</span>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => copyTimestampLink(segment.start_ms)}
+                  title="Copy link to this moment"
+                  aria-label="Copy link to this moment"
+                  className="shrink-0 self-stretch px-2 flex items-center text-muted-foreground hover:text-foreground opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md transition-opacity"
+                >
+                  {copiedMs === segment.start_ms ? (
+                    <Check className="size-3.5 text-primary" />
+                  ) : (
+                    <Link2 className="size-3.5" />
+                  )}
+                </button>
+              </div>
             )
           })
         )}
