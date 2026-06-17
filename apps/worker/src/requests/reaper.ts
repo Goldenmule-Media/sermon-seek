@@ -35,7 +35,7 @@ export async function reapStaleRequests({
       AND NOT EXISTS (
         SELECT 1
         FROM worker_heartbeats h
-        WHERE h.last_job_id = r.id
+        WHERE h.last_job_id = r.id::text
           AND h.last_beat_at > now() - interval ${sql.lit(staleInterval)}
       )
   `.execute(db)
