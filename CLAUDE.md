@@ -18,6 +18,8 @@ The `sermon-admin` CLI (`apps/cli`) doubles as an stdio MCP server, registered i
 
 **Login / instance:** the server targets one configured instance, resolved in order — `--url`+`--key` flags → `--instance <name>` (config lookup) → `SERMON_ADMIN_URL`+`SERMON_ADMIN_KEY` env vars → the `currentInstance` saved in the CLI dotfile. If none is set, run `sermon-admin login` (or `sermon-admin config set-instance`) first.
 
+**Local ingest worker (launchd):** the `Constantine-local` worker shown in `health` runs on the dev machine as a macOS LaunchAgent — `~/Library/LaunchAgents/com.sermonseek.worker.plist` (label `com.sermonseek.worker`), installed by `sermon-admin worker install`. It has `KeepAlive=true`, so a plain `kill`/`kill -9` just respawns it within `ThrottleInterval` (15s). To restart it cleanly: `launchctl kickstart -k gui/$(id -u)/com.sermonseek.worker`. Logs: `~/Library/Logs/sermonseek-worker.log`.
+
 ## Working with the assistant
 
 - Do not use chrome-devtools (navigate_page, take_screenshot, list_pages, etc.) unless the user explicitly asks for browser interaction. Trust API-level verification (curl, typecheck, tests) and let the user drive the browser themselves.
