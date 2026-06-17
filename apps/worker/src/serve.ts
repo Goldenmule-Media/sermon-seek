@@ -141,8 +141,13 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
       }
 
       if (!claimed || inFlight.size >= concurrency) {
-        // Queue empty or pool full — emit idle heartbeat and wait.
-        void heartbeat(db, { workerId, kind: "ingest", status: "idle", message: "idle" })
+        // Only advertise idle when nothing is actually running. With concurrency=1
+        // the per-job beats share this worker's single heartbeat row, so emitting
+        // an idle beat (last_job_id=null) while a job is in flight would blank the
+        // running request's owning beat and make the reaper falsely reap it.
+        if (inFlight.size === 0) {
+          void heartbeat(db, { workerId, kind: "ingest", status: "idle", message: "idle" })
+        }
         await sleep(pollIntervalMs)
       }
     }

@@ -153,7 +153,10 @@ export async function runClaimedRequest({
       message: stage,
     })
 
-  void beat("start")
+  // Await the first beat so this request's owning heartbeat (last_job_id) is
+  // committed before the long discovery phase — otherwise a starved fire-and-forget
+  // beat can leave last_job_id blank and the reaper will falsely reap the run.
+  await beat("start")
   const cap = capped ? (tokenCap ?? LIMITED_INGEST_TOKEN_CAP_DEFAULT) : Number.POSITIVE_INFINITY
 
   try {
