@@ -48,7 +48,8 @@ describe("scripture extraction via deterministic extractor", () => {
   it("returns structured ExtractedRef with all required columns", () => {
     const refs = extract("In John 3:16 we see God's love.")
     expect(refs).toHaveLength(1)
-    const ref = refs[0]!
+    const ref = refs[0]
+    if (!ref) throw new Error("expected one extracted ref")
     expect(typeof ref.book_id).toBe("number")
     expect(typeof ref.chapter_start).toBe("number")
     expect(typeof ref.verse_start).toBe("number")
@@ -65,8 +66,10 @@ describe("scripture extraction via deterministic extractor", () => {
   it("counts occurrences when the same ref appears multiple times", () => {
     const refs = extract("Romans 8:28 is great. As Romans 8:28 says, all things work together.")
     expect(refs).toHaveLength(1)
-    expect(refs[0]!.occurrences).toBe(2)
-    expect(refs[0]!.positions).toHaveLength(2)
+    const ref = refs[0]
+    if (!ref) throw new Error("expected one extracted ref")
+    expect(ref.occurrences).toBe(2)
+    expect(ref.positions).toHaveLength(2)
   })
 
   it("returns one entry per unique canonical interval", () => {

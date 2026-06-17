@@ -12,7 +12,14 @@ import { adminRoutes } from "./admin.js"
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL
 const describeIfDb = TEST_DATABASE_URL ? describe : describe.skip
 
-const { ADMIN_KEY, mockRunViewStats, mockIngestChannel, mockResolveChannel, mockIngestVideoTranscript, mockCacheUnlink } = vi.hoisted(() => ({
+const {
+  ADMIN_KEY,
+  mockRunViewStats,
+  mockIngestChannel,
+  mockResolveChannel,
+  mockIngestVideoTranscript,
+  mockCacheUnlink,
+} = vi.hoisted(() => ({
   ADMIN_KEY: "test-key-view-stats",
   mockRunViewStats: vi.fn(),
   mockIngestChannel: vi.fn(),
@@ -72,7 +79,12 @@ describeIfDb("POST /admin/ingest/view-stats — system_runs (integration)", () =
   }
 
   it("upserts system_runs with last_status=success on successful view-stats run", async () => {
-    mockRunViewStats.mockResolvedValue({ channelCount: 1, playlistCount: 2, videoCount: 10, fetchedFromApi: 5 })
+    mockRunViewStats.mockResolvedValue({
+      channelCount: 1,
+      playlistCount: 2,
+      videoCount: 10,
+      fetchedFromApi: 5,
+    })
 
     const app = await buildApp()
     const res = await app.inject({
@@ -117,7 +129,12 @@ describeIfDb("POST /admin/ingest/view-stats — system_runs (integration)", () =
   })
 
   it("second success upserts (idempotent): only one row remains", async () => {
-    mockRunViewStats.mockResolvedValue({ channelCount: 0, playlistCount: 0, videoCount: 0, fetchedFromApi: 0 })
+    mockRunViewStats.mockResolvedValue({
+      channelCount: 0,
+      playlistCount: 0,
+      videoCount: 0,
+      fetchedFromApi: 0,
+    })
 
     const app = await buildApp()
     await app.inject({
@@ -133,7 +150,11 @@ describeIfDb("POST /admin/ingest/view-stats — system_runs (integration)", () =
       payload: { churchSlug: "jubileestl" },
     })
 
-    const rows = await db.selectFrom("system_runs").selectAll().where("kind", "=", "view-stats").execute()
+    const rows = await db
+      .selectFrom("system_runs")
+      .selectAll()
+      .where("kind", "=", "view-stats")
+      .execute()
     expect(rows).toHaveLength(1)
     expect(rows[0]?.last_status).toBe("success")
     await app.close()

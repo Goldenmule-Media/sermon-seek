@@ -1,13 +1,9 @@
 import type { Database } from "@sermon-search/db"
 import type { Kysely } from "kysely"
-import {
-  getChannelMetadata,
-  getPlaylistById,
-  getPlaylistItems,
-} from "../youtube/cache_aware.js"
+import { getChannelMetadata, getPlaylistById, getPlaylistItems } from "../youtube/cache_aware.js"
 import type { YoutubeClient } from "../youtube/client.js"
-import { ingestVideoTranscript } from "./transcript.js"
 import { uniqueSlugForPlaylist } from "./slug.js"
+import { ingestVideoTranscript } from "./transcript.js"
 
 export interface IngestPlaylistOptions {
   db: Kysely<Database>
@@ -129,9 +125,7 @@ export async function ingestPlaylist(opts: IngestPlaylistOptions): Promise<Inges
           playlist_id: playlistDbId,
           position,
         })
-        .onConflict((oc) =>
-          oc.columns(["video_id", "playlist_id"]).doUpdateSet({ position }),
-        )
+        .onConflict((oc) => oc.columns(["video_id", "playlist_id"]).doUpdateSet({ position }))
         .execute()
     }
   })

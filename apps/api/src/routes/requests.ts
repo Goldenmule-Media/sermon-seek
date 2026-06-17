@@ -290,9 +290,9 @@ export function createRequestsRoutes(deps: RequestsRouteDeps = defaultDeps): Fas
                 }),
               ),
             )
-            for (let i = 0; i < syntaxOk.length; i++) {
-              const id = syntaxOk[i]!
-              const result = results[i]!
+            for (const [i, id] of syntaxOk.entries()) {
+              const result = results[i]
+              if (!result) continue
               if (!result.ok) {
                 const code =
                   result.reason === "not_found"

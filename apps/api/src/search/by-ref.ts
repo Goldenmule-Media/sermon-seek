@@ -20,7 +20,9 @@ export function parseRefQuery(input: string): { start_coord: number; end_coord: 
   if (refs.length > 1) {
     throw new BadRefError(`expected a single scripture reference, found ${refs.length}`)
   }
-  return { start_coord: refs[0]!.start_coord, end_coord: refs[0]!.end_coord }
+  const ref = refs[0]
+  if (!ref) throw new BadRefError("no scripture reference found in query")
+  return { start_coord: ref.start_coord, end_coord: ref.end_coord }
 }
 
 export interface RefSearchParams {

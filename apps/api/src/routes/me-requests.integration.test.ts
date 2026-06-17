@@ -59,7 +59,14 @@ describeIfDb("GET /me/requests integration", () => {
     app.setValidatorCompiler(validatorCompiler)
     app.setSerializerCompiler(serializerCompiler)
     await app.register(cookie, { secret: COOKIE_SECRET })
-    await app.register(fp(async (instance) => { instance.decorate("db", db) }, { name: "db" }))
+    await app.register(
+      fp(
+        async (instance) => {
+          instance.decorate("db", db)
+        },
+        { name: "db" },
+      ),
+    )
     await app.register(sessionPlugin)
     await app.register(meRequestsRoutes)
     await app.ready()
@@ -208,8 +215,12 @@ describeIfDb("GET /me/requests integration", () => {
     })
     expect(res.statusCode).toBe(200)
     const body = res.json()
-    const withChurch = body.requests.find((r: { requested_slug: string }) => r.requested_slug === "grace-chapel")
-    const withoutChurch = body.requests.find((r: { requested_slug: string }) => r.requested_slug === "pending-req")
+    const withChurch = body.requests.find(
+      (r: { requested_slug: string }) => r.requested_slug === "grace-chapel",
+    )
+    const withoutChurch = body.requests.find(
+      (r: { requested_slug: string }) => r.requested_slug === "pending-req",
+    )
     expect(withChurch?.search_url).toBe("/grace-chapel/")
     expect(withoutChurch?.search_url).toBeNull()
     await app.close()

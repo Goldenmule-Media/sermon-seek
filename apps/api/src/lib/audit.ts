@@ -4,7 +4,10 @@ import type { Kysely, Transaction } from "kysely"
 
 // No admin request bodies contain secrets today; revisit if that changes.
 
-export async function auditWrite(db: Kysely<Database> | Transaction<Database>, row: AdminAuditLogInsert): Promise<void> {
+export async function auditWrite(
+  db: Kysely<Database> | Transaction<Database>,
+  row: AdminAuditLogInsert,
+): Promise<void> {
   await db.insertInto("admin_audit_log").values(row).execute()
 }
 

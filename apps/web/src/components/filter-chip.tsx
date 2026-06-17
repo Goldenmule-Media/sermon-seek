@@ -118,6 +118,7 @@ export function FilterChip({
             </>
           )}
           {active ? (
+            // biome-ignore lint/a11y/useSemanticElements: avoids a <button> nested inside the trigger <button>, which is invalid markup
             <span
               role="button"
               tabIndex={0}
@@ -146,6 +147,8 @@ export function FilterChip({
       )}
 
       {open && (
+        // biome-ignore lint/a11y/useSemanticElements: custom popup listbox — no native HTML element maps to role="listbox"
+        // biome-ignore lint/a11y/useFocusableInteractive: the options are the tab stops; the container is intentionally not focusable
         <div
           role="listbox"
           className="absolute left-0 top-full z-20 mt-1 min-w-[14rem] max-h-80 overflow-hidden rounded-md border bg-popover shadow-md flex flex-col"
@@ -165,6 +168,7 @@ export function FilterChip({
           <div className="overflow-auto p-1">
             <button
               type="button"
+              // biome-ignore lint/a11y/useSemanticElements: listbox option — role="option" has no usable native element outside <select>
               role="option"
               aria-selected={!active}
               onClick={() => {
@@ -182,6 +186,7 @@ export function FilterChip({
                 <button
                   key={opt.value}
                   type="button"
+                  // biome-ignore lint/a11y/useSemanticElements: listbox option — role="option" has no usable native element outside <select>
                   role="option"
                   aria-selected={isSelected}
                   onClick={() => {

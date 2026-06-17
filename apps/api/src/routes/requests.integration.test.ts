@@ -129,7 +129,9 @@ type ResolverFn = (
 ) => Promise<{ youtubeChannelId: string; title: string } | null>
 
 interface YoutubeStub {
-  listPlaylistsById: (id: string) => Promise<{ items?: Array<{ snippet?: { channelId?: string } }> }>
+  listPlaylistsById: (
+    id: string,
+  ) => Promise<{ items?: Array<{ snippet?: { channelId?: string } }> }>
 }
 
 async function buildApp(
@@ -160,9 +162,21 @@ async function buildApp(
   app.setSerializerCompiler(serializerCompiler)
 
   await app.register(cookie, { secret: COOKIE_SECRET })
-  await app.register(fp(async (inst) => { inst.decorate("db", db) }, { name: "db" }))
   await app.register(
-    fp(async (inst) => { inst.decorate("youtube", youtubeStub ?? {}) }, { name: "youtube" }),
+    fp(
+      async (inst) => {
+        inst.decorate("db", db)
+      },
+      { name: "db" },
+    ),
+  )
+  await app.register(
+    fp(
+      async (inst) => {
+        inst.decorate("youtube", youtubeStub ?? {})
+      },
+      { name: "youtube" },
+    ),
   )
   await app.register(sessionPlugin)
   await app.register(rateLimitPlugin)
@@ -242,8 +256,7 @@ async function insertRequest(
     .values({
       user_id: userId,
       church_id: overrides.church_id ?? null,
-      requested_slug:
-        overrides.requested_slug ?? `slug-${Math.random().toString(36).slice(2)}`,
+      requested_slug: overrides.requested_slug ?? `slug-${Math.random().toString(36).slice(2)}`,
       requested_name: "Test Church",
       youtube_handle_or_url: "@TestChannel",
       contact_email: overrides.contact_email ?? "submitter@example.com",
@@ -251,9 +264,7 @@ async function insertRequest(
       tokens_ingested: overrides.tokens_ingested ?? 0,
       videos_discovered: overrides.videos_discovered ?? 0,
       videos_ingested: overrides.videos_ingested ?? 0,
-      ...(overrides.limit_reached !== undefined
-        ? { limit_reached: overrides.limit_reached }
-        : {}),
+      ...(overrides.limit_reached !== undefined ? { limit_reached: overrides.limit_reached } : {}),
     })
     .returning(["id"])
     .executeTakeFirstOrThrow()
@@ -287,142 +298,138 @@ describeIfDb("requests integration", () => {
   // ── Happy path ───────────────────────────────────────────────────────────────
 
   describe("happy path: submit → cap-hit → admin approve → complete", () => {
-    it(
-      "full flow drives all status transitions and fires the approved notification",
-      async () => {
-        const { app, notifyCalls } = await buildApp(db)
-        const userId = await insertUser(db)
-        const adminId = await insertUser(db, { is_admin: true })
-        const userToken = await insertSession(db, userId)
-        const adminToken = await insertSession(db, adminId)
+    it("full flow drives all status transitions and fires the approved notification", async () => {
+      const { app, notifyCalls } = await buildApp(db)
+      const userId = await insertUser(db)
+      const adminId = await insertUser(db, { is_admin: true })
+      const userToken = await insertSession(db, userId)
+      const adminToken = await insertSession(db, adminId)
 
-        // 1. POST /requests — creates a received request
-        const postRes = await app.inject({
-          method: "POST",
-          url: "/requests",
-          payload: {
-            requested_slug: "testchurch",
-            requested_name: "Test Church",
-            youtube_handle_or_url: "@TestChannel",
-            contact_email: "submitter@example.com",
-          },
-          cookies: { [SESSION_COOKIE]: userToken },
+      // 1. POST /requests — creates a received request
+      const postRes = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: {
+          requested_slug: "testchurch",
+          requested_name: "Test Church",
+          youtube_handle_or_url: "@TestChannel",
+          contact_email: "submitter@example.com",
+        },
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(postRes.statusCode).toBe(201)
+      const { request_id, status_url, search_url } = postRes.json()
+      expect(status_url).toBe(`/me/requests/${request_id}`)
+      expect(search_url).toBe("/testchurch/")
+
+      // Verify initial DB state
+      const initial = await db
+        .selectFrom("ingestion_requests")
+        .selectAll()
+        .where("id", "=", request_id)
+        .executeTakeFirstOrThrow()
+      expect(initial.status).toBe("received")
+      expect(initial.church_id).toBeNull()
+
+      // 2. Simulate worker: channel resolved, cap hit → awaiting_approval
+      const churchId = await insertChurch(db, "testchurch", {
+        status: "pending",
+        youtube_channel_id: STUB_CHANNEL_ID,
+      })
+      await db
+        .updateTable("ingestion_requests")
+        .set({
+          status: "awaiting_approval",
+          limit_reached: true,
+          church_id: churchId,
+          videos_discovered: 2,
+          videos_ingested: 1,
+          tokens_ingested: 800_000,
+          updated_at: sql`now()`,
         })
-        expect(postRes.statusCode).toBe(201)
-        const { request_id, status_url, search_url } = postRes.json()
-        expect(status_url).toBe(`/me/requests/${request_id}`)
-        expect(search_url).toBe("/testchurch/")
+        .where("id", "=", request_id)
+        .execute()
 
-        // Verify initial DB state
-        const initial = await db
-          .selectFrom("ingestion_requests")
-          .selectAll()
-          .where("id", "=", request_id)
-          .executeTakeFirstOrThrow()
-        expect(initial.status).toBe("received")
-        expect(initial.church_id).toBeNull()
+      // Confirm DB reflects cap-hit state
+      const capped = await db
+        .selectFrom("ingestion_requests")
+        .selectAll()
+        .where("id", "=", request_id)
+        .executeTakeFirstOrThrow()
+      expect(capped.status).toBe("awaiting_approval")
+      expect(capped.limit_reached).toBe(true)
+      expect(Number(capped.tokens_ingested)).toBe(800_000)
 
-        // 2. Simulate worker: channel resolved, cap hit → awaiting_approval
-        const churchId = await insertChurch(db, "testchurch", {
-          status: "pending",
-          youtube_channel_id: STUB_CHANNEL_ID,
+      const pendingChurch = await db
+        .selectFrom("churches")
+        .select("status")
+        .where("id", "=", churchId)
+        .executeTakeFirstOrThrow()
+      expect(pendingChurch.status).toBe("pending")
+
+      // 3. Admin approve — the API endpoint fires the notification
+      const approveRes = await app.inject({
+        method: "POST",
+        url: `/admin/requests/${request_id}/approve`,
+        cookies: { [SESSION_COOKIE]: adminToken },
+      })
+      expect(approveRes.statusCode).toBe(200)
+      expect(approveRes.json().status).toBe("approved")
+
+      const approved = await db
+        .selectFrom("ingestion_requests")
+        .select("status")
+        .where("id", "=", request_id)
+        .executeTakeFirstOrThrow()
+      expect(approved.status).toBe("approved")
+
+      expect(notifyCalls).toHaveLength(1)
+      expect(notifyCalls[0].status).toBe("approved")
+      expect(notifyCalls[0].ctx.request.contact_email).toBe("submitter@example.com")
+
+      // 4. Simulate worker completing the uncapped run
+      await db
+        .updateTable("ingestion_requests")
+        .set({
+          status: "complete",
+          videos_ingested: 2,
+          tokens_ingested: 1_600_000,
+          updated_at: sql`now()`,
         })
-        await db
-          .updateTable("ingestion_requests")
-          .set({
-            status: "awaiting_approval",
-            limit_reached: true,
-            church_id: churchId,
-            videos_discovered: 2,
-            videos_ingested: 1,
-            tokens_ingested: 800_000,
-            updated_at: sql`now()`,
-          })
-          .where("id", "=", request_id)
-          .execute()
+        .where("id", "=", request_id)
+        .execute()
+      await db
+        .updateTable("churches")
+        .set({ status: "active" })
+        .where("id", "=", churchId)
+        .execute()
 
-        // Confirm DB reflects cap-hit state
-        const capped = await db
-          .selectFrom("ingestion_requests")
-          .selectAll()
-          .where("id", "=", request_id)
-          .executeTakeFirstOrThrow()
-        expect(capped.status).toBe("awaiting_approval")
-        expect(capped.limit_reached).toBe(true)
-        expect(Number(capped.tokens_ingested)).toBe(800_000)
+      // Verify churches.status transition
+      const activeChurch = await db
+        .selectFrom("churches")
+        .select("status")
+        .where("id", "=", churchId)
+        .executeTakeFirstOrThrow()
+      expect(activeChurch.status).toBe("active")
 
-        const pendingChurch = await db
-          .selectFrom("churches")
-          .select("status")
-          .where("id", "=", churchId)
-          .executeTakeFirstOrThrow()
-        expect(pendingChurch.status).toBe("pending")
+      // 5. GET /me/requests/:id — terminal counters and search_url
+      const getRes = await app.inject({
+        method: "GET",
+        url: `/me/requests/${request_id}`,
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(getRes.statusCode).toBe(200)
+      const body = getRes.json()
+      expect(body.status).toBe("complete")
+      expect(body.tokens_ingested).toBe(1_600_000)
+      expect(body.tokens_cap).toBe(TOKEN_CAP)
+      expect(body.videos_discovered).toBe(2)
+      expect(body.videos_ingested).toBe(2)
+      expect(body.limit_reached).toBe(true)
+      expect(body.search_url).toBe("/testchurch/")
 
-        // 3. Admin approve — the API endpoint fires the notification
-        const approveRes = await app.inject({
-          method: "POST",
-          url: `/admin/requests/${request_id}/approve`,
-          cookies: { [SESSION_COOKIE]: adminToken },
-        })
-        expect(approveRes.statusCode).toBe(200)
-        expect(approveRes.json().status).toBe("approved")
-
-        const approved = await db
-          .selectFrom("ingestion_requests")
-          .select("status")
-          .where("id", "=", request_id)
-          .executeTakeFirstOrThrow()
-        expect(approved.status).toBe("approved")
-
-        expect(notifyCalls).toHaveLength(1)
-        expect(notifyCalls[0].status).toBe("approved")
-        expect(notifyCalls[0].ctx.request.contact_email).toBe("submitter@example.com")
-
-        // 4. Simulate worker completing the uncapped run
-        await db
-          .updateTable("ingestion_requests")
-          .set({
-            status: "complete",
-            videos_ingested: 2,
-            tokens_ingested: 1_600_000,
-            updated_at: sql`now()`,
-          })
-          .where("id", "=", request_id)
-          .execute()
-        await db
-          .updateTable("churches")
-          .set({ status: "active" })
-          .where("id", "=", churchId)
-          .execute()
-
-        // Verify churches.status transition
-        const activeChurch = await db
-          .selectFrom("churches")
-          .select("status")
-          .where("id", "=", churchId)
-          .executeTakeFirstOrThrow()
-        expect(activeChurch.status).toBe("active")
-
-        // 5. GET /me/requests/:id — terminal counters and search_url
-        const getRes = await app.inject({
-          method: "GET",
-          url: `/me/requests/${request_id}`,
-          cookies: { [SESSION_COOKIE]: userToken },
-        })
-        expect(getRes.statusCode).toBe(200)
-        const body = getRes.json()
-        expect(body.status).toBe("complete")
-        expect(body.tokens_ingested).toBe(1_600_000)
-        expect(body.tokens_cap).toBe(TOKEN_CAP)
-        expect(body.videos_discovered).toBe(2)
-        expect(body.videos_ingested).toBe(2)
-        expect(body.limit_reached).toBe(true)
-        expect(body.search_url).toBe("/testchurch/")
-
-        await app.close()
-      },
-      30_000,
-    )
+      await app.close()
+    }, 30_000)
   })
 
   // ── POST dedupe paths ────────────────────────────────────────────────────────
@@ -459,72 +466,66 @@ describeIfDb("requests integration", () => {
       await app.close()
     })
 
-    it(
-      "409 channel_request_in_flight with is_yours:true and request_id when caller owns the in-flight request",
-      async () => {
-        const { app } = await buildApp(db)
-        const userId = await insertUser(db)
-        const userToken = await insertSession(db, userId)
-        const churchId = await insertChurch(db, "stmarks", {
-          status: "pending",
-          youtube_channel_id: STUB_CHANNEL_ID,
-        })
-        const existingRequestId = await insertRequest(db, userId, {
-          church_id: churchId,
-          status: "awaiting_approval",
-        })
+    it("409 channel_request_in_flight with is_yours:true and request_id when caller owns the in-flight request", async () => {
+      const { app } = await buildApp(db)
+      const userId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+      const churchId = await insertChurch(db, "stmarks", {
+        status: "pending",
+        youtube_channel_id: STUB_CHANNEL_ID,
+      })
+      const existingRequestId = await insertRequest(db, userId, {
+        church_id: churchId,
+        status: "awaiting_approval",
+      })
 
-        const res = await app.inject({
-          method: "POST",
-          url: "/requests",
-          payload: VALID_BODY,
-          cookies: { [SESSION_COOKIE]: userToken },
-        })
-        expect(res.statusCode).toBe(409)
-        const body = res.json()
-        expect(body).toMatchObject({
-          error: "channel_request_in_flight",
-          existing_slug: "stmarks",
-          search_url: "/stmarks/",
-          is_yours: true,
-          request_id: existingRequestId,
-        })
-        await app.close()
-      },
-    )
+      const res = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: VALID_BODY,
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(res.statusCode).toBe(409)
+      const body = res.json()
+      expect(body).toMatchObject({
+        error: "channel_request_in_flight",
+        existing_slug: "stmarks",
+        search_url: "/stmarks/",
+        is_yours: true,
+        request_id: existingRequestId,
+      })
+      await app.close()
+    })
 
-    it(
-      "409 channel_request_in_flight with is_yours:false and no request_id when another user owns it",
-      async () => {
-        const { app } = await buildApp(db)
-        const userId = await insertUser(db)
-        const otherId = await insertUser(db)
-        const userToken = await insertSession(db, userId)
-        const churchId = await insertChurch(db, "stmarks", {
-          status: "pending",
-          youtube_channel_id: STUB_CHANNEL_ID,
-        })
-        await insertRequest(db, otherId, {
-          church_id: churchId,
-          status: "running",
-        })
+    it("409 channel_request_in_flight with is_yours:false and no request_id when another user owns it", async () => {
+      const { app } = await buildApp(db)
+      const userId = await insertUser(db)
+      const otherId = await insertUser(db)
+      const userToken = await insertSession(db, userId)
+      const churchId = await insertChurch(db, "stmarks", {
+        status: "pending",
+        youtube_channel_id: STUB_CHANNEL_ID,
+      })
+      await insertRequest(db, otherId, {
+        church_id: churchId,
+        status: "running",
+      })
 
-        const res = await app.inject({
-          method: "POST",
-          url: "/requests",
-          payload: VALID_BODY,
-          cookies: { [SESSION_COOKIE]: userToken },
-        })
-        expect(res.statusCode).toBe(409)
-        const body = res.json()
-        expect(body).toMatchObject({
-          error: "channel_request_in_flight",
-          is_yours: false,
-        })
-        expect(body).not.toHaveProperty("request_id")
-        await app.close()
-      },
-    )
+      const res = await app.inject({
+        method: "POST",
+        url: "/requests",
+        payload: VALID_BODY,
+        cookies: { [SESSION_COOKIE]: userToken },
+      })
+      expect(res.statusCode).toBe(409)
+      const body = res.json()
+      expect(body).toMatchObject({
+        error: "channel_request_in_flight",
+        is_yours: false,
+      })
+      expect(body).not.toHaveProperty("request_id")
+      await app.close()
+    })
 
     it("409 channel_unavailable for a denied church", async () => {
       const { app } = await buildApp(db)
@@ -886,7 +887,10 @@ describeIfDb("requests integration", () => {
     })
 
     it("happy path — mode:include stores include_playlist_ids and GET returns mode:include", async () => {
-      const stub = makePlaylistStub({ PL_AAAAAAAAAAAAA: STUB_CHANNEL_ID, PL_BBBBBBBBBBBBB: STUB_CHANNEL_ID })
+      const stub = makePlaylistStub({
+        PL_AAAAAAAAAAAAA: STUB_CHANNEL_ID,
+        PL_BBBBBBBBBBBBB: STUB_CHANNEL_ID,
+      })
       const { app } = await buildApp(db, async () => STUB_RESOLVED, stub)
       const userId = await insertUser(db)
       const userToken = await insertSession(db, userId)
@@ -896,7 +900,10 @@ describeIfDb("requests integration", () => {
         url: "/requests",
         payload: {
           ...VALID_BASE,
-          playlist_filters: { mode: "include", playlist_ids: ["PL_AAAAAAAAAAAAA", "PL_BBBBBBBBBBBBB"] },
+          playlist_filters: {
+            mode: "include",
+            playlist_ids: ["PL_AAAAAAAAAAAAA", "PL_BBBBBBBBBBBBB"],
+          },
         },
         cookies: { [SESSION_COOKIE]: userToken },
       })

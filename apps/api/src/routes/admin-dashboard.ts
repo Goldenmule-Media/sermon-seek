@@ -84,13 +84,13 @@ function createDashboardSummaryRoutes(): FastifyPluginAsyncZod {
 
         return reply.send({
           requests: {
-            pending: countByStatus["received"] ?? 0,
-            awaiting_approval: countByStatus["awaiting_approval"] ?? 0,
-            approved: countByStatus["approved"] ?? 0,
-            running: countByStatus["running"] ?? 0,
-            failed: countByStatus["failed"] ?? 0,
-            complete: countByStatus["complete"] ?? 0,
-            denied: countByStatus["denied"] ?? 0,
+            pending: countByStatus.received ?? 0,
+            awaiting_approval: countByStatus.awaiting_approval ?? 0,
+            approved: countByStatus.approved ?? 0,
+            running: countByStatus.running ?? 0,
+            failed: countByStatus.failed ?? 0,
+            complete: countByStatus.complete ?? 0,
+            denied: countByStatus.denied ?? 0,
           },
           recent_ingests: recentRows.map((r) => ({
             request_id: r.request_id,
@@ -101,13 +101,15 @@ function createDashboardSummaryRoutes(): FastifyPluginAsyncZod {
           last_view_stats_at: (() => {
             const r = systemByKind.get("view-stats")
             if (!r) return null
-            const d = r.last_run_at instanceof Date ? r.last_run_at : new Date(r.last_run_at as string)
+            const d =
+              r.last_run_at instanceof Date ? r.last_run_at : new Date(r.last_run_at as string)
             return d.toISOString()
           })(),
           last_smoke_test_at: (() => {
             const r = systemByKind.get("smoke-test")
             if (!r) return null
-            const d = r.last_run_at instanceof Date ? r.last_run_at : new Date(r.last_run_at as string)
+            const d =
+              r.last_run_at instanceof Date ? r.last_run_at : new Date(r.last_run_at as string)
             return d.toISOString()
           })(),
           active_users: userCountRow.count,

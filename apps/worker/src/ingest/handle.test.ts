@@ -39,9 +39,9 @@ describe("normalizeHandleInput", () => {
   })
 
   it("extracts channel id from /channel/ URL", () => {
-    expect(
-      normalizeHandleInput("https://www.youtube.com/channel/UCabcdefghijklmnopqrstuv"),
-    ).toBe("UCabcdefghijklmnopqrstuv")
+    expect(normalizeHandleInput("https://www.youtube.com/channel/UCabcdefghijklmnopqrstuv")).toBe(
+      "UCabcdefghijklmnopqrstuv",
+    )
   })
 
   it("extracts custom name from /c/ URL", () => {

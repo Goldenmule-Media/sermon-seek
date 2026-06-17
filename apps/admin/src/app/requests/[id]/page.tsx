@@ -265,7 +265,11 @@ export default async function RequestDetailPage({ params }: Props) {
       {/* Actions */}
       {!isTerminal && (
         <section className="space-y-2">
-          <ApproveDenyButtons requestId={req.id} status={req.status} playlistFilters={req.playlist_filters} />
+          <ApproveDenyButtons
+            requestId={req.id}
+            status={req.status}
+            playlistFilters={req.playlist_filters}
+          />
         </section>
       )}
     </main>

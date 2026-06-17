@@ -8,10 +8,10 @@ import type { ZodTypeProvider } from "fastify-type-provider-zod"
 import type { Kysely } from "kysely"
 import { sql } from "kysely"
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
+import { config as mockConfig } from "../config.js"
 import type { GoogleIdTokenClaims, GoogleOAuthClient } from "../plugins/google-oauth.js"
 import { hashToken, sessionPlugin } from "../plugins/session.js"
 import { authRoutes } from "./auth.js"
-import { config as mockConfig } from "../config.js"
 
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL
 const describeIfDb = TEST_DATABASE_URL ? describe : describe.skip
@@ -79,7 +79,14 @@ describeIfDb("auth integration", () => {
     app.setSerializerCompiler(serializerCompiler)
 
     await app.register(cookie, { secret: COOKIE_SECRET })
-    await app.register(fp(async (instance) => { instance.decorate("db", db) }, { name: "db" }))
+    await app.register(
+      fp(
+        async (instance) => {
+          instance.decorate("db", db)
+        },
+        { name: "db" },
+      ),
+    )
     app.decorate("googleOAuth", stubOAuth)
     await app.register(sessionPlugin)
     await app.register(authRoutes)

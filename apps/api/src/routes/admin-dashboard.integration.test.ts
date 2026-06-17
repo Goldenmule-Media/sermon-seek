@@ -235,7 +235,9 @@ describeIfDb("Dashboard summary integration", () => {
     expect(body.recent_ingests).toHaveLength(10)
 
     // Verify newest-first ordering by updated_at
-    const dates = body.recent_ingests.map((r: { updated_at: string }) => new Date(r.updated_at).getTime())
+    const dates = body.recent_ingests.map((r: { updated_at: string }) =>
+      new Date(r.updated_at).getTime(),
+    )
     for (let i = 1; i < dates.length; i++) {
       expect(dates[i]).toBeLessThanOrEqual(dates[i - 1])
     }

@@ -30,9 +30,7 @@ try {
 
   if (!row) {
     console.error(
-      `No ingestion request found with contact_email "${email}". ` +
-        "If this user has never submitted a request, add the email to ADMIN_ALLOWED_EMAILS " +
-        "and have them sign in once via Google.",
+      `No ingestion request found with contact_email "${email}". If this user has never submitted a request, add the email to ADMIN_ALLOWED_EMAILS and have them sign in once via Google.`,
     )
     process.exit(1)
   }

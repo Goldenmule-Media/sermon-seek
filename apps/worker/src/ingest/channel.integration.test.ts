@@ -173,7 +173,9 @@ describeIfDb("ingestChannel filter rules (integration)", () => {
     expect(secondRunPlaylistIds).toContain(SERMONS_PL_ID)
     expect(secondRunPlaylistIds).toContain(ANNOUNCE_PL_ID)
     expect(secondRunPlaylistIds).toContain(KIDS_PL_ID)
-    expect(plRows.find((r) => r.youtube_playlist_id === ANNOUNCE_PL_ID)?.title).toBe("Announcements")
+    expect(plRows.find((r) => r.youtube_playlist_id === ANNOUNCE_PL_ID)?.title).toBe(
+      "Announcements",
+    )
     expect(plRows.find((r) => r.youtube_playlist_id === KIDS_PL_ID)?.title).toBe("Kids Ministry")
 
     // listPlaylistItems must NOT have been called for the filtered-out playlists

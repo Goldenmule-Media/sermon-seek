@@ -130,9 +130,7 @@ export const meRequestsRoutes: FastifyPluginAsyncZod = async (app) => {
           .limit(limit)
           .offset(offset)
           .execute(),
-        baseQuery
-          .select(sql<string>`count(*)`.as("count"))
-          .executeTakeFirstOrThrow(),
+        baseQuery.select(sql<string>`count(*)`.as("count")).executeTakeFirstOrThrow(),
       ])
 
       const requests = rows.map((row) => toSummary(row, tokensCap))

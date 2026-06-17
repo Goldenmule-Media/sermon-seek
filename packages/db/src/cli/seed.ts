@@ -20,7 +20,9 @@ async function seed() {
     const [churchRow] = await db
       .insertInto("churches")
       .values({ slug: "jubileestl", name: "Jubilee Church STL" })
-      .onConflict((oc) => oc.column("slug").doUpdateSet((eb) => ({ name: eb.ref("excluded.name") })))
+      .onConflict((oc) =>
+        oc.column("slug").doUpdateSet((eb) => ({ name: eb.ref("excluded.name") })),
+      )
       .returning("id")
       .execute()
     if (!churchRow) throw new Error("Failed to insert church")
@@ -341,8 +343,8 @@ async function seed() {
 
       for (const refStr of spec.refs) {
         const extracted = extract(refStr)
-        if (extracted.length === 0) continue
-        const ref = extracted[0]!
+        const ref = extracted[0]
+        if (!ref) continue
         await db
           .insertInto("video_scripture_refs")
           .values({

@@ -24,10 +24,11 @@ const RSS_URL = (channelId: string) =>
 export function parseVideoIds(xml: string): string[] {
   const ids: string[] = []
   const re = /<yt:videoId>([A-Za-z0-9_-]{11})<\/yt:videoId>/g
-  let m: RegExpExecArray | null
-  while ((m = re.exec(xml)) !== null) {
+  let m = re.exec(xml)
+  while (m !== null) {
     const id = m[1]
     if (id !== undefined) ids.push(id)
+    m = re.exec(xml)
   }
   return ids
 }
@@ -37,7 +38,9 @@ export async function pollRssForNewUploads(opts: PollRssOptions): Promise<PollRs
 
   const res = await fetch(RSS_URL(youtubeChannelId))
   if (!res.ok) {
-    throw new Error(`RSS fetch failed: ${res.status} ${res.statusText} for channel ${youtubeChannelId}`)
+    throw new Error(
+      `RSS fetch failed: ${res.status} ${res.statusText} for channel ${youtubeChannelId}`,
+    )
   }
   const xml = await res.text()
   const feedIds = parseVideoIds(xml)

@@ -169,7 +169,10 @@ export const searchRoutes: FastifyPluginAsyncZod = async (app) => {
         return respond(results, ref, videoScores)
       }
 
-      const qStr = q!
+      if (!q) {
+        return reply.code(400).send({ message: "q or ref is required" } as never)
+      }
+      const qStr = q
 
       if (mode === "semantic") {
         if (!app.embedder) {

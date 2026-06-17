@@ -398,7 +398,10 @@ export function resolveDatabaseUrl(connectionString?: string): string {
 }
 
 export function createDb(connectionString?: string, options?: { max?: number }): Kysely<Database> {
-  const pool = new pg.Pool({ connectionString: resolveDatabaseUrl(connectionString), max: options?.max })
+  const pool = new pg.Pool({
+    connectionString: resolveDatabaseUrl(connectionString),
+    max: options?.max,
+  })
   return new Kysely<Database>({
     dialect: new PostgresDialect({ pool }),
   })

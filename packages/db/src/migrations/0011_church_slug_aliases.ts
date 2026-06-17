@@ -11,7 +11,9 @@ export async function up(db: Kysely<unknown>): Promise<void> {
     )
   `.execute(db)
 
-  await sql`CREATE INDEX church_slug_aliases_church_idx ON church_slug_aliases (church_id)`.execute(db)
+  await sql`CREATE INDEX church_slug_aliases_church_idx ON church_slug_aliases (church_id)`.execute(
+    db,
+  )
 }
 
 export async function down(db: Kysely<unknown>): Promise<void> {

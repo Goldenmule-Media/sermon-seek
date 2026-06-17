@@ -13,7 +13,7 @@
  */
 
 import { readFileSync } from "node:fs"
-import { join, dirname } from "node:path"
+import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -90,7 +90,7 @@ for (const mode of MODES) {
   const p99 = percentile(sorted, 99)
   const max = sorted[sorted.length - 1] ?? 0
   results[mode] = { p50, p95, p99, max }
-  process.stdout.write(`\r`)
+  process.stdout.write("\r")
   const fmt = (n: number) => `${n.toFixed(1)}ms`
   console.log(
     `${mode.padEnd(COL)} ${fmt(p50).padStart(8)} ${fmt(p95).padStart(8)} ${fmt(p99).padStart(8)} ${fmt(max).padStart(8)}`,
@@ -99,7 +99,7 @@ for (const mode of MODES) {
 
 console.log()
 
-const hybridP95 = results["hybrid"]?.p95
+const hybridP95 = results.hybrid?.p95
 if (hybridP95 === undefined) {
   console.error("hybrid benchmark did not complete")
   process.exit(1)

@@ -73,11 +73,19 @@ function makeFakeClient(): YoutubeClient {
         items: [
           {
             contentDetails: { videoId: VIDEO_ID_1, videoPublishedAt: "2025-12-01T00:00:00Z" },
-            snippet: { position: 0, resourceId: { videoId: VIDEO_ID_1 }, publishedAt: "2025-12-01T00:00:00Z" },
+            snippet: {
+              position: 0,
+              resourceId: { videoId: VIDEO_ID_1 },
+              publishedAt: "2025-12-01T00:00:00Z",
+            },
           },
           {
             contentDetails: { videoId: VIDEO_ID_2, videoPublishedAt: "2025-11-01T00:00:00Z" },
-            snippet: { position: 1, resourceId: { videoId: VIDEO_ID_2 }, publishedAt: "2025-11-01T00:00:00Z" },
+            snippet: {
+              position: 1,
+              resourceId: { videoId: VIDEO_ID_2 },
+              publishedAt: "2025-11-01T00:00:00Z",
+            },
           },
         ],
       }),

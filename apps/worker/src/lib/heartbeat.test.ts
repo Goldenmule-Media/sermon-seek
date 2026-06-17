@@ -29,7 +29,13 @@ describeIfDb("heartbeat (integration)", () => {
   })
 
   it("inserts a new row on first call", async () => {
-    await heartbeat(db, { workerId: "test-worker:1", kind: "ingest", status: "busy", lastJobId: "req-1", message: "start" })
+    await heartbeat(db, {
+      workerId: "test-worker:1",
+      kind: "ingest",
+      status: "busy",
+      lastJobId: "req-1",
+      message: "start",
+    })
 
     const row = await db
       .selectFrom("worker_heartbeats")
@@ -46,8 +52,20 @@ describeIfDb("heartbeat (integration)", () => {
   })
 
   it("upserts on second call — updates all mutable columns", async () => {
-    await heartbeat(db, { workerId: "test-worker:2", kind: "ingest", status: "busy", lastJobId: "req-1", message: "start" })
-    await heartbeat(db, { workerId: "test-worker:2", kind: "view-stats", status: "idle", lastJobId: "req-2", message: "done" })
+    await heartbeat(db, {
+      workerId: "test-worker:2",
+      kind: "ingest",
+      status: "busy",
+      lastJobId: "req-1",
+      message: "start",
+    })
+    await heartbeat(db, {
+      workerId: "test-worker:2",
+      kind: "view-stats",
+      status: "idle",
+      lastJobId: "req-2",
+      message: "done",
+    })
 
     const rows = await db
       .selectFrom("worker_heartbeats")
@@ -64,7 +82,12 @@ describeIfDb("heartbeat (integration)", () => {
 
   it("truncates message to 500 chars", async () => {
     const long = "x".repeat(600)
-    await heartbeat(db, { workerId: "test-worker:3", kind: "ingest", status: "busy", message: long })
+    await heartbeat(db, {
+      workerId: "test-worker:3",
+      kind: "ingest",
+      status: "busy",
+      message: long,
+    })
 
     const row = await db
       .selectFrom("worker_heartbeats")

@@ -79,15 +79,19 @@ describe("ScopedDb.selectFrom — tenant tables", () => {
     expect(parameters).toContain(CHURCH_ID)
   })
 
-  it.each(["channels", "playlists", "transcript_chunks", "embeddings", "topics", "videos_with_transcripts"] as const)(
-    "auto-applies filter for %s",
-    (table) => {
-      // biome-ignore lint/suspicious/noExplicitAny: table-driven test
-      const { sql, parameters } = (s.selectFrom(table as any) as any).selectAll().compile()
-      expect(sql).toContain("church_id")
-      expect(parameters).toContain(CHURCH_ID)
-    },
-  )
+  it.each([
+    "channels",
+    "playlists",
+    "transcript_chunks",
+    "embeddings",
+    "topics",
+    "videos_with_transcripts",
+  ] as const)("auto-applies filter for %s", (table) => {
+    // biome-ignore lint/suspicious/noExplicitAny: table-driven test
+    const { sql, parameters } = (s.selectFrom(table as any) as any).selectAll().compile()
+    expect(sql).toContain("church_id")
+    expect(parameters).toContain(CHURCH_ID)
+  })
 })
 
 describe("ScopedDb.selectFrom — non-tenant tables", () => {
@@ -135,18 +139,26 @@ describe("ScopedDb.insertInto", () => {
   it("accepts insert when church_id matches the scope", () => {
     const { parameters } = s
       .insertInto("videos")
-      // biome-ignore lint/suspicious/noExplicitAny: omitting generated fields for compile-only test
-      .values({ church_id: CHURCH_ID, youtube_video_id: "yt-2", title: "T2", channel_id: "chan-1" } as any)
+      .values({
+        church_id: CHURCH_ID,
+        youtube_video_id: "yt-2",
+        title: "T2",
+        channel_id: "chan-1",
+        // biome-ignore lint/suspicious/noExplicitAny: omitting generated fields for compile-only test
+      } as any)
       .compile()
     expect(parameters).toContain(CHURCH_ID)
   })
 
   it("throws when a conflicting church_id is passed", () => {
     expect(() =>
-      s.insertInto("videos").values(
+      s.insertInto("videos").values({
+        church_id: "different-church",
+        youtube_video_id: "yt-3",
+        title: "T3",
+        channel_id: "chan-1",
         // biome-ignore lint/suspicious/noExplicitAny: testing runtime guard
-        { church_id: "different-church", youtube_video_id: "yt-3", title: "T3", channel_id: "chan-1" } as any,
-      ),
+      } as any),
     ).toThrow("conflicting church_id")
   })
 

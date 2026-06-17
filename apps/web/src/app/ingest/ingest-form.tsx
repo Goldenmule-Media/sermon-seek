@@ -371,8 +371,14 @@ export function IngestForm({ user: _user }: IngestFormProps) {
         {/* Playlist filter section — only when channel resolves cleanly */}
         {showFilterSection && (
           <fieldset className="flex flex-col gap-3 rounded-md border px-4 py-4">
-            <legend className="px-1 text-sm font-semibold">Limit which playlists are ingested</legend>
-            <div className="flex flex-col gap-1.5" role="radiogroup" aria-label="Playlist filter mode">
+            <legend className="px-1 text-sm font-semibold">
+              Limit which playlists are ingested
+            </legend>
+            <div
+              className="flex flex-col gap-1.5"
+              role="radiogroup"
+              aria-label="Playlist filter mode"
+            >
               {(
                 [
                   { value: "none", label: "Ingest all playlists" },

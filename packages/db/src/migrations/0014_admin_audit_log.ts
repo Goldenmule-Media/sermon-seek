@@ -13,7 +13,9 @@ export async function up(db: Kysely<unknown>): Promise<void> {
     )
   `.execute(db)
 
-  await sql`CREATE INDEX admin_audit_log_created_idx ON admin_audit_log (created_at DESC)`.execute(db)
+  await sql`CREATE INDEX admin_audit_log_created_idx ON admin_audit_log (created_at DESC)`.execute(
+    db,
+  )
 }
 
 export async function down(db: Kysely<unknown>): Promise<void> {

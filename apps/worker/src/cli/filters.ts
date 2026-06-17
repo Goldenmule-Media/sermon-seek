@@ -227,7 +227,9 @@ export async function runFiltersCli(
         console.error(`rule not found: ${parsed.ruleId}`)
         return 1
       }
-      console.log(JSON.stringify({ ok: true, deleted: deleted.id, channel_id: deleted.channel_id }, null, 2))
+      console.log(
+        JSON.stringify({ ok: true, deleted: deleted.id, channel_id: deleted.channel_id }, null, 2),
+      )
       return 0
     }
 

@@ -15,6 +15,7 @@ describe("createWorkerLogger", () => {
   })
 
   it("is a no-op for ingest when ADMIN_API_KEY is unset", async () => {
+    // biome-ignore lint/performance/noDelete: the env var must be truly absent; assigning `undefined` coerces to the string "undefined", which reads as set
     delete process.env.ADMIN_API_KEY
     globalThis.fetch = vi.fn()
 

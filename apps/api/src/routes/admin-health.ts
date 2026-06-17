@@ -52,7 +52,8 @@ export const adminHealthRoutes: FastifyPluginAsyncZod = async (app) => {
         .execute()
 
       const workers = heartbeatRows.map((row) => {
-        const beatAt = row.last_beat_at instanceof Date ? row.last_beat_at : new Date(row.last_beat_at as string)
+        const beatAt =
+          row.last_beat_at instanceof Date ? row.last_beat_at : new Date(row.last_beat_at as string)
         return {
           worker_id: row.worker_id,
           kind: row.kind,
@@ -75,7 +76,8 @@ export const adminHealthRoutes: FastifyPluginAsyncZod = async (app) => {
       const toShape = (kind: string) => {
         const row = byKind.get(kind)
         if (!row) return { last_run_at: null, last_status: null }
-        const runAt = row.last_run_at instanceof Date ? row.last_run_at : new Date(row.last_run_at as string)
+        const runAt =
+          row.last_run_at instanceof Date ? row.last_run_at : new Date(row.last_run_at as string)
         return { last_run_at: runAt.toISOString(), last_status: row.last_status }
       }
 

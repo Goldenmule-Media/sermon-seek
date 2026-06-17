@@ -230,7 +230,7 @@ describe("renderTemplate", () => {
 
 describe("escapeHtml", () => {
   it("escapes the five special HTML characters", () => {
-    expect(escapeHtml('&<>"\'`')).toBe("&amp;&lt;&gt;&quot;&#39;`")
+    expect(escapeHtml("&<>\"'`")).toBe("&amp;&lt;&gt;&quot;&#39;`")
   })
 
   it("leaves safe text unchanged", () => {

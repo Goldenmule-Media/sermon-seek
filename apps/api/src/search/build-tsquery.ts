@@ -49,9 +49,10 @@ export function buildTsQuery(q: string): BuiltQuery {
     parts.push(plainToOrTsquery(remainder))
   }
 
-  let combined: RawBuilder<string> = parts[0]!
-  for (let i = 1; i < parts.length; i++) {
-    const next = parts[i]!
+  const [first, ...rest] = parts
+  if (!first) throw new Error("unreachable: parts is non-empty when hasPhrases is true")
+  let combined: RawBuilder<string> = first
+  for (const next of rest) {
     combined = sql`(${combined} && ${next})`
   }
 

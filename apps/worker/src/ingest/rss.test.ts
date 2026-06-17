@@ -42,7 +42,7 @@ describe("parseVideoIds", () => {
   })
 
   it("ignores malformed or short ids", () => {
-    const xml = `<feed><yt:videoId>short</yt:videoId><yt:videoId>aB3cD4eF5gH</yt:videoId></feed>`
+    const xml = "<feed><yt:videoId>short</yt:videoId><yt:videoId>aB3cD4eF5gH</yt:videoId></feed>"
     const ids = parseVideoIds(xml)
     expect(ids).toEqual(["aB3cD4eF5gH"])
   })

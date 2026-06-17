@@ -29,7 +29,9 @@ export async function up(db: Kysely<unknown>): Promise<void> {
   `.execute(db)
 
   await sql`CREATE INDEX sessions_user_idx ON sessions (user_id)`.execute(db)
-  await sql`CREATE INDEX sessions_expires_idx ON sessions (expires_at) WHERE revoked_at IS NULL`.execute(db)
+  await sql`CREATE INDEX sessions_expires_idx ON sessions (expires_at) WHERE revoked_at IS NULL`.execute(
+    db,
+  )
 }
 
 export async function down(db: Kysely<unknown>): Promise<void> {

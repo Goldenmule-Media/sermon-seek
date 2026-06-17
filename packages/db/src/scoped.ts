@@ -66,67 +66,69 @@ export class ScopedDb {
   // expression-based from clauses, etc.) is preserved for callers.
   readonly selectFrom: Kysely<Database>["selectFrom"] = ((ref: unknown) => {
     if (typeof ref !== "string") {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
       return this.#db.selectFrom(ref as any)
     }
     const { table, alias } = parseTableRef(ref)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
     const qb = this.#db.selectFrom(ref as any)
     if (TENANT_TABLES.has(table)) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
       return (qb as any).where(`${alias}.church_id`, "=", this.#churchId)
     }
     return qb
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
   }) as any
 
   readonly updateTable: Kysely<Database>["updateTable"] = ((ref: unknown) => {
     if (typeof ref !== "string") {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
       return this.#db.updateTable(ref as any)
     }
     const { table, alias } = parseTableRef(ref)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
     const qb = this.#db.updateTable(ref as any)
     if (TENANT_TABLES.has(table)) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
       return (qb as any).where(`${alias}.church_id`, "=", this.#churchId)
     }
     return qb
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
   }) as any
 
   readonly deleteFrom: Kysely<Database>["deleteFrom"] = ((ref: unknown) => {
     if (typeof ref !== "string") {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
       return this.#db.deleteFrom(ref as any)
     }
     const { table, alias } = parseTableRef(ref)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
     const qb = this.#db.deleteFrom(ref as any)
     if (TENANT_TABLES.has(table)) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
       return (qb as any).where(`${alias}.church_id`, "=", this.#churchId)
     }
     return qb
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
   }) as any
 
   insertInto<TB extends keyof Database & string>(
     table: TB,
   ): Omit<InsertQueryBuilder<Database, TB, InsertResult>, "values"> & {
-    values(insert: ScopedInsertable<TB> | ReadonlyArray<ScopedInsertable<TB>>): InsertQueryBuilder<Database, TB, InsertResult>
+    values(
+      insert: ScopedInsertable<TB> | ReadonlyArray<ScopedInsertable<TB>>,
+    ): InsertQueryBuilder<Database, TB, InsertResult>
   } {
     const inner = this.#db.insertInto(table)
     if (!TENANT_TABLES.has(table)) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
       return inner as any
     }
     const churchId = this.#churchId
     return new Proxy(inner, {
       get(target, prop, receiver) {
         if (prop === "values") {
-          return function (insert: unknown) {
+          return (insert: unknown) => {
             if (typeof insert === "function") {
               throw new Error(
                 "ScopedDb: callback-style inserts are not supported for tenant tables",
@@ -135,20 +137,18 @@ export class ScopedDb {
             const items = Array.isArray(insert) ? insert : [insert]
             const merged = items.map((row: Record<string, unknown>) => {
               if ("church_id" in row && row.church_id !== churchId) {
-                throw new Error(
-                  "ScopedDb: cannot insert with a conflicting church_id",
-                )
+                throw new Error("ScopedDb: cannot insert with a conflicting church_id")
               }
               return { ...row, church_id: churchId }
             })
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
             return (target as any).values(Array.isArray(insert) ? merged : merged[0])
           }
         }
         const val = Reflect.get(target, prop, receiver)
         return typeof val === "function" ? val.bind(target) : val
       },
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Kysely type-erasure bridge — wrapper re-casts to preserve the underlying overloads
     }) as any
   }
 }

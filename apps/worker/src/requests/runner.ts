@@ -5,8 +5,6 @@ import { notify } from "@sermon-search/notifications"
 import type { IngestionRequest } from "@sermon-search/types"
 import { type Kysely, sql } from "kysely"
 import type { Enricher } from "../enrich/llm.js"
-import { getWorkerId, heartbeat } from "../lib/heartbeat.js"
-import { claimRequestById } from "./claim.js"
 import { enrichVideo } from "../enrich/run.js"
 import {
   findVideosMissingDuration,
@@ -18,6 +16,7 @@ import { applyPlaylistFilterRules } from "../ingest/filter_rules.js"
 import { resolveChannel } from "../ingest/handle.js"
 import { uniqueSlugForPlaylist } from "../ingest/slug.js"
 import { ingestVideoTranscript } from "../ingest/transcript.js"
+import { getWorkerId, heartbeat } from "../lib/heartbeat.js"
 import { computeRelatedForVideo, loadVideoRefs, loadVideoTopics } from "../related/run.js"
 import {
   getChannelMetadata,
@@ -27,6 +26,7 @@ import {
 } from "../youtube/cache_aware.js"
 import type { YoutubeClient } from "../youtube/client.js"
 import type { YoutubePlaylistItem } from "../youtube/types.js"
+import { claimRequestById } from "./claim.js"
 import {
   LIMITED_INGEST_TOKEN_CAP_DEFAULT,
   countTranscriptTokens,
@@ -145,7 +145,13 @@ export async function runClaimedRequest({
 }: RunClaimedRequestOptions): Promise<RunIngestionRequestResult> {
   const requestId = request.id
   const beat = (stage: string) =>
-    heartbeat(db, { workerId, kind: "ingest", status: "busy", lastJobId: requestId, message: stage })
+    heartbeat(db, {
+      workerId,
+      kind: "ingest",
+      status: "busy",
+      lastJobId: requestId,
+      message: stage,
+    })
 
   void beat("start")
   const cap = capped ? (tokenCap ?? LIMITED_INGEST_TOKEN_CAP_DEFAULT) : Number.POSITIVE_INFINITY
@@ -180,7 +186,13 @@ export async function runClaimedRequest({
         { request: updatedRequest, webBaseUrl, searchUrl: searchUrl ?? "" },
         notificationConfig,
       )
-      void heartbeat(db, { workerId, kind: "ingest", status: "idle", lastJobId: requestId, message: "awaiting_approval" })
+      void heartbeat(db, {
+        workerId,
+        kind: "ingest",
+        status: "idle",
+        lastJobId: requestId,
+        message: "awaiting_approval",
+      })
       return {
         status: "awaiting_approval",
         videosDiscovered: updatedRequest.videos_discovered,
@@ -208,7 +220,13 @@ export async function runClaimedRequest({
       { request: completedRequest, webBaseUrl, searchUrl: searchUrl ?? "" },
       notificationConfig,
     )
-    void heartbeat(db, { workerId, kind: "ingest", status: "idle", lastJobId: requestId, message: "complete" })
+    void heartbeat(db, {
+      workerId,
+      kind: "ingest",
+      status: "idle",
+      lastJobId: requestId,
+      message: "complete",
+    })
     return {
       status: "complete",
       videosDiscovered: completedRequest.videos_discovered,
@@ -222,7 +240,13 @@ export async function runClaimedRequest({
       .set({ status: "failed", admin_note: note, updated_at: sql`now()` })
       .where("id", "=", requestId)
       .execute()
-    void heartbeat(db, { workerId, kind: "ingest", status: "error", lastJobId: requestId, message: note })
+    void heartbeat(db, {
+      workerId,
+      kind: "ingest",
+      status: "error",
+      lastJobId: requestId,
+      message: note,
+    })
     try {
       const failedRequest = await reloadRequest(db, requestId)
       const searchUrl = failedRequest.church_id

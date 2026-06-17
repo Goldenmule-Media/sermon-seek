@@ -63,7 +63,12 @@ describeIfDb("GET /admin/health (integration)", () => {
     app.setSerializerCompiler(serializerCompiler)
     await app.register(cookie, { secret: COOKIE_SECRET })
     await app.register(
-      fp(async (instance) => { instance.decorate("db", db) }, { name: "db" }),
+      fp(
+        async (instance) => {
+          instance.decorate("db", db)
+        },
+        { name: "db" },
+      ),
     )
     await app.register(sessionPlugin)
     await app.register(adminAuthPlugin)
@@ -207,7 +212,11 @@ describeIfDb("GET /admin/health (integration)", () => {
       .execute()
     await db
       .insertInto("system_runs")
-      .values({ kind: "smoke-test", last_run_at: sql`now() - interval '5 minutes'`, last_status: "failed" })
+      .values({
+        kind: "smoke-test",
+        last_run_at: sql`now() - interval '5 minutes'`,
+        last_status: "failed",
+      })
       .execute()
 
     const app = await buildApp()

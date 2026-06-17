@@ -112,7 +112,8 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
         path: `${app.prefix ?? ""}/auth/google`,
       })
 
-      const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI!
+      const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI
+      if (!redirectUri) throw new Error("GOOGLE_OAUTH_REDIRECT_URI is not configured")
       const url = app.googleOAuth.buildAuthorizeUrl({
         state,
         codeChallenge: challenge,
@@ -169,7 +170,8 @@ export const authRoutes: FastifyPluginAsyncZod = async (app) => {
       // Clear state cookie immediately
       reply.clearCookie(config.STATE_COOKIE_NAME, { path: `${app.prefix ?? ""}/auth/google` })
 
-      const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI!
+      const redirectUri = config.GOOGLE_OAUTH_REDIRECT_URI
+      if (!redirectUri) throw new Error("GOOGLE_OAUTH_REDIRECT_URI is not configured")
 
       let idToken: string
       try {

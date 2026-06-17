@@ -38,7 +38,9 @@ export async function up(db: Kysely<unknown>): Promise<void> {
   await sql`CREATE INDEX video_scripture_refs_overlap_idx ON video_scripture_refs (start_coord, end_coord)`.execute(
     db,
   )
-  await sql`CREATE INDEX video_scripture_refs_video_idx ON video_scripture_refs (video_id)`.execute(db)
+  await sql`CREATE INDEX video_scripture_refs_video_idx ON video_scripture_refs (video_id)`.execute(
+    db,
+  )
 }
 
 export async function down(db: Kysely<unknown>): Promise<void> {

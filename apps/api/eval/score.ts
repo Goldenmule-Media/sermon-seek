@@ -16,7 +16,7 @@
  */
 
 import { readFileSync } from "node:fs"
-import { join, dirname } from "node:path"
+import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -128,7 +128,7 @@ for (const mode of MODES) {
 }
 console.log()
 
-const hybridTop3 = recall["hybrid"]?.top3 ?? 0
+const hybridTop3 = recall.hybrid?.top3 ?? 0
 if (hybridTop3 < PASS_THRESHOLD) {
   console.error(
     `FAIL — hybrid top-${TOP_K_PASS} recall ${pct(hybridTop3)} < ${pct(PASS_THRESHOLD)} target`,

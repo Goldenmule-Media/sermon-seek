@@ -152,10 +152,7 @@ export function renderTemplate(name: TemplateName, ctx: TemplateContext): Render
       ].join("\n")
       const html = wrapHtml(
         subject,
-        `<p>Great news! Your ingestion request for <strong>${safeName}</strong> (${safeSlug}) has been approved.</p>` +
-          `<p>Indexing will resume shortly and your full sermon library will be indexed.</p>` +
-          `<p>Track your request: ${link(deepLink, deepLink)}</p>` +
-          `<p>Your search will live at: ${link(searchUrl, searchUrl)}</p>`,
+        `<p>Great news! Your ingestion request for <strong>${safeName}</strong> (${safeSlug}) has been approved.</p><p>Indexing will resume shortly and your full sermon library will be indexed.</p><p>Track your request: ${link(deepLink, deepLink)}</p><p>Your search will live at: ${link(searchUrl, searchUrl)}</p>`,
       )
       return { subject, text, html }
     }

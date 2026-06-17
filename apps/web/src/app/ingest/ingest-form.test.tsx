@@ -373,9 +373,7 @@ describe("IngestPage", () => {
       const submitBtn = screen.getByRole("button", { name: /submit request/i })
       fireEvent.submit(submitBtn.closest("form") ?? submitBtn)
 
-      await waitFor(() =>
-        expect(screen.getByText("Not found on YouTube.")).toBeInTheDocument(),
-      )
+      await waitFor(() => expect(screen.getByText("Not found on YouTube.")).toBeInTheDocument())
 
       // Error is near PLaaa chip, not PLbbb
       const plaaaChip = screen.getByText("PLaaa").closest("li")

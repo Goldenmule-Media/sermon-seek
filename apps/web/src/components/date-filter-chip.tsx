@@ -155,6 +155,7 @@ export function DateFilterChip({ from, to, onChange, variant = "pill" }: DateFil
             </>
           )}
           {active ? (
+            // biome-ignore lint/a11y/useSemanticElements: avoids a <button> nested inside the trigger <button>, which is invalid markup
             <span
               role="button"
               tabIndex={0}
@@ -183,12 +184,15 @@ export function DateFilterChip({ from, to, onChange, variant = "pill" }: DateFil
       )}
 
       {open && (
+        // biome-ignore lint/a11y/useSemanticElements: custom popup listbox — no native HTML element maps to role="listbox"
+        // biome-ignore lint/a11y/useFocusableInteractive: the options are the tab stops; the container is intentionally not focusable
         <div
           role="listbox"
           className="absolute left-0 top-full z-20 mt-1 min-w-[16rem] rounded-md border bg-popover p-1 shadow-md"
         >
           <button
             type="button"
+            // biome-ignore lint/a11y/useSemanticElements: listbox option — role="option" has no usable native element outside <select>
             role="option"
             aria-selected={!active}
             onClick={() => {
@@ -206,6 +210,7 @@ export function DateFilterChip({ from, to, onChange, variant = "pill" }: DateFil
               <button
                 key={p.key}
                 type="button"
+                // biome-ignore lint/a11y/useSemanticElements: listbox option — role="option" has no usable native element outside <select>
                 role="option"
                 aria-selected={isSelected}
                 onClick={() => applyPreset(p)}

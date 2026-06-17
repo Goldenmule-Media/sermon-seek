@@ -129,7 +129,9 @@ export async function getPlaylistItems(
   options: { force?: boolean } = {},
 ): Promise<CachedPlaylistItemsResult> {
   const parts = playlistItemsParts(channelId, playlistId)
-  const existingCached = options.force ? [] : ((await cache.readJson<YoutubePlaylistItem[]>(parts)) ?? [])
+  const existingCached = options.force
+    ? []
+    : ((await cache.readJson<YoutubePlaylistItem[]>(parts)) ?? [])
   const knownIds = new Set<string>()
   for (const item of existingCached) {
     const id = item.contentDetails?.videoId ?? item.snippet?.resourceId?.videoId

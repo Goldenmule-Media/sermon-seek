@@ -9,9 +9,7 @@ import { createOpenAIEnricher } from "../enrich/llm.js"
 async function main(): Promise<void> {
   const ids = process.argv.slice(2).filter((a) => a && !a.startsWith("-") && a !== "--")
   if (ids.length === 0) {
-    console.error(
-      "usage: enrich:preview <youtube-video-id> [<youtube-video-id> ...]",
-    )
+    console.error("usage: enrich:preview <youtube-video-id> [<youtube-video-id> ...]")
     process.exit(1)
   }
 

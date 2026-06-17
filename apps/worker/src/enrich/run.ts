@@ -145,9 +145,7 @@ export async function enrichVideo({
     if (topicIds.length > 0) {
       await trx
         .insertInto("video_topics")
-        .values(
-          topicIds.map((topic_id, position) => ({ video_id: videoDbId, topic_id, position })),
-        )
+        .values(topicIds.map((topic_id, position) => ({ video_id: videoDbId, topic_id, position })))
         .execute()
       topicsInserted += topicIds.length
     }

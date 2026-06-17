@@ -108,7 +108,8 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
       const videoTopics = topics.perVideo.get(id) ?? []
       const summary = summaries.get(id) ?? ""
 
-      if (refined.length === 0) {
+      const head = refined[0]
+      if (!head) {
         return {
           results: [],
           total,
@@ -117,8 +118,6 @@ export const videoSearchRoutes: FastifyPluginAsyncZod = async (app) => {
           topics: topics.aggregate,
         }
       }
-
-      const head = refined[0]!
       const aggScore = refined.reduce((acc, r) => acc + r.score, 0)
       return {
         results: [

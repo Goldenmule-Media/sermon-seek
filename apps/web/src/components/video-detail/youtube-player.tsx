@@ -117,7 +117,7 @@ export const YouTubePlayer = forwardRef<YouTubePlayerHandle, Props>(
         playerRef.current?.destroy()
         playerRef.current = null
       }
-    }, [videoId, initialStartSeconds])
+    }, [videoId, initialStartSeconds, autoplay])
 
     return (
       // YT.Player REPLACES `containerRef` with an iframe (it doesn't inject

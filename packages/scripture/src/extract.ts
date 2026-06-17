@@ -33,7 +33,6 @@ const FULL_RE = new RegExp(
   "gi",
 )
 
-
 function isValidRef(bookId: number, cs: number, vs: number, ce: number, ve: number): boolean {
   const book = BOOKS_BY_ID[bookId]
   if (!book) return false
@@ -76,7 +75,14 @@ export function extract(text: string): ExtractedRef[] {
     const verseStartStr = vKw ?? vColon ?? vSpace
     const verseStart = verseStartStr !== undefined ? Number.parseInt(verseStartStr, 10) : undefined
 
-    const pendingRefs: Array<{ cs: number; vs: number; ce: number; ve: number; raw: string; pos: number }> = []
+    const pendingRefs: Array<{
+      cs: number
+      vs: number
+      ce: number
+      ve: number
+      raw: string
+      pos: number
+    }> = []
 
     if (verseStart === undefined) {
       // Chapter-only: span the whole chapter.
@@ -84,7 +90,14 @@ export function extract(text: string): ExtractedRef[] {
       if (!book) continue
       const mv = book.max_verse[chapterStart - 1]
       if (mv === undefined) continue
-      pendingRefs.push({ cs: chapterStart, vs: 1, ce: chapterStart, ve: mv, raw: fullMatch, pos: position })
+      pendingRefs.push({
+        cs: chapterStart,
+        vs: 1,
+        ce: chapterStart,
+        ve: mv,
+        raw: fullMatch,
+        pos: position,
+      })
     } else {
       let chapterEnd = chapterStart
       let verseEnd = verseStart
@@ -96,8 +109,17 @@ export function extract(text: string): ExtractedRef[] {
         verseEnd = Number.parseInt(vEndRaw, 10)
       }
 
-      const primaryRaw = extraRaw ? fullMatch.slice(0, fullMatch.length - extraRaw.length) : fullMatch
-      pendingRefs.push({ cs: chapterStart, vs: verseStart, ce: chapterEnd, ve: verseEnd, raw: primaryRaw, pos: position })
+      const primaryRaw = extraRaw
+        ? fullMatch.slice(0, fullMatch.length - extraRaw.length)
+        : fullMatch
+      pendingRefs.push({
+        cs: chapterStart,
+        vs: verseStart,
+        ce: chapterEnd,
+        ve: verseEnd,
+        raw: primaryRaw,
+        pos: position,
+      })
 
       if (extraRaw) {
         const extraStart = position + fullMatch.length - extraRaw.length
@@ -111,7 +133,14 @@ export function extract(text: string): ExtractedRef[] {
           const ev = Number.parseInt(numStr, 10)
           if (!Number.isNaN(ev) && ev > 0) {
             const evPos = extraStart + sm.index + matchStr.length - numStr.length
-            pendingRefs.push({ cs: chapterStart, vs: ev, ce: chapterStart, ve: ev, raw: numStr, pos: evPos })
+            pendingRefs.push({
+              cs: chapterStart,
+              vs: ev,
+              ce: chapterStart,
+              ve: ev,
+              raw: numStr,
+              pos: evPos,
+            })
           }
         }
       }
