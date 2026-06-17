@@ -24,4 +24,5 @@ The `sermon-admin` CLI (`apps/cli`) doubles as an stdio MCP server, registered i
 
 - Do not use chrome-devtools (navigate_page, take_screenshot, list_pages, etc.) unless the user explicitly asks for browser interaction. Trust API-level verification (curl, typecheck, tests) and let the user drive the browser themselves.
 - Do not claim work is "done", "ready", "verified", or "fixed" until you have actually run the relevant checks — at minimum `pnpm lint` and the package's `typecheck`, plus `test` and a build (`pnpm build` / `docker build`) where the change affects them. State precisely what you ran and what you did *not* run; if a check is impractical locally, say so and name it as an outstanding risk rather than implying completion.
+- When asked to commit, commit directly on the current branch (normally `main`). Do NOT create a new branch first. Only branch if explicitly told to.
 @HOTSEAT.md
