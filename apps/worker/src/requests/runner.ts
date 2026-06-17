@@ -359,6 +359,7 @@ async function runPipeline({
   const positionByPlaylistId = new Map(playlists.map((pl, i) => [pl.id, i]))
   const sortedPlaylists = [...playlists].sort((a, b) => a.id.localeCompare(b.id))
   const playlistDbIds = new Map<string, string>()
+  let playlistsPersisted = 0
   for (const pl of sortedPlaylists) {
     const title = pl.snippet?.title ?? "(untitled playlist)"
     const position = positionByPlaylistId.get(pl.id) ?? 0
@@ -366,6 +367,9 @@ async function runPipeline({
     if (slug === undefined) {
       slug = uniqueSlugForPlaylist(title, pl.id, takenSlugs)
       takenSlugs.add(slug)
+    }
+    if (++playlistsPersisted % 25 === 0) {
+      void beat(`persist_playlists ${playlistsPersisted}/${sortedPlaylists.length}`)
     }
     const plRow = await db
       .insertInto("playlists")
@@ -400,6 +404,7 @@ async function runPipeline({
   const joinRows: Array<{ youtubeVideoId: string; youtubePlaylistId: string; position: number }> =
     []
 
+  let playlistsScanned = 0
   for (const pl of playlists) {
     const { items } = await getPlaylistItems(client, resolved.youtubeChannelId, pl.id)
     for (const item of items) {
@@ -412,12 +417,22 @@ async function runPipeline({
       })
       if (!videoFirstSeen.has(videoId)) videoFirstSeen.set(videoId, item)
     }
+    // Heartbeat through the per-playlist YouTube enumeration — for a large
+    // channel this loop alone can exceed the reaper's stale window, which would
+    // otherwise reset the in-flight request mid-discovery (retry_count churn,
+    // and double-claiming if more than one worker is running).
+    playlistsScanned++
+    void beat(`enumerate_videos ${playlistsScanned}/${playlists.length}`)
   }
 
   // Upsert video + video_playlists rows
   await db.transaction().execute(async (trx) => {
+    let videosUpserted = 0
     for (const [videoId, item] of videoFirstSeen) {
       await upsertVideoFromPlaylistItem(trx, channelDbId, churchId, videoId, item)
+      if (++videosUpserted % 100 === 0) {
+        void beat(`upsert_videos ${videosUpserted}/${videoFirstSeen.size}`)
+      }
     }
     const youtubeVideoIds = Array.from(videoFirstSeen.keys())
     const videoDbIdByYoutubeId = new Map<string, string>()
@@ -482,77 +497,87 @@ async function runPipeline({
 
   let tokensIngested = request.tokens_ingested
   let videosIngested = request.videos_ingested
+  let videosFailed = 0
   let capHit = false
 
   for (const video of candidates) {
     void beat(`video:${video.youtube_video_id}`)
     log(`processing ${video.youtube_video_id}`)
 
-    // Stage 2: transcripts
-    void beat(`transcript:${video.youtube_video_id}`)
-    const transcriptResult = await ingestVideoTranscript({
-      db,
-      client,
-      youtubeVideoId: video.youtube_video_id,
-      churchId,
-    })
+    try {
+      // Stage 2: transcripts
+      void beat(`transcript:${video.youtube_video_id}`)
+      const transcriptResult = await ingestVideoTranscript({
+        db,
+        client,
+        youtubeVideoId: video.youtube_video_id,
+        churchId,
+      })
 
-    if (transcriptResult.status === "no_captions") {
-      log(`skip ${video.youtube_video_id}: no captions`)
+      if (transcriptResult.status === "no_captions") {
+        log(`skip ${video.youtube_video_id}: no captions`)
+        continue
+      }
+
+      let videoTokens = 0
+      if (transcriptResult.status === "ok") {
+        // Count tokens only for newly ingested transcripts
+        const transcript = await db
+          .selectFrom("transcripts")
+          .select(["full_text"])
+          .where("id", "=", transcriptResult.transcriptId)
+          .executeTakeFirstOrThrow()
+        videoTokens = countTranscriptTokens(transcript.full_text)
+        tokensIngested += videoTokens
+
+        await db
+          .updateTable("ingestion_requests")
+          .set({ tokens_ingested: tokensIngested, updated_at: sql`now()` })
+          .where("id", "=", request.id)
+          .execute()
+      }
+
+      // Stage 3: embeddings (idempotent — no-ops if already done)
+      void beat(`embed:${video.youtube_video_id}`)
+      await embedVideo({ db, embedder, churchId, videoDbId: video.id })
+
+      // Stage 4: enrichment (idempotent — no-ops if already done)
+      void beat(`enrich:${video.youtube_video_id}`)
+      await enrichVideo({ db, enricher, churchId, videoDbId: video.id, title: video.title })
+
+      // Refresh topic/ref maps so this video's data is available for related computation
+      allVideoTopics = await loadVideoTopics(db, churchId)
+      allVideoRefs = await loadVideoRefs(db, churchId)
+
+      // Stage 5: related (idempotent — no-ops if already done)
+      void beat(`related:${video.youtube_video_id}`)
+      await computeRelatedForVideo({
+        db,
+        churchId,
+        videoDbId: video.id,
+        allVideoTopics,
+        allVideoRefs,
+      })
+
+      if (transcriptResult.status === "ok") {
+        videosIngested += 1
+        await db
+          .updateTable("ingestion_requests")
+          .set({ videos_ingested: videosIngested, updated_at: sql`now()` })
+          .where("id", "=", request.id)
+          .execute()
+
+        log(`done ${video.youtube_video_id} (tokens: ${videoTokens}, total: ${tokensIngested})`)
+      } else {
+        log(`skip ${video.youtube_video_id}: transcript already present (status=skipped)`)
+      }
+    } catch (err) {
+      // A single unavailable video (deleted or made private on YouTube since the
+      // last ingest, or a transient per-video fetch error) must not fail the whole
+      // run. Skip it and keep going — the request still completes with what worked.
+      videosFailed++
+      log(`skip ${video.youtube_video_id}: ${err instanceof Error ? err.message : String(err)}`)
       continue
-    }
-
-    let videoTokens = 0
-    if (transcriptResult.status === "ok") {
-      // Count tokens only for newly ingested transcripts
-      const transcript = await db
-        .selectFrom("transcripts")
-        .select(["full_text"])
-        .where("id", "=", transcriptResult.transcriptId)
-        .executeTakeFirstOrThrow()
-      videoTokens = countTranscriptTokens(transcript.full_text)
-      tokensIngested += videoTokens
-
-      await db
-        .updateTable("ingestion_requests")
-        .set({ tokens_ingested: tokensIngested, updated_at: sql`now()` })
-        .where("id", "=", request.id)
-        .execute()
-    }
-
-    // Stage 3: embeddings (idempotent — no-ops if already done)
-    void beat(`embed:${video.youtube_video_id}`)
-    await embedVideo({ db, embedder, churchId, videoDbId: video.id })
-
-    // Stage 4: enrichment (idempotent — no-ops if already done)
-    void beat(`enrich:${video.youtube_video_id}`)
-    await enrichVideo({ db, enricher, churchId, videoDbId: video.id, title: video.title })
-
-    // Refresh topic/ref maps so this video's data is available for related computation
-    allVideoTopics = await loadVideoTopics(db, churchId)
-    allVideoRefs = await loadVideoRefs(db, churchId)
-
-    // Stage 5: related (idempotent — no-ops if already done)
-    void beat(`related:${video.youtube_video_id}`)
-    await computeRelatedForVideo({
-      db,
-      churchId,
-      videoDbId: video.id,
-      allVideoTopics,
-      allVideoRefs,
-    })
-
-    if (transcriptResult.status === "ok") {
-      videosIngested += 1
-      await db
-        .updateTable("ingestion_requests")
-        .set({ videos_ingested: videosIngested, updated_at: sql`now()` })
-        .where("id", "=", request.id)
-        .execute()
-
-      log(`done ${video.youtube_video_id} (tokens: ${videoTokens}, total: ${tokensIngested})`)
-    } else {
-      log(`skip ${video.youtube_video_id}: transcript already present (status=skipped)`)
     }
 
     if (cap !== Number.POSITIVE_INFINITY && tokensIngested >= cap) {
@@ -560,6 +585,10 @@ async function runPipeline({
       log(`token cap reached (${tokensIngested} >= ${cap}); stopping`)
       break
     }
+  }
+
+  if (videosFailed > 0) {
+    log(`completed with ${videosFailed} video(s) skipped due to per-video errors`)
   }
 
   return { capHit }
