@@ -20,6 +20,9 @@ const SESSION_COOKIE = "sermon_session"
 
 const TEST_ADMIN_API_KEY = "test-admin-api-key-secret"
 
+// NOTE: vi.mock is hoisted above this module's top-level consts, so the factory
+// must inline the literal rather than reference TEST_ADMIN_API_KEY (which would
+// be in the temporal dead zone). The const above is still used in test bodies.
 vi.mock("../config.js", () => ({
   config: {
     GOOGLE_OAUTH_CLIENT_ID: "test-client-id",
@@ -32,7 +35,7 @@ vi.mock("../config.js", () => ({
     COOKIE_SECURE: false,
     SLUG_ALIAS_TTL_DAYS: 90,
     LIMITED_INGEST_TOKEN_CAP: 750_000,
-    ADMIN_API_KEY: TEST_ADMIN_API_KEY,
+    ADMIN_API_KEY: "test-admin-api-key-secret",
   },
 }))
 

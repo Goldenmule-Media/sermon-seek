@@ -311,7 +311,9 @@ describe("POST /requests — happy path", () => {
     expect(res.json()).toMatchObject({
       request_id: "req-001",
       status_url: "/me/requests/req-001",
-      search_url: "/mychurch/",
+      // search_url is null at submit time — church_id is not linked until the
+      // worker's first run; the status page falls back to /${requested_slug}/.
+      search_url: null,
     })
   })
 })
