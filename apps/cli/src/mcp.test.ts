@@ -59,6 +59,7 @@ describe("buildMcpServer — tool list", () => {
           "audit_list",
           "channel_add",
           "channel_refresh",
+          "channel_reingest",
           "channel_view_stats",
           "church_get",
           "churches_list",

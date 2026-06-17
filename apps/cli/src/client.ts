@@ -219,6 +219,15 @@ export interface ChurchVideosResponse {
   offset: number
 }
 
+export interface ReingestBody {
+  churchSlug: string
+  channel?: string
+}
+
+export interface ReingestResponse {
+  requests: Array<{ id: string; youtubeChannelId: string }>
+}
+
 export interface AdminClient {
   health(): Promise<HealthResponse>
   recentLogs(q?: LogQuery): Promise<AdminLogRecord[]>
@@ -233,6 +242,7 @@ export interface AdminClient {
   channelAdd(body: ChannelAddBody): Promise<ChannelAddResponse>
   channelRefresh(q: ChannelRefreshQuery): Promise<ChannelRefreshResponse>
   channelViewStats(churchSlug: string): Promise<ChannelViewStatsResponse>
+  reingest(body: ReingestBody): Promise<ReingestResponse>
   auditList(q?: AuditListQuery): Promise<AuditListResponse>
 }
 
@@ -367,6 +377,10 @@ export function createClient(instance: ResolvedInstance): AdminClient {
 
     channelViewStats(churchSlug: string): Promise<ChannelViewStatsResponse> {
       return post<ChannelViewStatsResponse>("/admin/ingest/view-stats", { churchSlug })
+    },
+
+    reingest(body: ReingestBody): Promise<ReingestResponse> {
+      return post<ReingestResponse>("/admin/ingest/reingest", body)
     },
 
     async auditList(q: AuditListQuery = {}): Promise<AuditListResponse> {

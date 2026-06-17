@@ -378,6 +378,52 @@ describeIfDb("audit-log writes — every admin mutation", () => {
   })
 
   // ---------------------------------------------------------------------------
+  // ingest.reingest
+  // ---------------------------------------------------------------------------
+
+  it("POST /admin/ingest/reingest — queues a received request and writes audit row action=ingest.reingest", async () => {
+    const adminId = await insertUser({ is_admin: true })
+    const churchId = await insertChurch("reingest-church")
+    await insertChannel(churchId)
+
+    const app = await buildAdminApp({
+      id: churchId,
+      slug: "reingest-church",
+      name: "Reingest Church",
+    })
+
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/ingest/reingest",
+      headers: { "x-admin-key": ADMIN_KEY, "content-type": "application/json" },
+      payload: { churchSlug: "reingest-church" },
+    })
+    expect(res.statusCode).toBe(200)
+    const body = res.json() as { requests: Array<{ id: string; youtubeChannelId: string }> }
+    expect(body.requests).toHaveLength(1)
+    expect(body.requests[0]?.youtubeChannelId).toBe(YT_CHANNEL_ID)
+
+    // A worker-claimable request was created, scoped to the church and the channel,
+    // attributed to the admin user (x-admin-key path has no session user).
+    const reqRow = await db
+      .selectFrom("ingestion_requests")
+      .selectAll()
+      .where("id", "=", body.requests[0]?.id ?? "")
+      .executeTakeFirstOrThrow()
+    expect(reqRow.status).toBe("received")
+    expect(reqRow.church_id).toBe(churchId)
+    expect(reqRow.youtube_handle_or_url).toBe(YT_CHANNEL_ID)
+    expect(reqRow.user_id).toBe(adminId)
+
+    const rows = await auditRows("ingest.reingest", "church", churchId)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]?.user_id).toBeNull()
+    expect((rows[0]?.payload as { actor: string }).actor).toBe("cli")
+
+    await app.close()
+  })
+
+  // ---------------------------------------------------------------------------
   // ingest.view_stats
   // ---------------------------------------------------------------------------
 

@@ -49,6 +49,29 @@ const refreshResponseSchema = z.object({
   ),
 })
 
+// Admin-initiated re-ingest of an existing church. Inserts ingestion_requests
+// rows the worker claims and runs through the full pipeline (transcripts +
+// embeddings + enrichment), unlike `channel refresh` which only syncs metadata
+// inline and never reaches the worker.
+const reingestBodySchema = z.object({
+  churchSlug: churchSlugSchema,
+  channel: z.string().optional(),
+})
+
+const reingestResponseSchema = z.object({
+  requests: z.array(
+    z.object({
+      id: z.string(),
+      youtubeChannelId: z.string(),
+    }),
+  ),
+})
+
+// Re-ingests have no end-user requester, but ingestion_requests.contact_email is
+// NOT NULL and the worker emails it (best-effort) on completion. Address it to an
+// internal mailbox rather than a real user.
+const REINGEST_CONTACT_EMAIL = "reingest@sermonseek.ai"
+
 const viewStatsBodySchema = z.object({
   churchSlug: churchSlugSchema,
 })
@@ -230,6 +253,100 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
       })
 
       return reply.send({ channels: results })
+    },
+  )
+
+  app.post(
+    "/admin/ingest/reingest",
+    {
+      schema: {
+        tags: ["admin"],
+        summary: "Queue a full worker re-ingest of an existing church's videos",
+        body: reingestBodySchema,
+        response: {
+          200: reingestResponseSchema,
+          404: z.object({ error: z.string() }),
+          409: z.object({ error: z.string(), note: z.string().optional() }),
+        },
+      },
+    },
+    async (request, reply) => {
+      const { churchSlug, channel } = request.body
+      const church = await resolveChurchOrReply(app, churchSlug, reply)
+      if (!church) return
+
+      // The worker's ensureChurch rejects denied/suspended churches; fail fast here.
+      const churchRow = await app.db
+        .selectFrom("churches")
+        .select(["status"])
+        .where("id", "=", church.id)
+        .executeTakeFirst()
+      if (churchRow?.status === "denied" || churchRow?.status === "suspended") {
+        return reply.code(409).send({
+          error: "church_unavailable",
+          note: `church status is '${churchRow.status}'`,
+        })
+      }
+
+      // ingestion_requests.user_id is NOT NULL. Admin-initiated re-ingests have no
+      // end-user requester, so attribute to the acting session admin if present,
+      // else the earliest admin user.
+      const { user_id: sessionUserId, actor } = auditActor(request)
+      let actingUserId = sessionUserId
+      if (!actingUserId) {
+        const admin = await app.db
+          .selectFrom("users")
+          .select(["id"])
+          .where("is_admin", "=", true)
+          .orderBy("created_at", "asc")
+          .executeTakeFirst()
+        if (!admin) {
+          return reply.code(409).send({ error: "no_admin_user" })
+        }
+        actingUserId = admin.id
+      }
+
+      // One request per channel; runPipeline resolves a single channel per request.
+      const scopedDb = createScopedDb(app.db, church.id)
+      let channelIds: string[]
+      if (channel) {
+        channelIds = [channel]
+      } else {
+        const rows = await scopedDb.selectFrom("channels").select(["youtube_channel_id"]).execute()
+        channelIds = rows.map((r) => r.youtube_channel_id)
+      }
+      if (channelIds.length === 0) {
+        return reply.code(409).send({ error: "no_channels" })
+      }
+
+      const requests: Array<{ id: string; youtubeChannelId: string }> = []
+      for (const youtubeChannelId of channelIds) {
+        const row = await app.db
+          .insertInto("ingestion_requests")
+          .values({
+            user_id: actingUserId,
+            church_id: church.id,
+            requested_slug: church.slug,
+            requested_name: church.name,
+            youtube_handle_or_url: youtubeChannelId,
+            contact_email: REINGEST_CONTACT_EMAIL,
+            status: "received",
+            tokens_ingested: 0,
+          })
+          .returning("id")
+          .executeTakeFirstOrThrow()
+        requests.push({ id: row.id, youtubeChannelId })
+      }
+
+      await auditWrite(app.db, {
+        user_id: sessionUserId,
+        action: "ingest.reingest",
+        target_type: "church",
+        target_id: church.id,
+        payload: { actor, churchSlug, channel, requests: requests.map((r) => r.id) },
+      })
+
+      return reply.send({ requests })
     },
   )
 

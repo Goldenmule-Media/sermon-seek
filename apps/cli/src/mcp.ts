@@ -181,6 +181,25 @@ export function buildMcpServer(client: AdminClient): McpServer {
   )
 
   server.tool(
+    "channel_reingest",
+    "Queue a full worker re-ingest of an existing church's videos — inserts ingestion request(s) the worker processes end-to-end (transcripts + embeddings + enrichment), unlike channel_refresh which only syncs metadata. Use this to ingest new videos for a church that is already registered (admin mutation — writes audit row with actor=cli)",
+    {
+      churchSlug: z.string().min(1).describe("Church slug"),
+      channel: z
+        .string()
+        .optional()
+        .describe("Limit the re-ingest to a specific channel handle or ID"),
+    },
+    async (input) => {
+      try {
+        return ok(await client.reingest(input))
+      } catch (e) {
+        return err(e)
+      }
+    },
+  )
+
+  server.tool(
     "audit_list",
     "List admin audit log entries",
     {
