@@ -234,6 +234,12 @@ export type IngestionRequestStatus =
   | "failed"
   | "complete"
 
+/**
+ * `full` walks every discovered video; `incremental` only those not ingested
+ * yet (everything published since the last successful run, plus prior misses).
+ */
+export type IngestionRequestMode = "full" | "incremental"
+
 export interface IngestionRequest {
   id: string
   user_id: string
@@ -245,6 +251,7 @@ export interface IngestionRequest {
   exclude_playlist_ids: string[]
   contact_email: string
   status: IngestionRequestStatus
+  mode: IngestionRequestMode
   videos_discovered: number
   videos_ingested: number
   tokens_ingested: number

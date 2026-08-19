@@ -22,6 +22,12 @@ export type IngestionRequestStatus =
   | "failed"
   | "complete"
 
+/**
+ * `full` walks every discovered video; `incremental` only those not ingested
+ * yet (everything published since the last successful run, plus prior misses).
+ */
+export type IngestionRequestMode = "full" | "incremental"
+
 export interface UsersTable {
   id: Generated<string>
   google_sub: string
@@ -97,6 +103,7 @@ export interface IngestionRequestsTable {
   limit_reached: Generated<boolean>
   admin_note: string | null
   retry_count: Generated<number>
+  mode: Generated<IngestionRequestMode>
   created_at: Generated<Timestamptz>
   updated_at: Generated<Timestamptz>
 }
@@ -143,6 +150,8 @@ export interface VideosTable {
   thumbnail_url: string | null
   view_count: ColumnType<string | null, string | number | null, string | number | null>
   view_count_updated_at: Timestamptz | null
+  captions_unavailable_at: Timestamptz | null
+  captions_attempts: Generated<number>
 }
 
 export interface VideoPlaylistsTable {

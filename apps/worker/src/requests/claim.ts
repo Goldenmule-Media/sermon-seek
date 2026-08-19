@@ -1,5 +1,5 @@
 import type { Database } from "@sermon-search/db"
-import type { IngestionRequest } from "@sermon-search/types"
+import type { IngestionRequest, IngestionRequestMode } from "@sermon-search/types"
 import { type Kysely, sql } from "kysely"
 
 export type ClaimPriorStatus = "received" | "approved"
@@ -20,6 +20,7 @@ function normalizeRow(row: {
   exclude_playlist_ids: string[]
   contact_email: string
   status: string
+  mode: string
   videos_discovered: number
   videos_ingested: number
   tokens_ingested: string | number | bigint
@@ -40,6 +41,7 @@ function normalizeRow(row: {
     exclude_playlist_ids: row.exclude_playlist_ids as string[],
     contact_email: row.contact_email,
     status: row.status as IngestionRequest["status"],
+    mode: row.mode as IngestionRequestMode,
     videos_discovered: row.videos_discovered,
     videos_ingested: row.videos_ingested,
     tokens_ingested: Number(row.tokens_ingested),
@@ -118,6 +120,7 @@ export async function claimNextRequest(db: Kysely<Database>): Promise<ClaimResul
     exclude_playlist_ids: string[]
     contact_email: string
     status: string
+    mode: string
     videos_discovered: number
     videos_ingested: number
     tokens_ingested: string
