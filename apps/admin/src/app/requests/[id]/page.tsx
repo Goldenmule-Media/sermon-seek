@@ -157,7 +157,13 @@ export default async function RequestDetailPage({ params }: Props) {
               /{req.church_slug}/{" "}
               {req.church_status && (
                 <span className="text-xs text-muted-foreground">({req.church_status})</span>
-              )}
+              )}{" "}
+              <Link
+                href={`/churches?slug_prefix=${encodeURIComponent(req.church_slug)}`}
+                className="text-xs underline text-muted-foreground hover:text-foreground"
+              >
+                Manage church
+              </Link>
             </span>
           </div>
         )}
