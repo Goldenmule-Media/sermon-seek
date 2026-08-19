@@ -27,6 +27,7 @@ import type { ZodTypeProvider } from "fastify-type-provider-zod"
 import type { Kysely } from "kysely"
 import { sql } from "kysely"
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
+import { adminAuthPlugin } from "../plugins/admin-auth.js"
 import { __resetForTests, rateLimitPlugin } from "../plugins/rate-limit.js"
 import { hashToken, mintToken, sessionPlugin } from "../plugins/session.js"
 import { createAdminRequestsRoutes } from "./admin-requests.js"
@@ -48,6 +49,7 @@ vi.mock("../config.js", () => ({
     COOKIE_SECURE: false,
     SLUG_ALIAS_TTL_DAYS: 90,
     LIMITED_INGEST_TOKEN_CAP: 750_000,
+    ADMIN_API_KEY: "test-admin-key",
   },
 }))
 
@@ -179,6 +181,11 @@ async function buildApp(
     ),
   )
   await app.register(sessionPlugin)
+  // The admin routes below guard themselves with app.requireAdminOrApiKey.
+  // Without this plugin that decorator is undefined, Fastify accepts the
+  // undefined preHandler, and every /admin route answers unauthenticated —
+  // which is why the non-admin authorization case here saw 200.
+  await app.register(adminAuthPlugin)
   await app.register(rateLimitPlugin)
   await app.register(requestRoutes)
   await app.register(meRequestsRoutes)
@@ -320,7 +327,9 @@ describeIfDb("requests integration", () => {
       expect(postRes.statusCode).toBe(201)
       const { request_id, status_url, search_url } = postRes.json()
       expect(status_url).toBe(`/me/requests/${request_id}`)
-      expect(search_url).toBe("/testchurch/")
+      // Null at submit time by design: church_id is not populated until the
+      // worker's first run links the church row (see post201Schema's docblock).
+      expect(search_url).toBeNull()
 
       // Verify initial DB state
       const initial = await db
