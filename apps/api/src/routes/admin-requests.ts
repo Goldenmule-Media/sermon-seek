@@ -611,11 +611,19 @@ export function createAdminRequestsRoutes(deps?: AdminRequestsRouteDeps): Fastif
             .where("id", "=", id)
             .execute()
 
+          // Only take the church down if it never went live. Denying a request
+          // means rejecting what that request asked for — for a church still
+          // 'pending', that is the church itself, which this request created.
+          // An 'active' church is already serving content and may have years of
+          // ingested sermons behind it; denying a later request against it (a
+          // re-ingest, say) must not pull it offline. There is no supported way
+          // to bring a denied church back, so this was effectively one-way.
           if (req.church_id) {
             await trx
               .updateTable("churches")
               .set({ status: "denied" })
               .where("id", "=", req.church_id)
+              .where("status", "=", "pending")
               .execute()
           }
 

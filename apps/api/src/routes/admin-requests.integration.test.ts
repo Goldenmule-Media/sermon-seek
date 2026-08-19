@@ -844,6 +844,37 @@ describeIfDb("Admin requests integration", () => {
     await app.close()
   })
 
+  it("deny: leaves an already-active church alone", async () => {
+    const { app } = await buildAppWithCapture()
+    const adminId = await insertUser({ is_admin: true })
+    const token = await insertSession(adminId)
+    const userId = await insertUser()
+    const churchId = await insertChurch("live-church", { status: "active" })
+    const requestId = await insertRequest(userId, {
+      church_id: churchId,
+      status: "received",
+    })
+
+    const res = await app.inject({
+      method: "POST",
+      url: `/admin/requests/${requestId}/deny`,
+      payload: { note: "Queued by mistake" },
+      cookies: { [SESSION_COOKIE]: token },
+    })
+    expect(res.statusCode).toBe(200)
+
+    // Cancelling a request against a live church — a re-ingest queued by
+    // mistake, say — must not pull the church offline. Nothing restores a
+    // denied church, so this was a one-way door.
+    const churchRow = await db
+      .selectFrom("churches")
+      .select("status")
+      .where("id", "=", churchId)
+      .executeTakeFirstOrThrow()
+    expect(churchRow.status).toBe("active")
+    await app.close()
+  })
+
   it("deny: flips awaiting_approval → denied with note, sets church status, fires notify", async () => {
     const { app, calls } = await buildAppWithCapture()
     const adminId = await insertUser({ is_admin: true })
