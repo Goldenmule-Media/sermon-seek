@@ -96,9 +96,17 @@ at 02:00 UTC. Dumps land at:
 Files are in PostgreSQL custom format (`--format=custom`) so a single table or
 the whole DB can be restored selectively via `pg_restore`.
 
-**Rotation:** the script keeps the `BACKUP_RETENTION_DAYS` (default `14`) most
-recent dump files and deletes older ones. Set `BACKUP_RETENTION_DAYS` in
-`.env.prod` to change the window.
+**Rotation:** the script keeps the `BACKUP_RETENTION_COUNT` (default `14`) most
+recent dump files and deletes older ones. Set `BACKUP_RETENTION_COUNT` in
+`.env.prod` to change how many are kept — it is a count of files, not a time
+window, so it only equals days while dumps stay daily.
+
+Rotation runs *before* each dump (pruning to `COUNT - 1`), so a run never needs
+more than `BACKUP_RETENTION_COUNT` dumps of disk at once, and the script bails
+out early if the volume lacks room for one more dump. Pruning only *after* the
+write meant a full disk aborted the run before it could reclaim anything, which
+silently deadlocked backups for 49 nights in 2026 — keep the prune ahead of the
+dump. Size the volume for `BACKUP_RETENTION_COUNT` dumps plus the live database.
 
 **Restore a dump:**
 
