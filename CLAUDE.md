@@ -19,7 +19,7 @@ The `sermon-admin` CLI (`apps/cli`) doubles as an stdio MCP server, registered i
 
 **Login / instance:** the server targets one configured instance, resolved in order — `--url`+`--key` flags → `--instance <name>` (config lookup) → `SERMON_ADMIN_URL`+`SERMON_ADMIN_KEY` env vars → the `currentInstance` saved in the CLI dotfile. If none is set, run `sermon-admin login` (or `sermon-admin config set-instance`) first.
 
-**Local ingest worker (launchd):** the `Constantine-local` worker shown in `health` runs on the dev machine as a macOS LaunchAgent — `~/Library/LaunchAgents/com.sermonseek.worker.plist` (label `com.sermonseek.worker`), installed by `sermon-admin worker install`. It has `KeepAlive=true`, so a plain `kill`/`kill -9` just respawns it within `ThrottleInterval` (15s). To restart it cleanly: `launchctl kickstart -k gui/$(id -u)/com.sermonseek.worker`. Logs: `~/Library/Logs/sermonseek-worker.log`.
+**Local ingest worker (launchd):** the `Constantine-local` worker shown in `health` runs on the dev machine as a macOS LaunchAgent — `~/Library/LaunchAgents/com.sermonseek.worker.plist` (label `com.sermonseek.worker`), installed by `sermon-admin worker install`. It has `KeepAlive=true`, so a plain `kill`/`kill -9` just respawns it within `ThrottleInterval` (15s). To restart it cleanly: `sermon-admin worker restart` (which uses `launchctl kickstart -k` under the hood), or `./deploy.sh --restart-worker ...` to bounce it as part of a deploy. Restarting is how new worker code goes live — the agent runs from this working tree, and there is deliberately no worker service in `docker-compose.prod.yml`. Logs: `~/Library/Logs/sermonseek-worker.log`.
 
 ## Working with the assistant
 

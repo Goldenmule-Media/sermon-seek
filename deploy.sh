@@ -5,10 +5,18 @@ set -euo pipefail
 # deploy.sh — push sermon-search to a single EC2 host via rsync + docker compose
 #
 # Usage:
-#   ./deploy.sh [--setup] [--domain <domain>] [-i <key.pem>] <user@host>
+#   ./deploy.sh [--setup] [--restart-worker] [--domain <domain>] [-i <key.pem>] <user@host>
 #
 # --setup   Bootstrap a fresh Ubuntu host (Docker, dirs, ufw). Run once.
 #           After setup, run again without --setup to deploy.
+#
+# --restart-worker
+#           After a successful deploy, restart the ingest worker running on
+#           THIS machine as a launchd agent. There is deliberately no worker
+#           service in docker-compose.prod.yml — the worker runs locally — so
+#           a remote deploy alone never picks up new worker code. The agent
+#           runs from this working tree, so restarting it is what puts the
+#           checked-out code live. macOS only; skipped with a warning elsewhere.
 #
 # Requirements:
 #   The SSH user must have passwordless sudo. This is the default for the
@@ -19,12 +27,14 @@ set -euo pipefail
 DOMAIN="sermonseek.ai"
 SSH_KEY=""
 SETUP=false
+RESTART_WORKER=false
 TARGET=""
 
 # ── argument parser ─────────────────────────────────────────────────────────
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --setup)        SETUP=true; shift ;;
+    --restart-worker) RESTART_WORKER=true; shift ;;
     --domain)       DOMAIN="$2"; shift 2 ;;
     -i)             SSH_KEY="$2"; shift 2 ;;
     -*)             echo "Unknown flag: $1" >&2; exit 1 ;;
@@ -33,7 +43,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$TARGET" ]]; then
-  echo "Usage: $0 [--setup] [--domain <domain>] [-i <key.pem>] <user@host>" >&2
+  echo "Usage: $0 [--setup] [--restart-worker] [--domain <domain>] [-i <key.pem>] <user@host>" >&2
   exit 1
 fi
 
@@ -252,6 +262,22 @@ check_url() {
 
 check_url "https://$DOMAIN/v1/health"
 check_url "https://$DOMAIN/"
+
+# Step 10: restart the local ingest worker so it runs the code just deployed.
+# Deliberately after the health checks: if the deploy is broken we want to know
+# that before bouncing the worker.
+if $RESTART_WORKER; then
+  if [[ "$(uname -s)" != "Darwin" ]]; then
+    say "WARNING: --restart-worker is macOS-only (launchd); skipping on $(uname -s)."
+  else
+    say "Restarting local ingest worker..."
+    if pnpm --filter @sermon-search/cli start -- worker restart; then
+      say "Worker restarted."
+    else
+      die "Worker restart failed. The remote deploy succeeded; rerun \`sermon-admin worker restart\` once fixed."
+    fi
+  fi
+fi
 
 say "=== Deploy complete: https://$DOMAIN/ ==="
 

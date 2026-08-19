@@ -195,6 +195,30 @@ function unloadAgent(label: string): void {
   if (existsSync(path)) launchctl(["unload", path])
 }
 
+/**
+ * Restart a loaded agent in place.
+ *
+ * `kickstart -k` kills the running process and starts it again in one step.
+ * The legacy unload/load pair is deprecated on current macOS and is unreliable
+ * against a KeepAlive agent, which launchd may respawn between the two calls —
+ * so an unload/load "restart" could leave the original process untouched.
+ *
+ * Falls back to loading the agent when it is not currently loaded, since
+ * kickstart cannot start a service launchd does not know about.
+ */
+function restartAgent(label: string): void {
+  const path = plistPath(label)
+  if (!existsSync(path)) throw new Error(`${label} is not installed. Run \`worker install\` first.`)
+
+  if (!agentState(label).loaded) {
+    loadAgent(label)
+    return
+  }
+
+  const { code, out } = launchctl(["kickstart", "-k", `gui/${process.getuid?.() ?? ""}/${label}`])
+  if (code !== 0) throw new Error(`launchctl kickstart ${label} failed: ${out.trim()}`)
+}
+
 // --- install ---------------------------------------------------------------
 
 function doInstall(opts: { key: string; target: string; port: number }): void {
@@ -501,12 +525,12 @@ export function makeWorkerCommand(): Command {
 
   cmd
     .command("restart")
-    .description("Reload both agents")
+    .description("Restart both agents in place (picks up new code)")
     .action(() => {
       try {
         requireDarwin()
-        loadAgent(TUNNEL_LABEL)
-        loadAgent(WORKER_LABEL)
+        restartAgent(TUNNEL_LABEL)
+        restartAgent(WORKER_LABEL)
         console.log("Restarted tunnel + worker.")
       } catch (err) {
         fail(err)
