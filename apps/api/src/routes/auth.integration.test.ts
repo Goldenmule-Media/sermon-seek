@@ -31,6 +31,21 @@ vi.mock("../config.js", () => ({
   },
 }))
 
+/**
+ * Pull the signed state cookie out of a /auth/google/start response, ready to
+ * hand straight back to inject({ cookies }).
+ *
+ * The value arrives percent-encoded off Set-Cookie and inject() encodes again
+ * on the way back in, so it has to be decoded exactly once here. Double-encoding
+ * corrupts the signature and the callback rejects it as an invalid state cookie.
+ */
+function stateCookieFrom(res: { headers: Record<string, unknown> }): string {
+  const header = res.headers["set-cookie"]
+  const lines = Array.isArray(header) ? (header as string[]) : [header as string]
+  const line = lines.find((c) => c?.startsWith(STATE_COOKIE))
+  return decodeURIComponent(line?.split(";")[0]?.split("=").slice(1).join("=") ?? "")
+}
+
 const COOKIE_SECRET = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 const SESSION_COOKIE = "sermon_session"
 const STATE_COOKIE = "sermon_oauth_state"
@@ -107,17 +122,8 @@ describeIfDb("auth integration", () => {
     expect(redirectTo).toMatch(/accounts\.google\.com/)
     expect(redirectTo).toContain("code_challenge_method=S256")
 
-    // Extract state cookie
-    const setCookieHeader = startRes.headers["set-cookie"]
-    const rawStateCookieLine = Array.isArray(setCookieHeader)
-      ? setCookieHeader.find((c) => c.startsWith(STATE_COOKIE))
-      : setCookieHeader?.startsWith(STATE_COOKIE)
-        ? setCookieHeader
-        : undefined
-    expect(rawStateCookieLine).toBeTruthy()
-
-    // Extract the signed cookie value (everything between name= and ;)
-    const stateCookieValue = rawStateCookieLine?.split(";")[0]?.split("=").slice(1).join("=")
+    const stateCookieValue = stateCookieFrom(startRes)
+    expect(stateCookieValue).toBeTruthy()
 
     // Extract state from redirect URL
     const redirectUrl = new URL(redirectTo)
@@ -205,11 +211,7 @@ describeIfDb("auth integration", () => {
     const startRes1 = await app.inject({ method: "GET", url: "/auth/google/start" })
     expect(startRes1.headers.location).toBeTruthy()
     const state1 = new URL(startRes1.headers.location as string).searchParams.get("state") as string
-    const stateCookie1 = (startRes1.headers["set-cookie"] as string[])[0]
-      ?.split(";")[0]
-      ?.split("=")
-      .slice(1)
-      .join("=")
+    const stateCookie1 = stateCookieFrom(startRes1)
     await app.inject({
       method: "GET",
       url: `/auth/google/callback?code=c1&state=${state1}`,
@@ -225,11 +227,7 @@ describeIfDb("auth integration", () => {
     const startRes2 = await app2.inject({ method: "GET", url: "/auth/google/start" })
     expect(startRes2.headers.location).toBeTruthy()
     const state2 = new URL(startRes2.headers.location as string).searchParams.get("state") as string
-    const stateCookie2 = (startRes2.headers["set-cookie"] as string[])[0]
-      ?.split(";")[0]
-      ?.split("=")
-      .slice(1)
-      .join("=")
+    const stateCookie2 = stateCookieFrom(startRes2)
     await app2.inject({
       method: "GET",
       url: `/auth/google/callback?code=c2&state=${state2}`,
@@ -260,11 +258,7 @@ describeIfDb("auth integration", () => {
     async function doFullCallback(app: Awaited<ReturnType<typeof buildApp>>) {
       const startRes = await app.inject({ method: "GET", url: "/auth/google/start" })
       const state = new URL(startRes.headers.location as string).searchParams.get("state") ?? ""
-      const stateCookieValue = (startRes.headers["set-cookie"] as string[])[0]
-        ?.split(";")[0]
-        ?.split("=")
-        .slice(1)
-        .join("=")
+      const stateCookieValue = stateCookieFrom(startRes)
       await app.inject({
         method: "GET",
         url: `/auth/google/callback?code=fake&state=${state}`,
