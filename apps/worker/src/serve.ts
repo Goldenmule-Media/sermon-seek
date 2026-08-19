@@ -63,18 +63,6 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
 
   try {
     while (!shuttingDown) {
-      // Remove completed in-flight promises.
-      for (const p of inFlight) {
-        const settled = await Promise.race([
-          p.then(
-            () => true,
-            () => true,
-          ),
-          Promise.resolve(false),
-        ])
-        if (settled) inFlight.delete(p)
-      }
-
       // Reap stale running requests.
       try {
         await reapStaleRequests({
@@ -132,6 +120,14 @@ export async function runServeLoop(opts: ServeLoopOptions): Promise<void> {
         )
 
         inFlight.add(run)
+        // Free the slot when the run settles. Doing this from the promise's own
+        // continuation is the only reliable way: a Promise.race against an
+        // already-resolved sentinel cannot detect settledness, because p.then()
+        // always resolves a microtask later than the sentinel and so always
+        // loses. `run` has both handlers attached above, so it never rejects.
+        void run.finally(() => {
+          inFlight.delete(run)
+        })
       }
 
       if (inFlight.size >= concurrency && !shuttingDown) {
