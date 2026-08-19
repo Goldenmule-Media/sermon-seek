@@ -56,9 +56,14 @@ const refreshResponseSchema = z.object({
 const reingestBodySchema = z.object({
   churchSlug: churchSlugSchema,
   channel: z.string().optional(),
+  // 'incremental' ingests only what the church has not ingested yet — the
+  // videos published since the last successful run, plus any an earlier run
+  // missed. Defaults to 'full' so existing callers keep today's behaviour.
+  mode: z.enum(["full", "incremental"]).optional().default("full"),
 })
 
 const reingestResponseSchema = z.object({
+  mode: z.enum(["full", "incremental"]),
   requests: z.array(
     z.object({
       id: z.string(),
@@ -261,7 +266,7 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
     {
       schema: {
         tags: ["admin"],
-        summary: "Queue a full worker re-ingest of an existing church's videos",
+        summary: "Queue a worker re-ingest of an existing church's videos",
         body: reingestBodySchema,
         response: {
           200: reingestResponseSchema,
@@ -271,7 +276,7 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
       },
     },
     async (request, reply) => {
-      const { churchSlug, channel } = request.body
+      const { churchSlug, channel, mode } = request.body
       const church = await resolveChurchOrReply(app, churchSlug, reply)
       if (!church) return
 
@@ -331,6 +336,7 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
             youtube_handle_or_url: youtubeChannelId,
             contact_email: REINGEST_CONTACT_EMAIL,
             status: "received",
+            mode,
             tokens_ingested: 0,
           })
           .returning("id")
@@ -343,10 +349,10 @@ export const adminRoutes: FastifyPluginAsyncZod = async (app) => {
         action: "ingest.reingest",
         target_type: "church",
         target_id: church.id,
-        payload: { actor, churchSlug, channel, requests: requests.map((r) => r.id) },
+        payload: { actor, churchSlug, channel, mode, requests: requests.map((r) => r.id) },
       })
 
-      return reply.send({ requests })
+      return reply.send({ mode, requests })
     },
   )
 

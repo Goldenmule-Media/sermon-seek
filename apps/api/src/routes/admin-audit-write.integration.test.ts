@@ -415,10 +415,75 @@ describeIfDb("audit-log writes — every admin mutation", () => {
     expect(reqRow.youtube_handle_or_url).toBe(YT_CHANNEL_ID)
     expect(reqRow.user_id).toBe(adminId)
 
+    // Callers that say nothing about mode get today's behaviour.
+    expect(reqRow.mode).toBe("full")
+
     const rows = await auditRows("ingest.reingest", "church", churchId)
     expect(rows).toHaveLength(1)
     expect(rows[0]?.user_id).toBeNull()
     expect((rows[0]?.payload as { actor: string }).actor).toBe("cli")
+    expect((rows[0]?.payload as { mode: string }).mode).toBe("full")
+
+    await app.close()
+  })
+
+  it("POST /admin/ingest/reingest — mode=incremental is persisted on the queued request", async () => {
+    await insertUser({ is_admin: true })
+    const churchId = await insertChurch("reingest-incremental")
+    await insertChannel(churchId)
+
+    const app = await buildAdminApp({
+      id: churchId,
+      slug: "reingest-incremental",
+      name: "Reingest Incremental",
+    })
+
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/ingest/reingest",
+      headers: { "x-admin-key": ADMIN_KEY, "content-type": "application/json" },
+      payload: { churchSlug: "reingest-incremental", mode: "incremental" },
+    })
+    expect(res.statusCode).toBe(200)
+    const body = res.json() as {
+      mode: string
+      requests: Array<{ id: string; youtubeChannelId: string }>
+    }
+    expect(body.mode).toBe("incremental")
+
+    // The worker reads mode off the row, so it has to land there — the
+    // response echoing it is not enough.
+    const reqRow = await db
+      .selectFrom("ingestion_requests")
+      .selectAll()
+      .where("id", "=", body.requests[0]?.id ?? "")
+      .executeTakeFirstOrThrow()
+    expect(reqRow.mode).toBe("incremental")
+
+    const rows = await auditRows("ingest.reingest", "church", churchId)
+    expect((rows[0]?.payload as { mode: string }).mode).toBe("incremental")
+
+    await app.close()
+  })
+
+  it("POST /admin/ingest/reingest — rejects an unknown mode", async () => {
+    await insertUser({ is_admin: true })
+    const churchId = await insertChurch("reingest-bad-mode")
+    await insertChannel(churchId)
+
+    const app = await buildAdminApp({
+      id: churchId,
+      slug: "reingest-bad-mode",
+      name: "Reingest Bad Mode",
+    })
+
+    const res = await app.inject({
+      method: "POST",
+      url: "/admin/ingest/reingest",
+      headers: { "x-admin-key": ADMIN_KEY, "content-type": "application/json" },
+      payload: { churchSlug: "reingest-bad-mode", mode: "sincelast" },
+    })
+    expect(res.statusCode).toBe(400)
 
     await app.close()
   })
