@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises"
 import type { Database } from "@sermon-search/db"
-import type { Kysely, Transaction } from "kysely"
+import { type Kysely, type Transaction, sql } from "kysely"
 import { CaptionsUnavailable, fetchCaptions, parseVtt } from "../captions/index.js"
 import type { Segment, Spawner } from "../captions/index.js"
 import { YT_DLP_VERSION } from "../captions/version.js"
@@ -134,6 +134,7 @@ export async function ingestVideoTranscript(
       console.warn(
         `[transcript] captions unavailable for video ${youtubeVideoId}; skipping transcript insert`,
       )
+      await recordCaptionsUnavailable(db, videoDbId)
       return { status: "no_captions", videoDbId }
     }
     throw err
@@ -196,6 +197,14 @@ export async function ingestVideoTranscript(
       await trx.insertInto("transcript_words").values(batch).execute()
     }
 
+    // A video that previously had no captions may have gained them since. Clear
+    // the marker so it stops being treated as captionless.
+    await trx
+      .updateTable("videos")
+      .set({ captions_unavailable_at: null, captions_attempts: 0 })
+      .where("id", "=", videoDbId)
+      .execute()
+
     return { transcriptId, segmentCount: segments.length, wordCount: words.length }
   })
 
@@ -206,6 +215,24 @@ export async function ingestVideoTranscript(
     segmentCount: inserted.segmentCount,
     wordCount: inserted.wordCount,
   }
+}
+
+/**
+ * Record that YouTube served no captions for this video. `captions_attempts`
+ * bounds how many times an incremental re-ingest retries: auto-captions can
+ * appear hours after upload, so a fresh video deserves a few attempts, but a
+ * video that has come back empty repeatedly should stop costing a yt-dlp spawn
+ * on every run. A full re-ingest ignores the marker and always retries.
+ */
+async function recordCaptionsUnavailable(db: Kysely<Database>, videoDbId: string): Promise<void> {
+  await db
+    .updateTable("videos")
+    .set({
+      captions_unavailable_at: sql`now()`,
+      captions_attempts: sql`captions_attempts + 1`,
+    })
+    .where("id", "=", videoDbId)
+    .execute()
 }
 
 async function insertSegments(

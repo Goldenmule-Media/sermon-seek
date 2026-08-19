@@ -1,3 +1,5 @@
+export { CAPTIONLESS_MAX_ATTEMPTS, loadIngestCandidates } from "./candidates.js"
+export type { IngestCandidate, LoadIngestCandidatesOptions } from "./candidates.js"
 export { ingestChannel } from "./channel.js"
 export type { IngestChannelOptions, IngestChannelSummary } from "./channel.js"
 export { resolveChannel } from "./handle.js"

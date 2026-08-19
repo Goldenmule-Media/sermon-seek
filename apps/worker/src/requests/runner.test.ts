@@ -58,6 +58,11 @@ vi.mock("../ingest/slug.js", () => ({
   uniqueSlugForPlaylist: vi.fn().mockReturnValue("test-playlist"),
 }))
 
+vi.mock("../ingest/candidates.js", () => ({
+  CAPTIONLESS_MAX_ATTEMPTS: 3,
+  loadIngestCandidates: vi.fn().mockResolvedValue([]),
+}))
+
 vi.mock("@sermon-search/notifications", () => ({
   notify: vi.fn().mockResolvedValue({ recipients: [] }),
 }))
@@ -80,6 +85,7 @@ function buildDb(initialRequest: Record<string, unknown>, initialChurch?: Record
   const playlistRows: Record<string, unknown>[] = []
   const videoRows: Record<string, unknown>[] = []
   const transcriptRows: Record<string, unknown>[] = []
+  const channelUpdates: Record<string, unknown>[] = []
 
   // Fluent builder returned by selectFrom/updateTable/insertInto
   const makeSelect = (rows: Record<string, unknown>[]) => ({
@@ -127,6 +133,7 @@ function buildDb(initialRequest: Record<string, unknown>, initialChurch?: Record
   return {
     _req: reqRow,
     _church: churchRow,
+    _channelUpdates: channelUpdates,
     selectFrom(table: string) {
       if (table === "ingestion_requests") return makeSelect([reqRow])
       if (table === "churches") {
@@ -148,6 +155,11 @@ function buildDb(initialRequest: Record<string, unknown>, initialChurch?: Record
     updateTable(table: string) {
       if (table === "ingestion_requests") return makeUpdate(reqRow)
       if (table === "churches") return makeUpdate(churchRow)
+      if (table === "channels") {
+        const captured: Record<string, unknown> = {}
+        channelUpdates.push(captured)
+        return makeUpdate(captured)
+      }
       return makeUpdate({})
     },
     insertInto(table: string) {
@@ -181,6 +193,7 @@ function makeRequest(overrides: Partial<Record<string, unknown>> = {}): Record<s
     exclude_playlist_ids: [],
     contact_email: "test@example.com",
     status: "received",
+    mode: "full",
     videos_discovered: 0,
     videos_ingested: 0,
     tokens_ingested: "0",
@@ -190,6 +203,12 @@ function makeRequest(overrides: Partial<Record<string, unknown>> = {}): Record<s
     updated_at: new Date(),
     ...overrides,
   }
+}
+
+/** Set the videos the pipeline's candidate query should return for one test. */
+async function setCandidates(videos: Record<string, unknown>[]): Promise<void> {
+  const { loadIngestCandidates } = await import("../ingest/candidates.js")
+  ;(loadIngestCandidates as Mock).mockResolvedValue(videos)
 }
 
 function makeOpts(db: ReturnType<typeof buildDb>): RunIngestionRequestOptions {
@@ -211,6 +230,12 @@ function makeOpts(db: ReturnType<typeof buildDb>): RunIngestionRequestOptions {
 // Clear mocks after every test so call counts don't bleed across describe blocks.
 afterEach(() => {
   vi.clearAllMocks()
+})
+
+// clearAllMocks keeps implementations, so a per-test mockResolvedValue would
+// otherwise leak into the next test's candidate list.
+beforeEach(async () => {
+  await setCandidates([])
 })
 
 describe("runIngestionRequest", () => {
@@ -276,42 +301,11 @@ describe("runIngestionRequest", () => {
       slug: "testchurch",
       status: "pending",
     })
-    // Inject two videos
     const fakeVideos = [
       { id: "v1", youtube_video_id: "yt1", title: "Sermon 1", church_id: "church-1" },
       { id: "v2", youtube_video_id: "yt2", title: "Sermon 2", church_id: "church-1" },
     ]
-    const origSelectFrom = db.selectFrom.bind(db)
-    db.selectFrom = (table: string) => {
-      if (table === "videos") {
-        const rows = fakeVideos
-        return {
-          selectAll: () => db.selectFrom(table),
-          select: () => ({
-            where: () => ({
-              where: () => ({
-                orderBy: () => ({
-                  execute: async () => rows,
-                }),
-              }),
-            }),
-          }),
-          where: () => ({
-            where: () => ({
-              execute: async () => rows,
-            }),
-          }),
-          execute: async () => rows,
-          executeTakeFirst: async () => rows[0],
-          executeTakeFirstOrThrow: async () =>
-            rows[0] ??
-            (() => {
-              throw new Error("not found")
-            })(),
-        } as ReturnType<typeof db.selectFrom>
-      }
-      return origSelectFrom(table)
-    }
+    await setCandidates(fakeVideos)
 
     const result = await runIngestionRequest({ ...makeOpts(db), tokenCap: 1000 })
 
@@ -363,40 +357,11 @@ describe("runIngestionRequest", () => {
       { id: "church-1", slug: "testchurch", status: "pending" },
     )
 
-    // Inject one candidate video so the loop runs at least once
+    // One candidate video so the loop runs at least once
     const fakeVideos = [
       { id: "v1", youtube_video_id: "yt1", title: "Sermon 1", church_id: "church-1" },
     ]
-    const origSelectFrom = db.selectFrom.bind(db)
-    db.selectFrom = (table: string) => {
-      if (table === "videos") {
-        return {
-          selectAll: () => db.selectFrom(table),
-          select: () => ({
-            where: () => ({
-              where: () => ({
-                orderBy: () => ({
-                  execute: async () => fakeVideos,
-                }),
-              }),
-            }),
-          }),
-          where: () => ({
-            where: () => ({
-              execute: async () => fakeVideos,
-            }),
-          }),
-          execute: async () => fakeVideos,
-          executeTakeFirst: async () => fakeVideos[0],
-          executeTakeFirstOrThrow: async () =>
-            fakeVideos[0] ??
-            (() => {
-              throw new Error("not found")
-            })(),
-        } as ReturnType<typeof db.selectFrom>
-      }
-      return origSelectFrom(table)
-    }
+    await setCandidates(fakeVideos)
 
     await runIngestionRequest(makeOpts(db))
 
@@ -432,36 +397,7 @@ describe("runIngestionRequest", () => {
       { id: "v2", youtube_video_id: "yt2", title: "Sermon 2", church_id: "church-1" },
       { id: "v3", youtube_video_id: "yt3", title: "Sermon 3", church_id: "church-1" },
     ]
-    const origSelectFrom = db.selectFrom.bind(db)
-    db.selectFrom = (table: string) => {
-      if (table === "videos") {
-        return {
-          selectAll: () => db.selectFrom(table),
-          select: () => ({
-            where: () => ({
-              where: () => ({
-                orderBy: () => ({
-                  execute: async () => fakeVideos,
-                }),
-              }),
-            }),
-          }),
-          where: () => ({
-            where: () => ({
-              execute: async () => fakeVideos,
-            }),
-          }),
-          execute: async () => fakeVideos,
-          executeTakeFirst: async () => fakeVideos[0],
-          executeTakeFirstOrThrow: async () =>
-            fakeVideos[0] ??
-            (() => {
-              throw new Error("not found")
-            })(),
-        } as ReturnType<typeof db.selectFrom>
-      }
-      return origSelectFrom(table)
-    }
+    await setCandidates(fakeVideos)
 
     await runIngestionRequest(makeOpts(db))
 
@@ -486,6 +422,84 @@ describe("runIngestionRequest", () => {
 
     // Uncapped run should drain and complete, not hit awaiting_approval
     expect(result.status).toBe("complete")
+  })
+
+  it("passes the request's mode through to candidate selection", async () => {
+    const { runIngestionRequest } = await import("./runner.js")
+    const { loadIngestCandidates } = await import("../ingest/candidates.js")
+
+    const db = buildDb(makeRequest({ church_id: "church-1", mode: "incremental" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
+    await runIngestionRequest(makeOpts(db))
+
+    expect(loadIngestCandidates).toHaveBeenCalledWith(
+      expect.objectContaining({ churchId: "church-1", mode: "incremental" }),
+    )
+  })
+
+  it("defaults to a full sweep when the request mode is 'full'", async () => {
+    const { runIngestionRequest } = await import("./runner.js")
+    const { loadIngestCandidates } = await import("../ingest/candidates.js")
+
+    const db = buildDb(makeRequest({ church_id: "church-1", mode: "full" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
+    await runIngestionRequest(makeOpts(db))
+
+    expect(loadIngestCandidates).toHaveBeenCalledWith(
+      expect.objectContaining({ churchId: "church-1", mode: "full" }),
+    )
+  })
+
+  it("bumps channels.ingested_at when the run drains every candidate", async () => {
+    const { runIngestionRequest } = await import("./runner.js")
+
+    const db = buildDb(makeRequest({ church_id: "church-1" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
+    const result = await runIngestionRequest(makeOpts(db))
+
+    expect(result.status).toBe("complete")
+    expect(db._channelUpdates).toHaveLength(1)
+    expect(db._channelUpdates[0]).toHaveProperty("ingested_at")
+  })
+
+  it("leaves channels.ingested_at alone when the run stops at the token cap", async () => {
+    const { runIngestionRequest } = await import("./runner.js")
+    const { ingestVideoTranscript } = await import("../ingest/transcript.js")
+    const { countTranscriptTokens } = await import("./limited-ingest-token-cap.js")
+    // clearAllMocks keeps implementations, so restate the ones an earlier test
+    // overrode rather than inheriting them.
+    ;(ingestVideoTranscript as Mock).mockResolvedValue({
+      status: "ok",
+      transcriptId: "t1",
+      videoDbId: "v1",
+    })
+    ;(countTranscriptTokens as Mock).mockReturnValue(600)
+
+    const db = buildDb(makeRequest({ church_id: "church-1" }), {
+      id: "church-1",
+      slug: "testchurch",
+      status: "pending",
+    })
+    await setCandidates([
+      { id: "v1", youtube_video_id: "yt1", title: "Sermon 1", church_id: "church-1" },
+      { id: "v2", youtube_video_id: "yt2", title: "Sermon 2", church_id: "church-1" },
+    ])
+
+    const result = await runIngestionRequest({ ...makeOpts(db), tokenCap: 1000 })
+
+    // A capped run covered only part of the channel; claiming otherwise would
+    // make the next incremental run's watermark a lie.
+    expect(result.status).toBe("awaiting_approval")
+    expect(db._channelUpdates).toHaveLength(0)
   })
 
   it("creates a new pending church row when church_id is null", async () => {

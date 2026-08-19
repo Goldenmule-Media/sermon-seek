@@ -6,6 +6,7 @@ import type { IngestionRequest } from "@sermon-search/types"
 import { type Kysely, sql } from "kysely"
 import type { Enricher } from "../enrich/llm.js"
 import { enrichVideo } from "../enrich/run.js"
+import { loadIngestCandidates } from "../ingest/candidates.js"
 import {
   findVideosMissingDuration,
   updateVideoFromMetadata,
@@ -486,13 +487,15 @@ async function runPipeline({
   log(`videos_discovered = ${totalDiscovered}`)
 
   // Step 5: Load candidate videos ordered by published_at DESC
-  const candidates = await db
-    .selectFrom("videos")
-    .select(["id", "youtube_video_id", "title"])
-    .where("church_id", "=", churchId)
-    .where("youtube_video_id", "in", allYoutubeIds.length > 0 ? allYoutubeIds : ["__none__"])
-    .orderBy("published_at", "desc")
-    .execute()
+  const candidates = await loadIngestCandidates({
+    db,
+    churchId,
+    youtubeVideoIds: allYoutubeIds,
+    mode: request.mode,
+  })
+  if (request.mode === "incremental") {
+    log(`incremental mode: ${candidates.length}/${totalDiscovered} discovered videos to ingest`)
+  }
 
   // Preload maps for related computation (refreshed after each video)
   let allVideoTopics = await loadVideoTopics(db, churchId)
@@ -592,6 +595,17 @@ async function runPipeline({
 
   if (videosFailed > 0) {
     log(`completed with ${videosFailed} video(s) skipped due to per-video errors`)
+  }
+
+  // Only a run that got through every candidate is a complete ingest of the
+  // channel. A capped run stops early, so bumping the watermark would claim
+  // coverage the run never achieved.
+  if (!capHit) {
+    await db
+      .updateTable("channels")
+      .set({ ingested_at: sql`now()` })
+      .where("id", "=", channelDbId)
+      .execute()
   }
 
   return { capHit }
