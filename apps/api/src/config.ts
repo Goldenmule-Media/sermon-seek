@@ -1,4 +1,5 @@
 import { z } from "zod"
+import { booleanish } from "./lib/zod-boolean.js"
 
 const envSchema = z.object({
   PORT: z.coerce.number().int().positive().default(3001),
@@ -20,7 +21,7 @@ const envSchema = z.object({
   WEB_BASE_URL: z.string().url().default("http://localhost:3000"),
   ADMIN_BASE_URL: z.string().url().optional(),
   ADMIN_ALLOWED_EMAILS: z.string().optional(),
-  COOKIE_SECURE: z.coerce.boolean().optional(),
+  COOKIE_SECURE: booleanish().optional(),
   LIMITED_INGEST_TOKEN_CAP: z.coerce.number().int().positive().default(750_000),
   LOG_BUFFER_SIZE: z.coerce.number().int().positive().default(1000),
 })

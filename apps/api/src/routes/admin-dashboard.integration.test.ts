@@ -48,7 +48,10 @@ describeIfDb("Dashboard summary integration", () => {
   })
 
   beforeEach(async () => {
-    await sql`TRUNCATE ingestion_requests, sessions, users, churches, playlists RESTART IDENTITY CASCADE`.execute(
+    // system_runs backs last_view_stats_at / last_smoke_test_at. Without it the
+    // "empty DB" case inherits whichever run row a sibling suite left behind —
+    // these files share one database.
+    await sql`TRUNCATE ingestion_requests, sessions, users, churches, playlists, system_runs RESTART IDENTITY CASCADE`.execute(
       db,
     )
   })
@@ -178,6 +181,7 @@ describeIfDb("Dashboard summary integration", () => {
     expect(body.requests).toEqual({
       pending: 0,
       awaiting_approval: 0,
+      approved: 0,
       running: 0,
       failed: 0,
       complete: 0,

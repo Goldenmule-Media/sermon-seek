@@ -1,6 +1,7 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 import { sql } from "kysely"
 import { z } from "zod"
+import { booleanish } from "../lib/zod-boolean.js"
 
 const listQuerySchema = z.object({
   slug_prefix: z.string().min(1).max(100).optional(),
@@ -59,7 +60,7 @@ const detailResponseSchema = z.object({
 const videosQuerySchema = z.object({
   limit: z.coerce.number().int().min(1).max(100).default(50),
   offset: z.coerce.number().int().min(0).default(0),
-  has_transcript: z.coerce.boolean().optional(),
+  has_transcript: booleanish().optional(),
 })
 
 const videoItemSchema = z.object({

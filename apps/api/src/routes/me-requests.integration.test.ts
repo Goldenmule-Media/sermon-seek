@@ -354,8 +354,9 @@ describeIfDb("GET /me/requests integration", () => {
     expect(body.search_url).toBe("/mount-olive/")
     expect(body.requested_name).toBe("Test Church")
     expect(body.contact_email).toBe("test@example.com")
-    expect(body.include_playlist_ids).toEqual([])
-    expect(body.exclude_playlist_ids).toEqual([])
+    // The raw include_/exclude_playlist_ids columns are no longer exposed on
+    // this response; they are collapsed into playlist_filters.
+    expect(body.playlist_filters).toEqual({ mode: "none", playlist_ids: [] })
     expect(typeof body.created_at).toBe("string")
     expect(typeof body.updated_at).toBe("string")
     await app.close()

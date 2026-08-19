@@ -12,6 +12,7 @@ import { sql } from "kysely"
 import { z } from "zod"
 import { config } from "../config.js"
 import { auditActor, auditWrite } from "../lib/audit.js"
+import { booleanish } from "../lib/zod-boolean.js"
 import { resolveChurchOrReply } from "../plugins/church-context.js"
 
 const churchSlugSchema = z.string().min(1)
@@ -35,7 +36,7 @@ const channelResponseSchema = z.object({
 
 const refreshQuerySchema = z.object({
   churchSlug: churchSlugSchema,
-  force: z.coerce.boolean().optional().default(false),
+  force: booleanish().optional().default(false),
   channel: z.string().optional(),
 })
 

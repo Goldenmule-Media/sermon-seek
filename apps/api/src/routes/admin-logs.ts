@@ -9,6 +9,7 @@ import {
   mergeRecent,
   workerLogBuffer,
 } from "../lib/log-buffer.js"
+import { booleanish } from "../lib/zod-boolean.js"
 
 const LOG_LEVELS = ["trace", "debug", "info", "warn", "error", "fatal"] as const
 const LOG_SOURCES = ["api", "worker", "all"] as const
@@ -48,7 +49,7 @@ export const adminLogsRoutes: FastifyPluginAsyncZod = async (app) => {
         tags: ["admin"],
         summary: "Recent log records (JSON) or live stream (SSE)",
         querystring: z.object({
-          follow: z.coerce.boolean().default(false),
+          follow: booleanish().default(false),
           level: z.enum(LOG_LEVELS).optional(),
           since: z
             .string()
