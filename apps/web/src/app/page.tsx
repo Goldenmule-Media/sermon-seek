@@ -1,5 +1,6 @@
 import { BookOpen, Clock, ListVideo, Search } from "lucide-react"
 import type { Metadata } from "next"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "SermonSeek.ai — sermon search for churches",
@@ -35,10 +36,26 @@ const features = [
 ]
 
 const screenshots = [
-  { caption: "Home feed" },
-  { caption: "Search results" },
-  { caption: "Video + transcript" },
-  { caption: "Topics & playlists" },
+  {
+    src: "/screenshots/home.webp",
+    caption: "Home feed",
+    alt: "Jubilee Church's SermonSeek home page: a search box above strips of recently uploaded sermons.",
+  },
+  {
+    src: "/screenshots/search.webp",
+    caption: "Search results",
+    alt: "Search results for “how are elders chosen?”, each sermon showing matching transcript lines with timestamps, scripture references, and topic tags.",
+  },
+  {
+    src: "/screenshots/video.webp",
+    caption: "Video + transcript",
+    alt: "A sermon page with the YouTube player beside a searchable, timestamped transcript, plus auto-tagged topics and scripture passages.",
+  },
+  {
+    src: "/screenshots/topics.webp",
+    caption: "Topics & playlists",
+    alt: "The topics index, listing auto-generated sermon topics with the number of videos covering each one.",
+  },
 ]
 
 export default function RootPage() {
@@ -77,15 +94,27 @@ export default function RootPage() {
         </div>
       </section>
 
-      {/* Screenshots row (skeleton placeholders — real assets to follow) */}
+      {/* Screenshots row — live captures of the Jubilee Church index */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="text-center text-2xl font-semibold tracking-tight">See it in action</h2>
+        <p className="mt-3 text-center text-sm text-muted-foreground">
+          Real screens from Jubilee Church&apos;s live index.
+        </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {screenshots.map(({ caption }) => (
-            <div key={caption} className="flex flex-col gap-2">
-              <div className="aspect-video w-full rounded-lg bg-muted animate-pulse" />
-              <p className="text-center text-sm text-muted-foreground">{caption}</p>
-            </div>
+          {screenshots.map(({ src, caption, alt }) => (
+            <figure key={caption} className="flex flex-col gap-2">
+              <Image
+                src={src}
+                alt={alt}
+                width={1440}
+                height={810}
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                className="aspect-video w-full rounded-lg border bg-muted object-cover object-top"
+              />
+              <figcaption className="text-center text-sm text-muted-foreground">
+                {caption}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
