@@ -8,12 +8,28 @@ declare module "fastify" {
   interface FastifyInstance {
     resolveChurchBySlug(slug: string): Promise<ChurchRecord | null>
     evictSlug(slug: string): void
+    /**
+     * Wire church resolution onto a route scope. Registers both hooks it needs
+     * — see churchPathSlug on FastifyRequest for why there are two — so a
+     * caller cannot half-wire it.
+     */
+    useChurchContext(scope: FastifyInstance): void
     requireChurchContext: (request: FastifyRequest, reply: FastifyReply) => Promise<void>
   }
   interface FastifyRequest {
     churchId: string
     churchSlug: string
     scopedDb: ScopedDb
+    /**
+     * The `:church` path segment, captured at onRequest.
+     *
+     * It cannot be read off request.params in the preHandler: a route that
+     * declares a zod `params` schema has its params replaced at preValidation
+     * with only the keys that schema names, and none of them name `church`.
+     * Reading it later silently yielded undefined on exactly those routes,
+     * which made them fall back to the x-church-slug header.
+     */
+    churchPathSlug: string
   }
 }
 
@@ -78,11 +94,20 @@ export const churchContextPlugin = fp(
     })
     app.decorateRequest("churchId", "")
     app.decorateRequest("churchSlug", "")
+    app.decorateRequest("churchPathSlug", "")
+
+    // Routing populates request.params before onRequest, and validation does
+    // not run until preValidation, so this is the last point at which the raw
+    // path slug is guaranteed to be present for every tenant route.
+    const captureChurchPathSlug = async (request: FastifyRequest) => {
+      const pathSlug = (request.params as Record<string, string> | undefined)?.church
+      if (pathSlug) request.churchPathSlug = pathSlug
+    }
     // biome-ignore lint/suspicious/noExplicitAny: scopedDb is populated by the preHandler
     app.decorateRequest("scopedDb", null as any)
 
     app.decorate("requireChurchContext", async (request: FastifyRequest, reply: FastifyReply) => {
-      const pathSlug = (request.params as Record<string, string> | undefined)?.church
+      const pathSlug = request.churchPathSlug || undefined
       const headerSlug = request.headers["x-church-slug"] as string | undefined
 
       let slug: string
@@ -125,6 +150,11 @@ export const churchContextPlugin = fp(
       request.churchId = church.id
       request.churchSlug = church.slug
       request.scopedDb = createScopedDb(app.db, church.id)
+    })
+
+    app.decorate("useChurchContext", (scope: FastifyInstance) => {
+      scope.addHook("onRequest", captureChurchPathSlug)
+      scope.addHook("preHandler", scope.requireChurchContext)
     })
   },
   { name: "church-context", dependencies: ["db"] },

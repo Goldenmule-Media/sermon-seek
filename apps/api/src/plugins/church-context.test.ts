@@ -61,7 +61,7 @@ async function buildTestApp(db: Kysely<Database>) {
   // Routes under /:church — path param drives resolution
   await app.register(
     async (ctx) => {
-      ctx.addHook("preHandler", ctx.requireChurchContext)
+      ctx.useChurchContext(ctx)
       ctx.get("/ping", async (request) => ({
         churchId: request.churchId,
         churchSlug: request.churchSlug,
@@ -72,7 +72,7 @@ async function buildTestApp(db: Kysely<Database>) {
 
   // Route without :church param — header drives resolution
   await app.register(async (ctx) => {
-    ctx.addHook("preHandler", ctx.requireChurchContext)
+    ctx.useChurchContext(ctx)
     ctx.get("/header-ping", async (request) => ({
       churchId: request.churchId,
       churchSlug: request.churchSlug,

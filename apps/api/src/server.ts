@@ -105,7 +105,7 @@ export async function buildApp(): Promise<FastifyInstance> {
 
       await v1.register(
         async (tenant) => {
-          tenant.addHook("preHandler", tenant.requireChurchContext)
+          tenant.useChurchContext(tenant)
           await registerTenantRoutes(tenant)
         },
         { prefix: "/:church" },
