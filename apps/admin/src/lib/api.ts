@@ -36,6 +36,7 @@ export interface AdminRequestSummary {
   display_name: string | null
   requested_slug: string
   status: IngestionRequestStatus
+  ingest_mode: "full" | "incremental"
   videos_discovered: number
   videos_ingested: number
   tokens_ingested: number

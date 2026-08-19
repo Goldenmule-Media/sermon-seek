@@ -107,6 +107,11 @@ export default async function RequestDetailPage({ params }: Props) {
         <div className="flex flex-wrap items-center gap-2">
           <h1 className="text-2xl font-semibold tracking-tight">{req.requested_name}</h1>
           <StatusBadge status={req.status} />
+          {req.ingest_mode === "incremental" && (
+            <span className="inline-flex items-center rounded bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">
+              incremental
+            </span>
+          )}
         </div>
         <p className="mt-1 text-sm text-muted-foreground">
           /{req.requested_slug}/ &middot; updated {new Date(req.updated_at).toLocaleString()}

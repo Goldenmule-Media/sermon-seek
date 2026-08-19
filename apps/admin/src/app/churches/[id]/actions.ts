@@ -59,6 +59,43 @@ export async function renameChurchAction(
   return { status: "success", message: "Saved" }
 }
 
+export async function reingestChurchAction(
+  _prevState: FormState,
+  formData: FormData,
+): Promise<FormState> {
+  const slug = formData.get("slug") as string
+  const mode = formData.get("mode") === "incremental" ? "incremental" : "full"
+
+  const res = await adminFetch("/admin/ingest/reingest", {
+    method: "POST",
+    body: JSON.stringify({ churchSlug: slug, mode }),
+  })
+
+  if (!res.ok) {
+    let message = "Re-ingest failed"
+    try {
+      const data = (await res.json()) as { error?: string; note?: string }
+      if (data.error) message = data.note ? `${data.error}: ${data.note}` : data.error
+    } catch {
+      // ignore
+    }
+    return { status: "error", message }
+  }
+
+  const data = (await res.json()) as { requests: Array<{ id: string }> }
+
+  revalidatePath("/requests")
+  revalidatePath(`/churches/${formData.get("id") as string}`)
+
+  // The work happens in the worker, so the only honest thing to report here is
+  // that it was queued — not that anything has been ingested.
+  const count = data.requests.length
+  return {
+    status: "success",
+    message: `Queued ${count} ${mode} request${count === 1 ? "" : "s"} — track it under Requests`,
+  }
+}
+
 export async function refreshChurchAction(
   _prevState: FormState,
   formData: FormData,

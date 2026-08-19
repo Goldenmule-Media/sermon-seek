@@ -2,6 +2,7 @@ import { getChurch } from "@/lib/admin-api"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { RefreshForm } from "./refresh-form"
+import { ReingestForm } from "./reingest-form"
 import { RenameForm } from "./rename-form"
 
 function statusBadge(status: string) {
@@ -65,11 +66,24 @@ export default async function ChurchDetailPage({
         <RenameForm id={church.id} currentSlug={church.slug} currentName={church.name} />
       </section>
 
+      {/* Re-ingest */}
+      <section className="mb-8">
+        <h2 className="mb-2 text-base font-semibold">Re-ingest</h2>
+        <p className="mb-3 text-sm text-muted-foreground">
+          Queue the worker to run the full pipeline — transcripts, embeddings, enrichment.{" "}
+          <strong className="font-medium text-foreground">Ingest new videos</strong> covers
+          everything published since the last successful run, plus anything an earlier run missed. A
+          full re-ingest re-checks every video in the channel.
+        </p>
+        <ReingestForm id={church.id} slug={church.slug} />
+      </section>
+
       {/* Refresh */}
       <section className="mb-8">
         <h2 className="mb-2 text-base font-semibold">Ingest refresh</h2>
         <p className="mb-3 text-sm text-muted-foreground">
-          Re-sync channel metadata, playlists, and video list from YouTube.
+          Re-sync channel metadata, playlists, and video list from YouTube. Metadata only — no
+          transcripts.
         </p>
         <RefreshForm slug={church.slug} />
       </section>
