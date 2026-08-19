@@ -50,6 +50,22 @@ describe("createClient", () => {
     await expect(client.churchesList()).rejects.toThrow(/Can't reach/)
   })
 
+  // ── Re-ingest ──────────────────────────────────────────────────────────────
+
+  it("reingest POSTs the requested mode to /v1/admin/ingest/reingest", async () => {
+    fetchSpy.mockResolvedValue(makeOkResponse({ mode: "incremental", requests: [] }))
+    const client = createClient(INSTANCE)
+    await client.reingest({ churchSlug: "jubileestl", mode: "incremental" })
+
+    const [url, init] = fetchSpy.mock.calls[0]
+    expect(url).toBe("http://localhost:3001/v1/admin/ingest/reingest")
+    expect((init as RequestInit).method).toBe("POST")
+    expect(JSON.parse((init as RequestInit).body as string)).toEqual({
+      churchSlug: "jubileestl",
+      mode: "incremental",
+    })
+  })
+
   // ── Churches ───────────────────────────────────────────────────────────────
 
   it("churchesList sends GET /v1/admin/churches", async () => {

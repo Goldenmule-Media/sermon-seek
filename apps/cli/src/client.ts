@@ -219,12 +219,16 @@ export interface ChurchVideosResponse {
   offset: number
 }
 
+export type IngestMode = "full" | "incremental"
+
 export interface ReingestBody {
   churchSlug: string
   channel?: string
+  mode?: IngestMode
 }
 
 export interface ReingestResponse {
+  mode: IngestMode
   requests: Array<{ id: string; youtubeChannelId: string }>
 }
 

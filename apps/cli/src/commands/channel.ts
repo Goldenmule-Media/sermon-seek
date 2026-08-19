@@ -69,20 +69,27 @@ export function makeChannelCommand(): Command {
   cmd
     .command("reingest")
     .description(
-      "Queue a full worker re-ingest (transcripts + embeddings + enrichment) of a church's videos",
+      "Queue a worker re-ingest (transcripts + embeddings + enrichment) of a church's videos",
     )
     .requiredOption("--church-slug <slug>", "Church slug")
     .option("--channel <handleOrId>", "Re-ingest only this channel (handle or ID)")
-    .action(async (opts: { churchSlug: string; channel?: string }, self) => {
+    .option(
+      "--incremental",
+      "Ingest only what is not ingested yet (videos published since the last run, plus any earlier runs missed) instead of sweeping the whole channel",
+    )
+    .action(async (opts: { churchSlug: string; channel?: string; incremental?: boolean }, self) => {
       await run(self, async (client, json) => {
         const data = await client.reingest({
           churchSlug: opts.churchSlug,
           channel: opts.channel,
+          mode: opts.incremental ? "incremental" : "full",
         })
         if (json) {
           printJson(data)
         } else {
-          console.log(`Queued ${data.requests.length} re-ingest request(s) for ${opts.churchSlug}:`)
+          console.log(
+            `Queued ${data.requests.length} ${data.mode} re-ingest request(s) for ${opts.churchSlug}:`,
+          )
           for (const r of data.requests) {
             console.log(`  ${r.id}  (${r.youtubeChannelId})`)
           }
