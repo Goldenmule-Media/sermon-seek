@@ -69,7 +69,11 @@ function makeFakeClient(): YoutubeClient {
             },
           },
           contentDetails: {
-            duration: "PT15S",
+            // The fixture VTT carries 5s of spoken cues (3s→8s). assertTranscriptQuality
+            // requires captions to cover at least 50% of the runtime, so the fake
+            // video's duration has to be consistent with its captions — at 15s this
+            // fixture reads as a low-coverage transcript and is rejected.
+            duration: "PT8S",
           },
         })),
       }),
@@ -102,8 +106,11 @@ function makeFakeSpawner(videoId: string, vttContent: string): Spawner {
 describeIfDb("ingestVideoTranscript (integration)", () => {
   let tmpRoot: string
   let db: Kysely<Database>
-  // biome-ignore lint/suspicious/noExplicitAny: dynamic ESM import for test environment.
-  let ingestVideoTranscript: any
+  // Typed off the real module rather than `any`: the untyped binding let this
+  // test drift from the source signature, which lost churchId — mandatory since
+  // the multitenancy migration — without typecheck noticing.
+  let ingestVideoTranscript: typeof import("./transcript.js").ingestVideoTranscript
+  let churchId: string
 
   beforeAll(async () => {
     if (TEST_DATABASE_URL === process.env.DATABASE_URL) {
@@ -126,7 +133,19 @@ describeIfDb("ingestVideoTranscript (integration)", () => {
   })
 
   beforeEach(async () => {
-    await sql`TRUNCATE channels RESTART IDENTITY CASCADE`.execute(db)
+    // channels.church_id is NOT NULL, so every run needs an owning church.
+    await sql`TRUNCATE churches RESTART IDENTITY CASCADE`.execute(db)
+    const church = await db
+      .insertInto("churches")
+      .values({
+        slug: "transcript-int-church",
+        name: "Transcript Int Church",
+        youtube_channel_id: CHANNEL_ID,
+        status: "active",
+      })
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
+    churchId = church.id
   })
 
   it("first run inserts transcript/segments/words; second run is a no-op", async () => {
@@ -137,6 +156,7 @@ describeIfDb("ingestVideoTranscript (integration)", () => {
       db,
       client,
       youtubeVideoId: VIDEO_ID,
+      churchId,
       spawner,
     })
     expect(first.status).toBe("ok")
@@ -186,6 +206,7 @@ describeIfDb("ingestVideoTranscript (integration)", () => {
       db,
       client,
       youtubeVideoId: VIDEO_ID,
+      churchId,
       spawner,
     })
     expect(second.status).toBe("skipped")
@@ -208,6 +229,7 @@ describeIfDb("ingestVideoTranscript (integration)", () => {
       db,
       client,
       youtubeVideoId: OVERLAP_VIDEO_ID,
+      churchId,
       spawner,
     })
     expect(result.status).toBe("ok")

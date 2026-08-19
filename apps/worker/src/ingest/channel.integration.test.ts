@@ -80,12 +80,11 @@ function makeClient(): YoutubeClient {
 describeIfDb("ingestChannel filter rules (integration)", () => {
   let tmpRoot: string
   let db: Kysely<Database>
-  let ingestChannel: (opts: {
-    db: Kysely<Database>
-    client: YoutubeClient
-    handleOrId: string
-    force?: boolean
-  }) => Promise<{ channelId: string; playlistCount: number; videoCount: number }>
+  // Typed off the real module rather than hand-written: a local shape silently
+  // drifted from the source once already (it was missing churchId, which the
+  // multitenancy migration made mandatory).
+  let ingestChannel: typeof import("./channel.js").ingestChannel
+  let churchId: string
 
   beforeAll(async () => {
     if (TEST_DATABASE_URL === process.env.DATABASE_URL) {
@@ -108,12 +107,30 @@ describeIfDb("ingestChannel filter rules (integration)", () => {
   })
 
   beforeEach(async () => {
-    await sql`TRUNCATE channels RESTART IDENTITY CASCADE`.execute(db)
+    // channels.church_id is NOT NULL, so every run needs an owning church.
+    await sql`TRUNCATE churches RESTART IDENTITY CASCADE`.execute(db)
+    const church = await db
+      .insertInto("churches")
+      .values({
+        slug: "channel-int-church",
+        name: "Channel Int Church",
+        youtube_channel_id: YT_CHANNEL_ID,
+        status: "active",
+      })
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
+    churchId = church.id
   })
 
   it("no rules → all playlists ingested, playlistCount = 3", async () => {
     const client = makeClient()
-    const summary = await ingestChannel({ db, client, handleOrId: CHANNEL_HANDLE, force: true })
+    const summary = await ingestChannel({
+      db,
+      client,
+      handleOrId: CHANNEL_HANDLE,
+      churchId,
+      force: true,
+    })
     expect(summary.playlistCount).toBe(3)
     expect(summary.videoCount).toBe(4)
     const plRows = await db
@@ -135,6 +152,7 @@ describeIfDb("ingestChannel filter rules (integration)", () => {
       db,
       client: setupClient,
       handleOrId: CHANNEL_HANDLE,
+      churchId,
       force: true,
     })
 
@@ -155,6 +173,7 @@ describeIfDb("ingestChannel filter rules (integration)", () => {
       db,
       client,
       handleOrId: CHANNEL_HANDLE,
+      churchId,
       force: true,
     })
 
@@ -197,6 +216,7 @@ describeIfDb("ingestChannel filter rules (integration)", () => {
       db,
       client: setupClient,
       handleOrId: CHANNEL_HANDLE,
+      churchId,
       force: true,
     })
 
@@ -216,6 +236,7 @@ describeIfDb("ingestChannel filter rules (integration)", () => {
       db,
       client,
       handleOrId: CHANNEL_HANDLE,
+      churchId,
       force: true,
     })
 

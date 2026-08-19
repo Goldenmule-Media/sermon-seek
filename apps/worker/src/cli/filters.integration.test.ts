@@ -45,11 +45,28 @@ describeIfDb("filters CLI (integration)", () => {
   })
 
   beforeEach(async () => {
-    await sql`TRUNCATE channel_filter_rules, channels RESTART IDENTITY CASCADE`.execute(db)
+    // Truncating churches cascades to channels and their filter rules.
+    await sql`TRUNCATE churches RESTART IDENTITY CASCADE`.execute(db)
+
+    // channels.church_id is NOT NULL, so the channel needs an owning church.
+    const church = await db
+      .insertInto("churches")
+      .values({
+        slug: "filters-int-church",
+        name: "Filters Int Church",
+        youtube_channel_id: YOUTUBE_CHANNEL_ID,
+        status: "active",
+      })
+      .returning(["id"])
+      .executeTakeFirstOrThrow()
 
     const row = await db
       .insertInto("channels")
-      .values({ youtube_channel_id: YOUTUBE_CHANNEL_ID, title: "Test Channel" })
+      .values({
+        church_id: church.id,
+        youtube_channel_id: YOUTUBE_CHANNEL_ID,
+        title: "Test Channel",
+      })
       .returning(["id"])
       .executeTakeFirstOrThrow()
     channelId = row.id
@@ -173,7 +190,7 @@ describeIfDb("filters CLI (integration)", () => {
 
     expect(code).toBe(0)
     const result = JSON.parse(lines.join(""))
-    expect(result).toEqual({ ok: true, deleted: row.id })
+    expect(result).toEqual({ ok: true, deleted: row.id, channel_id: channelId })
 
     const remaining = await db.selectFrom("channel_filter_rules").selectAll().execute()
     expect(remaining).toHaveLength(0)
