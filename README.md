@@ -52,19 +52,24 @@ pnpm db:migrate
 
 ### Integration test database
 
-Worker integration tests require a separate throwaway database so they can never
-truncate your dev data. Create it once, then set `TEST_DATABASE_URL` in your `.env`:
+Integration tests require a separate throwaway database so they can never
+truncate your dev data. Create it once:
 
 ```sh
 docker exec -it <postgres-container> psql -U postgres -c "CREATE DATABASE sermon_search_test;"
 ```
 
-```
-TEST_DATABASE_URL=postgres://postgres:postgres@localhost:5432/sermon_search_test
-```
+`TEST_DATABASE_URL` defaults to that database (see `vitest.setup.ts`), so
+`pnpm test` runs the integration suites without any further setup — the local
+Postgres just has to be up. Migrations are applied automatically in `beforeAll`.
 
-Migrations are applied automatically in `beforeAll`. When `TEST_DATABASE_URL` is
-unset the integration test suite is silently skipped by `pnpm -r test`.
+Set `TEST_DATABASE_URL` explicitly to point at a different Postgres; the value
+you export always wins over the default. It must not equal `DATABASE_URL` —
+every suite refuses to run if it does, so it can never truncate your dev data.
+
+Because these tests no longer skip, they fail rather than pass quietly when
+Postgres is down. That is deliberate: the suites used to skip silently, which
+let real bugs — including a cross-tenant leak — sit behind green output.
 
 ## Semantic search (C16)
 

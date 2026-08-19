@@ -10,7 +10,8 @@ Searches sermons.
 - Workspace layout: `apps/{web,api,worker}` + `packages/types`; `infra/` reserved for docker-compose (C2 / C22).
 - Per-app TS config extends `tsconfig.base.json` at the repo root.
 - Environment variables: copy `.env.example` to `.env` for local development.
-- Integration tests in `apps/api` and `apps/worker` share one `TEST_DATABASE_URL` database and `TRUNCATE` it in `beforeEach`, so their `test` scripts run with `--no-file-parallelism` — do not remove that flag or the files will stomp each other's rows (manifests as spurious 401s / missing-row failures).
+- Integration tests in `apps/api` and `apps/worker` share one `TEST_DATABASE_URL` database and `TRUNCATE` it in `beforeEach`, so both packages set `fileParallelism: false` and their `test` scripts also pass `--no-file-parallelism` — do not remove either or the files will stomp each other's rows (manifests as spurious 401s / missing-row failures).
+- `TEST_DATABASE_URL` defaults to the local `sermon_search_test` database via `vitest.setup.ts`, so integration tests run on a plain `pnpm test` and **fail** when Postgres is down rather than skipping. Start it with `docker compose -f infra/docker-compose.dev.yml up -d postgres`. Do not restore the skip-by-default behaviour: it hid a cross-tenant leak and a dozen other real failures behind green output.
 
 ## sermonseek-admin MCP
 
