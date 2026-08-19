@@ -64,7 +64,18 @@ export async function reingestChurchAction(
   formData: FormData,
 ): Promise<FormState> {
   const slug = formData.get("slug") as string
-  const mode = formData.get("mode") === "incremental" ? "incremental" : "full"
+
+  // Never infer the mode. Defaulting an unrecognised value to "full" turned a
+  // form bug into an unrequested full re-ingest of a 737-video channel — the
+  // expensive option is the last thing that should happen by accident.
+  const rawMode = formData.get("mode")
+  if (rawMode !== "full" && rawMode !== "incremental") {
+    return {
+      status: "error",
+      message: "Could not tell which re-ingest was requested — nothing was queued.",
+    }
+  }
+  const mode = rawMode
 
   const res = await adminFetch("/admin/ingest/reingest", {
     method: "POST",
